@@ -10,7 +10,7 @@
 
 ### Rate limit metrics
 
-Check these metrics. Ideally they should all be at "0" but here you can see an example of some rate limiting:
+Check these metrics. They are counters showing how many times the rate limit was hit for various operations. Ideally they should all be at "0" (rate limit never hit) or flat (no recent rate limit hits). Here you can see an example of some rate limiting:
 ```
 primary_rate_limit_total{controller="Application",operation="DeleteRepository",tokenName="GITHUB_AUTH_TOKEN"} 6
 primary_rate_limit_total{controller="Application",operation="GenerateNewRepository",tokenName="GITHUB_AUTH_TOKEN"} 15149
