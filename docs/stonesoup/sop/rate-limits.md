@@ -46,6 +46,8 @@ If the token is rate-limited, you will see a match between the "limit" and "used
   }
 ```
 
+Another important thing in the example output above is that `"limit": 60`. Normally, GitHub token should have limit of 5000 requests per hour. Having limit 60 means GitHub flagged the account the token comes from (probably because of abusing GitHub API) and you either have to contact GitHub Support to re-enable the account (justification needed, no estimate on resolution time) or replace the token with different one tied to different GitHub account.
+
 A token that's not in use will have a "used" value of 0.  A token that's in use but not rate-limited will have "used" and "remaining" counts that are both above 0:
 ```
   "rate": {
