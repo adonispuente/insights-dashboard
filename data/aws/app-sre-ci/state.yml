@@ -14,3 +14,5 @@ integrations:
   key: app-sre-ci-users.tfstate
 - integration: terraform-vpc-peerings
   key: app-sre-ci-vpc-peerings.tfstate
+- integration: aws-ami-cleanup
+  key: aws-ami-cleanup.tfstate
