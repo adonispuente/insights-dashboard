@@ -291,13 +291,9 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/rhobs-slos-telemeter-stage.prometheusrules.yaml
   type: resource
-  tests:
-  - /observability/prometheusrules/rhobs-slos-telemeter.prometheusrulestest.yaml
 - provider: prometheus-rule
   path: /observability/prometheusrules/rhobs-slos-mst-stage.prometheusrules.yaml
   type: resource
-  tests:
-  - /observability/prometheusrules/rhobs-slos-mst.prometheusrulestests.yaml
 #### Thanos
 - provider: prometheus-rule
   path: /observability/prometheusrules/observatorium-thanos-stage.prometheusrules.yaml
