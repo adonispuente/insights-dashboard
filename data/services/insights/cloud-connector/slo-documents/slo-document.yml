@@ -1,0 +1,92 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: cloud-connector
+
+name: cloud-connector
+
+namespaces:
+- $ref: /services/insights/cloud-connector/namespaces/prod.yml
+
+app:
+  $ref:  /services/insights/cloud-connector/app.yml
+
+slos:
+- name: API requests result in successful (non-5xx) response
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: availability
+  SLISpecification: Proportion of sucessful API requests with a non-5xx response against all requests on cloud-connector internal API
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  expr: |
+    sum(rate(
+      cloud_connector_http_status_code_counter{service="cloud-connector", status_code!~"5.*"}[{{window}}]
+    )) / sum(rate(
+      cloud_connector_http_status_code_counter{service="cloud-connector"}[{{window}}]
+    ))
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+
+
+- name: API request latency
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: latency
+  SLISpecification: Proportion of requests with less than <2000 ms against all requests on cloud-connector API
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/app-interface/slos/reconciliation-of-app-interface-integrations.md
+  SLOParameters:
+    window: 28d
+  expr: | 
+    sum(rate(
+      cloud_connector_http_response_duration_bucket{le="0.25", service="cloud-connector-api"}[28d]
+    )) / sum(rate(
+      cloud_connector_http_response_duration_count{service="cloud-connector-api"}[28d]
+    ))
+  prometheusRules: /resources/insights-prod/edge-prod/edge.prometheusrules.yml
+
+
+- name: Consumed mqtt messages written to kafka
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: availability
+  SLISpecification: Proportion of consumed mqtt messages written to kafka
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  expr: |
+    sum(rate(
+      cloud_connector_mqtt_message_consumer_kafka_writer_publish_duration_count[{{window}}]
+    )) / sum(rate(
+      cloud_connector_mqtt_control_message_received_count[{{window}}]
+    ))
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+
+
+- name: event kafka lag
+  SLIType: latency
+  SLISpecification: current lag time in ms for events sent
+  SLODetails: https://gitlab.cee.redhat.com/services/app-interface/-/blob/master/docs/eventing/slos/eventing-latency.md
+  SLOParameters:
+    window: 28d
+  expr: max(sum(sum_over_time(kafka_consumergroup_group_lag_seconds{group=~"eventing-.*"}[28d])) by (topic, partition)/sum(increase(kafka_consumergroup_group_offset{group=~"eventing-.*"}[28d])) by (topic, partition)) < bool 1
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  prometheusRules: resources/insights-prod/eventing-prod/eventing-prometheusrules.yaml
+  dashboard: https://grafana.app-sre.devshift.net/d/eventing/eventing-integrations
+
+
+
+Service Level Indicators
+HTTP response codes from the REST API
+HTTP response times
+Kafka lag numbers for the platform.cloud-connector.rhc-message-ingress topic
+
+Service Level Objectives
+More than 95% of HTTP requests are successful (i.e. the response code is other than 5xx) over 28 days
+More than 95% of HTTP requests are served within 2 seconds over 28 days
+There are less than 50 messages waiting to be processed 95% of the time over 28 days
