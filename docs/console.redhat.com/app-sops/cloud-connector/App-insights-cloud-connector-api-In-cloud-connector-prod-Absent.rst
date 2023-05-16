@@ -18,7 +18,7 @@ Summary
 -------
 
 This alert fires when the Cloud-Connector pod(s) drop and/or prometheus cannot scrape metrics.
-Usually caused caused by pods going offline or a prometheus problem.
+Usually caused by pods going offline or a prometheus problem.
 
 Access required
 ---------------
