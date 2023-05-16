@@ -107,9 +107,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-write-availability-slo
     - alert: APIMetricsWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -125,9 +125,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-write-availability-slo
     - alert: APIMetricsWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -143,9 +143,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-write-availability-slo
     - alert: APIMetricsWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -161,9 +161,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-write-availability-slo
   - interval: 30s
     name: api-metrics-write-availability-slo-generic
@@ -288,9 +288,9 @@ spec:
         group: metricsv1
         handler: query
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-query-availability-slo
     - alert: APIMetricsQueryAvailabilityErrorBudgetBurning
       annotations:
@@ -306,9 +306,9 @@ spec:
         group: metricsv1
         handler: query
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-query-availability-slo
     - alert: APIMetricsQueryAvailabilityErrorBudgetBurning
       annotations:
@@ -324,9 +324,9 @@ spec:
         group: metricsv1
         handler: query
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-query-availability-slo
     - alert: APIMetricsQueryAvailabilityErrorBudgetBurning
       annotations:
@@ -342,9 +342,9 @@ spec:
         group: metricsv1
         handler: query
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-query-availability-slo
   - interval: 30s
     name: api-metrics-query-availability-slo-generic
@@ -469,9 +469,9 @@ spec:
         group: metricsv1
         handler: query_range
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-query-range-availability-slo
     - alert: APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       annotations:
@@ -487,9 +487,9 @@ spec:
         group: metricsv1
         handler: query_range
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-query-range-availability-slo
     - alert: APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       annotations:
@@ -505,9 +505,9 @@ spec:
         group: metricsv1
         handler: query_range
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-query-range-availability-slo
     - alert: APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       annotations:
@@ -523,9 +523,9 @@ spec:
         group: metricsv1
         handler: query_range
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-query-range-availability-slo
   - interval: 30s
     name: api-metrics-query-range-availability-slo-generic
@@ -659,10 +659,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         method: PUT
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-rules-raw-write-availability-slo
     - alert: APIRulesRawWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -678,10 +678,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         method: PUT
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-rules-raw-write-availability-slo
     - alert: APIRulesRawWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -697,10 +697,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         method: PUT
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-rules-raw-write-availability-slo
     - alert: APIRulesRawWriteAvailabilityErrorBudgetBurning
       annotations:
@@ -716,10 +716,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         method: PUT
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-rules-raw-write-availability-slo
   - interval: 30s
     name: api-rules-raw-write-availability-slo-generic
@@ -853,10 +853,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         method: GET
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-rules-raw-read-availability-slo
     - alert: APIRulesRawReadAvailabilityErrorBudgetBurning
       annotations:
@@ -872,10 +872,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         method: GET
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-rules-raw-read-availability-slo
     - alert: APIRulesRawReadAvailabilityErrorBudgetBurning
       annotations:
@@ -891,10 +891,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         method: GET
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-rules-raw-read-availability-slo
     - alert: APIRulesRawReadAvailabilityErrorBudgetBurning
       annotations:
@@ -910,10 +910,10 @@ spec:
         group: metricsv1
         handler: rules-raw
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         method: GET
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-rules-raw-read-availability-slo
   - interval: 30s
     name: api-rules-raw-read-availability-slo-generic
@@ -1047,10 +1047,10 @@ spec:
         group: metricsv1
         handler: rules
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         method: GET
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-rules-read-availability-slo
     - alert: APIRulesReadAvailabilityErrorBudgetBurning
       annotations:
@@ -1066,10 +1066,10 @@ spec:
         group: metricsv1
         handler: rules
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         method: GET
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-rules-read-availability-slo
     - alert: APIRulesReadAvailabilityErrorBudgetBurning
       annotations:
@@ -1085,10 +1085,10 @@ spec:
         group: metricsv1
         handler: rules
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         method: GET
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-rules-read-availability-slo
     - alert: APIRulesReadAvailabilityErrorBudgetBurning
       annotations:
@@ -1104,10 +1104,10 @@ spec:
         group: metricsv1
         handler: rules
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         method: GET
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-rules-read-availability-slo
   - interval: 30s
     name: api-rules-read-availability-slo-generic
@@ -1231,10 +1231,10 @@ spec:
       labels:
         client: reload
         container: thanos-rule-syncer
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-rules-sync-availability-slo
     - alert: APIRulesSyncAvailabilityErrorBudgetBurning
       annotations:
@@ -1249,10 +1249,10 @@ spec:
       labels:
         client: reload
         container: thanos-rule-syncer
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-rules-sync-availability-slo
     - alert: APIRulesSyncAvailabilityErrorBudgetBurning
       annotations:
@@ -1267,10 +1267,10 @@ spec:
       labels:
         client: reload
         container: thanos-rule-syncer
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-rules-sync-availability-slo
     - alert: APIRulesSyncAvailabilityErrorBudgetBurning
       annotations:
@@ -1285,10 +1285,10 @@ spec:
       labels:
         client: reload
         container: thanos-rule-syncer
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-rules-sync-availability-slo
   - interval: 30s
     name: api-rules-sync-availability-slo-generic
@@ -1402,10 +1402,10 @@ spec:
       for: 2m
       labels:
         container: thanos-rule
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-alerting-availability-slo
     - alert: APIAlertmanagerAvailabilityErrorBudgetBurning
       annotations:
@@ -1419,10 +1419,10 @@ spec:
       for: 15m
       labels:
         container: thanos-rule
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-alerting-availability-slo
     - alert: APIAlertmanagerAvailabilityErrorBudgetBurning
       annotations:
@@ -1436,10 +1436,10 @@ spec:
       for: 1h
       labels:
         container: thanos-rule
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-alerting-availability-slo
     - alert: APIAlertmanagerAvailabilityErrorBudgetBurning
       annotations:
@@ -1453,10 +1453,10 @@ spec:
       for: 3h
       labels:
         container: thanos-rule
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-alerting-availability-slo
   - interval: 30s
     name: api-alerting-availability-slo-generic
@@ -1569,11 +1569,11 @@ spec:
         > (14 * (1-0.995))
       for: 2m
       labels:
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         service: observatorium-alertmanager
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-alerting-notif-availability-slo
     - alert: APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       annotations:
@@ -1586,11 +1586,11 @@ spec:
         > (7 * (1-0.995))
       for: 15m
       labels:
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         service: observatorium-alertmanager
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-alerting-notif-availability-slo
     - alert: APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       annotations:
@@ -1603,11 +1603,11 @@ spec:
         > (2 * (1-0.995))
       for: 1h
       labels:
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         service: observatorium-alertmanager
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-alerting-notif-availability-slo
     - alert: APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       annotations:
@@ -1620,11 +1620,11 @@ spec:
         > (1 * (1-0.995))
       for: 3h
       labels:
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         service: observatorium-alertmanager
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-alerting-notif-availability-slo
   - interval: 30s
     name: api-alerting-notif-availability-slo-generic
@@ -1780,9 +1780,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 1h
+        long_burnrate_window: 1h
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-write-latency-slo
     - alert: APIMetricsWriteLatencyErrorBudgetBurning
       annotations:
@@ -1798,9 +1798,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 6h
+        long_burnrate_window: 6h
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-write-latency-slo
     - alert: APIMetricsWriteLatencyErrorBudgetBurning
       annotations:
@@ -1816,9 +1816,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 1d
+        long_burnrate_window: 1d
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-write-latency-slo
     - alert: APIMetricsWriteLatencyErrorBudgetBurning
       annotations:
@@ -1834,9 +1834,9 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-mst-api
-        long: 4d
+        long_burnrate_window: 4d
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-write-latency-slo
   - interval: 30s
     name: api-metrics-write-latency-slo-generic
@@ -1978,11 +1978,11 @@ spec:
         > (14 * (1-0.9))
       for: 2m
       labels:
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-read-1M-latency-slo
     - alert: APIMetricsReadLatency1MErrorBudgetBurning
       annotations:
@@ -1995,11 +1995,11 @@ spec:
         > (7 * (1-0.9))
       for: 15m
       labels:
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-read-1M-latency-slo
     - alert: APIMetricsReadLatency1MErrorBudgetBurning
       annotations:
@@ -2012,11 +2012,11 @@ spec:
         > (2 * (1-0.9))
       for: 1h
       labels:
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-read-1M-latency-slo
     - alert: APIMetricsReadLatency1MErrorBudgetBurning
       annotations:
@@ -2029,11 +2029,11 @@ spec:
         > (1 * (1-0.9))
       for: 3h
       labels:
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-read-1M-latency-slo
   - interval: 30s
     name: api-metrics-read-1M-latency-slo-generic
@@ -2175,11 +2175,11 @@ spec:
         > (14 * (1-0.9))
       for: 2m
       labels:
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         query: query-path-sli-10M-samples
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-read-10M-latency-slo
     - alert: APIMetricsReadLatency10MErrorBudgetBurning
       annotations:
@@ -2192,11 +2192,11 @@ spec:
         > (7 * (1-0.9))
       for: 15m
       labels:
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         query: query-path-sli-10M-samples
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-read-10M-latency-slo
     - alert: APIMetricsReadLatency10MErrorBudgetBurning
       annotations:
@@ -2209,11 +2209,11 @@ spec:
         > (2 * (1-0.9))
       for: 1h
       labels:
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         query: query-path-sli-10M-samples
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-read-10M-latency-slo
     - alert: APIMetricsReadLatency10MErrorBudgetBurning
       annotations:
@@ -2226,11 +2226,11 @@ spec:
         > (1 * (1-0.9))
       for: 3h
       labels:
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         query: query-path-sli-10M-samples
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-read-10M-latency-slo
   - interval: 30s
     name: api-metrics-read-10M-latency-slo-generic
@@ -2372,11 +2372,11 @@ spec:
         > (14 * (1-0.9))
       for: 2m
       labels:
-        long: 1h
+        long_burnrate_window: 1h
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: high
-        short: 5m
+        short_burnrate_window: 5m
         slo: api-metrics-read-100M-latency-slo
     - alert: APIMetricsReadLatency100MErrorBudgetBurning
       annotations:
@@ -2389,11 +2389,11 @@ spec:
         > (7 * (1-0.9))
       for: 15m
       labels:
-        long: 6h
+        long_burnrate_window: 6h
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: high
-        short: 30m
+        short_burnrate_window: 30m
         slo: api-metrics-read-100M-latency-slo
     - alert: APIMetricsReadLatency100MErrorBudgetBurning
       annotations:
@@ -2406,11 +2406,11 @@ spec:
         > (2 * (1-0.9))
       for: 1h
       labels:
-        long: 1d
+        long_burnrate_window: 1d
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: warning
-        short: 2h
+        short_burnrate_window: 2h
         slo: api-metrics-read-100M-latency-slo
     - alert: APIMetricsReadLatency100MErrorBudgetBurning
       annotations:
@@ -2423,11 +2423,11 @@ spec:
         > (1 * (1-0.9))
       for: 3h
       labels:
-        long: 4d
+        long_burnrate_window: 4d
         namespace: observatorium-mst-stage
         query: query-path-sli-1M-samples
         severity: warning
-        short: 6h
+        short_burnrate_window: 6h
         slo: api-metrics-read-100M-latency-slo
   - interval: 30s
     name: api-metrics-read-100M-latency-slo-generic
