@@ -195,6 +195,7 @@ externalResources:
     identifier: ocm-sts-access
     variables:
       aws_role_arn: arn:aws:iam::896164604406:role/RH-Managed-OpenShift-Installer
+      aws_allowed_principal_arn: arn:aws:iam::896164604406:root
     user_policy:
       {
         "Version": "2012-10-17",
