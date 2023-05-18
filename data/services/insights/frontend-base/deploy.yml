@@ -247,7 +247,7 @@ resourceTemplates:
       IMAGE: "quay.io/cloudservices/api-frontend"
 # Deploys sed frontend
 -name: sed-frontend
- path: /.rhcicd/frontend.yaml
+ path: /frontend.yaml
  url: https://github.com/RedHatInsights/sed-frontend
  targets:
   - namespace:
