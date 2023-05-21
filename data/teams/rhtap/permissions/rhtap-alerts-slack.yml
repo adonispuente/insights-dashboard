@@ -1,0 +1,19 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: rhtap-alerts-slack
+description: RHTAP alerts group
+
+service: slack-usergroup
+handle: rhtap-alerts-group
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+pagerduty:
+- $ref: /dependencies/pagerduty/rhtap-alerts.yml
+
+channels:
+- forum-rhtap-o11y

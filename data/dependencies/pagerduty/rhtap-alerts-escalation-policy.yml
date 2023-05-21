@@ -1,0 +1,13 @@
+---
+$schema: /dependencies/pagerduty-target-1.yml
+
+labels:
+  service: pagerduty
+
+name: rhtap-alerts-policy
+description: RHTAP alerts escalation policy
+
+instance:
+  $ref: /dependencies/pagerduty/instance.yml
+
+escalationPolicyID: PLLSPAN
