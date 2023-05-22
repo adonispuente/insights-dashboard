@@ -246,10 +246,10 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/api-frontend"
 # Deploys sed frontend
--name: sed-frontend
- path: /frontend.yaml
- url: https://github.com/RedHatInsights/sed-frontend
- targets:
+- name: sed-frontend
+  path: /frontend.yaml
+  url: https://github.com/RedHatInsights/sed-frontend
+  targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
     ref: master
