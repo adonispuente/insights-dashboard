@@ -276,7 +276,7 @@ resourceTemplates:
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Stable Deployment
   - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
     ref: 18e10d40551dfa586d582d81bac37b4df362624c
     parameters:
       ENV_NAME: "frontends"
