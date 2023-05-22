@@ -271,10 +271,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
     ref: 234ee0eeedb4182e3fb6a9628638c42920a848f6
-    image:
-      org:
-        $ref: /dependencies/quay/cloudservices.yml
-      name: sed-frontend
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
