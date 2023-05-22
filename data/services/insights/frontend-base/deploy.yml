@@ -258,7 +258,7 @@ resourceTemplates:
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Stage Beta Deployment
   - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
     ref: master
     image:
       org:
