@@ -252,14 +252,14 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
-    ref: master
+    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
     parameters:
       ENV_NAME: "env-perf"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-    ref: master
+    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
     image:
       org:
         $ref: /dependencies/quay/cloudservices.yml
