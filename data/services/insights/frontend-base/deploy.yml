@@ -270,21 +270,21 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 234ee0eeedb4182e3fb6a9628638c42920a848f6
+    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 18e10d40551dfa586d582d81bac37b4df362624c
+    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Beta Deployment
   - namespace: 
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 18e10d40551dfa586d582d81bac37b4df362624c
+    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
