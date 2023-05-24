@@ -490,6 +490,8 @@ openshiftResources:
 - provider: prometheus-rule
   path: /insights-stage/rhsm-api-proxy-stage/rhsm-system-profile-bridge.prometheusrules.yml
   type: resource
+  tests:
+  - /insights-stage/rhsm-api-proxy-stage/rhsm-system-profile-bridge.prometheusrulestests.yml
 
 ### Gabi
 - provider: prometheus-rule
