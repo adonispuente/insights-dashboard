@@ -252,14 +252,14 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
-    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
+    ref: 37ae122751dc2815d488354f6e930de6b06137b5543a579ef0a60b032f0287d0
     parameters:
       ENV_NAME: "env-perf"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
+    ref: 37ae122751dc2815d488354f6e930de6b06137b5543a579ef0a60b032f0287d0
     image:
       org:
         $ref: /dependencies/quay/cloudservices.yml
@@ -270,21 +270,21 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
+    ref: 37ae122751dc2815d488354f6e930de6b06137b5543a579ef0a60b032f0287d0
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
+    ref: 37ae122751dc2815d488354f6e930de6b06137b5543a579ef0a60b032f0287d0
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Beta Deployment
   - namespace: 
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 2f8f30e5a0fe59b5bafddc322781b201329a25a0
+    ref: 37ae122751dc2815d488354f6e930de6b06137b5543a579ef0a60b032f0287d0
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
