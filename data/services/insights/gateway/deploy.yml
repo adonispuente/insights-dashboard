@@ -205,7 +205,7 @@ resourceTemplates:
       REPLICAS: 3
   - namespace:
       $ref: /services/insights/gateway/namespaces/apicast-test-services-prod.yml
-    ref: 7089c07fd8d79b9a20ab580c27da8f2725e7e942
+    ref: bf5fb4c6d4f9b0a726312f6ae50c55db2d7198a0
     parameters:
       REPLICAS: 3
   - namespace:
