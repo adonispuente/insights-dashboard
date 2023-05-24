@@ -35,5 +35,4 @@ config:
     - "insights-notifications-sonarqube-scan":
         display_name: notifications-backend sonarqube
     - "insights-notifications-sonarqube-scan-master":
-        branch: master
         display_name: notifications-backend sonarqube-master
