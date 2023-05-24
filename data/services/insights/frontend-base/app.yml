@@ -69,6 +69,9 @@ quayRepos:
   - name: cloud-services-config
     public: true
     description: Quay repo for the cloud services config builds
+  - name: learning-resources
+    public: true
+    description: Quay repo for learning-resources
 
 
 codeComponents:
@@ -90,4 +93,7 @@ codeComponents:
 - name: cloud-services-config
   resource: upstream
   url: https://github.com/RedHatInsights/cloud-services-config
+- name: learning-resources
+  resource: upstream
+  url: https://github.com/RedHatInsights/learning-resources
 
