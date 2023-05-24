@@ -3,6 +3,7 @@ $schema: /app-interface/prometheus-rule-test-1.yml
 rule_files:
   - /insights-prod/rhsm-api-proxy-prod/rhsm-system-profile-bridge.prometheusrules.yml
 
+
 evaluation_interval: 10m
 
 tests:
@@ -17,7 +18,7 @@ tests:
           - exp_labels:
               severity: medium
               service: rhsm-system-profile-bridge
-              env: stage
+              env: prod
               namespace: rhsm-api-proxy
             exp_annotations:
               message: "rhsm-system-profile-bridge is down: Prometheus is unable to reach the metrics API."
