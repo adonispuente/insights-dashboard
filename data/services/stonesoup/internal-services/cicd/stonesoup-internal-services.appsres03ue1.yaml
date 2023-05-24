@@ -80,3 +80,11 @@ resourceTemplates:
       - namespace:
           $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres03ue1.yaml
         ref: main
+  - name: stonesoup-internal-services-signing-config
+    url: https://github.com/hacbs-release/app-interface-deployments
+    path: /internal-services/config/signing/staging
+    provider: directory
+    targets:
+      - namespace:
+          $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres03ue1.yaml
+        ref: main
