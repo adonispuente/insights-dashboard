@@ -78,7 +78,7 @@ openshiftResources:
 ## RHTAP (Stonesoup) Observatorium credentials
 - provider: vault-secret
   path: stonesoup/staging/monitoring/rhobs
-  version: 1
+  version: 4
   name: rhtap-token-refresher
 
 # ConfigMaps
