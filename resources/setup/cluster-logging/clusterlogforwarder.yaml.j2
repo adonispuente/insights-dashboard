@@ -8,7 +8,7 @@ spec:
   {% if RHOBS_TOOLS_LOGGING_NAMESPACES | default(false) %}
   inputs:
     - application:
-      namespaces:
+        namespaces:
         {% for namespace in RHOBS_TOOLS_LOGGING_NAMESPACES %}
         - {{namespace}}
         {% endfor %}
