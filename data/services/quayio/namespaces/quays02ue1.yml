@@ -340,6 +340,51 @@ externalResources:
     region: us-east-1
     domain:
       domain_name: '*.stage.q1w2.quay.rhcloud.com'
+  - provider: alb
+    identifier: quayio-stage-ocm-quay
+    output_resource_name: quayio-stage-ocm-quay
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-stage/vpcs/default.yml
+    certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/aa509131-4bed-4b14-88f8-4826d1f57238
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-stage-py3
+      default: true
+      openshift_service: quay-py3-load-balancer-service
+    - name: quayio-stage-debug
+      default: false
+      openshift_service: quay-py3-cloudflare-debug-load-balancer-service
+    rules:
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.stage.q1w2.quay.devshift.net'
+      - type: path-pattern
+        path_pattern:
+        - '/v2'
+        - '/v2/'
+        - '/v2/auth*'
+        - '/v2/openshift-release-dev/*'
+      action:
+        type: forward
+        forward:
+          target_group:
+          - target: quayio-stage-py3
+            weight: 100
+          - target: quayio-stage-debug
+            weight: 0
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.stage.q1w2.quay.devshift.net'
+      action:
+        type: fixed-response
+        fixed_response:
+          status_code: 401
+          content_type: application/json
+          message_body: '{"errors":[{"code":"UNAUTHORIZED","detail":{},"message":"access to the requested resource is not authorized"}]}'
   ####################################
   # END: quayio-stage-ocm-quay stage #
   ####################################
