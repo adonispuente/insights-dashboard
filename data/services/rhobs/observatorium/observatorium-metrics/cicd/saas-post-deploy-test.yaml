@@ -31,7 +31,7 @@ resourceTemplates:
   - namespace:
       $ref: 
         /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: 532e77003943df27e08cabdf2e6965cfa2614956
+    ref: f53e47d938134857b03c11a1f28989a797cd7c65
     parameters:
       IMAGE: quay.io/app-sre/rhobs-e2e
       IMAGE_TAG: 04b0a46
@@ -47,5 +47,5 @@ resourceTemplates:
       - channel: observatorium-metrics-stage-deploy-success-channel
         data:
         - parent_saas: saas-observatorium-metrics
-          target_config_hash: ff3fd4bef92846fe
+          target_config_hash: 072f5b255774ece5
           type: parent_saas_config
