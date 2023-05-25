@@ -283,51 +283,6 @@ externalResources:
       default: false
       openshift_service: quay-py3-cloudflare-debug-load-balancer-service
     rules:
-    # Allow foo.stage.quay.io/v2/auth
-    - condition:
-      - type: host-header
-        host_header:
-        - 'foo.stage.quay.io'
-      - type: path-pattern
-        path_pattern:
-        - /v2/auth*
-      action:
-        type: forward
-        forward:
-          target_group:
-          - target: quayio-stage-py3
-            weight: 100
-          - target: quayio-stage-debug
-            weight: 0
-    # Allow foo.stage.quay.io/v2/syahmed/update-banner-job
-    - condition:
-      - type: host-header
-        host_header:
-        - 'foo.stage.quay.io'
-      - type: path-pattern
-        path_pattern:
-        - /v2/syahmed/update-banner-job/*
-      action:
-        type: forward
-        forward:
-          target_group:
-          - target: quayio-stage-py3
-            weight: 100
-          - target: quayio-stage-debug
-            weight: 0
-    # Return HTTP 404 for all other requests to foo.stage.quay.io
-    # Response follows the spec from https://docs.docker.com/registry/spec/api/#errors-2
-    - condition:
-      - type: host-header
-        host_header:
-        - 'foo.stage.quay.io'
-      action:
-        type: fixed-response
-        fixed_response:
-          status_code: 404
-          content_type: application/json
-          message_body: '{"errors":[{"code":"NAME_UNKNOWN","detail":{},"message":"repository name not known to registry"}]}'
-    # Send requests for /v2/bcaton/push-pull-monitor-debug to quayio-stage-debug
     - condition:
       - type: path-pattern
         path_pattern:
@@ -377,6 +332,17 @@ externalResources:
     defaults: /terraform/resources/quayio-stage/kinesis-1.yml
     output_resource_name: quayio-stage-logentry-stream
     es_identifier: quayio-stage-elasticsearch
+  ######################################
+  # BEGIN: quayio-stage-ocm-quay stage #
+  ######################################
+  - provider: acm
+    identifier: quayio-stage-ocm-quay
+    region: us-east-1
+    domain:
+      domain_name: '*.stage.q1w2.quay.rhcloud.com'
+  ####################################
+  # END: quayio-stage-ocm-quay stage #
+  ####################################
 
 - provider: cloudflare
   provisioner:
