@@ -5,23 +5,22 @@
   - [AWS Documentation](#aws-documentation)
   - [Steps for Upgrade at High Level](#steps-for-upgrade-at-high-level)
     - [Note About Upgrading Read-Replicas](#note-about-upgrading-read-replicas)
+    - [Known issues](#known-issues)
   - [app-interface changes for upgrading](#app-interface-changes-for-upgrading)
     - [1. Terminate Read Replicas](#1-terminate-read-replicas)
       - [Remove Read Replica Dependency](#remove-read-replica-dependency)
       - [Read Replicas Termination and Config Updates](#read-replicas-termination-and-config-updates)
     - [2. Scale DOWN the application](#2-scale-down-the-application)
     - [3. Create a New Parameter Group and Update Engine Version](#3-create-a-new-parameter-group-and-update-engine-version)
-    - [4. Start Database Upgrade](#4-start-database-upgrade)
-      - [Terraform Resource - Parameter group errors](#terraform-resource---parameter-group-errors)
-        - [Option A: Copy custom parameter group](#option-a-copy-custom-parameter-group)
-        - [Option B: Use default parameter group](#option-b-use-default-parameter-group)
-      - [Run upgrade](#run-upgrade)
-      - [Update pg_statistic Table](#update-pg_statistic-table)
-      - [Monitor upgrade](#monitor-upgrade)
-    - [5. Scale UP the application](#5-scale-up-the-application)
-    - [6. Create read-replicas](#6-create-read-replicas)
-    - [7. Update Application Config Changes to use read replicas](#7-update-application-config-changes-to-use-read-replicas)
-    - [8. Post-upgrade steps](#8-post-upgrade-steps)
+    - [4. Prepare post-upgrade queries](#4-prepare-post-upgrade-queries)
+      - [ANALYZE](#analyze)
+    - [5. Start Database Upgrade](#5-start-database-upgrade)
+      - [Terraform Resource - errors](#terraform-resource---errors)
+    - [6. Monitor upgrade](#6-monitor-upgrade)
+    - [7. Run post-upgrade queries](#7-run-post-upgrade-queries)
+    - [8. Scale UP the application](#8-scale-up-the-application)
+    - [9. Create read-replicas](#9-create-read-replicas)
+    - [10. Update Application Config Changes to use read replicas](#10-update-application-config-changes-to-use-read-replicas)
 
 This document outlines the steps and expectations for a major version upgrade of a PostgreSQL RDS instance.
 
@@ -135,9 +134,23 @@ At this point, the file exists but is not referenced by your RDS instance. This 
 
 Example MRs: [Upgrade RDS Instance from PostgreSQL 11.x to 12.x & Create PostgreSQL 12 parameter group](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/47924/diffs)
 
+### 4. Prepare post-upgrade queries
 
+Usually you need to run some queries to ensure optimal performance of your database after the upgrade. You must prepare these queries prior to upgrading the database. Consult `Execute a SQL Query on an App Interface controlled RDS instance` in the README on how to submit a MR to app-interface for executing a query. In the MR description, mention that the query is related to a database upgrade and must only be merged after the upgrade successfully ran.
 
-### 4. Start Database Upgrade
+The query will receive lgtm from AppSRE and get merged/executed **after** the database was successfully upgraded.
+
+#### ANALYZE
+
+Prepare `ANALYZE` operation to refresh the `pg_statistic` table. You should do this for every database on all your PostgreSQL DB instances. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
+
+```
+ANALYZE VERBOSE
+```
+
+There are potentially more queries involving `REINDEX` or `VACUUM`, however, there is no general rule of thumb for these and they depend on the changes the major version upgrade includes.
+
+### 5. Start Database Upgrade
 
 Start by merging the MR that was created to upgrade the database. When qontract-reconcile runs next, the upgrade will be applied immediately. 
 
@@ -167,30 +180,24 @@ This behavior is inconsistent and is documented [here](https://github.com/hashic
 **If you see this error, there is no need to take any action. Terraform will soon reconcile the state as soon as the upgrade is complete on AWS side.**
 
 
-### 5. Monitor upgrade
+### 6. Monitor upgrade
 
 Monitor the upgrade in AWS console. AWS will run a pre-upgrade check and the upgrade may not proceed if pre-upgrade check fails. The AWS docs linked above have troubleshooting steps if you run into errors with pre-upgrade checks.
 
-### 6. Update pg_statistic Table
+### 7. Run post-upgrade queries
 
-Run the ANALYZE operation to refresh the `pg_statistic` table. You should do this for every database on all your PostgreSQL DB instances. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
+The queries prepared in [step 4](#4-prepare-post-upgrade-queries) must be merged by AppSRE. `sql-query` integration will then execute the queries. 
 
-```
-ANALYZE VERBOSE
-```
-To connect to RDS instance you can follow steps described [here](/docs/dba/connect-to-postgres-mysql-database.md)
-
-
-### 7. Scale UP the application
+### 8. Scale UP the application
 
 When the RDS instance status changes to `Available`, scale the application back to usual capacity. At this point your application will still not use read-replica as none exist.
 
 Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/9716
 
-### 8. Create read-replicas
+### 9. Create read-replicas
 
 Now re-create the read-replica instances by adding them back to app-interface.
 
-### 7. Update Application Config Changes to use read replicas
+### 10. Update Application Config Changes to use read replicas
 
 Update your application configuration to use the read replicas.
