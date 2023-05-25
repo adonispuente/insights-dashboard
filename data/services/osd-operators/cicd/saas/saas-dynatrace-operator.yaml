@@ -61,7 +61,6 @@ resourceTemplates:
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
     ENVIRONMENT: integration
-    TENANT_API_URL: https://ddl70254.live.dynatrace.com/api
     ACTIVEGATE_CPU_REQUEST: 500m
     ACTIVEGATE_MEM_REQUEST: 512Mi
     ACTIVEGATE_CPU_LIMIT: 2000m
