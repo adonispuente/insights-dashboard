@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: ee84ee55ee6df53dac5c65922325060a23e7eab9
+    ref: 5744083be5df8c457f6cc3e0f9ea117aaf775008
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -145,7 +145,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 6880c800ca7bb4e1a381b5506e2c0c6de0839a02
+    ref: 11e7bcd74defc285a1a5ed1bed0f18929bacfa6e
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
