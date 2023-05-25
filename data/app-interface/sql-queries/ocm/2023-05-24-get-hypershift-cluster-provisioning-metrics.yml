@@ -4,7 +4,7 @@ labels: {}
 name: 2023-05-24-get-hypershift-cluster-provisioning-metrics
 namespace:
   $ref: /services/ocm/namespaces/uhc-production.yml
-identifier: get-hypershift-cluster-provisioning-metrics
+identifier: ocm-service-log-production-readonly
 # Run every day at 12:00 pm (UTC)
 schedule:  00 12 * * *
 output: stdout
@@ -14,22 +14,22 @@ queries:
     SELECT CAST(
       (SELECT count(distinct cluster_uuid) from service_logs
         WHERE summary = 'cluster_state_ready'
-        AND $__timeFilter(timestamp)
+        AND timestamp > CURRENT_DATE - INTERVAL '28 days'
         AND cluster_uuid in 
         (SELECT cluster_uuid
         FROM service_logs
-        WHERE $__timeFilter(timestamp) and summary = 'cluster_state_waiting'
+        WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_waiting'
         )
       ) AS float) / 
     (SELECT count(distinct cluster_uuid)
     FROM service_logs
-    WHERE $__timeFilter(timestamp) and summary = 'cluster_state_waiting') 
+    WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_waiting') 
     AS success_rate;
 # error budget burned
   - |
-    SELECT CAST(((SELECT count(distinct cluster_uuid) FROM service_logs WHERE $__timeFilter(timestamp) and summary = 'cluster_state_waiting') - 
-      ((SELECT count(distinct cluster_uuid) from service_logs WHERE summary = 'cluster_state_ready' AND cluster_uuid in (SELECT cluster_uuid FROM service_logs WHERE $__timeFilter(timestamp) and summary = 'cluster_state_waiting')))) AS float)
-      / (0.1 * (SELECT count(distinct cluster_uuid) FROM service_logs WHERE $__timeFilter(timestamp) and summary = 'cluster_state_waiting'))
+    SELECT CAST(((SELECT count(distinct cluster_uuid) FROM service_logs WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_waiting') - 
+      ((SELECT count(distinct cluster_uuid) from service_logs WHERE summary = 'cluster_state_ready' AND cluster_uuid in (SELECT cluster_uuid FROM service_logs WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_waiting')))) AS float)
+      / (0.1 * (SELECT count(distinct cluster_uuid) FROM service_logs WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_waiting'))
     AS errorbudgetburned;
 # cluster instalations over time
   - |
@@ -39,51 +39,47 @@ queries:
       a2.incomplete
     from
     (
-      SELECT timestamp::date as t, COUNT(*) as completed from service_logs
+      SELECT CAST(timestamp AS date) as t, COUNT(timestamp) as completed from service_logs
         WHERE summary = 'cluster_state_waiting'
-        AND $__timeFilter(timestamp)
+        AND timestamp > CURRENT_DATE - INTERVAL '28 days'
         AND cluster_uuid != ''
         AND cluster_uuid in 
         (SELECT cluster_uuid  
         FROM service_logs
-        WHERE $__timeFilter(timestamp) and summary = 'cluster_state_ready'
+        WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_ready'
         )
         GROUP BY t
     ) as a1
     FULL join
     (
-      SELECT timestamp::date as t, COUNT(*) as incomplete from service_logs
+      SELECT CAST(timestamp AS date) as t, COUNT(timestamp) as incomplete from service_logs
         WHERE summary = 'cluster_state_waiting'
-        AND $__timeFilter(timestamp) 
+        AND timestamp > CURRENT_DATE - INTERVAL '28 days' 
         AND cluster_uuid != ''
         AND cluster_uuid not in 
         (SELECT cluster_uuid
         FROM service_logs
-        WHERE $__timeFilter(timestamp) and summary = 'cluster_state_ready'
+        WHERE timestamp > CURRENT_DATE - INTERVAL '28 days' and summary = 'cluster_state_ready'
         )
         GROUP BY t
     ) as a2 ON (a1.t=a2.t)
     ORDER BY 1;
 # SLI
   - |
-     WITH wait as (
-      SELECT
+    SELECT (SELECT
         "timestamp" AS "twait", summary ,cluster_uuid
         FROM service_logs 
-        where  $__timeFilter(timestamp)
+        where  timestamp > CURRENT_DATE - INTERVAL '28 days'
         and summary = 'cluster_state_waiting'
-        and cluster_uuid != ''
-        ), 
-      ready as 
-      (
+        and cluster_uuid != '') AS wait,
+          (
       SELECT
        "timestamp" AS "tready", summary ,cluster_uuid
       FROM service_logs 
-      where  $__timeFilter(timestamp)
+      where  timestamp > CURRENT_DATE - INTERVAL '28 days'
         and summary = 'cluster_state_ready'
         and cluster_uuid != ''
-      )
-      select wait.twait, ready.tready, 
+      ) AS ready,
       abs(extract(epoch from wait.twait - ready.tready)) as tdiff,
       wait.cluster_uuid
       --wait.summary, ready.summary as rsum
@@ -96,7 +92,7 @@ queries:
   - |
     SELECT (1.0 - (CAST(t2.longinstalls AS float) / t1.totalinstalls)) as errorbudget
       FROM (
-      SELECT count(*) AS longinstalls
+      SELECT count(timestamp) AS longinstalls
       FROM service_logs as t1
       INNER JOIN service_logs as t2
       ON t1.cluster_uuid = t2.cluster_uuid
@@ -106,7 +102,7 @@ queries:
       AND $__timeFilter(t1.timestamp)
       AND abs(extract(epoch from t2.timestamp - t1.timestamp)) > 600
       ) AS t2, (
-      SELECT count(*) AS totalinstalls
+      SELECT count(timestamp) AS totalinstalls
       FROM service_logs as t1
       INNER JOIN service_logs as t2
       ON t1.cluster_uuid = t2.cluster_uuid
@@ -116,19 +112,19 @@ queries:
       AND $__timeFilter(t1.timestamp)
       ) AS t1;
 # Cluster provisioning time
-  - |
-    WITH tdiffs AS (
-      SELECT abs(extract(epoch from t2.timestamp - t1.timestamp)) as tdiff
-      FROM service_logs as t1
-      INNER JOIN service_logs as t2
-      ON t1.cluster_uuid = t2.cluster_uuid
-      AND t1.timestamp < t2.timestamp
-      AND t1.summary = 'cluster_state_waiting'
-      AND t1.cluster_uuid != ''
-      AND t2.summary = 'cluster_state_ready'
-      AND t2.cluster_uuid != ''
-      AND $__timeFilter(t1.timestamp)
-      AND abs(extract(epoch from t2.timestamp - t1.timestamp)) < 1600
-      GROUP BY t1.cluster_uuid, tdiff
-      ORDER BY tdiff)
-      SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM tdiffs;
+  # - |
+  #   WITH tdiffs AS (
+  #     SELECT abs(extract(epoch from t2.timestamp - t1.timestamp)) as tdiff
+  #     FROM service_logs as t1
+  #     INNER JOIN service_logs as t2
+  #     ON t1.cluster_uuid = t2.cluster_uuid
+  #     AND t1.timestamp < t2.timestamp
+  #     AND t1.summary = 'cluster_state_waiting'
+  #     AND t1.cluster_uuid != ''
+  #     AND t2.summary = 'cluster_state_ready'
+  #     AND t2.cluster_uuid != ''
+  #     AND $__timeFilter(t1.timestamp)
+  #     AND abs(extract(epoch from t2.timestamp - t1.timestamp)) < 1600
+  #     GROUP BY t1.cluster_uuid, tdiff
+  #     ORDER BY tdiff)
+  #     SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM tdiffs;
