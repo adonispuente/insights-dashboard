@@ -16,6 +16,7 @@ roles:
 - $ref: /teams/sd-ops-dev/roles/cna-vault.yml
 - $ref: /teams/sd-ops-dev/roles/saas-approver.yml
 - $ref: /teams/services-dashboard/roles/dev.yml
+- $ref: /teams/ocm/roles/consumer.yml
 
 public_gpg_key: |
   mQINBGDAnlkBEACmFm6Hp6HkPJpMLDGruiZ6uCClPQrm2xCGp7PWWWzHUXp6WyskVIyMuOOtvsya
