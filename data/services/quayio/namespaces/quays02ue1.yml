@@ -359,7 +359,7 @@ externalResources:
     - condition:
       - type: host-header
         host_header:
-        - 'pull.stage.q1w2.quay.devshift.net'
+        - 'pull.stage.q1w2.quay.rhcloud.com'
       - type: path-pattern
         path_pattern:
         - '/v2'
@@ -377,7 +377,7 @@ externalResources:
     - condition:
       - type: host-header
         host_header:
-        - 'pull.stage.q1w2.quay.devshift.net'
+        - 'pull.stage.q1w2.quay.rhcloud.com'
       action:
         type: fixed-response
         fixed_response:
