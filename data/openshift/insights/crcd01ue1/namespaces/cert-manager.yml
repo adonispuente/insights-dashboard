@@ -3,14 +3,14 @@ $schema: /openshift/namespace-1.yml
 
 labels: {}
 
-name: openshift-cert-manager
-description: ephemeral cluster openshift-cert-manager namespace
+name: cert-manager
+description: cert-manager namespace. It hosts the cert-manager deployment
 
 cluster:
   $ref: /openshift/insights/crcd01ue1/cluster.yml
 
 app:
-  $ref: /services/app-sre/app.yml
+  $ref: /services/app-sre/cert-manager/app.yml
 
 environment:
   $ref: /products/insights/environments/crcd01ue1-mgmt.yml
@@ -22,5 +22,3 @@ managedResourceNames:
 - resource: ClusterIssuer.cert-manager.io
   resourceNames:
   - letsencrypt-prod-http
-
-openshiftResources: []
