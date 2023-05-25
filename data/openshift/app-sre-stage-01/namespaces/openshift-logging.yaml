@@ -64,6 +64,7 @@ openshiftResources:
   path: /setup/cluster-logging/clusterlogforwarder.yaml.j2
   variables:
     RHOBS_LOGGING: true
+    RHOBS_TOOLS_LOGGING_NAMESPACES: ["observatorium-metrics-stage","observatorium-mst-stage","telemeter-stage"]
 - provider: vault-secret
   path: app-sre/creds/observatorium-appsre-staging
   version: 1
