@@ -25,6 +25,13 @@ records:
 - { name: cdn01, type: CNAME, records: [d3dwl8hlb9usug.cloudfront.net] }
 - { name: cdn02, type: CNAME, records: [d143q1oyu145nx.cloudfront.net] }
 
+### OCM Quay stage endpoints
+- name: pull.stage
+  type: CNAME
+  ttl: 5
+  records:
+  - quayio-stage-ocm-quay-1691002985.us-east-1.elb.amazonaws.com
+
 ### OCM Quay endpoints
 - name: push
   type: CNAME
