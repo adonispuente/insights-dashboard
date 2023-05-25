@@ -14,7 +14,7 @@ spec:
         - alert: ContentSourcesBackendDown
           annotations:
             message: "content-sources-backend-service pod down for 5 minutes."
-          expr: up{service="content-sources-backend-service", namespace="content-sources-prod"} == 0
+          expr: sum(up{service="content-sources-backend-service", namespace="content-sources-prod"}) == 0
           labels:
             service: insights
             severity: medium

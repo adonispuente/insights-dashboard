@@ -22,7 +22,6 @@ tests:
           - exp_labels:
               severity: medium
               service: insights
-              namespace: "content-sources-stage"
               app_team: content-sources
               env: stage
             exp_annotations:
