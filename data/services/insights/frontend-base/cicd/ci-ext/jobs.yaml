@@ -55,3 +55,19 @@ config:
     - "insights-gh-build-master":
         display_name: api-frontend-build build-prod-stable
         branch: "prod-stable"
+- project:
+    name: learning-resources
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: learning-resources
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pr-check":
+        display_name: learning-resources pr-check
+    - "insights-gh-build-master":
+        display_name: learning-resources-build build-master
+        branch: "master"
+    - "insights-gh-build-master":
+        display_name: learning-resources-build build-master-stable
+        branch: "master-stable"
