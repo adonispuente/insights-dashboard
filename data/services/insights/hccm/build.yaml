@@ -109,3 +109,13 @@ config:
     - "insights-gh-build-master":
         display_name: hccm-frontend build-main
         branch: main
+    - "insights-gh-build-master":
+        display_name: hccm-frontend build-stage-stable
+        branch: stage-stable
+    - "insights-gh-build-master":
+        display_name: hccm-frontend build-prod-beta
+        branch: prod-beta
+    - "insights-gh-build-master":
+        display_name: hccm-frontend build-prod-stable
+        branch: prod-stable
+

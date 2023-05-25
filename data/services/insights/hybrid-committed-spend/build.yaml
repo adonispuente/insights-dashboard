@@ -31,3 +31,13 @@ config:
     - "insights-gh-build-master":
         display_name: hybrid-committed-spend-frontend build-main
         branch: main
+    - "insights-gh-build-master":
+        display_name: hybrid-committed-spend-frontend build-stage-stable
+        branch: stage-stable
+    - "insights-gh-build-master":
+        display_name: hybrid-committed-spend-frontend build-prod-beta
+        branch: prod-beta
+    - "insights-gh-build-master":
+        display_name: hybrid-committed-spend-frontend build-prod-stable
+        branch: prod-stable
+
