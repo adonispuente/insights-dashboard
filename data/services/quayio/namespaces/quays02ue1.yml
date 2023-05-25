@@ -342,7 +342,6 @@ externalResources:
       domain_name: '*.stage.q1w2.quay.rhcloud.com'
   - provider: alb
     identifier: quayio-stage-ocm-quay
-    output_resource_name: quayio-stage-ocm-quay
     idle_timeout: 3600
     ip_address_type: dualstack
     vpc:
