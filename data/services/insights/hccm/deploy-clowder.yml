@@ -684,7 +684,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 6b3f9a90b624301a8253996a913fb973e047a768
+    ref: a71d7fcd96a9dd369d04b6b7b85a57dc73feed04
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"

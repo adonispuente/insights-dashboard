@@ -47,7 +47,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 9e40df858045c84a22dd6ecfe98e702d543c2fa0
+    ref: b316f69f94d7f57c3cfed2d5f8289bb38cc336d4
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
