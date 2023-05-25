@@ -78,3 +78,5 @@ openshiftResources:
     hosted_zone_id: Z05758033SZ8IESGUOY8E
 - provider: resource
   path: /cert-manager/certmanager-route53-config-v1.yaml
+- provider: resource
+  path: /cert-manager/cert-manager-webhook-network-policy.yaml
