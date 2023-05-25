@@ -278,7 +278,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: ee84ee55ee6df53dac5c65922325060a23e7eab9
+    ref: f53e47d938134857b03c11a1f28989a797cd7c65
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: info
@@ -351,6 +351,15 @@ resourceTemplates:
       THANOS_RULER_MEMORY_REQUEST: '8Gi'
       THANOS_RULER_PVC_REQUEST: '50Gi'
       THANOS_RULER_REPLICAS: 2
+      THANOS_RULER_QUERIER_CPU_LIMIT: '3'
+      THANOS_RULER_QUERIER_CPU_REQUEST: '2'
+      THANOS_RULER_QUERIER_LOG_LEVEL: info
+      THANOS_RULER_QUERIER_MEMORY_LIMIT: '10Gi'
+      THANOS_RULER_QUERIER_MEMORY_REQUEST: '8Gi'
+      THANOS_RULER_QUERIER_REPLICAS: 5
+      THANOS_RULER_QUERIER_PROXY_STRATEGY: 'lazy'
+      THANOS_RULER_QUERIER_ENGINE: prometheus
+      THANOS_RULER_QUERIER_MAX_CONCURRENT: '1'
       THANOS_S3_SECRET: observatorium-mst-thanos-stage-s3
       THANOS_STORE_CACHE_MEMORY_LIMIT_MB: 2048
       THANOS_STORE_SERIES_TOUCHED_LIMIT: 120000

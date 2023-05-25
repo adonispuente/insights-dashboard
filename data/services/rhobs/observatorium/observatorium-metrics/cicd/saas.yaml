@@ -139,7 +139,7 @@ resourceTemplates:
       SERVICE_ACCOUNT_NAME: observatorium-metrics
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: 532e77003943df27e08cabdf2e6965cfa2614956
+    ref: f53e47d938134857b03c11a1f28989a797cd7c65
     parameters:
       NAMESPACE: observatorium-metrics-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
@@ -204,6 +204,15 @@ resourceTemplates:
       THANOS_RULER_MEMORY_REQUEST: '8Gi'
       THANOS_RULER_MEMORY_LIMIT: '8Gi'
       THANOS_RULER_PVC_REQUEST: '50Gi'
+      THANOS_RULER_QUERIER_CPU_LIMIT: '2'
+      THANOS_RULER_QUERIER_CPU_REQUEST: '500m'
+      THANOS_RULER_QUERIER_LOG_LEVEL: info
+      THANOS_RULER_QUERIER_MEMORY_LIMIT: '14Gi'
+      THANOS_RULER_QUERIER_MEMORY_REQUEST: '4Gi'
+      THANOS_RULER_QUERIER_REPLICAS: 6
+      THANOS_RULER_QUERIER_PROXY_STRATEGY: 'lazy'
+      THANOS_RULER_QUERIER_ENGINE: prometheus
+      THANOS_RULER_QUERIER_MAX_CONCURRENT: '1'
       THANOS_COMPACTOR_LOG_LEVEL: 'warn'
       THANOS_STORE_CACHE_MEMORY_LIMIT_MB: 2048
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
@@ -288,7 +297,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: 281029b68aca42fccfb3a9022734e553c408bb4a
+    ref: f53e47d938134857b03c11a1f28989a797cd7c65
     parameters:
       NAMESPACE: observatorium-metrics-stage
       THANOS_CONFIG_SECRET: thanos-objectstorage
