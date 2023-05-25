@@ -78,7 +78,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/entitlements-prod.yml
-    ref: 2ac7440cd271145ead13ecd6666d33e354cc7902
+    ref: 73013028a9d4c03c44e42d66e868cb36ca7433e8
     parameters:
       SUBS_HOST: https://subscription.api.redhat.com
       COMPLIANCE_HOST: "https://export-compliance.api.redhat.com"
