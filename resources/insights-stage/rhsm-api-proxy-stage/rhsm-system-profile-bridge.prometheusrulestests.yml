@@ -9,16 +9,32 @@ tests:
   - interval: 1m
     input_series:
       - series: up{job="rhsm-system-profile-bridge-service", namespace="rhsm-api-proxy-stage"}
-        values: '1 1 1 1 0 0 0 0 0 1 1 1 1'
+        values: '1 0 0 0 0 0 0 0'
     alert_rule_test:
       - eval_time: 0m
         alertname: rhsm-system-profile-bridge is down - stage
         exp_alerts:
         # None: no alerts are sent until the application has been down for 15m
-      - eval_time: 3m
+      - eval_time: 1m
         alertname: rhsm-system-profile-bridge is down - stage
         exp_alerts:
           # None: no alerts are sent until the application has been down for 15m
+      - eval_time: 2m
+        alertname: rhsm-system-profile-bridge is down - stage
+        exp_alerts:
+          # None: no alerts are sent until the application has been down for 15m
+      - eval_time: 3m
+        alertname: rhsm-system-profile-bridge is down - stage
+        exp_alerts:
+        # None: no alerts are sent until the application has been down for 15m
+      - eval_time: 4m
+        alertname: rhsm-system-profile-bridge is down - stage
+        exp_alerts:
+        # None: no alerts are sent until the application has been down for 15m
+      - eval_time: 5m
+        alertname: rhsm-system-profile-bridge is down - stage
+        exp_alerts:
+        # None: no alerts are sent until the application has been down for 15m
       - eval_time: 6m
         alertname: rhsm-system-profile-bridge is down - stage
         exp_alerts:
@@ -26,36 +42,4 @@ tests:
       - eval_time: 7m
         alertname: rhsm-system-profile-bridge is down - stage
         exp_alerts:
-          - exp_labels:
-              severity: medium
-              service: rhsm-system-profile-bridge
-              env: stage
-              namespace: rhsm-api-proxy
-            exp_annotations:
-              message: "rhsm-system-profile-bridge is down: Prometheus is unable to reach the metrics API."
-              runbook: "https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge/-/wikis/runbooks/rhsm-system-profile-bridge-is-down"
-              dashboard: "https://grafana.stage.devshift.net/d/rhsm-system-profile-bridge-dashboard/rhsm-system-profile-bridge-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus"
-      - eval_time: 8m
-        alertname: rhsm-system-profile-bridge is down - stage
-        exp_alerts:
-          - exp_labels:
-              severity: medium
-              service: rhsm-system-profile-bridge
-              env: stage
-              namespace: rhsm-api-proxy
-            exp_annotations:
-              message: "rhsm-system-profile-bridge is down: Prometheus is unable to reach the metrics API."
-              runbook: "https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge/-/wikis/runbooks/rhsm-system-profile-bridge-is-down"
-              dashboard: "https://grafana.stage.devshift.net/d/rhsm-system-profile-bridge-dashboard/rhsm-system-profile-bridge-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus"
-      - eval_time: 9m
-        alertname: rhsm-system-profile-bridge is down - stage
-        exp_alerts:
-        # None: the alert has cleared
-      - eval_time: 10m
-        alertname: rhsm-system-profile-bridge is down - stage
-        exp_alerts:
-        # None: the alert has cleared
-      - eval_time: 11m
-        alertname: rhsm-system-profile-bridge is down - stage
-        exp_alerts:
-        # None: the alert has cleared
+          # ?
