@@ -62,8 +62,8 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   name: hacbs-signing-pipeline-certs
-  path: hacbs/hacbs-internal-services/signing
-  version: 2
+  path: stonesoup/staging/release/radas_signing
+  version: 1
   type: Opaque
   annotations:
     qontract.recycle: "true"
