@@ -15,7 +15,3 @@ app:
 environment:
   $ref: /products/insights/environments/crcd01ue1-mgmt.yml
 
-managedResourceTypes:
-- Subscription.operators.coreos.com
-
-openshiftResources: []
