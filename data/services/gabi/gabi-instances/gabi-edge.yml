@@ -36,4 +36,4 @@ instances:
     $ref: /services/insights/edge/namespaces/edge-prod.yml
     
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-05-01'
+expirationDate: '2023-07-30'
