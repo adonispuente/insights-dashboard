@@ -39,6 +39,13 @@ config:
         status_context: ci.ext.devshift.net daily smoke test
         slack_channel_notification: cost-mgmt-bots
 
+    # PR Check Enhancement
+    - "insights-gh-pipeline":
+        display_name: koku pipeline
+        branch: main
+        trigger_exclude_path: 'docs/.*\n.*\.adoc'
+        status_context: ci.ext.devshift.net PR pipeline
+
 - project:
     name: koku-daily
     label: insights
