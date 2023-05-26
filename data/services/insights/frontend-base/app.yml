@@ -72,6 +72,8 @@ quayRepos:
   - name: learning-resources
     public: true
     description: Quay repo for learning-resources
+  - name: settings-frontend
+    description: Quay repo for settings-frontend
 
 
 codeComponents:
@@ -96,4 +98,7 @@ codeComponents:
 - name: learning-resources
   resource: upstream
   url: https://github.com/RedHatInsights/learning-resources
+- name: settings-frontend
+  resource: upstream
+  url: https://github.com/RedHatInsights/settings-frontend
 
