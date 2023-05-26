@@ -11,5 +11,4 @@ description: Group for tenants who need to consume Billing and Cost data
 
 policies:
 - IAMUserChangePassword
-- Billing
 - AWSBillingReadOnlyAccess
