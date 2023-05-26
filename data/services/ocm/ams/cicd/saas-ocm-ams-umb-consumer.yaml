@@ -65,7 +65,7 @@ resourceTemplates:
       USE_CANDLEPIN_BASIC_AUTH: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: b4f29052f9376281b4f0aed84245198ff8206e1c
+    ref: aa3778c7aa3a620d59c56a7f57ad19085a953b92
     promotion:
       auto: true
       subscribe:
