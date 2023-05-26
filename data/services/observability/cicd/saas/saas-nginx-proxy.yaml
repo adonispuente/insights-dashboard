@@ -303,3 +303,9 @@ resourceTemplates:
       ALERTMANAGER_SERVER_NAME: alertmanager.stonesoupp01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.stonesoupp01ue1.devshift.net
 
+  - namespace:
+      $ref: /openshift/hst02ue1/namespaces/app-sre-observability-per-cluster.yml
+    ref: master
+    parameters:
+      ALERTMANAGER_SERVER_NAME: alertmanager.hst02ue1.devshift.net
+      PROMETHEUS_SERVER_NAME: prometheus.hst02ue1.devshift.net

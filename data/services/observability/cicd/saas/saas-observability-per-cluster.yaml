@@ -407,6 +407,13 @@ resourceTemplates:
       STORAGE_CLASS_NAME: gp3-csi
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
 # Alertmanager
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
+    parameters:
+      CLUSTER_LABEL: hst02ue1
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://prometheus.hst02ue1.devshift.net
+    ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
 - name: alertmanager
   path: /openshift/alertmanager.template.yaml
   url: https://gitlab.cee.redhat.com/service/app-sre-observability
@@ -671,4 +678,10 @@ resourceTemplates:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.hst01ue1.devshift.net
       STORAGE_CLASS_NAME: gp3-csi
+    ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
+    parameters:
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://alertmanager.hst02ue1.devshift.net
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
