@@ -300,6 +300,15 @@ data:
                 },
                 "orgId": 1,
                 "type": "file"
+            },
+            {
+                "folder": "SRE-Capabilities",
+                "name": "SRE-Capabilities",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/SRE-Capabilities"
+                },
+                "orgId": 1,
+                "type": "file"
             }
         ]
     }
