@@ -1,0 +1,19 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: keycloak-user-service
+
+permissions:
+- $ref: /dependencies/quay/permissions/quay-membership-swat.yml
+- $ref: /dependencies/gitlab/permissions/appeng-keycloak-member.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/swat/roles/keycloak-user-service.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/keycloak/keycloak-user-service/app.yml
