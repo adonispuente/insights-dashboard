@@ -21,9 +21,16 @@ networkPoliciesAllow:
 managedRoles: true
 
 managedResourceTypes:
-  - ClusterRole
-  - ClusterRoleBinding
-  - Secret
+  - ClusterRole.rbac.authorization.k8s.io
+  - ClusterRoleBinding.rbac.authorization.k8s.io
+
+managedResourceNames:
+  - resource: ClusterRole.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-application-logs-reader
+  - resource: ClusterRoleBinding.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-users-application-logs-reader
 
 openshiftResources:
   - provider: resource
