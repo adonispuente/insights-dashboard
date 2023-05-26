@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 132e9fb8bdd5dfe717c79f1e32fc90dfac326992
+    ref: 02a26e4c4ba20f3cb94548fdab3a0969587824c1
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -146,7 +146,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 132e9fb8bdd5dfe717c79f1e32fc90dfac326992
+    ref: 02a26e4c4ba20f3cb94548fdab3a0969587824c1
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -195,6 +195,7 @@ resourceTemplates:
       NOTIFICATIONS_USE_TEMPLATES_FROM_DB: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
+      NOTIFICATIONS_DISABLE_CAMEL_SUBTYPE_PROCESSING: "google_chat"
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -272,7 +273,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 132e9fb8bdd5dfe717c79f1e32fc90dfac326992
+    ref: 02a26e4c4ba20f3cb94548fdab3a0969587824c1
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
