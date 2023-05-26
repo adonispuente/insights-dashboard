@@ -509,6 +509,11 @@ openshiftResources:
   type: resource
   tests:
   - /insights-prod/content-sources-prod/content-sources-prod.prometheusrulestest.yml
+- provider: prometheus-rule
+  path: /insights-prod/rhsm-api-proxy-prod/rhsm-system-profile-bridge.prometheusrules.yml
+  type: resource
+  tests:
+  - /insights-prod/rhsm-api-proxy-prod/rhsm-system-profile-bridge.prometheusrulestests.yml
 
 ### Gabi
 - provider: prometheus-rule
