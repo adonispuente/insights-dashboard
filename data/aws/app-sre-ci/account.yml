@@ -53,6 +53,14 @@ sharing:
     $ref: /aws/app-sre/account.yml
   regex: '^ci-ext-jenkins-worker.*'
 
+cleanup:
+- provider: ami
+  regex: '^ci-int-jenkins-worker.*'
+  age: 180d
+- provider: ami
+  regex: '^ci-ext-jenkins-worker.*'
+  age: 180d
+
 terraformState:
   $ref: /aws/app-sre-ci/state.yml
 deletionApprovals:
