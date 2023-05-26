@@ -195,6 +195,7 @@ resourceTemplates:
       NOTIFICATIONS_USE_TEMPLATES_FROM_DB: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
+      NOTIFICATIONS_DISABLE_CAMEL_SUBTYPE_PROCESSING: "google_chat"
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
