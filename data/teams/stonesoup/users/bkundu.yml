@@ -16,6 +16,7 @@ roles:
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup-billing-managers.yml
 
 public_gpg_key: |
   mDMEYffy0RYJKwYBBAHaRw8BAQdAsBOSrPFIRrZJHqexri/o/KC3aQtTgWS7tjtO
