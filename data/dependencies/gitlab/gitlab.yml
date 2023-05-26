@@ -53,6 +53,7 @@ projectRequests:
   - clamav-images
   - hypershift-cloudwatch-logging
   - keycloak
+  - keycloak-user-service
 
 token:
   path: app-sre/ci-int/gitlab-token
