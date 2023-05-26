@@ -208,6 +208,41 @@ secretParameters:
     field: starburstenterprise.yaml
     path: mt-sre/tenants/rhods/secrets/starburst-addon
     version: 2
+- name: ISV_STARBURST_OPERATOR__ADDON__CLIENT_ID
+  secret:
+    field: client-id
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2    
+- name: ISV_STARBURST_OPERATOR__ADDON__CLIENT_SECRET
+  secret:
+    field: client-secret
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2    
+- name: ISV_STARBURST_OPERATOR__ADDON__REMOTE_WRITE_URL
+  secret:
+    field: remote-write-url
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2
+- name: ISV_STARBURST_OPERATOR__ADDON__TOKEN_URL
+  secret:
+    field: token-url
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2
+- name: ISV_STARBURST_OPERATOR__ADDON__STARBURSTENTERPRISE_YAML    
+  secret:
+    field: starburstenterprise.yaml
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2
+- name: ISV_STARBURST_OPERATOR__ADDON__RULES_YAML    
+  secret:
+    field: rules.yaml
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2
+- name: ISV_STARBURST_OPERATOR__ADDON__METRICS_YAML    
+  secret:
+    field: metrics.yaml
+    path: mt-sre/tenants/rhods/secrets/addon
+    version: 2        
 resourceTemplates:
 - name: managed-tenants-stage
   url: https://gitlab.cee.redhat.com/service/managed-tenants-manifests
