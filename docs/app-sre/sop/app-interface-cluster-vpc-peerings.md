@@ -8,7 +8,7 @@ To add a VPC peering between an OSDv4 cluster and an AWS account managed in app-
 
     * Note: the data can be extracted from the AWS console.
 
-2. Add a `peering` section to a cluster file. [Example](/data/openshift/app-sre-stage-01/cluster.yml#L45-49).
+2. Add a `peering` section to a cluster file. [Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/53aefce89c24fdb4283880e44378234efc42d66a/data/openshift/app-sre-stage-01/cluster.yml#L68).
 
     * Note: the cluster has to be managed by `ocm` (an `ocm` section must exist).
     * The peering name should follow this convention: `<cluster-name>_<aws-account-name>_<vpc-name>`.
