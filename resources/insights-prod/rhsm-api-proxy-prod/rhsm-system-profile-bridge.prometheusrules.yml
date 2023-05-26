@@ -6,7 +6,7 @@ metadata:
   labels:
     prometheus: app-sre
     role: alert-rules
-  name: rhsm-system-profile-bridge-stage
+  name: rhsm-system-profile-bridge-prod
 spec:
   groups:
     - name: rhsm-system-profile-bridge-prod
