@@ -35,3 +35,12 @@ serviceOwners:
 - name: Ecosystem AppEng
   email: ecosystem-appeng@redhat.com
 
+codeComponents:
+  - name: keycloak-user-service
+    resource: upstream
+    url: https://gitlab.cee.redhat.com/service/keycloak-user-service
+    gitlabRepoOwners:
+      enabled: true
+    gitlabHousekeeping:
+      enabled: true
+      rebase: true
