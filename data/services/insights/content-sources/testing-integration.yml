@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
-    ref: 4a4d6d9a42d568e4da70310b590ef7fbced51c52
+    ref: 05c97b3bd245e011363d6279da9e1356cafaa11c
     promotion:
       auto: true
       subscribe:
@@ -44,5 +44,5 @@ resourceTemplates:
       - channel: content-sources-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: 31ee244c61db68e7
+          target_config_hash: 64bfa490011db301
           type: parent_saas_config
