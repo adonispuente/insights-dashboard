@@ -114,8 +114,7 @@ data:
             - endpoint:
                 address:
                   socket_address:
-                    # TODO(muller): Will match services/ota-stage/cincinnati-integration/$routes.yaml
-                    address: cc533os557xkwku.api.stage.openshift.com
+                    address: 00b68f8b1f10413.api.integration.openshift.com
                     port_value: 443
         transport_socket:
           name: envoy.transport_sockets.tls
