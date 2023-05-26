@@ -15,6 +15,7 @@ roles:
 - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 
 public_gpg_key: |
   mQINBGP2Z7gBEACrLFJ82D4H68eZ/gMu8KO9dPbtW5MsrkKkmn6KLKe57AHlyBsY
