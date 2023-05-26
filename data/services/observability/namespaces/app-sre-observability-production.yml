@@ -77,6 +77,12 @@ openshiftResources:
   version: 1
   name: rhoc-token-refresher
 
+## RHTAP Observatorium credentials
+- provider: vault-secret
+  path: stonesoup/production/monitoring/rhobs
+  version: 1
+  name: rhtap-token-refresher
+
 # ConfigMaps
 ## Cloudwatch exporters
 - provider: resource-template
