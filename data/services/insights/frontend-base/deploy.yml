@@ -288,3 +288,30 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
+
+# Learning Resources
+- name: learning-resources
+  path: /deploy/frontend.yml
+  url: https://github.com/RedHatInsights/learning-resources
+  targets:
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: d29650595b2ae458ac171fd987e20a1928748e5e
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/learning-resources"
+  # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: d29650595b2ae458ac171fd987e20a1928748e5e
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/learning-resources"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: d29650595b2ae458ac171fd987e20a1928748e5e
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/learning-resources"
