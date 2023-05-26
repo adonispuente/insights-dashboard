@@ -16,7 +16,7 @@ managed:
     $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
   spec:
     concurrencyPolicy: Forbid
-    cron: '0 19 * * *'
+    cron: '15 17 * * *'
     resources:
       requests:
         memory: 500Mi
