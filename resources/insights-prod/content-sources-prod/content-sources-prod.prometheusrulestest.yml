@@ -24,7 +24,6 @@ tests:
         service: insights
         app_team: content-sources
         env: prod
-        namespace: "content-sources-prod"
       exp_annotations:
         message: "content-sources-backend-service pod down for 5 minutes."
 
