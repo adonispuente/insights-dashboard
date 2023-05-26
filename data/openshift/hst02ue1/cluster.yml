@@ -5,8 +5,8 @@ name: hst02ue1
 description: HyperShift test cluster
 consoleUrl: https://console-openshift-console.apps.rosa.hst02ue1.niad.p3.openshiftapps.com
 kibanaUrl: ''
-prometheusUrl: ''
-alertmanagerUrl: ''
+prometheusUrl: https://prometheus.hst02ue1.devshift.net
+alertmanagerUrl: https://alertmanager.hst02ue1.devshift.net
 serverUrl: https://api.hst02ue1.niad.p3.openshiftapps.com:443
 elbFQDN: elb.apps.rosa.hst02ue1.niad.p3.openshiftapps.com
 auth:
@@ -52,4 +52,3 @@ network:
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
 internal: false
-
