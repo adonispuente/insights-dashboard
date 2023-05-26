@@ -62,7 +62,7 @@ resourceTemplates:
       LOG_LEVEL: debug
   - namespace:
       $ref: /services/insights/chrome-service/namespaces/chrome-service-prod.yml
-    ref: c2cb8d4ec90d1299a856f614a1b057a8bbc746f3
+    ref: 63133769880058c347d6025640f820e5c38bd599
     parameters:
       ENV_NAME: prod
       MIN_REPLICAS: 3
