@@ -22,6 +22,9 @@ managedGroups:
 automationToken:
   path: app-sre/creds/kube-configs/hst02ue1
   field: token
+clusterAdminAutomationToken:
+  path: app-sre/creds/kube-configs/hst02ue1-cluster-admin
+  field: token
 spec:
   product: rosa
   account:
