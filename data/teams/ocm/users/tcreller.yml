@@ -14,6 +14,7 @@ roles:
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/ocm/roles/vault-access.yml
+- $ref: /aws/app-sre/roles/ocm-rds-readonly.yml
 
 public_gpg_key: |
   mQINBGNOnwwBEADhw8NVOK7H+Ule4H9+Jm/crWi/RvtomScYey7MH3Y5gTMIZpvJLWaOvzqsNA1D
