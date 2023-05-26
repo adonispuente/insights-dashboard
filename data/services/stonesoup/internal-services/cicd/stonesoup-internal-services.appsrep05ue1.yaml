@@ -65,6 +65,14 @@ resourceTemplates:
       - namespace:
           $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsrep05ue1.yaml
         ref: 0c2a1bf3ec946f6d49d966f4a80808348607248f
+  - name: stonesoup-internal-services-networkpolicy-config
+    url: https://github.com/hacbs-release/app-interface-deployments
+    path: /internal-services/config/networkpolicy/production
+    provider: directory
+    targets:
+      - namespace:
+          $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsrep05ue1.yaml
+        ref: 0c2a1bf3ec946f6d49d966f4a80808348607248f 
   - name: stonesoup-internal-services-rbac
     url: https://github.com/hacbs-release/app-interface-deployments
     path: /internal-services/rbac
