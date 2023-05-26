@@ -21,7 +21,16 @@ networkPoliciesAllow:
 managedRoles: true
 
 managedResourceTypes:
+  - ClusterRole
+  - ClusterRoleBinding
   - Secret
+
+openshiftResources:
+  - provider: resource
+    path: /rhobs/logs/loki-logs-reader-cluster-role.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-reader-cluster-role-binding.yaml
+
 
 managedExternalResources: true
 
