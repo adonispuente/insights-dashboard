@@ -42,3 +42,12 @@ resourceTemplates:
       TOKEN_REFRESHER_IMAGE_TAG: master-2023-04-03-2207107
       TOKEN_REFRESHER_SECRET_NAME: "rhtap-token-refresher"
       REPLICAS: 3
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-production.yml
+    ref: 719162a3424910c63a04d69546f911861579508a
+    parameters:
+      SKUPPER_SERVICE_NAME: "rhtap-token-refresher-prod"
+      TOKEN_REFRESHER_IMAGE: "quay.io/observatorium/token-refresher"
+      TOKEN_REFRESHER_IMAGE_TAG: master-2023-04-03-2207107
+      TOKEN_REFRESHER_SECRET_NAME: "rhtap-token-refresher"
+      REPLICAS: 3
