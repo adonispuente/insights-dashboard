@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: cadfa4b044594dc48a34921b749f018f534330fa
+    ref: 7278a57f5339ea04bd74bb81253fa4bcd69e4937
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -146,7 +146,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: cadfa4b044594dc48a34921b749f018f534330fa
+    ref: 7278a57f5339ea04bd74bb81253fa4bcd69e4937
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -273,7 +273,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: cadfa4b044594dc48a34921b749f018f534330fa
+    ref: 7278a57f5339ea04bd74bb81253fa4bcd69e4937
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
