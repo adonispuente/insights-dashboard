@@ -67,5 +67,5 @@ resourceTemplates:
       - channel: notifications-engine-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: f1dc980ef47bb681
+          target_config_hash: a1ae0c9476e89368
           type: parent_saas_config
