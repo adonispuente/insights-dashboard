@@ -54,7 +54,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: d21c0c71f68b508182c38cf50c238c034d2c7685
+    ref: 99161da321f247694bc8617864b4ccc4e7522683
     parameters:
       ENV_NAME: stage
     promotion:
@@ -67,5 +67,5 @@ resourceTemplates:
       - channel: notifications-engine-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: 053266a44ebe308c
+          target_config_hash: 97f1f7cd27a7fcc5
           type: parent_saas_config
