@@ -75,12 +75,6 @@ openshiftResources:
     qontract.recycle: "true"
   name: acscs-token-refresher
 
-## RHTAP (Stonesoup) Observatorium credentials
-- provider: vault-secret
-  path: stonesoup/staging/monitoring/rhobs
-  version: 4
-  name: rhtap-token-refresher
-
 # ConfigMaps
 ## Cloudwatch exporters
 - provider: resource-template
