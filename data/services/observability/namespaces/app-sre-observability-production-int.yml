@@ -101,11 +101,13 @@ openshiftResources:
   path: app-interface/managed-connectors-api/production/service/observatorium
   version: 1
   name: rhoc-token-refresher
-## RHTAP Observatorium credentials
+## RHTAP (Stonesoup) Observatorium credentials
 - provider: vault-secret
   path: stonesoup/production/monitoring/rhobs
-  version: 1
+  version: 2
   name: rhtap-token-refresher
+  annotations:
+    qontract.recycle: "true"
 
 ## Observatorium credentials for Lokis
 - provider: vault-secret
