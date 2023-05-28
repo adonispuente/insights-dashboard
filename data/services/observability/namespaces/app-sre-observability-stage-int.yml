@@ -112,6 +112,11 @@ openshiftResources:
   path: /observability/grafana/grafana-dashboard-network-observability.configmap.yaml
   variables:
     ref: main
+## RHTAP (Stonesoup) Observatorium credentials
+- provider: vault-secret
+  path: stonesoup/staging/monitoring/rhobs
+  version: 4
+  name: rhtap-token-refresher
 
 managedExternalResources: true
 
