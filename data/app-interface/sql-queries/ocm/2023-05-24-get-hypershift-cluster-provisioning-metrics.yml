@@ -1,7 +1,7 @@
 ---
 $schema: /app-interface/app-interface-sql-query-1.yml
 labels: {}
-name: 2023-05-24-get-hypershift-cluster-provisioning-metrics
+name: 2023-05-24-get-hs-cluster-provisioning-metrics
 namespace:
   $ref: /services/ocm/namespaces/uhc-production.yml
 identifier: ocm-service-log-production-readonly
