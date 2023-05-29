@@ -248,3 +248,6 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/ephemeral/ccx-data-pipeline/rhobs-sso-client-auth
   version: 1
+- provider: vault-secret
+  path: insights/secrets/ephemeral/ccx-data-pipeline/cache-writer-redis-credentials
+  version: 1
