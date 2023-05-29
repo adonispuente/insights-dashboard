@@ -162,17 +162,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
     ref: 7a7c7c50a898ed119e2e84cb04568331fb41f623
-- name: vmaas-dashboards
-  url: https://github.com/RedHatInsights/vmaas
-  path: /monitoring/grafana/dashboards
-  provider: directory
-  targets:
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: e061b8747a36d17d7b314658868e333bce3ef718
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: e061b8747a36d17d7b314658868e333bce3ef718
 - name: rbac-dashboards
   url: https://github.com/RedHatInsights/insights-rbac
   path: /dashboards
