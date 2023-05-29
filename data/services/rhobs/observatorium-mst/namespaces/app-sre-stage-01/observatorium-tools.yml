@@ -51,6 +51,12 @@ openshiftResources:
   - provider: resource
     path: /rhobs/logs/loki-logs-external-reader-cluster-role-binding.yaml
 
+
+openshiftServiceAccountTokens:
+  - namespace:
+      $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
+    serviceAccountName: rhobs-loki-logs-reader
+
 managedExternalResources: true
 
 externalResources:
