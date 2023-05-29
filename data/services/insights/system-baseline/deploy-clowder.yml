@@ -49,7 +49,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
-    ref: 64286821185a6aa56ad47c0e520a4ffbad93cedd
+    ref: a58f21d31a1513d07a298ddfc5ce58c17d8938c2
     parameters:
       SYSTEM_BASELINE_HOST: system-baseline-backend-service.system-baseline-prod.svc.cluster.local
       FLOORIST_SUSPEND: 'false'
