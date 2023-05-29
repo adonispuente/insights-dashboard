@@ -62,7 +62,7 @@ resourceTemplates:
       $ref: /services/app-interface/namespaces/app-interface-dev-int.yml
     ref: master
     parameters:
-      REPLICAS: 2
+      REPLICAS: 3
       APP_INTERFACE_RESOURCES:
         requests:
           cpu: 50m
