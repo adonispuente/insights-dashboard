@@ -462,7 +462,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 8cb62f3079f7f01f7a027f8bfdaedd5ab484f348
+    ref: f53e47d938134857b03c11a1f28989a797cd7c65
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_NAMESPACE: observatorium-mst-production
@@ -536,6 +536,15 @@ resourceTemplates:
       THANOS_RULER_MEMORY_REQUEST: '8Gi'
       THANOS_RULER_MEMORY_LIMIT: '8Gi'
       THANOS_RULER_PVC_REQUEST: '50Gi'
+      THANOS_RULER_QUERIER_CPU_LIMIT: '10'
+      THANOS_RULER_QUERIER_CPU_REQUEST: '3'
+      THANOS_RULER_QUERIER_LOG_LEVEL: info
+      THANOS_RULER_QUERIER_MEMORY_LIMIT: '48Gi'
+      THANOS_RULER_QUERIER_MEMORY_REQUEST: '24Gi'
+      THANOS_RULER_QUERIER_REPLICAS: 10
+      THANOS_RULER_QUERIER_PROXY_STRATEGY: 'lazy'
+      THANOS_RULER_QUERIER_ENGINE: prometheus
+      THANOS_RULER_QUERIER_MAX_CONCURRENT: '1'
       MEMCACHED_IMAGE_TAG: 1.5
       MEMCACHED_MEMORY_LIMIT_MB: 2048Mi
       MEMCACHED_CONNECTION_LIMIT: 3072Mi
