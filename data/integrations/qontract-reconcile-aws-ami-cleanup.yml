@@ -28,7 +28,7 @@ managed:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
     concurrencyPolicy: Forbid
-    cron: '0 11 * * *'
+    cron: '0 10 * * *'
     resources:
       requests:
         memory: 500Mi
