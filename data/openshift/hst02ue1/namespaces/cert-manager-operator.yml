@@ -15,8 +15,6 @@ app:
 environment:
   $ref: /products/app-sre/environments/stage.yml
 
-clusterAdmin: true
-
 managedResourceTypes:
 - Subscription
 - OperatorGroup
