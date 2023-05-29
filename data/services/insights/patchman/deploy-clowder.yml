@@ -181,6 +181,9 @@ resourceTemplates:
       RES_REQUEST_MEM_LISTENER: 256Mi
       RES_LIMIT_MEM_LISTENER: 512Mi
 
+      # Evaluator
+      USE_VMAAS_GO: "TRUE"
+
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '5'
       IMAGE_TAG_EVALUATOR_UPLOAD: bffd81a # v3.1.43
