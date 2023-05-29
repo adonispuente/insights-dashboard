@@ -1,6 +1,6 @@
 - job-template:
-    id: 'insights-notifications-sonarqube-scan'
-    name: '{gh_org}-{gh_repo}-sonarqube-scan-{branch}'
+    id: 'insights-notifications-sonarqube-scan-pull-request'
+    name: '{gh_org}-{gh_repo}-sonarqube-scan-pull-request-{branch}'
     status_context: 'SonarQube scan'
     pr_check_script_path: './.rhcicd/sonarqube/sonarqube.bash'
     wrappers:
@@ -18,7 +18,6 @@
         - *quay_api_token
         - *quay_secret_push
     <<: *insights_gh_pr_check
-
 - job-template:
     id: 'insights-notifications-sonarqube-scan-master'
     name: '{gh_org}-{gh_repo}-sonarqube-scan-master'
