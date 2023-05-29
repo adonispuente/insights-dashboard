@@ -46,6 +46,9 @@ quayRepos:
   - name: web-rca-ui
     description: Web-RCA is a service that allows anyone at Red Hat to create RCAs (root cause analysis) / incident reports. This is the UI part.
     public: false
+  - name: web-rca-ansible
+    description: Web-RCA is a service that allows anyone at Red Hat to create RCAs (root cause analysis) / incident reports. This is the Ansible integration part.
+    public: false
 
 codeComponents:
 - name: web-rca
