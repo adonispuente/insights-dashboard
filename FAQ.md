@@ -16,6 +16,30 @@ For questions unanswered by this document, please reach out to `@app-sre-ic` in 
 
 ## Topics
 
+### GitLab is not working, what do to?
+
+If you notice problems with GitLab, especially with the GitLab CEE [service][gitlab-cee], try a few common
+troubleshooting steps:
+
+  - Reconnect your VPN session
+  - Verify that DNS resolution works correctly for Red Hat internal services
+  - Sign out and back in again
+  - Use a private/incognito session
+  - Remove old cookies
+  - Clean content of the browser local store
+
+However, if the problem persists and you still see issues with GitLab, [contact](#contacting-appsre) AppSRE to describe
+the problems and how to reproduce them.
+
+That said, the AppSRE team does not own GitLab deployments: that would be the IT ALM (Application Lifecycle Management)
+[team][it-alm-team]. You can reach them directly in the `#help-itde-alm` channel on Slack or send them an e-mail to
+[it-alm-team@redhat.com](mailto:it-alm-team@redhat.com).
+
+Feel free to contact them to report issues with GitLab. Remember to keep AppSRE in the loop.
+
+[gitlab-cee]: https://gitlab.cee.redhat.com
+[it-alm-team]: https://source.redhat.com/departments/it/devit/it-application-lifecycle-management
+
 ### Can you merge my MR
 
 The AppSRE IC (Interrupt Catcher) periodically reviews the MRs in the app-interface repository. There is no need to ping us to let us know you've opened a MR.
@@ -153,13 +177,6 @@ Find a permission that matches the access you require. For this example, choose 
 
 choosing a permission will take you to the Permission's page, in which you can view a list of `Roles` who grant this permission.  Choose the role that best matches your requirement and submit a merge request to app-interface adding that role to your user file.
 
-### I can not access X
-
-This may be caused due to several reasons. Follow this procedure:
-
-1. Follow the "How can I get access to X" story and make sure you are assigned a role that enables the desired access.
-2. Be sure to accept the GitHub invitation at https://github.com/app-sre
-
 ### I need help with something AWS related
 
 Please check our [AWS docs](https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/aws).
@@ -168,11 +185,22 @@ Please check our [AWS docs](https://gitlab.cee.redhat.com/service/app-interface/
 
 See the [How to delete external resource](#how-to-delete-external-resource) section.
 
-### I can not access ci-ext
+### I cannot access X
 
-Start by following [I can not access X](#i-can-not-access-x)
+This may be caused due to several reasons. Follow this procedure:
 
-Problem: I Can not log in to https://ci.ext.devshift.net.
+1. Follow the "How can I get access to X" story and make sure you are assigned a role that enables the desired access.
+2. Be sure to accept the GitHub invitation at https://github.com/app-sre
+
+### I cannot access GitLab
+
+See the [GitLab is not working, what do to?](#gitlab-is-not-working-what-do-to) section.
+
+### I cannot access ci-ext
+
+Start by following [I cannot access X](#i-can-not-access-x)
+
+Problem: I cannot log in to https://ci.ext.devshift.net.
 
 Managed to log in but having issues? Maybe even seeing this error message? `"Access denied: <your-red-hat-username> is missing the Overall/Read permission"`
 
@@ -189,11 +217,11 @@ If you already have a user file
 
 *Note that the permission could be granted to your user via a role that has the permission assigned, check if any of the roles assigned to your user have the access to ci-ext*
 
-### I can not access ci-int
+### I cannot access ci-int
 
-Start by following [I can not access X](#i-can-not-access-x)
+Start by following [I cannot access X](#i-can-not-access-x)
 
-Problem: I Can not log in to https://ci.int.devshift.net.
+Problem: I cannot log in to https://ci.int.devshift.net.
 
 Managed to log in but having issues? Maybe even seeing this error message? `"Access denied: <your-red-hat-username> is missing the Overall/Read permission"`
 
@@ -210,12 +238,11 @@ If you already have a user file
 
 *Note that the permission could be granted to your user via a role that has the permission assigned, check if any of the roles assigned to your user have the access to ci-int*
 
-### I can not access Grafana
+### I cannot access Grafana
 
 The AppSRE Grafana instance is available at https://grafana.app-sre.devshift.net.
 
 Currently, every internal RedHat user can access this instance.
-
 
 ### My Grafana Dashboard is missing
 
@@ -517,7 +544,7 @@ Malicious actors may submit a PR updating the pr-check script to do very bad thi
 
 To protect ourselves from such attacks, the pr-check job will only run automatically if the PR submitter is a member of the repository's organization.
 
-> Note: app-sre-bot must be a member of the GitHub organization, otherwise it can not see org members with a Private membership.
+> Note: app-sre-bot must be a member of the GitHub organization, otherwise it cannot see org members with a Private membership.
 
 In case a PR is submitted by an unknown person (not a member of the org), the bot will comment `Can one of the admins verify this patch?`, and will wait for a confirmation comment from one of the org members (a `/retest` or `/ok-to-test` would suffice).
 
@@ -581,7 +608,7 @@ Review #sd-app-sre-reconcile in slack for messages related to your configuration
 
 If the `openshift-saas-deploy` Task of the Pipeline fails to finish successfully and leaves no trace about there's a good chance that the pod responsible to execute the Task's steps are hitting the memory limit getting killed by the kernel OOM. In order to verify this, you can search for pods in the tekton provider's namespace associated your saas file. If you see pods related to your `PipelineRun` (which are named after your saas file) showing `OOMKilled` status, you will need to increase the resources assigned to your deployment pods. In order to do that, just add a [`deployResources`](/docs/app-sre/continuous-delivery-in-app-interface.md#saas-file-structure) section in your saas file or increase the resources associated there. The resulting MR can be approved by the saas file owners.
 
-### I can not see metrics from my service in Prometheus
+### I cannot see metrics from my service in Prometheus
 
 AppSRE uses [openshift-customer-monitoring](./docs/app-sre/osdv4-openshift-customer-monitoring.md) to monitor services.
 
