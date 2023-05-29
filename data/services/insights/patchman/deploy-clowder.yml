@@ -159,11 +159,11 @@ resourceTemplates:
 
   - namespace: # PRODUCTION
       $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-    ref: a8dd28641b758df417ebe66057027296d5aea4af # v3.1.39
+    ref: bffd81ab577adc70beb5fb2ccfeb58070fca0897 # v3.1.39
     parameters:
       # Manager
       REPLICAS_MANAGER: '4'
-      IMAGE_TAG_MANAGER: a8dd286 # v3.1.39
+      IMAGE_TAG_MANAGER: bffd81a # v3.1.43
       LOG_LEVEL_MANAGER: info
       RES_REQUEST_CPU_MANAGER: 500m
       RES_REQUEST_MEM_MANAGER: 1Gi
@@ -175,7 +175,7 @@ resourceTemplates:
 
       # Listener
       REPLICAS_LISTENER: '3'
-      IMAGE_TAG_LISTENER: a8dd286 # v3.1.39
+      IMAGE_TAG_LISTENER: bffd81a # v3.1.43
       LOG_LEVEL_LISTENER: info
       CONSUMER_COUNT_LISTENER: "4"
       RES_REQUEST_MEM_LISTENER: 256Mi
@@ -183,7 +183,7 @@ resourceTemplates:
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '5'
-      IMAGE_TAG_EVALUATOR_UPLOAD: a8dd286 # v3.1.39
+      IMAGE_TAG_EVALUATOR_UPLOAD: bffd81a # v3.1.43
       LOG_LEVEL_EVALUATOR_UPLOAD: debug
       ENABLE_BASELINE_EVAL_EVALUATOR_UPLOAD: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_UPLOAD: 'true'
@@ -197,7 +197,7 @@ resourceTemplates:
 
       # Evaluator - recalc
       REPLICAS_EVALUATOR_RECALC: '5'
-      IMAGE_TAG_EVALUATOR_RECALC: a8dd286 # v3.1.39
+      IMAGE_TAG_EVALUATOR_RECALC: bffd81a # v3.1.43
       LOG_LEVEL_EVALUATOR_RECALC: info
       ENABLE_BASELINE_EVAL_EVALUATOR_RECALC: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_RECALC: 'true'
@@ -221,7 +221,7 @@ resourceTemplates:
       VMAAS_SYNC_SCHEDULE: '30 */4 * * *'
 
       # Database admin
-      IMAGE_TAG_DATABASE_ADMIN: a8dd286 # v3.1.39
+      IMAGE_TAG_DATABASE_ADMIN: bffd81a # v3.1.43
       LOG_LEVEL_DATABASE_ADMIN: info
       UPDATE_USERS: 'false'  # add new users, update credentials
       UPDATE_DB_CONFIG: 'false'  # apply './database_admin/config.sql'
@@ -236,7 +236,7 @@ resourceTemplates:
       KAFKA_WRITER_MAX_ATTEMPTS: '60'
 
       # Jobs
-      IMAGE_TAG_JOBS: a8dd286 # v3.1.39
+      IMAGE_TAG_JOBS: bffd81a # v3.1.43
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
       PKG_REFRESH_SUSPEND: 'false'  # turned on 2023-1-12
