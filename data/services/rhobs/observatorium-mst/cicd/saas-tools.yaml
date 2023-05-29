@@ -94,7 +94,7 @@ resourceTemplates:
         LOKI_SIZE: 1x.extra-small
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
-      ref: 3934c61432dd0e3d1519baf35a6aeb0a0eebba75
+      ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
       parameters:
         LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
         LOKI_SIZE: 1x.extra-small
