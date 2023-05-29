@@ -75,13 +75,6 @@ externalResources:
         ]
       }
     output_resource_name: packer
-- provider: secrets-manager
-  identifier: ci-instances-splunk-token
-  secret:
-    path: app-interface/app-sre/ci-instances/splunk-token
-    version: 1
-    field: all
-  output_resource_name: ci-instances-splunk-token
 - provider: aws
   provisioner:
     $ref: /aws/app-sre/account.yml
