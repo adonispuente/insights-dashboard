@@ -8040,6 +8040,13 @@ records:
   value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
   proxied: false
   priority: 0
+- name: qj3layty4dynlnz.api.integration.openshift.com
+  identifier: cname-qj3layty4dynlnz-api-integration-openshift-com
+  type: CNAME
+  ttl: 60
+  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
+  proxied: false
+  priority: 0
 - name: console.bc2.openshift.com
   identifier: cname-console-bc2-openshift-com
   type: CNAME
