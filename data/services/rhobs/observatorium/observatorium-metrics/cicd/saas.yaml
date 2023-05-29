@@ -150,12 +150,12 @@ resourceTemplates:
       THANOS_S3_SECRET: telemeter-thanos-stage-s3
       THANOS_IMAGE_TAG: v0.30.2
       THANOS_RECEIVE_CONTROLLER_IMAGE_TAG: master-2023-04-03-535b31e
-      THANOS_QUERIER_REPLICAS: 6
+      THANOS_QUERIER_REPLICAS: 3
       THANOS_QUERIER_CPU_REQUEST: '500m'
       THANOS_QUERIER_CPU_LIMIT: '2'
       THANOS_QUERIER_MAX_CONCURRENT: '1'
-      THANOS_QUERIER_MEMORY_REQUEST: '4Gi'
-      THANOS_QUERIER_MEMORY_LIMIT: '14Gi'
+      THANOS_QUERIER_MEMORY_REQUEST: '2Gi'
+      THANOS_QUERIER_MEMORY_LIMIT: '8Gi'
       THANOS_QUERIER_FILE_SD_TARGETS: '["dnssrv+_grpc._tcp.observatorium-thanos-metric-federation-rule.observatorium-metrics-stage.svc.cluster.local"]'
       THANOS_QUERIER_PROXY_STRATEGY: 'lazy'
       THANOS_VOLCANO_IMAGE_TAG: main-2022-10-07-a4e33415
