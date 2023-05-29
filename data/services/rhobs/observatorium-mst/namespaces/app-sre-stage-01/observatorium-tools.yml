@@ -33,13 +33,29 @@ managedResourceNames:
   - resource: ClusterRoleBinding.rbac.authorization.k8s.io
     resourceNames:
       - logging-users-application-logs-reader
+  - resource: ClusterRole.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-application-external-logs-reader
+  - resource: ClusterRoleBinding.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-application-external-logs-reader
+
 
 openshiftResources:
   - provider: resource
     path: /rhobs/logs/loki-logs-reader-cluster-role.yaml
   - provider: resource
     path: /rhobs/logs/loki-logs-reader-cluster-role-binding.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-external-reader-cluster-role.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-external-reader-cluster-role-binding.yaml
 
+
+openshiftServiceAccountTokens:
+  - namespace:
+      $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
+    serviceAccountName: rhobs-loki-logs-reader
 
 managedExternalResources: true
 
