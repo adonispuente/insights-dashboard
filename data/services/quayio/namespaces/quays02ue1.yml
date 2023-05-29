@@ -344,6 +344,7 @@ externalResources:
     identifier: quayio-stage-ocm-quay
     idle_timeout: 3600
     ip_address_type: dualstack
+    access_logs: true
     vpc:
       $ref: /aws/quayio-stage/vpcs/default.yml
     certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/aa509131-4bed-4b14-88f8-4826d1f57238
