@@ -102,6 +102,7 @@ externalResources:
     overrides:
       apply_immediately: true
       engine_version: '12.13'
+      multi_az: false
   - provider: rds
     identifier: ocm-service-log-production
     defaults: /terraform/resources/app-sre/production/rds-2-cloudwatch-enabled.yml
