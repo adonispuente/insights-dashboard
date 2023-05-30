@@ -27,6 +27,7 @@ users:
 - $ref: /teams/ocm/users/lponce.yml
 - $ref: /teams/ocm/users/cveiga.yml
 - $ref: /teams/ocm/users/adecorte.yml
+- $ref: /teams/ocm/users/rcampos.yml
 
 instances:
 - account: app-sre
@@ -39,4 +40,4 @@ instances:
     $ref: /services/ocm/namespaces/uhc-production.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-05-30'
+expirationDate: '2023-08-28'
