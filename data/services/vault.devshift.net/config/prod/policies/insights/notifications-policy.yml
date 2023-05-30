@@ -21,3 +21,6 @@ rules: |
   path "insights/data/secrets/insights-stage/notifications-stage/*" {
     capabilities = ["create", "read", "update"]
   }
+  path "insights/data/secrets/insights-stage/export-service-stage/export-service-psks" {
+    capabilities = ["read"]
+  }
