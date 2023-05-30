@@ -71,6 +71,7 @@ resourceTemplates:
     parameters:
       LOGGING_LEVEL: trace
       DATABASE_LOGGING_LEVEL: trace
+      REST_ENDPOINTS_TRACE_DATA: true
   - namespace: # STAGE api
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
     ref: main
