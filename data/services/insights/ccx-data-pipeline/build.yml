@@ -29,6 +29,7 @@ config:
         # Skip pr_check for CCX rules version bump pull requests.
     - "insights-gl-build-master":
         display_name: ccx build-master
+        disable_retry_on_failure: false
 - project:
     name: insights-results-aggregator
     label: insights
@@ -66,6 +67,7 @@ config:
         # Skip pr_check for CCX rules version bump pull requests.
     - "insights-gh-build-master":
         display_name: ccx-insights-content-service build-master
+        disable_retry_on_failure: false
     - "insights-gh-build-master":
         display_name: ccx-insights-content-service build-security-compliance
         branch: security-compliance
