@@ -1,0 +1,13 @@
+---
+$schema: /dependencies/pagerduty-target-1.yml
+
+labels:
+  service: pagerduty
+
+name: lp-sre-pagerduty-secondary-oncall
+description: LP SRE Secondary Oncall
+
+instance:
+  $ref: /dependencies/pagerduty/instance.yml
+
+scheduleID: PRY7RU4
