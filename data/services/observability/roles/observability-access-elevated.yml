@@ -117,9 +117,6 @@ access:
     $ref: /openshift/stonesoupp01ue1/namespaces/app-sre-observability-per-cluster.yml
   role: view
 - namespace:
-    $ref: /openshift/hst01ue1/namespaces/app-sre-observability-per-cluster.yml
-  role: view
-- namespace:
     $ref: /openshift/backplanes03ue1/namespaces/app-sre-observability-per-cluster.yml
   role: view
 - namespace:
