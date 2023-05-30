@@ -249,3 +249,28 @@ externalResources:
       version: 1
       field: all
     output_resource_name: ci-instances-splunk-token
+  - provider: aws-iam-role
+    identifier: ci-instances-read-secrets
+    assume_role:
+      Service:
+      - ec2.amazonaws.com
+    inline_policy:
+      {
+        Version: "2012-10-17",
+        Statement: [
+          {
+            "Sid": "CiInstancesReadSecrets",
+            "Effect": "Allow",
+            "Action": [
+              "secretsmanager:GetResourcePolicy",
+              "secretsmanager:GetSecretValue",
+              "secretsmanager:DescribeSecret",
+              "secretsmanager:ListSecretVersionIds"
+            ],
+            "Resource": [
+              "arn:aws:secretsmanager:us-east-1:950916221866:secret:ci-instances-splunk-token-DQTxkM",
+            ]
+          },
+        ]
+      }
+    output_resource_name: ci-instances-read-secrets
