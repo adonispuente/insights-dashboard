@@ -1,0 +1,60 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Nir Argaman
+org_username: nargaman
+github_username: nirarg
+quay_username: nargaman
+
+tag_on_merge_requests: true
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
