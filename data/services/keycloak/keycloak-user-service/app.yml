@@ -45,3 +45,14 @@ codeComponents:
     enabled: true
     rebase: true
 
+quayRepos:
+- org:
+    $ref: /dependencies/quay/app-sre.yml
+  teams:
+  - permissions:
+    - $ref: /dependencies/quay/permissions/quay-membership-swat.yml
+    role: read
+  items:
+  - name: keycloak-user-service
+    description: keycloak user service
+    public: false
