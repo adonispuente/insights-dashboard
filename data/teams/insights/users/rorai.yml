@@ -1,0 +1,17 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Rohit Rai
+org_username: rorai
+github_username: rohitkrai03
+quay_username: rorai
+
+roles:
+- $ref: /teams/insights/roles/hac.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
