@@ -38,7 +38,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/dashdot/namespaces/app-sre-stage-01.yml
     ref: master
-    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
