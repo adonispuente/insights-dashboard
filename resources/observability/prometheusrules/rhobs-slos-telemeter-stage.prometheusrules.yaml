@@ -390,7 +390,6 @@ spec:
       labels:
         handler: upload
         job: telemeter-server
-        le: "5"
         service: telemeter
         severity: high
         slo: rhobs-telemeter-server-metrics-upload-latency-slo
@@ -602,7 +601,6 @@ spec:
       labels:
         handler: receive
         job: telemeter-server
-        le: "5"
         service: telemeter
         severity: high
         slo: rhobs-telemeter-server-metrics-receive-latency-slo
@@ -1993,8 +1991,6 @@ spec:
         == 1
       for: 2m
       labels:
-        client: reload
-        container: thanos-rule-syncer
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
         severity: high
@@ -2076,8 +2072,6 @@ spec:
         > (14 * (1-0.995))
       for: 2m
       labels:
-        client: reload
-        container: thanos-rule-syncer
         long_burnrate_window: 1h
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2095,8 +2089,6 @@ spec:
         > (7 * (1-0.995))
       for: 15m
       labels:
-        client: reload
-        container: thanos-rule-syncer
         long_burnrate_window: 6h
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2114,8 +2106,6 @@ spec:
         > (2 * (1-0.995))
       for: 1h
       labels:
-        client: reload
-        container: thanos-rule-syncer
         long_burnrate_window: 1d
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2133,8 +2123,6 @@ spec:
         > (1 * (1-0.995))
       for: 3h
       labels:
-        client: reload
-        container: thanos-rule-syncer
         long_burnrate_window: 4d
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2186,7 +2174,6 @@ spec:
         == 1
       for: 2m
       labels:
-        container: thanos-rule
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
         severity: high
@@ -2261,7 +2248,6 @@ spec:
         > (14 * (1-0.995))
       for: 2m
       labels:
-        container: thanos-rule
         long_burnrate_window: 1h
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2279,7 +2265,6 @@ spec:
         > (7 * (1-0.995))
       for: 15m
       labels:
-        container: thanos-rule
         long_burnrate_window: 6h
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2297,7 +2282,6 @@ spec:
         > (2 * (1-0.995))
       for: 1h
       labels:
-        container: thanos-rule
         long_burnrate_window: 1d
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2315,7 +2299,6 @@ spec:
         > (1 * (1-0.995))
       for: 3h
       labels:
-        container: thanos-rule
         long_burnrate_window: 4d
         namespace: observatorium-metrics-stage
         service: observatorium-thanos-ruler
@@ -2564,7 +2547,6 @@ spec:
         group: metricsv1
         handler: receive
         job: observatorium-observatorium-api
-        le: "5"
         service: observatorium-thanos-receive
         severity: high
         slo: api-metrics-write-latency-slo
@@ -2785,7 +2767,6 @@ spec:
         == 1
       for: 2m
       labels:
-        le: "10"
         namespace: observatorium-stage
         query: query-path-sli-1M-samples
         service: observatorium-thanos-query
@@ -2997,7 +2978,6 @@ spec:
         == 1
       for: 2m
       labels:
-        le: "30"
         namespace: observatorium-stage
         query: query-path-sli-10M-samples
         service: observatorium-thanos-query
@@ -3209,7 +3189,6 @@ spec:
         == 1
       for: 2m
       labels:
-        le: "120"
         namespace: observatorium-stage
         query: query-path-sli-1M-samples
         service: observatorium-thanos-query
