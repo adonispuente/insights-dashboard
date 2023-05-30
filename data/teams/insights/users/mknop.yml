@@ -24,6 +24,9 @@ roles:
 - $ref: /teams/insights/roles/prometheus.yml
 - $ref: /teams/insights/roles/devprod.yml
 
+# Delete when PR check enhancement work is finished
+- $ref: /teams/insights/roles/hccm.yml
+
 public_gpg_key: |
   mQGNBGLFuK4BDADDD178sO2hAXqMqaD3aGxsMRWjVQ5D53mD9gbmyuhiyr/1XYZ1sGVM1q3xrubj
   4PKnXHkSTf4/EthSxhaFdLhi7PROGvlNvevcasbTLmS+875D/d+xD3mElPKHMWcZHf89SlhVpA8z
