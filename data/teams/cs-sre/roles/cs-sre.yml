@@ -61,5 +61,4 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/cs-sre/roles/cs-sre.yml
-  - $ref: /teams/cs-sre/roles/cs-sre-slack.yml
   - $ref: /teams/managed-services/roles/kafka-cssre.yml

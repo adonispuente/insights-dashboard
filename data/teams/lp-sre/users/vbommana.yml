@@ -11,7 +11,6 @@ quay_username: vbommana_cssre
 roles:
 - $ref: /teams/cs-sre/roles/cs-sre.yml
 - $ref: /teams/lp-sre/roles/lp-sre.yml
-- $ref: /teams/cs-sre/roles/cs-sre-slack.yml
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/managed-services/roles/rts.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml

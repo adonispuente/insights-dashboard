@@ -109,9 +109,6 @@ managedUsergroups:
 - code-quarkus-team
 - cos-control-plane-primary
 - cincinnati-team
-- cs-sre-team
-- cs-sre-primary
-- cs-sre-secondary
 - managed-prometheus-exporter
 - rbac-permissions-operator
 - splunk-forwarder-operator

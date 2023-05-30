@@ -19,7 +19,7 @@ channels:
     - $ref: /teams/managed-services/permissions/control-plane-primary-coreos-slack.yml
 
   pagerduty:
-    $ref: /dependencies/pagerduty/cs-sre-primary.yml
+    $ref: /dependencies/pagerduty/lp-sre-primary.yml
 
   email:
     - mk-support@redhat.com

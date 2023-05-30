@@ -10,7 +10,6 @@ github_username: pepedocs
 roles:
 - $ref: /teams/cs-sre/roles/cs-sre.yml
 - $ref: /teams/lp-sre/roles/lp-sre.yml
-- $ref: /teams/cs-sre/roles/cs-sre-slack.yml
 - $ref: /teams/lp-sre/roles/addon-operator-devel.yml
 - $ref: /teams/lp-sre/roles/reference-addon-devel.yml
 - $ref: /teams/managed-services/roles/kafka-cssre.yml
