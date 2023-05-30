@@ -18,5 +18,5 @@ spec:
 
   issuerRef:
     name: letsencrypt-backplane-dns
-    kind: ClusterIssuer
+    kind: Issuer
     group: cert-manager.io
