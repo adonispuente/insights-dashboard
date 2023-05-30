@@ -205,7 +205,7 @@ resourceTemplates:
     parameters:
       TGT_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
       BOOTSTRAP_CONFIG_PROVIDER: consoledot-ccov-b--cor-brq-vvua.bf2.kafka.rhcloud.com:443
-      AUTH_CONFIG_PROVIDER_ID: ${secrets:platform-mq-stage/mk-oauth-secret:client_id}
+      AUTH_CONFIG_PROVIDER_ID: srvc-acct-6401d82b-9830-4ad5-a9a8-b9dc6479c4fe
       MANAGED_KAFKA_AUTH_ENDPOINT: https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
       AUTH_SECRET_NAME: mk-oauth-secret
       TGT_CLUSTER_ALIAS: platform-mq-stage
