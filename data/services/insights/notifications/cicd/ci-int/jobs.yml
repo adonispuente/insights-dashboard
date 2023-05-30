@@ -20,6 +20,8 @@ config:
     name: notifications
     label: insights
     node: insights
+    gh_org: RedHatInsights
+    gh_repo: notifications-backend
     jobs:
     - "insights-deploy-ephemeral":
         display_name: notifications ephemeral
@@ -29,3 +31,9 @@ config:
         git_commit: master
         image_tag: latest
         include_ui: true
+    # SonarQube jobs.
+    - "insights-notifications-sonarqube-scan-pull-request":
+        display_name: notifications-backend sonarqube pull request
+    - "insights-notifications-sonarqube-scan-master":
+        branch: master
+        display_name: notifications-backend sonarqube-master
