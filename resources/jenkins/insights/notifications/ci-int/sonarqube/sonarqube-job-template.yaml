@@ -15,8 +15,6 @@
         - *insights_notifications_sonarqube
         - *insights_rh_registry_pull_secret
         - *insightsdroid_github
-        - *quay_api_token
-        - *quay_secret_push
     <<: *insights_gh_pr_check
 - job-template:
     id: 'insights-notifications-sonarqube-scan-master'
@@ -32,6 +30,4 @@
         secrets:
         - *insights_notifications_sonarqube
         - *insights_rh_registry_pull_secret
-        - *quay_api_token
-        - *quay_secret_push
     <<: *gh_build_master
