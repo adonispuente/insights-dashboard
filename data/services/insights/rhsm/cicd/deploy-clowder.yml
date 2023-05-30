@@ -122,6 +122,8 @@ resourceTemplates:
       REPLICAS: 3
       KAFKA_BILLABLE_USAGE_REPLICAS: 3
       KAFKA_BILLABLE_USAGE_PARTITIONS: 24
+      OTEL_ENABLED: 'true'
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
 
 - name: swatch-producer-red-hat-marketplace
   path: /swatch-producer-red-hat-marketplace/deploy/clowdapp.yaml
@@ -452,6 +454,8 @@ resourceTemplates:
     ref: 67b21df7478d77b8164ce96358c90d8eb2770c2b
     parameters:
       REPLICAS: 3
+      OTEL_ENABLED: 'true'
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
       # NOTE: no need for QUARKUS_PROFILE, as "prod" is default
 
 - name: swatch-tally
