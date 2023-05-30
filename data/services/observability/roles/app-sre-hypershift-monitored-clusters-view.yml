@@ -9,5 +9,5 @@ permissions: []
 
 access:
 - cluster:
-    $ref: /openshift/hst01ue1/cluster.yml
+    $ref: /openshift/hst02ue1/cluster.yml
   clusterRole: cluster-monitoring-view

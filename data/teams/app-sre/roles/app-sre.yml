@@ -168,9 +168,6 @@ access:
   group: dedicated-admins
 ## HyperShift
 - cluster:
-    $ref: /openshift/hst01ue1/cluster.yml
-  group: dedicated-admins
-- cluster:
     $ref: /openshift/hst02ue1/cluster.yml
   group: dedicated-admins
 ## Backplane

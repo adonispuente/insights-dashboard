@@ -117,9 +117,6 @@ access:
     $ref: /openshift/stonesoupp01ue1/cluster.yml
   clusterRole: cluster-monitoring-view
 - cluster:
-    $ref: /openshift/hst01ue1/cluster.yml
-  clusterRole: cluster-monitoring-view
-- cluster:
     $ref: /openshift/backplanes03ue1/cluster.yml
   clusterRole: cluster-monitoring-view
 - cluster:
