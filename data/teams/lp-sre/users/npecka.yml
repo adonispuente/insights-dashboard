@@ -16,7 +16,6 @@ roles:
   - $ref: /teams/managed-services/roles/kafka-cssre.yml
   - $ref: /teams/cs-sre/roles/cs-sre.yml
   - $ref: /teams/lp-sre/roles/lp-sre.yml
-  - $ref: /teams/cs-sre/roles/cs-sre-slack.yml
   - $ref: /teams/dvo/roles/dvo-maintainer.yaml
   - $ref: /teams/lp-sre/roles/lp-sre-nasa-slack.yml
   - $ref: /teams/advanced-cluster-security/roles/acs-lpsre.yml
