@@ -1,0 +1,30 @@
+---
+$schema: /access/role-1.yml
+
+labels:
+  platform: insights
+  service: provisioning
+
+name: provisioning-monitor
+
+permissions:
+- $ref: /teams/insights/permissions/crc-provisioning-team-coreos-slack.yml
+
+access:
+- namespace:
+    $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
+  role: view
+- namespace:
+    $ref: /services/insights/provisioning/namespaces/provisioning-stage-testing.yml
+  role: view
+- namespace:
+    $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
+  role: view
+
+glitchtip_roles:
+- organization:
+    $ref: /dependencies/glitchtip/organizations/insights.yml
+  role: member
+
+glitchtip_teams:
+- $ref: /dependencies/glitchtip/teams/hcc-provisioning.yml

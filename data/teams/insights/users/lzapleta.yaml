@@ -18,7 +18,9 @@ roles:
 - $ref: /teams/insights/roles/insights-qe.yml
 - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
+- $ref: /teams/insights/roles/provisioning-monitor.yml
 - $ref: /teams/insights/roles/provisioning.yml
+- $ref: /teams/insights/roles/provisioning-secrets.yml
 - $ref: /teams/insights/roles/content-sources.yml
 - $ref: /services/observability/roles/observability-access.yml
 
