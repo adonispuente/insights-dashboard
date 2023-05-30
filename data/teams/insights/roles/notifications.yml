@@ -52,3 +52,8 @@ self_service:
   datafiles:
   - $ref: /teams/insights/roles/notifications.yml
   - $ref: /teams/insights/roles/notifications-slack.yml
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /jenkins/insights/notifications/ci-int/sonarqube/sonarqube-job-template.yaml
+  - /jenkins/insights/notifications/ci-int/sonarqube/sonarqube-secrets.yaml
