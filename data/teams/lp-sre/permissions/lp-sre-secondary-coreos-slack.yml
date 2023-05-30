@@ -1,0 +1,26 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: lp-sre-secondary-coreos-slack
+description: LP SRE Secondary On Call (managed via app-interface)
+
+service: slack-usergroup
+handle: lp-sre-secondary
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+pagerduty:
+- $ref: /dependencies/pagerduty/lp-sre-secondary.yml
+
+channels:
+- forum-managed-tenants
+- sre-lp-teamchat
+- sre-lp-teamhandover
+- sd-app-sre
+- sd-mt-sre-oncall
+- sd-mt-sre-alert
+- sd-org
+- sd-sre-platform

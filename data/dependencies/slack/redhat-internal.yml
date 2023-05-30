@@ -196,6 +196,8 @@ managedUsergroups:
 - lp-sre-emea
 - lp-sre-nasa
 - lp-sre-team
+- lp-sre-primary
+- lp-sre-secondary
 - data-hub-ic
 - image-builder-team
 - sre-platform-investigators
