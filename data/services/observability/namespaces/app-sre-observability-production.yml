@@ -895,6 +895,25 @@ externalResources:
       cluster:
         $ref: /openshift/stonesoupp01ue1/cluster.yml
       access_level: read-only
+  ## hst02ue1 CloudWatch access.
+  - provider: aws-iam-service-account
+    identifier: hst02ue1-cloudwatch-access
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [{
+          "Action": [
+            "sts:AssumeRole"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+        }]
+      }
+    output_resource_name: hst02ue1-cloudwatch-access
+    aws_infrastructure_access:
+      cluster:
+        $ref: /openshift/hst02ue1/cluster.yml
+      access_level: read-only
 - provider: aws
   provisioner:
     $ref: /aws/osio/account.yml
