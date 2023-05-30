@@ -65,7 +65,7 @@ resourceTemplates:
       ENABLE_BOOK_KEEPING_FLOW: "false"
       CPU_REQUEST: '3'
       CPU_LIMIT: '3'
-      MEMORY_REQUEST: '4Gi'
-      MEMORY_LIMIT: '5Gi'
+      MEMORY_REQUEST: '5Gi'
+      MEMORY_LIMIT: '6Gi'
       WORKER_COUNT: '6'
       WORKER_CONNECTIONS: '33000'
