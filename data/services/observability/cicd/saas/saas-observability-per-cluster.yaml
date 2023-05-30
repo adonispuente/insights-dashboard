@@ -406,6 +406,7 @@ resourceTemplates:
       EXTERNAL_URL: https://prometheus.hst01ue1.devshift.net
       STORAGE_CLASS_NAME: gp3-csi
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
+    delete: true
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
     parameters:
@@ -712,6 +713,7 @@ resourceTemplates:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.hst01ue1.devshift.net
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
+    delete: true
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
     parameters:
