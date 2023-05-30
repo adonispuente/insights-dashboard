@@ -69,3 +69,7 @@ self_service:
   - /terraform/resources/stonesoup/staging/multi-tenant/gitopsvc-rds.yml  
   - /terraform/resources/stonesoup/staging/redhat/gitopsvc-kms.yml
   - /terraform/resources/stonesoup/staging/redhat/gitopsvc-rds.yml
+- change_type:
+    $ref: /app-interface/changetype/ocm-org-owner.yml
+  datafiles:
+  - $ref: /dependencies/ocm/stonesoup/rhtap.yaml
