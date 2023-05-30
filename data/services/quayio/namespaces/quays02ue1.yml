@@ -295,6 +295,22 @@ externalResources:
             weight: 0
           - target: quayio-stage-debug
             weight: 100
+  - provider: alb
+    identifier: quayio-stage-alb01-grpc
+    output_resource_name: quayio-alb-grpc
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-stage/vpcs/default.yml
+    certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/8e2e34fa-7227-4561-9d7d-d364871f4352
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-stage-py3-grpc
+      default: true
+      openshift_service: quay-py3-grpc-load-balancer-service
+      protocol: "HTTPS"
+      protocol_version: "GRPC"
+    rules: []
   - provider: s3
     identifier: quayio-stage-cloudfront-logs
     defaults: /terraform/resources/s3-all-expires-90-days-external-acl.yml
