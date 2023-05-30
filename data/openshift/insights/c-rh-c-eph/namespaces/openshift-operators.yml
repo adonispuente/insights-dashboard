@@ -14,3 +14,8 @@ app:
 
 environment:
   $ref: /products/insights/environments/ephemeral-mgmt.yml
+
+managedResourceTypes:
+- Subscription.operators.coreos.com
+
+openshiftResources: []
