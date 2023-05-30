@@ -38,6 +38,21 @@ config:
         ci_cmd: './end2end-curl.sh'
         slack_channel_notification: sd-ops-services-dev
 - project:
+    name: web-rca-ansible
+    label: web-rca-ansible
+    node: rhel8
+    gl_group: service
+    gl_project: web-rca-ansible
+    pr_check_script_path: './pr_test.sh'
+    build_deploy_script_path: './build.sh'
+    quay_org: app-sre
+    jobs:
+    - 'gl-build-master':
+        display_name: Web RCA Ansible build main
+        branch: main
+    - 'gl-pr-check':
+        display_name: Web RCA Ansible pr-check
+- project:
     name: web-rca-ui
     label: web-rca-ui
     node: rhel8
