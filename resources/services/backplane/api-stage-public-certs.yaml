@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-stage-backplane-openshift-com
+spec:
+  secretName: public-cert
+
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+
+  usages:
+    - server auth
+
+  dnsNames:
+    - api.stage.backplane.openshift.com
+
+  issuerRef:
+    name: letsencrypt-backplane-dns
+    kind: ClusterIssuer
+    group: cert-manager.io
