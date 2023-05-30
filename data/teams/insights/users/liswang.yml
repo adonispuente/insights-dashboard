@@ -1,0 +1,15 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Lisa Wang
+org_username: liswang
+github_username: liswang89
+quay_username: liswang
+
+roles:
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
