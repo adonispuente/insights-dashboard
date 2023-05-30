@@ -26,6 +26,7 @@ roles:
 
 # Delete when PR check enhancement work is finished
 - $ref: /teams/insights/roles/hccm.yml
+- $ref: /teams/insights/roles/hccm-dev.yml
 
 public_gpg_key: |
   mQGNBGLFuK4BDADDD178sO2hAXqMqaD3aGxsMRWjVQ5D53mD9gbmyuhiyr/1XYZ1sGVM1q3xrubj
