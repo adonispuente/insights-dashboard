@@ -40,8 +40,26 @@ managed:
         cpu: 1200m
     internalCertificates: true
   sharding:
-    strategy: static
-    shards: 20
+    strategy: per-openshift-cluster
+    shardSpecOverrides:
+      - shard:
+          $ref: /openshift/app-sre-stage-01/cluster.yml
+        subSharding:
+          strategy: static
+          shards: 5
+      - shard:
+          $ref: /openshift/crcp01ue1/cluster.yml
+        subSharding:
+          strategy: static
+          shards: 2
+      - shard:
+          $ref: /openshift/crcs02ue1/cluster.yml
+        subSharding:
+          strategy: static
+          shards: 2
+
+
+
 
 
 
