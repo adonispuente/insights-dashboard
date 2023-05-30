@@ -2516,6 +2516,9 @@ deletionApprovals:
 - type: aws_db_instance
   name: ocm-service-log-integration-v4-readonly
   expiration: '2023-05-31'
+- type: aws_db_parameter_group
+  name: ocm-service-log-integration-rds-parameter-group-pg12
+  expiration: '2023-05-31'
 - type: aws_db_instance
   name: uhc-clusters-service-staging-readonly
   expiration: '2023-05-31'
