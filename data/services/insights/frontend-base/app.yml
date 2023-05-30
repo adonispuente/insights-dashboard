@@ -73,6 +73,7 @@ quayRepos:
     public: true
     description: Quay repo for learning-resources
   - name: settings-frontend
+    public: true
     description: Quay repo for settings-frontend
 
 
