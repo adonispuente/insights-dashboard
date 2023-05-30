@@ -268,6 +268,8 @@ externalResources:
               "secretsmanager:ListSecretVersionIds"
             ],
             "Resource": [
+              # The secret is defined on the same file, and the ARN can be checked in the AWS account
+              # after the secret is created
               "arn:aws:secretsmanager:us-east-1:950916221866:secret:ci-instances-splunk-token-DQTxkM",
             ]
           },
