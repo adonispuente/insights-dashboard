@@ -119,7 +119,7 @@ resourceTemplates:
       MACHINE_POOL_OPTION: memory-optimized
       API_REPLICA_COUNT: 1
       PROCESSOR_REPLICA_COUNT: 1
-      RECOMMENDER_REPLICA_COUNT: 1
+      RECOMMENDER_REPLICA_COUNT: 3
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
     ref: 22ffffe3440bc63320091f867f43401a5b8d1326
