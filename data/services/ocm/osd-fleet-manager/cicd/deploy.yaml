@@ -136,6 +136,16 @@ resourceTemplates:
       - predicate:
           region: us-west-1
         sector: qetesting
+      - predicate:
+          label:
+            key: label-sector-testA
+            value: label-valueA
+        sector: label-sectorA
+      - predicate:
+          label:
+            key: label-sector-testB
+            value: label-valueB
+        sector: label-sectorB
       # put everything else into the main sector
       - sector: main
     SUPPORTED_CLOUD_PROVIDERS: |-
