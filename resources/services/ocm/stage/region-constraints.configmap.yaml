@@ -11,4 +11,7 @@ data:
         - name: ap-southeast-3
           version_constraints:
             min_version: 4.11.0
+        - name: me-central-1
+          version_constraints:
+            min_version: 4.11.0
 
