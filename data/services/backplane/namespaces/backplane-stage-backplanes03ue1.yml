@@ -20,9 +20,16 @@ managedRoles: true
 managedResourceTypes:
 - Route
 - Issuer.cert-manager.io
+- Certificate.cert-manager.io
+- Service
 
 sharedResources:
 - $ref: /services/backplane/shared-resources/stage.yml
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
-openshiftResources: []
+openshiftResources:
+# This resource should move to a shared-resource once the POC is completed (OSD-16620)
+- provider: resource
+  path: /services/backplane/api-stage-public-certs.yaml
+- provider: resource
+  path: /services/backplane/backplane-api-stage-public.service.yaml

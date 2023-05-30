@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-stage-backplane-openshift-com
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
+    service.beta.kubernetes.io/aws-load-balancer-internal: 'false'
+    # backplane-api does not support proxy-protocol so we cannot enable this here
+    # https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/service/nlb/#protocols
+    # service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
+spec:
+  ports:
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 8001
+  type: LoadBalancer
+  selector:
+    app: backplane-api
+  loadBalancerSourceRanges:
+  # bastion-nasa-1.ops.openshift.com
+  - 52.70.201.140
+  # bastion-nasa-2.ops.openshift.com
+  - 52.6.0.240
+  # squid.corp.redhat.com sin2
+  - 209.132.188.14
+  # squid.corp.redhat.com iad2
+  - 209.132.179.1
+  # squid.corp.redhat.com rdu2
+  - 66.187.233.202
+  # squid.corp.redhat.com ams2
+  - 209.132.186.246
+  # file.rdu.redhat.com
+  - 66.187.233.202
