@@ -90,7 +90,7 @@ resourceTemplates:
           - image-builder-stage-deploy-success-channel
     - namespace:
         $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
-      ref: 2449d8839a8d485034ebf51db449a5a3dcd540b6
+      ref: a5186f29ae18c8a47dec9c23309244fbdcca58df
       parameters:
         COMPOSER_URL: "https://api.openshift.com"
         FLOORIST_QUERY_PREFIX: "hms_analytics/image-builder/prod"
