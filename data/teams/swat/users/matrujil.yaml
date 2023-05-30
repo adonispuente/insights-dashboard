@@ -11,3 +11,4 @@ quay_username: matrujil
 roles:
   - $ref: /teams/swat/roles/dev.yml
   - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
+  - $ref: /teams/swat/roles/keycloak-user-service.yml
