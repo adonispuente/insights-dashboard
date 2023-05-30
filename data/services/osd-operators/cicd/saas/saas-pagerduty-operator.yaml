@@ -105,6 +105,8 @@ resourceTemplates:
   parameters:
     SERVICE_PREFIX: osdstage
     SERVICE_ORCHESTRATION_ENABLED: 'true'
+    ALERT_GROUPING_TYPE: 'time'
+    ALERT_GROUPING_TIMEOUT: 3600
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/pagerduty-operator.yml
