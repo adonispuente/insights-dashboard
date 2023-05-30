@@ -95,7 +95,3 @@ recommendedVersions:
   channel: stable
   recommendedVersion: 4.12.2
   initialVersion: openshift-v4.12.2
-
-blockedVersions:
-- ^4\.12\..*$
-- ^4\.13\..*$
