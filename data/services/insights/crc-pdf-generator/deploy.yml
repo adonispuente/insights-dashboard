@@ -69,7 +69,7 @@ resourceTemplates:
       MIN_REPLICAS: 3
   - namespace:
       $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
-    ref: 271cf2e69f1fb5db111cc8d1d15bd75629df3862
+    ref: b1af6cc998b17695f5f761e35fc200c0fb5a2a4e
     parameters:
       ENV_NAME: prod 
       LOG_LEVEL: info
