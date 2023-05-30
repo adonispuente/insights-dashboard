@@ -33,6 +33,10 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/web-rca/stage/runtime
   version: 18
+- provider: vault-secret
+  name: web-rca-ansible-secrets
+  path: app-interface/web-rca/stage/ansible
+  version: 1
 - provider: route
   path: /web-rca/stage/web-rca.route.yaml
 - provider: route
