@@ -59,4 +59,4 @@ codeComponents:
   url: https://gitlab.cee.redhat.com/service/web-rca-ui
 - name: web-rca-ansible
   resource: upstream
-  url: https://gitlab.cee.redhat.com/service/web-rca-ansible
+  url: https://gitlab.cee.redhat.com/sd-ops-services-dev/web-rca-ansible

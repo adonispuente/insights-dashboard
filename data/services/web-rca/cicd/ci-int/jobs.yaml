@@ -41,7 +41,7 @@ config:
     name: web-rca-ansible
     label: web-rca-ansible
     node: rhel8
-    gl_group: service
+    gl_group: sd-ops-services-dev
     gl_project: web-rca-ansible
     pr_check_script_path: './pr_test.sh'
     build_deploy_script_path: './build.sh'
