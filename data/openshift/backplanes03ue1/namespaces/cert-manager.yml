@@ -59,7 +59,6 @@ externalResources:
 managedResourceTypes:
 - ClusterIssuer.cert-manager.io
 - CertManager.operator.openshift.io
-- NetworkPolicy.networking.k8s.io
 
 managedResourceNames:
 - resource: ClusterIssuer.cert-manager.io
