@@ -10,6 +10,8 @@ github_username: tbeckham
 roles:
 # - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-nasa-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-stream-1-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-stream-3-slack.yml
 
 # public_gpg_key: |
 #   YOURGPGKEYHEREANDUNCOMMENTTHEAPPSREROLE
