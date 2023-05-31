@@ -22,4 +22,3 @@ self_service:
   datafiles:
   - $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
   - $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-  - $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml

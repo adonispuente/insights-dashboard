@@ -240,3 +240,11 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-dev/platform-experience-dev/chrome-service-backend
   version: 4
+
+# ccx-data-pipeline
+- provider: vault-secret
+  path: insights/secrets/ephemeral/ccx-data-pipeline/ams-client-auth
+  version: 1
+- provider: vault-secret
+  path: insights/secrets/ephemeral/ccx-data-pipeline/rhobs-sso-client-auth
+  version: 1
