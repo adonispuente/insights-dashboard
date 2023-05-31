@@ -341,6 +341,22 @@ externalResources:
       default: true
       openshift_service: quay-py3-load-balancer-service
     rules: []
+  - provider: alb
+    identifier: quayio-production-alb01-grpc
+    output_resource_name: quayio-production-alb-grpc
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-prod/vpcs/QuayVPC.yml
+    certificate_arn: arn:aws:acm:us-east-1:206170669542:certificate/8a4a9a8b-d06b-46f6-a234-e7ef2ec657cf
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-stage-py3-grpc
+      default: true
+      openshift_service: quay-py3-grpc-load-balancer-service
+      protocol: "HTTPS"
+      protocol_version: "GRPC"
+    rules: []
 - provider: cloudflare
   provisioner:
     $ref: /cloudflare/quay-prod/account.yml
