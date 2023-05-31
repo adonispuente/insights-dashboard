@@ -80,6 +80,8 @@ Single MR uncommenting the `managedResourceTypes` and `sharedResources` from the
 ### Cleanup
 After a while, letting users access old logs for some time (few weeks/months)
 
+#### Done
+https://issues.redhat.com/browse/APPSRE-7720
 * Update the [cluster onboarding/provisioning doc](../sop/app-interface-onboard-cluster.md) and hack tools.
 * Update the FAQ `Get access to cluster logs via Log Forwarding` section to not reference switching roles anymore
   * Same for Clair SOP: `docs/clair/sops/logs.md`
@@ -92,4 +94,6 @@ After a while, letting users access old logs for some time (few weeks/months)
 ```
 * Remove all `*-cloudwatch-access` entries of `aws-iam-service-account` from `data/services/observability/namespaces/app-sre-observability-production.yml`
 * Remove the `{{{ cluster.name }}}-cloudwatch` datasources from Grafana: `resources/observability/grafana/grafana-datasources.secret.yaml`
-* Cleanup each cluster account cloudwatch content
+
+#### Todo
+* Cleanup each cluster account cloudwatch content - https://issues.redhat.com/browse/APPSRE-7318
