@@ -69,7 +69,7 @@ openshiftResources:
   version: 2
 - provider: vault-secret
   path: insights/secrets/insights-stage/notifications-stage/export-service-psk
-  version: 1
+  version: 2
 
 sharedResources:
 - $ref: /services/insights/shared-resources/metrics-export-stage.yml
