@@ -54,6 +54,12 @@ network:
   vpc: 10.141.0.0/16
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
+upgradePolicy:
+  workloads:
+  - example
+  schedule: 0 12 * * 1-5
+  conditions:
+    soakDays: 0
 internal: false
 peering:
   connections:
