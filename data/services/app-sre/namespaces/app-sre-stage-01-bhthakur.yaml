@@ -15,34 +15,5 @@ app:
 environment:
   $ref: /products/app-sre/environments/stage.yml
 
-managedExternalResources: true
+delete: true
 
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/app-sre-stage/account.yml
-  resources:
-  - provider: rds
-    identifier: dev-bhthakur-rds
-    defaults: /terraform/resources/app-sre-stage/staging/bhthakur-rds-defaults.yml
-    parameter_group: /terraform/resources/app-sre-stage/staging/bhthakur-rds-params-3.yml
-    old_parameter_group: /terraform/resources/app-sre-stage/staging/bhthakur-rds-params-2.yml
-    overrides:
-      apply_immediately: true
-      engine_version: '13.7'
-  - provider: rds
-    identifier: dev-bhthakur-rds-1
-    defaults: /terraform/resources/app-sre-stage/staging/bhthakur-rds-defaults.yml
-    parameter_group: /terraform/resources/app-sre-stage/staging/bhthakur-rds-params-4.yml
-    old_parameter_group: /terraform/resources/app-sre-stage/staging/bhthakur-rds-params-1.yml
-    overrides:
-      apply_immediately: true
-      engine_version: '12.11'
-
-  # - provider: rds
-  #   identifier: dev-bhthakur-rds-replica
-  #   defaults: /terraform/resources/app-sre-stage/staging/bhthakur-rds-defaults.yml
-  #   output_resource_name: dev-bhthakur-rds-replica-rds
-  #   replica_source: dev-bhthakur-rds
-  #   overrides:
-  #     multi_az: false
