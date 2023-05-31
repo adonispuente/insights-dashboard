@@ -60,6 +60,10 @@ externalResources:
     parameter_group: /terraform/resources/insights/production/rds/postgres13-parameter-group-content-sources-prod.yml
     output_resource_name: content-sources-db
     enhanced_monitoring: true
+  - provider: elasticache
+    identifier: content-sources-elasticache-prod
+    defaults: /terraform/resources/insights/production/elasticache/elasticache-content-sources-1.yml
+    output_resource_name: in-memory-db
   - provider: cloudwatch
     identifier: content-sources-prod
     defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-2.yml
