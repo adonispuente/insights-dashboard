@@ -86,7 +86,7 @@ resourceTemplates:
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_LOGS_NAMESPACE: observatorium-mst-stage
       GUBERNATOR_REPLICAS: 3
-      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.46
+      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.36
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       JAEGER_COLLECTOR_NAMESPACE: observatorium-stage
       MEMCACHED_CONNECTION_LIMIT: 3072Mi
