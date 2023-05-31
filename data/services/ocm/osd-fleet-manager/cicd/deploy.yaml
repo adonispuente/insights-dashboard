@@ -859,9 +859,7 @@ resourceTemplates:
             default_machine_pool:
               machine_type: m5.4xlarge
               autoscale: true
-              # NOTE this autoscale min is the only change from the global config
-              # This should be undone, see https://issues.redhat.com/browse/OCM-931
-              autoscale_min_replicas: 30
+              autoscale_min_replicas: 3
               autoscale_max_replicas: 60
             network_type: OVNKubernetes
             private: true
