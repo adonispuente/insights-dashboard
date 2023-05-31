@@ -35,12 +35,12 @@ resourceTemplates:
       NAMESPACES: '["observatorium-metrics-testing"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: 41569d118351156446437aabc8bd6beda6d9e510
+    ref: faf7638ce27605d4cfe9ef38ba4ab803ea2ca35a
     parameters:
       NAMESPACES: '["observatorium-metrics-stage", "observatorium-mst-stage"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: 41569d118351156446437aabc8bd6beda6d9e510
+    ref: faf7638ce27605d4cfe9ef38ba4ab803ea2ca35a
     parameters:
       NAMESPACES: '["observatorium-metrics-production", "observatorium-mst-production"]'
 - name: metric-federation-rule
@@ -49,16 +49,16 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobs-testing.yml
-    ref: b018097acccb5f4b667c70fe47b5ee27c48785f8
+    ref: faf7638ce27605d4cfe9ef38ba4ab803ea2ca35a
     parameters:
       NAMESPACES: '["observatorium-metrics-testing"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: b018097acccb5f4b667c70fe47b5ee27c48785f8
+    ref: faf7638ce27605d4cfe9ef38ba4ab803ea2ca35a
     parameters:
       NAMESPACES: '["observatorium-metrics-stage"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: b018097acccb5f4b667c70fe47b5ee27c48785f8
+    ref: faf7638ce27605d4cfe9ef38ba4ab803ea2ca35a
     parameters:
       NAMESPACES: '["observatorium-metrics-production"]'
