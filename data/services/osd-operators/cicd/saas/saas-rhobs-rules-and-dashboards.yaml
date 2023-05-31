@@ -63,4 +63,4 @@ resourceTemplates:
   - name: rhobsp02ue1-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
-    ref: 3665d96ab28b9e8a5d1a2aba59f0f3b113b872c8
+    ref: 96184e025d4436a93a6cf36ca185992225659dae
