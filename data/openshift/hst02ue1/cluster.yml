@@ -34,7 +34,7 @@ spec:
   region: us-east-1
   channel: stable
   initial_version: 4.12.16
-  version: 4.12.16
+  version: 4.12.18
   multi_az: true
   nodes: 2
   instance_type: m5.xlarge
