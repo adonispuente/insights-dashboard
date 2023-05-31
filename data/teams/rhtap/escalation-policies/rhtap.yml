@@ -1,0 +1,22 @@
+---
+$schema: /app-sre/escalation-policy-1.yml
+
+labels:
+  team: rhtap
+
+name: rhtap-escalation
+
+description: RHTAP escalation policy
+
+channels:
+  slackUserGroup:
+  - $ref: /teams/rhtap/permissions/rhtap-alerts-slack.yml
+
+  email: 
+  - rhtap-o11y-group@redhat.com
+
+  pagerduty:
+    $ref: /dependencies/pagerduty/rhtap-alerts-escalation-policy.yml
+
+  jiraBoard:
+  - $ref: /teams/rhtap/jira/rhtap.yml

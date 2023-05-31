@@ -236,3 +236,4 @@ managedUsergroups:
 - acscs-primary-oncall
 - package-operator
 - appeng-keycloak-ic
+- rhtap-alerts-group
