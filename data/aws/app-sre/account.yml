@@ -1,8 +1,6 @@
 ---
 $schema: /aws/account-1.yml
-
 labels: {}
-
 name: app-sre
 description: App SRE AWS account
 consoleUrl: https://950916221866.signin.aws.amazon.com/console
@@ -12,20 +10,15 @@ supportedDeploymentRegions:
 - us-east-1
 - us-east-2
 - eu-central-1
-providerVersion: '3.76.1'
-
+providerVersion: 3.76.1
 terraformUsername: terraform
-
 accountOwners:
 - name: App-SRE Team
   email: sd-app-sre@redhat.com
-
 automationToken:
   path: app-sre/creds/terraform/app-sre/config
   field: all
-
 premiumSupport: true
-
 deleteKeys:
 - AKIA52ZYGBOVHP4PP7UH
 - AKIA52ZYGBOVLFB5342L
@@ -43,9 +36,6 @@ resetPasswords:
 - user:
     $ref: /teams/ocm/users/zgalor.yml
   requestId: bla
-- user:
-    $ref: /teams/sd-ops-dev/users/mpovolny.yml
-  requestId: whatDidJustHappen
 - user:
     $ref: /teams/assisted-installer/users/ercohen.yaml
   requestId: mQINBGG3KmoBEAC0
@@ -73,7 +63,6 @@ resetPasswords:
 - user:
     $ref: /teams/ocm/users/tcreller.yml
   requestId: tcreller-1234
-
 deletionApprovals:
 - type: aws_ecr_repository
   name: ocm-envoy
@@ -96,7 +85,6 @@ deletionApprovals:
 - type: aws_db_instance
   name: app-interface-unleash-stage
   expiration: '2022-02-23'
-# aws-resource-exporter IAM resources
 - type: aws_iam_access_key
   name: aws-resource-exporter-stage-01
   expiration: '2022-04-07'
@@ -118,7 +106,6 @@ deletionApprovals:
 - type: aws_db_parameter_group
   name: postgres-log-min-duration
   expiration: '2022-06-06'
-
 - type: aws_route
   name: vpc-048b455eb411842d9-vpc-0835562136a766c81-rtb-022b1c5f31ec3edbc
   expiration: '2022-07-10'
@@ -185,7 +172,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-04fab897fabbd0808-vpc-0835562136a766c81
   expiration: '2022-07-10'
-# https://issues.redhat.com/browse/APPSRE-5960
 - type: aws_vpc_peering_connection
   name: vpc-0fdea7c2456fdf0b8-vpc-00f57754512fe3182
   expiration: '2022-07-13'
@@ -288,7 +274,6 @@ deletionApprovals:
 - type: aws_route
   name: vpc-07c516fc8305b01ef-vpc-0835562136a766c81-rtb-0fc488cbfa6cdeb40
   expiration: '2022-07-13'
-# app-sre-prod-01 <-> hshifti01ue1
 - type: aws_route
   name: vpc-048b455eb411842d9-vpc-07c516fc8305b01ef-rtb-035be5e40e889faf8
   expiration: '2022-07-14'
@@ -421,7 +406,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-04fab897fabbd0808-vpc-0fdea7c2456fdf0b8
   expiration: '2022-07-14'
-# app-sre <-> hacbss01ue1
 - type: aws_route
   name: vpc-086a699fbaf3fd59c-vpc-07c516fc8305b01ef-rtb-0390fa9365bebb6f5
   expiration: '2022-08-20'
@@ -530,7 +514,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection
   name: vpc-086a699fbaf3fd59c-vpc-0835562136a766c81
   expiration: '2022-08-20'
-# APPSRE-4580
 - type: aws_iam_access_key
   name: rh-oidc-integration
   expiration: '2022-07-15'
@@ -543,7 +526,6 @@ deletionApprovals:
 - type: aws_s3_bucket
   name: rh-oidc-integration
   expiration: '2022-07-15'
-# LOG-2726
 - type: aws_iam_access_key
   name: observatorium-logs-stage
   expiration: '2022-07-14'
@@ -577,7 +559,6 @@ deletionApprovals:
 - type: aws_iam_user_policy
   name: cert-manager-appsres03ue1-devshift-net
   expiration: '2022-07-15'
-# APPSRE-4587
 - type: aws_iam_access_key
   name: rh-oidc-staging
   expiration: '2022-07-21'
@@ -1280,7 +1261,6 @@ deletionApprovals:
 - type: aws_iam_user_policy
   name: jenkins
   expiration: '2022-08-02'
-# hacbss01ue1 <--> ci.int
 - type: aws_route
   name: vpc-086a699fbaf3fd59c-vpc-0931f724085025405-rtb-0284277db865ea4a3
   expiration: '2022-08-04'
@@ -1338,8 +1318,6 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: aws-cloudwatch-exporter-stage-01-CloudWatchReadOnlyAccess
   expiration: '2022-08-16'
-
-#More hacbss01
 - type: aws_iam_access_key
   name: certmgr-hacbss01ue1-devshift-net-sa
   expiration: '2022-08-20'
@@ -1391,8 +1369,6 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: certmgr-hacbss01ue1-devshift-net-sa
   expiration: '2022-08-23'
-
-#APPSRE-4555
 - type: aws_s3_bucket
   name: assisted-installer-integration-v4
   expiration: '2022-09-29'
@@ -1411,8 +1387,6 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: assisted-installer-integration-v4
   expiration: '2022-09-29'
-
-#APPSRE-4557
 - type: aws_s3_bucket
   name: assisted-installer-integration-v4-public
   expiration: '2022-10-01'
@@ -1434,8 +1408,6 @@ deletionApprovals:
 - type: aws_s3_bucket_policy
   name: assisted-installer-integration-v4-public
   expiration: '2022-10-01'
-
-# Related to task: APPSRE-6734
 - type: aws_route
   name: vpc-01f46e3661137bc26-vpc-07c516fc8305b01ef-rtb-0273513993d00dc95
   expiration: '2022-12-20'
@@ -1685,8 +1657,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-0fb4d414ecd184b05-vpc-07c516fc8305b01ef
   expiration: '2022-12-20'
-
-# Related to task: APPSRE-4588
 - type: aws_iam_access_key
   name: sd-app-sre-load-tests
   expiration: '2022-10-17'
@@ -1705,16 +1675,12 @@ deletionApprovals:
 - type: aws_s3_bucket
   name: sd-app-sre-load-tests
   expiration: '2022-10-17'
-
-# Related to task: APPSRE-4572
 - type: aws_db_instance
   name: dashdotdb-stage
   expiration: '2022-10-21'
 - type: aws_db_instance
   name: dashdotdb-stage-replica
   expiration: '2022-10-21'
-
-# Related to task: APPSRE-4792
 - type: aws_route
   name: vpc-0835562136a766c81-vpc-01251cea68792a7ab-rtb-022b1c5f31ec3edbc
   expiration: '2022-12-08'
@@ -1745,8 +1711,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-0835562136a766c81-vpc-01251cea68792a7ab
   expiration: '2022-12-08'
-
-## Related to task: APPSRE-6733, APPSRE-6734
 - type: aws_route
   name: vpc-0a053d0b5b8993ae1-vpc-01251cea68792a7ab-rtb-0183b80799d6a2323
   expiration: '2022-12-20'
@@ -1828,8 +1792,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-0e76fb743e4e0539c-vpc-07c516fc8305b01ef
   expiration: '2022-12-20'
-
-## Related to task: APPSRE-6733
 - type: aws_route
   name: vpc-002e6f7f37d542a8a-vpc-01251cea68792a7ab-rtb-0104dffad5b44f111
   expiration: '2022-12-20'
@@ -1866,8 +1828,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-074d0148dd43a019c-vpc-01251cea68792a7ab
   expiration: '2022-12-20'
-
-## Related to task: APPSRE-6648
 - type: aws_vpc_peering_connection
   name: vpc-09ec1583cac29f594-vpc-0e3cd01521be5489e
   expiration: '2022-12-13'
@@ -1880,8 +1840,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-09ec1583cac29f594-vpc-0e9fbceea37f50cc8
   expiration: '2022-12-13'
-
-## Related to task: APPSRE-6733
 - type: aws_route
   name: vpc-002e6f7f37d542a8a-vpc-01251cea68792a7ab-rtb-0104dffad5b44f111
   expiration: '2022-12-20'
@@ -2032,8 +1990,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-0fb4d414ecd184b05-vpc-01251cea68792a7ab
   expiration: '2022-12-20'
-
-## Related to task: APPSRE-6734
 - type: aws_route
   name: vpc-002e6f7f37d542a8a-vpc-07c516fc8305b01ef-rtb-0104dffad5b44f111
   expiration: '2022-12-20'
@@ -2100,8 +2056,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-074d0148dd43a019c-vpc-07c516fc8305b01ef
   expiration: '2022-12-20'
-
-# APPSRE-6745
 - type: aws_iam_access_key
   name: quay-mysql-diag-production
   expiration: '2022-12-24'
@@ -2138,8 +2092,6 @@ deletionApprovals:
 - type: aws_s3_bucket
   name: quay-mysql-diag-stage
   expiration: '2022-12-24'
-
-# https://issues.redhat.com/browse/APPSRE-6740
 - type: aws_db_instance
   name: grafana-production
   expiration: '2023-02-18'
@@ -2299,7 +2251,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-074d0148dd43a019c-vpc-0fdea7c2456fdf0b8
   expiration: '2023-01-14'
-
 - type: aws_db_instance
   name: uhc-acct-mngr-staging-readonly-ue2
   expiration: '2023-01-23'
@@ -2321,7 +2272,6 @@ deletionApprovals:
 - type: aws_elasticache_replication_group
   name: rporresm-github-mirror-stage-restore
   expiration: '2023-02-01'
-
 - type: aws_iam_access_key
   name: hypershift-oidc-staging
   expiration: '2023-02-08'
@@ -2340,8 +2290,6 @@ deletionApprovals:
 - type: aws_s3_bucket
   name: hypershift-oidc-staging
   expiration: '2023-02-08'
-
-#APPSRE-6947
 - type: aws_route
   name: vpc-0a053d0b5b8993ae1-vpc-0835562136a766c81-rtb-0183b80799d6a2323
   expiration: '2023-02-10'
@@ -2402,8 +2350,6 @@ deletionApprovals:
 - type: aws_db_instance
   name: managed-services-stage-unleash
   expiration: '2023-02-12'
-
-#APPSRE-6947
 - type: aws_iam_access_key
   name: certmgr-hacbss02ue1-devshift-net-sa
   expiration: '2023-02-16'
@@ -2419,8 +2365,6 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: certmgr-hacbss02ue1-devshift-net-sa
   expiration: '2023-02-16'
-
-#APPSRE-4554
 - type: aws_s3_bucket
   name: telemeter-thanos-stage
   expiration: '2023-02-25'
@@ -2439,8 +2383,6 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: telemeter-thanos-stage
   expiration: '2023-02-25'
-
-#APPSRE-4562
 - type: aws_s3_bucket
   name: github-mirror-stage
   expiration: '2023-03-20'
@@ -2459,28 +2401,18 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: github-mirror-stage
   expiration: '2023-03-20'
-
-# Related to task: APPSRE-4598
 - type: aws_db_instance
   name: ocm-stage-unleash
   expiration: '2023-05-01'
-
-# Related to task: APPSRE-4599
 - type: aws_db_instance
   name: ocm-integration-unleash
   expiration: '2023-05-01'
-
-# Related to task: APPSRE-4600
 - type: aws_db_instance
   name: insights-stage-unleash
   expiration: '2023-05-01'
-
-# Related to task: APPSRE-7600
 - type: aws_db_instance
   name: insights-perf-unleash
   expiration: '2023-05-15'
-
-# Related to task: APPSRE-6767
 - type: aws_db_instance
   name: sentry-stage
   expiration: '2023-05-10'
@@ -2493,8 +2425,6 @@ deletionApprovals:
 - type: aws_elasticache_replication_group
   name: sentry-redis-production
   expiration: '2023-05-10'
-
-# Related to task: APPSRE-7647
 - type: aws_db_instance
   name: rhosedb-stage-replica
   expiration: '2023-05-31'
@@ -2525,7 +2455,6 @@ deletionApprovals:
 - type: aws_db_instance
   name: web-rca-stage-readonly
   expiration: '2023-05-31'
-
 - type: aws_route
   name: vpc-0acf3dc7ae4f18314-vpc-0931f724085025405-rtb-024c13d85e7007367
   expiration: '2023-05-22'
@@ -2559,8 +2488,6 @@ deletionApprovals:
 - type: aws_vpc_peering_connection_accepter
   name: vpc-0acf3dc7ae4f18314-vpc-0931f724085025405
   expiration: '2023-05-22'
-
-# decommisioning rhoc production db and vault
 - type: aws_db_instance
   name: cos-fleet-manager-production
   expiration: '2023-05-31'
@@ -2579,16 +2506,12 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: managed-connectors-production
   expiration: '2023-05-31'
-
-# decommisioning rhoc stage db
 - type: aws_db_instance
   name: cos-fleet-manager-staging
   expiration: '2023-05-31'
 - type: aws_db_parameter_group
   name: managed-connectors-stage-rds-parameter-group-pg12
   expiration: '2023-05-31'
-
-# cleanup unused jenkins node type
 - type: aws_autoscaling_group
   name: ci-ext-jenkins-worker-hive
   expiration: '2023-05-31'
@@ -2619,6 +2542,5 @@ deletionApprovals:
 - type: aws_launch_template
   name: ci-int-jenkins-worker-hive
   expiration: '2023-05-31'
-
 terraformState:
   $ref: /aws/app-sre/state.yml
