@@ -112,7 +112,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       WORKER_COUNT: '2'
       CRON_SCHEDULE: 36 17 * * 3
@@ -217,7 +217,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 36 17 * * *
       SUSPEND_JOB: 'true'
@@ -321,7 +321,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 26 */2 * * *
       SUSPEND_JOB: 'false'
@@ -425,7 +425,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 21 */5 * * *
       SUSPEND_JOB: 'false'
@@ -528,7 +528,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -629,7 +629,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 3-59/30 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -732,7 +732,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: '*/5 * * * *'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -834,7 +834,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 11 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -935,7 +935,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 31 11 * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1041,7 +1041,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 16 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1144,7 +1144,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: '*/5 * * * *'
       WORKER_COUNT: '16'
@@ -1248,7 +1248,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1350,7 +1350,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       CRON_SCHEDULE: 46 * * * *
       CLIENT_CARDINALITY: 100
@@ -1453,7 +1453,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1553,7 +1553,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1666,7 +1666,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1765,7 +1765,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
