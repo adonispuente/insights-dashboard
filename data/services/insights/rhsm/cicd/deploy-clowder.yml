@@ -66,6 +66,7 @@ resourceTemplates:
     disable: true  # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
     ref: internal  # populated by bonfire
     parameters:
+      JAVA_DEBUG: 'true'
       REPLICAS: 1
       MARKETPLACE_MANUAL_SUBMISSION_ENABLED: 'true'
       RHSM_RBAC_USE_STUB: 'true'
@@ -81,6 +82,7 @@ resourceTemplates:
     disable: true
     ref: internal
     parameters:
+      JAVA_DEBUG: 'true'
       ENABLE_SPLUNK_HEC: 'true'
       SPLUNK_HEC_URL: 'https://splunk-hec.redhat.com:8088'
       LOGGING_LEVEL_COM_REDHAT_SWATCH: 'DEBUG'
@@ -134,6 +136,7 @@ resourceTemplates:
     disable: true
     ref: internal
     parameters:
+      JAVA_DEBUG: 'true'
       RHSM_RBAC_USE_STUB: 'true'
       DEV_MODE: 'true'
   - namespace:
@@ -198,6 +201,7 @@ resourceTemplates:
     disable: true # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
     ref: internal #populated by bonfire
     parameters:
+      JAVA_DEBUG: 'true'
       DEV_MODE: 'true'
       ENABLE_SYNCHRONOUS_OPERATIONS: 'true'
   - namespace:
@@ -252,6 +256,7 @@ resourceTemplates:
     disable: true # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
     ref: internal #populated by bonfire
     parameters:
+      JAVA_DEBUG: 'true'
       DEV_MODE: 'true'
   - namespace:
       $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
@@ -330,6 +335,7 @@ resourceTemplates:
     disable: true # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
     ref: internal #populated by bonfire
     parameters:
+      JAVA_DEBUG: 'true'
       DEV_MODE: 'true'
   - namespace:
       $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
@@ -391,6 +397,7 @@ resourceTemplates:
       disable: true # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
       ref: internal #populated by bonfire
       parameters:
+        JAVA_DEBUG: 'true'
         DEV_MODE: 'true'
     - namespace:
         $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
@@ -434,6 +441,7 @@ resourceTemplates:
     disable: true
     ref: internal
     parameters:
+      JAVA_DEBUG: 'true'
       ENABLE_SPLUNK_HEC: 'true'
       SPLUNK_HEC_URL: 'https://splunk-hec.redhat.com:8088'
       LOGGING_LEVEL_COM_REDHAT_SWATCH: 'DEBUG'
@@ -467,6 +475,7 @@ resourceTemplates:
       disable: true # do not create an app-sre deploy job for ephemeral namespace, see: https://consoledot.pages.redhat.com/docs/dev/getting-started/ephemeral/deploying.html#_deploying_using_app_interface_configs_used_by_pr_check_sh
       ref: internal #populated by bonfire
       parameters:
+        JAVA_DEBUG: 'true'
         DEV_MODE: 'true'
         ENABLE_SPLUNK_HEC: 'true'
         HAWTIO_BASE_PATH: /app/rhsm-subscriptions/hawtio
