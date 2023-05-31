@@ -419,6 +419,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ap-southeast-3
+- name: hs-mc-7iiovlik0
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0 15 * * 1-5
+    conditions:
+      sector: ap-southeast-3
+      soakDays: 0
+      mutexes:
+      - ap-southeast-3
 recommendedVersions:
 - workload: service-cluster
   channel: stable
