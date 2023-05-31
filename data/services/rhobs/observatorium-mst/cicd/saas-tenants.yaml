@@ -340,7 +340,7 @@ resourceTemplates:
                 usernameClaim: preferred_username
               rateLimits:
                 - endpoint: '/api/metrics/v1/hypershift-platform-staging/api/v1/receive'
-                  limit: 4000
+                  limit: 27000
                   window: 45s
       secretParameters:
         - name: CLIENT_ID
