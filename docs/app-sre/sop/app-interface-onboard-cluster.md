@@ -447,6 +447,8 @@ hack/cluster_provision.py [--datadir=data directory] create-cso-cluster-config <
 
 Note: The prometheus rule for monitoring CSO deployment is already added through [template](https://gitlab.cee.redhat.com/service/app-interface/blob/master/hack/cluster_provision/templates/openshift-customer-monitoring.CLUSTERNAME.tpl).
 
+Note: This may fail in HyperShift cluster first due to no permission for `app-sre-bot`, can retry after 2 hours since namespace creation or add `clusterAdmin: true` to `app-sre-cso-per-cluster.yml`.
+
 ## Step 8 - Deployment Validation Operator (DVO)
 
 The Deployment Validation Operator inspects workloads in a cluster and evaluates them against know best practices.  It generates metric information about which workloads in which namespaces do not meet specific guidelines.  This information is presented in tenant dashboards and in monthly reports.
@@ -456,6 +458,8 @@ To create the DVO operator configs, run the following command:
 ```bash
 hack/cluster_provision.py [--datadir=data directory] create-dvo-cluster-config <cluster-name>
 ```
+
+Note: Skip this step for HyperShift cluster. [DVO-101](https://issues.redhat.com/browse/DVO-101)
 
 ## Step 9 - Setup cluster logging
 
@@ -519,7 +523,7 @@ Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702
 
 ## Adding Datasource to Grafana
 
-1. create a new cloudwatch secret, add it to [app-sre-observability-production.yml](/data/services/observability/namespaces/app-sre-observability-production.yml). Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/41114
+1. create a new cloudwatch secret, add it to [app-sre-observability-production.yml](/data/services/observability/namespaces/app-sre-observability-production.yml). Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/41114 (Skip this step for HyperShift cluster)
 1. add grafana to `openshiftServiceAccountTokens` in `app-sre-observability-per-cluster.yml`, [example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/458295334b65444dcbee5d9fc5e09e9a7b32a354/data/openshift/appsrep05ue1/namespaces/app-sre-observability-per-cluster.yml#L23-26)
 1. add the cluster to [grafana.yaml](/data/services/observability/shared-resources/grafana.yml). Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/41110
  
@@ -528,7 +532,7 @@ Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702
       hack/cluster_provision.py create-obs-grafana-datasources <cluster>
       ```
 
-    **Double check the changes introduced, the destination file could have been modified with manual changes.**
+    **Double check the changes introduced, the destination file could have been modified with manual changes. Add `cloudwatch: false` if step 1 is skipped.**
 
     Tip: There is one command to refresh all cluster info in shared grafana config,
     just in case console url changed but forgot to update `slug`.
