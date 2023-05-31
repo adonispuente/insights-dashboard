@@ -102,6 +102,7 @@ externalResources:
       min_size: 0
       max_size: 10
       instance_types: ["c6i.4xlarge"]
+      iam_role_name: ci-instances-read-secrets
     image:
       - provider: git
         tag_name: infra_commit
