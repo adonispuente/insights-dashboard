@@ -399,6 +399,8 @@ resourceTemplates:
       parameters:
         JAVA_DEBUG: 'true'
         DEV_MODE: 'true'
+        CPU_REQUEST: 400m
+        CPU_LIMIT: 500m
     - namespace:
         $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
       ref: main
