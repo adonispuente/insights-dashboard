@@ -197,7 +197,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: aaa0c3308a950e17c419dbd1182c161289b92bed
+    ref: b6302634cb943645fcc7c3c5026d3c72c5aba6f7
     promotion:
       auto: true
       subscribe:
