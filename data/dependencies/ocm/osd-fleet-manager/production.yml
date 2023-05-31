@@ -19,8 +19,7 @@ blockedVersions:
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
 # TODO
-# All upgrades are blocked with the below two lines. See https://issues.redhat.com/browse/SDE-2988
-- ^4\.12\..*$
+# For now, block 4.13 upgrades until we are ready for sure
 - ^4\.13\..*$
 upgradePolicyAllowedWorkloads:
 - service-cluster
