@@ -517,7 +517,7 @@ records:
 - name: buildman.quay.io
   type: CNAME
   records:
-  - ad71264c15e01455da41c22bdc08be17-874992684.us-east-1.elb.amazonaws.com
+  - quayio-production-alb01-grpc-1710468783.us-east-1.elb.amazonaws.com
   ttl: 60
 - name: cloudflare-verify.quay.io
   type: TXT
