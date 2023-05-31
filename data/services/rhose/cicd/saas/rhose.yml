@@ -57,6 +57,7 @@ resourceTemplates:
           FLEET_MANAGER_REPLICAS: "0"
           QUARKUS_LOG_LEVEL: "INFO"
           RDS_SECRET_NAME: rhosedb-rds
+        delete: true
       - namespace:
           $ref:  /services/rhose/namespaces/production.yml
         ref: b04b1418e30fc07423caa1d8351cad3704ff1e05
@@ -71,6 +72,7 @@ resourceTemplates:
           QUARKUS_LOG_LEVEL: "INFO"
           RDS_SECRET_NAME: rhosedb-rds
           FLEET_MANAGER_REPLICAS: "0"
+        delete: true
 
   - name: grafana-dashboard-rhose-fleet-manager
     url: https://github.com/5733d9e2be6485d52ffa08870cabdee0/sandbox
@@ -80,3 +82,4 @@ resourceTemplates:
       - namespace:
           $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
         ref: main
+        delete: true
