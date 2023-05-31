@@ -92,7 +92,7 @@ resourceTemplates:
       ENVIRONMENT: staging
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b2bcda160b19ea6e8907c1213115a652ccb5c9a6
+    ref: d35144339d527a4acaa745c41e9481a1b3727668
     promotion:
       auto: true
       subscribe:
