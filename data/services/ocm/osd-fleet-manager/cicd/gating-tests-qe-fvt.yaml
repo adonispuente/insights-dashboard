@@ -54,7 +54,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8fe15011cc9c34498c6f8306a4205f33cfd6a71c
+    ref: a5555921c1dd69635fe437f90ad8200fc1924135
     name: integration-main
     promotion:
       auto: true
