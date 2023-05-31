@@ -67,7 +67,7 @@ openshiftResources:
     - name: hivep07ue2
       slug: hivep07ue2.vvyl.p1
     - name: hst02ue1
-      slug: hst02ue1.niad.p3
+      slug: rosa.hst02ue1.niad.p3
       cloudwatch: false
     - name: backplanes01ue1
       slug: backplanes01ue1.fjsa.p1
