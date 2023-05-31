@@ -184,55 +184,55 @@ resourceTemplates:
       ENABLE_TEST_SCRIPT_API: "true"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep01ue1.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep02ue1.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep03uw1.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep04ew2.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep05ue1.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep06uw2.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep07ue2.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-backplanep01ue1.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"   
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-backplanep02uw2.yml
-    ref: 4899df6d71051a176f60e50f170a47ab9d38fad9
+    ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: 93873e98a96abc09c416c0bccb00ff45b0b830c8
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"          
