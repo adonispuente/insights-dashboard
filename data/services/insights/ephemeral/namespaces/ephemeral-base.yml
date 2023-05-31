@@ -235,3 +235,8 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/ephemeral/image-builder/composer-secrets
   version: 1
+
+# chrome-service
+- provider: vault-secret
+  path: insights/secrets/insights-dev/platform-experience-dev/chrome-service-backend
+  version: 4
