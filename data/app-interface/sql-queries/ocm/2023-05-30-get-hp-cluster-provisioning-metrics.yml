@@ -1,14 +1,13 @@
 ---
 $schema: /app-interface/app-interface-sql-query-1.yml
 labels: {}
-name: 2023-05-24-get-hs-cluster-provisioning-metrics
+name: 2023-05-30-get-hp-cluster-provisioning-metrics
 namespace:
   $ref: /services/ocm/namespaces/uhc-production.yml
 identifier: ocm-service-log-production-readonly
 # Run every day at 12:00 pm (UTC)
 schedule:  00 12 * * *
 output: stdout
-delete: true
 queries:
 # SLO
   - |
@@ -67,26 +66,25 @@ queries:
     ORDER BY 1;
 # SLI
   - |
-    SELECT (SELECT
+    select wait.twait, ready.tready, 
+      abs(extract(epoch from wait.twait - ready.tready)) as tdiff,
+        wait.cluster_uuid
+        --wait.summary, ready.summary as rsum
+        --,ready.cluster_uuid as rcuid
+      from (
+        SELECT
         "timestamp" AS "twait", summary ,cluster_uuid
         FROM service_logs 
         where  timestamp > CURRENT_DATE - INTERVAL '28 days'
         and summary = 'cluster_state_waiting'
-        and cluster_uuid != '') AS wait,
-          (
-      SELECT
-       "timestamp" AS "tready", summary ,cluster_uuid
-      FROM service_logs 
-      where  timestamp > CURRENT_DATE - INTERVAL '28 days'
-        and summary = 'cluster_state_ready'
         and cluster_uuid != ''
-      ) AS ready,
-      abs(extract(epoch from wait.twait - ready.tready)) as tdiff,
-      wait.cluster_uuid
-      --wait.summary, ready.summary as rsum
-      --,ready.cluster_uuid as rcuid
-      from wait
-      INNER JOIN ready
+        ) AS wait
+      INNER JOIN (SELECT
+        "timestamp" AS "tready", summary ,cluster_uuid
+        FROM service_logs 
+        where  timestamp > CURRENT_DATE - INTERVAL '28 days'
+        and summary = 'cluster_state_ready'
+        and cluster_uuid != '') AS ready
       ON wait.cluster_uuid = ready.cluster_uuid
       where abs(extract(epoch from wait.twait - ready.tready)) < 900;
 # Percentage of total installs that met SLO
@@ -100,7 +98,7 @@ queries:
       AND t1.timestamp < t2.timestamp
       AND t1.summary = 'cluster_state_waiting'
       AND t2.summary = 'cluster_state_ready'
-      AND $__timeFilter(t1.timestamp)
+      AND t1.timestamp > CURRENT_DATE - INTERVAL '28 days'
       AND abs(extract(epoch from t2.timestamp - t1.timestamp)) > 600
       ) AS t2, (
       SELECT count(timestamp) AS totalinstalls
@@ -110,22 +108,21 @@ queries:
       AND t1.timestamp < t2.timestamp
       AND t1.summary = 'cluster_state_waiting'
       AND t2.summary = 'cluster_state_ready'
-      AND $__timeFilter(t1.timestamp)
+      AND t1.timestamp > CURRENT_DATE - INTERVAL '28 days'
       ) AS t1;
-# Cluster provisioning time
-  # - |
-  #   WITH tdiffs AS (
-  #     SELECT abs(extract(epoch from t2.timestamp - t1.timestamp)) as tdiff
-  #     FROM service_logs as t1
-  #     INNER JOIN service_logs as t2
-  #     ON t1.cluster_uuid = t2.cluster_uuid
-  #     AND t1.timestamp < t2.timestamp
-  #     AND t1.summary = 'cluster_state_waiting'
-  #     AND t1.cluster_uuid != ''
-  #     AND t2.summary = 'cluster_state_ready'
-  #     AND t2.cluster_uuid != ''
-  #     AND $__timeFilter(t1.timestamp)
-  #     AND abs(extract(epoch from t2.timestamp - t1.timestamp)) < 1600
-  #     GROUP BY t1.cluster_uuid, tdiff
-  #     ORDER BY tdiff)
-  #     SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM tdiffs;
+# # Cluster provisioning time
+  - |
+    SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM 
+       SELECT abs(extract(epoch from t2.timestamp - t1.timestamp)) as tdiff
+          FROM service_logs as t1
+          INNER JOIN service_logs as t2
+          ON t1.cluster_uuid = t2.cluster_uuid
+          AND t1.timestamp < t2.timestamp
+          AND t1.summary = 'cluster_state_waiting'
+          AND t1.cluster_uuid != ''
+          AND t2.summary = 'cluster_state_ready'
+          AND t2.cluster_uuid != ''
+          AND t1.timestamp > CURRENT_DATE - INTERVAL '28 days'
+          AND abs(extract(epoch from t2.timestamp - t1.timestamp)) < 1600
+        GROUP BY t1.cluster_uuid, tdiff
+        ORDER BY tdiff AS tdiffs;
