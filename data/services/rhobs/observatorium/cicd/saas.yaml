@@ -76,7 +76,7 @@ resourceTemplates:
       OBSERVATORIUM_LOGS_NAMESPACE: observatorium-logs-testing
       OBSERVATORIUM_TRACES_NAMESPACE: observatorium-traces-testing
       OPA_AMS_IMAGE_TAG: master-2022-11-03-222daab
-      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.46
+      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.36
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       MEMCACHED_EXPORTER_IMAGE_TAG: v0.6.0
       MEMCACHED_IMAGE_TAG: 1.5-146
@@ -105,7 +105,7 @@ resourceTemplates:
       NAMESPACE: observatorium-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-metrics-stage
       OPA_AMS_IMAGE_TAG: master-2022-11-03-222daab
-      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.46
+      GUBERNATOR_IMAGE_TAG: v2.0.0-rc.36
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       MEMCACHED_EXPORTER_IMAGE_TAG: v0.6.0
       MEMCACHED_IMAGE_TAG: 1.5-146
