@@ -32,7 +32,7 @@ spec:
   id: 23tqlfn1jrr6hm5splgbottme8n1dbbe
   provider: aws
   region: us-east-1
-  channel: stable
+  channel: candidate
   initial_version: 4.12.16
   version: 4.12.18
   multi_az: true
