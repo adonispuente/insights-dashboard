@@ -9,13 +9,11 @@ name: rate-limiting
 description: |
   App SRE Rate Limiting service - a collection of Envoy rate limiting templates that leverage an AppSRE-managed Limitador backend
 
-architectureDocument: https://gitlab.cee.redhat.com/service/rate-limiting-templates
-sopsUrl: https://gitlab.cee.redhat.com/TODO
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/runbook/rate-limiting.md
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/runbook/rate-limiting.md
 grafanaUrls:
-- title: Limitador Production Dashboard
-  url: https://grafana.app-sre.devshift.net/d/rate-limiting/rate-limits?orgId=1&var-datasource=app-sre-prod-04-prometheus&var-environment=production
-- title: Limitador Stage Dashboard
-  url: https://grafana.app-sre.devshift.net/d/rate-limiting/rate-limits?orgId=1&var-datasource=app-sre-stage-01-prometheus&var-environment=stage
+- title: Rate-limiting Dashboard
+  url: https://grafana.app-sre.devshift.net/d/rate-limiting/rate-limits
 onboardingStatus: OnBoarded
 
 escalationPolicy:
@@ -34,7 +32,7 @@ dependencies:
 codeComponents:
 - name: limitador
   resource: upstream
-  url: https://github.com/3scale/limitador
+  url: https://github.com/Kuadrant/limitador
 - name: limitador-templates
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
