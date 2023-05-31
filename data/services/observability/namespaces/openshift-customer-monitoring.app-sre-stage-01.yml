@@ -428,6 +428,19 @@ openshiftResources:
     sectors:
     - main
     - canary
+    worker_types: # reconcilation max values for each worker type
+    - name: terraform-manager
+      reconciler_duration_threshold: 60
+    - name: sc-ready-manager
+    - name: mc-ready-manager
+    - name: service-account-token-renewal
+    - name: autoscaling-manager
+    - name: hs-mc
+    - name: network-manager
+    - name: hs-sc
+    - name: access-key-worker-manager
+    - name: region-manager   
+
 ### OSD Fleet Manager Stage
 - provider: prometheus-rule
   type: resource-template-extracurlyjinja2
@@ -441,6 +454,18 @@ openshiftResources:
     - perf2
     - perf3
       #- canary
+    worker_types: # reconcilation max values for each worker type
+    - name: terraform-manager
+      reconciler_duration_threshold: 60
+    - name: sc-ready-manager
+    - name: mc-ready-manager
+    - name: service-account-token-renewal
+    - name: autoscaling-manager
+    - name: hs-mc
+    - name: network-manager
+    - name: hs-sc
+    - name: access-key-worker-manager
+    - name: region-manager   
 ### MAS SSO
 - provider: prometheus-rule
   path: /observability/prometheusrules/mas-sso-slo-availability-stage.prometheusrules.yaml
