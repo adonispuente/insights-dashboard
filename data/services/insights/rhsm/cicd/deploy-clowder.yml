@@ -489,11 +489,6 @@ resourceTemplates:
         DEVTEST_SUBSCRIPTION_EDITING_ENABLED: true
         DEVTEST_EVENT_EDITING_ENABLED: true
         ENABLE_ACCOUNT_RESET: true
-        CLOUDIGRADE_ENABLED: false
-        CLOUDIGRADE_HOST: cloudigrade-api.cloudigrade-stage.svc.cluster.local
-        CLOUDIGRADE_PORT: 8000
-        CLOUDIGRADE_INTERNAL_HOST: cloudigrade-api.cloudigrade-stage.svc.cluster.local
-        CLOUDIGRADE_INTERNAL_PORT: 8000
         USER_HOST: user.stage.api.redhat.com
         CPU_LIMIT: 1
         CPU_REQUEST: 500m
@@ -517,6 +512,7 @@ resourceTemplates:
       ref: 67b21df7478d77b8164ce96358c90d8eb2770c2b
       parameters:
         ENABLE_ACCOUNT_RESET: false
+        # TODO remove CLOUDIGRADE params w/ next prod update
         CLOUDIGRADE_ENABLED: false
         CLOUDIGRADE_HOST: cloudigrade-api.cloudigrade-prod.svc.cluster.local
         CLOUDIGRADE_PORT: 8000
