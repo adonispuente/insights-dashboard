@@ -314,7 +314,12 @@ def _get_slug_from_console_url(console_url: str) -> str:
             "provisioned successfully?"
         )
     hostname = urlparse(console_url).hostname
-    return ".".join(hostname.split(".")[2:5])
+    parts = hostname.split(".")
+    try:
+        end = parts.index("openshiftapps")
+    except ValueError:
+        end = len(parts)
+    return ".".join(parts[2:end])
 
 
 def _get_cluster_name_slugs(clusters_source_path: str) -> Dict[str, str]:
