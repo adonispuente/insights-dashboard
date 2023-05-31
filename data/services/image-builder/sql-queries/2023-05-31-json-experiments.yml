@@ -1,0 +1,56 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-05-31-json-experiments
+namespace:
+  $ref: /services/image-builder/namespaces/composer-stage.yml
+identifier: image-builder-composer-db-stage
+output: stdout
+queries:
+# benchmarks
+- |
+  EXPLAIN ANALYZE
+  SELECT type, channel, result, queued_at, started_at, finished_at, canceled
+  FROM jobs
+  WHERE id = 'a34c1bf1-5268-445c-9a8a-e508ecd091ea';
+- |
+  EXPLAIN ANALYZE
+  SELECT result
+  FROM jobs
+  WHERE id = 'a34c1bf1-5268-445c-9a8a-e508ecd091ea';
+# one big one
+- |
+  EXPLAIN ANALYZE
+  SELECT
+    jsonb_build_object('success', (SELECT result->'success' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('job_error', (SELECT result->'job_error' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('target_results', (SELECT result->'target_results' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('pipeline_names',
+      (SELECT jsonb_build_object('build', (SELECT result->'pipeline_names'->'build' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')))) ||
+    jsonb_build_object('osbuild_output',
+      (SELECT jsonb_build_object('log', (SELECT result->'osbuild_output'->'log' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')))) ||
+    jsonb_build_object('osbuild_output',
+      (SELECT jsonb_build_object('type', (SELECT result->'osbuild_output'->'type' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')))) ||
+    jsonb_build_object('osbuild_output',
+      (SELECT jsonb_build_object('metadata', (SELECT result->'osbuild_output'->'metadata' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea'))));
+# one small one
+- |
+  EXPLAIN ANALYZE
+  SELECT
+    jsonb_build_object('success', (SELECT result->'success' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('job_error', (SELECT result->'job_error' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('target_results', (SELECT result->'target_results' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('pipeline_names',
+      (SELECT jsonb_build_object('build', (SELECT result->'pipeline_names'->'build' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')))) ||
+    jsonb_build_object('pipeline_names',
+      (SELECT jsonb_build_object('payload', (SELECT result->'pipeline_names'->'payload' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea'))));
+# select something
+- |
+  SELECT
+    jsonb_build_object('success', (SELECT result->'success' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('job_error', (SELECT result->'job_error' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('target_results', (SELECT result->'target_results' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')) ||
+    jsonb_build_object('pipeline_names',
+      (SELECT jsonb_build_object('build', (SELECT result->'pipeline_names'->'build' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea')))) ||
+    jsonb_build_object('pipeline_names',
+      (SELECT jsonb_build_object('payload', (SELECT result->'pipeline_names'->'payload' FROM jobs WHERE id='a34c1bf1-5268-445c-9a8a-e508ecd091ea'))));
