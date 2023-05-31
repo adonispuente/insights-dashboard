@@ -23,6 +23,7 @@ spec:
             team: osd
             namespace: {{{ namespace }}}
             service: osd-fleet-manager
+            sector: {{{ sector }}}
         - alert: OSD Fleet Manager {{{ environment }}} is crashing - {{{ sector }}} sector - pod "fleet-manager-{{{ sector }}}"
           annotations:
             message: OSD Fleet manager {{{ environment }}} clusters container '{{ $labels.container }}' of pod '{{ $labels.pod }}' is crashing
@@ -36,80 +37,11 @@ spec:
             team: osd
             namespace: {{{ namespace }}}
             service: osd-fleet-manager
+            sector: {{{ sector }}}
       {{% endfor %}}
 
     - name: osd-fleet-manager-nonprod-api
       rules:
-        # SLO Availability p99
-        # Based on burn rate alerts from https://sre.google/workbook/alerting-on-slos/#5-multiple-burn-rate-alerts
-        - alert: OSD Fleet Manager returning 5xx error budget burn 5m to 1h
-          annotations:
-            message: 'High error budget burn of returning 5xx error codes for {{ $labels.service }} in {{{ environment }}} (current value: {{ $value }} {{{ namespace }}})'
-          expr: |
-            sum(haproxy_backend_http_responses_total:burnrate5m{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (13.44 * (1-0.99000))
-            and
-            sum(haproxy_backend_http_responses_total:burnrate1h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (13.44 * (1-0.99000))
-          for: 2m
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: medium
-            team: osd
-        - alert: OSD Fleet Manager returning 5xx error budget burn 30m to 6h
-          annotations:
-            message: 'High error budget burn of returning 5xx error codes for {{ $labels.service }} in {{{ environment }}} (current value: {{ $value }})'
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum(haproxy_backend_http_responses_total:burnrate30m{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (5.60 * (1-0.99000))
-            and
-            sum(haproxy_backend_http_responses_total:burnrate6h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (5.60 * (1-0.99000))
-          for: 15m
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: low
-        - alert: OSD Fleet Manager returning 5xx error budget burn 2h to 1d
-          annotations:
-            message: 'High error budget burn of returning 5xx error codes for {{ $labels.service }} in {{{ environment }}} (current value: {{ $value }})'
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum(haproxy_backend_http_responses_total:burnrate2h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (2.80 * (1-0.99000))
-            and
-            sum(haproxy_backend_http_responses_total:burnrate1d{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (2.80 * (1-0.99000))
-          for: 1h
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: medium
-        - alert: OSD Fleet Manager returning 5xx error budget burn 6h to 3d
-          annotations:
-            message: 'High error budget burn of returning 5xx error codes for {{ $labels.service }} in {{{ environment }}} (current value: {{ $value }})'
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum(haproxy_backend_http_responses_total:burnrate6h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (1.00 * (1-0.99000))
-            and
-            sum(haproxy_backend_http_responses_total:burnrate3d{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (1.00 * (1-0.99000))
-          for: 3h
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: low
-        - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[1d]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[1d]))
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate1d
         - expr: |
             sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[1h]))
             /
@@ -118,554 +50,45 @@ spec:
             service: osd-fleet-manager
             exported_namespace: {{{ namespace }}}
             route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate1h
-        - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[2h]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[2h]))
+          record: haproxy_backend_http_responses_total
+        - alert: OSD Fleet Manager returning 5xx 
+          annotations:
+            message: 'OSD Fleet Manager is returning 5xx error codes for {{ $labels.service }} in {{{ namespace }}} (current value: {{ $value }})'
+            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > 1-0.99000
+          for: 10m
           labels:
             service: osd-fleet-manager
             exported_namespace: {{{ namespace }}}
             route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate2h
+            severity: medium
+      {{% for sector in sectors %}}
         - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[30m]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[30m]))
+            sum(rate(api_outbound_request_count{service=~"fleet-manager-metrics-{{{ sector }}}",path=~"/api/clusters_mgmt/v1/clusters/.",apiservice="ocm-clusters-service",namespace="{{{ namespace }}}",code=~"4..|0"}[1h])) / 
+            sum(rate(api_outbound_request_count{service=~"fleet-manager-metrics-{{{ sector }}}", path=~"/api/clusters_mgmt/v1/clusters/.",namespace="$namespace",apiservice="ocm-clusters-service"}[1h]))
+          labels:
+            service: osd-fleet-manager
+            namespace: {{{ namespace }}}
+            route: osd-fleet-manager
+          record: outbound_http_responses_total
+        - alert: OSD Fleet Manager outbound api response errors
+          annotations:
+            message: 'OSD Fleet Manager is receiving 4xx error codes from OCM for {{ $labels.service }} in {{{ namespace }}} (current value: {{ $value }})'
+            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(outbound_http_responses_total) > 1-0.99000
+          for: 10m
           labels:
             service: osd-fleet-manager
             exported_namespace: {{{ namespace }}}
             route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate30m
-        - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[3d]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[3d]))
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate3d
-        - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[5m]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[5m]))
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate5m
-        - expr: |
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}",code=~"5.."}[6h]))
-            /
-            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}[6h]))
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total:burnrate6h
+            severity: medium
+            sector: {{{ sector }}}
+      {{% endfor %}}
 
-        # SLO API Latency p90 < 100ms
-        # Based on burn rate alerts from https://sre.google/workbook/alerting-on-slos/#5-multiple-burn-rate-alerts
-        - alert: OSD Fleet Manager Latency p90 < 100ms 30m to 6h budget burn
-          annotations:
-            message: "High 1h/6h requests latency budget burn for OSD Fleet Manager API p90 in {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            latencytarget:api_inbound_request_duration_bucket:rate6h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (5.6*(1 - 0.90000))
-            and
-            latencytarget:api_inbound_request_duration_bucket:rate30m{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (5.6*(1 - 0.90000))
-          labels:
-            service: osd-fleet-manager
-            latency: "0.1"
-            quantile: "90"
-            namespace: {{{ namespace }}}
-            severity: medium
-        - alert: OSD Fleet Manager Latency p90 < 100ms 6h to 3d budget burn
-          annotations:
-            message: "High 1d/3d requests latency budget burn for OSD Fleet Manager API p90 in {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            (
-              latencytarget:api_inbound_request_duration_bucket:rate1d{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (2.8*(1 - 0.90000))
-              and
-              latencytarget:api_inbound_request_duration_bucket:rate2h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (2.8*(1 - 0.90000))
-            )
-            or
-            (
-              latencytarget:api_inbound_request_duration_bucket:rate3d{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (1*(1 - 0.90000))
-              and
-              latencytarget:api_inbound_request_duration_bucket:rate6h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",le="0.1"} > (1*(1 - 0.90000))
-            )
-          labels:
-            service: osd-fleet-manager
-            latency: "0.1"
-            quantile: "90"
-            namespace: {{{ namespace }}}
-            severity: low
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[5m]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[5m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate5m
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[30m]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[30m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate30m
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[1h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[1h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate1h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[2h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[2h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate2h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[6h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[6h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate6h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[1d]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[1d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate1d
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="0.1",code!~"5.."}[3d]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[3d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "0.1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate3d
-
-        # SLO API Latency p99 < 1s
-        # Based on burn rate alerts from https://sre.google/workbook/alerting-on-slos/#5-multiple-burn-rate-alerts
-        - alert: OSD Fleet Manager Latency p99 < 1s 30m to 6h budget burn
-          annotations:
-            message: "High 6h requests latency budget burn for OSD Fleet Manager API p99 in {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            latencytarget:api_inbound_request_duration_bucket:rate6h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (5.6*(1-0.99000))
-            and
-            latencytarget:api_inbound_request_duration_bucket:rate30m{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (5.6*(1-0.99000))
-          labels:
-            service: osd-fleet-manager
-            latency: "1"
-            quantile: "99"
-            namespace: {{{ namespace }}}
-            severity: medium
-        - alert: OSD Fleet Manager Latency p99 < 1s 6h to 3d budget burn
-          annotations:
-            message: "High 1d/3d requests latency budget burn for OSD Fleet Manager API p99 in {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            (
-              latencytarget:api_inbound_request_duration_bucket:rate1d{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (2.8*(1-0.99000))
-              and
-              latencytarget:api_inbound_request_duration_bucket:rate2h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (2.8*(1-0.99000))
-            )
-            or
-            (
-              latencytarget:api_inbound_request_duration_bucket:rate3d{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (1*(1-0.99000))
-              and
-              latencytarget:api_inbound_request_duration_bucket:rate6h{service="fleet-manager-metrics",namespace="{{{ namespace }}}",latency="1"} > (1*(1-0.99000))
-            )
-          labels:
-            service: osd-fleet-manager
-            latency: "1"
-            quantile: "99"
-            namespace: {{{ namespace }}}
-            severity: low
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[5m]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[5m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate5m
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[30m]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[30m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate30m
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[1h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[1h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate1h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[2h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[2h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate2h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[6h]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[6h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate6h
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[1d]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[1d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate1d
-        - expr: |
-            1 - (
-              sum(rate(api_inbound_request_duration_bucket_bucket{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",le="1",code!~"5.."}[3d]))
-              /
-              sum(rate(api_inbound_request_duration_bucket_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}"}[3d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            latency: "1"
-            namespace: {{{ namespace }}}
-          record: latencytarget:api_inbound_request_duration_bucket:rate3d
-
-    - name: osd-fleet-manager-nonprod-cluster-crud
-      rules:
-        # SLO Correctness (Create) p99
-        # Based on burn rate alerts from https://sre.google/workbook/alerting-on-slos/#5-multiple-burn-rate-alerts
-        - alert: OSD Fleet Manager Cluster Creation 30m to 6h budget burn
-          annotations:
-            message: "High 6h error budget burn for OSD Fleet Manager create Cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate30m{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (5.60 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate6h{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (5.60 * (1-0.99000))
-          for: 15m
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: create
-            severity: medium
-        - alert: OSD Fleet Manager Cluster Creation 2h to 1d budget burn
-          annotations:
-            message: "High 1d error budget burn for OSD Fleet Manager create Cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate2h{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (2.80 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate1d{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (2.80 * (1-0.99000))
-          for: 1h
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: create
-            severity: medium
-        - alert: OSD Fleet Manager Cluster Creation 6h to 3d budget burn
-          annotations:
-            message: "High 3d error budget burn for OSD Fleet Manager create Cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate6h{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (1.00 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate3d{namespace="{{{ namespace }}}",operation="create"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (1.00 * (1-0.99000))
-          for: 3h
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: create
-            severity: medium
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[1d]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[1d]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate1d
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[1h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[1h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate1h
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[2h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[2h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate2h
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[30m]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[30m]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate30m
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[3d]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[3d]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate3d
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[5m]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[5m]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate5m
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[6h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="create"}[6h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: create
-          record: fleet_manager_cluster_operations:burnrate6h
-
-        # SLO Correctness (Delete) p99
-        # Based on burn rate alerts from https://sre.google/workbook/alerting-on-slos/#5-multiple-burn-rate-alerts
-        - alert: OSD Fleet Manager Cluster Deletion 30m to 6h budget burn
-          annotations:
-            message: "High 6h error budget burn for OSD Fleet Manager delete Cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate30m{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (5.60 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate6h{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (5.60 * (1-0.99000))
-          for: 15m
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: delete
-            severity: medium
-        - alert: OSD Fleet Manager Cluster Deletion 2h to 1d budget burn
-          annotations:
-            message: "High 1d error budget burn for OSD Fleet Manager delete Cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate2h{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (2.80 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate1d{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (2.80 * (1-0.99000))
-          for: 1h
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: delete
-            severity: medium
-        - alert: OSD Fleet Manager Cluster Deletion 6h to 3d budget burn
-          annotations:
-            message: "High 3d error budget burn for OSD Fleet Manager delete cluster operations in sector {{ $labels.sector }} {{{ environment }}} (current value: {{ $value | humanize }})"
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate6h{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (1.00 * (1-0.99000))
-            and
-            sum by (sector) (label_replace(fleet_manager_cluster_operations:burnrate3d{namespace="{{{ namespace }}}",operation="delete"}, "sector", "$1", "service", "fleet-manager-metrics-(.*)")) > (1.00 * (1-0.99000))
-          for: 3h
-          labels:
-            service: osd-fleet-manager
-            namespace: {{{ namespace }}}
-            operation: delete
-            severity: medium
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[1d]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[1d]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate1d
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[1h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[1h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate1h
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[2h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[2h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate2h
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[30m]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[30m]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate30m
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[3d]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[3d]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate3d
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[5m]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[5m]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate5m
-        - expr: |
-            1 - (
-              sum(rate(fleet_manager_cluster_operations_success_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[6h]))
-              /
-              sum(rate(fleet_manager_cluster_operations_total_count{service=~"fleet-manager-metrics.*",namespace="{{{ namespace }}}",operation="delete"}[6h]))
-            )
-          labels:
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-            operation: delete
-          record: fleet_manager_cluster_operations:burnrate6h
 
     - name: osd-fleet-manager-nonprod-reconciler
       rules:
@@ -686,33 +109,56 @@ spec:
             severity: medium
             team: osd
             service: osd-fleet-manager
-
+        
+    {{% for wt in worker_types %}}
         - expr: |
-            label_replace(max by (worker_type, service, reconciliation_step, namespace) (fleet_manager_reconciler_duration_in_seconds{namespace="{{{ namespace }}}"}), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
+            label_replace(max by (worker_type, service, reconciliation_step, namespace) (fleet_manager_reconciler_duration_in_seconds{namespace="{{{ namespace }}}",worker_type="{{{ wt.name }}}"}), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
           labels:
             job: fleet-manager-metrics
-          record: reconciler:fleet_manager_reconciler_duration_in_seconds:max
-        - alert: OSD Fleet Manager reconciler long duration
+          record: reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max
+        - alert: OSD Fleet Manager {{{ wt.name }}} reconciler long duration
           annotations:
-            message: "The maximum reconciler duration was {{ $value | humanizeDuration }} for reconciler {{ $labels.worker_type }}/{{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in {{{ environment }}}"
+            message: "The maximum {{{ wt.name }}} reconciler duration was {{ $value | humanizeDuration }} for reconciler {{ $labels.worker_type }}/{{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in {{{ namespace }}}"
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            reconciler:fleet_manager_reconciler_duration_in_seconds:max{namespace="{{{ namespace }}}"} > 30
+            reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name }}}:max{namespace="{{{ namespace }}}"} > {{{ wt.reconciler_duration_threshold | default(30) }}}
           labels:
             severity: medium
             service: osd-fleet-manager
+            worker_type: {{{ wt.name }}}
+    {{% endfor %}}
         
+    {{% for sector in sectors %}}
         - alert: OSD Fleet Manager cluster provision long duration
           annotations:
-            message: "Long provision duration {{ $value | humanizeDuration }} for cluster {{ $labels.cluster_id }} of type {{ $labels.cluster_type }} in sector {{ $labels.sector }} in {{{ environment }}}"
+            message: "Long provision duration {{ $value | humanizeDuration }} for cluster {{ $labels.cluster_id }} of type {{ $labels.cluster_type }} in sector {{{ sector }}} in {{{ environment }}}"
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="{{{ namespace }}}"} > 18000
+            fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="{{{ namespace }}}", service="fleet-manager-metrics-{{{ sector }}}"} > 18000
           labels:
             severity: medium
             service: osd-fleet-manager
+            sector: {{{ sector }}}
+    {{% endfor %}}
+
+    - name: osd-fleet-manager-cluster-operation
+      rules:
+    {{% for sector in sectors %}}
+        - alert: OSD Fleet Manager cluster failed operations
+          annotations:
+            message: "Cluster provision failed of type {{ $labels.cluster_type }} in sector {{{ sector }}} in environment {{{ environment }}}" 
+            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(rate(fleet_manager_cluster_status_count{namespace="{{{ namespace }}}", service="fleet-manager-metrics-{{{ sector }}}", status="failed"}[1h])) > 0
+          labels:
+            severity: high
+            service: osd-fleet-manager
+            sector: {{{ sector }}}
+    {{% endfor %}}
+
 
     - name: osd-fleet-manager-nonprod-saturation-level
       rules:
