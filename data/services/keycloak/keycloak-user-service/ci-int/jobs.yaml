@@ -1,0 +1,32 @@
+---
+$schema: /dependencies/jenkins-config-1.yml
+
+labels:
+  service: keycloak-user-service
+
+name: ci-int-keycloak-user-service-jobs
+
+description: 'Keycloak user service jobs'
+
+app:
+  $ref: /services/keycloak/keycloak-user-service/app.yml
+
+instance:
+  $ref: /dependencies/ci-int/ci-int.yml
+
+type: jobs
+
+config:
+- project:
+    name: keycloak-user-service
+    label: keycloak-user-service
+    node: app-sre
+    gl_group: service
+    gl_project: keycloak-user-service
+    quay_org: app-sre
+    jobs:
+    - 'gl-build-master':
+        display_name: keycloak-user-service build main
+        branch: main
+    - 'gl-pr-check':
+        display_name: keycloak-user-service pr-check
