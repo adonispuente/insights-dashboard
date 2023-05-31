@@ -281,7 +281,7 @@ resourceTemplates:
         hs-sc:
           name_prefix: "hs-sc-"
           # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-          openshift_version: "openshift-v4.12.12"
+          openshift_version: "openshift-v4.12.18"
           multi_az: true
           ccs: true
           default_machine_pool:
@@ -298,7 +298,7 @@ resourceTemplates:
         hs-mc:
           name_prefix: "hs-mc-"
           # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-          openshift_version: "openshift-v4.12.12"
+          openshift_version: "openshift-v4.12.18"
           multi_az: true
           ccs: true
           default_machine_pool:
@@ -379,6 +379,9 @@ resourceTemplates:
       - predicate:
           region: eu-west-1
         sector: perf3
+      - predicate:
+          region: eu-central-1
+        sector: incidentrehearsal
       # put everything else into the main sector
       - sector: main
     SENTRY_PROJECT: 11
@@ -390,6 +393,7 @@ resourceTemplates:
           - name: us-east-2 # reserved for perf testing
           - name: us-east-1 # reserved for chaos testing
           - name: eu-west-1 # reserved for perf testing (perf3 sector)
+          - name: eu-central-1 # reserved for incident rehearsal
     TELEMETER_SERVER_URL: https://infogw.api.stage.openshift.com
     TERRAFORM_ALLOWED_ACTIONS: none
     TRANSIT_ACCOUNT_ARN: arn:aws:iam::254070712068:user/svc-cluster-aws-vpce-operator
@@ -608,6 +612,66 @@ resourceTemplates:
                   effect: NoSchedule
       DEPLOYMENT_NAME: chaos
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
+  - name: osd-fleet-manager-stage-incidentrehearsal
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
+    ref: a5555921c1dd69635fe437f90ad8200fc1924135
+    promotion:
+      auto: true
+      publish:
+      - ocm-osdfm-deployed-stage-incidentrehearsal
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
+    parameters:
+      DEPLOYMENT_NAME: incidentrehearsal
+      CLUSTER_TEMPLATES: |2-
+          # HyperShift Service Cluster
+          hs-sc:
+            name_prefix: "hs-sc-"
+            # See /api/clusters_mgmt/v1/versions for list of supported version IDs
+            openshift_version: "openshift-v4.12.18"
+            multi_az: true
+            ccs: true
+            default_machine_pool:
+              machine_type: m5.4xlarge
+              autoscale: false
+              nodes: 3
+            compute_machine_type: m5.4xlarge
+            compute_autoscale: false
+            compute_nodes: 3
+            network_type: OVNKubernetes
+            private: true
+
+          # HyperShift Management Cluster
+          hs-mc:
+            name_prefix: "hs-mc-"
+            # See /api/clusters_mgmt/v1/versions for list of supported version IDs
+            openshift_version: "openshift-v4.12.18"
+            multi_az: true
+            ccs: true
+            default_machine_pool:
+              machine_type: m5.4xlarge
+              autoscale: true
+              autoscale_min_replicas: 3
+              autoscale_max_replicas: 36
+            compute_machine_type: m5.4xlarge
+            compute_autoscale: true
+            compute_autoscale_min_replicas: 3
+            compute_autoscale_max_replicas: 36
+            network_type: OVNKubernetes
+            private: true
+            additional_machine_pool_gangs:
+            - id_prefix: obo
+              machine_type: r5.4xlarge
+              autoscale: false
+              nodes: 3 # AFAIK this means 1 in each of the 3 available AZs
+              labels:
+                - key: node-role.kubernetes.io/obo
+                  value: ""
+              taints:
+                - key: obo
+                  value: true
+                  effect: NoSchedule
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
