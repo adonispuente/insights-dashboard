@@ -351,7 +351,7 @@ externalResources:
     certificate_arn: arn:aws:acm:us-east-1:206170669542:certificate/8a4a9a8b-d06b-46f6-a234-e7ef2ec657cf
     ingress_cidr_blocks: ["0.0.0.0/0"]
     targets:
-    - name: quayio-production-py3-grpc
+    - name: quayio-py3-grpc
       default: true
       openshift_service: quay-py3-grpc-load-balancer-service
       protocol: "HTTPS"
