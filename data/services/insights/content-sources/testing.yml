@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
-    ref: 27103cfdf86f569ec5b1786f93f5d9ed91b5c942
+    ref: e02d74f7ab942f3e37f7995a565234f56e9719a2
     promotion:
       auto: true
       subscribe:
