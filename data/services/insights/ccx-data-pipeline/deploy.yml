@@ -70,7 +70,7 @@ resourceTemplates:
       CPU_REQUEST: "500m"
       MEMORY_REQUEST: "512Mi"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
     parameters:
@@ -126,7 +126,7 @@ resourceTemplates:
       IRA_MEMORY_REQUEST: "2000Mi"
       CLOUDWATCH_ENABLED: "true"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -178,7 +178,7 @@ resourceTemplates:
       DEBUG: false
       LOGGING_TO_CLOUD_WATCH_ENABLED: "true"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -221,7 +221,7 @@ resourceTemplates:
     parameters:
       IMAGE_TAG: a90d26a
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -248,7 +248,7 @@ resourceTemplates:
       CPU_REQUEST: "100m"
       MEMORY_REQUEST: "300Mi"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -287,7 +287,7 @@ resourceTemplates:
       MIN_REPLICAS: "2"
       MAX_REPLICAS: "6"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -316,7 +316,7 @@ resourceTemplates:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -363,7 +363,7 @@ resourceTemplates:
       publish:
       - insights-aggregator-exporter-prod-ready-channel
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -395,7 +395,7 @@ resourceTemplates:
       MAX_REPLICAS: "1"
       DB_MIGRATION_VERSION: "3"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -428,7 +428,7 @@ resourceTemplates:
       OLD_REPORTS_MAX_AGE: '8 days'
       NEW_REPORTS_MAX_AGE: '8 days'
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
 
@@ -468,7 +468,7 @@ resourceTemplates:
       JOB_DEADLINE__SERVICE_LOG: "36000"
       SUSPEND_JOB__SERVICE_LOG: "false"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -517,7 +517,7 @@ resourceTemplates:
       publish:
       - insights-notification-exporter-prod-ready-channel
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: internal
     parameters:
@@ -539,7 +539,7 @@ resourceTemplates:
     parameters:
       LOG_LEVEL: INFO
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true # TODO: enable when there is any test running in ephemeral
     ref: internal
 
@@ -556,7 +556,7 @@ resourceTemplates:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 7130b569b9a74f8916dfffe65833cd20eadac0cf
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
@@ -576,7 +576,7 @@ resourceTemplates:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     parameters:
       RHOBS_URL: http://rhobs-mock-svc:8080
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
@@ -590,7 +590,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/ccx-upgrades-data-eng
   targets:
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
@@ -600,7 +600,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/rhobs-mock
   targets:
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
@@ -768,7 +768,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/mock-ams
   targets:
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-ephemeral.yml
     disable: true
     ref: main
     parameters:
