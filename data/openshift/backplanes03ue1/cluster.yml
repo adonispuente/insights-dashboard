@@ -101,9 +101,6 @@ clusterAdminAutomationToken:
   path: app-sre/creds/kube-configs/backplanes03ue1-cluster-admin
   field: token
 
-disable:
-  integrations:
-  - slack-usergroups
 managedClusterRoles: true
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes03ue1.yml
