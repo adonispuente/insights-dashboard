@@ -1,0 +1,12 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Maryna Dolhalova
+org_username: mdolhalo
+github_username: nallikaea
+quay_username: mdolhalo
+
+roles:
+- $ref: /teams/che/roles/che-dev.yml
