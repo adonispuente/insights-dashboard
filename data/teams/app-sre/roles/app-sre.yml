@@ -219,6 +219,7 @@ aws_groups:
 - $ref: /aws/cna-service-integration/groups/App-SRE-admin.yml
 - $ref: /aws/cna-service-stage/groups/App-SRE-admin.yml
 - $ref: /aws/cna-service/groups/App-SRE-admin.yml
+- $ref: /aws/hypershift-dns01/groups/AppSRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
@@ -241,6 +242,7 @@ user_policies:
 - $ref: /aws/cna-service-integration/policies/ManageOwnMFA.yml
 - $ref: /aws/cna-service-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/cna-service/policies/ManageOwnMFA.yml
+- $ref: /aws/hypershift-dns01/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:
