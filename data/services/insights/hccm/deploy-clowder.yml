@@ -266,7 +266,7 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 8ecb00eddbf4a30f6ed8f0ff46ef55920ce9d54b
+    ref: 7c94c8d89fe2a67eb6b4ce2f192405dbb3497c8b
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
@@ -370,7 +370,7 @@ resourceTemplates:
       WORKER_OCP_MEMORY_REQUEST: 1Gi
       WORKER_OCP_MEMORY_LIMIT: 2Gi
       # worker-priority
-      WORKER_PRIORITY_REPLICAS: 0  # 3
+      WORKER_PRIORITY_REPLICAS: 3  # 3
       WORKER_PRIORITY_CPU_REQUEST: 500m
       WORKER_PRIORITY_CPU_LIMIT: 1
       WORKER_PRIORITY_MEMORY_REQUEST: 3Gi
