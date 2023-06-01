@@ -140,34 +140,6 @@ externalResources:
       queues:
       - key: job_queue_service_heartbeat_dlq
         value: job-queue-service-heartbeat-dlq
-  - provider: ecr
-    region: eu-central-1
-    identifier: uhc-gateway
-    output_resource_name: uhc-gateway-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: uhc-clusters-service
-    output_resource_name: uhc-clusters-service-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: uhc-account-manager
-    output_resource_name: uhc-account-manager-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: uhc-clusters-cleaner
-    output_resource_name: uhc-clusters-cleaner-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: ocm-service-log
-    output_resource_name: ocm-service-log-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: ocm-managed-services
-    output_resource_name: ocm-managed-services-backup
-  - provider: ecr
-    region: eu-central-1
-    identifier: ocm-addons-service
-    output_resource_name: ocm-addons-service-backup
   - provider: s3-cloudfront
     identifier: rh-oidc
     defaults: /terraform/resources/ocm/s3-cloudfront-production.yml
