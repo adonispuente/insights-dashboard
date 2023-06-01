@@ -60,7 +60,10 @@ openshiftResources:
   path: insights/secrets/insights-prod/ccx-data-pipeline-prod/ccx-notification-service-auth
   version: 3
   name: ccx-notification-service-auth
-
+- provider: vault-secret
+  path: insights/secrets/insights-prod/ccx-data-pipeline-prod/cache-writer-redis-credentials
+  version: 1
+  name: cache-writer-redis-credentials
 
 managedExternalResources: true
 
