@@ -148,6 +148,7 @@ alertingServices:
 - mas-sso
 - obervatorium-logs
 - observability
+- observatorium-api
 - observatorium-alertmanager
 - observatorium-logs
 - ocm-managed-services
