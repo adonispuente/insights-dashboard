@@ -10,3 +10,6 @@ github_username: michael-valdron
 roles:
 - $ref: /teams/devfile-registry/roles/dev.yml
 - $ref: /teams/devfile-registry/roles/saas-approver.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
