@@ -55,13 +55,27 @@ config:
     - insights-gh-pr-check:
         display_name: cyndi-operator pr-check
     - insights-gh-build-master:
-        display_name: chrome-service build-security-compliance
+        display_name: cyndi-operator build-security-compliance
         branch: security-compliance
     - insights-gh-scheduled-rebuild:
         display_name: cyndi-operator build-security-compliance-weekly
         branch: security-compliance
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
+    - gh-build-catalog-master-with-upstream:
+        display_name: cyndi-operator build-security-compliance-catalog-index
+        upstream: RedHatInsights-cyndi-operator-gh-build-security-compliance
+        branch: security-compliance
+        bundle_image: quay.io/cloudservices/cyndi-operator-bundle
+        catalog_image: quay.io/cloudservices/cyndi-operator-index 
+        build_catalog_script_path: './build_security_catalog.sh'
+    - gh-build-catalog-master-with-upstream:
+        display_name: cyndi-operator build-security-compliance-weekly-catalog-index
+        upstream: RedHatInsights-cyndi-operator-scheduled-rebuild-security-compliance
+        branch: security-compliance
+        bundle_image: quay.io/cloudservices/cyndi-operator-bundle
+        catalog_image: quay.io/cloudservices/cyndi-operator-index
+        build_catalog_script_path: './build_security_catalog.sh'
 
 
 - project:
