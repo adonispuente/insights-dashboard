@@ -13,6 +13,9 @@ tag_on_cluster_updates: false
 roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-emea-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-stream-2-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-stream-4-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-stream-5-slack.yml
 
 public_gpg_key: |
   mQINBGC/FCUBEACmZnIU9BJhqyGp3i3HrMFF3nkuecDNCC257jZFVQw0uUgZEaRZKjcve7k5uVfNpuIU
