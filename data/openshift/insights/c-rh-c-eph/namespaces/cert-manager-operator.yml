@@ -3,7 +3,7 @@ $schema: /openshift/namespace-1.yml
 
 labels: {}
 
-name: openshift-cert-manager
+name: cert-manager-operator
 description: ephemeral cluster cert-manager namespace
 
 cluster:
