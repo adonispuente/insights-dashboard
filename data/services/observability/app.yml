@@ -95,7 +95,7 @@ quayRepos:
   - name: eventrouter-rhel8
     description: Mirror for registry.redhat.io/openshift-logging/eventrouter-rhel8
     mirror:
-      $ref: /dependencies/image-mirrors/quay.io/app-sre/eventrouter-rhel8.yml
+      $ref: /dependencies/image-mirrors/registry.redhat.io/openshift-logging/eventrouter-rhel8.yml
     public: false
   - name: alert-translator
     description: 'https://github.com/app-sre/alert-translator'
