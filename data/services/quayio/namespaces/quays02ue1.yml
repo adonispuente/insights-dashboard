@@ -321,7 +321,7 @@ externalResources:
     certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/8e2e34fa-7227-4561-9d7d-d364871f4352
     ingress_cidr_blocks: ["0.0.0.0/0"]
     targets:
-    - name: quayio-stage-py3-recovery
+    - name: quayio-stage-recovery
       default: true
       openshift_service: quay-py3-recovery-load-balancer-service
     rules: []
