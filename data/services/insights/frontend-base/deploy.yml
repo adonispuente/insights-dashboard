@@ -304,7 +304,7 @@ resourceTemplates:
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-    ref: d29650595b2ae458ac171fd987e20a1928748e5e
+    ref: master
     image:
       org:
         $ref: /dependencies/quay/cloudservices.yml
