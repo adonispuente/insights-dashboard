@@ -159,7 +159,7 @@ resourceTemplates:
 
   - namespace: # PRODUCTION
       $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-    ref: bffd81ab577adc70beb5fb2ccfeb58070fca0897 # v3.1.39
+    ref: 21ba8d9462970a7cfec992867ffba9f920748f94 # v3.2.2
     parameters:
       # Manager
       REPLICAS_MANAGER: '4'
