@@ -12,3 +12,4 @@ tag_on_cluster_updates: false
 roles:
 - $ref: /teams/ocm/roles/ui-dev.yml
 - $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/ocm/roles/vault-access.yml
