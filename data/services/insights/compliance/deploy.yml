@@ -81,7 +81,7 @@ resourceTemplates:
     parameters:
       MIN_REPLICAS: 1
 - name: compliance
-  path: /clowdapp.yaml
+  path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/compliance-backend
   targets:
   - namespace:
