@@ -1,0 +1,81 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: provisioning
+name: provisioning-2023-06-01
+app:
+  $ref: /services/insights/provisioning/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RHEnVision/provisioning-frontend:
+    - branch: master
+      total: 13
+      success: 13
+    https://github.com/RHEnVision/provisioning-backend:
+    - branch: master
+      total: 52
+      success: 48
+  container_vulnerabilities:
+  - cluster: crcs02ue1
+    namespace: provisioning-stage
+    vulnerabilities:
+      Unknown: 6
+      Medium: 12
+      High: 8
+      Low: 3
+  post_deploy_jobs:
+  - cluster: c-rh-c-eph
+    namespace: ephemeral-base
+    post_deploy_job: false
+  - cluster: crcs02ue1
+    namespace: provisioning-stage
+    post_deploy_job: false
+  - cluster: crcp01ue1
+    namespace: provisioning-prod
+    post_deploy_job: false
+  - cluster: appsres03ue1
+    namespace: provisioning-stage-tests
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: app-sre-observability-production
+    post_deploy_job: false
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: provisioning-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 4
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 4
+      deployment_validation_operator_no_node_affinity:
+        Failed: 4
+  - cluster: crcs02ue1
+    namespace: provisioning-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 6
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 5
+      deployment_validation_operator_no_node_affinity:
+        Failed: 5
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: provisioning-prod
+    slo_name: API request latency
+    slo_doc_name: provisioning
+    slo_value: 90.2434950516831
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: provisioning-prod
+    slo_name: API Success Rate
+    slo_doc_name: provisioning
+    slo_value: 98.8440948738243
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: provisioning-prod
+    slo_name: API Reservation Success Rate
+    slo_doc_name: provisioning
+    slo_value: 90.0219400784147
+    slo_target: 95.0

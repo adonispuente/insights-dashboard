@@ -1,0 +1,117 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: automation-hub
+name: automation-hub-2023-06-01
+app:
+  $ref: /services/insights/automation-hub/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/ansible/galaxy_ng:
+    - branch: master
+      total: 25
+      success: 25
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/ansible/automation-hub-deploy:
+    - branch: master
+      total: 2
+      success: 2
+    https://github.com/ansible/galaxy-importer:
+    - branch: master
+      total: 3
+      success: 3
+    https://github.com/ansible/ansible-hub-ui:
+    - branch: master
+      total: 62
+      success: 57
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: automation-hub-prod
+    vulnerabilities:
+      Medium: 132
+      High: 135
+      Low: 48
+      Critical: 12
+  - cluster: crcs02ue1
+    namespace: automation-hub-stage
+    vulnerabilities:
+      Medium: 42
+      High: 3
+      Low: 12
+      Critical: 9
+  - cluster: appsres03ue1
+    namespace: automation-hub-stage-tests
+    vulnerabilities:
+      Medium: 5
+      High: 3
+      Low: 4
+  post_deploy_jobs:
+  - cluster: c-rh-c-eph
+    namespace: ephemeral-base
+    post_deploy_job: false
+  - cluster: crcs02ue1
+    namespace: automation-hub-stage
+    post_deploy_job: false
+  - cluster: crcp01ue1
+    namespace: automation-hub-prod
+    post_deploy_job: false
+  - cluster: appsres03ue1
+    namespace: app-sre-observability-stage
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: app-sre-observability-production
+    post_deploy_job: false
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: automation-hub-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 4
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 4
+      deployment_validation_operator_no_node_affinity:
+        Failed: 4
+  - cluster: crcp01ue1
+    namespace: automation-hub-jobs-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 2
+      deployment_validation_operator_no_node_affinity:
+        Failed: 2
+  - cluster: crcs02ue1
+    namespace: automation-hub-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 4
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 5
+      deployment_validation_operator_no_node_affinity:
+        Failed: 5
+  - cluster: crcs02ue1
+    namespace: automation-hub-jobs-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 3
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 37
+      deployment_validation_operator_no_node_affinity:
+        Failed: 37
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: automation-hub-prod
+    slo_name: automation-hub latency
+    slo_doc_name: automation-hub
+    slo_value: 99.6028970889429
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: automation-hub-prod
+    slo_name: automation-hub availability
+    slo_doc_name: automation-hub
+    slo_value: 99.9967797165665
+    slo_target: 95.0

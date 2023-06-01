@@ -1,0 +1,256 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: deployment-validation-operator
+name: deployment-validation-operator-2023-06-01
+app:
+  $ref: /services/osd-operators/deployment-validation-operator/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/app-sre/deployment-validation-operator:
+    - branch: master
+      total: 5
+      success: 5
+    - branch: refs/tags/*
+      total: 137
+      success: 134
+  container_vulnerabilities:
+  - cluster: quayp04ue2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep06uw2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep03uw1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: clairp01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: rhobsp02ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivei01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: quays02ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: quayp05ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: appsres03ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: crcs02ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: crcp01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: appsres04ue2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: app-sre-prod-04
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep07ue2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep05ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: appsrep05ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: app-sre-prod-01
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: appsrep06ue2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hives02ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep02ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hivep04ew2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: hive-stage-01
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: telemeter-prod-01
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: ocmquayrwp01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: app-sre-stage-01
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanes01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanep01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanes02uw2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanep02uw2
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanei01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: stonesoups01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: stonesoupp01ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  - cluster: backplanes03ue1
+    namespace: openshift-deployment-validation-operator
+    vulnerabilities:
+      Medium: 7
+      High: 2
+      Low: 3
+  post_deploy_jobs:
+  - cluster: hivei01ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hive-stage-01
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hives02ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep01ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep02ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep03uw1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep04ew2
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep05ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep06uw2
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hivep07ue2
+    namespace: cluster-scope
+    post_deploy_job: false
+  deployment_validations: null
+  service_slo: null

@@ -1,0 +1,190 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: ocm
+name: ocm-2023-06-01
+app:
+  $ref: /services/ocm/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/service/ocm-resources:
+    - branch: master
+      total: 109
+      success: 86
+    - branch: master
+      total: 93
+      success: 72
+    - branch: master
+      total: 93
+      success: 87
+  container_vulnerabilities:
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    vulnerabilities:
+      Unknown: 16
+      Medium: 331
+      High: 108
+      Low: 47
+  - cluster: app-sre-stage-01
+    namespace: uhc-stage
+    vulnerabilities:
+      Unknown: 17
+      Medium: 506
+      High: 162
+      Low: 92
+  - cluster: app-sre-stage-01
+    namespace: uhc-integration
+    vulnerabilities:
+      Unknown: 14
+      Medium: 205
+      High: 76
+      Low: 35
+      Critical: 2
+  - cluster: appsres04ue2
+    namespace: uhc-stage
+    vulnerabilities:
+      Medium: 105
+      High: 36
+      Low: 15
+  post_deploy_jobs:
+  - cluster: appsres03ue1
+    namespace: app-sre-observability-stage
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: app-sre-observability-production
+    post_deploy_job: false
+  - cluster: app-sre-stage-01
+    namespace: uhc-integration
+    post_deploy_job: false
+  - cluster: appsres04ue2
+    namespace: uhc-stage
+    post_deploy_job: false
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    post_deploy_job: false
+  deployment_validations:
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 2
+      deployment_validation_operator_no_anti_affinity:
+        Failed: 9
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 26
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 26
+      deployment_validation_operator_run_as_non_root:
+        Failed: 11
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 33
+      deployment_validation_operator_no_node_affinity:
+        Failed: 33
+  - cluster: app-sre-stage-01
+    namespace: uhc-stage
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 3
+      deployment_validation_operator_no_anti_affinity:
+        Failed: 9
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 38
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 38
+      deployment_validation_operator_run_as_non_root:
+        Failed: 16
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 45
+      deployment_validation_operator_no_node_affinity:
+        Failed: 45
+  - cluster: app-sre-stage-01
+    namespace: uhc-integration
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 5
+      deployment_validation_operator_no_anti_affinity:
+        Failed: 7
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 40
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 40
+      deployment_validation_operator_run_as_non_root:
+        Failed: 16
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 46
+      deployment_validation_operator_no_node_affinity:
+        Failed: 46
+  - cluster: appsres04ue2
+    namespace: uhc-stage
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 2
+      deployment_validation_operator_no_anti_affinity:
+        Failed: 5
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 20
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 20
+      deployment_validation_operator_run_as_non_root:
+        Failed: 5
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 24
+      deployment_validation_operator_no_node_affinity:
+        Failed: 24
+  - cluster: hivei01ue1
+    namespace: sandbox
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: hivei01ue1
+    namespace: uhc-leadership
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep06ue2
+    namespace: uhc-production
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 3
+  - cluster: hivep07ue2
+    namespace: uhc-leadership
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: hives02ue1
+    namespace: uhc-leadership
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: hivep06uw2
+    namespace: uhc-leadership
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  service_slo:
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    slo_name: availability
+    slo_doc_name: clusters-service
+    slo_value: 97.1427862486511
+    slo_target: 95.0
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    slo_name: errors
+    slo_doc_name: clusters-service
+    slo_value: 100.0
+    slo_target: 95.0
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    slo_name: latency
+    slo_doc_name: clusters-service
+    slo_value: 97.1440972222225
+    slo_target: 95.0
+  - cluster: app-sre-prod-04
+    namespace: uhc-production
+    slo_name: errors
+    slo_doc_name: accounts-mgmt
+    slo_value: 100.0
+    slo_target: 95.0

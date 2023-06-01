@@ -1,0 +1,136 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: hccm
+name: hccm-2023-06-01
+app:
+  $ref: /services/insights/hccm/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/project-koku/koku:
+    - branch: master
+      total: 50
+      success: 49
+    https://github.com/project-koku/koku-daily:
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/project-koku/nise-populator:
+    - branch: master
+      total: 11
+      success: 11
+    https://github.com/project-koku/koku-report-emailer:
+    - branch: master
+      total: 5
+      success: 5
+    https://github.com/project-koku/parquet-compactor:
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/project-koku/koku-ui:
+    - branch: master
+      total: 61
+      success: 60
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/RedHatInsights/ubi-hive:
+    - branch: master
+      total: 2
+      success: 2
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    vulnerabilities:
+      Unknown: 52
+      Medium: 423
+      High: 255
+      Low: 113
+  - cluster: crcs02ue1
+    namespace: hccm-stage
+    vulnerabilities:
+      Unknown: 22
+      Medium: 313
+      High: 162
+      Low: 88
+  post_deploy_jobs:
+  - cluster: insights-perf
+    namespace: hccm-perf
+    post_deploy_job: false
+  - cluster: crcs02ue1
+    namespace: frontends-beta
+    post_deploy_job: false
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    post_deploy_job: false
+  - cluster: c-rh-c-eph
+    namespace: ephemeral-base
+    post_deploy_job: false
+  - cluster: appsres03ue1
+    namespace: app-sre-observability-stage
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: app-sre-observability-production
+    post_deploy_job: false
+  deployment_validations:
+  - cluster: crcs02ue1
+    namespace: costmanagement-metrics-operator
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 1
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 3
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  - cluster: crcs02ue1
+    namespace: hccm-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 6
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 27
+      deployment_validation_operator_no_node_affinity:
+        Failed: 27
+  - cluster: crcp01ue1
+    namespace: costmanagement-metrics-operator
+    validations:
+      deployment_validation_operator_minimum_three_replicas:
+        Failed: 1
+      deployment_validation_operator_run_as_non_root:
+        Failed: 1
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 23
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 23
+      deployment_validation_operator_no_node_affinity:
+        Failed: 23
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    slo_name: Cost Management API Latency
+    slo_doc_name: app-interface
+    slo_value: 99.1623586976388
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    slo_name: Cost Management API Availability
+    slo_doc_name: app-interface
+    slo_value: 99.9788829239161
+    slo_target: 90.0
