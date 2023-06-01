@@ -10,5 +10,3 @@ quayTargetOrgs:
 - $ref: /dependencies/ocm-quay/openshift-release-dev.yml
 mirrorChannels:
 - stable
-- fast
-- candidate
