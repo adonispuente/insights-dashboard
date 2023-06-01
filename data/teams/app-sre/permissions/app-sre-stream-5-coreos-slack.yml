@@ -14,3 +14,4 @@ workspace:
 
 channels:
 - sd-app-sre
+- sd-app-sre-stream-5
