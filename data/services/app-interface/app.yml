@@ -122,16 +122,6 @@ gcrRepos:
     public: true
     mirror:
       $ref: /dependencies/image-mirrors/quay.io/app-sre/qontract-schemas.yml
-  - name: manifest-bouncer
-    description: ''
-    public: true
-    mirror:
-      $ref: /dependencies/image-mirrors/quay.io/app-sre/manifest-bouncer.yml
-  - name: saasherder
-    description: ''
-    public: true
-    mirror:
-      $ref: /dependencies/image-mirrors/quay.io/openshiftio/saasherder.yml
 
 codeComponents:
 - name: app-interface
