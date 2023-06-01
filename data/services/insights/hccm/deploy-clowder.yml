@@ -50,7 +50,7 @@ resourceTemplates:
   # Staging:
   - namespace:
       $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
-    ref: 8ebb8c450c93e5cbddd70edb7695fd95bb9fc35e
+    ref: 67c284f57086116233508633e29d8ac55eba73cd
     parameters:
       CJI_INVOCATION: "01"
 
