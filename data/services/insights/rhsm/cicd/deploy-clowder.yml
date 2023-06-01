@@ -304,7 +304,7 @@ resourceTemplates:
       USER_HOST: user.api.redhat.com
       SPRING_ACTIVEMQ_BROKER_URL: ssl://umb.api.redhat.com:61616
       UMB_SERVICE_ACCOUNT_NAME: insightsrhsm
-      UMB_PROCESSING_ENABLED: false
+      UMB_PROCESSING_ENABLED: true
       INVENTORY_SECRET_KEY_NAME: host-inventory-db-readonly
       INVENTORY_SECRET_KEY_NAME_PREFIX: 'db.'
       SPLUNK_HEC_BATCH_SIZE: 1000
