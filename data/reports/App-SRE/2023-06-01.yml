@@ -1,0 +1,690 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: App-SRE
+name: App-SRE-2023-06-01
+app:
+  $ref: /services/app-sre/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/app-sre/prometheus-operator-catalog:
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/app-sre/nginx-redirector:
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/app-sre/terraform-repo-executor:
+    - branch: master
+      total: 3
+      success: 2
+    https://github.com/app-sre/aus-cli:
+    - branch: refs/tags/*
+      total: 15
+      success: 8
+  container_vulnerabilities:
+  - cluster: appsrep05ue1
+    namespace: app-sre-pipelines
+    vulnerabilities:
+      Medium: 13638
+      High: 2982
+      Low: 1887
+      Critical: 48
+  - cluster: appsrep05ue1
+    namespace: backplane-pipelines
+    vulnerabilities:
+      Medium: 2328
+      High: 504
+      Low: 323
+      Critical: 5
+  - cluster: appsrep05ue1
+    namespace: cis-pipelines
+    vulnerabilities:
+      Medium: 12056
+      High: 2648
+      Low: 1666
+      Critical: 50
+  - cluster: appsrep05ue1
+    namespace: crc-pipelines
+    vulnerabilities:
+      Medium: 31292
+      High: 6812
+      Low: 4335
+      Critical: 91
+  - cluster: appsrep05ue1
+    namespace: mas-sso-pipelines
+    vulnerabilities:
+      Medium: 488
+      High: 104
+      Low: 68
+  - cluster: appsrep05ue1
+    namespace: mt-pipelines
+    vulnerabilities:
+      Medium: 7016
+      High: 1544
+      Low: 969
+      Critical: 31
+  - cluster: appsrep05ue1
+    namespace: ocm-pipelines
+    vulnerabilities:
+      Medium: 18180
+      High: 3972
+      Low: 2516
+      Critical: 62
+  - cluster: appsrep05ue1
+    namespace: osd-operators-pipelines
+    vulnerabilities:
+      Medium: 15118
+      High: 3310
+      Low: 2091
+      Critical: 56
+  - cluster: appsrep05ue1
+    namespace: service-registry-pipelines
+    vulnerabilities:
+      Medium: 492
+      High: 108
+      Low: 68
+      Critical: 2
+  - cluster: appsrep05ue1
+    namespace: status-board-pipelines
+    vulnerabilities:
+      Medium: 1230
+      High: 270
+      Low: 170
+      Critical: 5
+  - cluster: appsrep05ue1
+    namespace: sendgrid-pipelines
+    vulnerabilities:
+      Medium: 492
+      High: 108
+      Low: 68
+      Critical: 2
+  - cluster: appsrep05ue1
+    namespace: web-rca-pipelines
+    vulnerabilities:
+      Medium: 2590
+      High: 574
+      Low: 357
+      Critical: 14
+  - cluster: appsrep05ue1
+    namespace: cna-pipelines
+    vulnerabilities:
+      Medium: 246
+      High: 54
+      Low: 34
+      Critical: 1
+  - cluster: appsrep05ue1
+    namespace: registry-quarkus-redhat-pipelines
+    vulnerabilities:
+      Medium: 246
+      High: 54
+      Low: 34
+      Critical: 1
+  - cluster: appsrep05ue1
+    namespace: assisted-installer-pipelines
+    vulnerabilities:
+      Medium: 39244
+      High: 8620
+      Low: 5423
+      Critical: 163
+  - cluster: appsrep05ue1
+    namespace: observatorium-pipelines
+    vulnerabilities:
+      Medium: 17964
+      High: 3948
+      Low: 2482
+      Critical: 76
+  - cluster: appsrep05ue1
+    namespace: hive-pipelines
+    vulnerabilities:
+      Medium: 10584
+      High: 2328
+      Low: 1462
+      Critical: 46
+  - cluster: appsrep05ue1
+    namespace: quayio-pipelines
+    vulnerabilities:
+      Medium: 25832
+      High: 5672
+      Low: 3570
+      Critical: 106
+  - cluster: appsrep05ue1
+    namespace: image-builder-pipelines
+    vulnerabilities:
+      Medium: 7122
+      High: 1554
+      Low: 986
+      Critical: 23
+  - cluster: appsrep05ue1
+    namespace: glitchtip-pipelines
+    vulnerabilities:
+      Medium: 1108
+      High: 244
+      Low: 153
+      Critical: 5
+  - cluster: appsrep05ue1
+    namespace: strimzi-pipelines
+    vulnerabilities:
+      Medium: 3682
+      High: 802
+      Low: 510
+      Critical: 11
+  - cluster: appsrep05ue1
+    namespace: devfile-registry-pipelines
+    vulnerabilities:
+      Medium: 492
+      High: 108
+      Low: 68
+      Critical: 2
+  - cluster: appsrep05ue1
+    namespace: code-quarkus-pipelines
+    vulnerabilities:
+      Medium: 1230
+      High: 270
+      Low: 170
+      Critical: 5
+  - cluster: appsrep05ue1
+    namespace: codeready-analytics-pipelines
+    vulnerabilities:
+      Medium: 246
+      High: 54
+      Low: 34
+      Critical: 1
+  - cluster: appsres03ue1
+    namespace: crc-poc-pipelines
+    vulnerabilities:
+      Medium: 2452
+      High: 532
+      Low: 340
+      Critical: 6
+  - cluster: app-sre-prod-01
+    namespace: openshift-pipelines
+    vulnerabilities:
+      High: 1
+  post_deploy_jobs:
+  - cluster: appsres03ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: appsres04ue2
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: app-sre-stage-01
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: app-sre-prod-01
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: hst02ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: backplanei01ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: backplanes01ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: backplanes02uw2
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: backplanes03ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: crcd01ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: crcs02ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: quays02ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: stonesoups01ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: ota-stage
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: hivei01ue1
+    namespace: cluster-scope
+    post_deploy_job: false
+  - cluster: hives02ue1
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: hive-stage-01
+    namespace: cert-manager
+    post_deploy_job: false
+  - cluster: app-sre-prod-04
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: appsrep06ue2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: telemeter-prod-01
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: c-rh-c-eph
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: crcp01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: quayp04ue2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: quayp05ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: ocmquayrwp01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: clairp01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep02ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep03uw1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep04ew2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep05ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep06uw2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: hivep07ue2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: backplanep01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: backplanep02uw2
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: rhobsp02ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  - cluster: stonesoupp01ue1
+    namespace: openshift-cert-manager
+    post_deploy_job: false
+  deployment_validations:
+  - cluster: appsrep05ue1
+    namespace: app-sre-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 426
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 426
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 426
+      deployment_validation_operator_no_node_affinity:
+        Failed: 426
+  - cluster: appsrep05ue1
+    namespace: backplane-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 72
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 72
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 72
+      deployment_validation_operator_no_node_affinity:
+        Failed: 72
+  - cluster: appsrep05ue1
+    namespace: cis-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 453
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 453
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 453
+      deployment_validation_operator_no_node_affinity:
+        Failed: 453
+  - cluster: appsrep05ue1
+    namespace: crc-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 897
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 897
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 897
+      deployment_validation_operator_no_node_affinity:
+        Failed: 897
+  - cluster: appsrep05ue1
+    namespace: mas-sso-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 7
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 7
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 7
+      deployment_validation_operator_no_node_affinity:
+        Failed: 7
+  - cluster: appsrep05ue1
+    namespace: mt-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 401
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 401
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 401
+      deployment_validation_operator_no_node_affinity:
+        Failed: 401
+  - cluster: appsrep05ue1
+    namespace: ocm-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 725
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 725
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 725
+      deployment_validation_operator_no_node_affinity:
+        Failed: 725
+  - cluster: appsrep05ue1
+    namespace: osd-operators-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 399
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 399
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 399
+      deployment_validation_operator_no_node_affinity:
+        Failed: 399
+  - cluster: appsrep05ue1
+    namespace: service-registry-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 8
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 8
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 8
+      deployment_validation_operator_no_node_affinity:
+        Failed: 8
+  - cluster: appsrep05ue1
+    namespace: status-board-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 20
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 20
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 20
+      deployment_validation_operator_no_node_affinity:
+        Failed: 20
+  - cluster: appsrep05ue1
+    namespace: sendgrid-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 8
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 8
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 8
+      deployment_validation_operator_no_node_affinity:
+        Failed: 8
+  - cluster: appsrep05ue1
+    namespace: web-rca-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 91
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 91
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 91
+      deployment_validation_operator_no_node_affinity:
+        Failed: 91
+  - cluster: appsrep05ue1
+    namespace: cna-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 16
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 16
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 16
+      deployment_validation_operator_no_node_affinity:
+        Failed: 16
+  - cluster: appsrep05ue1
+    namespace: registry-quarkus-redhat-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 4
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 4
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 4
+      deployment_validation_operator_no_node_affinity:
+        Failed: 4
+  - cluster: appsrep05ue1
+    namespace: assisted-installer-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 982
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 982
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 982
+      deployment_validation_operator_no_node_affinity:
+        Failed: 982
+  - cluster: appsrep05ue1
+    namespace: observatorium-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 712
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 712
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 712
+      deployment_validation_operator_no_node_affinity:
+        Failed: 712
+  - cluster: appsrep05ue1
+    namespace: hive-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 275
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 275
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 275
+      deployment_validation_operator_no_node_affinity:
+        Failed: 275
+  - cluster: appsrep05ue1
+    namespace: quayio-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 659
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 659
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 659
+      deployment_validation_operator_no_node_affinity:
+        Failed: 659
+  - cluster: appsrep05ue1
+    namespace: image-builder-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 185
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 185
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 185
+      deployment_validation_operator_no_node_affinity:
+        Failed: 185
+  - cluster: appsrep05ue1
+    namespace: glitchtip-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 42
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 42
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 42
+      deployment_validation_operator_no_node_affinity:
+        Failed: 42
+  - cluster: appsrep05ue1
+    namespace: strimzi-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 77
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 77
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 77
+      deployment_validation_operator_no_node_affinity:
+        Failed: 77
+  - cluster: appsrep05ue1
+    namespace: devfile-registry-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 8
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 8
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 8
+      deployment_validation_operator_no_node_affinity:
+        Failed: 8
+  - cluster: appsrep05ue1
+    namespace: code-quarkus-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 37
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 37
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 37
+      deployment_validation_operator_no_node_affinity:
+        Failed: 37
+  - cluster: appsrep05ue1
+    namespace: configuration-anomaly-detection-pipelines
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 8
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 8
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 8
+      deployment_validation_operator_no_node_affinity:
+        Failed: 8
+  - cluster: appsrep05ue1
+    namespace: kas-fleet-manager-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: crc-poc-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: cos-fleet-manager-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: hypershift-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: rhose-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: cincinnati-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: github-mirror-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: app-sre-pipeline-utils
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: skupper-network-monitoring-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: appsrep05ue1
+    namespace: osde2e-pipelines
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  - cluster: backplanes03ue1
+    namespace: osd-experience
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 2
+  service_slo: null

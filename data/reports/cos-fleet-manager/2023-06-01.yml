@@ -1,0 +1,42 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: cos-fleet-manager
+name: cos-fleet-manager-2023-06-01
+app:
+  $ref: /services/managed-connectors/app.yaml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/mk-ci-cd/rhoc-image-mirroring:
+    - branch: master
+      total: 745
+      success: 745
+    https://gitlab.cee.redhat.com/mk-ci-cd/cos-ui:
+    - branch: master
+      total: 25
+      success: 6
+    https://gitlab.cee.redhat.com/mk-ci-cd/cos-debezium-ui:
+    - branch: master
+      total: 25
+      success: 5
+  container_vulnerabilities: null
+  post_deploy_jobs:
+  - cluster: app-sre-stage-01
+    namespace: observatorium-mst-stage
+    post_deploy_job: false
+  - cluster: telemeter-prod-01
+    namespace: observatorium-mst-production
+    post_deploy_job: false
+  - cluster: appsres03ue1
+    namespace: app-sre-observability-stage
+    post_deploy_job: false
+  - cluster: appsrep05ue1
+    namespace: app-sre-observability-production
+    post_deploy_job: false
+  - cluster: app-sre-prod-04
+    namespace: managed-connectors-production
+    post_deploy_job: false
+  deployment_validations: null
+  service_slo: null

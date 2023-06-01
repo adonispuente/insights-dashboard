@@ -1,0 +1,28 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: vuln-reporter
+name: vuln-reporter-2023-06-01
+app:
+  $ref: /services/vuln-reporter/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/app-sre/vuln-reporter:
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 2
+      success: 0
+  container_vulnerabilities: null
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

@@ -1,0 +1,41 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: CodeReady-Analytics
+name: CodeReady-Analytics-2023-06-01
+app:
+  $ref: /services/codeready-analytics/app.yml
+date: '2023-06-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/fabric8-analytics/fabric8-analytics-server:
+    - branch: master
+      total: 1
+      success: 1
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: bayesian-preview
+    vulnerabilities:
+      Unknown: 318
+      Medium: 1619
+      High: 2113
+      Low: 323
+      Critical: 173
+  - cluster: app-sre-prod-01
+    namespace: bayesian-production
+    vulnerabilities:
+      Unknown: 517
+      Medium: 13677
+      High: 22655
+      Low: 2871
+      Critical: 1550
+  post_deploy_jobs:
+  - cluster: app-sre-stage-01
+    namespace: bayesian-preview
+    post_deploy_job: false
+  - cluster: app-sre-prod-01
+    namespace: bayesian-production
+    post_deploy_job: false
+  deployment_validations: null
+  service_slo: null
