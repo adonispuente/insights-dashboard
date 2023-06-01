@@ -523,7 +523,6 @@ Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702
 
 ## Adding Datasource to Grafana
 
-1. create a new cloudwatch secret, add it to [app-sre-observability-production.yml](/data/services/observability/namespaces/app-sre-observability-production.yml). Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/41114 (Skip this step for HyperShift cluster)
 1. add grafana to `openshiftServiceAccountTokens` in `app-sre-observability-per-cluster.yml`, [example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/458295334b65444dcbee5d9fc5e09e9a7b32a354/data/openshift/appsrep05ue1/namespaces/app-sre-observability-per-cluster.yml#L23-26)
 1. add the cluster to [grafana.yaml](/data/services/observability/shared-resources/grafana.yml). Example MR: https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/41110
  
@@ -532,7 +531,7 @@ Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702
       hack/cluster_provision.py create-obs-grafana-datasources <cluster>
       ```
 
-    **Double check the changes introduced, the destination file could have been modified with manual changes. Add `cloudwatch: false` if step 1 is skipped.**
+    **Double check the changes introduced, the destination file could have been modified with manual changes.**
 
     Tip: There is one command to refresh all cluster info in shared grafana config,
     just in case console url changed but forgot to update `slug`.

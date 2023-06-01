@@ -68,7 +68,6 @@ openshiftResources:
       slug: hivep07ue2.vvyl.p1
     - name: hst02ue1
       slug: rosa.hst02ue1.niad.p3
-      cloudwatch: false
     - name: backplanes01ue1
       slug: backplanes01ue1.fjsa.p1
     - name: backplanep01ue1
@@ -81,7 +80,6 @@ openshiftResources:
       slug: backplanei01ue1.z3pt.p1
     - name: backplanes03ue1
       slug: backplanes03ue1.be2s.p1
-      cloudwatch: false
     - name: stonesoupp01ue1
       slug: stonesoupp01ue1.kt4n.p1
     - name: stonesoups01ue1
