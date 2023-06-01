@@ -585,6 +585,28 @@ resourceTemplates:
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
+- name: ccx-redis
+  path: /deploy/cache-writer.yaml
+  url: https://github.com/RedHatInsights/insights-results-aggregator
+  targets:
+  - namespace:
+      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+    ref: master
+    parameters:
+      REDIS_STORAGE: "10Gi"
+  # TODO: Enable once tested in stage
+  # - namespace:
+  #     $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
+  #   ref: TODO
+  #   parameters:
+  #     REDIS_STORAGE: "100Gi"
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    parameters:
+      REDIS_STORAGE: "10Gi"
+    ref: internal
+    disable: true  # do not create an app-sre deploy job for ephemeral namespace
+
 - name: ccx-upgrades-sso-mock
   path: /deploy/sso-mock.yaml
   url: https://gitlab.cee.redhat.com/ccx/ccx-upgrades-data-eng
