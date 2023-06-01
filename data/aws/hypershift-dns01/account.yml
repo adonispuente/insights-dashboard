@@ -1,0 +1,41 @@
+---
+$schema: /aws/account-1.yml
+
+labels: {}
+
+name: hypershift-dns01
+description: AWS account for Hypershift DNS zone
+consoleUrl: https://135625588012.signin.aws.amazon.com/console
+uid: '135625588012'
+premiumSupport: true
+
+resourcesDefaultRegion: us-east-1
+supportedDeploymentRegions:
+- us-east-1
+
+accountOwners:
+- name: App-SRE Team
+  email: sd-app-sre+hypershift-dns01@redhat.com
+
+automationToken:
+  path: app-sre/creds/terraform/hypershift-dns01/config
+  field: all
+
+disable:
+  integrations:
+  - aws-ami-cleanup
+
+terraformState:
+  $ref: /aws/hypershift-dns01/state.yml
+
+terraformUsername: terraform
+
+providerVersion: '3.76.1'
+
+resetPasswords: []
+
+enableDeletion: true
+
+deleteKeys: []
+
+deletionApprovals: []

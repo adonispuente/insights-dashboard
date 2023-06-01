@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/hypershift-dns01/account.yml
+
+name: AppSRE-admin
+description: Administrator group for AppSRE team
+
+policies:
+- AdministratorAccess

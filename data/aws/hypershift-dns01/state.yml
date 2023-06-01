@@ -1,0 +1,14 @@
+---
+$schema: /dependencies/terraform-state-1.yml
+
+provider: s3
+
+bucket: terraform-hypershift-dns01
+region: us-east-1
+integrations:
+- integration: terraform-aws-route53
+  key: hypershift-dns01-route53.tfstate
+- integration: terraform-resources
+  key: hypershift-dns01-resources.tfstate
+- integration: terraform-users
+  key: hypershift-dns01-users.tfstate
