@@ -13,3 +13,4 @@ roles:
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
