@@ -26,7 +26,7 @@ config:
     jobs:
     - "insights-gl-pr-check":
         display_name: ccx pr-check
-        # Skip pr_check for CCX rules version bump pull requests.
+        concurrent_build: true
     - "insights-gl-build-master":
         display_name: ccx build-master
         disable_retry_on_failure: false
@@ -40,6 +40,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: insights-results-aggregator pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator build-master
 - project:
@@ -52,6 +53,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: ccx-smart-proxy pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-smart-proxy build-master
 - project:
@@ -64,7 +66,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: ccx-insights-content-service pr-check
-        # Skip pr_check for CCX rules version bump pull requests.
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-insights-content-service build-master
         disable_retry_on_failure: false
@@ -81,6 +83,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: insights-results-aggregator-cleaner pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator-cleaner build-master
 - project:
@@ -93,6 +96,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: ccx-notification-writer pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-notification-writer build-master
 - project:
@@ -105,6 +109,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: ccx-notification-service pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-notification-service build-master
 
@@ -121,6 +126,7 @@ config:
     - "insights-gh-pr-check":
         branch: main
         display_name: io-gathering-conditions pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         branch: main
         display_name: io-gathering-conditions build-master
@@ -136,6 +142,7 @@ config:
     - "insights-gh-pr-check":
         branch: main
         display_name: io-gathering-service pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         branch: main
         display_name: io-gathering-service build-master
@@ -151,6 +158,7 @@ config:
     - "insights-gl-pr-check":
         branch: master
         display_name: ccx-sha-extractor pr-check
+        concurrent_build: true
     - "insights-gl-build-master":
         branch: master
         display_name: ccx-sha-extractor build-master
@@ -176,6 +184,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: insights-results-aggregator-exporter pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator-exporter build-master
 
@@ -201,6 +210,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: insights-content-template-renderer pr-check
+        concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-content-template-renderer build-master
 
@@ -238,6 +248,7 @@ config:
     jobs:
     - insights-gh-pr-check:
         display_name: ocp-advisor-frontend pr-check
+        concurrent_build: true
     - insights-gh-build-master:
         display_name: ocp-advisor-frontend build-master
 
