@@ -10,7 +10,7 @@ github_username: yangcao77
 roles:
 - $ref: /teams/devfile-registry/roles/dev.yml
 
-# Stonesoup-specific roles needed for mfaisal
+# Stonesoup-specific roles needed for yangcao
 - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
