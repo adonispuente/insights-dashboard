@@ -71,7 +71,7 @@ config:
     - "insights-gh-build-master":
         display_name: learning-resources-build build-master-stable
         branch: "master-stable"
-- projects:
+- project:
     name: settings-frontend
     label: insights
     node: insights
