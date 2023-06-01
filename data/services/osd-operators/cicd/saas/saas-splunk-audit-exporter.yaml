@@ -57,39 +57,39 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: c4f26a47b49a9912273d4c70ac07cace6189de1f
+    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
     parameters:
-      IMAGE_TAG: 0.1.91-c4f26a4
+      IMAGE_TAG: 0.1.128-dc72aea
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
