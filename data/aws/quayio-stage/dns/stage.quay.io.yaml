@@ -91,7 +91,7 @@ records:
 - name: recovery.stage.quay.io
   type: CNAME
   records:
-  - af23d28cc58434e80863d673a737c030-1752601028.us-east-1.elb.amazonaws.com
+  - quayio-stage-alb01-recovery-746373720.us-east-1.elb.amazonaws.com
   ttl: 60
 - name: service-tool.stage.quay.io
   type: CNAME
