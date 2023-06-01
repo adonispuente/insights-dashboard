@@ -154,6 +154,48 @@ deletionApprovals:
 - type: aws_iam_access_key
   name: ocm-addons-service
   expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: ocm-addons-service
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: ocm-managed-services
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: ocm-service-log
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: uhc-account-manager
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: uhc-clusters-cleaner
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: uhc-clusters-service
+  expiration: '2023-06-03'
+- type: aws_iam_policy
+  name: uhc-gateway
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: ocm-addons-service
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: ocm-managed-services
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: ocm-service-log
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: uhc-account-manager
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: uhc-clusters-cleaner
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: uhc-clusters-service
+  expiration: '2023-06-03'
+- type: aws_iam_user_policy_attachment
+  name: uhc-gateway
+  expiration: '2023-06-03'
 - type: aws_iam_user
   name: ocm-addons-service
   expiration: '2023-06-03'
