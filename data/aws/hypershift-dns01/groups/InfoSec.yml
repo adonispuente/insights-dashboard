@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/hypershift-dns01/account.yml
+
+name: InfoSec
+description: Red Hat InfoSec, with Cloudtrail access
+
+policies:
+- AWSCloudTrailReadOnlyAccess
