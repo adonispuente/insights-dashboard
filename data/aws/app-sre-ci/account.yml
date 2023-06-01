@@ -60,6 +60,9 @@ cleanup:
 - provider: ami
   regex: '^ci-ext-jenkins-worker.*'
   age: 180d
+- provider: ami
+  regex: '^osbuild-composer-worker.*'
+  age: 180d
 
 terraformState:
   $ref: /aws/app-sre-ci/state.yml
