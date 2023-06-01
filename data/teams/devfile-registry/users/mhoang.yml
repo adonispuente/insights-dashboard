@@ -8,8 +8,59 @@ org_username: mhoang
 github_username: mike-hoang
 
 roles:
-- $ref: /teams/devfile-registry/roles/dev.yml
+  - $ref: /teams/devfile-registry/roles/dev.yml
 
-# Stonesoup-specific roles needed for mhoang
-- $ref: /teams/stonesoup/roles/stonesoup.yml
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+  # Stonesoup-specific roles needed for mhoang
+  - $ref: /teams/stonesoup/roles/stonesoup.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+
+public_gpg_key: |
+  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
