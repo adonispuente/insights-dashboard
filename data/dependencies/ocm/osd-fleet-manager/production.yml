@@ -72,7 +72,7 @@ upgradePolicyDefaults:
     type: jinja2
     variables:
       schedule: 0 11 * * 1-5
-      soakDays: 0
+      soakDays: 1
 - name: production-green
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: green
@@ -96,7 +96,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 13 * * 1-5
-      soakDays: 0
+      soakDays: 5
 - name: production-us-east-1
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: us-east-1
@@ -104,7 +104,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 13 * * 1-5
-      soakDays: 0
+      soakDays: 5
 - name: production-us-west-2
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: us-west-2
@@ -112,7 +112,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 13 * * 1-5
-      soakDays: 0
+      soakDays: 5
 - name: production-ap-southeast-3
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: ap-southeast-3
@@ -120,7 +120,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 15 * * 1-5
-      soakDays: 0
+      soakDays: 5
 - name: production-eu-central-1
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: eu-central-1
@@ -128,7 +128,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 15 * * 1-5
-      soakDays: 0
+      soakDays: 5
 - name: production-eu-west-1
   matchLabels:
     ext-hypershift.openshift.io/cluster-sector: eu-west-1
@@ -136,7 +136,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 15 * * 1-5
-      soakDays: 0
+      soakDays: 5
 upgradePolicyClusters:
 - name: hs-sc-7788f9bag
   upgradePolicy:
@@ -155,7 +155,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: blue
-      soakDays: 14
+      soakDays: 0
       mutexes:
       - blue
 - name: hs-mc-3fgn9a3qg
@@ -175,7 +175,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: blue
-      soakDays: 14
+      soakDays: 0
       mutexes:
       - blue
 - name: hs-sc-2q7qo6cug
@@ -185,7 +185,7 @@ upgradePolicyClusters:
     schedule: 0 11 * * 1-5
     conditions:
       sector: canary
-      soakDays: 0
+      soakDays: 1
       mutexes:
       - canary
 - name: hs-sc-7okh5jhe0
@@ -195,7 +195,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-west-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-west-1
 - name: hs-mc-7okh5juh0
@@ -205,7 +205,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-west-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-west-1
 - name: hs-sc-65osjkisg
@@ -215,7 +215,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-2
 - name: hs-mc-65osjkvt0
@@ -225,7 +225,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-2
 - name: hs-mc-ji5f5fm4g
@@ -235,7 +235,7 @@ upgradePolicyClusters:
     schedule: 0 11 * * 1-5
     conditions:
       sector: canary
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - canary
 - name: hs-sc-aspeu1tig
@@ -245,7 +245,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-west-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-west-2
 - name: hs-mc-aspeu2bog
@@ -255,7 +255,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-west-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-west-2
 - name: hs-sc-9l83vuh6g
@@ -265,7 +265,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-central-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-central-1
 - name: hs-mc-v64eks9c0
@@ -275,7 +275,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-central-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-central-1
 - name: hs-sc-jsq1ca30g
@@ -285,7 +285,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-1
 - name: hs-mc-jsq1cajug
@@ -295,7 +295,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-1
 - name: hs-mc-i7q8dlgmg
@@ -305,7 +305,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-2
 - name: hs-sc-g6dtucoo0
@@ -315,7 +315,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-west-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-west-1
 - name: hs-sc-gn7oe54g0
@@ -325,7 +325,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-1
 - name: hs-sc-i7q8ep4k0
@@ -335,7 +335,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-2
 - name: hs-sc-ppoa5lsbg
@@ -345,7 +345,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-central-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-central-1
 - name: hs-sc-ojqh1ucjg
@@ -355,7 +355,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-west-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-west-2
 - name: hs-mc-i7q8ephv0
@@ -365,7 +365,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-2
 - name: hs-mc-g6dtudfmg
@@ -375,7 +375,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-west-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-west-1
 - name: hs-mc-gn7oe5qu0
@@ -385,7 +385,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-east-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-east-1
 - name: hs-mc-ppoa5mj5g
@@ -395,7 +395,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: eu-central-1
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - eu-central-1
 - name: hs-mc-ojqh1v3ag
@@ -405,7 +405,7 @@ upgradePolicyClusters:
     schedule: 0 13 * * 1-5
     conditions:
       sector: us-west-2
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - us-west-2
 - name: hs-sc-7iiovl4q0
@@ -415,7 +415,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: ap-southeast-3
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - ap-southeast-3
 - name: hs-mc-7iiovlik0
@@ -425,7 +425,7 @@ upgradePolicyClusters:
     schedule: 0 15 * * 1-5
     conditions:
       sector: ap-southeast-3
-      soakDays: 0
+      soakDays: 5
       mutexes:
       - ap-southeast-3
 recommendedVersions:
