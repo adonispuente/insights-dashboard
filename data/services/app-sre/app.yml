@@ -70,17 +70,11 @@ quayRepos:
   - name: vault-exporter
     description: Vault health exporter in prom format
     public: true
-  - name: saasherder
-    description: saasherder image
-    public: true
   - name: catalog-image
     description: catalog-image container
     public: true
   - name: push-saas-metrics
     description: push-saas-metrics
-    public: true
-  - name: manifest-bouncer
-    description: manifest-bouncer tool
     public: true
   - name: busybox
     description: Mirror for docker.io/busybox
@@ -179,9 +173,6 @@ codeComponents:
 - name: git-keeper
   resource: upstream
   url: https://github.com/app-sre/git-keeper
-- name: manifest-bouncer
-  resource: upstream
-  url: https://github.com/app-sre/manifest-bouncer
 - name: fluentd
   resource: upstream
   url: https://github.com/app-sre/fluentd
