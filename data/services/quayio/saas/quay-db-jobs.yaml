@@ -159,7 +159,7 @@ resourceTemplates:
       DB_CREDS_SECRET: "quayio-stage-57-py3-rds"
       NEW_DB_USER_CREDS_SECRET: "quay-db-jobs-config"
       SUBCOMMAND: "set_user_plan"
-      QUAY_USER: "rh-ee-mkok"
+      QUAY_USER: "kleesc"
       REDHAT_STRIPE_ID: "cus_NhTOd9xKB6j7fC"
       UNSET_USER_PLAN: "true"
 - name: quay-db-jobs-prod-add-org-admin-user
