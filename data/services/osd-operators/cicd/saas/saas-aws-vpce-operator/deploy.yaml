@@ -7,7 +7,7 @@ description: SaaS tracking file for aws-vpce-operator
 app:
   $ref: /services/osd-operators/app.yml
 pipelinesProvider:
-  $ref:
+  $ref: 
     /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
@@ -49,7 +49,7 @@ resourceTemplates:
       name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 5efe8a27ce29f5bfaf039517336b9db9c15fbbae
+    ref: c5d0a6f75758d6e2a96783a24896c80b59628648
     promotion:
       auto: true
       subscribe:
@@ -58,7 +58,7 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 5efe8a27ce29f5bfaf039517336b9db9c15fbbae
+    ref: c5d0a6f75758d6e2a96783a24896c80b59628648
     promotion:
       auto: true
       subscribe:
