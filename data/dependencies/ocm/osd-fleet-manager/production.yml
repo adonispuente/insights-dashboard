@@ -34,6 +34,7 @@ upgradePolicyAllowedMutexes:
 - us-east-1
 - green
 - blue
+- fleet-wide
 
 inheritVersionData:
 - $ref: /dependencies/ocm/osd-fleet-manager/stage.yml
@@ -188,6 +189,7 @@ upgradePolicyClusters:
       soakDays: 1
       mutexes:
       - canary
+      - fleet-wide
 - name: hs-sc-7okh5jhe0
   upgradePolicy:
     workloads:
@@ -198,6 +200,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-west-1
+      - fleet-wide
 - name: hs-mc-7okh5juh0
   upgradePolicy:
     workloads:
@@ -208,6 +211,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-west-1
+      - fleet-wide
 - name: hs-sc-65osjkisg
   upgradePolicy:
     workloads:
@@ -218,6 +222,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-2
+      - fleet-wide
 - name: hs-mc-65osjkvt0
   upgradePolicy:
     workloads:
@@ -228,6 +233,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-2
+      - fleet-wide
 - name: hs-mc-ji5f5fm4g
   upgradePolicy:
     workloads:
@@ -238,6 +244,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - canary
+      - fleet-wide
 - name: hs-sc-aspeu1tig
   upgradePolicy:
     workloads:
@@ -248,6 +255,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-west-2
+      - fleet-wide
 - name: hs-mc-aspeu2bog
   upgradePolicy:
     workloads:
@@ -258,6 +266,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-west-2
+      - fleet-wide
 - name: hs-sc-9l83vuh6g
   upgradePolicy:
     workloads:
@@ -268,6 +277,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-central-1
+      - fleet-wide
 - name: hs-mc-v64eks9c0
   upgradePolicy:
     workloads:
@@ -278,6 +288,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-central-1
+      - fleet-wide
 - name: hs-sc-jsq1ca30g
   upgradePolicy:
     workloads:
@@ -288,6 +299,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-1
+      - fleet-wide
 - name: hs-mc-jsq1cajug
   upgradePolicy:
     workloads:
@@ -298,6 +310,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-1
+      - fleet-wide
 - name: hs-mc-i7q8dlgmg
   upgradePolicy:
     workloads:
@@ -308,6 +321,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-2
+      - fleet-wide
 - name: hs-sc-g6dtucoo0
   upgradePolicy:
     workloads:
@@ -318,6 +332,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-west-1
+      - fleet-wide
 - name: hs-sc-gn7oe54g0
   upgradePolicy:
     workloads:
@@ -328,6 +343,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-1
+      - fleet-wide
 - name: hs-sc-i7q8ep4k0
   upgradePolicy:
     workloads:
@@ -338,6 +354,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-2
+      - fleet-wide
 - name: hs-sc-ppoa5lsbg
   upgradePolicy:
     workloads:
@@ -348,6 +365,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-central-1
+      - fleet-wide
 - name: hs-sc-ojqh1ucjg
   upgradePolicy:
     workloads:
@@ -358,6 +376,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-west-2
+      - fleet-wide
 - name: hs-mc-i7q8ephv0
   upgradePolicy:
     workloads:
@@ -368,6 +387,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-2
+      - fleet-wide
 - name: hs-mc-g6dtudfmg
   upgradePolicy:
     workloads:
@@ -378,6 +398,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-west-1
+      - fleet-wide
 - name: hs-mc-gn7oe5qu0
   upgradePolicy:
     workloads:
@@ -388,6 +409,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-east-1
+      - fleet-wide
 - name: hs-mc-ppoa5mj5g
   upgradePolicy:
     workloads:
@@ -398,6 +420,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - eu-central-1
+      - fleet-wide
 - name: hs-mc-ojqh1v3ag
   upgradePolicy:
     workloads:
@@ -408,6 +431,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - us-west-2
+      - fleet-wide
 - name: hs-sc-7iiovl4q0
   upgradePolicy:
     workloads:
@@ -418,6 +442,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - ap-southeast-3
+      - fleet-wide
 - name: hs-mc-7iiovlik0
   upgradePolicy:
     workloads:
@@ -428,6 +453,7 @@ upgradePolicyClusters:
       soakDays: 5
       mutexes:
       - ap-southeast-3
+      - fleet-wide
 recommendedVersions:
 - workload: service-cluster
   channel: stable
