@@ -151,16 +151,17 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/quayio/namespaces/quays02ue1.yml
-    ref: 382436af16d782f4f6246a10b30b8362174c1f48
+    ref: 090666933ad7057cbd829c90864067a80d30f20a
     parameters:
-      JOB_NAME: "change-stage-user-plan-2022-03-18-6"
+      JOB_NAME: "unset-stage-user-plan-2023-06-01-1"
       ACTIVE_DEADLINE_SECONDS: "600"
       DB_HOST_SECRET: "quayio-stage-57-py3-rds"
       DB_CREDS_SECRET: "quayio-stage-57-py3-rds"
       NEW_DB_USER_CREDS_SECRET: "quay-db-jobs-config"
       SUBCOMMAND: "set_user_plan"
-      QUAY_USER: "sleesinc_org"
-      REDHAT_STRIPE_ID: "cus_2iVlmwz8CpHgOj"
+      QUAY_USER: "rh-ee-mkok"
+      REDHAT_STRIPE_ID: "cus_NhTOd9xKB6j7fC"
+      UNSET_USER_PLAN: "true"
 - name: quay-db-jobs-prod-add-org-admin-user
   path: /openshift.yml
   url: https://github.com/quay/quay-db-jobs
