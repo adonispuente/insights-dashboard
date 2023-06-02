@@ -1,4 +1,5 @@
 family: postgres15
+name: compliance-stage-postgres15
 description: Parameter group for PostgreSQL 15 for Compliance
 parameters:
 - name: log_statement
