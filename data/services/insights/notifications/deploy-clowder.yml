@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: dd9ccdaf7ccd487e7bc30087f44ffcfe5d2e5d20
+    ref: 0d1eb4fd82f36eb2d80ff785fa557b46199716ef
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -146,7 +146,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: dd9ccdaf7ccd487e7bc30087f44ffcfe5d2e5d20
+    ref: 0d1eb4fd82f36eb2d80ff785fa557b46199716ef
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -196,7 +196,7 @@ resourceTemplates:
       NOTIFICATIONS_USE_TEMPLATES_FROM_DB: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
-      QUARKUS_LOG_CATEGORY_COM_REDHAT_CLOUD_NOTIFICATIONS_EXPORTS_EXPORTEVENTLISTENER_LEVEL: 'debug'
+      QUARKUS_LOG_CATEGORY_COM_REDHAT_CLOUD_NOTIFICATIONS_EXPORTS_EXPORTEVENTLISTENER_LEVEL: debug
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -274,7 +274,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: dd9ccdaf7ccd487e7bc30087f44ffcfe5d2e5d20
+    ref: 0d1eb4fd82f36eb2d80ff785fa557b46199716ef
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
