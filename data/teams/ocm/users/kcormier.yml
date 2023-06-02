@@ -6,6 +6,7 @@ labels: {}
 name: Kevin Cormier
 org_username: kcormier
 github_username: KevinFCormier
+quay_username: kcormier
 tag_on_cluster_updates: false
 
 roles:
