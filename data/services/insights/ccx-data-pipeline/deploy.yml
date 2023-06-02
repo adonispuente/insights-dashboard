@@ -33,10 +33,12 @@ managedResourceTypes:
 - HorizontalPodAutoscaler
 - Service
 - Frontend
+- StatefulSet
 
 imagePatterns:
 - quay.io/cloudservices
 - quay.io/prometheus/pushgateway
+- quay.io/edge-infrastructure/redis
 
 authentication:
   image:
