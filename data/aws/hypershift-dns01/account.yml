@@ -22,8 +22,7 @@ automationToken:
   field: all
 
 disable:
-  integrations:
-  - aws-ami-cleanup
+  integrations: []
 
 terraformState:
   $ref: /aws/hypershift-dns01/state.yml
