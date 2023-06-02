@@ -573,7 +573,7 @@ codeComponents:
   gitlabRepoOwners:
     enabled: true
   gitlabHousekeeping:
-    enabled: false
+    enabled: true
     rebase: false
 - name: managed-prometheus-exporter-initcontainer
   resource: upstream
