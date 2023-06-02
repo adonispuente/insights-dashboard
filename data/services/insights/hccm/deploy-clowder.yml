@@ -57,7 +57,7 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 7c94c8d89fe2a67eb6b4ce2f192405dbb3497c8b
+    ref: dbfe096de9624982d8c80db8cbce7da6312681f9
     parameters:
       CJI_INVOCATION: "01"
 
