@@ -52,6 +52,7 @@ sectors:
 - name: chaos
   dependencies:
   - name: canary
+- name: incidentrehearsal
 upgradePolicyDefaults:
 - name: stage-canary
   matchLabels:
