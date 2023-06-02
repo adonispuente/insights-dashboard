@@ -154,6 +154,14 @@ externalResources:
     output_resource_name: route53-creds
 - provider: aws
   provisioner:
+    $ref: /aws/hypershift-dns01/account.yml
+  resources:
+  - provider: route53-zone
+    identifier: p3-openshiftapps-com
+    name: p3.openshiftapps.com
+    output_resource_name: route53-creds
+- provider: aws
+  provisioner:
     $ref: /aws/osd-privatelink-prod/account.yml
   resources:
   - provider: aws-iam-service-account
