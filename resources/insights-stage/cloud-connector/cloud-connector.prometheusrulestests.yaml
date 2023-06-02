@@ -9,6 +9,37 @@ evaluation_interval: 1m
 
 tests:
 
+# Tests CloudConnectorMQTTMessageSubscriberNoMessages
+- interval: 1m
+  input_series:
+  - series: cloud_connector_mqtt_control_message_received_count
+    values: 1+1x60
+  alert_rule_test:
+  # Test the no alert case
+  - eval_time: 1h
+    alertname: CloudConnectorMQTTMessageSubscriberNoMessages
+    exp_alerts:
+
+# Tests CloudConnectorMQTTMessageSubscriberNoMessages
+- interval: 1m
+  input_series:
+  - series: cloud_connector_mqtt_control_message_received_count
+    values: 1x15 0+0x35
+  alert_rule_test:
+  # Tests CloudConnectorMQTTMessageSubscriberNoMessages
+  - eval_time: 45m
+    alertname: CloudConnectorMQTTMessageSubscriberNoMessages
+    exp_alerts:
+    - exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/cloud-connector-stage/deployments"
+        message: "Cloud-Connector MQTT Consumer.  Cloud-Connector has not received any messages from the MQTT broker in 30m"
+      exp_labels:
+        severity: info
+        service: insights
+        env: stage
+        app_team: data-pipeline
+
 # CloudConnectorInventoryStaleTimestampUpdaterFailure
 - interval: 1m
   input_series:
