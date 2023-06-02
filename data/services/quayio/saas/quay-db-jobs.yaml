@@ -153,7 +153,7 @@ resourceTemplates:
       $ref: /services/quayio/namespaces/quays02ue1.yml
     ref: c1f44b4a7b71a00731407a744d65baa6159335b3
     parameters:
-      JOB_NAME: "unset-stage-user-plan-2023-06-02-6"
+      JOB_NAME: "unset-stage-user-plan-2023-06-02-7"
       ACTIVE_DEADLINE_SECONDS: "600"
       DB_HOST_SECRET: "quayio-stage-57-py3-rds"
       DB_CREDS_SECRET: "quayio-stage-57-py3-rds"
