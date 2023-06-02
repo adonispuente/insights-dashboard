@@ -110,9 +110,9 @@ resourceTemplates:
       RAILS_LOGLEVEL: 'debug'
       LINT_ANNOTATION: 'ignore-check.kube-linter.io/minimum-three-replicas'
       IMPORT_SSG_SCHEDULE: "*/5 * * * *"
-      REPLICAS_BACKEND: 1
-      REPLICAS_CONSUMER: 1
-      REPLICAS_SIDEKIQ: 1
+      REPLICAS_BACKEND: 0
+      REPLICAS_CONSUMER: 0
+      REPLICAS_SIDEKIQ: 0
       QE_ACCOUNTS: '13438478|12383032|11789772|13456124|12383032|13460159'
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
