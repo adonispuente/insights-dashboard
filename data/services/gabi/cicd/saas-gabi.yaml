@@ -189,7 +189,6 @@ resourceTemplates:
       NAMESPACE: compliance-stage
       AWS_RDS_SECRET_NAME: compliance-db
       GABI_INSTANCE: gabi-compliance
-      REPLICAS: 0
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
     ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
