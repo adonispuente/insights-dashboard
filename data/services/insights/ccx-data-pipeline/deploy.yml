@@ -33,6 +33,7 @@ managedResourceTypes:
 - HorizontalPodAutoscaler
 - Service
 - Frontend
+- StatefulSet
 
 imagePatterns:
 - quay.io/cloudservices
