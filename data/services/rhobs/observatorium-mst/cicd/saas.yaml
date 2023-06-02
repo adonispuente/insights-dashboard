@@ -782,7 +782,7 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-      ref: 7a59ea91943f366ce0855bd187f24dbc6e916be3
+      ref: 41105cc928dc89902e2b5268adc51844bb6dcd01
       parameters:
         CONFIGMAP_NAME: observatorium-thanos-receive-limits
         RECEIVE_LIMITS:
