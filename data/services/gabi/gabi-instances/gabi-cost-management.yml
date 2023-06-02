@@ -15,7 +15,6 @@ signoffManagers:
 
 users:
 - $ref: /teams/insights/users/chambrid.yml
-- $ref: /teams/insights/users/aberglun.yml
 - $ref: /teams/insights/users/cmyers.yml
 - $ref: /teams/insights/users/cgoodfre.yml
 - $ref: /teams/insights/users/dnakabaale.yml
