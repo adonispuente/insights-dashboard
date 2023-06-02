@@ -49,6 +49,9 @@ quayRepos:
   - name: iqe-vm-cli
     public: false
     description: IQE VM CLI tool for managing VMs in multiple cloud providers
+  - name: iqe-artifact-uploader-s3
+    public: false
+    description: Tool for uploading IQE test artifacts to a S3 bucket
 
 codeComponents:
 - name: iqe-perf-plugin
