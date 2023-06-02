@@ -13,10 +13,10 @@ tests:
 - interval: 1m
   input_series:
   - series: cloud_connector_mqtt_control_message_received_count
-    values: 1+1x60
+    values: 1+1x420
   alert_rule_test:
   # Test the no alert case
-  - eval_time: 1h
+  - eval_time: 7h
     alertname: CloudConnectorMQTTMessageSubscriberNoMessages
     exp_alerts:
 
@@ -24,10 +24,10 @@ tests:
 - interval: 1m
   input_series:
   - series: cloud_connector_mqtt_control_message_received_count
-    values: 1x15 0+0x35
+    values: 1x50 0+0x370
   alert_rule_test:
   # Tests CloudConnectorMQTTMessageSubscriberNoMessages
-  - eval_time: 45m
+  - eval_time: 7h
     alertname: CloudConnectorMQTTMessageSubscriberNoMessages
     exp_alerts:
     - exp_annotations:

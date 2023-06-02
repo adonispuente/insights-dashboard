@@ -39,7 +39,7 @@ spec:
         message: "Cloud-Connector Alert. The cloud-connector-api pod has been restarting."
 
     - alert: CloudConnectorMQTTMessageSubscriberNoMessages
-      expr: sum(rate(cloud_connector_mqtt_control_message_received_count[30m])) == 0
+      expr: sum(rate(cloud_connector_mqtt_control_message_received_count[6h])) == 0
       #for: 30m
       labels:
         severity: info
