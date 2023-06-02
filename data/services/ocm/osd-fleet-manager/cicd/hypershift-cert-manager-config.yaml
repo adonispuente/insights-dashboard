@@ -117,8 +117,8 @@ resourceTemplates:
   path: /templates/cert-manager-config.yaml
   parameters:
     CLUSTER_ISSUER_EMAIL: sd-sre-platform@redhat.com
-    # p3.openshiftapps.com in AWS/app-sre
-    ROUTE53_HOSTEDZONE_ID: Z0993289OF2UH2YBRGNP
+    # p3.openshiftapps.com in the hypershift-dns01 shard.
+    ROUTE53_HOSTEDZONE_ID: Z08413432O9KR3PTHK8ML
   secretParameters:
   - name: LETSENCRYPT_PRIVATE_KEY_B64
     secret:
