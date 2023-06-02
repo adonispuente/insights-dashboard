@@ -8,9 +8,54 @@ org_username: mvaldron
 github_username: michael-valdron
 
 roles:
+# Devfile registry specific roles needed for mvaldron
 - $ref: /teams/devfile-registry/roles/dev.yml
 - $ref: /teams/devfile-registry/roles/saas-approver.yml
+
+# Stonesoup-specific roles needed for mvaldron
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
