@@ -5,12 +5,12 @@ labels:
   platform: insights
   service: compliance
 
-name: stage-compliance-stage-view
+name: compliance-stage-view
 description: View access to compliance -STAGE namespace
 
 permissions: []
 
 access:
 - namespace:
-    $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+    $ref: /services/insights/compliance/namespaces/compliance-stage.yml
   role: view

@@ -59,7 +59,7 @@ access:
     $ref: /services/insights/patchman/namespaces/stage-patchman-engine-stage.yml
   role: view
 - namespace:
-    $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+    $ref: /services/insights/compliance/namespaces/compliance-stage.yml
   role: view
 - namespace:
     $ref: /services/insights/historical-system-profiles/namespaces/stage-historical-system-profiles-stage.yml

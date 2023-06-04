@@ -67,7 +67,7 @@ resourceTemplates:
     parameters:
       MIN_REPLICAS: 1
   - namespace:
-      $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+      $ref: /services/insights/compliance/namespaces/compliance-stage.yml
     ref: main
     upstream:
       instance:
@@ -96,7 +96,7 @@ resourceTemplates:
       IMPORT_SSG_SCHEDULE: "*/1 * * * *"
       PRIMARY_REDIS_AS_CACHE: 'true'
   - namespace:
-      $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+      $ref: /services/insights/compliance/namespaces/compliance-stage.yml
     ref: master
     upstream:
       instance:
