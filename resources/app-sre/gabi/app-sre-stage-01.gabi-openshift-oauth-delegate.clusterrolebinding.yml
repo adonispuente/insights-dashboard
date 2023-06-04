@@ -21,6 +21,10 @@ subjects:
     namespace: uhc-stage
 
   - kind: ServiceAccount
+    name: gabi-ocm-account-manager
+    namespace: uhc-integration
+
+  - kind: ServiceAccount
     name: gabi-ocm-clusters-service
     namespace: uhc-stage
 
