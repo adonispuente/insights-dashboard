@@ -44,11 +44,11 @@ externalResources:
   - provider: aws-iam-role
     identifier: backplane-backplanes03ue1
     assume_role:
-      Federated: arn:aws:iam::366871242094:oidc-provider/dvbwgdztaeq9o.cloudfront.net/23sl3nnrdh7ru39ldjiedlcbekk465cd
+      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/23sl3nnrdh7ru39ldjiedlcbekk465cd
     assume_action: "AssumeRoleWithWebIdentity"
     assume_condition:
       StringEquals:
-        "dvbwgdztaeq9o.cloudfront.net/23sl3nnrdh7ru39ldjiedlcbekk465cd:sub": "system:serviceaccount:backplane:backplane"
+        "rh-oidc.s3.us-east-1.amazonaws.com/23sl3nnrdh7ru39ldjiedlcbekk465cd:sub": "system:serviceaccount:backplane:backplane"
     inline_policy:
       {
         "Version": "2012-10-17",
