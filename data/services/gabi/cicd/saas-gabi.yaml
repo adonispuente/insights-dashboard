@@ -178,7 +178,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: cloudigrade-rds
       GABI_INSTANCE: gabi-cloudigrade
   - namespace:
-      $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+      $ref: /services/insights/compliance/namespaces/compliance-stage.yml
     ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
     promotion:
       auto: true

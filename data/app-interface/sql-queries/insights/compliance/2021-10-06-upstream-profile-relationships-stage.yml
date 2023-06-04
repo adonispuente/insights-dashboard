@@ -3,7 +3,7 @@ $schema: /app-interface/app-interface-sql-query-1.yml
 name: 2021-10-06-upstream-profile-relationships-stage
 labels: {}
 namespace:
-  $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+  $ref: /services/insights/compliance/namespaces/compliance-stage.yml
 identifier: compliance-stage
 output: stdout
 queries:
