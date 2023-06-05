@@ -414,7 +414,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       publish:
@@ -477,7 +477,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       publish:
@@ -541,7 +541,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       publish:
@@ -604,7 +604,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       publish:
@@ -666,7 +666,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-incidentrehearsal
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       publish:
@@ -678,7 +678,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
     promotion:
       auto: true
       subscribe:
