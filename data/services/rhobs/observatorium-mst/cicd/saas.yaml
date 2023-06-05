@@ -785,7 +785,7 @@ resourceTemplates:
       ref: 41105cc928dc89902e2b5268adc51844bb6dcd01
       parameters:
         CONFIGMAP_NAME: observatorium-thanos-receive-limits
-        RECEIVE_LIMITS:
+        RECEIVE_LIMITS: | # setting the content as string, otherwise it gets serialized as JSON in the resulting configmap
           write:
             global:
               max_concurrency: 0 # unlimited
