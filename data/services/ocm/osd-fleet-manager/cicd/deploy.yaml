@@ -382,6 +382,11 @@ resourceTemplates:
       - predicate:
           region: eu-central-1
         sector: incidentrehearsal
+      - predicate:
+          label:
+            key: sector-override
+            value: migrationtesting
+        sector: migrationtesting
       # put everything else into the main sector
       - sector: main
     SENTRY_PROJECT: 11
@@ -675,6 +680,20 @@ resourceTemplates:
       - ocm-osdfm-deployed-stage-canary
     parameters:
       DEPLOYMENT_NAME: incidentrehearsal
+  # Sector specifically for HCP migration testing/validation
+  # See #wg-hcp-migration and https://issues.redhat.com/browse/SDE-2923
+  - name: osd-fleet-manager-stage-migrationtesting
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
+    ref: 3ce9689dce0a102169ab0f650826531f956ff153
+    promotion:
+      auto: true
+      publish:
+      - ocm-osdfm-deployed-stage-migrationtesting
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
+    parameters:
+      DEPLOYMENT_NAME: migrationtesting
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
