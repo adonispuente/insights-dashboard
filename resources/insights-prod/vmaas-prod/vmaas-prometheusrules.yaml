@@ -33,3 +33,13 @@ spec:
         service: insights
         env: prod
         app_team: vmaas
+
+    - alert: VmaasCertificateExpirationWarning
+      expr: changes(certificate_expiration_warning[10m]) > 0
+      annotations:
+        message: "A certificate is close to expiration or has already exipired."
+      labels:
+        severity: medium
+        service: insights
+        env: prod
+        app_team: vmaas
