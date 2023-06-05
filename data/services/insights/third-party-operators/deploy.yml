@@ -120,13 +120,13 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/third-party-operators/keda/ephem.yml
     ref: master
-- name: cma
-  path: /custom-metrics-autoscaler.yml
-  url: https://gitlab.cee.redhat.com/insights-platform/third-party-operators
-  targets:
-  - namespace:
-      $ref: /services/insights/third-party-operators/cma/crcd01ue1.yml
-    ref: master
+# - name: cma
+#   path: /custom-metrics-autoscaler.yml
+#   url: https://gitlab.cee.redhat.com/insights-platform/third-party-operators
+#   targets:
+#   - namespace:
+#       $ref: /services/insights/third-party-operators/cma/crcd01ue1.yml
+#     ref: master
 - name: apicurio
   path: /apicurio.yml
   url: https://gitlab.cee.redhat.com/insights-platform/third-party-operators
