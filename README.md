@@ -1955,6 +1955,9 @@ In order to add or update a role, you need to add them to the `externalResources
 - `assume_role`: trusted entities can assume this role. Require one of the following.
   - `AWS`: list ARN of iam users or accounts
   - `Service`: list of AWS services
+  - `Federated`: Federated Principal
+- `assume_condition`: (optional) additional requirements for the Principal trying to assume the role
+- `assume_action`: (optional) specific sts action that will be allowed (default: `AssumeRole`)
 - `inline_policy`: (optional) an AWS policy to create and attach to the role. (requires AWS provider plugin version 3.30.0 or above)
 - `output_resource_name`: name of Kubernetes Secret to be created.
   - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).

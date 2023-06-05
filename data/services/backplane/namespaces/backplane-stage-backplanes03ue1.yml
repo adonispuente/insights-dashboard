@@ -33,3 +33,38 @@ openshiftResources:
   path: /services/backplane/api-stage-public-certs.yaml
 - provider: resource
   path: /services/backplane/backplane-api-stage-public.service.yaml
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-rosa/account.yml
+  resources:
+  - provider: aws-iam-role
+    identifier: backplane-backplanes03ue1
+    assume_role:
+      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/23sl3nnrdh7ru39ldjiedlcbekk465cd
+    assume_action: "AssumeRoleWithWebIdentity"
+    assume_condition:
+      StringEquals:
+        "rh-oidc.s3.us-east-1.amazonaws.com/23sl3nnrdh7ru39ldjiedlcbekk465cd:sub": "system:serviceaccount:backplane:backplane"
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam:277304166082:role/Backplanes03ue1"
+          },
+        ]
+      }
+    output_resource_name: backplane-aws-access
+    output_format:
+      provider: generic-secret
+      data:
+        credentials: >-
+          [default]
+          role_arn = {{ role_arn }}
+          web_identity_token_file = /var/run/secrets/openshift/serviceaccount/token
