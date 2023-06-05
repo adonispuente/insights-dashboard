@@ -24,18 +24,6 @@ managed:
       limits:
         memory: 500Mi
         cpu: 300m
-- namespace:
-    $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-  spec:
-    concurrencyPolicy: Forbid
-    cron: '0 10 * * *'
-    resources:
-      requests:
-        memory: 500Mi
-        cpu: 300m
-      limits:
-        memory: 500Mi
-        cpu: 300m
 
 schemas:
 - /aws/account-1.yml
