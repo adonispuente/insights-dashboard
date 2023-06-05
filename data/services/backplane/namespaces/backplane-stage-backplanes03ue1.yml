@@ -57,7 +57,7 @@ externalResources:
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
             "Resource": "arn:aws:iam:277304166082:role/Backplanes03ue1"
-          },
+          }
         ]
       }
     output_resource_name: backplane-aws-access
