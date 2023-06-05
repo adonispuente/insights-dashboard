@@ -596,12 +596,12 @@ resourceTemplates:
     ref: master
     parameters:
       REDIS_STORAGE: "10Gi"
-  # TODO: Enable once tested in stage
-  # - namespace:
-  #     $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-  #   ref: TODO
-  #   parameters:
-  #     REDIS_STORAGE: "100Gi"
+  - namespace:
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
+    ref: be29dbed4b76c3c4fe9bcdd7b304db179d57a814
+    parameters:
+      # TODO: increase when the new feature is activated
+      REDIS_STORAGE: "10Gi"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
