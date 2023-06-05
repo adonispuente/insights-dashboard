@@ -57,7 +57,7 @@ tests:
             app_team: provisioning
             severity: medium
           exp_annotations:
-            message: "Reservations success rate is high"
+            message: "Reservations success rate is low"
             dashboard: "https://grafana.app-sre.devshift.net/d/211/provisioning"
             runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningAvailabilityAlert.md"
 
