@@ -8,6 +8,7 @@ identifier: ocm-service-log-production-readonly
 # Run every day at 12:00 pm (UTC)
 schedule:  00 12 * * *
 output: stdout
+delete: true
 queries:
 # SLO
   - |
