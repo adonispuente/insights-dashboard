@@ -47,10 +47,10 @@ The application uses a PostgreSQL database to store the state of the exports. Th
 Load testing is being added as part of [RHCLOUD-25419](https://issues.redhat.com/browse/RHCLOUD-25419).
 
 # Capacity
-Required capacity in terms of memory and cpu per pod, and the number of pods. Is this expected to change over time?
+Required capacity in terms of memory and cpu per pod. Not expected to change in the foreseeable future.
 - CPU: 500m
 - Memory: 512m
-Required amount of storage (DB, S3, local, etc). Is this expected to change over time?
+Required amount of storage (DB, S3, local, etc).
 - We expect 100GB should last for the foreseeable future.
 
 # [Application Success Criteria](https://docs.google.com/document/d/1_AoqDdY0rClO6EA7vKQGYUdE47UaY9XrdHh4N6DuXsQ/edit?usp=sharing)
