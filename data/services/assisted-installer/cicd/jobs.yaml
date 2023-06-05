@@ -29,9 +29,11 @@ config:
     jobs:
     - 'gh-build-master':
         display_name: assisted-service build master
+        max_failed_builds: 3
     - 'gh-build-master':
         display_name: assisted-service build hotfix
         branch: 'cloud_hotfix_releases'
+        max_failed_builds: 3
 - project:
     name: assisted-image-service
     label: assisted-service
@@ -43,6 +45,7 @@ config:
     - 'gh-build-master':
         display_name: assisted-image-service build master
         branch: main
+        max_failed_builds: 3
 - project:
     name: assisted-events-scrape
     label: assisted-service
@@ -53,6 +56,7 @@ config:
     jobs:
     - 'gh-build-master':
         display_name: assisted-events-scrape build master
+        max_failed_builds: 3
 - project:
     name: prow-jobs-scraper
     label: assisted-service
@@ -64,9 +68,11 @@ config:
     - 'gh-build-master':
         display_name: prow-jobs-scraper build main
         branch: main
+        max_failed_builds: 3
     - 'gh-build-master':
         display_name: prow-jobs-scraper build hotfix
         branch: hotfix
+        max_failed_builds: 3
 
 - project:
     name: auto-report
@@ -78,6 +84,7 @@ config:
     jobs:
     - 'gh-build-master':
         display_name: auto-report build master
+        max_failed_builds: 3
 - project:
     name: assisted-events-stream
     label: assisted-service
@@ -88,3 +95,4 @@ config:
     jobs:
     - 'gh-build-master':
         display_name: assisted-events-stream build master
+        max_failed_builds: 3
