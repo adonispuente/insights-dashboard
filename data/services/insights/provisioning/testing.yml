@@ -28,7 +28,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: c17d3924d86b404798e14a54e47c69f5feb221f5
+    ref: b09349e82b6a34f4aeec2bfcdda3fa82a868d557
     promotion:
       auto: true
       subscribe:
