@@ -134,16 +134,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
-- name: hs-mc-6qkeia0ug
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 - name: hs-sc-a9b88qolg
   upgradePolicy:
     workloads:
