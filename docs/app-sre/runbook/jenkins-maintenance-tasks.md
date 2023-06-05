@@ -64,4 +64,6 @@ We need to cleanup old builds data by running groove script, as described in [Gi
 
 **NOTE**: Do this at the end of the maintenance window.
 
-* Update the reference of the AMIs in the [ASGs configuration](/data/services/app-sre/namespaces/app-sre-ci.yaml).
+1. Check that new AMIs have been built correctly in https://ci.int.devshift.net/view/app-sre/job/app-sre-infra-gl-build-master/
+1. Take a note of the merging sha from the MR used to build the new AMIs. It it important to note that most likely it won't be the last one from the infra repository, as there are many pushes to that repository.
+1. Update the sha reference of the AMIs in the [ASGs configuration](/data/services/app-sre/namespaces/app-sre-ci.yaml).
