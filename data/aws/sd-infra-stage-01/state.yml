@@ -12,3 +12,5 @@ integrations:
   key: sd-infra-stage-01-resources.tfstate
 - integration: terraform-users
   key: sd-infra-stage-01-users.tfstate
+- integration: terraform-vpc-peerings
+  key: sd-infra-stage-01-vpc-peerings.tfstate
