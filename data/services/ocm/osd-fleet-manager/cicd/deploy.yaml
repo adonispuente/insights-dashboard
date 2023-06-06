@@ -830,7 +830,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
