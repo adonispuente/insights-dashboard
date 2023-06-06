@@ -270,6 +270,8 @@ openshiftResources:
   path: /insights-prod/quickstarts-prod/quickstarts-puptoo.servicemonitor.yml
 - provider: resource
   path: /insights-prod/chrome-service-prod/chrome-service.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.servicemonitor.yml
 
 # unleash-proxy
 - provider: resource
@@ -478,6 +480,11 @@ openshiftResources:
   type: resource
   tests:
   - /insights-prod/chrome-service-prod/chrome-service.prometheusrulestests.yml
+- provider: prometheus-rule
+  path: /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrules.yml
+  type: resource
+  tests:
+  - /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrulestests.yml
 - provider: prometheus-rule
   path: /insights-prod/rhsm/rhsm.prometheusrules.yaml
   type: resource

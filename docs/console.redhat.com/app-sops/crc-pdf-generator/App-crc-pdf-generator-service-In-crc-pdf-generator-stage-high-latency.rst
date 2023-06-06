@@ -36,7 +36,7 @@ Steps
 Escalations
 -----------
 
--  Ping development team using @crc-experience-team group in CoreOS Slack
+-  Ping development team using @crc-experience-team group in Internal Red Hat Slack 
 
 .. _Incident Response Doc: https://docs.google.com/document/d/1AyEQnL4B11w7zXwum8Boty2IipMIxoFw1ri1UZB6xJE
 
