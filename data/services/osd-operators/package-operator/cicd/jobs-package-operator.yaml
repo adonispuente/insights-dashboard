@@ -29,3 +29,27 @@ config:
     - 'gl-build-master':
         display_name: package-operator build internal
         branch: internal
+- project:
+    name: package-operator-gl-sync
+    label: osd-operators
+    node: osd-operators
+    gl_group: lp-sre
+    gl_project: package-operator
+    quay_org: app-sre
+    build_deploy_script_path: make sync-repos
+    jobs:
+    - 'gl-build-master':
+        display_name: package-operator sync repos
+        branch: redhat
+- project:
+    name: package-operator-gh-sync
+    label: osd-operators
+    node: osd-operators
+    gh_org: package-operator
+    gh_repo: package-operator
+    quay_org: app-sre
+    build_deploy_script_path: make sync-repos
+    jobs:
+    - 'gh-build-master':
+        display_name: package-operator sync repos
+        branch: main
