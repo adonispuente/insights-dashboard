@@ -42,7 +42,7 @@ resourceTemplates:
       name: app-sre-deployment-validation-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: d0931ef664705d641fb77abfa4cda4bdf6f58324
+    ref: 0637d83cca890a4d064462b16acc015d730054c1
     promotion:
       auto: true
       subscribe:
@@ -51,7 +51,7 @@ resourceTemplates:
       - dvo-sss-deployment-success-channel-hive-stage-01
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: d0931ef664705d641fb77abfa4cda4bdf6f58324
+    ref: 0637d83cca890a4d064462b16acc015d730054c1
     promotion:
       auto: true
       subscribe:
