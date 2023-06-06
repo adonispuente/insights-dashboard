@@ -1,0 +1,14 @@
+---
+$schema: /dependencies/terraform-state-1.yml
+
+provider: s3
+
+bucket: terraform-sd-infra-stage-01
+region: us-east-1
+integrations:
+- integration: terraform-aws-route53
+  key: sd-infra-stage-01-route53.tfstate
+- integration: terraform-resources
+  key: sd-infra-stage-01-resources.tfstate
+- integration: terraform-users
+  key: sd-infra-stage-01-users.tfstate
