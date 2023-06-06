@@ -262,6 +262,14 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/ros-stage/ros-backend-inventory-events-processor.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-api.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-kruize.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-processor.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-recommender.servicemonitor.yml
+- provider: resource
   path: /insights-stage/yuptoo-stage/yuptoo.servicemonitor.yml
 - provider: resource
   path: /insights-stage/runtimes-inventory-stage/runtimes-inventory-stage.servicemonitor.yml
