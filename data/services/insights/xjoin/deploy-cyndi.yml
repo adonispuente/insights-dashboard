@@ -261,6 +261,12 @@ resourceTemplates:
     parameters:
       SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
       VALIDATION_THRESHOLD: "15"
+      DB_TABLE_INDEX_SQL: >
+        CREATE INDEX {{.TableName}}_org_id_id_index ON inventory.{{.TableName}} (org_id,id);
+        CREATE INDEX {{.TableName}}_display_name_index ON inventory.{{.TableName}} (display_name);
+        CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
+        CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
+        CREATE INDEX {{.TableName}}_groups_index ON inventory.{{.TableName}} USING GIN (groups JSONB_PATH_OPS);
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
