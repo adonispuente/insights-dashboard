@@ -51,4 +51,3 @@ access:
 - namespace:
     $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
   role: view
-
