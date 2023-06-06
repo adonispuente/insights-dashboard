@@ -8,10 +8,6 @@ permissions: []
 
 self_service:
 - change_type:
-    $ref: /app-interface/changetype/saas-file-self-service.yml
-  datafiles:
-  - $ref: /services/rhose/cicd/saas/rhose.yml
-- change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/rhose/app.yml
