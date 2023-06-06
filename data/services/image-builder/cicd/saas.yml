@@ -42,11 +42,11 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/image-builder/namespaces/composer-stage.yml
-      upstream:
-        instance:
-          $ref: /dependencies/ci-ext/ci-ext.yml
-        name: osbuild-osbuild-composer-gh-build-main
-      ref: main
+      # upstream:
+      #   instance:
+      #     $ref: /dependencies/ci-ext/ci-ext.yml
+      #   name: osbuild-osbuild-composer-gh-build-main
+      ref: 744eb9d3374912401ca90a82d59a011c6865f46e
       parameters:
         PGSSLMODE: "require"
         MAINTENANCE_DRY_RUN: "false"
