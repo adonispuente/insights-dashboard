@@ -213,6 +213,14 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/ros-prod/ros-backend-inventory-events-processor.servicemonitor.yml
 - provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-api.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-kruize.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-processor.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-recommender.servicemonitor.yml
+- provider: resource
   path: /insights-prod/image-builder-prod/image-builder-clowder.servicemonitor.yml
 - provider: resource
   path: /insights-prod/patchman-engine-prod/patchman-engine-app.servicemonitor.yml
