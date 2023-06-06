@@ -12,10 +12,10 @@ Available options:
 
 - Cluster:
     * disable `integrations`
-    * [schema](https://github.com/app-sre/qontract-schemas/blob/ad05411b16709ddf94f574cd3356319f3fd7298b/schemas/openshift/cluster-1.yml#L450-L481)]
-    * [example](/data/openshift/insights/cluster.yml#L20-27)]
+    * [schema](https://github.com/app-sre/qontract-schemas/blob/f4181f975753f31b7582802b2bee6150668a3551/schemas/openshift/cluster-1.yml#L502-L538)
+    * [example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/7710f626eb4cb4dd656473cab67b921127433e59/data/openshift/insights/cluster-insights-perf.yml#L28)
 
 - AWS account:
     * disable `integrations`
-    * [schema](https://github.com/app-sre/qontract-schemas/blob/7780755424781d8b88839d2c37e32ccb45fc52da/schemas/aws/account-1.yml#L52-L62)]
-    * [example](/data/aws/osio-dev/account.yml#L16-18)]
+    * [schema](https://github.com/app-sre/qontract-schemas/blob/f4181f975753f31b7582802b2bee6150668a3551/schemas/aws/account-1.yml#L56-L70)
+    * [example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/7710f626eb4cb4dd656473cab67b921127433e59/data/aws/osio-dev/account.yml#L23-27)
