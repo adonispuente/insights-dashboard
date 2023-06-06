@@ -42,7 +42,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
-    ref: 24de047631ad2489b78817d7a08a82847b52d835
+    ref: 9b8b3a96abbb5f5b622690567032f99b6c9981d5
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
@@ -68,7 +68,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
-    ref: 24de047631ad2489b78817d7a08a82847b52d835
+    ref: 9b8b3a96abbb5f5b622690567032f99b6c9981d5
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
