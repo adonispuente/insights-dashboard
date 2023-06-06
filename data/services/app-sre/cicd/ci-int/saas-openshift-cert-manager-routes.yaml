@@ -67,6 +67,9 @@ resourceTemplates:
       $ref: /openshift/app-sre-prod-01/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   - namespace:
+      $ref: /openshift/app-sre-prod-04/namespaces/cert-manager.yml
+    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
+  - namespace:
       $ref: /openshift/hst02ue1/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   # Backplane
@@ -119,10 +122,6 @@ resourceTemplates:
     IMAGE: quay.io/app-sre/openshift-cert-manager-routes
     RELEASE: 0.1.3
   targets:
-  - namespace:
-      $ref: /openshift/app-sre-prod-04/namespaces/openshift-cert-manager.yml
-    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
-    delete: true
   - namespace:
       $ref: /openshift/telemeter-prod-01/namespaces/openshift-cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
