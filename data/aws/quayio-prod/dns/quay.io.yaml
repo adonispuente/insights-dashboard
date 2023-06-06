@@ -435,7 +435,7 @@ records:
 - name: recovery.quay.io.
   type: CNAME
   records:
-  - ad0892caa51d14eeea39017624de84e0-1425735993.us-east-1.elb.amazonaws.com
+  - quayio-production-alb01-recovery-960967235.us-east-1.elb.amazonaws.com
   ttl: 300
 - name: stage-s3.quay.io.
   type: CNAME
