@@ -167,7 +167,7 @@ When multiple secured `Routes` use the same `host`, openshift router uses the sa
 
    oc delete deployments,service -n openshift-cert-manager --all
    ```
-3. Install new subscription in `cert-manger-operator`. [Example](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/68907)
+3. Install new subscription in `cert-manager-operator`. [Example](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/68907)
 4. Move `aws-iam-service-account` from `openshift-cert-manager` to `cert-manager` (if using dns). [Example](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/68908)
 5. Install new cluster issuer and `openshift-cert-manager-routes` in `cert-manager`. [Example](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/68909)
 
