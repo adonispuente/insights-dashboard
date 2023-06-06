@@ -1,0 +1,43 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: crc-pdf-generator
+
+name: crc-pdf-generator
+
+app:
+  $ref: /services/insights/crc-pdf-generator/app.yml
+
+namespaces:
+- $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
+
+slos:
+- name: Requests result in successful non-5xx response
+  dashboard: "https://grafana.app-sre.devshift.net/d/XSuKR5MVk/crc-pdf-generator-stage?orgId=1"
+  SLIType: availability
+  SLISpecification: Proportion of successful requests with a (non-5xx) response against all requests on crc-pdf-generator API
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/crc-pdf-generator/SLO.md
+  prometheusRules: /resources/insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrules.yml
+  expr: |
+    round(sum(rate(api_3scale_gateway_api_status{exported_service="crc-pdf-generator", status=~"[234]xx"}[{{window}}]))
+    /
+    sum(rate(api_3scale_gateway_api_status{exported_service="crc-pdf-generator"}[{{window}}])), 0.0001)
+- name: Request latency
+  dashboard: "https://grafana.app-sre.devshift.net/d/XSuKR5MVk/crc-pdf-generator-stage?orgId=1"
+  SLIType: latency
+  SLISpecification: Proportion of requests with less than <4000 ms against all requests on crc-pdf-generator API
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/crc-pdf-generator/SLO.md
+  SLOParameters:
+    window: 28d
+  prometheusRules: /resources/insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrules.yml
+  expr: |
+    sum(rate(api_3scale_gateway_api_time_bucket{le="4000.0", exported_service="crc-pdf-generator"}[{{window}}]))
+    /
+    sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="crc-pdf-generator"}[{{window}}]))

@@ -1,4 +1,4 @@
-App-crc-pdf-generator-service-In-crc-pdf-generator-stage-high-error-rate.rst
+App-crc-pdf-generator-service-In-crc-pdf-generator-prod-high-error-rate.rst
 ================================================================
 
 Severity: Pagerduty
@@ -28,7 +28,7 @@ Access required
 Steps
 -----
 
-- Log in to the console, open "crc-pdf-generator-stage" namespace and verify if all pods are running and receiving requests.
+- Log in to the console, open "crc-pdf-generator-prod" namespace and verify if all pods are running and receiving requests.
 - Check logs/events for generator pods.
 - Check if any deployments or changes in the application happened closer to the time the requests started to return errors.
 - Check infrastructure metrics on the OpenShift console for generator service (Deployments -> crc-pdf-generator-api -> Metrics) and take notes.
@@ -37,7 +37,7 @@ Steps
 Escalations
 -----------
 
--  Ping development team using @crc-experience-team group in Internal Red Hat Slack 
+-  Ping development team using @crc-experience-team group in Internal Red Hat Slack
 
 .. _Incident Response Doc: https://docs.google.com/document/d/1AyEQnL4B11w7zXwum8Boty2IipMIxoFw1ri1UZB6xJE
 
