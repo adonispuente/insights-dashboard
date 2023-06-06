@@ -1,0 +1,16 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "dynatrace-config-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "app-sre/creds/dynatrace/app-sre-oauth-client" {
+    capabilities = ["read"]
+  }
+  path "app-sre/integrations-output/terraform-resources/app-sre-prod-01/app-sre-observability-production/dynatrace-terraform-950916221866" {
+    capabilities = ["read"]
+  }
