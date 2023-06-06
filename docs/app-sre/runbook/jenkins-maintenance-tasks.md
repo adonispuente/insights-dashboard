@@ -46,13 +46,16 @@ See [this doc](/docs/app-sre/jenkins-worker-cicd.md) to have more information on
 
 **NOTE**: Do this before any other task, as it takes time.
 
-* Go to [`infra`](https://gitlab.cee.redhat.com/app-sre/infra) and force a new ami build:
+1. Go to [`infra`](https://gitlab.cee.redhat.com/app-sre/infra) and force a new ami build:
     ```
     date -u > packer/FORCE_AMI_BUILD
     ```
+1. Push the changes a wait for a successful build.
+1. Merge the changes and take a note of the merge commit sha.
+
 ### Cleanup old builds
 
-**NOTE**: It's better to run this script before stopping jenkins service
+**NOTE**: You can fulfil this task while the new version of the controller AMIs is being built. It's better to run this script before stopping jenkins service
 
 We need to cleanup old builds data by running groove script, as described in [Git plugin doc|https://plugins.jenkins.io/git/#plugin-content-remove-git-plugin-buildsbybranch-builddata-script]
 
@@ -65,5 +68,5 @@ We need to cleanup old builds data by running groove script, as described in [Gi
 **NOTE**: Do this at the end of the maintenance window.
 
 1. Check that new AMIs have been built correctly in https://ci.int.devshift.net/view/app-sre/job/app-sre-infra-gl-build-master/
-1. Take a note of the merging sha from the MR used to build the new AMIs. It it important to note that most likely it won't be the last one from the infra repository, as there are many pushes to that repository.
-1. Update the sha reference of the AMIs in the [ASGs configuration](/data/services/app-sre/namespaces/app-sre-ci.yaml).
+1. If the AMIs have been built correctly, the build task would have updated the [PREVIOUS_PACKER_BUILD_SHA](https://gitlab.cee.redhat.com/app-sre/infra/-/blob/master/PREVIOUS_PACKER_BUILD_SHA) with the value that you have kept while merging the force ami build MR in the infra repo.
+1. Update the reference of the AMIs in the [ASGs configuration](/data/services/app-sre/namespaces/app-sre-ci.yaml) with the sha value you have kept.
