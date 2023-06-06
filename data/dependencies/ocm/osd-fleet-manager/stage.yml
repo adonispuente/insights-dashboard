@@ -53,6 +53,7 @@ sectors:
   dependencies:
   - name: canary
 - name: incidentrehearsal
+- name: migrationtesting
 upgradePolicyDefaults:
 - name: stage-canary
   matchLabels:
