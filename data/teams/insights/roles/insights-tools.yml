@@ -82,3 +82,4 @@ self_service:
   - /insights-ephemeral/hac/hac-frontend-landing.yaml
   - /insights-ephemeral/hac/hac-frontend-environment.yaml
   - /insights-ephemeral/hac/hac-clowd-environment.yaml
+  - /insights-ephemeral/image-builder-devconf/ib-clowd-environment.yaml
