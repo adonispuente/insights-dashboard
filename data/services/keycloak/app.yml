@@ -49,6 +49,14 @@ codeComponents:
       name: keycloak
       group: service
       branch: main
+- name: keycloak-user-service
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/keycloak-user-service
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
 
 quayRepos:
 - org:
@@ -60,4 +68,7 @@ quayRepos:
   items:
   - name: keycloak
     description: Keycloak
+    public: false
+  - name: keycloak-user-service
+    description: keycloak user service
     public: false
