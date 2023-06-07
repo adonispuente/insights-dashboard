@@ -2734,7 +2734,7 @@ To manage a User group via App-Interface:
   * Adding this attribute will add the PagerDuty target as an additional "source of truth", and will add the final schedule user to the Slack user group (in addition to any references from user files).
 - `ownersFromRepos`: a list of urls of github or gitlab repositories containing
   the `OWNERS` files to extract `approvers`/`reviewers` from. Only the root
-  `OWNERS` file is considered. The `OWNERS_ALIASES` is respected.
+  `OWNERS` file is considered. The `OWNERS_ALIASES` is respected. The `master` branch is queried.
     - Note: optionally add `:<branch>` to use a specific branch. For example: `https://github.com/openshift/osde2e:main`.
 - `schedule`: a reference to a file representing a schedule.
 - `channels`: a list of channels to add to the User group
