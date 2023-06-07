@@ -94,6 +94,7 @@ externalResources:
     overrides:
       apply_immediately: true
       engine_version: '12.13'
+      multi_az: false
   - provider: rds
     identifier: uhc-clusters-service-production-readonly
     defaults: /terraform/resources/app-sre/production/rds-1-readonly.yml
