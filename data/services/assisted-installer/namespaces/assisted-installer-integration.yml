@@ -98,6 +98,11 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage/assisted-installer-msk
+  version: 1
+  annotations:
+    qontract.ignore_reconcile_time: "true"
 
 managedRoles: true
 

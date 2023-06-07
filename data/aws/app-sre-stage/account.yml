@@ -162,6 +162,9 @@ deletionApprovals:
 - type: aws_db_instance
   name: dev-steahan-us-east-2
   expiration: '2022-12-03'
+- type: aws_msk_cluster
+  name: assisted-installer-stage
+  expiration: '2023-06-07'
 
 # APPSRE-6969 moving and renaming IAM service account
 - type: aws_iam_access_key
