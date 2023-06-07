@@ -1,0 +1,33 @@
+---
+$schema: /aws/policy-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/app-sre-stage/account.yml
+
+name: VerifierLogsAccess
+description: |
+    Allows a user to access the s3 buckets that contain osd-network-verifier execution logs and results.
+
+policy:
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VerifierLogsAccess",
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetObject",
+                    "s3:GetBucketLocation",
+                    "s3:ListBucket"
+                ],
+                "Resource": [
+                    "arn:aws:s3:::rh-osd-network-verifier-staging",
+                    "arn:aws:s3:::rh-osd-network-verifier-staging/*",
+                    "arn:aws:s3:::rh-osd-network-verifier-integration",
+                    "arn:aws:s3:::rh-osd-network-verifier-integration/*"
+                ]
+            }
+        ]
+    }

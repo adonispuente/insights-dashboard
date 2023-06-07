@@ -15,3 +15,5 @@ roles:
 - $ref: /teams/osde2e/roles/dev.yml
 - $ref: /services/observability/roles/observability-access.yml
 - $ref: /teams/telemeter/roles/consumer.yml
+- $ref: /aws/app-sre/roles/s3-verifier-logs.yml
+- $ref: /aws/app-sre-stage/roles/s3-verifier-logs.yml
