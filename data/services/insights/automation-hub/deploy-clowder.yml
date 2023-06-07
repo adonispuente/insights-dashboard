@@ -134,9 +134,9 @@ resourceTemplates:
     targets:
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage.yml
-      ref: 39e06c68caced6fbe30e19aecd7bc12c9f51863c
+      ref: accc2ebe5d5fc9e24c27ab87f883d1a15dc3423a
       parameters:
-        ARGS: echo '0'
+        ARGS: django-admin shell -c 'from galaxy_ng.app.models import User; super_users = User.objects.filter(is_superuser=True); print(super_users);'
         RERUN: 0
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/automation-hub-prod.yml
