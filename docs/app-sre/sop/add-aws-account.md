@@ -19,6 +19,8 @@ In order to add a new AWS account to app-interface, you need a few things up fro
 Accounts can be created by creating a ticket in the [OHSS Jira project](https://issues.redhat.com/projects/OHSS/).
 In a ticket specify that level of support need to be upgraded to Enterprise level. Detailed SOP [here](https://github.com/openshift/ops-sop/blob/master/v4/knowledge_base/aws-developer-accounts.md#requesting-an-account---outside-srep)
 
+SREP won't share credentials for created account, so you need to reset root pasword, as mentioned in abovementioned doc
+
 ## Encrypted Account Details
 
 The account details will include the following information:
