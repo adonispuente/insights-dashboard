@@ -39,7 +39,7 @@ config:
     build_deploy_script_path: make sync-repos
     jobs:
     - 'gl-build-master':
-        display_name: package-operator sync repos
+        display_name: package-operator sync repos from gitlab
         branch: redhat
 - project:
     name: package-operator-gh-sync
@@ -51,5 +51,5 @@ config:
     build_deploy_script_path: make sync-repos
     jobs:
     - 'gh-build-master':
-        display_name: package-operator sync repos
+        display_name: package-operator sync repos from github
         branch: main
