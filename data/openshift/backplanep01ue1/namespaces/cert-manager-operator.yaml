@@ -10,7 +10,7 @@ cluster:
   $ref: /openshift/backplanep01ue1/cluster.yml
 
 app:
-  $ref: /services/app-sre/cet-manager/app.yml
+  $ref: /services/app-sre/cert-manager/app.yml
 
 environment:
   $ref: /products/app-sre/environments/production.yml
