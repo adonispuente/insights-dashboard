@@ -17,3 +17,4 @@ app:
 
 sharedResources:
 - $ref: /services/hive/shared-resources/aws-vpce-operator-stage-transit-account-iam-secrets.yml
+- $ref: /services/hive/shared-resources/aws-vpce-operator-stage-backplane.yml
