@@ -13,7 +13,7 @@ workspace:
   $ref: /dependencies/slack/redhat-internal.yml
 
 ownersFromRepos:
-  - https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
+  - https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards:main
 
 channels:
 - sd-sre-platform
