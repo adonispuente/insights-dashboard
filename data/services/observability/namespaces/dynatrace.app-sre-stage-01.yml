@@ -1,0 +1,27 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Monitoring and Logging Stack for Dynatrace
+
+cluster:
+  $ref: /openshift/app-sre-stage-01/cluster.yml
+
+app:
+  $ref: /services/observability/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- Secret
+
+clusterAdmin: true
+
+openshiftResources:
+- provider: vault-secret
+  path: app-sre/creds/dynatrace/logging-operator-token
+  version: 1
+  name: dynatrace-tokens
