@@ -4,9 +4,6 @@ $schema: /app-interface/prometheus-rule-test-1.yml
 rule_files:
 - /observability/prometheusrules/prometheus-app-sre.prometheusrules.yaml.j2
 
-target_clusters:
-- app-sre-prod-01
-
 evaluation_interval: 1m
 tests:
 - interval: 1m
