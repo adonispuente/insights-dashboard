@@ -153,6 +153,13 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/landing-page-frontend"
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: 9febc31e31be93ceb6cfcd5a9d95a64e6c12c549
+    parameters:
+      ENV_NAME: "ib-devconf"
+      IMAGE: "quay.io/cloudservices/landing-page-frontend"
 
 # Dashboard
 - name: insights-dashboard
@@ -190,6 +197,13 @@ resourceTemplates:
     ref: 439e415568aa4e6bc8bd4266bb06304f1754c4aa
     parameters:
       ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: 7bcfa09932e68e739eb4db49466d107bae8e529b
+    parameters:
+      ENV_NAME: "ib-devconf"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
 
 - name: frontend-configs
@@ -253,6 +267,14 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/api-frontend"
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: e1d8d28642bf415ea85bcdf457d5a55150c6a045
+    parameters:
+      ENV_NAME: "ib-devconf"
+      IMAGE: "quay.io/cloudservices/api-frontend"
+
 # Deploys sed frontend
 - name: sed-frontend
   path: /deploy/frontend.yml
@@ -296,6 +318,13 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
+    parameters:
+      ENV_NAME: "ib-devconf"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
 
 # Learning Resources
 - name: learning-resources
@@ -333,4 +362,11 @@ resourceTemplates:
     ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
     parameters:
       ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/learning-resources"
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
+    parameters:
+      ENV_NAME: "ib-devconf"
       IMAGE: "quay.io/cloudservices/learning-resources"
