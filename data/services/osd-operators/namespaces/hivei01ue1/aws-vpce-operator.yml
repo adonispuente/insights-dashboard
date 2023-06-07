@@ -51,7 +51,8 @@ externalResources:
               "route53:ListTagsForResource",
               "route53:GetHostedZone",
               "route53:CreateHostedZone",
-              "route53:DeleteHostedZone"
+              "route53:DeleteHostedZone",
+              "route53:CreateVpcAssociationAuthorization"
             ],
             "Effect": "Allow",
             "Resource": "*"
@@ -92,7 +93,8 @@ externalResources:
               "route53:ListTagsForResource",
               "route53:GetHostedZone",
               "route53:CreateHostedZone",
-              "route53:DeleteHostedZone"
+              "route53:DeleteHostedZone",
+              "route53:CreateVpcAssociationAuthorization"
             ],
             "Effect": "Allow",
             "Resource": "*"
