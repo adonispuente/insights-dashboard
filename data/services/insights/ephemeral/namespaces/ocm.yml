@@ -83,6 +83,11 @@ openshiftResources:
   version: 6
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-prod/entitlements-prod/oidc
+  version: 1
+  annotations:
+    qontract.recycle: "true"
 
 # rhsm-api-proxy
 - provider: vault-secret
