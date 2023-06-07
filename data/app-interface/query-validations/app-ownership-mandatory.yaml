@@ -1,0 +1,19 @@
+---
+$schema: /app-interface/query-validation-1.yml
+
+labels: {}
+
+name: app-ownership-mandatory
+description: |
+  Validate that all apps are covered by a self-service section in a role.
+
+escalationPolicy:
+  $ref: /teams/app-sre/escalation-policies/general.yaml
+
+queries:
+- path: /queries/apps-self-service-roles.graphql
+
+resources:
+- provider: resource-template
+  type: jinja2
+  path: /templates/app-ownership-mandatory.j2

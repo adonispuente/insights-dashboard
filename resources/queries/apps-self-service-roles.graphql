@@ -1,0 +1,9 @@
+{
+    apps_v1 {
+      path
+      name
+      selfServiceRoles {
+        name
+      }
+    }
+}
