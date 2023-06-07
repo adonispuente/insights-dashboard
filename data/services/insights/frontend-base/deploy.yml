@@ -107,6 +107,14 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
       SSO_URL: 'https://sso.redhat.com/auth/'
+  # IB Devconf Deployment
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+    ref: f756465b7eb49070fb1df027ad4c7c175cef0086
+    parameters:
+      ENV_NAME: "ib-devconf"
+      IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
+      SSO_URL: 'https://ib-devconf-9x6crfz2-auth.apps.c-rh-c-eph.8p0c.p1.openshiftapps.com/auth/'
 
 # Landing page
 - name: landing-page-frontend
