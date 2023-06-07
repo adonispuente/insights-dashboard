@@ -7,3 +7,9 @@ name: sre-fedramp
 permissions:
 - $ref: /teams/sd-sre/permissions/srep-fedramp-team-coreos-slack.yml
 - $ref: /teams/sd-sre/permissions/sd-sre-nasa.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/fedramp-tools/app.yml

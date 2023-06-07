@@ -12,6 +12,7 @@ self_service:
   datafiles:
   - $ref: /services/addons/app.yml
   - $ref: /services/osd-operators/addon-operator/app.yml
+  - $ref: /services/osd-operators/package-operator/app.yml
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
