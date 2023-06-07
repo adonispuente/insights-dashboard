@@ -95,3 +95,6 @@ recommendedVersions:
   channel: stable
   recommendedVersion: 4.12.15
   initialVersion: openshift-v4.12.15
+
+blockedVersions:
+- ^4\.13\..*$
