@@ -73,14 +73,14 @@ resourceTemplates:
     # Prod Preview (Beta) Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 497e2dfa759d4d1818dbe539cf60451551f5598f
+    ref: 9de8dcb131aea806c83c531a1f3b2a7fc0555af3
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/curiosity-frontend"
     # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 497e2dfa759d4d1818dbe539cf60451551f5598f
+    ref: 9de8dcb131aea806c83c531a1f3b2a7fc0555af3
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/curiosity-frontend"
