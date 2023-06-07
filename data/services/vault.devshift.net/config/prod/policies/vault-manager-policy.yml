@@ -81,7 +81,7 @@ rules: |
   path "/app-interface/data/app-sre/vault-prod/oidc" {
     capabilities = ["read", "list"]
   }
-  # allow vault-manger to read kubernetes public cert files
+  # allow vault-manager to read kubernetes public cert files
   path "/app-interface/data/app-sre/vault-prod/kubernetes/*" {
     capabilities = ["read", "list"]
   }
