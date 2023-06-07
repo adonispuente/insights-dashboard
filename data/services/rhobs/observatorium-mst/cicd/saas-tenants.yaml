@@ -104,14 +104,6 @@ resourceTemplates:
                 issuerURL: https://sso.redhat.com/auth/realms/redhat-external
                 redirectURL: https://observatorium-mst.api.stage.openshift.com/oidc/rhods/callback
                 usernameClaim: preferred_username
-            - id: 2dd839e2-cf2b-424a-add4-2e826b7541ee
-              name: rhoc
-              oidc:
-                clientID: ${CLIENT_ID}
-                clientSecret: ${CLIENT_SECRET}
-                issuerURL: https://sso.redhat.com/auth/realms/redhat-external
-                redirectURL: https://observatorium-mst.api.stage.openshift.com/oidc/rhoc/callback
-                usernameClaim: preferred_username
             - id: 99c885bc-2d64-4c4d-b55e-8bf30d98c657
               name: odfms
               oidc:
@@ -234,14 +226,6 @@ resourceTemplates:
                 clientSecret: ${CLIENT_SECRET}
                 issuerURL: https://sso.redhat.com/auth/realms/redhat-external
                 redirectURL: https://observatorium-mst.api.openshift.com/oidc/rhods/callback
-                usernameClaim: preferred_username
-            - id: 2dd839e2-cf2b-424a-add4-2e826b7541ee
-              name: rhoc
-              oidc:
-                clientID: ${CLIENT_ID}
-                clientSecret: ${CLIENT_SECRET}
-                issuerURL: https://sso.redhat.com/auth/realms/redhat-external
-                redirectURL: https://observatorium-mst.api.openshift.com/oidc/rhoc/callback
                 usernameClaim: preferred_username
             - id: 99c885bc-2d64-4c4d-b55e-8bf30d98c657
               name: odfms
