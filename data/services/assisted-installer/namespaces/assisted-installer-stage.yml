@@ -151,6 +151,15 @@ externalResources:
         }]
       }
     output_resource_name: service-account-ai-ccx
+  - provider: msk
+    identifier: assisted-installer-stage
+    defaults: /terraform/resources/assisted-installer/msk-1.yml
+    output_resource_name: assisted-installer-msk
+    secret:
+      path: app-interface/assisted-installer/msk-credentials/stage
+      field: all
+      version: 1
+
 - provider: aws
   provisioner:
     $ref: /aws/app-sre/account.yml
