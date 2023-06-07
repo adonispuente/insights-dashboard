@@ -22,7 +22,10 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/dvo/roles/dvo-maintainer.yaml
-
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/osd-operators/deployment-validation-operator/app.yml
 access:
 - namespace:
     $ref: /services/app-interface/namespaces/app-sre-pipelines.appsrep05ue1.yaml

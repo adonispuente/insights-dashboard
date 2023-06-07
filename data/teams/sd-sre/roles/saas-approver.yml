@@ -95,6 +95,8 @@ self_service:
   datafiles:
   - $ref: /services/osd-operators/app.yml
   - $ref: /services/osd-operators/aws-account-operator/app.yml
+  - $ref: /services/configuration-anomaly-detection/app.yml
+  - $ref: /services/backplane/app.yaml
 - change_type:
     $ref: /app-interface/changetype/namespace-owner.yml
   datafiles:
