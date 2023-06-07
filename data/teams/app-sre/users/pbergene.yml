@@ -8,6 +8,8 @@ org_username: pbergene
 github_username: pbergene
 quay_username: pbergene
 
+tag_on_cluster_updates: false
+
 roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 
