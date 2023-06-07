@@ -573,7 +573,7 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 95c7fd2fab018e874a5ef3ce98ab8c62f4efcafb
+    ref: 751d4fa64cb0b3fbd07b812175e7c5aef4ef839c
     parameters:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
