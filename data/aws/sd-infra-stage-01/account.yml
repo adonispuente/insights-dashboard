@@ -28,3 +28,6 @@ premiumSupport: true
 
 terraformState:
   $ref: /aws/sd-infra-stage-01/state.yml
+
+rosa:
+  $ref: /aws/sd-infra-stage-01/rosa.yml
