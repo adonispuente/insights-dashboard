@@ -74,9 +74,11 @@ For this step you need the latest `ROSA CLI` available, it can be downloaded fro
 
 - Load the aws account profile with an IAM user access keys (terraform). STS credentials are not supported at the time of
   writing this doc.
-- Log in to OCM with the `ROSA cli`. OCM organization credentials are required for this step (App-sre-ocm-bot)
+- Log in to OCM with the `ROSA cli`. OCM organization credentials are required for this step [App-sre-ocm-bot](https://vault.devshift.net/ui/vault/secrets/app-sre/show/creds/app-sre-ocm-bot)
 
 ```rosa login --client-id=.. --client-secret=...```
+
+- Note that some commands may fail and (only for these commands) your need to use your own personal offline token, account should be like <username>+sd-app-sre
 
 - [Optional] Check your connection data:
 
@@ -141,7 +143,9 @@ I: Successfully linked role-arn 'arn:aws:iam::366871242094:role/ManagedOpenShift
 
 - Create the account roles for ROSA STS clusters. Add the `OCM` prefix as in the last step.
 
-```rosa create account-roles
+```bash
+rosa create account-roles
+
 I: Logged in as 'sd-app-sre-ocm-bot' on 'https://api.openshift.com'
 I: Validating AWS credentials...
 I: AWS credentials are valid!
