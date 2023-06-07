@@ -51,25 +51,25 @@ resourceTemplates:
     ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
 - name: package-operator-hypershift
   url: https://gitlab.cee.redhat.com/lp-sre/package-operator
   path: /redhat/hive/hypershift-deployment-template.yaml
@@ -93,22 +93,22 @@ resourceTemplates:
     ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: c1403509be93a58ec9323108b6cc06b9cb4b612f
+    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
