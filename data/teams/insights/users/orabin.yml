@@ -1,0 +1,21 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Ori Rabin
+org_username: orabin
+github_username: orrabin
+quay_username: rhn-engineering-orabin
+
+roles:
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/vulnerabilities.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/aws/stage-app-developers.yml
+- $ref: /teams/insights/roles/aws/prod-app-developers.yml
+- $ref: /teams/insights/roles/vulnerabilities-slack.yml
+- $ref: /teams/insights/roles/patchman.yml
+
+public_gpg_key: None
