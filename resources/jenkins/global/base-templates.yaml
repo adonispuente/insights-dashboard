@@ -23,6 +23,7 @@
             cat response.json
 
     build_master: &build_master_template
+        max_failed_builds: 1
         disabled: '{disable}'
         backup_ecr_push_creds_account_region: 'none' # https://vault.devshift.net/ui/vault/secrets/app-sre/show/integrations-output/aws-ecr-image-pull-secrets/none/basic-auth
         build_deploy_script_path: './build_deploy.sh'
@@ -32,6 +33,9 @@
             timeout: '{timeout}'
         builders:
         - *build_deploy
+        publishers:
+        - naginator:
+            max-failed-builds: '{max_failed_builds}'
 
     build_olm_catalog: &build_olm_catalog_template
         disabled: '{disable}'
