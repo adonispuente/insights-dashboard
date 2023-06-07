@@ -2229,6 +2229,36 @@ The Secret will contain the following fields:
 - `aws_access_key_id` - The access key ID.
 - `aws_secret_access_key` - The secret access key.
 
+#### Managed Streaming for Apache Kafka (MSK) via App-Interface (`/openshift/namespace-1.yml`)
+
+[Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/) is a fully managed service that makes it easy for you to build and run applications that use Apache Kafka to process streaming data.
+
+In order to add an MSK cluster, you need to add it to the `externalResources` section:
+
+- `provider`: must be `msk`
+- `identifier`: id of the resource to create (example: `msk-cluster`)
+- `defaults`: path relative to [resources](/resources) to a file with default values. Note that it starts with `/`. The file must a valid [MSK schemas file](https://github.com/app-sre/qontract-schemas/blob/main/schemas/aws/msk-defaults-1.yml)
+- `output_resource_name`: name of Kubernetes Secret to be created.
+  - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).
+  - If `output_resource_name` is not defined, the name of the secret will be `<identifier>-<provider>`.
+- `annotations`: additional annotations to add to the output resource
+- `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
+  - `path`: vault path
+  - `field`: `all`
+  - `version`: (optional) for vault kv2
+
+Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated and a Kubernetes Secret will be created in the same namespace with all relevant details.
+
+The Secret will contain the following fields:
+- `zookeeper_connect_string` - A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+- `zookeeper_connect_string_tls` - A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS.
+- `bootstrap_brokers` - Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
+- `bootstrap_brokers_tls` - One or more DNS names (or IP addresses) and TLS port pairs.
+- `bootstrap_brokers_sasl_iam` - One or more DNS names (or IP addresses) and SASL IAM port pairs.
+- `bootstrap_brokers_sasl_scram` - One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
+
+Depending on your MSK configuration, some of these fields may be empty.
+
 #### Manage Application Load Balancers via App-Interface (`/openshift/cluster-1.yml`)
 
 Please follow the dev-guidelines: https://service.pages.redhat.com/dev-guidelines/docs/appsre/advanced/manage-application-load-balancer
