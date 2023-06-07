@@ -3,7 +3,7 @@ kind: FrontendEnvironment
 metadata:
   name: {{env_name}}
 spec:
-  hostname: {{env_name}}-{rando}}.{{hostname}}
+  hostname: {{env_name}}-{{rando}}.{{hostname}}
   ingressClass: openshift-default
   sso: {{sso_source}}
   ssl: {{ssl}}
