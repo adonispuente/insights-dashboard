@@ -55,3 +55,4 @@ openshiftResources:
     hostname: apps.c-rh-c-eph.8p0c.p1.openshiftapps.com
     env_name: ib-devconf
     ssl: true
+    rando: 9x6crfz2
