@@ -52,7 +52,7 @@ resourceTemplates:
       CLUSTER_PROFILE: hcp-advanced
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 516cf6f5849f930e98139ecf5653c0dfbf9eca8f
+    ref: 82a6f6664bc9d622f83b78ae7d52c6d2d675fc30
     promotion:
       auto: true
       subscribe:
