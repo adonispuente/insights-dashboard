@@ -94,7 +94,7 @@ peering:
       $ref: /openshift/appsrep05ue1/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
-  # backplane access to privatelink & hhypershift hosted clusters
+  # backplane access to privatelink & hypershift hosted clusters
   - provider: account-tgw
     name: backplanei02ue1
     account:

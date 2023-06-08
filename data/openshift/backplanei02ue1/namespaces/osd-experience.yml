@@ -7,7 +7,7 @@ name: osd-experience
 description: Namespace for resources to provision resources required to create an OSD experience
 
 cluster:
-  $ref: /openshift/backplanes03ue1/cluster.yml
+  $ref: /openshift/backplanei02ue1/cluster.yml
 
 app:
   $ref: /services/app-sre/app.yml
@@ -20,7 +20,7 @@ managedExternalResources: true
 externalResources:
 - provider: aws
   provisioner:
-    $ref: /aws/app-sre-rosa/account.yml
+    $ref: /aws/sd-infra-stage-01/account.yml
   resources:
   # Mocking the network-mgmt role of the OSD AWS Infrastructure Access feature
   # And providing the role defined in `assume_role` permissions to assume
@@ -28,7 +28,7 @@ externalResources:
   # Since this is a ROSA cluster, we create the role in the containing AWS account.
   # This is replacing the `awsInfrastructureAccess` feature in app-interface.
   - provider: aws-iam-role
-    identifier: network-mgmt-backplanes03ue1
+    identifier: network-mgmt-backplanei02ue1
     # users that are allowed to assume this role
     assume_role:
       AWS:
