@@ -159,7 +159,7 @@ resourceTemplates:
         }
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: d09969a0c9628dfb6cb9417ee299fd31a5046696
+    ref: 0422723322bffa016c2e1dab5e73e6b3005cb774
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
@@ -302,7 +302,7 @@ resourceTemplates:
       name: RedHatInsights-xjoin-operator-gh-build-master
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: d09969a0c9628dfb6cb9417ee299fd31a5046696
+    ref: 0422723322bffa016c2e1dab5e73e6b3005cb774
     parameters:
       KAFKA_CLUSTER_NAMESPACE: "platform-mq-prod"
       CONNECT_CLUSTER_NAMESPACE: "xjoin-prod"
