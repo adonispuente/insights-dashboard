@@ -102,6 +102,14 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
+    ref: master
+    disable: true
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+    ref: a1c2fc0a11373e3d6e0361b42bfeb79af61885dc
+    disable: true
 
 - name: xjoin-api-gateway
   path: /clowdapp.yaml
