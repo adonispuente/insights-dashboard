@@ -30,6 +30,8 @@ automationToken:
 
 premiumSupport: false
 
+enableDeletion: true
+
 disable:
   integrations:
   - terraform-aws-route53
