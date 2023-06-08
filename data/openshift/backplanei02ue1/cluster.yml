@@ -98,7 +98,7 @@ peering:
   - provider: account-tgw
     name: backplanei02ue1
     account:
-      $ref: /aws/osd-privatelink-stage/account.yml
+      $ref: /aws/osd-privatelink-int/account.yml
     assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
     tags:
       osd: privatelink
@@ -108,9 +108,9 @@ peering:
   # access to backplane from OSD bastions
   # This should not be needed anymore with backplane allowing traffic from Internet
   # - provider: account-vpc-mesh
-  #   name: backplanei02ue1_osd-bastion-stage
+  #   name: backplanei02ue1_osd-bastion-int
   #   account:
-  #     $ref: /aws/osd-bastion-stage/account.yml
+  #     $ref: /aws/osd-bastion-int/account.yml
   #   tags:
   #     osd: backplane
   #   manageRoutes: true
