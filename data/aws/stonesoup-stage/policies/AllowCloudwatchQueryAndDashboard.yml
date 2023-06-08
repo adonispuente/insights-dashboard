@@ -12,8 +12,6 @@ description: |
     It also allows users to create, modify and delete
     Dashboards for cloudwatch logs
 
-mandatory: true
-
 policy:
   {
     "Version": "2012-10-17",
