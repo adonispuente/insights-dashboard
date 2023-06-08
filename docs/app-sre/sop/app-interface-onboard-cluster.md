@@ -5,7 +5,7 @@
 
 ## Step 1 - Cluster creation and initial access for dedicated-admins and automatic cluster file updates
 
-<b>HYPERSHIFT NOTE</b> Hypershift clusters need to be created manually using `rosa cli`, guide: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/runbook/openshift-rosa-clusters.md#create-a-new-cluster
+<b>HYPERSHIFT/PRIVATELINK NOTE</b> Hypershift and PrivateLink clusters need to be created manually using `rosa cli`, [guide](/docs/app-sre/runbook/openshift-rosa-clusters.md#create-a-new-rosa-cluster)
 
 This step should be performed in a single merge request.
 
