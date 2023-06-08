@@ -1,0 +1,13 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Dynatrace operator and configuration
+
+openshiftResources:
+- provider: resource
+  path: /setup/dynatrace/dynatrace-subscription.yaml
+- provider: resource
+  path: /setup/dynatrace/dynatrace-operator.yaml
