@@ -1,0 +1,53 @@
+---
+$schema: /aws/policy-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/stonesoup-prod/account.yml
+
+name: cloudwatch-query-dashboard
+description: |
+    Allows a user to save cloudwatch insight queries.
+    It also allows users to create, modify and delete
+    Dashboards for cloudwatch logs
+
+mandatory: true
+
+policy:
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "AllowCreateEditDeleteDashboards",
+        "Effect": "Allow",
+        "Action": [
+                "cloudwatch:PutDashboard",
+                "cloudwatch:DeleteDashboards",
+                "cloudwatch:GetDashboard",
+                "cloudwatch:ListDashboards"
+        ]
+        "Resource": "*",
+        "Condition": {
+                "BoolIfExists": {
+                    "aws:MultiFactorAuthPresent": "true"
+                }
+            }
+      },
+      {
+        "Sid": "AllowSaveInsightQueries",
+        "Effect": "Allow",
+        "Action": [
+          "logs:PutQueryDefinition",
+          "logs:DeleteQueryDefinition",
+          "logs:DescribeQueryDefinitions"
+        ],
+        "Resource": "*",
+        "Condition": {
+                "BoolIfExists": {
+                    "aws:MultiFactorAuthPresent": "true"
+                }
+            }
+      }
+    ]
+  }
