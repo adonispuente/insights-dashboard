@@ -70,6 +70,7 @@ self_service:
   - $ref: /openshift/rhobsp02ue1/cluster.yml
   - $ref: /openshift/hst02ue1/cluster.yml
   - $ref: /openshift/backplanei01ue1/cluster.yml
+  - $ref: /openshift/backplanei02ue1/cluster.yml
   - $ref: /openshift/backplanes01ue1/cluster.yml
   - $ref: /openshift/backplanes02uw2/cluster.yml
   - $ref: /openshift/backplanes03ue1/cluster.yml

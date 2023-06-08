@@ -188,6 +188,9 @@ access:
   group: dedicated-admins
 ## Backplane STS
 - cluster:
+    $ref: /openshift/backplanei02ue1/cluster.yml
+  group: dedicated-admins
+- cluster:
     $ref: /openshift/backplanes03ue1/cluster.yml
   group: dedicated-admins
 ## stonesoup control plane clusters
