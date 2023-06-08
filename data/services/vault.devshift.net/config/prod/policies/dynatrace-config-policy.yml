@@ -17,3 +17,10 @@ rules: |
   path "app-sre/integrations-output/terraform-resources/app-sre-prod-01/app-sre-observability-production/dynatrace-terraform-950916221866" {
     capabilities = ["read"]
   }
+
+  path "osd-sre/osd-hypershift-silent-test" {
+    capabilities = ["read"]
+  }
+  path "osd-sre/osd-hypershift-oncall" {
+    capabilities = ["read"]
+  }
