@@ -42,6 +42,7 @@ enableDeletion: false
 disable:
   integrations:
   - terraform-aws-route53
+  - terraform-resources
 
 deletionApprovals:
 - type: aws_elasticache_replication_group
