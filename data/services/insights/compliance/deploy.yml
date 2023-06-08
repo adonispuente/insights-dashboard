@@ -79,7 +79,7 @@ resourceTemplates:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
     ref: 4927c96dfb72157d049b1d5a208b4046391c12e0
     parameters:
-      MIN_REPLICAS: 1
+      MIN_REPLICAS: 0
 - name: compliance
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/compliance-backend
@@ -119,10 +119,10 @@ resourceTemplates:
     ref: 196e4710f2ccc3266ec562ec0f1907469f50e3ef
     parameters:
       SETTINGS__FORCE_IMPORT_SSGS: 'false'
-      REPLICAS_BACKEND: 6
-      REPLICAS_CONSUMER: 6
-      REPLICAS_SIDEKIQ: 6
-      FLOORIST_SUSPEND: 'false'
+      REPLICAS_BACKEND: 0
+      REPLICAS_CONSUMER: 0
+      REPLICAS_SIDEKIQ: 0
+      FLOORIST_SUSPEND: 'true'
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       PRIMARY_REDIS_AS_CACHE: 'false'
       IMPORT_SSG_SCHEDULE: "*/5 * * * *"
