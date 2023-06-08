@@ -221,3 +221,7 @@ externalResources:
         }]
       }
     output_resource_name: hccm-ros-stage-s3-readonly
+  - provider: s3
+    identifier: hccm-subs-stage-s3
+    defaults: /terraform/resources/s3-all-expires-90-days.yml
+    output_resource_name: hccm-subs-s3
