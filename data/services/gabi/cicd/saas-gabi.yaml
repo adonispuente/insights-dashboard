@@ -797,6 +797,15 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: rosocp-stage
       GABI_INSTANCE: gabi-ros-ocp
   - namespace:
+      $ref: /services/insights/ros/namespaces/ros-prod.yml
+    ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
+    name: gabi-ros-ocp-prod
+    parameters:
+      HOST: gabi-ros-ocp-prod.apps.crcp01ue1.o9m8.p1.openshiftapps.com
+      NAMESPACE: ros-prod
+      AWS_RDS_SECRET_NAME: rosocp-prod
+      GABI_INSTANCE: gabi-ros-ocp
+  - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
     ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
     promotion:
