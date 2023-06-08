@@ -595,17 +595,17 @@ resourceTemplates:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     parameters:
-      REDIS_STORAGE: "10Gi"
+      REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: be29dbed4b76c3c4fe9bcdd7b304db179d57a814
     parameters:
       # TODO: increase when the new feature is activated
-      REDIS_STORAGE: "10Gi"
+      REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
-      REDIS_STORAGE: "10Gi"
+      REDIS_STORAGE: "2Gi"
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
