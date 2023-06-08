@@ -53,21 +53,23 @@ spec:
   - us-east-1b
   - us-east-1c
 
-# automationToken:
-#   path: app-sre/creds/kube-configs/backplanei02ue1
-#   field: token
-# clusterAdmin: true
-# clusterAdminAutomationToken:
-#   path: app-sre/creds/kube-configs/backplanei02ue1-cluster-admin
-#   field: token
+automationToken:
+  path: app-sre/creds/kube-configs/backplanei02ue1
+  field: token
+clusterAdmin: true
+clusterAdminAutomationToken:
+  path: app-sre/creds/kube-configs/backplanei02ue1-cluster-admin
+  field: token
 
-# jumpHost:
-#   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+jumpHost:
+  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+
 network:
   type: OVNKubernetes
   vpc: 10.170.36.0/22
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
+
 internal: false
 
 peering:
