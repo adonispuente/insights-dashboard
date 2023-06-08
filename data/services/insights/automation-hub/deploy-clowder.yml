@@ -134,9 +134,9 @@ resourceTemplates:
     targets:
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage.yml
-      ref: accc2ebe5d5fc9e24c27ab87f883d1a15dc3423a
+      ref: dd7c39a883009a3643e6921424b7748077177c62
       parameters:
-        ARGS: django-admin shell -c 'from galaxy_ng.app.models import User; super_users = User.objects.filter(is_superuser=True); print(super_users);'
+        ARGS: django-admin shell -c 'from pulpcore.app.models import Repository; non_ansible_repos = [(r.name, r.pulp_type) for r in Repository.objects.all() if r.pulp_type != "ansible.ansible"]; print(non_ansible_repos);'
         RERUN: 0
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/automation-hub-prod.yml
