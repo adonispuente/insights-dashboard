@@ -63,9 +63,6 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/rhobs-slos-mst-production.prometheusrules.yaml
   type: resource
-- provider: prometheus-rule
-  path: /observability/prometheusrules/rhobs-slos-rhobsp02ue1-prod.prometheusrules.yaml
-  type: resource
 ### Federated Kubernetes metrics
 - provider: prometheus-rule
   path: /observability/prometheusrules/kube-metrics.prometheusrules.yaml
