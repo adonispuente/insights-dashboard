@@ -57,39 +57,39 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: dc72aeac45b440214d74434c3bc9d47d0b2eb610
+    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
     parameters:
-      IMAGE_TAG: 0.1.128-dc72aea
+      IMAGE_TAG: 0.1.136-c5e36a4
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
