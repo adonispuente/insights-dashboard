@@ -61,6 +61,10 @@ subjects:
     namespace: ros-prod
 
   - kind: ServiceAccount
+    name: gabi-ros-ocp
+    namespace: ros-prod
+
+  - kind: ServiceAccount
     name: gabi-subscription-watch
     namespace: rhsm-prod
 
