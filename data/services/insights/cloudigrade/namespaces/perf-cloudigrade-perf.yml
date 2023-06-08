@@ -6,6 +6,7 @@ labels:
 
 name: cloudigrade-perf
 description: Cloudigrade app's PERF namespace
+delete: true
 
 cluster:
   $ref: /openshift/insights/cluster-insights-perf.yml
