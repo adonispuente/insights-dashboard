@@ -1,0 +1,127 @@
+---
+$schema: /openshift/cluster-1.yml
+
+labels:
+  service: backplane
+
+name: backplanei02ue1
+description: backplanei02ue1 cluster
+consoleUrl: https://console-openshift-console.apps.backplanei02ue1.qklc.p1.openshiftapps.com
+kibanaUrl: ''
+prometheusUrl: https://prometheus.backplanei02ue1.devshift.net
+alertmanagerUrl: https://alertmanager.backplanei02ue1.devshift.net
+serverUrl: https://api.backplanei02ue1.qklc.p1.openshiftapps.com:6443
+elbFQDN: elb.apps.backplanei02ue1.qklc.p1.openshiftapps.com
+
+auth:
+- service: github-org-team
+  org: app-sre
+  team: backplanei02ue1-cluster
+
+ocm:
+  $ref: /dependencies/ocm/production.yml
+
+managedGroups:
+- dedicated-admins
+
+# managedClusterRoles: true
+
+spec:
+  product: rosa
+  account:
+    $ref: /aws/sd-infra-stage-01/account.yml
+  id: ''
+  external_id: ''
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: 4.13.0
+  initial_version: 4.13.0
+  multi_az: true
+  nodes: 9
+  instance_type: m5.xlarge
+  private: true
+  provision_shard_id: ''
+  disable_user_workload_monitoring: true
+  hypershift: false
+  subnet_ids:
+  - subnet-0d88d4c1650b1b0f7
+  - subnet-09914bd4f38ec2822
+  - subnet-0d3ea5d08e5519882
+  availability_zones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1c
+
+# automationToken:
+#   path: app-sre/creds/kube-configs/backplanei02ue1
+#   field: token
+# clusterAdmin: true
+# clusterAdminAutomationToken:
+#   path: app-sre/creds/kube-configs/backplanei02ue1-cluster-admin
+#   field: token
+
+# jumpHost:
+#   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+network:
+  type: OVNKubernetes
+  vpc: 10.170.36.0/22
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+internal: false
+
+peering:
+  connections:
+  # Jenkins and the internal app-sre bastion
+  - provider: account-vpc
+    name: backplanei02ue1_app-sre-ci-int
+    vpc:
+      $ref: /aws/app-sre/vpcs/ci-int.yml
+    manageRoutes: true
+    manageAccountRoutes: true
+    assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
+  # qontract integrations / tekton  on stage
+  - provider: cluster-vpc-requester
+    name: backplanei02ue1_appsres03ue1
+    cluster:
+      $ref: /openshift/appsres03ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
+  # qontract integrations / tekton on prod
+  - provider: cluster-vpc-requester
+    name: backplanei02ue1_appsrep05ue1
+    cluster:
+      $ref: /openshift/appsrep05ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
+  # backplane access to privatelink & hhypershift hosted clusters
+  - provider: account-tgw
+    name: backplanei02ue1
+    account:
+      $ref: /aws/osd-privatelink-stage/account.yml
+    assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
+    tags:
+      osd: privatelink
+    cidrBlock: 172.16.0.0/12
+    manageRoutes: true
+    manageSecurityGroups: true
+    manageRoute53Associations: true
+  # access to backplane from OSD bastions
+  # This should not be needed anymore with backplane allowing traffic from Internet
+  # - provider: account-vpc-mesh
+  #   name: backplanei02ue1_osd-bastion-stage
+  #   account:
+  #     $ref: /aws/osd-bastion-stage/account.yml
+  #   tags:
+  #     osd: backplane
+  #   manageRoutes: true
+  #   assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanei02ue1
+
+# observabilityNamespace:
+#   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
+
+disable:
+  integrations:
+  - openshift-groups
+  - openshift-users
+  - slack-usergroups
