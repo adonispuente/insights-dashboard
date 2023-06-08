@@ -101,6 +101,7 @@ resourceTemplates:
       KRUIZE_IMAGE_TAG: 'f7a5f77'
       KRUIZE_DB_NAME: 'postgres'
       RBAC_ENABLE: 'False'
+      LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
     ref: main
@@ -121,6 +122,7 @@ resourceTemplates:
       API_REPLICA_COUNT: 1
       PROCESSOR_REPLICA_COUNT: 1
       RECOMMENDER_REPLICA_COUNT: 3
+      LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
     ref: 8871350f4d13c4b6dac5557a29949e4f67a06703
