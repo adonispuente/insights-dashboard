@@ -22,17 +22,17 @@ policy:
         "Sid": "AllowCreateEditDeleteDashboards",
         "Effect": "Allow",
         "Action": [
-                "cloudwatch:PutDashboard",
-                "cloudwatch:DeleteDashboards",
-                "cloudwatch:GetDashboard",
-                "cloudwatch:ListDashboards"
+          "cloudwatch:PutDashboard",
+          "cloudwatch:DeleteDashboards",
+          "cloudwatch:GetDashboard",
+          "cloudwatch:ListDashboards"
         ],
         "Resource": "*",
         "Condition": {
-                "BoolIfExists": {
-                    "aws:MultiFactorAuthPresent": "true"
-                }
-            }
+          "BoolIfExists": {
+            "aws:MultiFactorAuthPresent": "true"
+          }
+        }
       },
       {
         "Sid": "AllowSaveInsightQueries",
@@ -44,10 +44,10 @@ policy:
         ],
         "Resource": "*",
         "Condition": {
-                "BoolIfExists": {
-                    "aws:MultiFactorAuthPresent": "true"
-                }
-            }
+          "BoolIfExists": {
+            "aws:MultiFactorAuthPresent": "true"
+          }
+        }
       }
     ]
   }
