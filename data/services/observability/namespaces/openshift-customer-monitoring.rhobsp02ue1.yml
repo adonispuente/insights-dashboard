@@ -50,11 +50,6 @@ openshiftResources:
   path: /observability/servicemonitors/prometheus-operators-production.servicemonitor.yaml
 
 ## Prometheus Rules
-### Observatorium
-#### SLOs
-- provider: prometheus-rule
-  path: /observability/prometheusrules/rhobs-slos-rhobsp02ue1-prod.prometheusrules.yaml
-  type: resource
 ### Federated Kubernetes metrics
 - provider: prometheus-rule
   path: /observability/prometheusrules/kube-metrics.prometheusrules.yaml
