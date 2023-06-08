@@ -13,5 +13,5 @@ workspace:
   $ref: /dependencies/slack/redhat-internal.yml
 
 channels:
-- stonesoup-alerts
+- rhtap-alerts
 - wg-developer-stonesoup
