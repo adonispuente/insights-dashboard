@@ -70,32 +70,35 @@ in the account, the `OCM` API will return an error.
 
 ### Check the pre-requisites with the `ROSA CLI`
 
-For this step you need the latest `ROSA CLI` available, it can be downloaded from the [Openshift ROSA support website](https://docs.openshift.com/rosa/rosa_cli/rosa-get-started-cli.html).
+For this step you need the latest `OCM cli` and `ROSA CLI` available, it can be downloaded from [command line tools](https://console.redhat.com/openshift/downloads).
 
 - Load the aws account profile with an IAM user access keys (terraform). STS credentials are not supported at the time of
   writing this doc.
-- Log in to OCM with the `ROSA cli`. OCM organization credentials are required for this step [App-sre-ocm-bot](https://vault.devshift.net/ui/vault/secrets/app-sre/show/creds/app-sre-ocm-bot)
+- Log in to OCM with the `OCM cli` and `ROSA cli`. OCM organization credentials are required for this step [sd-app-sre-ocm-sa](https://vault.devshift.net/ui/vault/secrets/app-sre/show/creds/ocm/sd-app-sre-ocm-app-interface)
 
-```rosa login --client-id=.. --client-secret=...```
+```bash
+ocm login --client-id=sd-app-sre-ocm-sa --client-secret=...
+rosa login
 
-- Note that some commands may fail and (only for these commands) your need to use your own personal offline token, account should be like <username>+sd-app-sre
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
+```
 
 - [Optional] Check your connection data:
 
 ```bash
 rosa whoami  --region us-east-1
 
+AWS ARN:                      arn:aws:iam::366871242094:user/terraform
 AWS Account ID:               366871242094
 AWS Default Region:           us-east-1
-AWS ARN:                      arn:aws:iam::366871242094:user/terraform
 OCM API:                      https://api.openshift.com
-OCM Account ID:               1ZTXsejUlKITmOrQsXBYz1kgcp9
-OCM Account Name:             App SRE OCM bot
-OCM Account Username:         sd-app-sre-ocm-bot
-OCM Account Email:            sd-app-sre+ocm@redhat.com
+OCM Account Email:            sd-app-sre+ocm-sa@redhat.com
+OCM Account ID:               1o4wdl7Q9RpNhXj2XLLbvtAIo4W
+OCM Account Name:              
+OCM Account Username:         service-account-sd-app-sre-ocm-sa
+OCM Organization External ID: 12147054
 OCM Organization ID:          1OXqyqko0vmxpV9dmXe9oFypJIw
 OCM Organization Name:        Red Hat
-OCM Organization External ID: 12147054
 ```
 
 - Run the `ROSA cli` init command to init the account.
@@ -103,14 +106,14 @@ OCM Organization External ID: 12147054
 ```bash
 rosa init
 
-I: Logged in as 'sd-app-sre-ocm-bot' on 'https://api.openshift.com'
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
 I: Validating AWS credentials...
 I: AWS credentials are valid!
 I: Verifying permissions for non-STS clusters
 I: Validating SCP policies...
 I: AWS SCP policies ok
 I: Validating AWS quota...
-I: AWS quota ok. If cluster installation fails, validate actual AWS resource ...
+I: AWS quota ok. If cluster installation fails, validate actual AWS resource usage against https://docs.openshift.com/rosa/rosa_getting_started/rosa-required-aws-service-quotas.html
 I: Ensuring cluster administrator user 'osdCcsAdmin'...
 I: Admin user 'osdCcsAdmin' created successfully!
 I: Validating SCP policies for 'osdCcsAdmin'...
@@ -146,7 +149,7 @@ I: Successfully linked role-arn 'arn:aws:iam::366871242094:role/ManagedOpenShift
 ```bash
 rosa create account-roles
 
-I: Logged in as 'sd-app-sre-ocm-bot' on 'https://api.openshift.com'
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
 I: Validating AWS credentials...
 I: AWS credentials are valid!
 I: Validating AWS quota...
@@ -184,12 +187,12 @@ I: Creating User role
 ? Permissions boundary ARN (optional):
 ? Role creation mode: auto
 I: Creating ocm user role using 'arn:aws:iam::366871242094:user/terraform'
-? Create the 'ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' role? Yes
-I: Created role 'ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' with ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-User-sd-app-sre-ocm-bot-Role'
+? Create the 'ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' role? Yes
+I: Created role 'ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' with ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa'
 I: Linking User role
-? User Role ARN: arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role
-? Link the 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' role with account '1ZTXsejUlKITmOrQsXBYz1kgcp9'? Yes
-I: Successfully linked role ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' with account '1ZTXsejUlKITmOrQsXBYz1kgcp9'
+? User Role ARN: arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa
+? Link the 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' role with account '1o4wdl7Q9RpNhXj2XLLbvtAIo4W'? Yes
+I: Successfully linked role ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' with account '1o4wdl7Q9RpNhXj2XLLbvtAIo4W'
 ```
 
 ### Configure other OCM environments
