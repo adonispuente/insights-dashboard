@@ -7,7 +7,7 @@ labels:
 name: Daniel Chorvatovic
 org_username: dchorvat
 github_username: dchorvat1
-quay_username: dchorvat1
+quay_username: dchorvat
 
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
