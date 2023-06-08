@@ -5,9 +5,7 @@ labels: {}
 
 name: Avi Biton
 org_username: abiton
-slack_username: abiton
-pagerduty_username: abiton
 github_username: avi-biton
 
 roles:
-- $ref: /teams/rhtap/roles/rhtap-alerts-role.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
