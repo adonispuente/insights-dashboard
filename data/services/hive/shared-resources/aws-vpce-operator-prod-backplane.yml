@@ -10,6 +10,8 @@ openshiftResources:
 - provider: vault-secret
   path: osd-sre/backplane/hypershift/backplanep01ue1
   version: 1
+  name: backplanep01ue1-aws-vpce-operator
 - provider: vault-secret
   path: osd-sre/backplane/hypershift/backplanep02uw2
   version: 1
+  name: backplanep02uw2-aws-vpce-operator
