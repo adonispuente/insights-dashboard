@@ -31,7 +31,7 @@ body: |
   Please make sure the following configuration values are correctly configured:
 
   * number_cache_clusters is at least 2
-  * multiaz_enabled is to true
+  * multiaz_enabled is set to true
   * automatic_failover_enabled is set to true
 
   before the moment of the upgrade.
