@@ -279,8 +279,6 @@ externalResources:
       AWS:
       # app-sre
       - arn:aws:iam::950916221866:user/terraform
-      # osd-privatelink-stage
-      - arn:aws:iam::644306948063:user/terraform
       # osd-privatelink-int
       - arn:aws:iam::896164604406:user/terraform
       # # osd-bastion-int
