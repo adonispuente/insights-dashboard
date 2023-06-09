@@ -133,7 +133,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: b9b135d5f59c62e8eb3bd33c76a5b309b363b85b
+    ref: f64545a5b434f4f8e0a67d6aa07dde3993df1a58
     parameters:
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
       MIN_REPLICAS: 3
