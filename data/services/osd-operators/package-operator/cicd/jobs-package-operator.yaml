@@ -40,7 +40,7 @@ config:
     gl_group: lp-sre
     gl_project: package-operator
     quay_org: app-sre
-    build_deploy_script_path: 'GIT_SSL_NO_VERIFY=true git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
+    build_deploy_script_path: 'git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
     jobs:
     - 'gl-sync-package-operator':
         display_name: gl-sync-package-operator
@@ -52,7 +52,7 @@ config:
     gh_org: package-operator
     gh_repo: package-operator
     quay_org: app-sre
-    build_deploy_script_path: 'GIT_SSL_NO_VERIFY=true git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
+    build_deploy_script_path: 'git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
     jobs:
     - 'gh-sync-package-operator':
         display_name: gh-sync-package-operator
