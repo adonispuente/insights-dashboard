@@ -81,7 +81,7 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/insights-prod/hccm-prod/nise-populator-secret
-  version: 7
+  version: 8
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
