@@ -1,0 +1,18 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ccx-cache-writer
+  labels:
+    prometheus: app-sre
+spec:
+  endpoints:
+  - interval: 15s
+    path: /metrics
+    port: ccx-cache-writer-prometheus-exporter
+  namespaceSelector:
+    matchNames:
+    - ccx-data-pipeline-stage
+  selector:
+    matchLabels:
+      app: ccx-cache-writer

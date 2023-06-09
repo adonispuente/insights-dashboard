@@ -190,6 +190,10 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/ccx-data-pipeline-stage/insights-content-template-renderer.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-cache-writer.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-redis.servicemonitor.yml
+- provider: resource
   path: /insights-stage/sources-stage/sources-api.servicemonitor.yml
 - provider: resource
   path: /insights-stage/sources-stage/sources-superkey-worker.servicemonitor.yml
