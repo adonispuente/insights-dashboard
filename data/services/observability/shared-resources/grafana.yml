@@ -78,6 +78,8 @@ openshiftResources:
       slug: backplanep02uw2.y7tz.p1
     - name: backplanei01ue1
       slug: backplanei01ue1.z3pt.p1
+    - name: backplanei02ue1
+      slug: backplanei02ue1.qklc.p1
     - name: backplanes03ue1
       slug: backplanes03ue1.be2s.p1
     - name: stonesoupp01ue1
