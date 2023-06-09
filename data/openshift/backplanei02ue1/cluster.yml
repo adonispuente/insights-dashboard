@@ -66,6 +66,7 @@ jumpHost:
 
 network:
   type: OVNKubernetes
+  # vpcid: vpc-05c2b1203190cc276
   vpc: 10.170.36.0/22
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
