@@ -73,9 +73,10 @@ quayRepos:
     #   $ref: /dependencies/image-mirrors/docker.io/selenium/standalone-chrome-debug.yml
   - name: golangci-lint
     description: Mirror of the upstream docker.io/golangci/golangci-lint repository
-    public: false
-    mirror:
-      $ref: /dependencies/image-mirrors/docker.io/golangci/golangci-lint.yml
+    public: true
+    # restore mirroring when image is private   
+    # mirror:
+    #   $ref: /dependencies/image-mirrors/docker.io/golangci/golangci-lint.yml
   - name: ocm-addon-test-operator
     description: Test operator for Service Development teams to test the OCM Add-on
       workflow
