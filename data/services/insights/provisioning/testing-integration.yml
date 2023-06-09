@@ -18,6 +18,8 @@ imagePatterns:
 - quay.io/cloudservices
 - quay.io/redhatqe
 
+timeout: 90m
+
 authentication:
   image:
     path: insights/quay/cloudservices-push
