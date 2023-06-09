@@ -1,7 +1,7 @@
 ---
 $schema: /app-interface/app-interface-sql-query-1.yml
 labels: {}
-name: 2023-05-30-get-hp-cluster-provisioning-metrics
+name: 2023-06-09-get-hp-cluster-provisioning-metrics
 namespace:
   $ref: /services/ocm/namespaces/uhc-production.yml
 identifier: ocm-service-log-production-readonly
@@ -92,7 +92,7 @@ queries:
   - |
     SELECT (1.0 - (CAST(t2.longinstalls AS float) / t1.totalinstalls)) as errorbudget
       FROM (
-      SELECT count(timestamp) AS longinstalls
+      SELECT count(t1.timestamp) AS longinstalls
       FROM service_logs as t1
       INNER JOIN service_logs as t2
       ON t1.cluster_uuid = t2.cluster_uuid
@@ -102,7 +102,7 @@ queries:
       AND t1.timestamp > CURRENT_DATE - INTERVAL '28 days'
       AND abs(extract(epoch from t2.timestamp - t1.timestamp)) > 600
       ) AS t2, (
-      SELECT count(timestamp) AS totalinstalls
+      SELECT count(t1.timestamp) AS totalinstalls
       FROM service_logs as t1
       INNER JOIN service_logs as t2
       ON t1.cluster_uuid = t2.cluster_uuid
@@ -113,7 +113,7 @@ queries:
       ) AS t1;
 # # Cluster provisioning time
   - |
-    SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM 
+    SELECT MIN(tdiff), MAX(tdiff), AVG(tdiff), PERCENTILE_CONT(0.99) WITHIN GROUP(ORDER BY tdiff) FROM (
        SELECT abs(extract(epoch from t2.timestamp - t1.timestamp)) as tdiff
           FROM service_logs as t1
           INNER JOIN service_logs as t2
@@ -126,4 +126,5 @@ queries:
           AND t1.timestamp > CURRENT_DATE - INTERVAL '28 days'
           AND abs(extract(epoch from t2.timestamp - t1.timestamp)) < 1600
         GROUP BY t1.cluster_uuid, tdiff
-        ORDER BY tdiff AS tdiffs;
+        ORDER BY tdiff
+          ) as dt;
