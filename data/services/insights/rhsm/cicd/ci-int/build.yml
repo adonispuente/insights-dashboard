@@ -28,6 +28,7 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: curiosity-frontend pr-check
+        branch: dev
         pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the main branch which targets the stable environments in stage & production
     - "insights-gh-build-master":
