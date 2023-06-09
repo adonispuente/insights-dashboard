@@ -152,7 +152,7 @@ resourceTemplates:
       # Ex: "reporting:0200"
       # Ex: "reporting"
       # Ex: ""
-      _MIGRATION_DIRECTIVE: "reporting:0281"
+      _MIGRATION_DIRECTIVE: "reporting:0282"
       ######################################
       APP_DOMAIN: apps.crcs02ue1.urby.p1.openshiftapps.com
       ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
