@@ -1,5 +1,7 @@
 # AWS root account password and two-factor authentication (2FA)
 
+[TOC]
+
 ## Access required
 
 ### Vault aws-root-accounts engine
