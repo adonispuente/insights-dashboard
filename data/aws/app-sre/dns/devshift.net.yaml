@@ -336,6 +336,14 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/backplanei01ue1/cluster.yml
+- name: prometheus.backplanei02ue1
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/backplanei02ue1/cluster.yml
+- name: alertmanager.backplanei02ue1
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/backplanei02ue1/cluster.yml
 - name: prometheus.backplanes01ue1
   type: CNAME
   _target_cluster:
