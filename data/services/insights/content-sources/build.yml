@@ -64,7 +64,7 @@ config:
     node: insights
     gh_org: pulp
     gh_repo: pulp-clowder-deployments
-    quay_org: pulp
+    quay_org: cloudservices
     jobs:
     - "insights-gh-build-master":
         display_name: pulp build-master
