@@ -122,3 +122,6 @@ access:
 - cluster:
     $ref: /openshift/hst02ue1/cluster.yml
   clusterRole: cluster-monitoring-view
+- cluster:
+    $ref: /openshift/backplanei02ue1/cluster.yml
+  clusterRole: cluster-monitoring-view

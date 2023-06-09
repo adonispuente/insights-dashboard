@@ -24,7 +24,7 @@ ocm:
 managedGroups:
 - dedicated-admins
 
-# managedClusterRoles: true
+managedClusterRoles: true
 
 spec:
   product: rosa
@@ -120,6 +120,9 @@ peering:
 
 # observabilityNamespace:
 #   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
+
+observabilityNamespace:
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
 
 disable:
   integrations:
