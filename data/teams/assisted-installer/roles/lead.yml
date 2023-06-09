@@ -38,3 +38,7 @@ self_service:
   - $ref: /teams/assisted-installer/roles/edge-cloud.yml
   - $ref: /teams/assisted-installer/roles/lead.yml
   - $ref: /teams/assisted-installer/roles/viewer.yml
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /terraform/resources/assisted-installer/msk-1.yml
