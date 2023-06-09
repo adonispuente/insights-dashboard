@@ -48,6 +48,8 @@ config:
     gh_repo: rhsm-subscriptions
     quay_org: cloudservices
     jobs:
+    - insights-gh-pipeline:
+        display_name: rhsm-subscriptions pr-check pipeline
     - "gh-build-master":
         display_name: rhsm-subscriptions build-main
         branch: main
