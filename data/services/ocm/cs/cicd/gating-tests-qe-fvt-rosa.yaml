@@ -53,7 +53,7 @@ resourceTemplates:
       CLUSTER_PROFILE: rosa-advanced
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 7d3c753c1834a8622e322d717c207707d9230fce
+    ref: dd2872294476af8a536b311433c966090498ba7a
     name: rosa-advanced
     promotion:
       auto: true
