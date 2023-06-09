@@ -2,6 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   # TLS data s added from vault
+  annotations:
+    kubernetes.io/tls-acme: "true"
   labels:
     service: quayio-service-tool
   name: quayio-service-tool-route
@@ -13,6 +15,4 @@ spec:
     kind: Service
     name: quayio-service-tool
     weight: 100
-  tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+
