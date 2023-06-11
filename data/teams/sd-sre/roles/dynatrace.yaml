@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: dynatrace-config-owner
+name: dynatrace
 
 permissions: []
 
@@ -13,4 +13,4 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
-  - $ref: /teams/sd-sre/roles/dynatrace-config-owner.yaml
+  - $ref: /teams/sd-sre/roles/dynatrace.yaml
