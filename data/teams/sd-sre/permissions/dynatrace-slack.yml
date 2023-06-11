@@ -1,0 +1,17 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: dynatrace-integration-team-slack
+description: dynatrace integration team
+
+service: slack-usergroup
+handle: dynatrace-integration-team
+skip: true
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+- sd-sre-dynatrace
