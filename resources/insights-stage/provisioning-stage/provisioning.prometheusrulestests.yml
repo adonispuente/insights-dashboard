@@ -80,7 +80,7 @@ tests:
             app_team: provisioning
             severity: medium
           exp_annotations:
-            message: "REST API success rate (3scale) is high"
+            message: "REST API success rate (3scale) is low"
             dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
             runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningAvailabilityAlert.md"
 
