@@ -405,9 +405,6 @@ codeComponents:
 - name: deadmanssnitch-operator
   resource: upstream
   url: https://github.com/openshift/deadmanssnitch-operator
-- name: dynatrace-config
-  resource: upstream
-  url: https://gitlab.cee.redhat.com/service/dynatrace-config
 - name: qe-cluster-delivery
   resource: other
   url: https://gitlab.cee.redhat.com/service/qe-cluster-delivery
