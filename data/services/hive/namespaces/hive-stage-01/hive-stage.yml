@@ -101,3 +101,9 @@ externalResources:
       cluster:
         $ref: /openshift/backplanes02uw2/cluster.yml
       access_level: network-mgmt
+  - provider: aws-iam-service-account
+    identifier: backplane-vpc-backplanes03ue1
+    user_policy: {"Version": "2012-10-17", "Statement": [{"Action": ["sts:AssumeRole"], "Effect": "Allow", "Resource": "*"}]}
+    output_resource_name: backplane-vpc-creds-backplanes03ue1
+    aws_infrastructure_access:
+      assume_role: arn:aws:iam::366871242094:role/network-mgmt-backplanes03ue1
