@@ -18,7 +18,7 @@ app:
 openshiftResources:
 - provider: vault-secret
   path: osd-sre/dynatrace/integration/hs-management-clusters
-  version: 1
+  version: 2
 - provider: vault-secret
   path: osd-sre/dynatrace/integration/hs-service-clusters
-  version: 1
+  version: 2
