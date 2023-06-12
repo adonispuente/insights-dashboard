@@ -38,6 +38,7 @@ resourceTemplates:
     IMAGE_REGISTRY: quay.io
     IMAGE_REPOSITORY: app-sre/uhc-account-manager
     DEPLOYMENT_NAME: canary
+    TEST_PROFILE: basic
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -68,6 +69,7 @@ resourceTemplates:
     IMAGE_REGISTRY: quay.io
     IMAGE_REPOSITORY: app-sre/uhc-account-manager
     DEPLOYMENT_NAME: main
+    TEST_PROFILE: basic
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -92,6 +94,19 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
   - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: e8eed09dde0474e20c8d81585230c831ebff28e9
+    name: ams-basic-e2e
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-ams-qe-fvt-basic-stage-ok
+      publish:
+      - ocm-ams-qe-fvt-basic-e2e-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: basic-e2e
+  - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
     promotion:
@@ -102,3 +117,4 @@ resourceTemplates:
       - ocm-ams-qe-fvt-basic-prod-ok
     parameters:
       ENVIRONMENT: production
+      TEST_PROFILE: basic-e2e
