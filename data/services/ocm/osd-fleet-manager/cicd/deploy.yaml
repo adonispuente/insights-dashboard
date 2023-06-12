@@ -985,6 +985,7 @@ resourceTemplates:
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
+    delete: true
     promotion:
       auto: true
       subscribe:
@@ -1029,6 +1030,7 @@ resourceTemplates:
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
+    delete: true
     promotion:
       auto: true
       subscribe:
