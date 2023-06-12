@@ -59,7 +59,7 @@ resourceTemplates:
       - edge-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/edge/namespaces/edge-prod.yml
-    ref: 703567d99f269434ea4661691f85636b85e76b66
+    ref: bc55a76950062ac1b6317ab859310ef25985ae52
     parameters:
       LOG_LEVEL: DEBUG
       MIN_REPLICAS: 6
