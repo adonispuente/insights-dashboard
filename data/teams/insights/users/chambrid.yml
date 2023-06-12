@@ -30,6 +30,7 @@ roles:
 - $ref: /dependencies/gitlab/roles/crc-ic-member.yml
 - $ref: /teams/insights/roles/rhsm.yml
 - $ref: /teams/insights/roles/insights-tools.yml
+- $ref: /teams/insights/roles/hybrid-committed-spend.yml
 
 public_gpg_key: |
   mQINBGI81zIBEACwAd0wPnINQd0sbXe/NG8si78BCb9cSznm3reDYMUYg8oekcoY
