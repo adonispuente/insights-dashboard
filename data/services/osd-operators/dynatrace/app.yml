@@ -30,6 +30,7 @@ dependencies:
 - $ref: /dependencies/gitlab/service.yml
 - $ref: /dependencies/openshift/service.yml
 - $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/ci-int/service.yml
 
 quayRepos:
 - org:
@@ -40,3 +41,8 @@ codeComponents:
 - name: dynatrace-config
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: false
