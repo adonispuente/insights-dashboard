@@ -500,7 +500,7 @@ resourceTemplates:
     ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
     parameters:
       CONFIGMAP_HASH: 'gffsf6' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 411-002
+      IMAGE_TAG: 418-001
       S3_BUCKET_NAME: hccm-prod-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1 # 1
