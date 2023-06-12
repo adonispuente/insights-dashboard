@@ -1,0 +1,53 @@
+---
+$schema: /app-interface/app-interface-email-1.yml
+labels: {}
+name: 2023-06-09-redis-insights-stage-5.0.5-to-5.0.6-insights-stage-cost-management-redis-clowder
+subject: '[Action required] Elasticache redis upgrade required'
+to:
+  services:
+  - $ref: /services/insights/hccm/app.yml
+body: |
+  Hello,
+
+  This email is related to Elasticache Redis instance upgrades that are required
+  for those instances still in 5.0.5 version. AWS is requiring (and forcing if
+  not done) the upgrade to 5.0.6 version.
+
+  Your instance
+
+  cost-management-redis-clowder
+
+  in the AWS account insights-stage is still running Redis 5.0.5. The deadline
+  for the upgrade is set on December 15, 2023, 21:59:59 (UTC).
+
+  In order to have a greater degree of control of the upgrade, we would like that
+  you perform it via app-interface before this date. To minimise the impact in
+  your service, please make sure that your instance is configured as AWS
+  recommends [1].
+
+  Your instance AWS configuration can be modified in app-interface through the file
+  data/services/insights/hccm/namespaces/stage-hccm-stage.yml.
+
+  Please make sure the following configuration values are correctly configured:
+
+  * number_cache_clusters is at least 2
+  * multiaz_enabled is set to true
+  * automatic_failover_enabled is set to true
+
+  before the moment of the upgrade.
+
+  In order to trigger the upgrade, you will need to:
+
+  * Set engine_version to 5.0.6
+  * Set apply_immediately to true
+
+  In case of doubt, you can use the app-interface Elasticache documentation [2]
+
+  Please feel free to reach out with any questions or concerns.
+
+  [1] https://aws.amazon.com/elasticache/elasticache-maintenance/#Continuous_Managed_Maintenance_Updates
+  [2] https://gitlab.cee.redhat.com/service/app-interface#manage-elasticache-databases-via-app-interface-openshiftnamespace-1yml
+
+  Sincerely,
+
+  The AppSRE Team.
