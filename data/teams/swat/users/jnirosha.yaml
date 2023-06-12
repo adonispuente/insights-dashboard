@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Jude Niroshan
+org_username: jnirosha
+github_username: JudeNiroshan
+quay_username: jnirosha
+
+roles:
+  - $ref: /teams/swat/roles/dev.yml
+  - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
