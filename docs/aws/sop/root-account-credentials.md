@@ -2,6 +2,12 @@
 
 [TOC]
 
+## Context
+
+AWS root account password is stored in Vault in a separate engine that's accessed through a break-glass type procedure. We don't need further redundancy since it can be reset via AWS email password recovery method that will be described in this document.
+
+The accounts have 2FA authentication. We will associate two different 2FA TOTP provides (Vault and BitWarden) for redundancy purposes since AWS allow to have multiple MFA devices associated.
+
 ## Access required
 
 ### Vault aws-root-accounts engine
