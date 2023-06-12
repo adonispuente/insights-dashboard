@@ -5,6 +5,7 @@ namespace:
 ref: master
 parameters:
   REPLICAS: 3
+  IMAGE_TAG: v1.21.1
 promotion:
   publish:
   - app-sre-observability-stage-deploy-success-channel
