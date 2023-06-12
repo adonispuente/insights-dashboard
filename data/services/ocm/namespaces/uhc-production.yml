@@ -178,7 +178,8 @@ externalResources:
           "Resource": "arn:aws:iam::*:role/RH-Installer-Role"
         },{
           "Action": [
-            "ec2:DescribeRegions"
+            "ec2:DescribeRegions",
+            "ec2:DescribeInstanceTypeOfferings"
           ],
           "Effect": "Allow",
           "Resource": "*"
