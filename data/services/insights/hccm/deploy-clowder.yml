@@ -269,7 +269,7 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 8fdcdfb3a023d7848861a5a17783f7c80c9932e6
+    ref: eb10a9a18be249d8cf9fa6696ea971382db0e512
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
@@ -285,7 +285,6 @@ resourceTemplates:
       # Ex: ""
       _MIGRATION_DIRECTIVE: ""
       ######################################
-      IMAGE_TAG: c3e1703
       APP_DOMAIN: apps.crcp01ue1.o9m8.p1.openshiftapps.com
       ROS_OCP_API: ros-ocp-backend-api.ros-prod.svc.cluster.local
       S3_BUCKET_NAME: hccm-prod-s3
