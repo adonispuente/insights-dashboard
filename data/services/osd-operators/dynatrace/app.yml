@@ -40,3 +40,8 @@ codeComponents:
 - name: dynatrace-config
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: false
