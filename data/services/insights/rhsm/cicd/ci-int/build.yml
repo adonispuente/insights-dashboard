@@ -50,6 +50,9 @@ config:
     jobs:
     - insights-gh-pipeline:
         display_name: rhsm-subscriptions pr-check pipeline
+        branches:
+        - main
+        - hotfix
     - "gh-build-master":
         display_name: rhsm-subscriptions build-main
         branch: main
