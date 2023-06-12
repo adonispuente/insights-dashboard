@@ -41,7 +41,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: osd-ccs-advanced-gcp
-    ref: 41dc86391df286d739c78ea8cc2367e742a5148a
+    ref: fe8cde96a874a814529453ee08d3d8c492b15df3
     promotion:
       auto: true
       subscribe:
