@@ -95,6 +95,7 @@ resourceTemplates:
       SETTINGS__REPORT_DOWNLOAD_SSL_ONLY: 'false'
       IMPORT_SSG_SCHEDULE: "*/1 * * * *"
       PRIMARY_REDIS_AS_CACHE: 'true'
+      RAILS_LOGLEVEL: 'debug'
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-stage.yml
     ref: master
