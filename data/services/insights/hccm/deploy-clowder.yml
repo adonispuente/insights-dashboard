@@ -130,6 +130,9 @@ resourceTemplates:
       ENHANCED_ORG_ADMIN: True
       UNLEASH_LOG_LEVEL: "ERROR"
 
+      KOKU_MIGRATIONS_CPU_REQUEST: "200m"
+      KOKU_MIGRATIONS_CPU_LIMIT: "500m"
+
 
   # Staging:
   - namespace:
