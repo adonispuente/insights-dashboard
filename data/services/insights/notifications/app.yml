@@ -59,6 +59,21 @@ quayRepos:
   - name: notifications-engine
     public: true
     description: Notifications service responsible for sending notifications to integrations
+  - name: notifications-connector-google-chat
+    public: true
+    description: Notifications connector to Google Chat
+  - name: notifications-connector-microsoft-teams
+    public: true
+    description: Notifications connector to Microsoft Teams
+  - name: notifications-connector-service-now
+    public: true
+    description: Notifications connector to ServiceNow
+  - name: notifications-connector-slack
+    public: true
+    description: Notifications connector to Slack
+  - name: notifications-connector-splunk
+    public: true
+    description: Notifications connector to Splunk
   - name: notifications-frontend
     public: true
     description: Notifications service frontend image
