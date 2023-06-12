@@ -45,4 +45,4 @@ codeComponents:
     enabled: true
   gitlabHousekeeping:
     enabled: true
-    rebase: false
+    rebase: true
