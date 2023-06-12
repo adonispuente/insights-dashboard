@@ -22,3 +22,4 @@ self_service:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-operator.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-opentelemetry-operator.yaml
