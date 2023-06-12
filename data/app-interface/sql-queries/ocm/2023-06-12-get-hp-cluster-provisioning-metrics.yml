@@ -1,14 +1,13 @@
 ---
 $schema: /app-interface/app-interface-sql-query-1.yml
 labels: {}
-name: 2023-06-09-get-hp-cluster-provisioning-metrics
+name: 2023-06-12-get-hp-cluster-provisioning-metrics
 namespace:
   $ref: /services/ocm/namespaces/uhc-production.yml
 identifier: ocm-service-log-production-readonly
 # Run every day at 12:00 pm (UTC)
 schedule:  00 12 * * *
 output: stdout
-delete: true
 queries:
 # SLO
   - |
