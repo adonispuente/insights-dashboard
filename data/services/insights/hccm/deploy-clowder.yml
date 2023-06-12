@@ -269,12 +269,12 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: c3e17030d0e4b631c692c1e5ce669d889e5c8a65
+    ref: 8fdcdfb3a023d7848861a5a17783f7c80c9932e6
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: c3e1703
+      DBM_IMAGE_TAG: 8fdcdfb
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -285,6 +285,7 @@ resourceTemplates:
       # Ex: ""
       _MIGRATION_DIRECTIVE: ""
       ######################################
+      IMAGE_TAG: c3e1703
       APP_DOMAIN: apps.crcp01ue1.o9m8.p1.openshiftapps.com
       ROS_OCP_API: ros-ocp-backend-api.ros-prod.svc.cluster.local
       S3_BUCKET_NAME: hccm-prod-s3
