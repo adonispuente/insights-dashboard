@@ -9,7 +9,7 @@ name: ci-int-dynatrace-jobs
 description: ''
 
 app:
-  $ref: /services/osd-operators/dynatrace/app.yaml
+  $ref: /services/osd-operators/dynatrace/app.yml
 
 instance:
   $ref: /dependencies/ci-int/ci-int.yml
