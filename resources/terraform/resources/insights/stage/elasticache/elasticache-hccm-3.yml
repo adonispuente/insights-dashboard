@@ -9,7 +9,7 @@ engine: redis
 at_rest_encryption_enabled: true
 transit_encryption_enabled: false
 engine_version: 5.0.6
-multiaz_enabled: true
+multi_az_enabled: true
 parameter_group_name: default.redis5.0
 port: 6379
 security_group_ids: ['sg-043df7643040be950']
