@@ -86,11 +86,11 @@ resourceTemplates:
       name: lp-sre-package-operator-gl-build-internal
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
+    ref: 525d638a3cfa2425af6a85e966f55f6b4ef95738
   # The one below is staging too.
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
+    ref: 525d638a3cfa2425af6a85e966f55f6b4ef95738
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
     ref: 46b3a997e469881da1f0dd18c9a8b37f4c7ed7cb
