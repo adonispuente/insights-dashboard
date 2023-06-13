@@ -180,7 +180,6 @@ resourceTemplates:
       REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 6,18 * * *"
       REPORT_DOWNLOAD_SCHEDULE_OCI: "0 7,19 * * *"
       PARQUET_PROCESSING_BATCH_SIZE: "500000"
-      PRESTO_HOST: trino-coordinator
       TRINO_HOST: trino-coordinator
       RBAC_CACHE_TIMEOUT: 1
       CACHE_TIMEOUT: 1
@@ -318,7 +317,6 @@ resourceTemplates:
       REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
       REPORT_DOWNLOAD_SCHEDULE_OCI: "0 14 * * *"
 
-      PRESTO_HOST: trino-coordinator
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False
       GUNICORN_WORKERS: 2
