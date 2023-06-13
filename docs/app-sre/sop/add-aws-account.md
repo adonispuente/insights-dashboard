@@ -43,6 +43,10 @@ access key ID: AAAAAAAAAAAAAAAAAAAAA
 secret access key: AAAAAAAAAAAAAAAAAAAAAA
 ```
 
+## Store root user password and set 2FA
+
+You will need to follow this [SOP](/aws/sop/root-account-credentials.md). You won't probably need to get the password as you have done in the previous step.
+
 # Walkthrough
 
 Once you have decrypted the account details, the process is as follows:
