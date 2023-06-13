@@ -58,10 +58,10 @@ config:
         branch: hotfix
         concurrent_build: true
         status_context: ci.ext.devshift.net PR pipeline hotfix
-    - gh-build-master:
+    - "gh-build-master":
         display_name: rhsm-subscriptions build-main
         branch: main
-    - gh-build-master:
+    - "gh-build-master":
         display_name: rhsm-subscriptions build-hotfix
         branch: hotfix
 - project:
