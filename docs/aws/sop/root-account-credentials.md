@@ -66,7 +66,7 @@ We'll use the password recovery mechanism for this. It is mandatory that you hav
 * Try to log in with the root email and then click in the "Forgot Password?" link.
 * An email will be sent to the email account and you can continue the process from there.
 * Make sure that you generate a good password: 24 characters is a good starting point.
-* Store the password in the [`aws-root-accounts`](https://vault.devshift.net/ui/vault/secrets/aws-root-accounts/list) Vault engine.
+* Store the email and the password in a secret in the [`aws-root-accounts`](https://vault.devshift.net/ui/vault/secrets/aws-root-accounts/list) Vault folder.
 
 ### Two-factor authentication
 
@@ -82,7 +82,7 @@ We'll use the password recovery mechanism for this. It is mandatory that you hav
 * Select Authenticator app MFA device type.
 * Copy secret key shown in "Show secret key"
 * Log into BitWarden https://vault.bitwarden.com/#/login.
-* Create a new item under "Appsre Passwords" BitWarden collection called `AWS root <account-name> account`.
+* Create a new item under "Appsre Passwords" BitWarden collection called `AWS account <account-name> root user`.
 * Fill the "Authenticator key (TOTP)" with the secret key and save it.
 * Add two consecutive verification codes in the AWS MFA page (you can get them by clicking in the three dots in BitWarden)
 
