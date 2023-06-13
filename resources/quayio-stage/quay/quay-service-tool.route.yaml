@@ -3,7 +3,8 @@ kind: Route
 metadata:
   # TLS data s added from vault
   annotations:
-    kubernetes.io/tls-acme: "true"
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-prod-http
   labels:
     service: quayio-service-tool
   name: quayio-service-tool-route
@@ -15,4 +16,7 @@ spec:
     kind: Service
     name: quayio-service-tool
     weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
 
