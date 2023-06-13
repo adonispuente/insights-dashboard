@@ -38,7 +38,3 @@ config:
         branch: main
         trigger_exclude_path: 'docs/.*\n.*\.adoc'
         status_context: ci.ext.devshift.net PR pipeline
-    - "insights-gh-pipeline-multibranch":
-        display_name: ephemeral-namespace-operator pipeline multibranch
-        branch: main
-        status_context: ci.ext.devshift.net PR pipeline multibranch
