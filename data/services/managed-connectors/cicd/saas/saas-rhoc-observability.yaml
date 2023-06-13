@@ -33,9 +33,11 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
         ref: main
+        delete: true # deleting from the namespace - will remove in followup MR.
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
         ref: d6454d18f4717af9ab2c376b2dd4a86bb0022368
+        delete: true # deleting from the namespace - will remove in followup MR.
 
   - name: rhoc-dashboards
     url: https://gitlab.cee.redhat.com/mk-ci-cd/cos-observability-resources
@@ -45,6 +47,8 @@ resourceTemplates:
       - namespace:
           $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
         ref: main
+        delete: true # deleting from the namespace - will remove in followup MR.
       - namespace:
           $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
         ref: d6454d18f4717af9ab2c376b2dd4a86bb0022368
+        delete: true # deleting from the namespace - will remove in followup MR.
