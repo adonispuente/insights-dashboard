@@ -12,7 +12,7 @@ spec:
   - name: argocd-alerts
     rules:
     - alert: DegradedArgocdApp
-      expr: max_over_time(argocd_app_info{health_status="Degraded"}[5m]) == 1
+      expr: last_over_time(argocd_app_info{health_status="Degraded"}[2m]) == 1
       for: 5m
       labels:
         severity: medium
