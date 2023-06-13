@@ -62,3 +62,17 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
+    # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: f7544b79516e8ea9f65cf4531b90e633e24aa00c
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
+    # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 78f58bc7ceceba21a305645b6dd8af806aa52180
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
