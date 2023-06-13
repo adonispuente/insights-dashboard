@@ -111,6 +111,9 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/clairp01ue1/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
+  - namespace:
+      $ref: /openshift/quayp04ue2/namespaces/cert-manager.yml
+    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   #stonesoup
   - namespace:
       $ref: /openshift/stonesoups01ue1/namespaces/cert-manager.yml
@@ -145,10 +148,6 @@ resourceTemplates:
       $ref: /openshift/crcp01ue1/namespaces/openshift-cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
 # Quay
-  - namespace:
-      $ref: /openshift/quayp04ue2/namespaces/openshift-cert-manager.yml
-    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
-    delete: true
   - namespace:
       $ref: /openshift/quayp05ue1/namespaces/openshift-cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
