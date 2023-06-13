@@ -49,14 +49,19 @@ config:
     quay_org: cloudservices
     jobs:
     - insights-gh-pipeline:
-        display_name: rhsm-subscriptions pr-check pipeline 2
-        branches:
-        - main
-        - hotfix
-    - "gh-build-master":
+        display_name: rhsm-subscriptions pipeline main
+        branch: main
+        concurrent_build: true
+        status_context: ci.ext.devshift.net PR pipeline main
+    - insights-gh-pipeline:
+        display_name: rhsm-subscriptions pipeline hotfix
+        branch: hotfix
+        concurrent_build: true
+        status_context: ci.ext.devshift.net PR pipeline hotfix
+    - gh-build-master:
         display_name: rhsm-subscriptions build-main
         branch: main
-    - "gh-build-master":
+    - gh-build-master:
         display_name: rhsm-subscriptions build-hotfix
         branch: hotfix
 - project:
