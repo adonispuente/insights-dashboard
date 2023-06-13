@@ -28,7 +28,7 @@ authentication:
     version: 3
 resourceTemplates:
 - name: notifications-backend
-  path: /.rhcicd/stage-post-deployment-tests.yaml
+  path: /.rhcicd/stage-backend-post-deployment-tests.yaml
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
   - namespace:
@@ -49,7 +49,7 @@ resourceTemplates:
           target_config_hash: 82d2a2a675dc43d5
           type: parent_saas_config
 - name: notifications-engine
-  path: /.rhcicd/stage-post-deployment-tests.yaml
+  path: /.rhcicd/stage-engine-post-deployment-tests.yaml
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
   - namespace:
