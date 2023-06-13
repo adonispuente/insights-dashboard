@@ -1,0 +1,88 @@
+# Design doc: [SRE Capability] Red Hat IDP
+
+[toc]
+
+## Author/date
+
+Christian Assing / June 2023
+
+## Tracking JIRA
+
+[[SRE Capability] Red Hat IDP](https://issues.redhat.com/browse/SDE-2620)
+
+## Problem Statement
+
+[Red Hat SSO for OSD/ROSA authentication (RHIDP)](https://source.redhat.com/groups/public/sre/wiki/red_hat_sso_idp_for_osdrosa_authentication) is valuable beyond the scope of AppSRE tenants and app-interface. While interested parties can open tickets with AppSRE to get their clusters configured to use Red Hat SSO without actual app-interface touchpoints, it leaves the toil of change management with AppSRE.
+
+## Goals
+
+1. Make Red Hat SSO cluster authentication a self-serviceable offering for Red Hat engineering teams without AppSRE and app-interface touchpoints.
+1. Use the SSO client configuration capability for App-Interface managed clusters to speedup cluster onboardings.
+
+## Non goals
+
+- Support model-specific alerting for SRE capabilities - this will be covered in Milestone 2 of the [SRE capabilities initiative](docs/app-sre/initiatives/sre-capabilities.md)
+- Dedicated runtime environment for SRE capabilities - this will be covered in Milestone 3 of the [SRE capabilities initiative](docs/app-sre/initiatives/sre-capabilities.md)
+
+## Proposals
+
+An OIDC authentication capability for OpenShift clusters consists of the following components:
+
+* An SSO client configurated on auth.redhat.com
+* An OIDC client configuration using the SSO client on the OpenShift cluster configured via OCM
+
+The proposal is to split the capability into two parts:
+
+* A capability that manages the SSO client configuration on auth.redhat.com
+* A capability that manages the OIDC client configuration on the OpenShift cluster
+
+Splitting the work into two parts allows us to reuse this capability for App-Interface managed clusters, easier code flow, code testing, and having a proper reconciliation loop for both parts.
+
+Both capabilities will be available in two flavors:
+
+* One flavor gets the clusters to manage via OCM cluster subscription labels (`sre-cpabilties.rhidp: "enabled"`)
+* The second one will get the clusters from App-Inferface
+
+And both use the same code base. Later, the App-Interface flavor will be refactored to label the clusters in OCM and use the OCM flavor too.
+
+![](images/rhidp.png)
+
+### SSO client configuration (RHSSO)
+
+The SSO client configuration is managed via the [dynamic client registration API of Red Hat SSO](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.0/html/securing_applications_and_services_guide/client_registration#openid_connect_dynamic_client_registration). Details about the API can be found in the [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) specification.
+
+The workflow for the SSO client configuration is as follows:
+
+1. Create a new SSO client on auth.redhat.com if it does not already exist
+1. Retrieve `client_id`, `client_secret`, and `registration_access_token` and store them in Vault
+
+`client_id` and `client_secret` are needed later to configure the OIDC authentication via OCM. `registration_access_token` is required to update or delete the SSO client on auth.redhat.com. Unfortunately, the SSO client registration API does not allow retrieving the `registration_access_token` after the initial client creation, and deletion of the SSO client can only be done with the `registration_access_token`. This means that the `registration_access_token` needs to be stored in Vault.
+
+Additionally, the [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) specification doesn't include a way to retrieve all SSO clients registered for a given realm. So the SSO client configuration capability needs to keep track of all SSO clients it created.
+
+### OIDC client configuration (OidcIdp)
+
+OIDC client configuration is managed via the [OCM API](https://api.openshift.com). The OIDC client configuration capability will create a new OIDC client configuration for the given cluster and update it if it already exists. The existing [qontract-reconcile code](https://github.com/app-sre/qontract-reconcile/blob/master/reconcile/ocm_oidc_idp.py) for OIDC client configuration will be reused.
+
+The App-Interface flavor (aka integration) of this capability will use the cluster app-interface settings to configure the OIDC client. The OCM flavor won't have any user configuration and will use the default settings, e.g., claim names.
+
+### Alerting
+
+For now, alerting for the integrations (App-Interface flavors) will follow the qontract-reconcile alerting scheme (tl;dr: a failing reconcile run will trigger a page after some time). To conform to the dissimilarities in the support model between integrations and capabilities, the OCM flavor will not fail for situations uncovered by the support model. These situations will be highlighted to users via OCM service logs and will not trigger pages for AppSRE.
+
+Milestone 2 of the [SRE capabilities initiative](docs/app-sre/initiatives/sre-capabilities.md) will work on a support model-specific alerting for SRE capabilities.
+
+## Alternatives considered
+
+Nothing else was considered.
+
+## Milestones
+
+### Milestone 1
+
+Implement both SSO client configuration flavors
+
+### Milestone 2
+
+Implement both OIDC client configuration flavors
+
