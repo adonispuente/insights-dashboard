@@ -86,6 +86,7 @@ resourceTemplates:
       ADVISORY_DETAIL_CACHE_SIZE: '60000' # Advisories count (46k) + some reserve
       ENABLE_PACKAGE_CACHE_MANAGER: 'true'
       DB_READ_REPLICA_ENABLED: 'false'
+      GOMEMLIMIT_MANAGER: '1382MiB'
 
       # Listener
       REPLICAS_LISTENER: '3'
@@ -97,6 +98,7 @@ resourceTemplates:
 
       # Evaluator
       USE_VMAAS_GO: "TRUE"
+      GOMEMLIMIT_EVALUATOR: '1382MiB'
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '3' # prod: '2'
@@ -135,6 +137,7 @@ resourceTemplates:
       ERRATA_PAGE_SIZE: "5000"
       DELETE_CULLED_SYSTEMS_LIMIT: "2000"
       VMAAS_SYNC_SCHEDULE: '30 */4 * * *'
+      GOMEMLIMIT_VMAAS_SYNC: '345MiB'
 
       # Database admin
       LOG_LEVEL_DATABASE_ADMIN: info
@@ -172,6 +175,7 @@ resourceTemplates:
       ADVISORY_DETAIL_CACHE_SIZE: '60000' # Advisories count (46k) + some reserve
       PRELOAD_ADVISORY_DETAIL_CACHE: 'true'
       SCHEMA_MIGRATION: "-1"
+      GOMEMLIMIT_MANAGER: '1843MiB'
 
       # Listener
       REPLICAS_LISTENER: '3'
@@ -180,9 +184,11 @@ resourceTemplates:
       CONSUMER_COUNT_LISTENER: "4"
       RES_REQUEST_MEM_LISTENER: 256Mi
       RES_LIMIT_MEM_LISTENER: 512Mi
+      GOMEMLIMIT_LISTENER: '460MiB'
 
       # Evaluator
       USE_VMAAS_GO: "TRUE"
+      GOMEMLIMIT_EVALUATOR: '2700MiB'
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '5'
@@ -222,6 +228,7 @@ resourceTemplates:
       RES_REQUEST_MEM_VMAAS_SYNC: 512Mi
       RES_LIMIT_MEM_VMAAS_SYNC: 1Gi
       VMAAS_SYNC_SCHEDULE: '30 */4 * * *'
+      GOMEMLIMIT_VMAAS_SYNC: '460MiB'
 
       # Database admin
       IMAGE_TAG_DATABASE_ADMIN: 404a2a1 # v3.2.8
