@@ -92,7 +92,7 @@ openshiftResources:
 ## ACSCS Observatorium credentials
 - provider: vault-secret
   path: mt-sre/tenants/acscs/secrets/acscs-token-refresher
-  version: 3
+  version: 4
   annotations:
     qontract.recycle: "true"
   name: acscs-token-refresher
