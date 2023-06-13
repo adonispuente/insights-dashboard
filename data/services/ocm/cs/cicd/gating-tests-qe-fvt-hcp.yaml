@@ -47,10 +47,10 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-hcp-advanced-int-ok
+      - ocm-cs-qe-fvt-rosa-hcp-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      CLUSTER_PROFILE: hcp-advanced
+      TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 239082b93a3520779b018525891598783d357f06
@@ -59,7 +59,20 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-stage
       publish:
-      - ocm-cs-qe-fvt-hcp-advanced-stage-ok
+      - ocm-cs-qe-fvt-rosa-hcp-ad-stage-ok
     parameters:
       ENVIRONMENT: staging
-      CLUSTER_PROFILE: hcp-advanced
+      TEST_PROFILE: rosa-hcp-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 07a6bf28e0e8ceee3d988899256326bdf2169542
+    name: hcp-e2e-main
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-hcp-e2e-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: hcp-e2e
