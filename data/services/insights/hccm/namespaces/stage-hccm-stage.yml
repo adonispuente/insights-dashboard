@@ -196,6 +196,8 @@ externalResources:
   - provider: elasticache
     identifier: cost-management-redis-clowder
     defaults: /terraform/resources/insights/stage/elasticache/elasticache-hccm-3.yml
+    overrides:
+      apply_immediately: true
     output_resource_name: in-memory-db
   - provider: s3
     identifier: hccm-ros-stage-s3
