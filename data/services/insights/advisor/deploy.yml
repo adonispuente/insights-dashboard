@@ -118,6 +118,7 @@ resourceTemplates:
       USE_NEWRELIC: 'false'
       USE_PROMETHEUS: 'false'
       ENABLE_AUTOSUB: 'true'
+      CLOUD_CONNECTOR_HOST: cloud-connector
   - namespace:
       $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
     ref: master
