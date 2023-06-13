@@ -90,7 +90,7 @@ resourceTemplates:
       LOG_LEVEL: DEBUG
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: 000890c5f8119468f65e50ef479d5efbfd66531f
+    ref: e789c50a4717808ad60f15801001e8c366fb221b
     parameters:
       REPLICAS_SVC: 25
       INVENTORY_DB_SSL_MODE: verify-full
@@ -141,6 +141,6 @@ resourceTemplates:
       SYNCHRONIZER_RUN_NUMBER: 19
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: 000890c5f8119468f65e50ef479d5efbfd66531f
+    ref: e789c50a4717808ad60f15801001e8c366fb221b
     parameters:
       SYNCHRONIZER_RUN_NUMBER: 7
