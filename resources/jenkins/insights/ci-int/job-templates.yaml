@@ -592,8 +592,8 @@
         artifacts: 'artifacts/**/*'
 
 - job-template:
-    id: 'insights-gl-pipeline-{branch}'
-    name: '{gl_group}-{gl_project}-pipeline'
+    id: 'insights-gl-pipeline'
+    name: '{gl_group}-{gl_project}-pipeline-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
