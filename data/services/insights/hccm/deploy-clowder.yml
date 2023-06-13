@@ -276,7 +276,7 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 8fdcdfb
+      DBM_IMAGE_TAG: bd56704
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -310,6 +310,9 @@ resourceTemplates:
       SOURCE_STATUS_FREQUENCY_MINUTES: 60
       UPDATE_TIMEOUT: 14400
       VACUUM_DATA_DAY_OF_WEEK: 0
+
+      TENANT_MULTIPROCESSING_MAX_PROCESSES: "2"
+      TENANT_MULTIPROCESSING_CHUNKS: "4"
 
       # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
       REPORT_DOWNLOAD_SCHEDULE_GCP: "0 8 * * *"
