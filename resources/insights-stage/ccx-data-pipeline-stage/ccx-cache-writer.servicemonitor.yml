@@ -9,10 +9,12 @@ spec:
   endpoints:
   - interval: 15s
     path: /metrics
-    port: ccx-cache-writer-prometheus-exporter
+    port: ccx-cache-writer-port-metrics
   namespaceSelector:
     matchNames:
     - ccx-data-pipeline-stage
   selector:
     matchLabels:
       app: ccx-cache-writer
+      app.kubernetes.io/instance: cache-writer
+      app.kubernetes.io/name: db-writer

@@ -9,10 +9,12 @@ spec:
   endpoints:
   - interval: 15s
     path: /metrics
-    port: ccx-redis-metrics
+    port: ccx-redis-port-metrics
   namespaceSelector:
     matchNames:
     - ccx-data-pipeline-stage
   selector:
     matchLabels:
       app: ccx-data-pipeline
+      app.kubernetes.io/instance: cache-writer
+      app.kubernetes.io/name: redis
