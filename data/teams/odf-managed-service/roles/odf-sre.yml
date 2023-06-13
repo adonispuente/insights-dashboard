@@ -1,0 +1,15 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: odf-sre
+
+permissions:
+# observability
+- $ref: /services/observability/permissions/observability-access.yml
+
+access:
+# observability
+- namespace:
+    $ref: /services/observability/namespaces/app-sre-observability-production.yml
+  role: view
