@@ -50,11 +50,13 @@ config:
     jobs:
     - insights-gh-pipeline:
         display_name: rhsm-subscriptions pipeline main
+        name: "{gh_org}-{gh_repo}-pipeline-{branch}"
         branch: main
         concurrent_build: true
         status_context: ci.ext.devshift.net PR pipeline main
     - insights-gh-pipeline:
         display_name: rhsm-subscriptions pipeline hotfix
+        name: "{gh_org}-{gh_repo}-pipeline-{branch}"
         branch: hotfix
         concurrent_build: true
         status_context: ci.ext.devshift.net PR pipeline hotfix
