@@ -99,7 +99,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 10bd3ab7a8e9e27358b5f9cab2e7c8c6a021302c
+    ref: 11f4d00a0cfb490ab635813bca7e3af8ef98af14
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -211,7 +211,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 10bd3ab7a8e9e27358b5f9cab2e7c8c6a021302c
+    ref: 11f4d00a0cfb490ab635813bca7e3af8ef98af14
     parameters:
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 2Gi
@@ -297,7 +297,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 10bd3ab7a8e9e27358b5f9cab2e7c8c6a021302c
+    ref: 11f4d00a0cfb490ab635813bca7e3af8ef98af14
     parameters:
       CLOUDWATCH_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
