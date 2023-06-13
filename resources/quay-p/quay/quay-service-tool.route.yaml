@@ -2,6 +2,9 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   # TLS data s added from vault
+  annotations:
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-prod-http
   labels:
     service: quayio-service-tool
   name: quayio-service-tool-route
