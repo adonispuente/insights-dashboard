@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 5c690fdfa9fba38e2d6e1e342cbe841da4d11c69
+    ref: 05d9a40b91a7227a0ffd1672f90f8ec1789e084c
     promotion:
       auto: true
       subscribe:
