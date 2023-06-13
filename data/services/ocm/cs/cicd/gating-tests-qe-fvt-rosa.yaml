@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: uhc-clusters-service-main
   url: https://gitlab.cee.redhat.com/service/uhc-clusters-service

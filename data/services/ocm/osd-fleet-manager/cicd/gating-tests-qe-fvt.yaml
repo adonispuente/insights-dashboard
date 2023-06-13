@@ -1,4 +1,3 @@
----
 $schema: /app-sre/saas-file-2.yml
 labels:
   service: ocm
@@ -29,6 +28,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: osd-fleet-manager
   url: https://gitlab.cee.redhat.com/service/osd-fleet-manager
