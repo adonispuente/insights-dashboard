@@ -22,7 +22,7 @@ managed:
         memory: 400Mi
         cpu: 200m
       limits:
-        memory: 520Mi
+        memory: 800Mi
         cpu: 300m
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
@@ -32,7 +32,7 @@ managed:
         memory: 400Mi
         cpu: 200m
       limits:
-        memory: 520Mi
+        memory: 800Mi
         cpu: 300m
 
 schemas:
