@@ -117,7 +117,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: f01473f48b5f677ba068911fb5ddae38169d9cf1
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba
     parameters:
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
