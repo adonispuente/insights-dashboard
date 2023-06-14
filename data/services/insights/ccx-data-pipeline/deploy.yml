@@ -599,7 +599,7 @@ resourceTemplates:
       REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: d3435c8c9e0ed7d83b61b0079ef0b2c40e73a983
+    ref: b1735be71da7af5101f6ab514021802a216074f8
     parameters:
       REDIS_STORAGE: "2Gi"
   - namespace:
