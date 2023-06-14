@@ -55,7 +55,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: osd-ccs-advanced-gcp
-    ref: db8389c0b86abeed68a05ef86940286f0cdab325
+    ref: 57557b292a781a6c4dfffd3f80cb0cc60d825603
     promotion:
       auto: true
       subscribe:
