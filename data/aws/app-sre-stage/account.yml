@@ -210,8 +210,3 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: managed-connectors-staging
   expiration: '2023-05-31'
-
-#removing access key from old aws resource exporter scraper sa
-- type: aws_iam_access_key
-  name: aws-resource-exporter-cluster-scraper-stage-01
-  expiration: '2023-06-15'
