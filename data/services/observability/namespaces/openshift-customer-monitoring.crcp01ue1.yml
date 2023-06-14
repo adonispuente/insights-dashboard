@@ -270,6 +270,10 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/ccx-data-pipeline-prod/insights-content-template-renderer.servicemonitor.yml
 - provider: resource
+  path: /insights-prod/ccx-data-pipeline-prod/ccx-cache-writer.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ccx-data-pipeline-prod/ccx-redis.servicemonitor.yml
+- provider: resource
   path: /insights-prod/edge-prod/edge-api-service.servicemonitor.yml
 - provider: resource
   path: /insights-prod/malware-detection-prod/malware-detection-api.servicemonitor.yml

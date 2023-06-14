@@ -587,6 +587,7 @@ resourceTemplates:
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
+# It contains ccx-redis and cache-writer
 - name: ccx-redis
   path: /deploy/cache-writer.yaml
   url: https://github.com/RedHatInsights/insights-results-aggregator
@@ -598,9 +599,8 @@ resourceTemplates:
       REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: be29dbed4b76c3c4fe9bcdd7b304db179d57a814
+    ref: d3435c8c9e0ed7d83b61b0079ef0b2c40e73a983
     parameters:
-      # TODO: increase when the new feature is activated
       REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
@@ -682,7 +682,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: befd5f0b5f277d005558118fb1e9dbff2c930ef7
+    ref: 6017106d89228aac6bd29cab974534195b27da91
 
 - name: grafana-dashboard-insights-results-smart-proxy
   url: https://github.com/RedHatInsights/insights-results-smart-proxy
