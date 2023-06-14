@@ -33,8 +33,22 @@ changes:
   context:
     selector: account.'$ref'
 - provider: jsonPath
+  changeSchema: /aws/group-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+    when: added
+- provider: jsonPath
   changeSchema: /aws/policy-1.yml
   jsonPathSelectors:
   - $
   context:
     selector: account.'$ref'
+- provider: jsonPath
+  changeSchema: /aws/policy-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+    when: added
