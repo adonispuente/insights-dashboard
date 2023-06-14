@@ -28,9 +28,7 @@ managedResourceTypes:
 managedResourceNames:
 - resource: NamespacePool
   resourceNames:
-  - managed-kafka
   - default
-  - real-managed-kafka
   - minimal
 
 openshiftResources:
@@ -52,7 +50,3 @@ openshiftResources:
   path: /insights-ephemeral/ephemeral-namespace-operator/default.yaml
 - provider: resource
   path: /insights-ephemeral/ephemeral-namespace-operator/minimal.yaml
-- provider: resource
-  path: /insights-ephemeral/ephemeral-namespace-operator/managed-kafka.yaml
-- provider: resource
-  path: /insights-ephemeral/ephemeral-namespace-operator/real-managed-kafka.yaml
