@@ -26,10 +26,8 @@ spec:
               PATH=/tmp/:$PATH
 
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
-              # TODO: parametrize
-              DT_API_URL="https://ddl70254.live.dynatrace.com/api/v2"
-              # TODO: parametrize
-              CLUSTER_NAME="appsre-appint-ex-01"
+              DT_API_URL="{{ DT_ENV_URL }}/api/v2"
+              CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
               RULE_NAME="log-cluster-namespaces"
               # Lets give the DT stack a total of 10 minutes to bootstrap
               MAX_TRIES=30
@@ -71,8 +69,7 @@ spec:
           projected:
             sources:
               - secret:
-                  # TODO: proper name is dynatrace-tokens !!!
-                  name: dynatrace-token
+                  name: dynatrace-tokens
                   items:
                     - key: apiToken
                       path: apiToken
