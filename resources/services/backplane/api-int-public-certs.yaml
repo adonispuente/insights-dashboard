@@ -17,6 +17,6 @@ spec:
     - api.integration.backplane.devshift.net
 
   issuerRef:
-    name: letsencrypt-backplane-dns
-    kind: Issuer
+    name: letsencrypt-devshiftnet-dns
+    kind: ClusterIssuer
     group: cert-manager.io

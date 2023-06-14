@@ -19,7 +19,6 @@ managedRoles: true
 
 managedResourceTypes:
 - Route
-- Issuer.cert-manager.io
 - Certificate.cert-manager.io
 - Service
 
@@ -39,7 +38,7 @@ managedExternalResources: true
 externalResources:
 - provider: aws
   provisioner:
-    $ref: /aws/app-sre-rosa/account.yml
+    $ref: /aws/sd-infra-stage-01/account.yml
   resources:
   - provider: aws-iam-role
     identifier: backplane-backplanei02ue1
