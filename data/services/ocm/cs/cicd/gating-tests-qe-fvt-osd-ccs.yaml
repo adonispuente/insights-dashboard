@@ -48,10 +48,10 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-osd-ccs-advanced-int-ok
+      - ocm-cs-qe-fvt-osd-ccs-gcp-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      CLUSTER_PROFILE: osd-ccs-advanced-gcp
+      TEST_PROFILE: osd-ccs-gcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: osd-ccs-advanced-gcp
@@ -61,7 +61,7 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-stage
       publish:
-      - ocm-cs-qe-fvt-osd-ccs-advanced-stage-ok
+      - ocm-cs-qe-fvt-osd-ccs-gcp-ad-stage-ok
     parameters:
       ENVIRONMENT: staging
-      CLUSTER_PROFILE: osd-ccs-advanced-gcp
+      TEST_PROFILE: osd-ccs-gcp-ad

@@ -48,10 +48,10 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-rosa-advanced-int-ok
+      - ocm-cs-qe-fvt-rosa-sts-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      CLUSTER_PROFILE: rosa-advanced
+      TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 239082b93a3520779b018525891598783d357f06
@@ -61,7 +61,7 @@ resourceTemplates:
       subscribe:
       - ocm-cs-deployed-stage
       publish:
-      - ocm-cs-qe-fvt-rosa-advanced-stage-ok
+      - ocm-cs-qe-fvt-rosa-sts-ad-stage-ok
     parameters:
       ENVIRONMENT: staging
-      CLUSTER_PROFILE: rosa-advanced
+      TEST_PROFILE: rosa-sts-ad
