@@ -104,7 +104,7 @@ resourceTemplates:
     ref: 59f2c8144215c72a4cc94a34a881b56dc8bf5258
 - name: pulp
   url: https://github.com/pulp/pulp-clowder-deployments
-  path: /pulp-template.yaml
+  path: /deploy/clowdapp.yaml
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
