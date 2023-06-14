@@ -120,7 +120,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: f01473f48b5f677ba068911fb5ddae38169d9cf1
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local
