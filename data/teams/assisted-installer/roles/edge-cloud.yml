@@ -16,6 +16,7 @@ self_service:
   - $ref: /services/assisted-installer/cicd/saas-prow.yaml
   - $ref: /services/assisted-installer/cicd/saas-scripts.yaml
   - $ref: /services/assisted-installer/cicd/saas-opensearch.yaml
+  - $ref: /services/assisted-installer/cicd/saas-bug-master.yaml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
