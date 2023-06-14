@@ -40,7 +40,7 @@ Splitting the work into two parts allows us to reuse this capability for App-Int
 
 Both capabilities will be available in two flavors:
 
-* One flavor gets the clusters to manage via OCM cluster subscription labels (`sre-cpabilties.rhidp: "enabled"`)
+* One flavor gets the clusters to manage via OCM cluster subscription labels (`sre-capabilties.rhidp: "enabled"`)
 * The second one will get the clusters from App-Inferface
 
 And both use the same code base. Later, the App-Interface flavor will be refactored to label the clusters in OCM and use the OCM flavor too.
