@@ -82,7 +82,7 @@ openshiftResources:
   version: 1
 - provider: vault-secret
   path: insights/secrets/insights-stage/3scale-stage/gateway-server
-  version: 5
+  version: 6
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
