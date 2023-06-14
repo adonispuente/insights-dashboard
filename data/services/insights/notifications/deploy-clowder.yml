@@ -139,7 +139,10 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
-      MIN_REPLICAS: 1
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MEMORY_LIMIT: 200Mi
+      MEMORY_REQUEST: 100Mi
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-connector-microsoft-teams
 - name: notifications-connector-microsoft-teams
@@ -161,7 +164,10 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
-      MIN_REPLICAS: 1
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MEMORY_LIMIT: 200Mi
+      MEMORY_REQUEST: 100Mi
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-connector-slack
 - name: notifications-connector-slack
@@ -183,7 +189,10 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-slack.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
-      MIN_REPLICAS: 1
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MEMORY_LIMIT: 200Mi
+      MEMORY_REQUEST: 100Mi
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-engine
 - name: notifications-engine
@@ -264,6 +273,7 @@ resourceTemplates:
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
       NOTIFICATIONS_SINGLE_EMAIL_TEST_USER: gduval-stage
+      CAMEL_COMPONENT_KAFKA_ENABLED: false
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
