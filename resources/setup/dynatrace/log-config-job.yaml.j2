@@ -1,3 +1,6 @@
+# TODO: MYDEBUGGERMARKER
+# TODO: introduce logging flag in namespace to check whether logging is enabled | selectattr("enableLogging", "equalto", true)
+{% set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "cert-manager")%}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -6,8 +9,19 @@ metadata:
   name: log-config
   namespace: dynatrace
 spec:
+  backoffLimit: 0
   template:
     spec:
+      restartPolicy: Never
+      volumes:
+        - name: dynatrace-tokens
+          projected:
+            sources:
+              - secret:
+                  name: dynatrace-tokens
+                  items:
+                    - key: apiToken
+                      path: apiToken
       containers:
         - name: log-config
           image: quay.io/app-sre/ubi8-ubi
@@ -25,21 +39,7 @@ spec:
               chmod +x /tmp/jq
               PATH=/tmp/:$PATH
 
-              # TODO: MYDEBUGGERMARKER
-              # TODO: if namespace has log shipping flag set
-              NAMESPACES=
-              {%- for cluster in query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name) -%}
-              {%- for namespace in cluster.namespaces -%}
-              {%- if namespace.name == "cert-manager" or namespace.name == "openshift-pipelines" -%}
-              "{{ namespace.name }}"
-              {%- if not loop.last -%}
-              ,
-              {%- endif -%}
-              {%- endif -%}
-              {%- endfor -%}
-              {%- endfor -%}
-
-
+              NAMESPACES=({%- for namespace in namespaces -%}"{{ namespace.name }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="{{ DT_ENV_URL }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
@@ -68,24 +68,40 @@ spec:
 
               ruleObjectId=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/settings/objects?schemaIds=builtin:logmonitoring.log-storage-settings&scopes=$hostGroupId" | jq -r '.items[] | select(.value."config-item-title" == "'$RULE_NAME'") | .objectId')
 
+              namespaces_json="["
+              delimiter=""
+              for item in "${NAMESPACES[@]}"; do
+                namespaces_json+="${delimiter}\"${item}\""
+                delimiter=", "
+              done
+              namespaces_json+="]"
+
+              payload=$(cat <<EOF
+              {
+                "schemaId": "builtin:logmonitoring.log-storage-settings",
+                "scope": "$hostGroupId",
+                "value": {
+                  "enabled": false,
+                  "config-item-title": "$RULE_NAME",
+                  "send-to-storage": true,
+                  "matchers": [
+                    {
+                      "attribute": "k8s.namespace.name",
+                      "operator": "MATCHES",
+                      "values": $namespaces_json
+                    }
+                  ]
+                }
+              }
+              EOF
+              )
+
               if [[ -n "$ruleObjectId" ]]; then
                 echo "There already exists a logging rule for cluster $CLUSTER_NAME. Lets adjust the existing one!"
                 # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/objects/put-object
-                curl -s -X PUT -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d '{"schemaId": "builtin:logmonitoring.log-storage-settings", "scope": "'$hostGroupId'", "value": {"enabled": false, "config-item-title": "'$RULE_NAME'", "send-to-storage": true, "matchers": [{"attribute": "k8s.namespace.name", "operator": "MATCHES", "values": ["kfischer"]}]}}' "$DT_API_URL/settings/objects/$ruleObjectId"
+                curl -s -X PUT -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "$payload" "$DT_API_URL/settings/objects/$ruleObjectId"
               else
                 echo "No logging rule for cluster $CLUSTER_NAME yet. Lets create a new one!"
                 # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/schemas/builtin-logmonitoring-log-storage-settings
-                curl -s -X POST -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d '[{"schemaId": "builtin:logmonitoring.log-storage-settings", "scope": "'$hostGroupId'", "value": {"enabled": false, "config-item-title": "'$RULE_NAME'", "send-to-storage": true, "matchers": [{"attribute": "k8s.namespace.name", "operator": "MATCHES", "values": ["kfischer", "kfischer2"]}]}}]' "$DT_API_URL/settings/objects"
+                curl -s -X POST -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "[$payload]" "$DT_API_URL/settings/objects"
               fi
-
-      restartPolicy: Never
-      volumes:
-        - name: dynatrace-tokens
-          projected:
-            sources:
-              - secret:
-                  name: dynatrace-tokens
-                  items:
-                    - key: apiToken
-                      path: apiToken
-  backoffLimit: 0
