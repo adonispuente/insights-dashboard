@@ -47,7 +47,7 @@ externalResources:
     assume_action: "AssumeRoleWithWebIdentity"
     assume_condition:
       StringEquals:
-        "rh-oidc.s3.us-east-1.amazonaws.com/247jc96vf02mfg61aot9nveceifbokvi": "system:serviceaccount:backplane:backplane"
+        "rh-oidc.s3.us-east-1.amazonaws.com/247jc96vf02mfg61aot9nveceifbokvi:sub": "system:serviceaccount:backplane:backplane"
     inline_policy:
       {
         "Version": "2012-10-17",
