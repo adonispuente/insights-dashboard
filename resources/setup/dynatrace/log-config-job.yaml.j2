@@ -25,6 +25,21 @@ spec:
               chmod +x /tmp/jq
               PATH=/tmp/:$PATH
 
+              # TODO: MYDEBUGGERMARKER
+              # TODO: if namespace has log shipping flag set
+              NAMESPACES=
+              {%- for cluster in query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name) -%}
+              {%- for namespace in cluster.namespaces -%}
+              {%- if namespace.name == "cert-manager" or namespace.name == "openshift-pipelines" -%}
+              "{{ namespace.name }}"
+              {%- if not loop.last -%}
+              ,
+              {%- endif -%}
+              {%- endif -%}
+              {%- endfor -%}
+              {%- endfor -%}
+
+
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="{{ DT_ENV_URL }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
@@ -41,7 +56,7 @@ spec:
                       hostGroupId=$(echo $hostGroupData | jq -r '.entities[0].entityId')
                       break  # Exit the loop since condition is met
                   else
-                      echo "$DT_API_URL returned $totalCount occurrences of $CLUSTER_NAME amongst Dynatrace HOST_GROUPS. Retrying in $SLEEP_TIME_IN_S seconds..."
+                      echo "$DT_API_URL returned $totalCount occurrences of cluster $CLUSTER_NAME amongst Dynatrace HOST_GROUPS. Retrying in $SLEEP_TIME_IN_S seconds..."
                       sleep $SLEEP_TIME_IN_S  # Wait for specified time before retrying
                   fi
 

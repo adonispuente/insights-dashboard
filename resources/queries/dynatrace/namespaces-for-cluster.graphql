@@ -1,0 +1,11 @@
+{
+  clusters_v1
+  (
+    name: "{{ name }}"
+  )
+  {
+    namespaces {
+      name
+    }
+  }
+}
