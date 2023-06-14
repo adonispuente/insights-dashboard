@@ -49,22 +49,22 @@ acceptanceCriteria:
   status: green
 - comment: 'https://issues.redhat.com/browse/ROX-15983 and https://docs.google.com/document/d/1qQWj3ZeN5D8whSdSjp5cO1782Fn8oFvnqTuV-42WrCQ/edit'
   name: OBSERVABILITY-0002
-  status: yellow
-- comment: 'Blocked by SLI/SLO definition.'
+  status: green
+- comment: 'https://github.com/stackrox/rhacs-observability-resources/blob/master/resources/prometheus/prometheus-rules.yaml#L360-L483 is currently the authoritative definition of Central SLI/SLOs (2023-06-09)'
   name: OBSERVABILITY-0003
-  status: red
-- comment: 'Raw metrics are available for Grafana. Blocked by SLI/SLO definition.'
+  status: green
+- comment: 'In data plane observability stack Grafana dashboard: https://grafana-route-rhacs-observability.apps.acs-prod-dp-01.pnz3.p1.openshiftapps.com/d/vH7ntMs4k/rhacs-dataplane-central-slos?orgId=1 . Global data plane dashboard tracked on SRE side.'
   name: OBSERVABILITY-0004
-  status: red
+  status: green
 - comment: 'No central logging strategy is required for Addons.'
   name: OBSERVABILITY-0005
   status: green
 - comment: 'Agreements are in place.'
   name: OBSERVABILITY-0006
   status: green
-- comment: 'ACS-CS Team is verifying with ProdSec if their build artifacts qualify. Images are built on OpenShift CI. All images are using ubi as base.'
+- comment: 'https://issues.redhat.com/browse/ROX-15984 ACS-CS Team is verifying with ProdSec if their build artifacts qualify. Images are built on OpenShift CI. All images are using ubi as base.'
   name: RELEASING-0001
-  status: yellow
+  status: green
 - comment: 'No moving tags, tags related to git commit. Images not referenced by digest yet.'
   name: RELEASING-0002
   status: green
@@ -92,19 +92,20 @@ acceptanceCriteria:
 - comment: 'Does not apply.'
   name: RELIABILITY-0005
   status: green
-- comment: 'We know that the upgrade will cause disruptions because Central is single-replica.'
+- comment: '[Exception Required] Upgrades of ACS versions will disrupt the service because Central is single-replica. Product has made a decision not to block GA on the refactor to make Central horizontally scalable.'
   name: RELIABILITY-0006
   status: red
 - comment: 'Checked'
   name: RELIABILITY-0007
   status: green
-- comment: "We know that the upgrade will cause disruptions because Central is single-replica. Proposal is to have SoP for upgrades should cover defining silencing (and removing them), which doesn't scale. Also covered by https://issues.redhat.com/browse/ROX-16052"
+- comment: "OSD version upgrades will not disrupt the service. As long as the ACS version is not changing (upgrade/rollback) at the same time, Central should restart in a few seconds."
   name: RELIABILITY-0008
-  status: red
+  status: green
 - comment: 'https://issues.redhat.com/browse/ROX-15980'
   name: RELIABILITY-0009
-  status: red
-- comment: "We know that the upgrade will cause disruptions because Central is single-replica. Proposal is to have SoP for upgrades should cover defining silencing (and removing them), which doesn't scale. Also covered by https://issues.redhat.com/browse/ROX-16052"
+  status: green
+- comment: "We know that the upgrade will cause disruptions because Central is single-replica. We have an SoP for upgrades but will *not* be silencing and removing them. The alerts at https://github.com/stackrox/rhacs-observability-resources/blob/master/resources/prometheus/prometheus-rules.yaml#L21-L30
+and https://github.com/stackrox/rhacs-observability-resources/blob/master/resources/prometheus/prometheus-rules.yaml#L535-L551 should only trigger if an individual instance is down for 20+ minutes, at which point an alert should occur. Also covered by https://issues.redhat.com/browse/ROX-16052"
   name: RELIABILITY-0010
   status: yellow
 - comment: "We have some of this defined in code (Central resources defined in Fleetshard Sync code), need to ensure this covers the data plane cluster (what each component's request, cpu, memory, etc. looks like) - pull together the definitions. Also covered by https://issues.redhat.com/browse/ROX-15980"
