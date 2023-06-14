@@ -76,7 +76,7 @@ externalResources:
     availability_zone: us-east-1d
     defaults: /terraform/resources/insights/perf/rds/postgres13-rds-host-inventory-perf-read-replica.yml
     overrides:
-      instance_class: db.t3.micro
+      instance_class: db.t3.small
       apply_immediately: true
       allocated_storage: 300
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-host-inventory-perf-readonly.yml
