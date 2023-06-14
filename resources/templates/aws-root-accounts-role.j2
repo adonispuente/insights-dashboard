@@ -1,0 +1,5 @@
+{%- for role in query('/queries/users-with-aws-root-accounts-role.yaml') %}
+{%- if role.users|length > 1 %}
+{% raise_error('The role aws-root-accounts is assigned to more than one user.') %}
+{%- endif %}
+{%- endfor %}

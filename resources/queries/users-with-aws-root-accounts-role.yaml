@@ -1,0 +1,7 @@
+{
+  roles_v1 (name: "aws-root-accounts") {
+    users {
+      org_username
+    }
+  }
+}
