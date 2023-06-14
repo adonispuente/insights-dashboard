@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    ref: b1658273abea905afbecc6157d86ee7f627f2fc0
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -126,20 +126,20 @@ resourceTemplates:
   targets:
 
     # ephemeral
-    - namespace:
-        $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       # app-sre will not deploy this target
-      disable: true
+    disable: true
       # populated by bonfire
-      ref: internal
+    ref: internal
 
     # stage
-    - namespace:
-        $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
-      ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
-      parameters:
-        MIN_REPLICAS: 1
+    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    parameters:
+      MIN_REPLICAS: 1
 
 # notifications-connector-microsoft-teams
 - name: notifications-connector-microsoft-teams
@@ -148,20 +148,20 @@ resourceTemplates:
   targets:
 
     # ephemeral
-    - namespace:
-        $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       # app-sre will not deploy this target
-      disable: true
+    disable: true
       # populated by bonfire
-      ref: internal
+    ref: internal
 
     # stage
-    - namespace:
-        $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
-      ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
-      parameters:
-        MIN_REPLICAS: 1
+    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    parameters:
+      MIN_REPLICAS: 1
 
 # notifications-connector-slack
 - name: notifications-connector-slack
@@ -170,20 +170,20 @@ resourceTemplates:
   targets:
 
     # ephemeral
-    - namespace:
-        $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       # app-sre will not deploy this target
-      disable: true
+    disable: true
       # populated by bonfire
-      ref: internal
+    ref: internal
 
     # stage
-    - namespace:
-        $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-slack.yaml version
-      ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
-      parameters:
-        MIN_REPLICAS: 1
+    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    parameters:
+      MIN_REPLICAS: 1
 
 # notifications-engine
 - name: notifications-engine
@@ -212,7 +212,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    ref: b1658273abea905afbecc6157d86ee7f627f2fc0
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -342,7 +342,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: f8118f4f41f6fb1b86203e5b21a1be36774212f1
+    ref: b1658273abea905afbecc6157d86ee7f627f2fc0
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
