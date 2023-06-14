@@ -139,9 +139,9 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MEMORY_LIMIT: 200Mi
-      MEMORY_REQUEST: 100Mi
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-connector-microsoft-teams
@@ -164,9 +164,9 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MEMORY_LIMIT: 200Mi
-      MEMORY_REQUEST: 100Mi
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-connector-slack
@@ -189,9 +189,9 @@ resourceTemplates:
       # notifications-backend commit hash that determines the clowdapp-slack.yaml version
     ref: bd3ccc4a4db063d279007ec8fe5062201c14607e
     parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MEMORY_LIMIT: 200Mi
-      MEMORY_REQUEST: 100Mi
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-engine
