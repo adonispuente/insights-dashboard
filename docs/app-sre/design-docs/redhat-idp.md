@@ -74,7 +74,22 @@ Milestone 2 of the [SRE capabilities initiative](docs/app-sre/initiatives/sre-ca
 
 ## Alternatives considered
 
-Nothing else was considered.
+### Alternative 1: One capability for both SSO client configuration and OIDC configuration
+
+This alternative would also have the SSO client configuration capability to configure the OIDC configuration via OCM API. This approach would have the following advantages and drawbacks:
+
+#### Advantages
+
+* The `client_id` and `client_secret` would be in-memory and passed to OCM right after client creation; no need to store them in Vault.
+
+#### Drawbacks
+
+* No reconciliation loop is possible for the OCM OIDC configuration because `client_id` and `client_secret` are not available after the initial client creation
+* More complex code flow and testing.
+
+#### Conclusion
+
+`registration_access_token` must be stored in Vault to track created SSO clients and allow the deletion on auth.redhat.com. Why not store `client_id` and `client_secret` in Vault too?
 
 ## Milestones
 
