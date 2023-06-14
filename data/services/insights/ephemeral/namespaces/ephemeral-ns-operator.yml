@@ -28,9 +28,7 @@ managedResourceTypes:
 managedResourceNames:
 - resource: NamespacePool
   resourceNames:
-  - managed-kafka
   - default
-  - real-managed-kafka
   - minimal
 
 openshiftResources:
