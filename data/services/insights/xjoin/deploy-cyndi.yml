@@ -201,6 +201,10 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/cyndi-operator
   parameters:
     APP_NAME: patch
+    DB_TABLE_INDEX_SQL: >
+        CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
+        CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
+        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp)
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
@@ -213,10 +217,6 @@ resourceTemplates:
       SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
       VALIDATION_THRESHOLD: "15"
       INSIGHTS_ONLY: "false"
-      DB_TABLE_INDEX_SQL: >
-        CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
-        CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
-        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp)
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
