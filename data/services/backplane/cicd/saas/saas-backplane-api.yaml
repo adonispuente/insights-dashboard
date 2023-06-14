@@ -159,6 +159,17 @@ resourceTemplates:
       AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
       ENABLE_TEST_SCRIPT_API: "true"
   - namespace:
+      $ref: /services/backplane/namespaces/backplane-int-backplanei02ue1.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-backplane-api-gl-build-master
+    parameters:
+      AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
+      ENABLE_TEST_SCRIPT_API: "true"
+      BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"      
+  - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep01ue1.yml
     ref: 46abf32c18474b7672c8e99c36b388a8c9761d93
     parameters:
