@@ -658,7 +658,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 958de07e07ff276ce09652a3769e4dccc30bee1d
+    ref: ed0f0c8006172b4a3b7a5d4b99cc6b81f68aaee6
 
 - name: grafana-dashboard-insights-content-service
   url: https://github.com/RedHatInsights/insights-content-service
