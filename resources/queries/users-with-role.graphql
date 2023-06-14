@@ -1,0 +1,7 @@
+{
+  roles_v1 (name: "{{name}}") {
+    users {
+      org_username
+    }
+  }
+}

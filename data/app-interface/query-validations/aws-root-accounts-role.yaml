@@ -1,0 +1,20 @@
+---
+$schema: /app-interface/query-validation-1.yml
+
+labels: {}
+
+name: aws-root-accounts-role
+description: |
+   In order to properly trace who access root accounts, we need to make
+   sure only one user access aws-root-accounts engine at a time.
+
+escalationPolicy:
+  $ref: /teams/app-sre/escalation-policies/general.yaml
+
+queries:
+- path: /queries/users-with-role.graphql
+
+resources:
+- provider: resource-template
+  type: jinja2
+  path: /templates/aws-root-accounts-role.j2
