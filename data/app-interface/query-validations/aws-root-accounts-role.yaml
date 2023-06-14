@@ -12,7 +12,7 @@ escalationPolicy:
   $ref: /teams/app-sre/escalation-policies/general.yaml
 
 queries:
-- path: /queries/users-with-aws-root-accounts-role.yaml
+- path: /queries/users-with-role.graphql
 
 resources:
 - provider: resource-template
