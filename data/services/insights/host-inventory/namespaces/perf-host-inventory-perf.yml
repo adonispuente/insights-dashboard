@@ -64,8 +64,9 @@ externalResources:
     identifier: host-inventory-perf
     defaults: /terraform/resources/insights/perf/rds/postgres13-rds-host-inventory-perf.yml
     overrides:
-      instance_class: db.m5.4xlarge
+      instance_class: db.t3.2xlarge
       apply_immediately: true
+      allocated_storage: 300
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-host-inventory-perf.yml
     output_resource_name: host-inventory-db
     enhanced_monitoring: true
@@ -77,6 +78,7 @@ externalResources:
     overrides:
       instance_class: db.t3.small
       apply_immediately: true
+      allocated_storage: 300
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-host-inventory-perf-readonly.yml
     output_resource_name: host-inventory-readonly-db
   - provider: cloudwatch
