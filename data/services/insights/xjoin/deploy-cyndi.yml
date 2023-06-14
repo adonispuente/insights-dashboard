@@ -249,6 +249,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 42d204c0c8ee6b4ba7b073adcdfecc6a47af8bed
+    parameters:
+      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
     ref: master
