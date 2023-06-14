@@ -399,6 +399,7 @@ resourceTemplates:
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
+      CPU_LIMIT: 250m
       MIN_REPLICAS: 3
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       SENTRY_DSN: https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
