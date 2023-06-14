@@ -682,7 +682,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 6017106d89228aac6bd29cab974534195b27da91
+    ref: 2c79329c6786713866ad1b96db160468acbe6950
 
 - name: grafana-dashboard-insights-results-smart-proxy
   url: https://github.com/RedHatInsights/insights-results-smart-proxy
