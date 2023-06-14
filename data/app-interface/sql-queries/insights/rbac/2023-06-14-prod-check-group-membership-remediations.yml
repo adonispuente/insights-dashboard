@@ -1,0 +1,13 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: remediations-fifi-group-membership-check
+namespace:
+  $ref: /services/insights/rbac/namespaces/rbac-prod.yml
+identifier: rbac-prod-readonly
+output: stdout
+# Run each half hour
+schedule: "*/30 * * * *"
+queries:
+  - |
+    SELECT principal_id FROM management_group_principals WHERE group_id=443;
