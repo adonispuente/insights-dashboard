@@ -34,7 +34,7 @@ spec:
         handler: receive
         job: observatorium-observatorium-mst-api
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-write-availability-slo
   - interval: 30s
     name: api-metrics-write-availability-slo
@@ -109,8 +109,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -118,7 +118,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 1h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-write-availability-slo
     - alert: APIMetricsWriteAvailabilityErrorBudgetBurning
@@ -128,8 +128,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -137,7 +137,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 6h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-write-availability-slo
     - alert: APIMetricsWriteAvailabilityErrorBudgetBurning
@@ -147,8 +147,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -166,8 +166,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="receive",job="observatorium-observatorium-mst-api",slo="api-metrics-write-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -181,7 +181,7 @@ spec:
   - interval: 30s
     name: api-metrics-write-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-metrics-write-availability-slo
       record: pyrra_objective
@@ -228,7 +228,7 @@ spec:
         handler: query
         job: observatorium-observatorium-mst-api
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-query-availability-slo
   - interval: 30s
     name: api-metrics-query-availability-slo
@@ -303,8 +303,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -312,7 +312,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 1h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-query-availability-slo
     - alert: APIMetricsQueryAvailabilityErrorBudgetBurning
@@ -322,8 +322,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -331,7 +331,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 6h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-query-availability-slo
     - alert: APIMetricsQueryAvailabilityErrorBudgetBurning
@@ -341,8 +341,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -360,8 +360,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="query",job="observatorium-observatorium-mst-api",slo="api-metrics-query-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -375,7 +375,7 @@ spec:
   - interval: 30s
     name: api-metrics-query-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-metrics-query-availability-slo
       record: pyrra_objective
@@ -422,7 +422,7 @@ spec:
         handler: query_range
         job: observatorium-observatorium-mst-api
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-query-range-availability-slo
   - interval: 30s
     name: api-metrics-query-range-availability-slo
@@ -497,8 +497,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -506,7 +506,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 1h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-query-range-availability-slo
     - alert: APIMetricsQueryRangeAvailabilityErrorBudgetBurning
@@ -516,8 +516,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -525,7 +525,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 6h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-query-range-availability-slo
     - alert: APIMetricsQueryRangeAvailabilityErrorBudgetBurning
@@ -535,8 +535,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -554,8 +554,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIMetricsQueryRangeAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="query_range",job="observatorium-observatorium-mst-api",slo="api-metrics-query-range-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -569,7 +569,7 @@ spec:
   - interval: 30s
     name: api-metrics-query-range-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-metrics-query-range-availability-slo
       record: pyrra_objective
@@ -618,7 +618,7 @@ spec:
         job: observatorium-observatorium-mst-api
         method: PUT
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-rules-raw-write-availability-slo
   - interval: 30s
     name: api-rules-raw-write-availability-slo
@@ -700,8 +700,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -710,7 +710,7 @@ spec:
         long_burnrate_window: 1h
         method: PUT
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-rules-raw-write-availability-slo
     - alert: APIRulesRawWriteAvailabilityErrorBudgetBurning
@@ -720,8 +720,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -730,7 +730,7 @@ spec:
         long_burnrate_window: 6h
         method: PUT
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-rules-raw-write-availability-slo
     - alert: APIRulesRawWriteAvailabilityErrorBudgetBurning
@@ -740,8 +740,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -760,8 +760,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawWriteAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="PUT",slo="api-rules-raw-write-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -776,7 +776,7 @@ spec:
   - interval: 30s
     name: api-rules-raw-write-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-rules-raw-write-availability-slo
       record: pyrra_objective
@@ -825,7 +825,7 @@ spec:
         job: observatorium-observatorium-mst-api
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-rules-raw-read-availability-slo
   - interval: 30s
     name: api-rules-raw-read-availability-slo
@@ -907,8 +907,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -917,7 +917,7 @@ spec:
         long_burnrate_window: 1h
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-rules-raw-read-availability-slo
     - alert: APIRulesRawReadAvailabilityErrorBudgetBurning
@@ -927,8 +927,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -937,7 +937,7 @@ spec:
         long_burnrate_window: 6h
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-rules-raw-read-availability-slo
     - alert: APIRulesRawReadAvailabilityErrorBudgetBurning
@@ -947,8 +947,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -967,8 +967,8 @@ spec:
           to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesRawReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules-raw",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-raw-read-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -983,7 +983,7 @@ spec:
   - interval: 30s
     name: api-rules-raw-read-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-rules-raw-read-availability-slo
       record: pyrra_objective
@@ -1032,7 +1032,7 @@ spec:
         job: observatorium-observatorium-mst-api
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-rules-read-availability-slo
   - interval: 30s
     name: api-rules-read-availability-slo
@@ -1114,8 +1114,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate5m{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (14 * (1-0.95)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and http_requests:burnrate1h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         group: metricsv1
@@ -1124,7 +1124,7 @@ spec:
         long_burnrate_window: 1h
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-rules-read-availability-slo
     - alert: APIRulesReadAvailabilityErrorBudgetBurning
@@ -1134,8 +1134,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate30m{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (7 * (1-0.95)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         group: metricsv1
@@ -1144,7 +1144,7 @@ spec:
         long_burnrate_window: 6h
         method: GET
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-rules-read-availability-slo
     - alert: APIRulesReadAvailabilityErrorBudgetBurning
@@ -1154,8 +1154,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate2h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (2 * (1-0.95)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and http_requests:burnrate1d{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         group: metricsv1
@@ -1174,8 +1174,8 @@ spec:
           availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesReadAvailabilityErrorBudgetBurning
       expr: http_requests:burnrate6h{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (1 * (1-0.95)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and http_requests:burnrate4d{code!~"^4..$",group="metricsv1",handler="rules",job="observatorium-observatorium-mst-api",method="GET",slo="api-rules-read-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         group: metricsv1
@@ -1190,7 +1190,7 @@ spec:
   - interval: 30s
     name: api-rules-read-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-rules-read-availability-slo
       record: pyrra_objective
@@ -1235,7 +1235,7 @@ spec:
       labels:
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-rules-sync-availability-slo
   - interval: 30s
     name: api-rules-sync-availability-slo
@@ -1310,14 +1310,14 @@ spec:
           guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesSyncAvailabilityErrorBudgetBurning
       expr: client_api_requests:burnrate5m{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (14 * (1-0.95)) and client_api_requests:burnrate1h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and client_api_requests:burnrate1h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         long_burnrate_window: 1h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-rules-sync-availability-slo
     - alert: APIRulesSyncAvailabilityErrorBudgetBurning
@@ -1327,14 +1327,14 @@ spec:
           guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesSyncAvailabilityErrorBudgetBurning
       expr: client_api_requests:burnrate30m{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (7 * (1-0.95)) and client_api_requests:burnrate6h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and client_api_requests:burnrate6h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         long_burnrate_window: 6h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-rules-sync-availability-slo
     - alert: APIRulesSyncAvailabilityErrorBudgetBurning
@@ -1344,8 +1344,8 @@ spec:
           guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesSyncAvailabilityErrorBudgetBurning
       expr: client_api_requests:burnrate2h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (2 * (1-0.95)) and client_api_requests:burnrate1d{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and client_api_requests:burnrate1d{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         long_burnrate_window: 1d
@@ -1361,8 +1361,8 @@ spec:
           guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIRulesSyncAvailabilityErrorBudgetBurning
       expr: client_api_requests:burnrate6h{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (1 * (1-0.95)) and client_api_requests:burnrate4d{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and client_api_requests:burnrate4d{client="reload",code!~"^4..$",container="thanos-rule-syncer",namespace="observatorium-mst-production",slo="api-rules-sync-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         long_burnrate_window: 4d
@@ -1374,7 +1374,7 @@ spec:
   - interval: 30s
     name: api-rules-sync-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-rules-sync-availability-slo
       record: pyrra_objective
@@ -1418,7 +1418,7 @@ spec:
       labels:
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-alerting-availability-slo
   - interval: 30s
     name: api-alerting-availability-slo
@@ -1486,14 +1486,14 @@ spec:
           too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerAvailabilityErrorBudgetBurning
       expr: thanos_alert_sender_alerts_dropped:burnrate5m{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (14 * (1-0.95)) and thanos_alert_sender_alerts_dropped:burnrate1h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and thanos_alert_sender_alerts_dropped:burnrate1h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         long_burnrate_window: 1h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-alerting-availability-slo
     - alert: APIAlertmanagerAvailabilityErrorBudgetBurning
@@ -1503,14 +1503,14 @@ spec:
           too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerAvailabilityErrorBudgetBurning
       expr: thanos_alert_sender_alerts_dropped:burnrate30m{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (7 * (1-0.95)) and thanos_alert_sender_alerts_dropped:burnrate6h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and thanos_alert_sender_alerts_dropped:burnrate6h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         long_burnrate_window: 6h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-alerting-availability-slo
     - alert: APIAlertmanagerAvailabilityErrorBudgetBurning
@@ -1520,8 +1520,8 @@ spec:
           too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerAvailabilityErrorBudgetBurning
       expr: thanos_alert_sender_alerts_dropped:burnrate2h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (2 * (1-0.95)) and thanos_alert_sender_alerts_dropped:burnrate1d{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and thanos_alert_sender_alerts_dropped:burnrate1d{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         long_burnrate_window: 1d
@@ -1537,8 +1537,8 @@ spec:
           too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerAvailabilityErrorBudgetBurning
       expr: thanos_alert_sender_alerts_dropped:burnrate6h{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (1 * (1-0.95)) and thanos_alert_sender_alerts_dropped:burnrate4d{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and thanos_alert_sender_alerts_dropped:burnrate4d{code!~"^4..$",container="thanos-rule",namespace="observatorium-mst-production",slo="api-alerting-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         long_burnrate_window: 4d
@@ -1550,7 +1550,7 @@ spec:
   - interval: 30s
     name: api-alerting-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-alerting-availability-slo
       record: pyrra_objective
@@ -1593,7 +1593,7 @@ spec:
       labels:
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-alerting-notif-availability-slo
   - interval: 30s
     name: api-alerting-notif-availability-slo
@@ -1654,14 +1654,14 @@ spec:
           is burning too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       expr: alertmanager_notifications_failed:burnrate5m{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (14 * (1-0.95)) and alertmanager_notifications_failed:burnrate1h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (14 * (1-0.95))
+        > (14 * (1-0.995)) and alertmanager_notifications_failed:burnrate1h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
+        > (14 * (1-0.995))
       for: 2m
       labels:
         long_burnrate_window: 1h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-alerting-notif-availability-slo
     - alert: APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
@@ -1671,14 +1671,14 @@ spec:
           is burning too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       expr: alertmanager_notifications_failed:burnrate30m{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (7 * (1-0.95)) and alertmanager_notifications_failed:burnrate6h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (7 * (1-0.95))
+        > (7 * (1-0.995)) and alertmanager_notifications_failed:burnrate6h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
+        > (7 * (1-0.995))
       for: 15m
       labels:
         long_burnrate_window: 6h
         namespace: observatorium-mst-production
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-alerting-notif-availability-slo
     - alert: APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
@@ -1688,8 +1688,8 @@ spec:
           is burning too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       expr: alertmanager_notifications_failed:burnrate2h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (2 * (1-0.95)) and alertmanager_notifications_failed:burnrate1d{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (2 * (1-0.95))
+        > (2 * (1-0.995)) and alertmanager_notifications_failed:burnrate1d{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
+        > (2 * (1-0.995))
       for: 1h
       labels:
         long_burnrate_window: 1d
@@ -1705,8 +1705,8 @@ spec:
           is burning too much error budget to guarantee availability SLOs.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#APIAlertmanagerNotificationsAvailabilityErrorBudgetBurning
       expr: alertmanager_notifications_failed:burnrate6h{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (1 * (1-0.95)) and alertmanager_notifications_failed:burnrate4d{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
-        > (1 * (1-0.95))
+        > (1 * (1-0.995)) and alertmanager_notifications_failed:burnrate4d{code!~"^4..$",namespace="observatorium-mst-production",service="observatorium-alertmanager",slo="api-alerting-notif-availability-slo"}
+        > (1 * (1-0.995))
       for: 3h
       labels:
         long_burnrate_window: 4d
@@ -1718,7 +1718,7 @@ spec:
   - interval: 30s
     name: api-alerting-notif-availability-slo-generic
     rules:
-    - expr: "0.95"
+    - expr: "0.995"
       labels:
         slo: api-alerting-notif-availability-slo
       record: pyrra_objective
@@ -1774,7 +1774,7 @@ spec:
         handler: receive
         job: observatorium-observatorium-mst-api
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-write-latency-slo
     - alert: SLOMetricAbsent
       annotations:
@@ -1790,7 +1790,7 @@ spec:
         handler: receive
         job: observatorium-observatorium-mst-api
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-write-latency-slo
   - interval: 30s
     name: api-metrics-write-latency-slo
@@ -1881,7 +1881,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 1h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-write-latency-slo
     - alert: APIMetricsWriteLatencyErrorBudgetBurning
@@ -1900,7 +1900,7 @@ spec:
         job: observatorium-observatorium-mst-api
         long_burnrate_window: 6h
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-write-latency-slo
     - alert: APIMetricsWriteLatencyErrorBudgetBurning
@@ -1997,7 +1997,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-1M-latency-slo
     - alert: SLOMetricAbsent
       annotations:
@@ -2012,7 +2012,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-1M-latency-slo
   - interval: 30s
     name: api-metrics-read-1M-latency-slo
@@ -2095,7 +2095,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-read-1M-latency-slo
     - alert: APIMetricsReadLatency1MErrorBudgetBurning
@@ -2113,7 +2113,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-read-1M-latency-slo
     - alert: APIMetricsReadLatency1MErrorBudgetBurning
@@ -2208,7 +2208,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-10M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-10M-latency-slo
     - alert: SLOMetricAbsent
       annotations:
@@ -2223,7 +2223,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-10M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-10M-latency-slo
   - interval: 30s
     name: api-metrics-read-10M-latency-slo
@@ -2306,7 +2306,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-10M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-read-10M-latency-slo
     - alert: APIMetricsReadLatency10MErrorBudgetBurning
@@ -2324,7 +2324,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-10M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-read-10M-latency-slo
     - alert: APIMetricsReadLatency10MErrorBudgetBurning
@@ -2419,7 +2419,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-100M-latency-slo
     - alert: SLOMetricAbsent
       annotations:
@@ -2434,7 +2434,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         slo: api-metrics-read-100M-latency-slo
   - interval: 30s
     name: api-metrics-read-100M-latency-slo
@@ -2517,7 +2517,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 5m
         slo: api-metrics-read-100M-latency-slo
     - alert: APIMetricsReadLatency100MErrorBudgetBurning
@@ -2535,7 +2535,7 @@ spec:
         namespace: observatorium-mst-production
         query: query-path-sli-1M-samples
         service: observatorium-api
-        severity: critical
+        severity: high
         short_burnrate_window: 30m
         slo: api-metrics-read-100M-latency-slo
     - alert: APIMetricsReadLatency100MErrorBudgetBurning
