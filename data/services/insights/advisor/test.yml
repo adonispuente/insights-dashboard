@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
-    ref: f4380ca63acf09fcd1943a32e9756274ae666cfa
+    ref: 43347501a1fdda2d987580dbc0c4b9f6feb2953a
     promotion:
       auto: true
       subscribe:
