@@ -65,7 +65,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 07a6bf28e0e8ceee3d988899256326bdf2169542
+    ref: 239082b93a3520779b018525891598783d357f06
     name: hcp-e2e-main
     promotion:
       auto: true
