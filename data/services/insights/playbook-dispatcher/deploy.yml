@@ -100,12 +100,12 @@ resourceTemplates:
         secret:
           path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
           field: hostname
-          version: 1
+          version: 2
       - name: KAFKA_BOOTSTRAP_PORT
         secret:
           path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
           field: port
-          version: 1
+          version: 2
       - name: KAFKA_USERNAME
         secret:
           path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
