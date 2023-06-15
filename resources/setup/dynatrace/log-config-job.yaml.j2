@@ -23,7 +23,7 @@ spec:
                       path: apiToken
       containers:
         - name: log-config
-          image: quay.io/app-sre/ubi8-ubi
+          image: quay.io/app-sre/dynatrace-config-job:1.0
           volumeMounts:
             - name: dynatrace-tokens
               mountPath: /secrets/apiToken
@@ -34,14 +34,6 @@ spec:
             - |
               #!/bin/bash
               set -eo pipefail
-              # TODO: proper image with jq inside
-              echo "af986793a515d500ab2d35f8d2aecd656e764504b789b66d7e1a0b727a124c44  jq" > /tmp/checksum.txt
-              curl -o /tmp/jq -sL https://github.com/jqlang/jq/releases/download/jq-1.6/jq-linux64
-              cd /tmp
-              sha256sum -c checksum.txt
-              cd --
-              chmod +x /tmp/jq
-              PATH=/tmp/:$PATH
 
               NAMESPACES=({%- for namespace in namespaces -%}"{{ namespace }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
