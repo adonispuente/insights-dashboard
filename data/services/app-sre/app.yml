@@ -58,6 +58,9 @@ quayRepos:
   - name: diag-container
     description: ''
     public: true
+  - name: dynatrace-config-job
+    description: Tools for basic communication with the Dynatrace API
+    public: false
   - name: nginx-gate
     description: ''
     public: true
