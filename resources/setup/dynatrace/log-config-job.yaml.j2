@@ -1,12 +1,11 @@
 # TODO: MYDEBUGGERMARKER
 # TODO: introduce logging flag in namespace to check whether logging is enabled | selectattr("enableLogging", "equalto", true)
-{% set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "cert-manager")%}
+{%- set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "cert-manager") | map(attribute="name") | list -%}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  # TODO: add hash suffix
-  name: log-config
+  name: log-config-{{ hash_list(namespaces)[:8] }}
   namespace: dynatrace
 spec:
   backoffLimit: 0
@@ -34,12 +33,18 @@ spec:
           args:
             - |
               #!/bin/bash
+              set -eo pipefail
+
               # TODO: proper image with jq inside
+              echo "af986793a515d500ab2d35f8d2aecd656e764504b789b66d7e1a0b727a124c44  jq" > /tmp/checksum.txt
               curl -o /tmp/jq -sL https://github.com/jqlang/jq/releases/download/jq-1.6/jq-linux64
+              cd /tmp
+              sha256sum -c checksum.txt
+              cd --
               chmod +x /tmp/jq
               PATH=/tmp/:$PATH
 
-              NAMESPACES=({%- for namespace in namespaces -%}"{{ namespace.name }}" {% endfor -%})
+              NAMESPACES=({%- for namespace in namespaces -%}"{{ namespace }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="{{ DT_ENV_URL }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
@@ -76,6 +81,7 @@ spec:
               done
               namespaces_json+="]"
 
+              # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/schemas/builtin-logmonitoring-log-storage-settings
               payload=$(cat <<EOF
               {
                 "schemaId": "builtin:logmonitoring.log-storage-settings",
@@ -102,6 +108,6 @@ spec:
                 curl -s -X PUT -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "$payload" "$DT_API_URL/settings/objects/$ruleObjectId"
               else
                 echo "No logging rule for cluster $CLUSTER_NAME yet. Lets create a new one!"
-                # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/schemas/builtin-logmonitoring-log-storage-settings
+                # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/objects/post-object
                 curl -s -X POST -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "[$payload]" "$DT_API_URL/settings/objects"
               fi
