@@ -14,7 +14,7 @@ tests:
   - interval: 5m
     input_series:
       - series: apiserver_request_duration_seconds_bucket{apiserver="kube-apiserver", verb!="WATCH"}
-        values: "200 200 400 450 500"
+        values: "400 400 600 650 700"
     alert_rule_test:
       - eval_time: 0m
         alertname: Cluster kube-apiserver latency has exceeded 300ms
@@ -28,5 +28,5 @@ tests:
               service: insights
               severity: {{{ medium_severity }}}
             exp_annotations:
-              message: "Cluster kube-apiserver latency has exceeded 300ms"
+              message: "Cluster kube-apiserver latency has exceeded 500ms"
               dashboard: "https://grafana.app-sre.devshift.net/d/BYb3BpZVz/consoledot-platform-clusters-dashboard?orgId=1&from=now-2d&to=now&var-datasource=c-rh-c-eph-cluster-prometheus&refresh=5s&viewPanel=31"
