@@ -152,7 +152,7 @@ resourceTemplates:
       name: RedHatInsights-xjoin-kafka-connect-gh-build-master
     parameters:
       VERSION: '3.0.0'
-      CPU_REQUESTS: 501m
+      CPU_REQUESTS: 500m
       CPU_LIMITS: 1
       NUM_REPLICAS: '7'
       MEMORY_REQUESTS: 6Gi
