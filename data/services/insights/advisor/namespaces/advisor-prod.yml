@@ -81,7 +81,8 @@ externalResources:
     overrides:
       snapshot_identifier: advisor-prod-migration-april9
       allocated_storage: 750
-      apply_immediately: true
+      engine_version: "12.15"
+      apply_immediately: false
     enhanced_monitoring: true
     output_resource_name: advisor-db
     parameter_group: /terraform/resources/insights/production/rds/postgres12-parameter-group-advisor-prod.yml
