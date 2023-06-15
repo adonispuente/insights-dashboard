@@ -1,0 +1,11 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: github-mt-sre-addon-metadata-operator-owners-team
+description: Membership of the mt-sre addon-metadata-operator-owners team
+
+service: github-org-team
+org: mt-sre
+team: addon-metadata-operator-owners

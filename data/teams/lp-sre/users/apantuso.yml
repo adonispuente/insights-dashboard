@@ -14,6 +14,9 @@ roles:
   - $ref: /teams/mt-sre/roles/mt-sre.yml
   - $ref: /teams/lp-sre/roles/lp-sre.yml
   - $ref: /teams/lp-sre/roles/ocm-addons-owner.yml
+  - $ref: /teams/lp-sre/roles/addon-metadata-operator-owner.yml
+  - $ref: /teams/lp-sre/roles/go-ci-owner.yml
+  - $ref: /teams/lp-sre/roles/client-owner.yml
   - $ref: /teams/lp-sre/roles/app-sre-osd-addons.yml
   - $ref: /teams/lp-sre/roles/saas-managed-tenants-approver.yml
   - $ref: /teams/lp-sre/roles/lp-sre-nasa-slack.yml
