@@ -21,8 +21,9 @@ spec:
   skipCertCheck: false
   tokens: dynatrace-tokens
   oneAgent:
-    hostMonitoring:
+    classicFullStack:
       args:
+      # aligned with https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/resources/dynatrace-dynakube/template.yaml
       # https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/oneagent-configuration-via-command-line-interface
       - --set-host-group={{ resource.namespace.cluster.name }}
       # TODO: align env and cluster-id
