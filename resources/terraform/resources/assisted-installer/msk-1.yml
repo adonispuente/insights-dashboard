@@ -19,7 +19,7 @@ server_properties: |
   num.partitions=6
   num.replica.fetchers=2
   replica.lag.time.max.ms=30000
-  retention.ms=2419200000
+  log.retention.ms=2419200000
   socket.receive.buffer.bytes=102400
   socket.request.max.bytes=104857600
   socket.send.buffer.bytes=102400
