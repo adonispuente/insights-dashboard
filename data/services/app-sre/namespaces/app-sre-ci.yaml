@@ -119,11 +119,14 @@ externalResources:
     defaults: /terraform/resources/app-sre/production/ci-int-asg-1.yml
     overrides:
       max_size: 3
+      iam_role_name: ci-instances-read-secrets
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+        ref: cd1ccf8840de733cd22250f653a4082f241411d5
       - provider: static
         tag_name: type
         value: ci-int-jenkins-worker-app-sre
