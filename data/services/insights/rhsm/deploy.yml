@@ -65,7 +65,7 @@ resourceTemplates:
       ENVIRONMENT: stage_data
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: cd2a824fe3d2dab93a503cf219ff7c44845be811
+    ref: 420935da8aebaa4fa9d99f7eeed836318b44a3f9
     parameters:
       ENVIRONMENT: production_data
 
