@@ -6,6 +6,63 @@ labels: {}
 name: Joshua Packer
 org_username: jpacker
 github_username: jnpacker
+quay_username: jpacker
+tag_on_cluster_updates: false
 
 roles:
 - $ref: /teams/advanced-cluster-management/roles/member.yml
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  Vhb2ttLUXvOzaMztx/WEbZRkZg==
