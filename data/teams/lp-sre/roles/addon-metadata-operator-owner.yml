@@ -1,0 +1,8 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: lp-sre-addon-metadata-operator-owner
+
+permissions:
+- $ref: /teams/lp-sre/permissions/github-mt-sre-addon-metadata-operator-owners-team.yml

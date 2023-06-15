@@ -1,0 +1,11 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: github-mt-sre-go-ci-owners-team
+description: Membership of the mt-sre go-ci-owners team
+
+service: github-org-team
+org: mt-sre
+team: go-ci-owners
