@@ -6,6 +6,7 @@ labels:
 
 name: cos-fleet-manager-pipelines
 description: cos-fleet-manager pipelines namespace
+delete: true
 
 cluster:
   $ref: /openshift/appsrep05ue1/cluster.yml
