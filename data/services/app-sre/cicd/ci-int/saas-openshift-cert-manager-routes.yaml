@@ -144,6 +144,9 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/hive-stage-01/namespaces/cert-manager.yml
     ref: main
+  - namespace:
+      $ref: /openshift/hivep01ue1/namespaces/cert-manager.yml
+    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   # RHOBS
   - namespace:
       $ref: /openshift/rhobsp02ue1/namespaces/cert-manager.yml
@@ -161,10 +164,6 @@ resourceTemplates:
     RELEASE: 0.1.3
   targets:
 # Hive
-  - namespace:
-      $ref: /openshift/hivep01ue1/namespaces/openshift-cert-manager.yml
-    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
-    delete: true
   - namespace:
       $ref: /openshift/hivep02ue1/namespaces/openshift-cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
