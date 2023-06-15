@@ -87,6 +87,7 @@ resourceTemplates:
       NOTIFICATIONS_INSTANT_EMAILS_ENABLED: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_USE_DEFAULT_TEMPLATE: true
+      NOTIFICATIONS_DRAWER_ENABLED: true
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -276,6 +277,7 @@ resourceTemplates:
       QUARKUS_REST_CLIENT_LOGGING_SCOPE: request-response
       QUARKUS_LOG_CATEGORY__ORG_JBOSS_RESTEASY_REACTIVE_CLIENT_LOGGING__LEVEL: DEBUG
       QUARKUS_CAMEL_ROUTES_DISCOVERY_ENABLED: false
+      NOTIFICATIONS_DRAWER_ENABLED: true
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
