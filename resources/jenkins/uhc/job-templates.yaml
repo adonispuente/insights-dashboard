@@ -225,14 +225,18 @@
         - *qe_aws_credentials
         - *qe_gcp_credentials
     parameters:
-    - string:
-        name: ENVIRONMENT
+    - choice:
+        name: OCM_ENV
         default: '{environment}'
         description: 'Environment against test suite run. Ex: staging/production'
+        choices:
+            - staging
+            - production
+            - integration
     - string:
         name: PROFILES
         default: '{default_profiles}'
-        description: 'Profiles you want to run in multi processes, like rosa-hypershift,osd-standard'
+        description: 'Profiles you want to run in multi processes, like rosa-hcp-ad. All defined <a href="https://gitlab.cee.redhat.com/service/ocm-backend-tests/-/blob/master/data/ci/profiles/cms-cluster-profile.yml">here</a>'
     - string:
         name: VERSION
         default: '{version}'
@@ -241,6 +245,32 @@
         name: CHANNEL_GROUP
         default: '{default_channel}'
         description: 'The channel group you want to use for cluster creation default stable'
+    - string:
+        name: CLOUD_PROVIDER
+        description: 'The cluster provider of the indicated region for the cases running, default empty. Please notice to choose the correct profile aligned with the profile and region.'
+    - string:
+        name: REGION
+        description: 'The region if you want to use for cluster creation,when not set, it will use the one defined in profile'
+    - string:
+        name: PROVISION_SHARD
+        default: ''
+        description: 'Once you want to specify a provision shard for the profile testing, fill in a id here'
+    - string:
+        name: CASE_LABEL_FILTER
+        default: 'public_hypershift_CH'
+        description: 'Set the predefined case filter name for your job. You can find predefined labelfilters <a href="https://gitlab.cee.redhat.com/service/ocm-backend-tests/-/blob/master/predefined_labels.py">here</a>'
+    - string:
+        name: CUSTOMIZED_LABEL_FILTER
+        default: ''
+        description: 'You can customized your own label filter for the cases once you cannot find predefined one. For example "Matrix&&HCPOnly&&E2E"'
+    - bool:
+        name: PREPARE_ONLY
+        default: false
+        description: 'Only prepare a cluster with the profile once enabled. In case you just need a prepared cluster'
+    - bool:
+        name: SKIP_PREPARE
+        default: false
+        description: 'Skip the preparation of the cluster and run the test cases directly. But notice if there is a case needs prepared cluster, the case will fail'
     branch: master
     ci_cmd: ./run_profile.sh
     cron_expression: '0 0 * * *'
