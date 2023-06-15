@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Brady Pratt
+org_username: bpratt
+github_username: jbpratt
+
+roles:
+  - $ref: /dependencies/ci-ext/roles/ci-ext-access.yml
+  - $ref: /teams/redhat-qe/roles/redhat-qe.yml
+  - $ref: /teams/osde2e/roles/dev.yml

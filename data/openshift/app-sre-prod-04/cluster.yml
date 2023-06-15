@@ -15,7 +15,8 @@ auth:
   org: app-sre
   team: app-sre-prod-04-cluster
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
@@ -30,7 +31,7 @@ spec:
   provider: aws
   region: us-east-1
   channel: fast
-  version: 4.12.10
+  version: 4.13.0
   initial_version: 4.3.18
   multi_az: true
   nodes: 9

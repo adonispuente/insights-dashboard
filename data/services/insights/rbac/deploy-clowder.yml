@@ -143,7 +143,7 @@ resourceTemplates:
       GLITCHTIP_SECRET: insights-rbac-stage-dsn
   - namespace:
       $ref: /services/insights/rbac/namespaces/rbac-prod.yml
-    ref: a0e6fbee6cfc76ab805efffe9eab887b50526f6d
+    ref: 4fa718cb07888bf884525c3873d3045b301be26a
     parameters:
       ENV_NAME: prod
       DISABLE_MIGRATE: "True"

@@ -56,6 +56,9 @@ resetPasswords:
   - user:
       $ref: /teams/insights/users/peblaho.yml
     requestId: peblahokeychange01
+  - user:
+      $ref: /teams/insights/users/dhorton.yml
+    requestId: dhorton-reset-aws-stage-password-06-09-2023
 
 deleteKeys:
 # APPSRE-4733
@@ -621,3 +624,6 @@ deletionApprovals:
 - type: aws_db_instance
   name: vulnerability-engine-stage-readonly
   expiration: '2023-05-31'
+- type: aws_elasticache_replication_group
+  name: vmaas-redis
+  expiration: "2023-06-16"

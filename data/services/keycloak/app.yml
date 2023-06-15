@@ -49,7 +49,31 @@ codeComponents:
       name: keycloak
       group: service
       branch: main
-
+- name: keycloak-user-service
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/keycloak-user-service
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
+  gitlabSync:
+    sourceProject:
+      name: keycloak-user-service
+      group: service
+      branch: main
+    destinationProject:
+      name: keycloak-user-service
+      group: service
+      branch: main
+- name: keycloak-config-manager
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/keycloak-config-manager
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
@@ -60,4 +84,10 @@ quayRepos:
   items:
   - name: keycloak
     description: Keycloak
+    public: false
+  - name: keycloak-user-service
+    description: keycloak user service
+    public: false
+  - name: keycloak-config-manager
+    description: keycloak config manager
     public: false

@@ -185,8 +185,6 @@ openshiftResources:
   path: /quayio-stage/quay/quay-recovery.web-allow-external.networkpolicy.yaml
 - provider: route
   path: /quayio-stage/quay/quay-service-tool.route.yaml
-  vault_tls_secret_path: app-interface/quayio-stage/quayio-stage/routes/quay-service-tool
-  vault_tls_secret_version: 4
 
 - provider: resource-template
   type: extracurlyjinja2
@@ -324,6 +322,20 @@ externalResources:
     - name: quayio-stage-recovery
       default: true
       openshift_service: quay-py3-recovery-load-balancer-service
+    rules: []
+  - provider: alb
+    identifier: quayio-stage-alb01-service-tool
+    output_resource_name: quayio-alb-st
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-stage/vpcs/default.yml
+    certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/8e2e34fa-7227-4561-9d7d-d364871f4352
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-stage-st
+      default: true
+      openshift_service: quayio-service-tool-load-balancer
     rules: []
   - provider: s3
     identifier: quayio-stage-cloudfront-logs

@@ -1955,6 +1955,9 @@ In order to add or update a role, you need to add them to the `externalResources
 - `assume_role`: trusted entities can assume this role. Require one of the following.
   - `AWS`: list ARN of iam users or accounts
   - `Service`: list of AWS services
+  - `Federated`: Federated Principal
+- `assume_condition`: (optional) additional requirements for the Principal trying to assume the role
+- `assume_action`: (optional) specific sts action that will be allowed (default: `AssumeRole`)
 - `inline_policy`: (optional) an AWS policy to create and attach to the role. (requires AWS provider plugin version 3.30.0 or above)
 - `output_resource_name`: name of Kubernetes Secret to be created.
   - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).
@@ -2225,6 +2228,36 @@ Once the changes are merged, the DNS zone will be created (or updated) and a Kub
 The Secret will contain the following fields:
 - `aws_access_key_id` - The access key ID.
 - `aws_secret_access_key` - The secret access key.
+
+#### Managed Streaming for Apache Kafka (MSK) via App-Interface (`/openshift/namespace-1.yml`)
+
+[Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/) is a fully managed service that makes it easy for you to build and run applications that use Apache Kafka to process streaming data.
+
+In order to add an MSK cluster, you need to add it to the `externalResources` section:
+
+- `provider`: must be `msk`
+- `identifier`: id of the resource to create (example: `msk-cluster`)
+- `defaults`: path relative to [resources](/resources) to a file with default values. Note that it starts with `/`. The file must a valid [MSK schemas file](https://github.com/app-sre/qontract-schemas/blob/main/schemas/aws/msk-defaults-1.yml)
+- `output_resource_name`: name of Kubernetes Secret to be created.
+  - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).
+  - If `output_resource_name` is not defined, the name of the secret will be `<identifier>-<provider>`.
+- `annotations`: additional annotations to add to the output resource
+- `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
+  - `path`: vault path
+  - `field`: `all`
+  - `version`: (optional) for vault kv2
+
+Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated and a Kubernetes Secret will be created in the same namespace with all relevant details.
+
+The Secret will contain the following fields:
+- `zookeeper_connect_string` - A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+- `zookeeper_connect_string_tls` - A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS.
+- `bootstrap_brokers` - Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
+- `bootstrap_brokers_tls` - One or more DNS names (or IP addresses) and TLS port pairs.
+- `bootstrap_brokers_sasl_iam` - One or more DNS names (or IP addresses) and SASL IAM port pairs.
+- `bootstrap_brokers_sasl_scram` - One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
+
+Depending on your MSK configuration, some of these fields may be empty.
 
 #### Manage Application Load Balancers via App-Interface (`/openshift/cluster-1.yml`)
 
@@ -2701,7 +2734,7 @@ To manage a User group via App-Interface:
   * Adding this attribute will add the PagerDuty target as an additional "source of truth", and will add the final schedule user to the Slack user group (in addition to any references from user files).
 - `ownersFromRepos`: a list of urls of github or gitlab repositories containing
   the `OWNERS` files to extract `approvers`/`reviewers` from. Only the root
-  `OWNERS` file is considered. The `OWNERS_ALIASES` is respected.
+  `OWNERS` file is considered. The `OWNERS_ALIASES` is respected. The `master` branch is queried.
     - Note: optionally add `:<branch>` to use a specific branch. For example: `https://github.com/openshift/osde2e:main`.
 - `schedule`: a reference to a file representing a schedule.
 - `channels`: a list of channels to add to the User group

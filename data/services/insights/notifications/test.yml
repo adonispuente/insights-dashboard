@@ -28,12 +28,12 @@ authentication:
     version: 3
 resourceTemplates:
 - name: notifications-backend
-  path: /.rhcicd/stage-post-deployment-tests.yaml
+  path: /.rhcicd/stage-backend-post-deployment-tests.yaml
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
     parameters:
       ENV_NAME: stage
     promotion:
@@ -46,15 +46,15 @@ resourceTemplates:
       - channel: notifications-backend-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: 65803d06d24d1c7c
+          target_config_hash: 834e13d03a3c8a49
           type: parent_saas_config
 - name: notifications-engine
-  path: /.rhcicd/stage-post-deployment-tests.yaml
+  path: /.rhcicd/stage-engine-post-deployment-tests.yaml
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
     parameters:
       ENV_NAME: stage
     promotion:
@@ -67,5 +67,5 @@ resourceTemplates:
       - channel: notifications-engine-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: b207928f8225cc8e
+          target_config_hash: 8d8336027f977ea1
           type: parent_saas_config

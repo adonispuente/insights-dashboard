@@ -72,6 +72,10 @@ spec:
       vpcID: vpc-0d8a818bcf581ebe7
       credentialsSecretRef:
         name: backplane-vpc-creds-backplanes02uw2
+    - region: us-east-1
+      vpcID: vpc-0884b1af2e03c3a75
+      credentialsSecretRef:
+        name: backplane-vpc-creds-backplanes03ue1
     endpointVPCInventory:
     - region: us-east-1
       subnets:

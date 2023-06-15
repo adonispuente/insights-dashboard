@@ -118,6 +118,7 @@ resourceTemplates:
       USE_NEWRELIC: 'false'
       USE_PROMETHEUS: 'false'
       ENABLE_AUTOSUB: 'true'
+      CLOUD_CONNECTOR_HOST: cloud-connector
   - namespace:
       $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
     ref: master
@@ -143,7 +144,7 @@ resourceTemplates:
       - advisor-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/advisor/namespaces/advisor-prod.yml
-    ref: 530e33b74a7e4a2d082125cba3a1d082b6a54aca
+    ref: 58e27a4c2df02ffe3b456f172b94f0abdf684f08
     promotion:
       auto: true
       subscribe:

@@ -62,6 +62,9 @@ resourceTemplates:
   path: /templates/image-builder.yml
   targets:
     - namespace:
+        $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+      ref: main
+    - namespace:
         $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       disable: true # do not create an app-sre deploy job for ephemeral namespace
       ref: internal # populated by bonfire
@@ -110,7 +113,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 975e5c1405f68f92465bf456cb9c629aee304816
+    ref: 8a34788b2743dbd9e010f7723ae52d9915ce6fce
 - name: image-builder-frontend
   url: https://github.com/RedHatInsights/image-builder-frontend
   path: /deploy/frontend-clowder.yml
@@ -119,3 +122,8 @@ resourceTemplates:
         $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       disable: true # do not create an app-sre deploy job for ephemeral namespace
       ref: internal # populated by bonfire
+    - namespace:
+        $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
+      ref: main
+      parameters:
+        ENV_NAME: "ib-devconf"

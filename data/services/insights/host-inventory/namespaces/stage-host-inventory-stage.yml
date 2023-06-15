@@ -25,7 +25,7 @@ networkPoliciesAllow:
 - $ref: /services/insights/historical-system-profiles/namespaces/stage-historical-system-profiles-stage.yml
 - $ref: /services/insights/system-baseline/namespaces/stage-system-baseline-stage.yml
 - $ref: /services/insights/ingress/namespaces/stage-ingress-stage.yml
-- $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+- $ref: /services/insights/compliance/namespaces/compliance-stage.yml
 - $ref: /services/insights/config-manager/namespaces/config-manager-stage.yml
 - $ref: /services/insights/edge/namespaces/stage-edge-stage.yml
 - $ref: /services/insights/malware-detection/namespaces/stage-malware-detection-stage.yml

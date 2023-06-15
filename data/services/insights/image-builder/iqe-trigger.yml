@@ -30,7 +30,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
-    ref: a5186f29ae18c8a47dec9c23309244fbdcca58df
+    ref: 56490261d8d96ee726ddc76b7bdeafb947ae06f6
     promotion:
       auto: true
       subscribe:

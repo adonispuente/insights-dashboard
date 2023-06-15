@@ -1,0 +1,26 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: dynatrace
+
+permissions: []
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/dynatrace-config.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/sd-sre/roles/dynatrace.yaml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/osd-operators/dynatrace/app.yml
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-operator.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-rules.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-opentelemetry-operator.yaml

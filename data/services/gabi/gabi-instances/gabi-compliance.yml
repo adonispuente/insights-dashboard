@@ -28,7 +28,7 @@ instances:
 - account: insights-stage
   identifier: compliance-stage
   namespace:
-    $ref: /services/insights/compliance/namespaces/stage-compliance-stage.yml
+    $ref: /services/insights/compliance/namespaces/compliance-stage.yml
 - account: insights-prod
   identifier: compliance-prod-readonly
   namespace:

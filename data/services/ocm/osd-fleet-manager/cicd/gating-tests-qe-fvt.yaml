@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: osd-fleet-manager
   url: https://gitlab.cee.redhat.com/service/osd-fleet-manager
@@ -39,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     name: integration-canary
     promotion:
       auto: true
@@ -54,7 +55,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     name: integration-main
     promotion:
       auto: true
@@ -69,7 +70,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -83,7 +84,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:

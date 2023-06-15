@@ -69,6 +69,7 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: production_data
 
+# The insights-subscription-watch deployment is for publishing the grafana dashbaords
 - name: insights-subscription-watch
   url: https://github.com/RedHatInsights/rhsm-subscriptions
   path: /.rhcicd/grafana
@@ -79,7 +80,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 67b21df7478d77b8164ce96358c90d8eb2770c2b
+    ref: 4a0364fe64a42a778458556b6f00fdc2e5897ec8
 
 # NOTE: needs Deployment, ConfigMap, Service in managedResources (as is common)
 # but also needs ClusterRole, ClusterRoleBinding, ServiceAccount permissions to inject k8s metadata into traces

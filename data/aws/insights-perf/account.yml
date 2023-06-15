@@ -222,3 +222,6 @@ deletionApprovals:
 - type: aws_db_instance
   name: cost-management-perf-readonly
   expiration: '2023-05-31'
+- type: aws_elasticache_replication_group
+  name: vmaas-redis
+  expiration: "2023-06-16"

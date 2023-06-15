@@ -190,6 +190,10 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/ccx-data-pipeline-stage/insights-content-template-renderer.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-cache-writer.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-redis.servicemonitor.yml
+- provider: resource
   path: /insights-stage/sources-stage/sources-api.servicemonitor.yml
 - provider: resource
   path: /insights-stage/sources-stage/sources-superkey-worker.servicemonitor.yml
@@ -261,6 +265,14 @@ openshiftResources:
   path: /insights-stage/ros-stage/ros-backend-engine-result-processor.yml
 - provider: resource
   path: /insights-stage/ros-stage/ros-backend-inventory-events-processor.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-api.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-kruize.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-processor.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/ros-stage/ros-ocp-backend-recommender.servicemonitor.yml
 - provider: resource
   path: /insights-stage/yuptoo-stage/yuptoo.servicemonitor.yml
 - provider: resource

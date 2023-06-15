@@ -188,6 +188,9 @@ access:
   group: dedicated-admins
 ## Backplane STS
 - cluster:
+    $ref: /openshift/backplanei02ue1/cluster.yml
+  group: dedicated-admins
+- cluster:
     $ref: /openshift/backplanes03ue1/cluster.yml
   group: dedicated-admins
 ## stonesoup control plane clusters
@@ -220,6 +223,7 @@ aws_groups:
 - $ref: /aws/cna-service-stage/groups/App-SRE-admin.yml
 - $ref: /aws/cna-service/groups/App-SRE-admin.yml
 - $ref: /aws/hypershift-dns01/groups/AppSRE-admin.yml
+- $ref: /aws/sd-infra-stage-01/groups/App-SRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
@@ -243,6 +247,7 @@ user_policies:
 - $ref: /aws/cna-service-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/cna-service/policies/ManageOwnMFA.yml
 - $ref: /aws/hypershift-dns01/policies/ManageOwnMFA.yml
+- $ref: /aws/sd-infra-stage-01/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:
@@ -275,6 +280,24 @@ self_service:
   datafiles:
   - $ref: /services/observability/app.yml
   - $ref: /services/app-interface/app.yml
+  - $ref: /services/glitchtip/app.yml
+  - $ref: /services/app-interface/go-qontract-reconcile/app.yml
+  - $ref: /services/github-mirror/app.yml
+  - $ref: /services/visual-app-interface.devshift.net/app.yml
+  - $ref: /services/vuln-reporter/app.yml
+  - $ref: /services/app-interface/vault-manager/app.yml
+  - $ref: /services/skupper-network-monitoring/app.yml
+  - $ref: /services/rate-limiting/app.yml
+  - $ref: /services/app-sre/app.yml
+  - $ref: /services/ocm-quay/app.yml
+  - $ref: /services/dashdot/app.yml
+  - $ref: /services/vault.devshift.net/app.yml
+  - $ref: /services/app-sre/cert-manager/app.yml
+  - $ref: /services/app-sre-ci/app.yml
+  - $ref: /services/app-interface/git-partition-sync/app.yml
+  - $ref: /services/unleash/app.yml
+  - $ref: /services/container-security-operator/app.yml
+  - $ref: /services/gabi/app.yml
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:

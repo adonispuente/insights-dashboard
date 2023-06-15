@@ -20,7 +20,7 @@ deployResources:
     memory: 700Mi
   limits:
     cpu: 2000m
-    memory: 1200Mi
+    memory: 2Gi
 
 slack:
   workspace:
@@ -33,10 +33,12 @@ managedResourceTypes:
 - HorizontalPodAutoscaler
 - Service
 - Frontend
+- StatefulSet
 
 imagePatterns:
 - quay.io/cloudservices
 - quay.io/prometheus/pushgateway
+- quay.io/edge-infrastructure/redis
 
 authentication:
   image:
@@ -61,7 +63,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 0ad17abb93c18b512397a0bc51dd68af1cf2581b
+    ref: 7dac28c710e9762f67e74cea657f4d302dee66a0
     parameters:
       MIN_REPLICAS: "32"
       MAX_REPLICAS: "32"
@@ -167,7 +169,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 71a78a1a7ca2de0f8af5971137f9667587a8cb33
+    ref: 034420cc44bce7057db43ba156b3b18b23586b9e
     delete: false
     parameters:
       MIN_REPLICAS: "3"
@@ -240,7 +242,7 @@ resourceTemplates:
       name: RedHatInsights-insights-content-service-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 4216523486cc6015765500fbde66fdcd9f5975d8
+    ref: 59604fce899799d65885bbad536ec68dc2606366
     delete: false
     parameters:
       CPU_LIMIT: "250m"
@@ -449,7 +451,7 @@ resourceTemplates:
       JOB_SCHEDULE__NOTIFICATION_BACKEND: "*/3 * * * *"
       JOB_SCHEDULE__SERVICE_LOG: "4-59/3 * * * *"
       NOTIFICATION_RESEND_COOLDOWN_NOTIFICATION_BACKEND: "24 hours"
-      NOTIFICATION_RESEND_COOLDOWN_SERVICE_LOG: "1 week"
+      NOTIFICATION_RESEND_COOLDOWN_SERVICE_LOG: "1 hours"
       PLATFORM_UI_HOSTNAME: console.stage.redhat.com
       TEMPLATE_RENDERER_SERVER: "http://insights-content-template-renderer-svc:8000/"
       SERVICE_LOG__URL: "https://api.stage.openshift.com/api/service_logs/v1/cluster_logs"
@@ -535,7 +537,7 @@ resourceTemplates:
       LOG_LEVEL: INFO
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 88c7bdf139a70ca66f4c16ab4fc7ef3b38dffcc5
+    ref: 9f43db1f0e2732c1dc3f41e2b24f783376a4a75d
     parameters:
       LOG_LEVEL: INFO
   - namespace:
@@ -571,7 +573,7 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 95c7fd2fab018e874a5ef3ce98ab8c62f4efcafb
+    ref: 751d4fa64cb0b3fbd07b812175e7c5aef4ef839c
     parameters:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
@@ -585,6 +587,7 @@ resourceTemplates:
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
+# It contains ccx-redis and cache-writer
 - name: ccx-redis
   path: /deploy/cache-writer.yaml
   url: https://github.com/RedHatInsights/insights-results-aggregator
@@ -593,17 +596,16 @@ resourceTemplates:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     parameters:
-      REDIS_STORAGE: "10Gi"
-  # TODO: Enable once tested in stage
-  # - namespace:
-  #     $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-  #   ref: TODO
-  #   parameters:
-  #     REDIS_STORAGE: "100Gi"
+      REDIS_STORAGE: "2Gi"
+  - namespace:
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
+    ref: b1735be71da7af5101f6ab514021802a216074f8
+    parameters:
+      REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
-      REDIS_STORAGE: "10Gi"
+      REDIS_STORAGE: "2Gi"
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
@@ -656,7 +658,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 958de07e07ff276ce09652a3769e4dccc30bee1d
+    ref: ed0f0c8006172b4a3b7a5d4b99cc6b81f68aaee6
 
 - name: grafana-dashboard-insights-content-service
   url: https://github.com/RedHatInsights/insights-content-service
@@ -680,7 +682,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: befd5f0b5f277d005558118fb1e9dbff2c930ef7
+    ref: 2c79329c6786713866ad1b96db160468acbe6950
 
 - name: grafana-dashboard-insights-results-smart-proxy
   url: https://github.com/RedHatInsights/insights-results-smart-proxy
@@ -752,7 +754,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 7f8e96a16ce0c6590edbc5a16b62713baf0fdffc
+    ref: 538f9d41a310d003cf9661044d112ea4afc023d5
 
 - name: grafana-dashboard-insights-content-template-renderer
   url: https://github.com/RedHatInsights/insights-content-template-renderer

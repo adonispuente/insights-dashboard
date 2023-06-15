@@ -50,14 +50,14 @@ resourceTemplates:
   # Staging:
   - namespace:
       $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
-    ref: 7c94c8d89fe2a67eb6b4ce2f192405dbb3497c8b
+    ref: dbfe096de9624982d8c80db8cbce7da6312681f9
     parameters:
       CJI_INVOCATION: "01"
 
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 7c94c8d89fe2a67eb6b4ce2f192405dbb3497c8b
+    ref: dbfe096de9624982d8c80db8cbce7da6312681f9
     parameters:
       CJI_INVOCATION: "01"
 
@@ -130,6 +130,9 @@ resourceTemplates:
       ENHANCED_ORG_ADMIN: True
       UNLEASH_LOG_LEVEL: "ERROR"
 
+      KOKU_MIGRATIONS_CPU_REQUEST: "200m"
+      KOKU_MIGRATIONS_CPU_LIMIT: "500m"
+
 
   # Staging:
   - namespace:
@@ -143,16 +146,16 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Staging
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 13efbbb
+      DBM_IMAGE_TAG: 76c0d76
       # Migrations Invocation
-      DBM_INVOCATION: "00"
+      DBM_INVOCATION: "01"
       # Migration directive is optional and should be in the form of:
       # <app>[:<migration>][,<app>[:<migration>]...]
       # Ex: "reporting:0200,api:0050"
       # Ex: "reporting:0200"
       # Ex: "reporting"
       # Ex: ""
-      _MIGRATION_DIRECTIVE: ""
+      _MIGRATION_DIRECTIVE: "reporting:0282"
       ######################################
       APP_DOMAIN: apps.crcs02ue1.urby.p1.openshiftapps.com
       ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
@@ -172,9 +175,11 @@ resourceTemplates:
       UPDATE_TIMEOUT: 14400
       RETAIN_NUM_MONTHS: 4
       VACUUM_DATA_DAY_OF_WEEK: 0
-      REPORT_DOWNLOAD_SCHEDULE: "0 4,16 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 4,16 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 5,17 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 6,18 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 7,19 * * *"
       PARQUET_PROCESSING_BATCH_SIZE: "500000"
-      PRESTO_HOST: trino-coordinator
       TRINO_HOST: trino-coordinator
       RBAC_CACHE_TIMEOUT: 1
       CACHE_TIMEOUT: 1
@@ -266,12 +271,12 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 7c94c8d89fe2a67eb6b4ce2f192405dbb3497c8b
+    ref: 2781b2dbdca532da2be65fbd4c990491e4efb467
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 67c284f
+      DBM_IMAGE_TAG: 2781b2d
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -305,8 +310,16 @@ resourceTemplates:
       SOURCE_STATUS_FREQUENCY_MINUTES: 60
       UPDATE_TIMEOUT: 14400
       VACUUM_DATA_DAY_OF_WEEK: 0
-      REPORT_DOWNLOAD_SCHEDULE: "0 6,18 * * *"
-      PRESTO_HOST: trino-coordinator
+
+      TENANT_MULTIPROCESSING_MAX_PROCESSES: "2"
+      TENANT_MULTIPROCESSING_CHUNKS: "4"
+
+      # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 8 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 10 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 14 * * *"
+
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False
       GUNICORN_WORKERS: 2
@@ -318,7 +331,7 @@ resourceTemplates:
       KOKU_MEMORY_REQUEST: 2Gi
       KOKU_MEMORY_LIMIT: 4Gi
       # listener
-      LISTENER_REPLICAS: 6
+      LISTENER_REPLICAS: 6  # 6
       LISTENER_CPU_REQUEST: 200m
       LISTENER_CPU_LIMIT: 1
       LISTENER_MEMORY_REQUEST: 1Gi
@@ -358,7 +371,7 @@ resourceTemplates:
       WORKER_COST_MODEL_MEMORY_REQUEST: 512Mi
       WORKER_COST_MODEL_MEMORY_LIMIT: 1Gi
       # worker-download
-      WORKER_DOWNLOAD_REPLICAS: 10  # 6
+      WORKER_DOWNLOAD_REPLICAS: 6  # 6
       WORKER_DOWNLOAD_CPU_REQUEST: 700m
       WORKER_DOWNLOAD_CPU_LIMIT: 1500m
       WORKER_DOWNLOAD_MEMORY_REQUEST: 5Gi
@@ -370,7 +383,7 @@ resourceTemplates:
       WORKER_OCP_MEMORY_REQUEST: 1Gi
       WORKER_OCP_MEMORY_LIMIT: 2Gi
       # worker-priority
-      WORKER_PRIORITY_REPLICAS: 0  # 3
+      WORKER_PRIORITY_REPLICAS: 1  # 3
       WORKER_PRIORITY_CPU_REQUEST: 500m
       WORKER_PRIORITY_CPU_LIMIT: 1
       WORKER_PRIORITY_MEMORY_REQUEST: 3Gi
@@ -382,7 +395,7 @@ resourceTemplates:
       WORKER_REFRESH_MEMORY_REQUEST: 300Mi
       WORKER_REFRESH_MEMORY_LIMIT: 600Mi
       # worker-summary
-      WORKER_SUMMARY_REPLICAS: 10  # 6
+      WORKER_SUMMARY_REPLICAS: 6  # 6
       WORKER_SUMMARY_CPU_REQUEST: 100m
       WORKER_SUMMARY_CPU_LIMIT: 200m
       WORKER_SUMMARY_MEMORY_REQUEST: 512Mi
@@ -446,7 +459,7 @@ resourceTemplates:
     disable: true # tells app-sre to not actually run the deploy job for this target
     ref: internal # altered by bonfire
     parameters:
-      IMAGE_TAG: 411-002
+      IMAGE_TAG: 418-002
       S3_BUCKET_NAME: hccm-eph-s3
       S3_SSE_ENABLED: 'False'
       S3_SELECT_PUSHDOWN_ENABLED: 'False'
@@ -468,7 +481,7 @@ resourceTemplates:
     ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
     parameters:
       CONFIGMAP_HASH: '000002' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 411-002
+      IMAGE_TAG: 418-002
       S3_BUCKET_NAME: hccm-stage-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1
@@ -491,10 +504,10 @@ resourceTemplates:
   # Production
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 9f03f48c1fb15f80d527b175a78379d7b5cdf39f
+    ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
     parameters:
       CONFIGMAP_HASH: 'gffsf6' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 405-002
+      IMAGE_TAG: 418-002
       S3_BUCKET_NAME: hccm-prod-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1 # 1
@@ -684,7 +697,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: a71d7fcd96a9dd369d04b6b7b85a57dc73feed04
+    ref: 34ccaf640d3dc603c43f2d79bdff535474b75f8e
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
@@ -696,6 +709,20 @@ resourceTemplates:
       org:
         $ref: /dependencies/quay/cloudservices.yml
       name: hccm-frontend
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/hccm-frontend"
+    # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: a01cb29c1c124fdf943a61a07b0f41ef9b9e1a89
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/hccm-frontend"
+    # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 7a712e908df0ae486a545e77163b102982059645
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hccm-frontend"

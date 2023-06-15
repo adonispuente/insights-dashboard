@@ -88,7 +88,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 82e1186b0d6462ab748546fc13de6e5ed128b37b
+    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
     promotion:
       auto: true
       subscribe:
@@ -117,7 +117,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: aa3778c7aa3a620d59c56a7f57ad19085a953b92
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba
     parameters:
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
@@ -197,7 +197,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 82e1186b0d6462ab748546fc13de6e5ed128b37b
+    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
     promotion:
       auto: true
       subscribe:
@@ -278,7 +278,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: aa3778c7aa3a620d59c56a7f57ad19085a953b92
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba
     promotion:
       publish:
       - ocm-ams-deployed-prod
@@ -317,4 +317,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: aa3778c7aa3a620d59c56a7f57ad19085a953b92
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba

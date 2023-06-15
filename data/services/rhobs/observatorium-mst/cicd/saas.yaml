@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 5744083be5df8c457f6cc3e0f9ea117aaf775008
+    ref: 6f1a230c5f435be675902768a8422e34930befbe
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -125,11 +125,10 @@ resourceTemplates:
       OIDC_AUDIENCE: 'observatorium'
       OIDC_ISSUER_URL: '${SSO_BASE_URL}'
       SLEEP_DURATION_SECONDS: '15'
-      MANAGED_TENANTS: 'rhobs,osd,appsre,rhoc'
+      MANAGED_TENANTS: 'rhobs,osd,appsre'
       RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-mst-staging
       OSD_RELOADER_SECRET_NAME: rhobs-osd-tenant
       APPSRE_RELOADER_SECRET_NAME: observatorium-appsre-staging
-      RHOC_RELOADER_SECRET_NAME: observatorium-rhoc-staging
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
       OBSCTL_RELOADER_IMAGE_TAG: 'ad1ed3a'
@@ -145,7 +144,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 5744083be5df8c457f6cc3e0f9ea117aaf775008
+    ref: 722fb30dec03b81f1202d5a2e45f945d8d938aa2
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -155,7 +154,7 @@ resourceTemplates:
       GUBERNATOR_IMAGE_TAG: v2.0.0-rc.36
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       JAEGER_COLLECTOR_NAMESPACE: observatorium-production
-      OBSERVATORIUM_API_REPLICAS: 15
+      OBSERVATORIUM_API_REPLICAS: 6
       OBSERVATORIUM_API_CPU_REQUEST: 100m
       OBSERVATORIUM_API_CPU_LIMIT: 1
       OBSERVATORIUM_API_MEMORY_REQUEST: 256Mi
@@ -190,8 +189,7 @@ resourceTemplates:
       OIDC_AUDIENCE: 'observatorium'
       OIDC_ISSUER_URL: '${SSO_BASE_URL}'
       SLEEP_DURATION_SECONDS: '15'
-      MANAGED_TENANTS: 'rhobs,osd,appsre,rhoc'
-      RHOC_RELOADER_SECRET_NAME: observatorium-rhoc
+      MANAGED_TENANTS: 'rhobs,osd,appsre'
       RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-mst-production
       OSD_RELOADER_SECRET_NAME: rhobs-osd-tenant
       APPSRE_RELOADER_SECRET_NAME: observatorium-appsre
@@ -208,7 +206,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 5744083be5df8c457f6cc3e0f9ea117aaf775008
+    ref: 722fb30dec03b81f1202d5a2e45f945d8d938aa2
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -414,7 +412,7 @@ resourceTemplates:
       THANOS_STORE_MEMORY_LIMIT: '20Gi'
       THANOS_STORE_CACHE_MEMORY_LIMIT_MB: 2048
       THANOS_STORE_MAX_TIME: '-22h'
-      THANOS_RECEIVE_REPLICAS: 9
+      THANOS_RECEIVE_REPLICAS: 6
       THANOS_RECEIVE_CPU_REQUEST: '4'
       THANOS_RECEIVE_CPU_LIMIT: '4'
       THANOS_RECEIVE_MEMORY_REQUEST: '44Gi'
@@ -477,11 +475,11 @@ resourceTemplates:
       THANOS_S3_SECRET: rhobsp02ue1-mst-thanos-production-s3
       THANOS_IMAGE_TAG: v0.30.2
       THANOS_RECEIVE_CONTROLLER_IMAGE_TAG: master-2023-04-03-535b31e
-      THANOS_QUERIER_REPLICAS: 10
+      THANOS_QUERIER_REPLICAS: 6
       THANOS_QUERIER_CPU_REQUEST: '3'
       THANOS_QUERIER_CPU_LIMIT: '10'
-      THANOS_QUERIER_MEMORY_REQUEST: '24Gi'
-      THANOS_QUERIER_MEMORY_LIMIT: '48Gi'
+      THANOS_QUERIER_MEMORY_REQUEST: '5Gi'
+      THANOS_QUERIER_MEMORY_LIMIT: '24Gi'
       THANOS_QUERIER_MAX_CONCURRENT: '1'
       THANOS_QUERIER_FILE_SD_TARGETS: '[]'
       THANOS_QUERIER_PROXY_STRATEGY: 'lazy'
@@ -540,8 +538,8 @@ resourceTemplates:
       THANOS_RULER_QUERIER_CPU_LIMIT: '10'
       THANOS_RULER_QUERIER_CPU_REQUEST: '3'
       THANOS_RULER_QUERIER_LOG_LEVEL: info
-      THANOS_RULER_QUERIER_MEMORY_LIMIT: '48Gi'
-      THANOS_RULER_QUERIER_MEMORY_REQUEST: '24Gi'
+      THANOS_RULER_QUERIER_MEMORY_LIMIT: '30Gi'
+      THANOS_RULER_QUERIER_MEMORY_REQUEST: '6Gi'
       THANOS_RULER_QUERIER_REPLICAS: 10
       THANOS_RULER_QUERIER_PROXY_STRATEGY: 'lazy'
       THANOS_RULER_QUERIER_ENGINE: prometheus
@@ -782,10 +780,10 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-      ref: 7a59ea91943f366ce0855bd187f24dbc6e916be3
+      ref: 41105cc928dc89902e2b5268adc51844bb6dcd01
       parameters:
         CONFIGMAP_NAME: observatorium-thanos-receive-limits
-        RECEIVE_LIMITS:
+        RECEIVE_LIMITS: | # setting the content as string, otherwise it gets serialized as JSON in the resulting configmap
           write:
             global:
               max_concurrency: 0 # unlimited

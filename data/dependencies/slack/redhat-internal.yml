@@ -237,3 +237,4 @@ managedUsergroups:
 - package-operator
 - appeng-keycloak-ic
 - rhtap-alerts-group
+- rhobs-rules-and-dashboards

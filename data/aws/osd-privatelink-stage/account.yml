@@ -30,6 +30,8 @@ automationToken:
 
 premiumSupport: false
 
+enableDeletion: true
+
 disable:
   integrations:
   - terraform-aws-route53
@@ -173,3 +175,28 @@ deletionApprovals:
 - name: tgw-0f1a388c8aa2a9893-vpc-0acf3dc7ae4f18314-vpc-0fddc223a6a8fbbf7
   type: aws_security_group_rule
   expiration: '2023-05-22'
+- type: aws_route53_vpc_association_authorization
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z02441772RXZDAQN9GC5F
+  expiration: '2023-06-09'
+- type: aws_route53_vpc_association_authorization
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z092858837AHD4WAFGWD8
+  expiration: '2023-06-09'
+- type: aws_route53_vpc_association_authorization
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z10026912X73YJR6PEP2T
+  expiration: '2023-06-09'
+- type: aws_route53_zone_association
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z02441772RXZDAQN9GC5F
+  expiration: '2023-06-09'
+
+- type: aws_route53_vpc_association_authorizatione
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z06317281G58HI18NY02L
+  expiration: '2023-06-09'
+- type: aws_route53_zone_association
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z06317281G58HI18NY02L
+  expiration: '2023-06-09'
+- type: aws_route53_zone_association
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z092858837AHD4WAFGWD8
+  expiration: '2023-06-09'
+- type: aws_route53_zone_association
+  name: tgw-0f1a388c8aa2a9893-vpc-05c2b1203190cc276-Z10026912X73YJR6PEP2T
+  expiration: '2023-06-09'

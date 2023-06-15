@@ -7,7 +7,7 @@ description: SaaS tracking file for aws-vpce-operator
 app:
   $ref: /services/osd-operators/app.yml
 pipelinesProvider:
-  $ref: 
+  $ref:
     /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
@@ -49,7 +49,7 @@ resourceTemplates:
       name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: c5d0a6f75758d6e2a96783a24896c80b59628648
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       auto: true
       subscribe:
@@ -58,7 +58,7 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: c5d0a6f75758d6e2a96783a24896c80b59628648
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       auto: true
       subscribe:
@@ -67,7 +67,7 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hives02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       auto: false
       subscribe:
@@ -77,37 +77,37 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hivep07ue2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep06uw2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep05ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep04ew2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep03uw1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: bf273939e868d1500e05d9439ed7d59495c4931b
+    ref: 30257036032781baf08e88eb97eea04d76edb2e8
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep01ue1

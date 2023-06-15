@@ -1,0 +1,48 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: dynatrace
+
+name: dynatrace
+
+description: |
+  Dynatrace Initiative related artifacts
+
+architectureDocument: https://docs.google.com/document/d/1JzBiSqMwI3-NR4SI6LQgeBnbI1SuorGfhcUUr-3mz9M
+sopsUrl: https://drive.google.com/drive/folders/1dOVp5fvrtLHW2mmU4l-8OV09l7_-MuC6
+grafanaUrls:
+- title: TODOREPLACE
+  url: https://TODO
+onboardingStatus: OnBoarded
+
+escalationPolicy:
+  $ref: /teams/sd-sre/escalation-policies/dynatrace.yaml
+
+parentApp:
+  $ref: /services/osd-operators/app.yml
+
+serviceOwners:
+- name: SRE Mailing list
+  email: sd-sre@redhat.com
+
+dependencies:
+- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/openshift/service.yml
+- $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/ci-int/service.yml
+
+quayRepos:
+- org:
+    $ref: /dependencies/quay/app-sre.yml
+  items: []
+
+codeComponents:
+- name: dynatrace-config
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true

@@ -12,11 +12,13 @@ self_service:
   datafiles:
   - $ref: /services/addons/app.yml
   - $ref: /services/osd-operators/addon-operator/app.yml
+  - $ref: /services/osd-operators/package-operator/app.yml
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/addons/cicd/dashboards/saas-ms-rhdas-dashboards.yaml
   - $ref: /services/addons/cicd/dashboards/saas-ms-mtsre-dashboards.yaml
+  - $ref: /services/addons/cicd/dashboards/saas-ms-rhacs-dashboards.yaml
   - $ref: /services/addons/cicd/ci-int/saas-mt-SelectorSyncSet.yaml
   - $ref: /services/addons/cicd/ci-int/saas-mt-PagerDutyIntegration.yaml
   - $ref: /services/addons/cicd/ci-int/saas-mt-DeadmansSnitchIntegration.yaml

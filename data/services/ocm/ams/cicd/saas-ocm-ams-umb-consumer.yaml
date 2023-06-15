@@ -46,6 +46,7 @@ resourceTemplates:
     SENTRY_PROJECT: '17'
     UMB_TIMEOUT: 5m
     USE_CANDLEPIN_BASIC_AUTH: 'false'
+    REPLICAS: '5'
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -56,7 +57,6 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
-      REPLICAS: '1'
       SENTRY_URL: sentry.autom8.in
       UMB_USER_QUEUE: Consumer.uhcaccountmanager.ocm-user-consumer-integration
       UMB_SUBSCRIPTION_QUEUE: Consumer.uhcaccountmanager.ocm-subscription-consumer-integration
@@ -65,7 +65,7 @@ resourceTemplates:
       USE_CANDLEPIN_BASIC_AUTH: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 82e1186b0d6462ab748546fc13de6e5ed128b37b
+    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
     promotion:
       auto: true
       subscribe:
@@ -74,7 +74,6 @@ resourceTemplates:
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
-      REPLICAS: '2'
       SENTRY_URL: glitchtip.devshift.net
       UMB_USER_QUEUE: Consumer.uhcaccountmanager.ocm-user-consumer-stage
       UMB_SUBSCRIPTION_QUEUE: Consumer.uhcaccountmanager.ocm-subscription-consumer-stage
@@ -90,7 +89,6 @@ resourceTemplates:
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
-      REPLICAS: '1'
       SENTRY_URL: glitchtip.devshift.net
       UMB_USER_QUEUE: Consumer.uhcaccountmanager.ocm-user-consumer-stage-appsres04ue2
       UMB_SUBSCRIPTION_QUEUE: Consumer.uhcaccountmanager.ocm-subscription-consumer-stage-appsres04ue2
@@ -106,7 +104,6 @@ resourceTemplates:
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
-      REPLICAS: '1'
       RHIT_BASE_TERMS_URL: https://terms.stage.api.redhat.com/svcrest/terms/
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
       UHC_TOKEN_URL: ${SSO_BASE_URL}/protocol/openid-connect/token
@@ -123,14 +120,13 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: aa3778c7aa3a620d59c56a7f57ad19085a953b92
+    ref: 33ab86bf7cf67f98d88c97974b7b693657ec9aba
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local
       MOA_SKU: MW01369
       QUAY_REGISTRY_TEAM_NAME: installers
       RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.redhat.com/candlepin
-      REPLICAS: '3'
       SENTRY_URL: glitchtip.devshift.net
       SENTRY_PROJECT: '51'
       UMB_USER_QUEUE: Consumer.uhcaccountmanager.ocm-user-consumer

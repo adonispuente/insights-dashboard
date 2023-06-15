@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -99,7 +99,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -118,6 +118,81 @@ resourceTemplates:
     promotion:
       publish:
       - notifications-backend-prod-deploy-success-channel
+
+# notifications-connector-google-chat
+- name: notifications-connector-google-chat
+  path: /.rhcicd/clowdapp-connector-google-chat.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+    # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      # app-sre will not deploy this target
+    disable: true
+      # populated by bonfire
+    ref: internal
+
+    # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+      # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+
+# notifications-connector-microsoft-teams
+- name: notifications-connector-microsoft-teams
+  path: /.rhcicd/clowdapp-connector-microsoft-teams.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+    # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      # app-sre will not deploy this target
+    disable: true
+      # populated by bonfire
+    ref: internal
+
+    # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+      # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+
+# notifications-connector-slack
+- name: notifications-connector-slack
+  path: /.rhcicd/clowdapp-connector-slack.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+    # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+      # app-sre will not deploy this target
+    disable: true
+      # populated by bonfire
+    ref: internal
+
+    # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+      # notifications-backend commit hash that determines the clowdapp-slack.yaml version
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
 
 # notifications-engine
 - name: notifications-engine
@@ -146,7 +221,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -170,7 +245,8 @@ resourceTemplates:
       SOURCES_ENABLED: false
       RECIPIENT_PROVIDER_USE_IT_IMPL: true
       RHEL_ADVISOR_DAILY_DIGEST_ENABLED: true
-      NOTIFICATIONS_EXPORT_SERVICE_ENABLED: false
+      EXPORT_EVENT_LISTENER_LOG_LEVEL: DEBUG
+      NOTIFICATIONS_EXPORT_SERVICE_ENABLED: true
       NOTIFICATIONS_USE_DEFAULT_TEMPLATE: true
       NOTIFICATIONS_USE_POLICIES_EMAIL_TEMPLATES_V2_ENABLED: true
       NOTIFICATIONS_USE_COMPLIANCE_EMAIL_TEMPLATES_V2_ENABLED: true
@@ -196,6 +272,9 @@ resourceTemplates:
       NOTIFICATIONS_USE_TEMPLATES_FROM_DB: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
+      NOTIFICATIONS_SINGLE_EMAIL_TEST_USER: gduval-stage
+      QUARKUS_REST_CLIENT_LOGGING_SCOPE: request-response
+      QUARKUS_LOG_CATEGORY__ORG_JBOSS_RESTEASY_REACTIVE_CLIENT_LOGGING__LEVEL: DEBUG
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -208,7 +287,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
     parameters:
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 2Gi
@@ -251,6 +330,8 @@ resourceTemplates:
       NOTIFICATIONS_USE_RBAC_EMAIL_TEMPLATES_V2_ENABLED: true
       NOTIFICATIONS_USE_ADVISOR_EMAIL_TEMPLATES_V2_ENABLED: true
       NOTIFICATIONS_USE_ADVISOR_OPENSHIFT_EMAIL_TEMPLATES_V2_ENABLED: true
+      NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: false
+      NOTIFICATIONS_SINGLE_EMAIL_TEST_USER: gduval-prod
     promotion:
       publish:
       - notifications-engine-prod-deploy-success-channel
@@ -273,7 +354,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 5c6b4701992ffdec14bcdc5606a41a693714ca85
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
@@ -294,7 +375,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: f30e74bbfef64c7d2e64cc30b1e9eae8af4fec84
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
     parameters:
       CLOUDWATCH_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
@@ -324,10 +405,11 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-gw commit hash that determines the clowdapp.yaml version
-    ref: 2813e8415c0d78eea2f6bf3af02bd67a84596a74
+    ref: 214a1003af7dd76be49d79e0124b98258d748992
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
+      CPU_LIMIT: 250m
       MIN_REPLICAS: 3
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       SENTRY_DSN: https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
@@ -344,7 +426,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-gw commit hash that determines the clowdapp.yaml version
-    ref: 2813e8415c0d78eea2f6bf3af02bd67a84596a74
+    ref: 214a1003af7dd76be49d79e0124b98258d748992
     parameters:
       CLOUDWATCH_ENABLED: true
       MIN_REPLICAS: 3

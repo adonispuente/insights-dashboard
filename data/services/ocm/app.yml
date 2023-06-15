@@ -74,7 +74,7 @@ quayRepos:
   - name: golangci-lint
     description: Mirror of the upstream docker.io/golangci/golangci-lint repository
     public: true
-    # restore mirroring when image is private
+    # restore mirroring when image is private   
     # mirror:
     #   $ref: /dependencies/image-mirrors/docker.io/golangci/golangci-lint.yml
   - name: ocm-addon-test-operator

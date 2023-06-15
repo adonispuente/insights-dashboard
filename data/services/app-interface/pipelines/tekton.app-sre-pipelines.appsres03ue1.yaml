@@ -12,3 +12,9 @@ namespace:
 
 defaults:
   "$ref": /pipelines/tekton-provider-global-defaults.yaml
+
+pipelineTemplates:
+  openshiftSaasDeploy:
+    name: saas-deploy
+    type: onePerSaasFile
+    path: /tekton/stage/saas-deploy.pipeline.yaml

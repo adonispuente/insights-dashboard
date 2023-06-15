@@ -18,6 +18,8 @@ imagePatterns:
 - quay.io/cloudservices
 - quay.io/redhatqe
 
+timeout: 90m
+
 authentication:
   image:
     path: insights/quay/cloudservices-push
@@ -33,7 +35,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
-    ref: e02d74f7ab942f3e37f7995a565234f56e9719a2
+    ref: 4e79fea193127300f7a8218ca79401e657c8778f
     promotion:
       auto: true
       subscribe:
@@ -44,5 +46,5 @@ resourceTemplates:
       - channel: content-sources-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: 7ab374eb5a9fb143
+          target_config_hash: 534d40f129124873
           type: parent_saas_config

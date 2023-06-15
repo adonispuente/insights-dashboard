@@ -15,7 +15,7 @@ grafanaUrls:
 - title: Stage dashboard
   url: https://grafana.stage.devshift.net/d/XSuKR5MVk/crc-pdf-generator-stage?orgId=1
 - title: Prod dashboard
-  url: https://grafana.app-sre.devshift.net/TBD
+  url: https://grafana.app-sre.devshift.net/d/XSuKR5MVk/crc-pdf-generator-prod?orgId=1
 
 onboardingStatus: InProgress
 

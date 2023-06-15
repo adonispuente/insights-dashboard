@@ -42,14 +42,6 @@ upgradePolicyAllowedMutexes:
 - ocmquay-production
 - backplane
 
-upgradePolicyClusters:
-- name: appint-ex-01
-  upgradePolicy:
-    workloads:
-    - example
-    schedule: '* * * * *'
-    conditions:
-      soakDays: 0
 recommendedVersions:
 - workload: example
   channel: candidate

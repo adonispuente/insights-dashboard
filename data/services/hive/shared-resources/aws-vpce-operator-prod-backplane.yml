@@ -1,0 +1,17 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: hypershift-backplane-iam-secrets-prod
+description: shared resources for prod backplane IAM secrets for AWS VPCE operator in HyperShift
+
+openshiftResources:
+- provider: vault-secret
+  path: osd-sre/backplane/hypershift/backplanep01ue1
+  version: 1
+  name: backplanep01ue1-aws-vpce-operator
+- provider: vault-secret
+  path: osd-sre/backplane/hypershift/backplanep02uw2
+  version: 1
+  name: backplanep02uw2-aws-vpce-operator

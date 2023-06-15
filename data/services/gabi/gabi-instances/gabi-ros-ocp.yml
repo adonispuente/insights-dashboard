@@ -24,6 +24,10 @@ instances:
   identifier: rosocp-stage
   namespace:
     $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
+- account: insights-prod
+  identifier: rosocp-prod
+  namespace:
+    $ref: /services/insights/ros/namespaces/ros-prod.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-04-30'
+expirationDate: '2023-06-30'

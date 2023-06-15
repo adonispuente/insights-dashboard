@@ -26,3 +26,29 @@ changes:
   - externalResources[?(@.provisioner.'$ref'=='{{ ctx_file_path }}')]
   context:
     selector: externalResources[*].provisioner.'$ref'
+- provider: jsonPath
+  changeSchema: /aws/group-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+- provider: jsonPath
+  changeSchema: /aws/group-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+    when: added
+- provider: jsonPath
+  changeSchema: /aws/policy-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+- provider: jsonPath
+  changeSchema: /aws/policy-1.yml
+  jsonPathSelectors:
+  - $
+  context:
+    selector: account.'$ref'
+    when: added

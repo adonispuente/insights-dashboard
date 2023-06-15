@@ -50,10 +50,22 @@ jumpHost:
   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
 network:
   type: OVNKubernetes
+  # vpcid: vpc-0884b1af2e03c3a75
   vpc: 10.170.28.0/22
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
+
 internal: false
+
+upgradePolicy:
+  workloads:
+  - backplane
+  schedule: 0 13 * * 1-5
+  conditions:
+    soakDays: 8
+    mutexes:
+    - backplane
+
 peering:
   connections:
   - provider: account-vpc

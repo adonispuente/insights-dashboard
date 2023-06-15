@@ -16,3 +16,7 @@ self_service:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/openshift.io/cicd/saas/saas-redirector.yaml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/openshift.io/app.yml

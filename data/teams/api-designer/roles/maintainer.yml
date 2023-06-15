@@ -15,3 +15,9 @@ permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-bf2-managed-services.yml
 # observability
 - $ref: /services/observability/permissions/observability-access.yml # Read access to prometheus, alertmanager and grafana
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/api-designer/app.yml

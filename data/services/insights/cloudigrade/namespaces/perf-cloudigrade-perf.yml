@@ -6,6 +6,7 @@ labels:
 
 name: cloudigrade-perf
 description: Cloudigrade app's PERF namespace
+delete: true
 
 cluster:
   $ref: /openshift/insights/cluster-insights-perf.yml
@@ -59,27 +60,3 @@ openshiftResources:
 
 managedExternalResources: true
 
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/insights-perf/account.yml
-  resources:
-  - provider: rds
-    identifier: cloudigrade-perf
-    defaults: /terraform/resources/insights/perf/rds/postgres13-rds-cloudigrade-perf.yml
-    output_resource_name: cloudigrade-rds
-    enhanced_monitoring: true
-    overrides:
-      apply_immediately: true
-    annotations:
-      clowder/database: cloudigrade
-  - provider: cloudwatch
-    identifier: cloudigrade-perf
-    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-1.yml
-    output_resource_name: cloudwatch
-  - provider: elasticache
-    identifier: cloudigrade-redis-clowder-perf
-    defaults: /terraform/resources/insights/perf/elasticache/elasticache-cloudigrade-1.yml
-    output_resource_name: in-memory-db
-    overrides:
-      apply_immediately: true

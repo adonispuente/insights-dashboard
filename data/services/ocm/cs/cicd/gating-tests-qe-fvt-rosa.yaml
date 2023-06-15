@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: uhc-clusters-service-main
   url: https://gitlab.cee.redhat.com/service/uhc-clusters-service
@@ -40,27 +41,27 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 205f3d72b698f71c09b6a0f190bf665f2c817ade
+    ref: 83f215c1188b312b3dbcc09da0f872b27b3f620c
     name: rosa-advanced
     promotion:
       auto: true
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-rosa-advanced-int-ok
+      - ocm-cs-qe-fvt-rosa-sts-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      CLUSTER_PROFILE: rosa-advanced
+      TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: d19adfc0509076a5c251c2d97f61f8ab10d2e77d
+    ref: 83f215c1188b312b3dbcc09da0f872b27b3f620c
     name: rosa-advanced
     promotion:
       auto: true
       subscribe:
       - ocm-cs-deployed-stage
       publish:
-      - ocm-cs-qe-fvt-rosa-advanced-stage-ok
+      - ocm-cs-qe-fvt-rosa-sts-ad-stage-ok
     parameters:
       ENVIRONMENT: staging
-      CLUSTER_PROFILE: rosa-advanced
+      TEST_PROFILE: rosa-sts-ad

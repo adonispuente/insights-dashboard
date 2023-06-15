@@ -8,4 +8,60 @@ org_username: yangcao
 github_username: yangcao77
 
 roles:
-  - $ref: /teams/devfile-registry/roles/dev.yml
+- $ref: /teams/devfile-registry/roles/dev.yml
+
+# Stonesoup-specific roles needed for yangcao
+- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+
+public_gpg_key: |
+  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
+  iOM=

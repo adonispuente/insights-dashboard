@@ -107,7 +107,7 @@ externalResources:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 219874c661ea91f4a78f44bba08681e3e1982855
+        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
       - provider: static
         tag_name: type
         value: ci-int-jenkins-worker-app-interface
@@ -123,7 +123,7 @@ externalResources:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 219874c661ea91f4a78f44bba08681e3e1982855
+        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
       - provider: static
         tag_name: type
         value: ci-int-jenkins-worker-app-sre
@@ -139,7 +139,7 @@ externalResources:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 219874c661ea91f4a78f44bba08681e3e1982855
+      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-service-development
@@ -155,7 +155,7 @@ externalResources:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 219874c661ea91f4a78f44bba08681e3e1982855
+      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-insights
@@ -171,7 +171,7 @@ externalResources:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 219874c661ea91f4a78f44bba08681e3e1982855
+      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-rhel7
@@ -187,7 +187,7 @@ externalResources:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 219874c661ea91f4a78f44bba08681e3e1982855
+      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-rhel8
@@ -204,7 +204,7 @@ externalResources:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 219874c661ea91f4a78f44bba08681e3e1982855
+        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-app-sre
@@ -220,7 +220,7 @@ externalResources:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 219874c661ea91f4a78f44bba08681e3e1982855
+        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-codeready-analytics
@@ -236,7 +236,7 @@ externalResources:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 219874c661ea91f4a78f44bba08681e3e1982855
+        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-rhel8

@@ -6,7 +6,7 @@ labels:
 
 name: ci-ext-sre-capabilities-jobs
 
-description: ''
+description: ""
 
 app:
   $ref: /services/app-sre/app.yml
@@ -25,7 +25,8 @@ config:
     gh_repo: aus-cli
     quay_org: app-sre
     jobs:
-    - 'gh-pr-check':
+    - "gh-pr-check":
         display_name: pr check
-    - 'gh-build-tag':
+        branch: main
+    - "gh-build-tag":
         display_name: build tag

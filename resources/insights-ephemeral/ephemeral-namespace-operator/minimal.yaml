@@ -61,7 +61,7 @@ spec:
           ui: 
             selenium: 
               imageBase: quay.io/redhatqe/selenium-standalone
-              defaultImageTag: ff_91.9.1esr_chrome_103.0.5060.114_new
+              defaultImageTag: ff_102.9.0esr_chrome_112.0.5615.121
               resources: 
                 limits: 
                   cpu: 1

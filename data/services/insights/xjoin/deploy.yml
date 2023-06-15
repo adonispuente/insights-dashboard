@@ -53,7 +53,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
-    ref: master
+    ref: &xjoin-search-stage-ref master
     upstream:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
@@ -84,7 +84,7 @@ resourceTemplates:
       HEARTBEAT_SCHEDULE: '@daily'
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-    ref: a1c2fc0a11373e3d6e0361b42bfeb79af61885dc
+    ref: &xjoin-search-prod-ref 429dbeef262f0c9d37ef2f2d1ba3aafd00e92add
     parameters:
       CPU_REQUESTS: 500m
       CPU_LIMITS: 2
@@ -102,6 +102,14 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
+    ref: *xjoin-search-stage-ref
+    disable: true
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+    ref: *xjoin-search-prod-ref
+    disable: true
 
 - name: xjoin-api-gateway
   path: /clowdapp.yaml

@@ -30,3 +30,29 @@ config:
         branch: main
     - 'gl-pr-check':
         display_name: keycloak pr-check
+- project:
+    name: keycloak-user-service
+    label: keycloak-user-service
+    node: app-sre
+    gl_group: service
+    gl_project: keycloak-user-service
+    quay_org: app-sre
+    jobs:
+    - 'gl-build-master':
+        display_name: keycloak-user-service build main
+        branch: main
+    - 'gl-pr-check':
+        display_name: keycloak-user-service pr-check
+- project:
+    name: keycloak-config-manager
+    label: keycloak-config-manager
+    node: app-sre
+    gl_group: service
+    gl_project: keycloak-config-manager
+    quay_org: app-sre
+    jobs:
+    - 'gl-build-master':
+        display_name: keycloak-config-manager build main
+        branch: main
+    - 'gl-pr-check':
+        display_name: keycloak-config-manager pr-check

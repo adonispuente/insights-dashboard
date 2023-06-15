@@ -35,6 +35,13 @@ self_service:
   - $ref: /services/insights/cicd/app.yml
   - $ref: /services/insights/strimzi/app.yml
   - $ref: /services/insights/ephemeral/app.yml
+  - $ref: /services/insights/fakamai/app.yml
+  - $ref: /services/insights/devprod/app.yml
+  - $ref: /services/insights/mnm/app.yml
+  - $ref: /services/insights/postgres-exporter/app.yml
+  - $ref: /services/insights/commit-tracker/app.yml
+  - $ref: /services/insights/operational-metrics/app.yml
+  - $ref: /services/insights/frontend-base/app.yml
 - change_type:
     $ref: /app-interface/changetype/namespace-owner.yml
   datafiles:
@@ -82,3 +89,4 @@ self_service:
   - /insights-ephemeral/hac/hac-frontend-landing.yaml
   - /insights-ephemeral/hac/hac-frontend-environment.yaml
   - /insights-ephemeral/hac/hac-clowd-environment.yaml
+  - /insights-ephemeral/image-builder-devconf/ib-clowd-environment.yaml

@@ -207,3 +207,29 @@
         - branch:
             name: "master"
     <<: *gl_timed
+
+# gl-sync-package-operator and gh-sync-package-operator are used to sync upstream and downstream repositories of package-operator
+# gl-* is used to get triggered by changes in the downstream repo, gh-* to get triggered on github changes. Both get the 
+# gitlab token of the app-sre bot to be able to push changes into the downstream repo.
+- job-template:
+    id: 'gl-sync-package-operator'
+    name: 'gl-sync-package-operator'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *gitlab_token
+    <<: *gl_build_master
+- job-template:
+    id: 'gh-sync-package-operator'
+    name: 'gh-sync-package-operator'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *gitlab_token
+    <<: *gh_build_master

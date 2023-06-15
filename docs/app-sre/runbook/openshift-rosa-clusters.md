@@ -70,30 +70,35 @@ in the account, the `OCM` API will return an error.
 
 ### Check the pre-requisites with the `ROSA CLI`
 
-For this step you need the latest `ROSA CLI` available, it can be downloaded from the [Openshift ROSA support website](https://docs.openshift.com/rosa/rosa_cli/rosa-get-started-cli.html).
+For this step you need the latest `OCM cli` and `ROSA CLI` available, it can be downloaded from [command line tools](https://console.redhat.com/openshift/downloads).
 
 - Load the aws account profile with an IAM user access keys (terraform). STS credentials are not supported at the time of
   writing this doc.
-- Log in to OCM with the `ROSA cli`. OCM organization credentials are required for this step (App-sre-ocm-bot)
+- Log in to OCM with the `OCM cli` and `ROSA cli`. OCM organization credentials are required for this step [sd-app-sre-ocm-sa](https://vault.devshift.net/ui/vault/secrets/app-sre/show/creds/ocm/sd-app-sre-ocm-app-interface)
 
-```rosa login --client-id=.. --client-secret=...```
+```bash
+ocm login --client-id=sd-app-sre-ocm-sa --client-secret=...
+rosa login
+
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
+```
 
 - [Optional] Check your connection data:
 
 ```bash
 rosa whoami  --region us-east-1
 
+AWS ARN:                      arn:aws:iam::366871242094:user/terraform
 AWS Account ID:               366871242094
 AWS Default Region:           us-east-1
-AWS ARN:                      arn:aws:iam::366871242094:user/terraform
 OCM API:                      https://api.openshift.com
-OCM Account ID:               1ZTXsejUlKITmOrQsXBYz1kgcp9
-OCM Account Name:             App SRE OCM bot
-OCM Account Username:         sd-app-sre-ocm-bot
-OCM Account Email:            sd-app-sre+ocm@redhat.com
+OCM Account Email:            sd-app-sre+ocm-sa@redhat.com
+OCM Account ID:               1o4wdl7Q9RpNhXj2XLLbvtAIo4W
+OCM Account Name:              
+OCM Account Username:         service-account-sd-app-sre-ocm-sa
+OCM Organization External ID: 12147054
 OCM Organization ID:          1OXqyqko0vmxpV9dmXe9oFypJIw
 OCM Organization Name:        Red Hat
-OCM Organization External ID: 12147054
 ```
 
 - Run the `ROSA cli` init command to init the account.
@@ -101,14 +106,14 @@ OCM Organization External ID: 12147054
 ```bash
 rosa init
 
-I: Logged in as 'sd-app-sre-ocm-bot' on 'https://api.openshift.com'
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
 I: Validating AWS credentials...
 I: AWS credentials are valid!
 I: Verifying permissions for non-STS clusters
 I: Validating SCP policies...
 I: AWS SCP policies ok
 I: Validating AWS quota...
-I: AWS quota ok. If cluster installation fails, validate actual AWS resource ...
+I: AWS quota ok. If cluster installation fails, validate actual AWS resource usage against https://docs.openshift.com/rosa/rosa_getting_started/rosa-required-aws-service-quotas.html
 I: Ensuring cluster administrator user 'osdCcsAdmin'...
 I: Admin user 'osdCcsAdmin' created successfully!
 I: Validating SCP policies for 'osdCcsAdmin'...
@@ -141,8 +146,10 @@ I: Successfully linked role-arn 'arn:aws:iam::366871242094:role/ManagedOpenShift
 
 - Create the account roles for ROSA STS clusters. Add the `OCM` prefix as in the last step.
 
-```rosa create account-roles
-I: Logged in as 'sd-app-sre-ocm-bot' on 'https://api.openshift.com'
+```bash
+rosa create account-roles
+
+I: Logged in as 'service-account-sd-app-sre-ocm-sa' on 'https://api.openshift.com'
 I: Validating AWS credentials...
 I: AWS credentials are valid!
 I: Validating AWS quota...
@@ -180,12 +187,12 @@ I: Creating User role
 ? Permissions boundary ARN (optional):
 ? Role creation mode: auto
 I: Creating ocm user role using 'arn:aws:iam::366871242094:user/terraform'
-? Create the 'ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' role? Yes
-I: Created role 'ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' with ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-User-sd-app-sre-ocm-bot-Role'
+? Create the 'ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' role? Yes
+I: Created role 'ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' with ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa'
 I: Linking User role
-? User Role ARN: arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role
-? Link the 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' role with account '1ZTXsejUlKITmOrQsXBYz1kgcp9'? Yes
-I: Successfully linked role ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-sd-app-sre-ocm-bot-Role' with account '1ZTXsejUlKITmOrQsXBYz1kgcp9'
+? User Role ARN: arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa
+? Link the 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' role with account '1o4wdl7Q9RpNhXj2XLLbvtAIo4W'? Yes
+I: Successfully linked role ARN 'arn:aws:iam::366871242094:role/ManagedOpenShift-OCM-Prod-User-service-account-sd-app-sre-ocm-sa' with account '1o4wdl7Q9RpNhXj2XLLbvtAIo4W'
 ```
 
 ### Configure other OCM environments
@@ -277,6 +284,74 @@ rosa create cluster \
 ```
 
 After that follow the regular onboarding guide.
+
+### Create a new PrivateLink cluster
+
+Private STS clusters are only supported through AWS PrivateLink. In such cases as backplane, We need to provide private link clusters.
+
+#### Create the VPC
+
+All PrivateLink clusters need a pre-configured VPC the same as hosted clusters. Following [terraform doc](https://gitlab.cee.redhat.com/app-sre/infra/-/tree/master/terraform/modules/rosa-hosted-cp-vpc) to create all the required VPC components. We need to use private_subnets ouput as subnet-ids when creating the cluster.
+
+Notice: By default, all AWS accounts are limited to 5 Elastic IP addresses per Region. Each multi-az cluster requires 3 IP addresses (single-az cluster requires 1 IP address). Following [AWS doc](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) to request a quota increase if needed.
+
+#### Create the cluster
+
+As of now PrivateLink cluster creation needs to happen via rosa cli. For example to create a cluster, run the following command: 
+
+```
+rosa create cluster \
+--cluster-name=backplanes03ue1 \
+--private \
+--sts \
+--private-link \
+--multi-az \
+--role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Installer-Role \
+--support-role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Support-Role \
+--controlplane-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-ControlPlane-Role \
+--worker-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-Worker-Role \
+--region us-east-1 \
+--version 4.13.0 \
+--replicas 9 \
+--compute-machine-type m5.xlarge \
+--machine-cidr 10.170.28.0/22 \
+--service-cidr 172.30.0.0/16 \
+--pod-cidr 10.128.0.0/14 \
+--host-prefix 23 \
+--subnet-ids subnet-06fbd4582cce65dd3,subnet-0828dcd977433fc56,subnet-0faf227276213d98e
+```
+
+Then, Create the cluster operator IAM roles and OpenID Connect (OIDC) provider the cluster operators use to authenticate.
+
+```
+rosa create operator-roles --cluster backplanes03ue1
+rosa create oidc-provider --cluster backplanes03ue1
+```
+
+After the cluster State shows ready. We can import the cluster into App-Interface by following the onboarding guide step 1. [For example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/1d7c9533b09f48da5a9cc66c9f0e9823b09f75ff/data/openshift/backplanes03ue1/cluster.yml#L1-54)
+
+#### Create the vpc-peering
+
+We are not able to access the cluster until we set up vpc-peerings.
+
+First, we need to create a network-mgmt role, [for example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L20-265). We can create the role with any existing namespace and move it to the new cluster's namespace later. For backplane, Different users are allowed to assume this role for creating different resources. [app-sre](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L35-36) is for creating [account-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) and [cluster-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95), [osd-privatelink](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L37-38) for creating [account-tgw](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L66-75) and [osd-bastion] for creating [account-vpc-mesh](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L76-83).
+
+Then, creating the vpc-peering. At least We need to peer [ci-int](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) for runing app-interface pr-check and bastion access and [appsres03ue1/appsrep05ue1](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95) for running integrations.
+
+//to do, we may enable manageRoute53Associations for terraform_vpc_peerings to automate this step
+Last, we need to associate the Route 53 private hosted zone of the new cluster with all vpc it gets peered by follwoing [doc](https://repost.aws/knowledge-center/route53-private-hosted-zone) including all matched vpcs from account-vpc-mesh.
+
+After that, we should be able to access the cluster via `oc` cli in bastion. For accessing the cluster console, We need to get cluster api and route ip in bastion with the following example command:
+
+```
+dig api.backplanes03ue1.be2s.p1.openshiftapps.com
+dig console-openshift-console.apps.backplanes03ue1.be2s.p1.openshiftapps.com
+```
+
+Then update and following [doc](/docs/app-sre/sop/using-bastion-host.md#access-privatelink-cluster). 
+
+
+After all these steps, we can go back to follow the regular onboarding guide.
 
 ### Cluster configuration changes
 

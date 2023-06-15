@@ -16,10 +16,11 @@ app:
 environment:
   $ref: /products/app-sre/environments/production.yml
 
+delete: true
+
 managedRoles: true
 
 managedResourceTypes:
 - Secret
 
-sharedResources:
-- $ref: /services/app-interface/shared-resources/app-sre-pipelines.yml
+sharedResources: []

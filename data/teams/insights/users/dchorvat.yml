@@ -7,7 +7,7 @@ labels:
 name: Daniel Chorvatovic
 org_username: dchorvat
 github_username: dchorvat1
-quay_username: dchorvat1
+quay_username: dchorvat
 
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
@@ -16,3 +16,4 @@ roles:
 - $ref: /teams/insights/roles/hccm-qe.yml
 - $ref: /teams/insights/roles/ephemeral-users.yml
 - $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/hybrid-committed-spend.yml

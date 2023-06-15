@@ -251,3 +251,4 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/ephemeral/ccx-data-pipeline/cache-writer-redis-credentials
   version: 1
+  name: cache-writer-redis-credentials

@@ -1,0 +1,86 @@
+$schema: /app-interface/prometheus-rule-test-1.yml
+evaluation_interval: 1m
+
+rule_files:
+  - /stonesoup/argocd-control-plane/monitoring/alerting-rules.yml.j2
+
+tests:
+  - interval: 1m
+    input_series:
+
+      # no app is degraded - shouldn't trigger alerts
+      - series: 'argocd_app_info{health_status="Degraded", name="not-degraded-app", dest_namespace="not-degraded", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: _x9
+
+      # an app is constantly degraded - should trigger alerts
+      - series: 'argocd_app_info{health_status="Degraded", name="degraded-app", dest_namespace="degraded", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x9
+
+      # an app with some 1m degraded status - shouldn't trigger alerts
+      - series: 'argocd_app_info{health_status="Degraded", name="degraded-1m-app", dest_namespace="degraded-1m", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1 _ _ _ 1 _ _ _ _ _
+
+      # an app with a 4m degraded status - shouldn't trigger alerts
+      - series: 'argocd_app_info{health_status="Degraded", name="degraded-4m-app", dest_namespace="degraded-4m", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: _ 1 1 1 1 _ _ _ _ _
+
+      # an app is flapping every 1m - should trigger alerts triggers
+      - series: 'argocd_app_info{health_status="Degraded", name="flapping-1m-app", dest_namespace="flapping-1m", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1 _ 1 _ 1 _ 1 _ 1 _
+
+      # an app is flapping every 2m - should trigger alerts triggers
+      - series: 'argocd_app_info{health_status="Degraded", name="flapping-2m-app", dest_namespace="flapping-2m", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1 _ _ 1 _ _ 1 _ _ 1
+
+      # an app is in another health status which is not 'Degraded' - the rule shouldn't alert.
+      - series: 'argocd_app_info{health_status="Progressing", name="progressing-app", dest_namespace="nothing-wrong", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x9
+
+    alert_rule_test:
+      - eval_time: 5m
+        alertname: DegradedArgocdApp
+        exp_alerts:
+          - exp_labels:
+              severity: medium
+              dest_server: https://api.foo.openshiftapps.com:6443
+              dest_namespace: degraded
+              health_status: Degraded
+              name: degraded-app
+              env: "{{{ env }}}"
+              team: stonesoup
+            exp_annotations:
+              message: |-
+                Environment: {{{ env }}}
+                Application: degraded-app
+                Cluster: https://api.foo.openshiftapps.com:6443
+                Health status Degraded.
+
+          - exp_labels:
+              severity: medium
+              dest_server: https://api.foo.openshiftapps.com:6443
+              dest_namespace: flapping-1m
+              health_status: Degraded
+              name: flapping-1m-app
+              env: "{{{ env }}}"
+              team: stonesoup
+            exp_annotations:
+              message: |-
+                Environment: {{{ env }}}
+                Application: flapping-1m-app
+                Cluster: https://api.foo.openshiftapps.com:6443
+                Health status Degraded.
+
+          - exp_labels:
+              severity: medium
+              dest_server: https://api.foo.openshiftapps.com:6443
+              dest_namespace: flapping-2m
+              health_status: Degraded
+              name: flapping-2m-app
+              env: "{{{ env }}}"
+              team: stonesoup
+            exp_annotations:
+              message: |-
+                Environment: {{{ env }}}
+                Application: flapping-2m-app
+                Cluster: https://api.foo.openshiftapps.com:6443
+                Health status Degraded.

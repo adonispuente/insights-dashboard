@@ -81,7 +81,7 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/insights-prod/hccm-prod/nise-populator-secret
-  version: 7
+  version: 8
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
@@ -255,3 +255,7 @@ externalResources:
         }]
       }
     output_resource_name: hccm-ros-s3-prod-readonly
+  - provider: s3
+    identifier: hccm-subs-prod-s3
+    defaults: /terraform/resources/s3-all-expires-90-days.yml
+    output_resource_name: hccm-subs-s3

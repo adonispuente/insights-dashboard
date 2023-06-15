@@ -25,7 +25,6 @@ self_service:
   - $ref: /services/osd-operators/cicd/saas/saas-configure-alertmanager-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-custom-domains-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-deadmanssnitch-operator.yaml
-  - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-hypershift-dataplane-metrics-forwarder.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-gcp-project-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-managed-cluster-config.yaml
@@ -95,6 +94,8 @@ self_service:
   datafiles:
   - $ref: /services/osd-operators/app.yml
   - $ref: /services/osd-operators/aws-account-operator/app.yml
+  - $ref: /services/configuration-anomaly-detection/app.yml
+  - $ref: /services/backplane/app.yaml
 - change_type:
     $ref: /app-interface/changetype/namespace-owner.yml
   datafiles:

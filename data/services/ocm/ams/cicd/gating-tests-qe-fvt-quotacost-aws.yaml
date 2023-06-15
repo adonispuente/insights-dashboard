@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: uhc-account-manager-main
   url: https://gitlab.cee.redhat.com/service/uhc-account-manager
@@ -41,7 +42,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 82e1186b0d6462ab748546fc13de6e5ed128b37b
+    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
     promotion:
       auto: true
       subscribe:
@@ -52,7 +53,7 @@ resourceTemplates:
       ENVIRONMENT: integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 82e1186b0d6462ab748546fc13de6e5ed128b37b
+    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
     promotion:
       auto: true
       subscribe:

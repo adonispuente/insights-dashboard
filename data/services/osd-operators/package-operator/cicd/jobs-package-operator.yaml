@@ -29,3 +29,31 @@ config:
     - 'gl-build-master':
         display_name: package-operator build internal
         branch: internal
+# package-operator-gl-sync and package-operator-gh-sync are used to sync package-operator upsteam and downstream repositories.
+# package-operator-gl-sync gets triggered when the redhat branch in the downstream repo gets modified.
+# package-operator-gh-sync gets triggered when main in upstream gets modified.
+# Both execute make sync-repos. 
+- project:
+    name: package-operator-gl-sync
+    label: osd-operators
+    node: osd-operators
+    gl_group: lp-sre
+    gl_project: package-operator
+    quay_org: app-sre
+    build_deploy_script_path: 'git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
+    jobs:
+    - 'gl-sync-package-operator':
+        display_name: gl-sync-package-operator
+        branch: redhat
+- project:
+    name: package-operator-gh-sync
+    label: osd-operators
+    node: osd-operators
+    gh_org: package-operator
+    gh_repo: package-operator
+    quay_org: app-sre
+    build_deploy_script_path: 'git fetch https://devtools-bot:$GITLAB_TOKEN@gitlab.cee.redhat.com/lp-sre/package-operator.git redhat:redhat && git checkout redhat && make sync-repos'
+    jobs:
+    - 'gh-sync-package-operator':
+        display_name: gh-sync-package-operator
+        branch: main

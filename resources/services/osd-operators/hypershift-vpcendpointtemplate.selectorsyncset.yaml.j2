@@ -1,0 +1,63 @@
+apiVersion: hive.openshift.io/v1
+kind: SelectorSyncSet
+metadata:
+  labels:
+    managed.openshift.io/osd: 'true'
+  name: "{{ name }}-vpcendpointtemplate"
+spec:
+  clusterDeploymentSelector:
+    matchLabels:
+      ext-hypershift.openshift.io/cluster-type: {{ hypershift_cluster_type }}
+  resourceApplyMode: Sync
+  resources:
+  - apiVersion: avo.openshift.io/v1alpha2
+    kind: VpcEndpointTemplate
+    metadata:
+      name: private-hcp
+      namespace: openshift-aws-vpce-operator
+    spec:
+      type: "HostedControlPlane"
+      selector:
+        matchLabels:
+          purpose: backplane 
+      template:
+        metadata:
+          labels:
+            purpose: backplane
+        spec:
+          awsCredentialOverrideRef:
+            name: "{{ avo_credential_secret_name }}"
+            namespace: "openshift-aws-vpce-operator"
+          serviceNameRef:
+            valueFrom:
+              awsEndpointServiceRef:
+                name: private-router
+          securityGroup:
+            ingressRules:
+              - cidrIp: "0.0.0.0/0"
+                fromPort: 443
+                toPort: 443
+                protocol: "tcp"
+          vpc:
+            autoDiscoverSubnets: true
+            tags:
+              - key: "osd"
+                value: "privatelink"
+          customDns:
+            route53PrivateHostedZone:
+              associatedVpcs:
+              {% for vpc in vpcs %}
+                - vpcId: "{{ vpc.id }}"
+                  region: "{{ vpc.region }}"
+                  credentialsSecretRef:
+                    name: "{{ vpc.secret_name }}"
+                    namespace: "openshift-aws-vpce-operator"
+              {% endfor %}
+              autoDiscoverPrivateHostedZone: false
+              record:
+                hostname: "api"
+              domainNameRef:
+                valueFrom:
+                  hostedControlPlaneRef:
+                    namespaceFieldRef:
+                      fieldPath: ".metadata.namespace"

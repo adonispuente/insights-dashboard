@@ -52,8 +52,8 @@ resourceTemplates:
       LOG_LEVEL: debug
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    disable: true  # do not create an app-sre deploy job for ephemeral namespace
-    ref: internal  # populated by bonfire
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
     parameters:
       MIN_REPLICAS: 1
   - namespace:
@@ -64,14 +64,14 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-pdf-generator-gh-build-main
     parameters:
-      ENV_NAME: stage 
+      ENV_NAME: stage
       LOG_LEVEL: debug
       MIN_REPLICAS: 3
   - namespace:
       $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
-    ref: b1af6cc998b17695f5f761e35fc200c0fb5a2a4e
+    ref: cd3adcb98cedcbfe87ab04ae7c3a537d9900f2eb
     parameters:
-      ENV_NAME: prod 
+      ENV_NAME: prod
       LOG_LEVEL: info
       MIN_REPLICAS: 3
 - name: grafana-dashboard-clouddot-insights-crc-pdf-generator
@@ -82,4 +82,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
     ref: main
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
+    ref: b1af6cc998b17695f5f761e35fc200c0fb5a2a4e
 

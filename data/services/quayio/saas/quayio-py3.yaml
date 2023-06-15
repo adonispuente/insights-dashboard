@@ -118,19 +118,19 @@ resourceTemplates:
   # This is the primary region
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 2d949b3b2e5ac76c1415350cb908a942e89b85c4
+    ref: c93928f28f214d62a62f4bf0b1b723d17cf13885
     parameters:
       QUAY_APP_DEPLOYMENT_REPLICAS: 44
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret
-      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_05_29-1" # Update image ref
+      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_06_12-1" # Update image ref
     # This is the backup region
   - namespace:
       $ref: /services/quayio/namespaces/quayp04ue2.yml
-    ref: 2d949b3b2e5ac76c1415350cb908a942e89b85c4
+    ref: c93928f28f214d62a62f4bf0b1b723d17cf13885
     parameters:
       QUAY_APP_DEPLOYMENT_REPLICAS: 44
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret-readonly
-      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_05_29-1" # Update image ref
+      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_06_12-1" # Update image ref
       IGNORE_VALIDATION: "true"
 
 - name: quayio-frontend

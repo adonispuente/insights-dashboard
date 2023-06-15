@@ -90,6 +90,8 @@ openshiftResources:
   path: /stonesoup/argocd-control-plane/monitoring/alerting-rules.yml.j2
   variables:
     env: production
+  tests:
+  - /stonesoup/argocd-control-plane/monitoring/alerting-rules.prometheusrulestests.yml.j2
 - provider: resource-template
   type: jinja2
   path: /stonesoup/argocd-control-plane/monitoring/servicemonitors.yml.j2

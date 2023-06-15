@@ -66,7 +66,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-catalog-master-upstream-RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      REFRESH: "1666032485"
+      REFRESH: "1686056820"
       SSL_MODE: require
       SOURCE_NAMESPACE: xjoin-stage
       TARGET_NAMESPACE: xjoin-stage
@@ -75,7 +75,7 @@ resourceTemplates:
       CONNECTOR_TOPIC: "platform-mq-stage.platform.inventory.events"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-    ref: c0639a333de6201bbb833df785793416a9bbb1d2
+    ref: 9630ea30ddea2362d6e3685b5f2014ad2387adda
     parameters:
       REFRESH: "1664974151"
       SSL_MODE: require
@@ -201,6 +201,10 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/cyndi-operator
   parameters:
     APP_NAME: patch
+    DB_TABLE_INDEX_SQL: >
+        CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
+        CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
+        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp)
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
@@ -212,6 +216,7 @@ resourceTemplates:
     parameters:
       SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
       VALIDATION_THRESHOLD: "15"
+      INSIGHTS_ONLY: "false"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
@@ -235,9 +240,17 @@ resourceTemplates:
     parameters:
       SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
       VALIDATION_THRESHOLD: "15"
+      INSIGHTS_ONLY: "false"
+      DB_TABLE_INDEX_SQL: >
+        CREATE INDEX {{.TableName}}_system_profile_index ON inventory.{{.TableName}} USING gin (system_profile jsonb_path_ops);
+        CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
+        CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
+        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp)
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 42d204c0c8ee6b4ba7b073adcdfecc6a47af8bed
+    parameters:
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
     ref: master
@@ -248,6 +261,12 @@ resourceTemplates:
   parameters:
     APP_NAME: compliance
     MAX_AGE: "47"
+    DB_TABLE_INDEX_SQL: >
+      CREATE INDEX {{.TableName}}_org_id_id_index ON inventory.{{.TableName}} (org_id,id);
+      CREATE INDEX {{.TableName}}_display_name_index ON inventory.{{.TableName}} (display_name);
+      CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
+      CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
+      CREATE INDEX {{.TableName}}_groups_index ON inventory.{{.TableName}} USING GIN (groups JSONB_PATH_OPS);
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
@@ -261,7 +280,7 @@ resourceTemplates:
       VALIDATION_THRESHOLD: "15"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-    ref: d0caf4e6144b6951623ab516852a3a7862a1238e
+    ref: f526e7bfae89eb7f9a61d992e1a67540ed0fc332
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
     ref: master

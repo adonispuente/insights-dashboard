@@ -204,8 +204,6 @@ openshiftResources:
     vault_secret_version: 1
 - provider: route
   path: /quay-p/quay/quay-service-tool.route.yaml
-  vault_tls_secret_path: app-interface/quayio-prod-us-east-1/quay/service-tool-config-secret
-  vault_tls_secret_version: 5
 - provider: resource-template
   type: extracurlyjinja2
   path: /quay-p/quay/quay-osa-analytics-job.secret.yaml
@@ -356,6 +354,20 @@ externalResources:
       openshift_service: quay-py3-grpc-load-balancer-service
       protocol: "HTTPS"
       protocol_version: "GRPC"
+    rules: []
+  - provider: alb
+    identifier: quayio-production-alb01-recovery
+    output_resource_name: quayio-alb-recovery
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-prod/vpcs/QuayVPC.yml
+    certificate_arn: arn:aws:acm:us-east-1:206170669542:certificate/8a4a9a8b-d06b-46f6-a234-e7ef2ec657cf
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-prod-recovery
+      default: true
+      openshift_service: quay-py3-recovery-load-balancer-service
     rules: []
 - provider: cloudflare
   provisioner:

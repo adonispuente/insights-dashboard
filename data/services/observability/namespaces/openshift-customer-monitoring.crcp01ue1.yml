@@ -213,6 +213,14 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/ros-prod/ros-backend-inventory-events-processor.servicemonitor.yml
 - provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-api.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-kruize.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-processor.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ros-prod/ros-ocp-backend-recommender.servicemonitor.yml
+- provider: resource
   path: /insights-prod/image-builder-prod/image-builder-clowder.servicemonitor.yml
 - provider: resource
   path: /insights-prod/patchman-engine-prod/patchman-engine-app.servicemonitor.yml
@@ -262,6 +270,10 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/ccx-data-pipeline-prod/insights-content-template-renderer.servicemonitor.yml
 - provider: resource
+  path: /insights-prod/ccx-data-pipeline-prod/ccx-cache-writer.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/ccx-data-pipeline-prod/ccx-redis.servicemonitor.yml
+- provider: resource
   path: /insights-prod/edge-prod/edge-api-service.servicemonitor.yml
 - provider: resource
   path: /insights-prod/malware-detection-prod/malware-detection-api.servicemonitor.yml
@@ -270,6 +282,8 @@ openshiftResources:
   path: /insights-prod/quickstarts-prod/quickstarts-puptoo.servicemonitor.yml
 - provider: resource
   path: /insights-prod/chrome-service-prod/chrome-service.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.servicemonitor.yml
 
 # unleash-proxy
 - provider: resource
@@ -478,6 +492,11 @@ openshiftResources:
   type: resource
   tests:
   - /insights-prod/chrome-service-prod/chrome-service.prometheusrulestests.yml
+- provider: prometheus-rule
+  path: /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrules.yml
+  type: resource
+  tests:
+  - /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.prometheusrulestests.yml
 - provider: prometheus-rule
   path: /insights-prod/rhsm/rhsm.prometheusrules.yaml
   type: resource

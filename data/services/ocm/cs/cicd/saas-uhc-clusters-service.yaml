@@ -70,7 +70,7 @@ resourceTemplates:
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 205f3d72b698f71c09b6a0f190bf665f2c817ade
+    ref: 83f215c1188b312b3dbcc09da0f872b27b3f620c
     promotion:
       auto: true
       subscribe:
@@ -112,7 +112,7 @@ resourceTemplates:
       JIRA_PRODUCT: ''
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 532da8b8a6fe5ab7de70dc21560988a539500cd8
+    ref: dfdb37464b2d4a16fbca4db8ac6a2b51bb0a8979
     promotion:
       publish:
       - ocm-cs-deployed-prod

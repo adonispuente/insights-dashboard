@@ -4,9 +4,6 @@ $schema: /app-interface/prometheus-rule-test-1.yml
 rule_files:
 - /observability/cloudwatch-exporter/prometheusrules/cloudwatch-exporter-templated.prometheusrules.yaml.j2
 
-target_clusters:
-- app-sre-stage-01
-
 evaluation_interval: 1m
 
 # we use identifiers of DBs that actually exist since we are now dynamically generating per-resource alerts

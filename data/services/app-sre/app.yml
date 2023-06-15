@@ -152,6 +152,9 @@ quayRepos:
   - name: terraform-repo-executor
     description: Terraform repo executor
     public: true
+  - name: dt_custom_activegate
+    description: Dynatrace activegate image with custom configurations
+    public: true
 
 codeComponents:
 - name: housekeeping

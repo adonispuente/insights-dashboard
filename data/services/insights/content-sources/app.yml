@@ -51,6 +51,9 @@ quayRepos:
   - name: content-sources-frontend
     public: true
     description: Content sources service frontend image
+  - name: pulp-rpm-ubi
+    public: true
+    description: Pulp service for Content sources (run via pulp-operator)
 
 codeComponents:
 - name: content-sources-backend

@@ -67,12 +67,20 @@
           default: false
           description: "Toggles on/off whether the cluster will be destroyed at the end of osde2e execution"
       - bool:
-          name: MUST_GATHER
+          name: SKIP_MUST_GATHER
           default: true
           description: "Toggles on/off gathering OpenShift must gather logs"
+      - bool:
+          name: OCM_CCS
+          default: false
+          description: "Toggles on/off gathering CCS for OSD clusters"     
+      - bool:
+          name: MULTI_AZ
+          default: false
+          description: "Deploys test cluster across multiple availability zones."          
       - string:
           name: ADDITIONAL_FLAGS
-          description: "Additional flags to be passed to `osde2e test` command"
+          description: "Program arguments to be passed to `osde2e test` command"
       publishers:
       - junit:
           results: '**/junit*.xml'

@@ -101,8 +101,8 @@ resourceTemplates:
     EXTERNAL_DNS_DOMAIN_FILTER: i3.devshift.org
     HCP_TELEMETER_URL: https://infogw.api.integration.openshift.com/metrics/v1/receive
     HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-          # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+          # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
           apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
           aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
           cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -138,14 +138,9 @@ resourceTemplates:
         sector: qetesting
       - predicate:
           label:
-            key: label-sector-testA
-            value: label-valueA
-        sector: label-sectorA
-      - predicate:
-          label:
-            key: label-sector-testB
-            value: label-valueB
-        sector: label-sectorB
+            key: label-qetesting-test
+            value: qetesting
+        sector: qetesting
       # put everything else into the main sector
       - sector: main
     SUPPORTED_CLOUD_PROVIDERS: |-
@@ -177,7 +172,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-qetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -230,7 +225,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-dynatrace
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -240,7 +235,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -253,7 +248,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-upgradetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -330,8 +325,8 @@ resourceTemplates:
     EXTERNAL_DNS_DOMAIN_FILTER: s3.devshift.org
     HCP_TELEMETER_URL: https://infogw.api.stage.openshift.com/metrics/v1/receive
     HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-          # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+          # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
           apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
           aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
           cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -382,6 +377,11 @@ resourceTemplates:
       - predicate:
           region: eu-central-1
         sector: incidentrehearsal
+      - predicate:
+          label:
+            key: sector-override
+            value: migrationtesting
+        sector: migrationtesting
       # put everything else into the main sector
       - sector: main
     SENTRY_PROJECT: 11
@@ -402,7 +402,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -414,7 +414,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       publish:
@@ -477,7 +477,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       publish:
@@ -541,7 +541,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       publish:
@@ -604,7 +604,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       publish:
@@ -666,7 +666,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-incidentrehearsal
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       publish:
@@ -675,10 +675,24 @@ resourceTemplates:
       - ocm-osdfm-deployed-stage-canary
     parameters:
       DEPLOYMENT_NAME: incidentrehearsal
+  # Sector specifically for HCP migration testing/validation
+  # See #wg-hcp-migration and https://issues.redhat.com/browse/SDE-2923
+  - name: osd-fleet-manager-stage-migrationtesting
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    promotion:
+      auto: true
+      publish:
+      - ocm-osdfm-deployed-stage-migrationtesting
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
+    parameters:
+      DEPLOYMENT_NAME: migrationtesting
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: aed4e1d32b68e1821455243a7520e0da84e4a972
+    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
     promotion:
       auto: true
       subscribe:
@@ -764,13 +778,6 @@ resourceTemplates:
     RHOBS_ENV: prod
     SECTOR_ASSIGNMENT_POLICY: |-
       rules:
-      # Just a single service cluster in green during the cycle
-      - predicate:
-          service_cluster_id: cfh93h3of53mns7kd8fg
-        sector: green
-      - predicate:
-          service_cluster_id: cfhb1rbof53mns7ke1qg
-        sector: blue
       # TODO this means all us-east-1 service clusters created land in canary
       #      we need to properly define some logic to allow for multiple sectors in this region
       #      see https://issues.redhat.com/browse/SDA-8710
@@ -795,8 +802,8 @@ resourceTemplates:
       - predicate:
           region: eu-west-1
         sector: eu-west-1
-      # put everything else into the blue sector for now
-      - sector: blue
+      # put everything else into the canary sector for now
+      - sector: canary
     SENTRY_PROJECT: 59
     SENTRY_URL: glitchtip.devshift.net
     SUPPORTED_CLOUD_PROVIDERS: |-
@@ -816,7 +823,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -825,8 +832,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-east-2
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -881,7 +888,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -890,8 +897,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-east-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -903,7 +910,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-west-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -912,8 +919,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-west-2
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -925,7 +932,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-eu-west-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -934,8 +941,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-eu-west-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -948,7 +955,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-ap-southeast-3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -957,8 +964,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-ap-southeast-3
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -967,32 +974,10 @@ resourceTemplates:
             cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:404bde6e2915b24cf46352d9352128392c50c4efd790845be413982ef5154b43
             cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:8d7f489b7040e2c528e51e46b290074fc161a42cdf3120c2cc0544b3ca97dde9
       DEPLOYMENT_NAME: ap-southeast-3
-  - name: osd-fleet-manager-production-green
-    namespace:
-      $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
-    promotion:
-      auto: true
-      subscribe:
-      - ocm-osdfm-deployed-production-canary
-      publish:
-      - ocm-osdfm-deployed-production-green
-    parameters:
-      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
-            apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
-            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
-            cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
-            cluster-api-provider-agent: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-agent-rhel8@sha256:7dd4c639450284a8a4893fad89b49183a244deeaf05bc25370446316593a51e3
-            cluster-api-provider-aws: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-aws-rhel8@sha256:1915ed9c08b461fcaefbf9f7933c5c0b805e175698abde1335d3814ebb5e8148
-            cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:404bde6e2915b24cf46352d9352128392c50c4efd790845be413982ef5154b43
-            cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:8d7f489b7040e2c528e51e46b290074fc161a42cdf3120c2cc0544b3ca97dde9
-      DEPLOYMENT_NAME: green
   - name: osd-fleet-manager-production-eu-central-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       auto: true
       subscribe:
@@ -1001,8 +986,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-eu-central-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -1011,32 +996,10 @@ resourceTemplates:
             cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:404bde6e2915b24cf46352d9352128392c50c4efd790845be413982ef5154b43
             cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:8d7f489b7040e2c528e51e46b290074fc161a42cdf3120c2cc0544b3ca97dde9
       DEPLOYMENT_NAME: eu-central-1
-  - name: osd-fleet-manager-production-blue
-    namespace:
-      $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
-    promotion:
-      auto: true
-      subscribe:
-      - ocm-osdfm-deployed-production-green
-      publish:
-      - ocm-osdfm-deployed-production-blue
-    parameters:
-      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
-            apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
-            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
-            cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
-            cluster-api-provider-agent: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-agent-rhel8@sha256:7dd4c639450284a8a4893fad89b49183a244deeaf05bc25370446316593a51e3
-            cluster-api-provider-aws: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-aws-rhel8@sha256:1915ed9c08b461fcaefbf9f7933c5c0b805e175698abde1335d3814ebb5e8148
-            cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:404bde6e2915b24cf46352d9352128392c50c4efd790845be413982ef5154b43
-            cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:8d7f489b7040e2c528e51e46b290074fc161a42cdf3120c2cc0544b3ca97dde9
-      DEPLOYMENT_NAME: blue
   - name: osd-fleet-manager-production-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 1c085a23adee93f6e7d3d5fb866b76c0979feb4c
+    ref: a6c77e9100223b7284b7351d6651c9d14919a5c8
     promotion:
       publish:
       - ocm-osdfm-deployed-production-canary
@@ -1088,8 +1051,8 @@ resourceTemplates:
                   value: true
                   effect: NoSchedule
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 3d04abc15dc669129902979f8d9d97a8f269f5c7 / tag v0.1.6
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:b287cb560cb8c1711176d292918ea04a20641730dd3a0e7b4f4fba8697ccd841
+            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488

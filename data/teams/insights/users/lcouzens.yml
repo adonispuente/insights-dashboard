@@ -20,6 +20,7 @@ roles:
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/aws/stage-app-developers.yml
 - $ref: /teams/insights/roles/aws/prod-app-developers.yml
+- $ref: /teams/insights/roles/hybrid-committed-spend.yml
 
 public_gpg_key: |
   mQINBGJWjZwBEAClG03nkkEev6aAfHVTmh0+wUhN1MUkjOck7DHNi99+FRZQdehe

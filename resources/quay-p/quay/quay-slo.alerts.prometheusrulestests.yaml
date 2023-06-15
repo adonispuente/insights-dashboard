@@ -4,9 +4,6 @@ $schema: /app-interface/prometheus-rule-test-1.yml
 rule_files:
   - /quay-p/quay/quay-slo.alerts.prometheusrules.yaml
 
-target_clusters:
-  - quayp05ue1
-
 evaluation_interval: 1m
 
 tests:

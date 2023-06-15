@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: uhc-clusters-service-main
   url: https://gitlab.cee.redhat.com/service/uhc-clusters-service
@@ -41,26 +42,26 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: osd-ccs-advanced-gcp
-    ref: 205f3d72b698f71c09b6a0f190bf665f2c817ade
+    ref: 83f215c1188b312b3dbcc09da0f872b27b3f620c
     promotion:
       auto: true
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-osd-ccs-advanced-int-ok
+      - ocm-cs-qe-fvt-osd-ccs-gcp-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      CLUSTER_PROFILE: osd-ccs-advanced-gcp
+      TEST_PROFILE: osd-ccs-gcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: osd-ccs-advanced-gcp
-    ref: d19adfc0509076a5c251c2d97f61f8ab10d2e77d
+    ref: 83f215c1188b312b3dbcc09da0f872b27b3f620c
     promotion:
       auto: true
       subscribe:
       - ocm-cs-deployed-stage
       publish:
-      - ocm-cs-qe-fvt-osd-ccs-advanced-stage-ok
+      - ocm-cs-qe-fvt-osd-ccs-gcp-ad-stage-ok
     parameters:
       ENVIRONMENT: staging
-      CLUSTER_PROFILE: osd-ccs-advanced-gcp
+      TEST_PROFILE: osd-ccs-gcp-ad
