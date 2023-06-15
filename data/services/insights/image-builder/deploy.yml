@@ -113,7 +113,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 8a34788b2743dbd9e010f7723ae52d9915ce6fce
+    ref: 7ffc7125a4df22cac77afd9d88ca57f747d5dbd1
 - name: image-builder-frontend
   url: https://github.com/RedHatInsights/image-builder-frontend
   path: /deploy/frontend-clowder.yml
