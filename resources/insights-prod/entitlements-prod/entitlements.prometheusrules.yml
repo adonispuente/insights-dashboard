@@ -77,7 +77,7 @@ spec:
         avg_over_time(service:sli:latency_gt_2000:pctl10rate5m{exported_service="entitlements"}[4h]) < .99
       for: 5m
       labels:
-        severity: high
+        severity: medium
         service: insights
         env: prod
         app_team: platform
