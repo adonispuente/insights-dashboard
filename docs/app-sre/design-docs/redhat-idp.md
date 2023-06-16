@@ -12,12 +12,17 @@ Christian Assing / June 2023
 
 ## Problem Statement
 
-[Red Hat SSO for OSD/ROSA authentication (RHIDP)](https://source.redhat.com/groups/public/sre/wiki/red_hat_sso_idp_for_osdrosa_authentication) is valuable beyond the scope of AppSRE tenants and app-interface. While interested parties can open tickets with AppSRE to get their clusters configured to use Red Hat SSO without actual app-interface touchpoints, it leaves the toil of change management with AppSRE.
+Enabling Single-Sign-On (SSO) for an OpenShift cluster is a common requirement for AppSRE, and Red Hat IT provides [Red Hat SSO](https://auth.redhat.com) for this purpose.
+
+To enable SSO for a cluster, you must create a new SSO client on auth.redhat.com and configure the OIDC authentication on the OpenShift cluster to use this SSO client. While the OIDC cluster configuration can be done via OCM API, the SSO client creation on auth.redhat.com is [manual](https://source.redhat.com/groups/public/identity-access-management/it_iam_internal_sso_int_idp_wiki/how_to_get_sso_for_your_application_or_vendor). This manual step includes a SNOW ticket with Red Hat IT and may take several days or weeks to complete. Additionally, to create such a SNOW ticket and the resulting SSO client, it needs a more profound knowledge of [OpenID Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) and [OpenShift OIDC configuration](https://docs.openshift.com/container-platform/4.13/authentication/identity_providers/configuring-oidc-identity-provider.html).
+
+Automating the SSO client creation on auth.redhat.com and the OIDC cluster configuration via OCM API makes sense to overcome this burden and speed up cluster onboarding for Red Hat engineering teams and AppSRE.
+
 
 ## Goals
 
-1. Make Red Hat SSO cluster authentication a self-serviceable offering for Red Hat engineering teams without AppSRE and app-interface touchpoints.
-1. Use the SSO client configuration capability for App-Interface managed clusters to speedup cluster onboardings.
+1. Use the SSO client configuration capability for App-Interface managed clusters to speed up cluster onboardings. The OIDC configuration part is already covered by [OpenID Connect (OIDC) Identity Provider (IDP)](docs/app-sre/sop/oidc-idp.md) integration.
+1. Make Red Hat SSO cluster authentication (SSO client and OIDC config) [a self-serviceable offering](https://source.redhat.com/groups/public/sre/wiki/red_hat_sso_idp_for_osdrosa_authentication) for Red Hat engineering teams without AppSRE and App-Interface touchpoints.
 
 ## Non goals
 
