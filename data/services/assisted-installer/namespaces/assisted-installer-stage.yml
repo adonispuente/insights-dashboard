@@ -155,10 +155,12 @@ externalResources:
     identifier: assisted-installer-stage
     defaults: /terraform/resources/assisted-installer/msk-1.yml
     output_resource_name: assisted-installer-msk
-    secret:
-      path: app-interface/assisted-installer/msk-credentials/stage
-      field: all
-      version: 1
+    users:
+    - name: user
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/user
+        field: all
+        version: 1
 
 - provider: aws
   provisioner:

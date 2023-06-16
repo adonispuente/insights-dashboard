@@ -2242,10 +2242,12 @@ In order to add an MSK cluster, you need to add it to the `externalResources` se
   - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).
   - If `output_resource_name` is not defined, the name of the secret will be `<identifier>-<provider>`.
 - `annotations`: additional annotations to add to the output resource
-- `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
-  - `path`: vault path
-  - `field`: `all`
-  - `version`: (optional) for vault kv2
+- `users`: list of users to create in the MSK cluster
+  - `name`: name of the user
+  - `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
+    - `path`: vault path
+    - `field`: `all`
+    - `version`: (optional) for vault kv2
 
 Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated and a Kubernetes Secret will be created in the same namespace with all relevant details.
 
