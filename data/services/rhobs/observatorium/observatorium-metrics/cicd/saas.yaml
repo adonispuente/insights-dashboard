@@ -139,7 +139,7 @@ resourceTemplates:
       SERVICE_ACCOUNT_NAME: observatorium-metrics
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: 74363739ec91f01e92048495f87d26a1a8b8f4b1
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: observatorium-metrics-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
