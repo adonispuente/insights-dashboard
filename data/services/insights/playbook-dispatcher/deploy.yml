@@ -94,32 +94,6 @@ resourceTemplates:
     parameters:
       IMAGE_TAG: 971ce0a
       CONNECTOR_PAUSE: "false"
-    secretParameters:
-      - name: KAFKA_BOOTSTRAP_HOST
-        secret:
-          path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
-          field: hostname
-          version: 2
-      - name: KAFKA_BOOTSTRAP_PORT
-        secret:
-          path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
-          field: port
-          version: 2
-      - name: KAFKA_USERNAME
-        secret:
-          path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
-          field: username
-          version: 1
-      - name: KAFKA_SASL_MECHANISM
-        secret:
-          path: insights/secrets/insights-stage/strimzi-stage/client-config
-          field: sasl_mechanism
-          version: 3
-      - name: KAFKA_SASL_SECURITY_PROTOCOL
-        secret:
-          path: insights/secrets/insights-stage/strimzi-stage/client-config
-          field: security_protocol
-          version: 3
   - namespace:
       $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
     ref: 949b75abac83bd74d4f3a03ab5d05d440be9cfd3
