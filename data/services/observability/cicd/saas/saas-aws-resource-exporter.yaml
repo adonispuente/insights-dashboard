@@ -107,14 +107,14 @@ resourceTemplates:
       NAME: aws-resource-exporter-ocm-quay
       SECRET_NAME: aws-resource-exporter-ocm-quay
       CONFIGMAP_NAME: aws-resource-exporter-ocm-quay
-  - name: app-sre-stage-01-cluster-scraper
-    namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage.yml
-    ref: master
-    parameters:
-      NAME: aws-resource-exporter-scraper-app-sre-stage-01
-      SECRET_NAME: aws-resource-exporter-cluster-scraper-app-sre-stage-01
-      ROLE_ARN: aws-resource-exporter-cluster-scraper-app-sre-stage-01
-      SESSION_NAME: aws-resource-exporter-scraper-app-sre-01
-      CONFIGMAP_NAME: aws-resource-exporter-app-sre-stage-01-scraper
+  # - name: app-sre-stage-01-cluster-scraper
+  #   namespace:
+  #     $ref: /services/observability/namespaces/app-sre-observability-stage.yml
+  #   ref: master
+  #   parameters:
+  #     NAME: aws-resource-exporter-scraper-app-sre-stage-01
+  #     SECRET_NAME: aws-resource-exporter-cluster-scraper-app-sre-stage-01
+  #     ROLE_ARN: aws-resource-exporter-cluster-scraper-app-sre-stage-01
+  #     SESSION_NAME: aws-resource-exporter-scraper-app-sre-01
+  #     CONFIGMAP_NAME: aws-resource-exporter-app-sre-stage-01-scraper
 
