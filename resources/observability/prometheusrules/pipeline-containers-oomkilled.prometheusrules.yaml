@@ -1,0 +1,22 @@
+---
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+  name: pipeline-containers-oomkilled
+spec:
+  groups:
+  - name: pipeline-containers-oomkiled.rules
+    rules:
+    - alert: PipelineContainersOOMKilled
+      labels:
+        service: app-sre-observability
+        severity: high
+      expr: kube_pod_container_status_terminated_reason{reason="OOMKilled", namespace=~".*-pipelines"} >= 1
+      for: 1m
+      annotations:
+        message: Pipeline Containers Being OOMKilled.
+        runbook: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/pipeline-container-oomkilled.md

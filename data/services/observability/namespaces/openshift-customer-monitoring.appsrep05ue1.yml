@@ -199,6 +199,13 @@ openshiftResources:
   tests:
   - /observability/prometheusrules/skupper-network-monitoring-prometheusrulestests.yaml
 
+### Pipeline Containers OOMKilled
+- provider: prometheus-rule
+  path: /observability/prometheusrules/pipeline-containers-oomkilled.prometheusrules.yaml
+  type: resource
+  tests:
+  - /observability/prometheusrules/pipeline-containers-oomkilled.prometheusrulestests.yaml
+
 sharedResources:
 - $ref: /services/observability/shared-resources/dvo-openshift.yml
 - $ref: /services/observability/shared-resources/dvo-alerts.yml
