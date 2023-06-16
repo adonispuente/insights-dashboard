@@ -26,8 +26,14 @@ kubeBinary: oc
 # - gitlab
 mergeRequestGateway: sqs
 
-# Used to dynamically generate Jenkins jobs to deploy saas files
-saasDeployJobTemplate: openshift-saas-deploy
+# This is only used in visual-qontract to generate pipeline names.
+# This will only work if everyone is using the defaults for pipeline
+# names in the tekton provider file (which is true at the time this
+# comment is being written), but it will fail if different names are
+# used. The logic of openshift-tekton-resources is not straight forward
+# to replicate and we may need to remove this functionality.
+saasDeployJobTemplate: saas-deploy
+
 # Default hash length to use in openshift-saas-deploy
 # Can be overridden in a saas file resource template level
 hashLength: 7

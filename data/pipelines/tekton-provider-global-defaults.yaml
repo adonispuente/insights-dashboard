@@ -49,9 +49,9 @@ taskTemplates:
 
 pipelineTemplates:
   openshiftSaasDeploy:
-    name: openshift-saas-deploy
+    name: saas-deploy
     type: onePerSaasFile
-    path: /tekton/openshift-saas-deploy.pipeline.yaml
+    path: /tekton/saas-deploy.pipeline.yaml
 
 deployResources:
   requests:
