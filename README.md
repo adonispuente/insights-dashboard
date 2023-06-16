@@ -423,6 +423,12 @@ channels:
 
 The next step is to link the defined escalation policy to the service. In order to do that, we add a new `escalationPolicy` reference within the `app.yml`. For example, see [this PR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/13851/diffs?commit_id=9bcb0b1c07d79ef164c552b2b970bc0247e9c1fa)
 
+### Route an alert to your slack channel
+
+Alert routing is configured in [/resources/observability/alertmanager/alertmanager-instance.secret.yaml](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/observability/alertmanager/alertmanager-instance.secret.yaml).
+
+You have to declare a receiver, i.e., a slack channel to which alerts can be routed, [like this one](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L2976-3004). Next, you can add [matcher rules](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L555) to actually route alerts for your service to that receiver.
+
 ### Create a Quay Repository for an onboarded App (`/app-sre/app-1.yml`)
 
 Onboarded applications are modelled using the schema `/app-sre/app-1.yml`. This schema allows any application to optionally define a list required Quay repositories.
