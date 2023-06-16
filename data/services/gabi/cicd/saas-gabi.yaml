@@ -93,8 +93,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: acs-fleet-manager-rds
       GABI_INSTANCE: gabi-acs-fleet-manager
   - namespace:
-      $ref: 
-        /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
+      $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -263,8 +262,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: cost-prod-db-ro
       GABI_INSTANCE: gabi-cost-management
   - namespace:
-      $ref: 
-        /services/insights/historical-system-profiles/namespaces/stage-historical-system-profiles-stage.yml
+      $ref: /services/insights/historical-system-profiles/namespaces/stage-historical-system-profiles-stage.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -276,8 +274,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: historical-system-profiles-db
       GABI_INSTANCE: gabi-historical-system-profiles
   - namespace:
-      $ref: 
-        /services/insights/historical-system-profiles/namespaces/historical-system-profiles-prod.yml
+      $ref: /services/insights/historical-system-profiles/namespaces/historical-system-profiles-prod.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -313,8 +310,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: host-inventory-db-readonly-rds
       GABI_INSTANCE: gabi-host-inventory
   - namespace:
-      $ref: 
-        /services/insights/malware-detection/namespaces/stage-malware-detection-stage.yml
+      $ref: /services/insights/malware-detection/namespaces/stage-malware-detection-stage.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -339,8 +335,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-malware-detection
       SERVER_TIMEOUT: 600s
   - namespace:
-      $ref: 
-        /services/insights/module-update-router/namespaces/stage-module-update-router-stage.yml
+      $ref: /services/insights/module-update-router/namespaces/stage-module-update-router-stage.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -376,8 +371,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: notifications-backend-db
       GABI_INSTANCE: gabi-notifications
   - namespace:
-      $ref: 
-        /services/insights/ocp-vulnerability/namespaces/stage-ocp-vulnerability-stage.yml
+      $ref: /services/insights/ocp-vulnerability/namespaces/stage-ocp-vulnerability-stage.yml
     ref: 33b82e8fc5cbf38b7fca6a59f6ffc1b91d1d3e3c
     promotion:
       auto: true
@@ -620,8 +614,7 @@ resourceTemplates:
       subscribe:
       - github-gabi-stage-post-deploy-tests-success-channel
     parameters:
-      HOST: 
-        gabi-ocm-account-manager-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
+      HOST: gabi-ocm-account-manager-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
       NAMESPACE: uhc-integration
       AWS_RDS_SECRET_NAME: uhc-acct-mngr-rds
       GABI_INSTANCE: gabi-ocm-account-manager
@@ -634,8 +627,7 @@ resourceTemplates:
       subscribe:
       - github-gabi-stage-post-deploy-tests-success-channel
     parameters:
-      HOST: 
-        gabi-ocm-account-manager-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com
+      HOST: gabi-ocm-account-manager-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com
       NAMESPACE: uhc-production
       AWS_RDS_SECRET_NAME: uhc-acct-mngr-rds-readonly
       GABI_INSTANCE: gabi-ocm-account-manager
@@ -648,8 +640,7 @@ resourceTemplates:
       subscribe:
       - github-gabi-stage-post-deploy-tests-success-channel
     parameters:
-      HOST: 
-        gabi-ocm-clusters-service-rds-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
+      HOST: gabi-ocm-clusters-service-rds-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
       NAMESPACE: uhc-stage
       AWS_RDS_SECRET_NAME: clusters-service-rds
       GABI_INSTANCE: gabi-ocm-clusters-service
@@ -662,8 +653,7 @@ resourceTemplates:
       subscribe:
       - github-gabi-stage-post-deploy-tests-success-channel
     parameters:
-      HOST: 
-        gabi-ocm-clusters-service-rds-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com
+      HOST: gabi-ocm-clusters-service-rds-production.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com
       NAMESPACE: uhc-production
       AWS_RDS_SECRET_NAME: uhc-clusters-service-rds-readonly
       GABI_INSTANCE: gabi-ocm-clusters-service
@@ -827,8 +817,7 @@ resourceTemplates:
       subscribe:
       - github-gabi-stage-post-deploy-tests-success-channel
     parameters:
-      HOST: 
-        gabi-assisted-installer-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
+      HOST: gabi-assisted-installer-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
       NAMESPACE: assisted-installer-integration
       AWS_RDS_SECRET_NAME: assisted-installer-rds
       GABI_INSTANCE: gabi-assisted-installer
