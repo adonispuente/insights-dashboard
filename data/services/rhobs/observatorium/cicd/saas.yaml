@@ -100,7 +100,7 @@ resourceTemplates:
       UP_REPLICAS: '0'
   - namespace:
       $ref: /services/rhobs/observatorium/namespaces/observatorium-stage.yml
-    ref: 644203d5e7a42e9876b6476625c3f80bbe1d91f7
+    ref: 74363739ec91f01e92048495f87d26a1a8b8f4b1
     parameters:
       NAMESPACE: observatorium-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-metrics-stage
