@@ -103,7 +103,7 @@ openshiftResources:
 ## rhtap
 - provider: vault-secret
   path: stonesoup/production/monitoring/rhobs
-  version: 1
+  version: 2
   name: observatorium-rhtap
   labels:
     tenant: rhtap
