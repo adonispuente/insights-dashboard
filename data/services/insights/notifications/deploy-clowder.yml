@@ -278,6 +278,7 @@ resourceTemplates:
       QUARKUS_LOG_CATEGORY__ORG_JBOSS_RESTEASY_REACTIVE_CLIENT_LOGGING__LEVEL: DEBUG
       QUARKUS_CAMEL_ROUTES_DISCOVERY_ENABLED: false
       NOTIFICATIONS_DRAWER_ENABLED: true
+      MP_MESSAGING_OUTGOING_DRAWER_ENABLED: true
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
