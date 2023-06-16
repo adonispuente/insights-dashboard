@@ -47,7 +47,7 @@ spec:
         sum(rate(it_subscriptions_service_failure[30m])) / sum(rate(entitlements_api_response_status{path="/api/entitlements/v1/services"}[30m])) > .1
       for: 5m
       labels:
-        severity: critical
+        severity: medium
         service: insights
         env: prod
         app_team: platform
