@@ -235,6 +235,10 @@ resourceTemplates:
       SERVICE_ACCOUNT_NAME: observatorium
       IMAGE: quay.io/app-sre/parca
       IMAGE_TAG: 'v0.15.0'
+      PARCA_CPU_REQUEST: '2'
+      PARCA_MEMORY_REQUEST: '10Gi'
+      PARCA_CPU_LIMITS: '4'
+      PARCA_MEMORY_LIMITS: '30Gi'
   - namespace:
       $ref: /services/rhobs/observatorium/namespaces/observatorium-production.yml
     ref: f7b9429e74541c2a0874d53a7205cc91cd579f25
