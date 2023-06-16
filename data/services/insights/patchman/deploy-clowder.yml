@@ -202,7 +202,7 @@ resourceTemplates:
       RES_REQUEST_MEM_EVALUATOR_UPLOAD: 1500Mi
       RES_LIMIT_CPU_EVALUATOR_UPLOAD: 500m
       RES_LIMIT_MEM_EVALUATOR_UPLOAD: 3000Mi
-      VMAAS_CACHE_SIZE: '2500'
+      VMAAS_CACHE_SIZE: '0' # try to turn off vmaas cache since the evaluation is very slow and pods are restarting
 
       # Evaluator - recalc
       REPLICAS_EVALUATOR_RECALC: '5'
@@ -249,6 +249,7 @@ resourceTemplates:
       IMAGE_TAG_JOBS: 404a2a1 # v3.2.8
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
+      ADVISORY_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16
       PKG_REFRESH_SUSPEND: 'false'  # turned on 2023-1-12
 
       # Floorist parameters
