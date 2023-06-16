@@ -478,6 +478,8 @@ resourceTemplates:
       NAMESPACE: rhsm-stage
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 2Gi
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
     ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
@@ -490,6 +492,8 @@ resourceTemplates:
       NAMESPACE: rhsm-prod
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 2Gi
   - namespace:
       $ref: /services/insights/sources/namespaces/stage-sources-stage.yml
     ref: d5c62b5dea60095ee106ac68b84f8f47a0110c24
