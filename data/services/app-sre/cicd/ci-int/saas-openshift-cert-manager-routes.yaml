@@ -162,6 +162,9 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/hivep06uw2/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
+  - namespace:
+      $ref: /openshift/hivep07ue2/namespaces/cert-manager.yml
+    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   # RHOBS
   - namespace:
       $ref: /openshift/rhobsp02ue1/namespaces/cert-manager.yml
@@ -170,16 +173,3 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/telemeter-prod-01/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
-
-- name: openshift-cert-manager-routes
-  url: https://github.com/app-sre/openshift-cert-manager-routes-templates
-  path: /openshift/deploy.yaml
-  parameters:
-    IMAGE: quay.io/app-sre/openshift-cert-manager-routes
-    RELEASE: 0.1.3
-  targets:
-# Hive
-  - namespace:
-      $ref: /openshift/hivep07ue2/namespaces/openshift-cert-manager.yml
-    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
-    delete: true
