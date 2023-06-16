@@ -25,7 +25,6 @@ managedResourceNames:
   - aws-vpce-operator-transit-resources-service-cluster
   - backplanes01ue1-aws-vpce-operator
   - backplanes02uw2-aws-vpce-operator
-  - backplanes03ue1-aws-vpce-operator
   - backplanes03ue1-hypershift-aws-vpce-operator
   - backplane-stage-vpcendpointtemplate
 
