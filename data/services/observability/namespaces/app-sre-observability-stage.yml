@@ -194,6 +194,17 @@ openshiftResources:
     vpc: true
     route53: true
     ec2: true
+### aws-resource-exporter scraper for app-sre-stage-01
+- provider: resource-template
+  path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
+  enable_query_support: true
+  variables:
+    name: aws-resource-exporter-app-sre-stage-01-scraper
+    account_name: app-sre-stage
+    rds: false
+    vpc: true
+    route53: false
+    ec2: false
 
 managedExternalResources: true
 
