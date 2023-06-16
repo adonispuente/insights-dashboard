@@ -714,14 +714,6 @@ openshiftResources:
     environment: stage
     namespace: app-interface-stage
 
-### Managed Connectors
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-connectors.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-connectors-stage
-
 ### Test RDS version alerts (used for Prometheus tests, etc.)
 - provider: prometheus-rule
   path: /observability/prometheusrules/rds-approved-versions-test.prometheusrules.yaml
