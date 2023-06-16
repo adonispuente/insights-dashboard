@@ -138,7 +138,7 @@ resourceTemplates:
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_VERSION: '1-51'
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
-    ref: 74363739ec91f01e92048495f87d26a1a8b8f4b1
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: telemeter-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
