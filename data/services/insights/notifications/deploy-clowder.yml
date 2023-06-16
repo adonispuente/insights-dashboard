@@ -68,7 +68,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -138,7 +138,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -163,7 +163,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -188,7 +188,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
       # notifications-backend commit hash that determines the clowdapp-slack.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -222,7 +222,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -357,7 +357,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: fa3e799599d80e5d813d9bc54f7fbe29221366d2
+    ref: 6162916b56f4c7535b36916b7f12e64095540843
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
