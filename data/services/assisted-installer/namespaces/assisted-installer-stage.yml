@@ -161,6 +161,26 @@ externalResources:
         path: app-interface/assisted-installer/msk-credentials/stage/user
         field: all
         version: 1
+    - name: assisted_service_stage
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/assisted-service
+        field: all
+        version: 1
+    - name: assisted_events_streams_stage
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/assisted-events-streams
+        field: all
+        version: 1
+    - name: assisted_service_integration
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/integration/assisted-service
+        field: all
+        version: 1
+    - name: assisted_events_streams_integration
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/integration/assisted-events-streams
+        field: all
+        version: 1
 
 - provider: aws
   provisioner:
