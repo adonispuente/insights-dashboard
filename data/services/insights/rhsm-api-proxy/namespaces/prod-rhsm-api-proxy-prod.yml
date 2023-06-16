@@ -63,6 +63,11 @@ openshiftResources:
   version: 5
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-prod/rhsm-api-proxy-prod/bridge.splunk
+  version: 3
+  annotations:
+    qontract.recycle: "true"
 
 managedExternalResources: true
 
