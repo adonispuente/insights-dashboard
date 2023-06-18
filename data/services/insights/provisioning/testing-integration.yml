@@ -36,7 +36,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage-testing.yml
-    ref: 084331fbde3675f826d71892290ffe54dd88a91b
+    ref: 9e41a3dc3e4c4654b48b626a61b87667ea1b5c8f
     promotion:
       auto: true
       subscribe:
@@ -47,5 +47,5 @@ resourceTemplates:
       - channel: provisioning-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: provisioning-testing
-          target_config_hash: 4d4cba04f9dde277
+          target_config_hash: 0039c7d3e54593b9
           type: parent_saas_config
