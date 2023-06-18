@@ -497,6 +497,12 @@ access:
     $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
   role: view
 - namespace:
+    $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+  role: view
+- namespace:
+    $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+  role: view
+- namespace:
     $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
   role: view
 - namespace:
