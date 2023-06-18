@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: monitoring-role-access-allow-all
+description: |
+  Allow adding any access for a given role to be used for monitoring purposes.
+
+priority: low
+
+contextType: datafile
+contextSchema: /access/role-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - access
