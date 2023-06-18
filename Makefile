@@ -19,7 +19,6 @@ schemas:
 
 bundle:
 	mkdir -p $(OUTPUT_DIR)
-	# cp --parents docs/**/*.md resources
 	@$(CONTAINER_ENGINE) run --rm \
 		-v $(PWD)/schemas:/schemas:z \
 		-v $(PWD)/graphql-schemas:/graphql:z \
