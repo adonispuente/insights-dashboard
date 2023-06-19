@@ -1,6 +1,5 @@
-# TODO: MYDEBUGGERMARKER
 # TODO: introduce logging flag in namespace to check whether logging is enabled | selectattr("enableLogging", "equalto", true)
-{%- set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "cert-manager") | map(attribute="name") | list -%}
+{%- set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "github-mirror-stage") | map(attribute="name") | list -%}
 ---
 apiVersion: batch/v1
 kind: Job
