@@ -29,3 +29,9 @@ changes:
   - externalResources[?(@.provider=="aws")].resources[?(@.provider=="rds")].annotations
   - externalResources[?(@.provider=="aws")].resources[?(@.provider=="rds")].event_notifications
   - externalResources[?(@.provider=="aws")].resources[?(@.provider=="rds")].output_resource_name
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/rds-defaults-maintainer.yaml
+  context:
+    where: backrefs
+    selector: externalResources[?(@.provider=="aws")].resources[?(@.provider=="rds")].defaults 
