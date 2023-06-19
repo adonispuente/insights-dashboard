@@ -4,7 +4,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-abc
+  name: log-config-ca978112
   namespace: dynatrace
 spec:
   backoffLimit: 0
@@ -30,13 +30,13 @@ spec:
               readOnly: true
           command: ["/bin/bash", "-c"]
           args:
-            - |
+            - |-
               #!/bin/bash
               set -eo pipefail
 
-              NAMESPACES=( )
+              NAMESPACES=()
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
-              DT_API_URL="testurl/api/v2"
+              DT_API_URL="https://test/api/v2"
               CLUSTER_NAME="test-cluster"
               RULE_NAME="log-cluster-namespaces"
               # Lets give the DT stack a total of 10 minutes to bootstrap
