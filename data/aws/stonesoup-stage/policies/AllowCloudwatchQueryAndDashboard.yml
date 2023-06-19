@@ -4,7 +4,7 @@ $schema: /aws/policy-1.yml
 labels: {}
 
 account:
-  $ref: /aws/stonesoup-prod/account.yml
+  $ref: /aws/stonesoup-stage/account.yml
 
 name: cloudwatch-query-dashboard
 description: |
