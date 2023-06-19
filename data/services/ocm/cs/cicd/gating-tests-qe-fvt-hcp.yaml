@@ -53,7 +53,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 8f6a60bd3764a7a21876d9c570218b5c28b6e096
+    ref: 2e9e271f0b47bd0ae5f70376e180214483cb429b
     promotion:
       auto: true
       subscribe:
@@ -65,7 +65,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 8f6a60bd3764a7a21876d9c570218b5c28b6e096
+    ref: 2e9e271f0b47bd0ae5f70376e180214483cb429b
     name: hcp-e2e-main
     promotion:
       auto: true
