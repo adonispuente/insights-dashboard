@@ -7,6 +7,9 @@ environment:
   $ref: /dependencies/ocm/environments/production.yml
 orgId: 1TwGiocMTd2JBOEwZi0EURMwKTh
 
+publishVersionData:
+- $ref: /dependencies/ocm/production.yml
+
 upgradePolicyAllowedWorkloads:
 - crc
 

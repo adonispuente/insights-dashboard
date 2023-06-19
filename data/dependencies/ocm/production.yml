@@ -64,4 +64,5 @@ upgradePolicyClusters:
     workloads:
     - crc
     schedule: 0 14 * * 3
-    conditions: 20
+    conditions:
+      soakDays: 20
