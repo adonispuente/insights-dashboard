@@ -258,6 +258,8 @@ Alert routing is configured in [/resources/observability/alertmanager/alertmanag
 
 You have to declare a receiver, i.e., a slack channel to which alerts can be routed, [like this one](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L2976-3004). Next, you can add [matcher rules](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L555) to actually route alerts for your service to that receiver.
 
+Routing paths can be unexpected. It is highly recommended to [verify the routing rules](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/alert-to-receiver.md).
+
 ### Recommended Alerts
 
 ### Availability
