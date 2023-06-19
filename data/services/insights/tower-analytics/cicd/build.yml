@@ -48,6 +48,9 @@ config:
         pr_check_script_path: 'make benchmark'
         slack_channel_notification: aa-cicd-events
         name: "aa-benchmark"
+    - "insights-automation-analytics-s3-sync":
+        display_name: insights automation analytics s3 sync
+        cron_expression: '0 9,21 * * *'
 
     # PR Check Enhancement
     - "insights-gl-pipeline":
