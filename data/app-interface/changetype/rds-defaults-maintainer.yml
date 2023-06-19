@@ -1,0 +1,22 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: rds-defaults-maintainer
+description: |
+  Allow updates on AWS RDS defaults files in resources.
+
+priority: high
+
+contextType: resourcefile
+contextSchema: /aws/rds-defaults-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - deletion_protection
+  - maintenance_window
+  - engine_version
+  - allow_major_version_upgrade
+  - performance_insights_enabled
