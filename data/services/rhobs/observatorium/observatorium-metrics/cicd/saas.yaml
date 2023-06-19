@@ -225,7 +225,7 @@ resourceTemplates:
       - observatorium-metrics-stage-deploy-success-channel
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-production.yml
-    ref: f53e47d938134857b03c11a1f28989a797cd7c65
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: observatorium-metrics-production
       OBSERVATORIUM_NAMESPACE: observatorium-production

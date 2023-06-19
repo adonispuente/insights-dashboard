@@ -169,7 +169,7 @@ resourceTemplates:
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_VERSION: '1-51'
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/telemeter-production.yml
-    ref: a6eb1e36fddae34e7c0d37c763363fa86c6275fd
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: telemeter-production
       OBSERVATORIUM_NAMESPACE: observatorium-production
