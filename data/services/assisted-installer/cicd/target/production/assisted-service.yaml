@@ -341,6 +341,26 @@ parameters:
         "version": "4.14.0-ec.2"
       },
       {
+        "openshift_version": "4.14",
+        "cpu_architecture": "ppc64le",
+        "cpu_architectures": [
+          "ppc64le"
+        ],
+        "url": "quay.io/openshift-release-dev/ocp-release:4.14.0-ec.2-ppc64le",
+        "support_level": "beta",
+        "version": "4.14.0-ec.2"
+      },
+      {
+        "openshift_version": "4.14",
+        "cpu_architecture": "s390x",
+        "cpu_architectures": [
+          "s390x"
+        ],
+        "url": "quay.io/openshift-release-dev/ocp-release:4.14.0-ec.2-s390x",
+        "support_level": "beta",
+        "version": "4.14.0-ec.2"
+      },
+      {
         "openshift_version": "4.14-multi",
         "cpu_architecture": "multi",
         "cpu_architectures": [
