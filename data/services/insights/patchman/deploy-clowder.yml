@@ -162,11 +162,11 @@ resourceTemplates:
 
   - namespace: # PRODUCTION
       $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-    ref: 404a2a1b9814d1f49280689a677fb9250e687765 # v3.2.8
+    ref: d3dc0a4a2721d3563a23332d43de54e1af13c585 # v3.3.4
     parameters:
       # Manager
       REPLICAS_MANAGER: '4'
-      IMAGE_TAG_MANAGER: 404a2a1 # v3.2.8
+      IMAGE_TAG_MANAGER: d3dc0a4 # v3.3.4
       LOG_LEVEL_MANAGER: info
       RES_REQUEST_CPU_MANAGER: 500m
       RES_REQUEST_MEM_MANAGER: 1Gi
@@ -179,7 +179,7 @@ resourceTemplates:
 
       # Listener
       REPLICAS_LISTENER: '3'
-      IMAGE_TAG_LISTENER: 404a2a1 # v3.2.8
+      IMAGE_TAG_LISTENER: d3dc0a4 # v3.3.4
       LOG_LEVEL_LISTENER: info
       CONSUMER_COUNT_LISTENER: "4"
       RES_REQUEST_MEM_LISTENER: 256Mi
@@ -192,7 +192,7 @@ resourceTemplates:
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '5'
-      IMAGE_TAG_EVALUATOR_UPLOAD: 404a2a1 # v3.2.8
+      IMAGE_TAG_EVALUATOR_UPLOAD: d3dc0a4 # v3.3.4
       LOG_LEVEL_EVALUATOR_UPLOAD: debug
       ENABLE_BASELINE_EVAL_EVALUATOR_UPLOAD: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_UPLOAD: 'true'
@@ -206,7 +206,7 @@ resourceTemplates:
 
       # Evaluator - recalc
       REPLICAS_EVALUATOR_RECALC: '5'
-      IMAGE_TAG_EVALUATOR_RECALC: 404a2a1 # v3.2.8
+      IMAGE_TAG_EVALUATOR_RECALC: d3dc0a4 # v3.3.4
       LOG_LEVEL_EVALUATOR_RECALC: info
       ENABLE_BASELINE_EVAL_EVALUATOR_RECALC: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_RECALC: 'true'
@@ -231,7 +231,7 @@ resourceTemplates:
       GOMEMLIMIT_VMAAS_SYNC: '460MiB'
 
       # Database admin
-      IMAGE_TAG_DATABASE_ADMIN: 404a2a1 # v3.2.8
+      IMAGE_TAG_DATABASE_ADMIN: d3dc0a4 # v3.3.4
       LOG_LEVEL_DATABASE_ADMIN: info
       UPDATE_USERS: 'false'  # add new users, update credentials
       UPDATE_DB_CONFIG: 'false'  # apply './database_admin/config.sql'
@@ -246,11 +246,11 @@ resourceTemplates:
       KAFKA_WRITER_MAX_ATTEMPTS: '60'
 
       # Jobs
-      IMAGE_TAG_JOBS: 404a2a1 # v3.2.8
+      IMAGE_TAG_JOBS: d3dc0a4 # v3.3.4
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
       ADVISORY_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16
-      PKG_REFRESH_SUSPEND: 'false'  # turned on 2023-1-12
+      PKG_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16 due to rhsm-system-bridge-reporter systems
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'
