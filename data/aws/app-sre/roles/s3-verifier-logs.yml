@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: s3-verifier-logs
+name: rh-osd-network-verifier-production-s3-logs
 
 permissions: []
 
