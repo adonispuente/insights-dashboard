@@ -64,7 +64,7 @@ The process for upgrading is simple:
    removed.
 2. Change the `channel` in the `Subscription` to match the version that you wish to
    upgrade
-   to ([example](/resources/tekton/openshift-pipelines-operator-rh-1-7.subscription.yaml))
+   to ([example](/resources/tekton/openshift-pipelines-operator-rh-1-9.subscription.yaml))
 3. Merge the MR and run the following command to ensure that the CSV was
    updated `oc get csv -n openshift-operators`
 4. Observe the `PipelineRuns` (`oc get pipelineruns` or use the UI) to ensure that there
