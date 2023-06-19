@@ -28,6 +28,7 @@ disable:
   - terraform-resources
   - terraform-aws-route53
   - terraform-vpc-peerings
+  - terraform-tgw-attachments
 
 terraformState:
   $ref: /aws/cna-testing/state.yml

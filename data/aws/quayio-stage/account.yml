@@ -19,6 +19,11 @@ automationToken:
   field: all
 enableDeletion: true
 premiumSupport: true
+
+disable:
+  integrations:
+  - terraform-tgw-attachments
+
 resetPasswords:
 - user:
     $ref: /teams/app-sre/users/jmosco.yml

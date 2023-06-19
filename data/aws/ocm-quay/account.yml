@@ -33,6 +33,7 @@ enableDeletion: true
 disable:
   integrations:
   - terraform-aws-route53
+  - terraform-tgw-attachments
 
 deleteKeys:
 # APPSRE-4733
