@@ -103,11 +103,13 @@ externalResources:
       max_size: 10
       instance_types: ["c6i.4xlarge"]
       iam_role_name: ci-instances-read-secrets
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+        ref: cd1ccf8840de733cd22250f653a4082f241411d5
       - provider: static
         tag_name: type
         value: ci-int-jenkins-worker-app-interface
@@ -137,12 +139,15 @@ externalResources:
     identifier: ci-int-jenkins-worker-service-development
     defaults: /terraform/resources/app-sre/production/ci-int-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 2
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+      ref: cd1ccf8840de733cd22250f653a4082f241411d5
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-service-development
@@ -153,12 +158,15 @@ externalResources:
     identifier: ci-int-jenkins-worker-insights
     defaults: /terraform/resources/app-sre/production/ci-int-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 3
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+      ref: cd1ccf8840de733cd22250f653a4082f241411d5
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-insights
@@ -169,12 +177,15 @@ externalResources:
     identifier: ci-int-jenkins-worker-rhel7
     defaults: /terraform/resources/app-sre/production/ci-int-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 2
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+      ref: cd1ccf8840de733cd22250f653a4082f241411d5
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-rhel7
@@ -185,12 +196,15 @@ externalResources:
     identifier: ci-int-jenkins-worker-rhel8
     defaults: /terraform/resources/app-sre/production/ci-int-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 3
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
     - provider: git
       tag_name: infra_commit
       url: https://gitlab.cee.redhat.com/app-sre/infra
-      ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+      ref: cd1ccf8840de733cd22250f653a4082f241411d5
     - provider: static
       tag_name: type
       value: ci-int-jenkins-worker-rhel8
@@ -201,13 +215,16 @@ externalResources:
     identifier: ci-ext-jenkins-worker-app-sre
     defaults: /terraform/resources/app-sre/production/ci-ext-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 2
       instance_types: ["c5.2xlarge"]
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+        ref: cd1ccf8840de733cd22250f653a4082f241411d5
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-app-sre
@@ -218,12 +235,15 @@ externalResources:
     identifier: ci-ext-jenkins-worker-codeready-analytics
     defaults: /terraform/resources/app-sre/production/ci-ext-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 2
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+        ref: cd1ccf8840de733cd22250f653a4082f241411d5
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-codeready-analytics
@@ -234,12 +254,15 @@ externalResources:
     identifier: ci-ext-jenkins-worker-rhel8
     defaults: /terraform/resources/app-sre/production/ci-ext-asg-1.yml
     overrides:
+      iam_role_name: ci-instances-read-secrets
       max_size: 3
+    cloudinit_configs:
+      - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
       - provider: git
         tag_name: infra_commit
         url: https://gitlab.cee.redhat.com/app-sre/infra
-        ref: 93c261bac810b3609af6844d05b9701ce9f6f2b4
+        ref: cd1ccf8840de733cd22250f653a4082f241411d5
       - provider: static
         tag_name: type
         value: ci-ext-jenkins-worker-rhel8
