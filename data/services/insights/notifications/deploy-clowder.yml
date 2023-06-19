@@ -24,6 +24,7 @@ managedResourceTypes:
 - ClowdJobInvocation
 - ConfigMap
 - CronJob
+- FloorPlan
 - Frontend
 
 imagePatterns:
@@ -52,8 +53,6 @@ resourceTemplates:
     # populated by bonfire
     ref: internal
     parameters:
-      FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
-      FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'true'
       DB_NAME: notifications-backend
       DB_SECRET_HOSTNAME_KEY: hostname
@@ -71,8 +70,6 @@ resourceTemplates:
     ref: 050526fca272efdc663071b545d11f1299748cdb
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
-      FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
-      FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'false'
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
