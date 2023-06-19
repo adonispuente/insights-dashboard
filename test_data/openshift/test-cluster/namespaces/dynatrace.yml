@@ -1,0 +1,28 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Monitoring and Logging Stack for Dynatrace
+
+cluster:
+  $ref: /openshift/test-cluster/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- Job
+
+openshiftResources:
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/log-config-job.yaml.j2
+  enable_query_support: true
+  variables:
+    # TODO: this could also be passed in via cluster level config dynatraceEnvironmentUrl -> {{ resource.namespace.cluster.dynatraceEnvironmentUrl }}
+    DT_ENV_URL: https://test
