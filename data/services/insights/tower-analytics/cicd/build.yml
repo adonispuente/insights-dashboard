@@ -28,6 +28,7 @@ config:
         display_name: 'automation analytics gl-build-main'
         branch: main
         slack_channel_notification: aa-cicd-events
+        cron_expression: '0 10 * * 2'
     - 'insights-automation-analytics-backend-gl-pr-check':
         display_name: 'automation analytics pr check'
         name: 'aa-qe'
