@@ -32,5 +32,4 @@ logging_info:
       retention_in_days: 14
 client_authentication:
   sasl:
-    iam: true
     scram: true
