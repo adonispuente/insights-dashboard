@@ -41,4 +41,4 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/resource-owner.yml
   resources:
-  - /terraform/resources/assisted-installer/msk-1.yml
+  - /terraform/resources/assisted-installer/msk-stage-1.yml
