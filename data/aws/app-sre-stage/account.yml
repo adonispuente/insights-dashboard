@@ -222,3 +222,28 @@ deletionApprovals:
   name: aws-resource-exporter-cluster-scraper-stage-01
   expiration: '20223-06-16'
 
+# temporary
+- type: aws_msk_cluster
+  name: assisted-installer-stage
+  expiration: '2023-06-19'
+- type: aws_cloudwatch_log_group
+  name: msk-broker-logs
+  expiration: '2023-06-19'
+- type: aws_kms_key
+  name: AmazonMSK_assisted-installer-stage-user
+  expiration: '2023-06-19'
+- type: aws_msk_configuration
+  name: msk-configuration
+  expiration: '2023-06-19'
+- type: aws_msk_scram_secret_association
+  name: AmazonMSK_assisted-installer-stage-user
+  expiration: '2023-06-19'
+- type: aws_secretsmanager_secret
+  name: AmazonMSK_assisted-installer-stage-user
+  expiration: '2023-06-19'
+- type: aws_secretsmanager_secret_policy
+  name: AmazonMSK_assisted-installer-stage-user
+  expiration: '2023-06-19'
+- type: aws_secretsmanager_secret_version
+  name: AmazonMSK_assisted-installer-stage-user
+  expiration: '2023-06-19'
