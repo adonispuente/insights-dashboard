@@ -47,3 +47,6 @@ recommendedVersions:
   channel: candidate
   recommendedVersion: 4.13.2
   initialVersion: openshift-v4.13.2-candidate
+
+inheritVersionData:
+- $ref: /dependencies/ocm/crc/insights.yaml

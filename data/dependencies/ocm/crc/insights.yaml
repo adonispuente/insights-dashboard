@@ -1,0 +1,14 @@
+---
+$schema: /openshift/openshift-cluster-manager-1.yml
+labels: {}
+name: insights
+description: Red Hat Insights, OCM org ID 7770862
+environment:
+  $ref: /dependencies/ocm/environments/production.yml
+orgId: 1TwGiocMTd2JBOEwZi0EURMwKTh
+
+upgradePolicyAllowedWorkloads:
+- crc
+
+blockedVersions:
+- ^4\.13\..*$

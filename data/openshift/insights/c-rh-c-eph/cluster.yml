@@ -13,6 +13,15 @@ alertmanagerUrl: ''
 serverUrl: https://api.c-rh-c-eph.8p0c.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.c-rh-c-eph.8p0c.p1.openshiftapps.com
 
+ocm:
+  $ref: /dependencies/ocm/crc/insights.yaml
+upgradePolicy:
+  workloads:
+  - crc
+  schedule: 0 14 * * 3
+  conditions:
+    soakDays: 0
+
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.c-rh-c-eph.yml
 
