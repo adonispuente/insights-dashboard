@@ -26,6 +26,10 @@ automationToken:
 
 premiumSupport: true
 
+disable:
+  integrations:
+  - terraform-tgw-attachments
+
 terraformState:
   $ref: /aws/sd-infra-stage-01/state.yml
 

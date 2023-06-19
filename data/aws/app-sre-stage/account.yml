@@ -31,6 +31,10 @@ premiumSupport: true
 
 enableDeletion: true
 
+disable:
+  integrations:
+  - terraform-tgw-attachments
+
 resetPasswords:
 - user:
     $ref: /teams/app-sre/users/jboll.yml

@@ -27,6 +27,7 @@ premiumSupport: true
 disable:
   integrations:
   - terraform-aws-route53
+  - terraform-tgw-attachments
 
 deletionApprovals:
 - type: aws_secretsmanager_secret
