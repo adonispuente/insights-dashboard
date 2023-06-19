@@ -425,9 +425,7 @@ The next step is to link the defined escalation policy to the service. In order 
 
 ### Route an alert to your slack channel
 
-Alert routing is configured in [/resources/observability/alertmanager/alertmanager-instance.secret.yaml](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/observability/alertmanager/alertmanager-instance.secret.yaml).
-
-You have to declare a receiver, i.e., a slack channel to which alerts can be routed, [like this one](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L2976-3004). Next, you can add [matcher rules](https://gitlab.cee.redhat.com/service/app-interface/-/blob/bbcb3bc5a83271ad6363e05c40f8c9bee3694e1d/resources/observability/alertmanager/alertmanager-instance.secret.yaml#L555) to actually route alerts for your service to that receiver.
+Routing alerts and much more can be found in our [monitoring/alerting docs](docs/app-sre/monitoring.md).
 
 ### Create a Quay Repository for an onboarded App (`/app-sre/app-1.yml`)
 
