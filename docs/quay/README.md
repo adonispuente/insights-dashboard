@@ -34,7 +34,6 @@ See [Debugging Quay](issues/overview.md) for the general guide.
 
 - [Quay Checklist](quay-checklist.md)
 - [Quay Application SOPs](quayio.md)
-- [Quay Builder Cluster Access & Setup](quay-builder-ocp-cluster-setup/README.md)
 - [Quay Builder Cluster SOPs](builder.md)
 
 ## Quay AWS Accounts

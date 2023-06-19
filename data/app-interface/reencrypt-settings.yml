@@ -72,7 +72,6 @@ skip_aws_accounts: []
   # - $ref: /aws/osd-privatelink-stage/account.yml
   # - $ref: /aws/osio-dev/account.yml
   # - $ref: /aws/osio/account.yml
-  # - $ref: /aws/quay-builder/account.yml
   # - $ref: /aws/quayio-prod/account.yml
   # - $ref: /aws/quayio-stage/account.yml
   # - $ref: /aws/rhobs-testing/account.yml
