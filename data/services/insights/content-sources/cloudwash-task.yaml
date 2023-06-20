@@ -1,0 +1,29 @@
+apiVersion: template.openshift.io/v1
+kind: Task
+metadata:
+  name: cloud-resources-cleanup_task
+
+spec:
+  description: >-
+    add me
+  steps:
+    - name: write-url
+      script: |
+        #!/usr/bin/env sh
+        
+        pip install cloudwash 
+
+        # Provide secretes runtime from app-sre
+        export CLEANUP_PROVIDERS_AZURE_AUTH_CLIENT_ID
+        export CLEANUP_PROVIDERS_AZURE_AUTH_SECRET_ID
+        export CLEANUP_PROVIDERS_AZURE_AUTH_TENANT_ID
+        export CLEANUP_PROVIDERS_AZURE_AUTH_SUBSCRIPTION_ID
+
+        export CLEANUP_PROVIDERS_AZURE_AUTH_RESOURCE_GROUPS=["all"]
+        export CLEANUP_PROVIDERS_AZURE_AUTH_RESOURCE_GROUPS=["redhat-deployed"]
+        export CLEANUP_PROVIDERS_AZURE_AUTH_REGIONS=["East US"]
+
+        #  Remove all unused Resources from the provider (VM's,  NICs, DISCs)
+        swach azure --all
+#        swach aws --all
+#        swach gce --all
