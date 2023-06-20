@@ -145,7 +145,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
+    ref: 274dca8be3cf0c896f62fc1ff2ffa3ca166a32c7
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -196,7 +196,7 @@ resourceTemplates:
       APPSRE_RELOADER_SECRET_NAME: observatorium-appsre
       LOG_RULES_ENABLED: true
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: 'ad1ed3a'
+      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
