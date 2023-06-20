@@ -29,9 +29,9 @@ acceptanceCriteria:
 - comment: ''
   name: INCIDENT-MGMT-0003
   status: green
-- comment: 'There is a process, we lack formal documentation on it.'
+- comment: 'SOP/escalation document: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/runbooks/sops/escalation.md'
   name: INCIDENT-MGMT-0004
-  status: yellow
+  status: green
 - comment: 'https://docs.google.com/document/d/1POSmyYwGC-hn_0CNE3_qrd42aJurOBfwC7Nd1HqR0vU/edit'
   name: INCIDENT-MGMT-0005
   status: green
@@ -114,12 +114,12 @@ and https://github.com/stackrox/rhacs-observability-resources/blob/master/resour
 - comment: 'Secrets management exist, it uses AWS Secreet Manager'
   name: SECURITY-0001
   status: green
-- comment: 'ACS-CS Team is verifying with ProdSec if their build artifacts qualify. Images are built on OpenShift CI.'
+- comment: 'https://issues.redhat.com/browse/ROX-15984'
   name: SECURITY-0002
-  status: yellow
+  status: green
 - comment: 'Agreement to prioritize fixing high severity security issues following Infosec guidelines is in place.'
   name: SECURITY-0003
   status: green
-- comment: "In progress. https://issues.redhat.com/browse/ROX-14820 and From ACSCS https://issues.redhat.com/browse/ROX-8870 https://issues.redhat.com/browse/ROX-8852 https://issues.redhat.com/browse/ROX-8871"
+- comment: "We have spoken with Compliance teams and their next steps are all in progress. From the SRE perspective however this is complete; it should not block entering the transition period. Tickets for tracking purposes: https://issues.redhat.com/browse/ROX-14820 https://issues.redhat.com/browse/ROX-8870 https://issues.redhat.com/browse/ROX-8852 https://issues.redhat.com/browse/ROX-8871"
   name: SECURITY-0004
-  status: yellow
+  status: green
