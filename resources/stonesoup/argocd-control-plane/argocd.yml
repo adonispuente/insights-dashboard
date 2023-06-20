@@ -124,3 +124,33 @@ spec:
         cpu: 2
         memory: 4Gi
     sharding: {}
+  resource.customizations: |
+    logging.openshift.io/ClusterLogForwarder:
+      health.lua: |
+        local obj = resource
+        local hs = {
+          status = "Progressing",
+          message = "Waiting for pipeline readiness status"
+        }
+        local allPipelines = {}
+        local notReadyPipelines = {}
+
+        local pipelines = obj.status and obj.status.pipelines or {}
+        for _, pipeline in ipairs(pipelines) do
+            local conditions = pipeline.conditions or { { type = "Ready", status = "False", message = "The conditions field is missing for " .. pipeline.name } }
+            for _, condition in ipairs(conditions) do
+                if condition.type == "Ready" then
+                    hs.message = condition.message
+                    hs.status = condition.status == "False" and "Degraded" or "Healthy"
+                    table.insert(allPipelines, pipeline.name)
+                    if hs.status == "Degraded" then
+                        table.insert(notReadyPipelines, pipeline.name)
+                    end
+                end
+            end
+        end
+
+        hs.status = #notReadyPipelines == 0 and "Healthy" or "Degraded"
+        hs.message = #notReadyPipelines == 0 and "All pipelines are ready" or "Not ready pipelines: " .. table.concat(notReadyPipelines, ", ")
+
+        return hs
