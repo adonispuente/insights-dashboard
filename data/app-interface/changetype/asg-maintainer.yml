@@ -1,0 +1,24 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: asg-maintainer
+description: |
+  Allow updating the fields of an AutoScalingGroup (asg) provider in a namespace external resources
+
+priority: high
+
+contextType: datafile
+contextSchema: /openshift/namespace-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - externalResources[?(@.provider=="aws")].resources[?(@.provider=="asg")].image
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/asg-defaults-maintainer.yml
+  context:
+    where: backrefs
+    selector: externalResources[?(@.provider=="aws")].resources[?(@.provider=="asg")].defaults 

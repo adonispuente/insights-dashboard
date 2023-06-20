@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: asg-defaults-maintainer
+description: |
+  Allow updates on AWS AutoScaling Group defaults files in resources.
+
+priority: high
+
+contextType: resourcefile
+contextSchema: /aws/asg-defaults-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - $
