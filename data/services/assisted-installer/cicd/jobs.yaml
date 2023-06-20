@@ -101,7 +101,7 @@ config:
     label: assisted-service
     node: app-sre
     gh_org: openshift-assisted
-    gh_repo: bug_master_bot
+    gh_repo: bug-master-bot
     quay_org: app-sre
     jobs:
     - 'gh-build-master':

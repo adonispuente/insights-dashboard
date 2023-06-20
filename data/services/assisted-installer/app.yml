@@ -99,7 +99,7 @@ codeComponents:
   url: https://github.com/openshift-assisted/assisted-scripts
 - name: bug-master
   resource: upstream
-  url: https://github.com/openshift-assisted/bug_master_bot
+  url: https://github.com/openshift-assisted/bug-master-bot
 
 escalationPolicy:
   $ref: /teams/assisted-installer/escalation-policies/general.yaml
