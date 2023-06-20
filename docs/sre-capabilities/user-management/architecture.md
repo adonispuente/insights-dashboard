@@ -6,7 +6,7 @@ The `user management` capability is implemented following the [Standalone servic
 
 ![architecture](architecture.png)
 
-Users place labels on OCM organizations and cluster subscriptions. The `sre-capability` service account issues fleet-wide config data discovery on a regular basis and reconcile rover groups with cluster roles.
+Users place labels on OCM organizations and cluster subscriptions (see [docs](https://source.redhat.com/groups/public/sre/wiki/osdrosa_rover_based_user_management#documentation)). The `sre-capability` service account issues fleet-wide config data discovery on a regular basis and reconcile rover groups with cluster roles.
 
 ## Runtime
 
