@@ -40,7 +40,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-    ref: b93f4864bea4fcfc278c7a8033c4c8dd6282081b
+    ref: d2a504aaf8a048a72ad8d2c94faaf8126350e976
     promotion:
       auto: true
       subscribe:
@@ -49,7 +49,7 @@ resourceTemplates:
       - channel: assisted-installer-stage-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: 450af7f9e19b997f
+          target_config_hash: b2471f88c88d301d
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
