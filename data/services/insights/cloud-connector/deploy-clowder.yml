@@ -63,7 +63,7 @@ resourceTemplates:
       MQTT_CONSUMER_MQTT_CLEAN_SESSION: false
   - namespace:
       $ref: /services/insights/cloud-connector/namespaces/prod.yml
-    ref: 19bf99fa7bafadc28fc2796122caf1eedd9bf881
+    ref: bd3d1e17aadf414a7a66e8d2364a471414be895f
     parameters:
       IMAGE: quay.io/cloudservices/cloud-connector
       ENV_NAME: prod
