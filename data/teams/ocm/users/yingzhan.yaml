@@ -9,3 +9,4 @@ github_username: yingzhanredhat
 
 roles:
 - $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/ocm-qe.yml
