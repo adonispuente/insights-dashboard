@@ -87,7 +87,6 @@ resourceTemplates:
       FLOORIST_SCHEDULE: '20 0 * * *'
       GUNICORN_WORKERS: 4
       GUNICORN_THREADS: 8
-      LOG_LEVEL: DEBUG
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     ref: e789c50a4717808ad60f15801001e8c366fb221b
