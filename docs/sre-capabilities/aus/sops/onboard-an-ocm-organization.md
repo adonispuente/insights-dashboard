@@ -1,6 +1,8 @@
 # Onboard an OCM organization with AUS
 
-`AUS` acats only on OCM organization that have been explicitely onboarded with the service.
+`AUS` acats only on OCM organization that have been explicitely onboarded with the service. This is a requirement for now and might be lifted in the future.
+
+Make sure that the OCM organization belongs to a Red Hat internal team.
 
 ### Steps to onboard on org with the OCM label based AUS flavour
 
