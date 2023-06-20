@@ -12,7 +12,8 @@ upgradePolicyAllowedWorkloads:
 - crc
 
 blockedVersions:
-- ^4\.13\..*$
+- ^.*-ec\..*$
+- ^.*-fc\..*$
 
 upgradePolicyClusters:
 - name: c-rh-c-eph
