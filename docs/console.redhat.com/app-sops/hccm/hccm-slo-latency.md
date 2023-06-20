@@ -2,7 +2,7 @@
 
 ## SLI description
 
-We're measuring the proportion of our API response that take longer than two seconds. As the user interface or customer requests for data using the API we intend to have ninety percent or higher proportion of responses take less than two seconds over a month (28 day period).
+We're measuring the proportion of our API response that take longer than four seconds. As the user interface or customer requests for data using the API we intend to have ninety percent or higher proportion of responses take less than four seconds over a month (28 day period).
 
 Note: The metric used for this calculation includes all requests, included error requests (5xx), there is no ability to filter the latency measurement by status code.
 
@@ -18,7 +18,7 @@ Our API server is exposed through the 3Scale service deployed on the console.red
 
 ## SLO Rationale
 
-We acknowledge that a 10% latency rate over a month may seem high but there are several dependent components including 3Scale, Red Hat SSO, the Entitlements Service, and Akamai which are all in the network path for our API service and could add additional time to the request which could result in a request timing out. Additionally some enterprise customer accounts have many cloud accounts and clusters and as the volume of the data and the window of time the data is requested over increase so can the length of time for a request. We believe the greater than 90% API response completing in under two seconds models current expectations of customers to date and is far better than some industry competitors.
+We acknowledge that a 10% latency rate over a month may seem high but there are several dependent components including 3Scale, Red Hat SSO, the Entitlements Service, and Akamai which are all in the network path for our API service and could add additional time to the request which could result in a request timing out. Additionally some enterprise customer accounts have many cloud accounts and clusters and as the volume of the data and the window of time the data is requested over increase so can the length of time for a request. We believe the greater than 90% API response completing in under four seconds models current expectations of customers to date and is far better than some industry competitors.
 
 ## Alerts
 
