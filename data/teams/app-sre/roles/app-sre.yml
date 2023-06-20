@@ -206,7 +206,6 @@ aws_groups:
 - $ref: /aws/ter-int-dev/groups/App-SRE-admin.yml
 - $ref: /aws/osio/groups/DTSD-admin.yml
 - $ref: /aws/osio-dev/groups/App-SRE-admin.yml
-- $ref: /aws/quay-builder/groups/App-SRE-admin.yml
 - $ref: /aws/quayio-stage/groups/App-SRE-admin.yml
 - $ref: /aws/quayio-prod/groups/App-SRE-admin.yml
 - $ref: /aws/insights-stage/groups/App-SRE-admin.yml
@@ -230,7 +229,6 @@ user_policies:
 - $ref: /aws/ter-int-dev/policies/ManageOwnMFA.yml
 - $ref: /aws/osio/policies/ManageOwnMFA.yml
 - $ref: /aws/osio-dev/policies/ManageOwnMFA.yml
-- $ref: /aws/quay-builder/policies/ManageOwnMFA.yml
 - $ref: /aws/quayio-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/quayio-prod/policies/ManageOwnMFA.yml
 - $ref: /aws/insights-stage/policies/ManageOwnMFA.yml
