@@ -38,8 +38,3 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: openshift-assisted-bug-master-bot-gh-build-main
-    parameters:
-      LOG_LEVEL: INFO
-      RELOAD_RESULTS_DATA: ok
-      HTTP_PROTOCOL_TYPE: httptools
-      
