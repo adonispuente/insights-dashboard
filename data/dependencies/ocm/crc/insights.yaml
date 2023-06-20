@@ -6,10 +6,8 @@ description: Red Hat Insights, OCM org ID 7770862
 environment:
   $ref: /dependencies/ocm/environments/production.yml
 orgId: 1SL9d01pYpbSbsTYgbnjAIrDJSW
-
 publishVersionData:
 - $ref: /dependencies/ocm/production.yml
-
 upgradePolicyAllowedWorkloads:
 - crc
 
@@ -31,3 +29,8 @@ upgradePolicyClusters:
     schedule: 0 14 * * 3
     conditions:
       soakDays: 0
+recommendedVersions:
+- workload: crc
+  channel: candidate
+  recommendedVersion: 4.13.2
+  initialVersion: openshift-v4.13.2-candidate
