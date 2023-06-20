@@ -1,0 +1,16 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: app-sre-capabilities-enablement
+description: Enablement and support contact for SRE capabilities
+
+service: slack-usergroup
+handle: sre-capabilities-enablement
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+- sd-app-sre

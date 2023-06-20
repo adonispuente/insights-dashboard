@@ -14,6 +14,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre-stream-4-slack.yml
 - $ref: /aws/osd-privatelink-int/roles/admin.yml
 - $ref: /teams/app-sre/roles/app-sre-aus-enablement-slack.yml
+- $ref: /teams/app-sre/roles/app-sre-capabilities-enablement-slack.yml
 
 public_gpg_key: |
   mQINBGEM/5EBEACma4rN3pBRvQG21kxbZb/sciQCgaXVKBXhMNuljGxQ7sVoblItjibaQoX2Ql1u
