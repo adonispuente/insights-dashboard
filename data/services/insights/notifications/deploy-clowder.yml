@@ -126,24 +126,26 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
+    # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
     ref: 050526fca272efdc663071b545d11f1299748cdb
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-connector-microsoft-teams
 - name: notifications-connector-microsoft-teams
@@ -151,24 +153,26 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
+    # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
     ref: 050526fca272efdc663071b545d11f1299748cdb
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-connector-slack
 - name: notifications-connector-slack
@@ -176,24 +180,26 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-slack.yaml version
+    # notifications-backend commit hash that determines the clowdapp-slack.yaml version
     ref: 050526fca272efdc663071b545d11f1299748cdb
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-engine
 - name: notifications-engine
