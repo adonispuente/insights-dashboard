@@ -69,6 +69,8 @@ externalResources:
     identifier: patchman-perf-readonly
     replica_source: patchman-perf
     defaults: /terraform/resources/insights/perf/rds/rds-patchman-engine-perf-readonly.yml
+    overrides:
+      apply_immediately: true
     parameter_group: /terraform/resources/insights/perf/rds/postgres12-parameter-group-patchman-perf-readonly.yml
     output_resource_name: patchman-db-readonly
     reset_password: APPSRE-5037
