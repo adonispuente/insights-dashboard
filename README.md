@@ -423,6 +423,10 @@ channels:
 
 The next step is to link the defined escalation policy to the service. In order to do that, we add a new `escalationPolicy` reference within the `app.yml`. For example, see [this PR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/13851/diffs?commit_id=9bcb0b1c07d79ef164c552b2b970bc0247e9c1fa)
 
+### Route an alert to your slack channel
+
+Routing alerts and much more can be found in our [monitoring/alerting docs](docs/app-sre/monitoring.md).
+
 ### Create a Quay Repository for an onboarded App (`/app-sre/app-1.yml`)
 
 Onboarded applications are modelled using the schema `/app-sre/app-1.yml`. This schema allows any application to optionally define a list required Quay repositories.
