@@ -1,0 +1,39 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: app-interface
+
+name: app-interface
+
+app:
+  $ref: /services/insights/hybrid-committed-spend/app.yml
+
+namespaces:
+- $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+- $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+
+slos:
+- name: Hybrid Committed Spend Frontend Availability
+  dashboard: https://grafana.app-sre.devshift.net/d/k8s-compute-resources-namespace-pods/kubernetes-compute-resources-namespace-pods
+  SLIType: availability
+  SLISpecification: Uptime of frontend pod
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-availability.md
+  expr: 100 * avg_over_time(up{namespace="frontends",service="hybrid-committed-spend"}[{{window}}])
+  prometheusRules: /insights-prod/frontends/frontends.prometheusrules.yaml
+
+- name: Hybrid Committed Spend Frontend Beta Availability
+  dashboard: https://grafana.app-sre.devshift.net/d/k8s-compute-resources-namespace-pods/kubernetes-compute-resources-namespace-pods
+  SLIType: availability
+  SLISpecification: Uptime of frontend pod
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-availability.md
+  expr: 100 * avg_over_time(up{namespace="frontends-beta",service="hybrid-committed-spend"}[{{window}}])
+  prometheusRules: /insights-prod/frontends/frontends.prometheusrules.yaml
