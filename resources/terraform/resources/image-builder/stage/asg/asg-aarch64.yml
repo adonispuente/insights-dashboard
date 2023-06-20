@@ -5,6 +5,7 @@ min_size: 1
 instance_types:
 - c6g.large
 - c6gd.large
+- c7g.large
 iam_role_name: workers-aoc-staging-role
 
 vpc_zone_identifier:

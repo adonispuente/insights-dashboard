@@ -8,6 +8,7 @@ instance_types:
 - c5d.large
 - c6a.large
 - c6i.large
+- c6id.large
 iam_role_name: workers-aoc-staging-role
 
 vpc_zone_identifier:
