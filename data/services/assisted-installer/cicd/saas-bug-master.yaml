@@ -27,7 +27,7 @@ imagePatterns:
 
 resourceTemplates:
 - name: bug-master
-  url: https://github.com/openshift-assisted/bug_master_bot
+  url: https://github.com/openshift-assisted/bug-master-bot
   path: /openshift/template.yaml
   provider: openshift-template
   targets:
@@ -37,7 +37,7 @@ resourceTemplates:
     upstream:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
-      name: openshift-assisted-bug_master_bot-gh-build-main
+      name: openshift-assisted-bug-master-bot-gh-build-main
     parameters:
       LOG_LEVEL: INFO
       RELOAD_RESULTS_DATA: ok
