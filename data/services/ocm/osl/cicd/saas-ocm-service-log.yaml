@@ -45,7 +45,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: fe486684174dc7385c99639577b4e3df76227a0d
+    ref: f36b7b271e869564f7dfe5a4a2cca13d141469d0
 - name: ocm-service-log
   url: https://gitlab.cee.redhat.com/service/ocm-service-log
   path: /templates/service-template.yml
@@ -84,291 +84,291 @@ resourceTemplates:
       JOB_QUEUE_NAME: "job-queue-osl-staging.fifo"
       # Defining the triggers in stage for OSL
       TRIGGERS_CONFIG:
-        - name: "RHOSAK Addon Event Webhook"
-          criteria: "Summary like '%kas-fleetshard-operator%' or Summary like '%Managed Kafka Operator%'"
-          owner: "dconde@redhat.com"
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "https://rhosak-release-bot-rhosak-bots.apps.ocp-c1.prod.psi.redhat.com/events"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "SendGrid Service Webhook"
-          criteria: "Summary like '%Red Hat OpenShift Data Science%' or Summary like '%RHMI%' or Summary like '%API Management%' or Summary like '%Data Foundation Managed Service%' or Summary like '%Cluster deleted%' or Summary like '%Data Access Service%' or Summary like '%Managed Kafka kas-fleetshard-operator%' or Summary like 'Cluster % is being deleted%'"
-          owner: "pamccart@redhat.com"
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "https://ocm-sendgrid-service.sendgrid-stage.svc:8000/api/ocm-sendgrid-service/v1/webhook"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "Development Example Email"
-          criteria: "Summary = 'Development Test Log - Email'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "A new log has been created against your OpenShift cluster"
-              bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
-              mandrill_global_merge_vars:
-                - name: "TEST_TAG"
-                  content: "foo bar baz buzz"
-        - name: "Basic Event Notification Example Email"
-          criteria: "Summary like '%basic event notification%'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
+      - name: "RHOSAK Addon Event Webhook"
+        criteria: "Summary like '%kas-fleetshard-operator%' or Summary like '%Managed Kafka Operator%'"
+        owner: "dconde@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "https://rhosak-release-bot-rhosak-bots.apps.ocp-c1.prod.psi.redhat.com/events"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "SendGrid Service Webhook"
+        criteria: "Summary like '%Red Hat OpenShift Data Science%' or Summary like '%RHMI%' or Summary like '%API Management%' or Summary like '%Data Foundation Managed Service%' or Summary like '%Cluster deleted%' or Summary like '%Data Access Service%' or Summary like '%Managed Kafka kas-fleetshard-operator%' or Summary like 'Cluster % is being deleted%'"
+        owner: "pamccart@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "https://ocm-sendgrid-service.sendgrid-stage.svc:8000/api/ocm-sendgrid-service/v1/webhook"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "Development Example Email"
+        criteria: "Summary = 'Development Test Log - Email'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "A new log has been created against your OpenShift cluster"
+            bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
+            mandrill_global_merge_vars:
+            - name: "TEST_TAG"
+              content: "foo bar baz buzz"
+      - name: "Basic Event Notification Example Email"
+        criteria: "Summary like '%basic event notification%'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
               # No template name provided results in the default 'service-log-default' template being used
               # Subjects sent to mandrill can include dynamic content - mandrill will perform the substitution
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance scheduled"
-          criteria: "Summary = 'Upgrade maintenance scheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance reminder"
-          criteria: "Summary = 'Upgrade maintenance reminder'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance beginning"
-          criteria: "Summary = 'Upgrade maintenance beginning'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance delayed"
-          criteria: "Summary = 'Upgrade maintenance delayed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance completed"
-          criteria: "Summary = 'Upgrade maintenance completed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance cancelled"
-          criteria: "Summary = 'Upgrade maintenance cancelled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance failed"
-          criteria: "Summary = 'Upgrade maintenance failed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "Upgrade maintenance cancelled"
-        - name: "Upgrade maintenance rescheduled"
-          criteria: "Summary = 'Upgrade maintenance rescheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance scheduled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance scheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance beginning"
-          criteria: "Summary = 'Control Plane Upgrade maintenance beginning'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance delayed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance delayed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance completed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance completed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance cancelled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance cancelled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance failed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance failed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "Upgrade maintenance cancelled"
-        - name: "Control Plane Upgrade maintenance rescheduled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance rescheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Generic cluster notification: incident or action required"
-          criteria: "service_name = 'SREManualAction'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+incident@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade version available"
-          criteria: "Summary like '%upgrade version available%'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Version end of support lifecycle"
-          criteria: "Summary like '%end of supported life cycle%'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Limited support"
-          criteria: "service_name = 'LimitedSupport'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Email Notification for failed clusters deletion in Openshift Cluster Manager"
-          criteria: "Summary = 'Error deleting cluster in Openshift Cluster Manager'"
-          owner: "pvasanth@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              bcc_address: "sda-devel+delete@redhat.com"
-        - name: "Hypershift failed clusters deletion"
-          criteria: "Summary = '[Action Needed] Cluster failed to delete'"
-          owner: "tbrisker@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "Email Notification for failed inflight checks"
-          criteria: "Summary = 'Inflight check failed'"
-          owner: "dle@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              bcc_address: "sda-devel+inflight@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance scheduled"
+        criteria: "Summary = 'Upgrade maintenance scheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance reminder"
+        criteria: "Summary = 'Upgrade maintenance reminder'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance beginning"
+        criteria: "Summary = 'Upgrade maintenance beginning'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance delayed"
+        criteria: "Summary = 'Upgrade maintenance delayed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance completed"
+        criteria: "Summary = 'Upgrade maintenance completed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance cancelled"
+        criteria: "Summary = 'Upgrade maintenance cancelled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance failed"
+        criteria: "Summary = 'Upgrade maintenance failed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "Upgrade maintenance cancelled"
+      - name: "Upgrade maintenance rescheduled"
+        criteria: "Summary = 'Upgrade maintenance rescheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance scheduled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance scheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance beginning"
+        criteria: "Summary = 'Control Plane Upgrade maintenance beginning'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance delayed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance delayed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance completed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance completed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance cancelled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance cancelled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance failed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance failed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "Upgrade maintenance cancelled"
+      - name: "Control Plane Upgrade maintenance rescheduled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance rescheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Generic cluster notification: incident or action required"
+        criteria: "service_name = 'SREManualAction'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+incident@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade version available"
+        criteria: "Summary like '%upgrade version available%'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Version end of support lifecycle"
+        criteria: "Summary like '%end of supported life cycle%'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Limited support"
+        criteria: "service_name = 'LimitedSupport'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Email Notification for failed clusters deletion in Openshift Cluster Manager"
+        criteria: "Summary = 'Error deleting cluster in Openshift Cluster Manager'"
+        owner: "pvasanth@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            bcc_address: "sda-devel+delete@redhat.com"
+      - name: "Hypershift failed clusters deletion"
+        criteria: "Summary = '[Action Needed] Cluster failed to delete'"
+        owner: "tbrisker@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "Email Notification for failed inflight checks"
+        criteria: "Summary = 'Inflight check failed'"
+        owner: "dle@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            bcc_address: "sda-devel+inflight@redhat.com"
         # OSD Trial Related Emails: https://gitlab.cee.redhat.com/service/uhc-account-manager/-/blob/master/pkg/api/osl/types.go
-        - name: "OSD Trial Cluster Created"
-          criteria: "Summary = 'Trial cluster created'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-creation-template"
-              subject: "An OSD Trial Cluster Has Been Created"
-              include_red_hat_associates: true
-              bcc_address: "kstevens@redhat.com"
-        - name: "OSD Trial Cluster Expiration Reminder"
-          criteria: "Summary = 'Trial cluster expiration reminder'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-reminder-template"
-              subject: "OSD Trial Cluster Expiration Reminder"
-              include_red_hat_associates: true
-        - name: "OSD Trial Cluster Expired"
-          criteria: "Summary = 'Trial cluster expired'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-deletion-template"
-              subject: "OSD Trial Cluster Has Expired"
-              include_red_hat_associates: true
+      - name: "OSD Trial Cluster Created"
+        criteria: "Summary = 'Trial cluster created'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-creation-template"
+            subject: "An OSD Trial Cluster Has Been Created"
+            include_red_hat_associates: true
+            bcc_address: "kstevens@redhat.com"
+      - name: "OSD Trial Cluster Expiration Reminder"
+        criteria: "Summary = 'Trial cluster expiration reminder'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-reminder-template"
+            subject: "OSD Trial Cluster Expiration Reminder"
+            include_red_hat_associates: true
+      - name: "OSD Trial Cluster Expired"
+        criteria: "Summary = 'Trial cluster expired'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-deletion-template"
+            subject: "OSD Trial Cluster Has Expired"
+            include_red_hat_associates: true
         # OSD RHM Related Emails: https://gitlab.cee.redhat.com/service/uhc-account-manager/-/blob/master/pkg/api/osl/types.go
-        - name: "OSD RHM Cluster Expiration Reminder"
-          criteria: "Summary = 'Marketplace OSD cluster expiration reminder'"
-          owner: "petli@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "OSD RHM Cluster Expired"
-          criteria: "Summary = 'Marketplace OSD cluster expired'"
-          owner: "petli@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "*|LOG_SUMMARY|*"
+      - name: "OSD RHM Cluster Expiration Reminder"
+        criteria: "Summary = 'Marketplace OSD cluster expiration reminder'"
+        owner: "petli@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "OSD RHM Cluster Expired"
+        criteria: "Summary = 'Marketplace OSD cluster expired'"
+        owner: "petli@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "*|LOG_SUMMARY|*"
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
     ref: master
@@ -405,70 +405,70 @@ resourceTemplates:
       JOB_QUEUE_NAME: "job-queue-osl-int.fifo"
       # Defining the triggers in integration for OSL
       TRIGGERS_CONFIG:
-        - name: "Example Webhook"
-          criteria: "summary is 'test webhook trigger log'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "http://127.0.0.1/webhook"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "SendGrid Service Webhook"
-          criteria: "Summary like '%Data Foundation Managed Service%'"
-          owner: "pamccart@redhat.com"
-          allow_for_external_user: true
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "https://ocm-sendgrid-service.sendgrid-integration.svc:8000/api/ocm-sendgrid-service/v1/webhook"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "Development Example Email"
-          criteria: "Summary = 'test email include_redhat_associates flag'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "A new log has been created against your OpenShift cluster including redhat associates"
-              bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
-              include_red_hat_associates: true
-              mandrill_global_merge_vars:
-                - name: "TEST_TAG"
-                  content: "foo bar baz buzz"
-        - name: "Email Notification for failed cluster deletion in Openshift Cluster Manager"
-          criteria: "Summary = 'Error deleting cluster in Openshift Cluster Manager'"
-          owner: "pvasanth@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              bcc_address: "sda-devel+delete@redhat.com"
-        - name: "Hypershift failed clusters deletion"
-          criteria: "Summary = '[Action Needed] Cluster failed to delete'"
-          owner: "tbrisker@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "Email Notification for failed inflight checks"
-          criteria: "Summary = 'Inflight check failed'"
-          owner: "dle@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              bcc_address: "sda-devel+inflight@redhat.com"
+      - name: "Example Webhook"
+        criteria: "summary is 'test webhook trigger log'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "http://127.0.0.1/webhook"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "SendGrid Service Webhook"
+        criteria: "Summary like '%Data Foundation Managed Service%'"
+        owner: "pamccart@redhat.com"
+        allow_for_external_user: true
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "https://ocm-sendgrid-service.sendgrid-integration.svc:8000/api/ocm-sendgrid-service/v1/webhook"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "Development Example Email"
+        criteria: "Summary = 'test email include_redhat_associates flag'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "A new log has been created against your OpenShift cluster including redhat associates"
+            bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
+            include_red_hat_associates: true
+            mandrill_global_merge_vars:
+            - name: "TEST_TAG"
+              content: "foo bar baz buzz"
+      - name: "Email Notification for failed cluster deletion in Openshift Cluster Manager"
+        criteria: "Summary = 'Error deleting cluster in Openshift Cluster Manager'"
+        owner: "pvasanth@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            bcc_address: "sda-devel+delete@redhat.com"
+      - name: "Hypershift failed clusters deletion"
+        criteria: "Summary = '[Action Needed] Cluster failed to delete'"
+        owner: "tbrisker@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "Email Notification for failed inflight checks"
+        criteria: "Summary = 'Inflight check failed'"
+        owner: "dle@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            bcc_address: "sda-devel+inflight@redhat.com"
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: d8774daef7c659be86cdadc867a58263ed5996e8
+    ref: f36b7b271e869564f7dfe5a4a2cca13d141469d0
     parameters:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_2
       GLOG_V: 1
@@ -481,288 +481,288 @@ resourceTemplates:
       JOB_QUEUE_NAME: "job-queue-osl-prod.fifo"
       # Defining the triggers in production for OSL
       TRIGGERS_CONFIG:
-        - name: "RHOSAK Addon Event Webhook"
-          criteria: "Summary like '%kas-fleetshard-operator%' or Summary like '%Managed Kafka Operator%'"
-          owner: "dconde@redhat.com"
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "https://rhosak-release-bot-rhosak-bots.apps.ocp-c1.prod.psi.redhat.com/events"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "SendGrid Service Webhook"
-          criteria: "Summary like '%Red Hat OpenShift Data Science%' or Summary like '%RHMI%' or Summary like '%API Management%' or Summary like '%Data Foundation Managed Service%' or Summary like '%Cluster deleted%' or Summary like '%Data Access Service%' or Summary like '%Managed Kafka kas-fleetshard-operator%'"
-          owner: "pamccart@redhat.com"
-          action:
-            type: "webhook"
-            webhook_parameters:
-              url: "https://ocm-sendgrid-service.sendgrid-production.svc:8000/api/ocm-sendgrid-service/v1/webhook"
-              verify_ssl: true
-              authentication:
-                method: "none"
-        - name: "Development Example Email"
-          criteria: "Summary = 'Development Test Log - Email'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "A new log has been created against your OpenShift cluster"
-              bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
-              mandrill_global_merge_vars:
-                - name: "TEST_TAG"
-                  content: "foo bar baz buzz"
-        - name: "Basic Event Notification Example Email"
-          criteria: "Summary like '%basic event notification%'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
+      - name: "RHOSAK Addon Event Webhook"
+        criteria: "Summary like '%kas-fleetshard-operator%' or Summary like '%Managed Kafka Operator%'"
+        owner: "dconde@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "https://rhosak-release-bot-rhosak-bots.apps.ocp-c1.prod.psi.redhat.com/events"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "SendGrid Service Webhook"
+        criteria: "Summary like '%Red Hat OpenShift Data Science%' or Summary like '%RHMI%' or Summary like '%API Management%' or Summary like '%Data Foundation Managed Service%' or Summary like '%Cluster deleted%' or Summary like '%Data Access Service%' or Summary like '%Managed Kafka kas-fleetshard-operator%'"
+        owner: "pamccart@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "https://ocm-sendgrid-service.sendgrid-production.svc:8000/api/ocm-sendgrid-service/v1/webhook"
+            verify_ssl: true
+            authentication:
+              method: "none"
+      - name: "Development Example Email"
+        criteria: "Summary = 'Development Test Log - Email'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "A new log has been created against your OpenShift cluster"
+            bcc_address: "tiwillia+osl_trigger_dev@redhat.com"
+            mandrill_global_merge_vars:
+            - name: "TEST_TAG"
+              content: "foo bar baz buzz"
+      - name: "Basic Event Notification Example Email"
+        criteria: "Summary like '%basic event notification%'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
               # No template name provided results in the default 'service-log-default' template being used
               # Subjects sent to mandrill can include dynamic content - mandrill will perform the substitution
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance scheduled"
-          criteria: "Summary = 'Upgrade maintenance scheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance reminder"
-          criteria: "Summary = 'Upgrade maintenance reminder'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance beginning"
-          criteria: "Summary = 'Upgrade maintenance beginning'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance delayed"
-          criteria: "Summary = 'Upgrade maintenance delayed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance completed"
-          criteria: "Summary = 'Upgrade maintenance completed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance cancelled"
-          criteria: "Summary = 'Upgrade maintenance cancelled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance rescheduled"
-          criteria: "Summary = 'Upgrade maintenance rescheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Upgrade maintenance failed"
-          criteria: "Summary = 'Upgrade maintenance failed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "Upgrade maintenance cancelled"
-        - name: "Control Plane Upgrade maintenance scheduled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance scheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance beginning"
-          criteria: "Summary = 'Control Plane Upgrade maintenance beginning'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-scheduled-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance delayed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance delayed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance completed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance completed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance cancelled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance cancelled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance rescheduled"
-          criteria: "Summary = 'Control Plane Upgrade maintenance rescheduled'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Control Plane Upgrade maintenance failed"
-          criteria: "Summary = 'Control Plane Upgrade maintenance failed'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "upgrade-ended-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "Upgrade maintenance cancelled"
-        - name: "Generic cluster notification: incident or action required"
-          criteria: "service_name = 'SREManualAction'"
-          owner: "wgordon@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+incident@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "Upgrade version available"
-          criteria: "Summary like '%upgrade version available%'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Version end of support lifecycle"
-          criteria: "Summary like '%end of supported life cycle%'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "Limited support"
-          criteria: "service_name = 'LimitedSupport'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              bcc_address: "sd-customer-notifications+upgrades@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "CA Cert Auto Renewal"
-          criteria: "Summary like '%CA certificate automatic renewal%'"
-          owner: "aweiteka@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ca-cert-auto-renewal"
-              bcc_address: "sd-customer-notifications+cacert@redhat.com"
-              subject: "*|LOG_SUMMARY|*"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance scheduled"
+        criteria: "Summary = 'Upgrade maintenance scheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance reminder"
+        criteria: "Summary = 'Upgrade maintenance reminder'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance beginning"
+        criteria: "Summary = 'Upgrade maintenance beginning'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance delayed"
+        criteria: "Summary = 'Upgrade maintenance delayed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance completed"
+        criteria: "Summary = 'Upgrade maintenance completed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance cancelled"
+        criteria: "Summary = 'Upgrade maintenance cancelled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance rescheduled"
+        criteria: "Summary = 'Upgrade maintenance rescheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Upgrade maintenance failed"
+        criteria: "Summary = 'Upgrade maintenance failed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "Upgrade maintenance cancelled"
+      - name: "Control Plane Upgrade maintenance scheduled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance scheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance beginning"
+        criteria: "Summary = 'Control Plane Upgrade maintenance beginning'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-scheduled-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance delayed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance delayed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance completed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance completed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance cancelled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance cancelled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance rescheduled"
+        criteria: "Summary = 'Control Plane Upgrade maintenance rescheduled'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Control Plane Upgrade maintenance failed"
+        criteria: "Summary = 'Control Plane Upgrade maintenance failed'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "upgrade-ended-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "Upgrade maintenance cancelled"
+      - name: "Generic cluster notification: incident or action required"
+        criteria: "service_name = 'SREManualAction'"
+        owner: "wgordon@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+incident@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "Upgrade version available"
+        criteria: "Summary like '%upgrade version available%'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Version end of support lifecycle"
+        criteria: "Summary like '%end of supported life cycle%'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "Limited support"
+        criteria: "service_name = 'LimitedSupport'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            bcc_address: "sd-customer-notifications+upgrades@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "CA Cert Auto Renewal"
+        criteria: "Summary like '%CA certificate automatic renewal%'"
+        owner: "aweiteka@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ca-cert-auto-renewal"
+            bcc_address: "sd-customer-notifications+cacert@redhat.com"
+            subject: "*|LOG_SUMMARY|*"
         # OSD Trial Related Emails: https://gitlab.cee.redhat.com/service/uhc-account-manager/-/blob/master/pkg/api/osl/types.go
-        - name: "OSD Trial Cluster Created"
-          criteria: "Summary = 'Trial cluster created'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-creation-template"
-              subject: "An OSD Trial Cluster Has Been Created"
-              include_red_hat_associates: true
-              bcc_address: "kstevens@redhat.com"
-        - name: "OSD Trial Cluster Expiration Reminder"
-          criteria: "Summary = 'Trial cluster expiration reminder'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-reminder-template"
-              subject: "OSD Trial Cluster Expiration Reminder"
-        - name: "OSD Trial Cluster Expired"
-          criteria: "Summary = 'Trial cluster expired'"
-          owner: "tiwillia@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "osd-trial-deletion-template"
-              subject: "OSD Trial Cluster Has Expired"
+      - name: "OSD Trial Cluster Created"
+        criteria: "Summary = 'Trial cluster created'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-creation-template"
+            subject: "An OSD Trial Cluster Has Been Created"
+            include_red_hat_associates: true
+            bcc_address: "kstevens@redhat.com"
+      - name: "OSD Trial Cluster Expiration Reminder"
+        criteria: "Summary = 'Trial cluster expiration reminder'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-reminder-template"
+            subject: "OSD Trial Cluster Expiration Reminder"
+      - name: "OSD Trial Cluster Expired"
+        criteria: "Summary = 'Trial cluster expired'"
+        owner: "tiwillia@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "osd-trial-deletion-template"
+            subject: "OSD Trial Cluster Has Expired"
         # OSD RHM Related Emails: https://gitlab.cee.redhat.com/service/uhc-account-manager/-/blob/master/pkg/api/osl/types.go
-        - name: "OSD RHM Cluster Expiration Reminder"
-          criteria: "Summary = 'Marketplace OSD cluster expiration reminder'"
-          owner: "petli@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "OSD RHM Cluster Expired"
-          criteria: "Summary = 'Marketplace OSD cluster expired'"
-          owner: "petli@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "ocm-basic-log-notification"
-              subject: "*|LOG_SUMMARY|*"
-        - name: "Hypershift failed clusters deletion"
-          criteria: "Summary = '[Action Needed] Cluster failed to delete'"
-          owner: "tbrisker@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
-              include_red_hat_associates: true
-        - name: "Email Notification for failed inflight checks"
-          criteria: "Summary = 'Inflight check failed'"
-          owner: "dle@redhat.com"
-          action:
-            type: "email"
-            email_parameters:
-              mandrill_template_name: "generic-sre-notification-template"
-              subject: "*|LOG_SUMMARY|*"
+      - name: "OSD RHM Cluster Expiration Reminder"
+        criteria: "Summary = 'Marketplace OSD cluster expiration reminder'"
+        owner: "petli@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "OSD RHM Cluster Expired"
+        criteria: "Summary = 'Marketplace OSD cluster expired'"
+        owner: "petli@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "ocm-basic-log-notification"
+            subject: "*|LOG_SUMMARY|*"
+      - name: "Hypershift failed clusters deletion"
+        criteria: "Summary = '[Action Needed] Cluster failed to delete'"
+        owner: "tbrisker@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
+            include_red_hat_associates: true
+      - name: "Email Notification for failed inflight checks"
+        criteria: "Summary = 'Inflight check failed'"
+        owner: "dle@redhat.com"
+        action:
+          type: "email"
+          email_parameters:
+            mandrill_template_name: "generic-sre-notification-template"
+            subject: "*|LOG_SUMMARY|*"
