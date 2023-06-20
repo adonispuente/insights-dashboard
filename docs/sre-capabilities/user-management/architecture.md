@@ -6,6 +6,8 @@ The `user management` capability is implemented following the [Standalone servic
 
 ![architecture](architecture.png)
 
+Users place labels on OCM organizations and cluster subscriptions. The `sre-capability` service account issues fleet-wide config data discovery on a regular basis and reconcile rover groups with cluster roles.
+
 ## Runtime
 
 `user management` is running as a qontract-reconcile integration in the `app-interface-<env>` namespaces. This is a temporary runtime solution until a dedicated runtime environment has been defined with the intent to onboard the service into `app-interface`.
