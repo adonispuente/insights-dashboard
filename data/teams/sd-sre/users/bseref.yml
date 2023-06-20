@@ -14,7 +14,6 @@ roles:
 - $ref: /aws/app-sre/roles/s3-verifier-logs.yml
 - $ref: /aws/app-sre-stage/roles/s3-verifier-logs-stage.yml
 
-
 public_gpg_key: |
  mQINBGSAW/0BEADJlXBNujqiwpKkrUj2nQbR74YCrmduV7wS9d100XN8ofLWBp1R
  btXM87eONqvaoIuSg3tWERnFucPtxHEkoljbZhMtN7uJ76mJqqooWjMuhvXn6Qjv
