@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: platform-changelog
-  namespace: default
+  namespace: platform-changelog-stage

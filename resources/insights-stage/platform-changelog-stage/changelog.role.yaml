@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: changelog-oauth-service-account-access
-  namespace: default
+  namespace: platform-changelog-stage
 rules:
 - apiGroups:
   - ""
