@@ -16,9 +16,9 @@ app:
   $ref: /services/rhobs/telemeter/app.yml
 
 networkPoliciesAllow:
-- $ref: /services/rhobs/observatorium/namespaces/observatorium-stage.yml
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
 
-# grafanaUrl: https://grafana.app-sre.devshift.net/d/Tg-mH0rizaSJDKSADJ/rhelemeter?orgId=1&var-datasource=app-sre-stage-prometheus&var-cluster=app-sre-stage&var-namespace=rhelemeter-stage
+managedRoles: true
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml

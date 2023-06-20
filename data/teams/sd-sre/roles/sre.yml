@@ -86,6 +86,9 @@ access:
     $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
   role: view
 - namespace:
+    $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+  role: view
+- namespace:
     $ref: /services/rhobs/telemeter/namespaces/telemeter-integration.yml
   role: view
 # Promlens access
