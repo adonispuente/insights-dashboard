@@ -28,3 +28,7 @@ externalResources:
     identifier: stonesoup-spi-secrets-manager
     secrets_prefix: spi-prod
     output_resource_name: spi-secrets-manager
+  - provider: secrets-manager-service-account
+    identifier: stonesoup-remotesecret-secrets-manager
+    secrets_prefix: remotesecret-prod
+    output_resource_name: remotesecret-secrets-manager
