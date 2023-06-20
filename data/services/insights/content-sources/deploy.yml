@@ -86,6 +86,9 @@ resourceTemplates:
   - namespace: # PRODUCTION
       $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
     ref: cd9d400451e5cc2e97e272243350045e3f8edf99
+    promotion:
+      publish:
+      - content-sources-prod-deploy-success-channel
     parameters:
       CLIENTS_RBAC_BASE_URL: http://${RBAC_HOST}:8080/api/rbac/v1
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/prod

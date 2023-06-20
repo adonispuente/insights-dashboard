@@ -271,12 +271,12 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 2781b2dbdca532da2be65fbd4c990491e4efb467
+    ref: 06aba6f653e5d98443d586daa04892945dbf19dc
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 2781b2d
+      DBM_IMAGE_TAG: 1cfa7f5
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -315,10 +315,10 @@ resourceTemplates:
       TENANT_MULTIPROCESSING_CHUNKS: "4"
 
       # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 8 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 10 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 8 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 10 * * *"
       REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 14 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 14 * * *"
 
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False

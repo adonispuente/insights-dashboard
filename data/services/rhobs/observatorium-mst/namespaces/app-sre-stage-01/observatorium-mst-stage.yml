@@ -102,6 +102,16 @@ openshiftResources:
     tenant: appsre
   annotations:
     qontract.recycle: "true"
+## rhtap
+- provider: vault-secret
+  path: stonesoup/staging/monitoring/rhobs
+  version: 5
+  name: observatorium-rhtap-staging
+  labels:
+    tenant: rhtap
+  annotations:
+    qontract.recycle: "true"
+
 
 # Secret Templates
 - provider: resource-template

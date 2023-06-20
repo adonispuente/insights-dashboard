@@ -4,7 +4,7 @@ $schema: /openshift/namespace-1.yml
 labels:
   platform: insights
 
-name: custom-metrics-autoscaler
+name: openshift-keda
 description: Namespace for CMA operator in crcd01ue1 cluster
 
 cluster:
@@ -18,3 +18,5 @@ environment:
 
 networkPoliciesAllow:
 - $ref: /openshift/insights/crcd01ue1/namespaces/openshift-operator-lifecycle-manager.yml
+
+clusterAdmin: true

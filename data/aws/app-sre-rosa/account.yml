@@ -34,6 +34,7 @@ enableDeletion: true
 disable:
   integrations:
   - terraform-aws-route53
+  - terraform-tgw-attachments
 
 
 resetPasswords:

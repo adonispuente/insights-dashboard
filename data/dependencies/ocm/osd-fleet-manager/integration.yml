@@ -126,21 +126,11 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
-- name: hs-sc-9biqi7cl0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 recommendedVersions:
 - workload: service-cluster
   channel: stable
-  recommendedVersion: 4.12.12
-  initialVersion: openshift-v4.12.12
+  recommendedVersion: 4.12.18
+  initialVersion: openshift-v4.12.18
 - workload: management-cluster
   channel: stable
   recommendedVersion: 4.12.18

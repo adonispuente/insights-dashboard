@@ -34,3 +34,4 @@ disable:
   integrations:
   - terraform-resources
   - terraform-aws-route53
+  - terraform-tgw-attachments

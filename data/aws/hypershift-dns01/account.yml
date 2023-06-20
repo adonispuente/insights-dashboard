@@ -22,7 +22,8 @@ automationToken:
   field: all
 
 disable:
-  integrations: []
+  integrations:
+  - terraform-tgw-attachments
 
 terraformState:
   $ref: /aws/hypershift-dns01/state.yml

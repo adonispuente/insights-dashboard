@@ -47,6 +47,7 @@ disable:
   - terraform-users
   - terraform-aws-route53
   - terraform-vpc-peerings
+  - terraform-tgw-attachments
 
 # not used
 providerVersion: '3.76.1'

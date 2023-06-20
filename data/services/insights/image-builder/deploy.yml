@@ -93,7 +93,7 @@ resourceTemplates:
           - image-builder-stage-deploy-success-channel
     - namespace:
         $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
-      ref: a5186f29ae18c8a47dec9c23309244fbdcca58df
+      ref: 7ffc7125a4df22cac77afd9d88ca57f747d5dbd1
       parameters:
         COMPOSER_URL: "https://api.openshift.com"
         FLOORIST_QUERY_PREFIX: "hms_analytics/image-builder/prod"
@@ -113,7 +113,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 8a34788b2743dbd9e010f7723ae52d9915ce6fce
+    ref: 7ffc7125a4df22cac77afd9d88ca57f747d5dbd1
 - name: image-builder-frontend
   url: https://github.com/RedHatInsights/image-builder-frontend
   path: /deploy/frontend-clowder.yml

@@ -28,6 +28,7 @@ config:
         display_name: 'automation analytics gl-build-main'
         branch: main
         slack_channel_notification: aa-cicd-events
+        cron_expression: '0 10 * * 2'
     - 'insights-automation-analytics-backend-gl-pr-check':
         display_name: 'automation analytics pr check'
         name: 'aa-qe'
@@ -47,6 +48,9 @@ config:
         pr_check_script_path: 'make benchmark'
         slack_channel_notification: aa-cicd-events
         name: "aa-benchmark"
+    - "insights-automation-analytics-s3-sync":
+        display_name: insights automation analytics s3 sync
+        cron_expression: '0 9,21 * * *'
 
     # PR Check Enhancement
     - "insights-gl-pipeline":
@@ -67,6 +71,7 @@ config:
         display_name: insight platform cicd cypress
         branch: main
         build_deploy_script_path: 'build_deploy.sh'
+        cron_expression: '0 10 * * 23'
         slack_channel_notification: aa-cicd-events
         image: "quay.io/cloudservices/insights-platform-cicd-cypress"
         image_tag: latest
@@ -84,6 +89,7 @@ config:
         display_name: insight platform cicd clamscan
         branch: main
         build_deploy_script_path: 'build_deploy.sh'
+        cron_expression: '0 10 * * 4'
         slack_channel_notification: aa-cicd-events
         image: "quay.io/cloudservices/insights-platform-cicd-clamscan"
         image_tag: latest
@@ -99,6 +105,7 @@ config:
     - "insights-gl-build-cypress-image":
         display_name: automation analytics cypress image ephemeral
         image: "quay.io/cloudservices/automation-analytics-cypress-image"
+        cron_expression: '0 10 * * 3'
         image_tag: latest
         slack_channel_notification: aa-cicd-events
 
@@ -114,6 +121,7 @@ config:
         display_name: automation analytics clamscan image ephemeral
         image: "quay.io/cloudservices/automation-analytics-clamscan-image"
         image_tag: latest
+        cron_expression: '0 10 * * 4'
         slack_channel_notification: aa-cicd-events
 
 - project:
@@ -127,6 +135,7 @@ config:
     - "insights-gl-build-iqe-debug-image":
         display_name: automation analytics iqe debug image ephemeral
         image: "quay.io/cloudservices/automation-analytics-iqe-debug-image"
+        cron_expression: '0 10 * * 3'
         image_tag: latest
         slack_channel_notification: aa-cicd-events
 
@@ -159,6 +168,7 @@ config:
         display_name: 'automation analytics frontend gh-build-main'
         branch: devel
         slack_channel_notification: aa-cicd-events
+        cron_expression: '0 10 * * 4'
     - "insights-gh-pr-check":
         display_name: automation-analytics-frontend pr-check
         branch: devel

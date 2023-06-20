@@ -46,6 +46,11 @@
     - [Summary](#summary-8)
     - [Access required](#access-required-8)
     - [Steps](#steps-8)
+  - [ACS Rotate Central UI endpoint certificates](#acs-rotate-central-tenant-certificate)
+    - [Impact](#impact-9)
+    - [Summary](#summary-9)
+    - [Access required](#access-required-9)
+    - [Steps](#steps-9)
   - [Escalations](#escalations)
 
 ---
@@ -351,6 +356,81 @@ ACS Fleet Manager service couldn't provision central before the timeout.
 refer to the steps [ACS Central provisioning latency](#acs-central-provisioning-latency)
 
 ---
+
+## ACS rotate Central tenant certificate
+
+### Impact
+
+If not rotated before expiration, ACS tenant UI returns invalid TLS certificates.
+
+### Summary
+ACS Fleet Manager service provides TLS key and certificate for managed ACS central tenant UI endpoints. This certificate is a wildcard certificate with CN: `*.acs.rhlcoud.com` or `*.acs-stage.rhcloud.com`. The certificates are valid for a year. This SOP describes how to rotate the certificate before it expires.
+### Access Required
+
+- App interface Vault ([Prod](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/prod)/[Stage](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/stage))
+### Steps
+
+1. Grab the .tls key for your environment from app-interface vault (VPN required)
+    - [Prod](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/prod/service/dataplane-certificate)
+    - [Stage](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/stage/service/dataplane-certificate)
+    - Store it in a file `tls.key`
+1. Create a CSR
+    ```
+    openssl req -new -key tls.key -out tls.csr
+
+    Country Name (2 letter code) []:US
+    State or Province Name (full name) []:North Carolina
+    Locality Name (eg, city) []:Raleigh
+    Organization Name (eg, company) []:Red Hat\, Inc.
+    Organizational Unit Name (eg, section) []:
+    Common Name (eg, fully qualified host name) []:*.acs.rhcloud.com or *.acs-stage.rhlcoud.com depending on the environment
+    Email Address []:rhacs-eng-ms@redhat.com
+    ```
+1. Create a service now ticket using [this Form](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=e5fc3a19db0898149693cf5e13961975&sysparm_category=bce7f09b4fa25b40220104c85210c7a0&sc_catalog=1a98389b4fa25b40220104c85210c7d4)
+    - Select application ID ACSC-001: Red Hat Advanced Cluster Security (Managed Service)
+    - Select ticket of reference, for prod: `RITM1256415` , for stage: `RITM1245441`
+    - Fill additional Information with:
+      ```
+      We (RHACS Cloud Service) have an existing wildcard Digicert certificate, issued by Red Hat IT, which needs to be rotated.
+      The request here is for new certificates for our <environment> environment. The domain is:
+      
+      <domain>
+
+      The existing certificates will need to continue to be valid while we switch to the new certificates.
+
+      The .csr is attached to this ticket.
+      ```
+    - Attach the .csr file to the ticket
+1. Wait for cert to be attached to the ticket and download the zip file
+1. Unzip the certificates and generate the tls.crt file
+    ```
+    unzip <zip-file-name> 
+    cat ./<unzipped_folder/star_acs[-stage]_rhcloud_com.pem DigiCertCA2.pem > tls.crt       
+    ```
+1. Validate certificate:
+    - Check that cert, key and csr have the same checksum
+      ```
+      openssl req -pubkey -in tls.csr -noout | openssl sha256
+      openssl x509 -pubkey -in star_acs_rhcloud_com.pem -noout | openssl sha256
+      openssl pkey -pubout -in tls.key | openssl sha256
+      ```
+    - Check that dates are valid
+      ```
+      openssl x509 -noout -in tls.crt -dates
+
+      Output: 
+      notBefore=Jun 16 00:00:00 2023 GMT
+      notAfter=Jun 18 23:59:59 2024 GMT
+      ```
+    - Check that domains is correct
+      ```
+      cat tls.crt | openssl x509 -text | grep DNS
+      
+      Output:
+      DNS:*.acs.rhcloud.com
+      ```
+1. Put content of `tls.crt` as new secret version in app-interface vault ([Prod](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/prod/service/dataplane-certificate)/[Stage](https://vault.devshift.net/ui/vault/secrets/app-interface/show/acs-fleet-manager/stage/service/dataplane-certificate))
+1. Change the secret version reference in acs-fleet-manager configuration ([Prod](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml?ref_type=heads#L37)/[Stage](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml#L37))
 
 ## Status page
 

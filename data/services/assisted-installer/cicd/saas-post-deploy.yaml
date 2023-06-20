@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
-    ref: f218f6c0bcb729f5bca66608f357cd7401b2363a
+    ref: cab4a1978a3a4cb1b57e78d3b8532715a8b2deb6
     promotion:
       auto: true
       subscribe:
@@ -40,7 +40,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-    ref: d2a504aaf8a048a72ad8d2c94faaf8126350e976
+    ref: b93f4864bea4fcfc278c7a8033c4c8dd6282081b
     promotion:
       auto: true
       subscribe:
@@ -49,7 +49,7 @@ resourceTemplates:
       - channel: assisted-installer-stage-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: 2e09e73c290b0d04
+          target_config_hash: 450af7f9e19b997f
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
@@ -62,5 +62,5 @@ resourceTemplates:
       - channel: assisted-installer-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: b2e2e4e397b883d8
+          target_config_hash: c811b0bc3a899dce
           type: parent_saas_config

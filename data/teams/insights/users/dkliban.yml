@@ -1,0 +1,25 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Dennis Kliban
+org_username: dkliban
+github_username: dkliban
+quay_username: dkliban
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
+
+public_gpg_key: |
+  mDMEZIxs3RYJKwYBBAHaRw8BAQdAjbeZvd1ad9efKxg2yYQIQGLtM5E82rKYM8s4
+  /MbLiz20OERlbm5pcyBLbGliYW4gKGtleSBmb3IgY29uc29sZSBkb3QpIDxka2xp
+  YmFuQHJlZGhhdC5jb20+iJkEExYKAEEWIQT0LE0o5ovXZP2xqldaPwj5l6+9hgUC
+  ZIxs3QIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCRBaPwj5
+  l6+9hihfAP94qex/yxYr5clqLhQG87VFMj/9Iur2XuZ8yfy4ivSH7QD/czz+ukgp
+  w3C394rBNQSsEGiKVNUEu90GgQWqMdUnOQy4OARkjGzdEgorBgEEAZdVAQUBAQdA
+  jsMWXQJl/6SaLYABheX1uMu0UcVzsOlPIRQSID2y2GQDAQgHiH4EGBYKACYWIQT0
+  LE0o5ovXZP2xqldaPwj5l6+9hgUCZIxs3QIbDAUJBaOagAAKCRBaPwj5l6+9hlq3
+  AP9SjsEIaFpuVQ4gNW2fJbIQU/0HIPAusXEb4yE+v3x1CAD9Gnga+8GWtwMbSRQT
+  MvWMmyM8f5izI8cQmjVLtJYkuAA=

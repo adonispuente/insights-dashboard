@@ -31,6 +31,7 @@ disable:
   integrations:
   - terraform-aws-route53
   - terraform-vpc-peerings
+  - terraform-tgw-attachments
 
 terraformState:
   $ref: /aws/cna-service-integration/state.yml

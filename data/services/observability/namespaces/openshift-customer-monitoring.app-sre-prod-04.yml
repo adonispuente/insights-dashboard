@@ -366,14 +366,6 @@ openshiftResources:
     environment: production
     namespace: sendgrid-production
 
-### Managed Connectors
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-connectors.servicemonitor.yaml
-  variables:
-    environment: production
-    namespace: managed-connectors-production
-
   ### Kas Fleet Manager
 - provider: resource-template
   type: jinja2
@@ -448,12 +440,6 @@ openshiftResources:
   type: resource
   tests:
   - /observability/prometheusrules/mk-observability-rw-proxy-production.prometheusrulestest.yaml
-  ### COS Fleet Manager
-- provider: prometheus-rule
-  path: /observability/prometheusrules/cos-fleet-manager-slos-availability-production.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/cos-fleet-manager-slos-availability-production.prometheusrulestest.yaml
   ### MK Token refresher
 - provider: resource-template
   type: jinja2

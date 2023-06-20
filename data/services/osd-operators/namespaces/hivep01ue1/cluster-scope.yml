@@ -23,6 +23,9 @@ managedResourceNames:
   resourceNames:
   - aws-vpce-operator-transit-resources-management-cluster
   - aws-vpce-operator-transit-resources-service-cluster
+  - backplanep01ue1-aws-vpce-operator
+  - backplanep02uw2-aws-vpce-operator
+  - backplane-prod-vpcendpointtemplate
 
 sharedResources:
 - $ref: /services/hive/shared-resources/aws-vpce-operator-prod-transit-resources.yml

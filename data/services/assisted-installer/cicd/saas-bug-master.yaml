@@ -1,0 +1,40 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: assisted-installer
+
+name: assisted-installer-bug-master
+description: 'SaaS tracking file for bug-master and its ecosystem'
+
+app:
+  $ref: /services/assisted-installer/app.yml
+
+pipelinesProvider:
+  $ref: /services/assisted-installer/pipelines/tekton.assisted-installer-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: assisted-app-sre-ci
+
+managedResourceTypes:
+- Deployment
+- Service
+
+imagePatterns:
+- quay.io/app-sre/bug-master
+
+resourceTemplates:
+- name: bug-master
+  url: https://github.com/openshift-assisted/bug-master-bot
+  path: /openshift/template.yaml
+  provider: openshift-template
+  targets:
+  - ref: main
+    namespace:
+      $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: openshift-assisted-bug-master-bot-gh-build-main

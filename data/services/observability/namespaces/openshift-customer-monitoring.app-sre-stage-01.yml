@@ -402,12 +402,6 @@ openshiftResources:
   type: resource
   tests:
   - /observability/prometheusrules/mk-observability-rw-proxy-stage.prometheusrulestest.yaml
-### COS Fleet Manager
-- provider: prometheus-rule
-  path: /observability/prometheusrules/cos-fleet-manager-slos-availability-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/cos-fleet-manager-slos-availability-stage.prometheusrulestest.yaml
 ### Token refresher
 - provider: prometheus-rule
   path: /observability/prometheusrules/token-refresher-stage.prometheusrules.yaml
@@ -719,14 +713,6 @@ openshiftResources:
   variables:
     environment: stage
     namespace: app-interface-stage
-
-### Managed Connectors
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-connectors.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-connectors-stage
 
 ### Test RDS version alerts (used for Prometheus tests, etc.)
 - provider: prometheus-rule

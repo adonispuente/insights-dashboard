@@ -96,3 +96,15 @@ config:
     - 'gh-build-master':
         display_name: assisted-events-stream build master
         max_failed_builds: 3
+- project:
+    name: bug-master
+    label: assisted-service
+    node: app-sre
+    gh_org: openshift-assisted
+    gh_repo: bug-master-bot
+    quay_org: app-sre
+    jobs:
+    - 'gh-build-master':
+        display_name: bug-master build main
+        branch: main
+        max_failed_builds: 3

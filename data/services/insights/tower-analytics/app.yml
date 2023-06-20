@@ -95,3 +95,6 @@ codeComponents:
 - name: insights-platform-cicd-clamscan
   resource: upstream
   url: https://gitlab.cee.redhat.com/insights-platform/cicd-clamscan
+- name: insights-analytics-s3-data-sync
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/automation-analytics/s3-data-sync

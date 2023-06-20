@@ -423,6 +423,10 @@ channels:
 
 The next step is to link the defined escalation policy to the service. In order to do that, we add a new `escalationPolicy` reference within the `app.yml`. For example, see [this PR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/13851/diffs?commit_id=9bcb0b1c07d79ef164c552b2b970bc0247e9c1fa)
 
+### Route an alert to your slack channel
+
+Routing alerts and much more can be found in our [monitoring/alerting docs](docs/app-sre/monitoring.md).
+
 ### Create a Quay Repository for an onboarded App (`/app-sre/app-1.yml`)
 
 Onboarded applications are modelled using the schema `/app-sre/app-1.yml`. This schema allows any application to optionally define a list required Quay repositories.
@@ -2242,10 +2246,12 @@ In order to add an MSK cluster, you need to add it to the `externalResources` se
   - `output_resource_name` must be unique across a single namespace (a single secret can **NOT** contain multiple outputs).
   - If `output_resource_name` is not defined, the name of the secret will be `<identifier>-<provider>`.
 - `annotations`: additional annotations to add to the output resource
-- `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
-  - `path`: vault path
-  - `field`: `all`
-  - `version`: (optional) for vault kv2
+- `users`: list of users to create in the MSK cluster
+  - `name`: name of the user
+  - `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
+    - `path`: vault path
+    - `field`: `all`
+    - `version`: (optional) for vault kv2
 
 Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated and a Kubernetes Secret will be created in the same namespace with all relevant details.
 

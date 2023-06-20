@@ -204,42 +204,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
-- name: hs-mc-l3ng93380
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf
-      soakDays: 0
-      mutexes: []
-- name: hs-mc-n2glcdm7g
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf
-      soakDays: 0
-      mutexes: []
-- name: hs-mc-gba4u04u0
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf
-      soakDays: 0
-      mutexes: []
-- name: hs-mc-gba4u0h4g
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf
-      soakDays: 0
-      mutexes: []
 - name: hs-sc-rbhkk7rq0
   upgradePolicy:
     workloads:
@@ -276,15 +240,6 @@ upgradePolicyClusters:
       sector: migrationtesting
       soakDays: 0
       mutexes: []
-- name: hs-mc-gv8o2ajig
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf
-      soakDays: 0
-      mutexes: []
 - name: hs-mc-sv9n4vrmg
   upgradePolicy:
     workloads:
@@ -298,6 +253,15 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
+    schedule: 0,15,30,45 20,21,22,23 * * *
+    conditions:
+      sector: incidentrehearsal
+      soakDays: 0
+      mutexes: []
+- name: hs-mc-gd5mv1860
+  upgradePolicy:
+    workloads:
+    - management-cluster
     schedule: 0,15,30,45 20,21,22,23 * * *
     conditions:
       sector: incidentrehearsal

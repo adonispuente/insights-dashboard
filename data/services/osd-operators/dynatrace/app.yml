@@ -35,7 +35,10 @@ dependencies:
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
-  items: []
+  items:
+  - name: dt_custom_activegate
+    description: Dynatrace activegate image with custom configurations
+    public: true
 
 codeComponents:
 - name: dynatrace-config

@@ -59,6 +59,9 @@ quayRepos:
   - name: assisted-events-stream
     description: Pulling events from kafka, and pushing them to Opensearch
     public: true
+  - name: bug-master
+    description: Slack bot for handling PROW failures on slack CI channels
+    public: true
 
 codeComponents:
 - name: assisted-installer
@@ -94,6 +97,9 @@ codeComponents:
 - name: assisted-scripts
   resource: upstream
   url: https://github.com/openshift-assisted/assisted-scripts
+- name: bug-master
+  resource: upstream
+  url: https://github.com/openshift-assisted/bug-master-bot
 
 escalationPolicy:
   $ref: /teams/assisted-installer/escalation-policies/general.yaml

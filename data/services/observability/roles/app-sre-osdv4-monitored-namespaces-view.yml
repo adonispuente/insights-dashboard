@@ -127,9 +127,6 @@ access:
     $ref: /services/managed-services/namespaces/managed-services-stage.yml
   role: view
 - namespace:
-    $ref: /services/managed-connectors/namespaces/managed-connectors-stage.yaml
-  role: view
-- namespace:
     $ref: /services/devfile-registry/namespaces/devfile-registry-stage.yml
   role: view
 - namespace:
@@ -494,6 +491,18 @@ access:
     $ref: /services/insights/frontend-operator/namespaces/crcd01ue1.yml
   role: view
 - namespace:
+    $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+  role: view
+- namespace:
+    $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+  role: view
+- namespace:
+    $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+  role: view
+- namespace:
+    $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+  role: view
+- namespace:
     $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
   role: view
 - namespace:
@@ -717,12 +726,6 @@ access:
   role: view
 - namespace:
     $ref: /services/managed-services/namespaces/managed-services-production.yml
-  role: view
-- namespace:
-    $ref: /services/managed-connectors/namespaces/managed-connectors-stage.yaml
-  role: view
-- namespace:
-    $ref: /services/managed-connectors/namespaces/managed-connectors-production.yaml
   role: view
 - namespace:
     $ref: /services/insights/turnpike/namespaces/stage-turnpike-stage.yml

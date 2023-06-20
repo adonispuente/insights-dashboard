@@ -106,7 +106,6 @@ resourceTemplates:
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_UPLOAD: 'true'
       ENABLE_BASELINE_EVAL_EVALUATOR_UPLOAD: 'true'
       CONSUMER_COUNT_EVALUATOR_UPLOAD: "1"
-      GOMAXPROCS_EVALUATOR_UPLOAD: "4"
       RES_REQUEST_CPU_EVALUATOR_UPLOAD: 100m
       RES_REQUEST_MEM_EVALUATOR_UPLOAD: 768Mi
       RES_LIMIT_CPU_EVALUATOR_UPLOAD: 200m # prod: 500m
@@ -118,7 +117,6 @@ resourceTemplates:
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_RECALC: 'true'
       ENABLE_BASELINE_EVAL_EVALUATOR_RECALC: 'true'
       CONSUMER_COUNT_EVALUATOR_RECALC: "1"
-      GOMAXPROCS_EVALUATOR_RECALC: "4"
       RES_REQUEST_CPU_EVALUATOR_RECALC: 150m
       RES_REQUEST_MEM_EVALUATOR_RECALC: 768Mi
       RES_LIMIT_CPU_EVALUATOR_RECALC: 300m # prod: 500m
@@ -162,11 +160,11 @@ resourceTemplates:
 
   - namespace: # PRODUCTION
       $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-    ref: 404a2a1b9814d1f49280689a677fb9250e687765 # v3.2.8
+    ref: 4e0008031bb5ba7a2f577e3bd7b184ed46f072e4 # v3.3.5
     parameters:
       # Manager
       REPLICAS_MANAGER: '4'
-      IMAGE_TAG_MANAGER: 404a2a1 # v3.2.8
+      IMAGE_TAG_MANAGER: 4e00080 # v3.3.5
       LOG_LEVEL_MANAGER: info
       RES_REQUEST_CPU_MANAGER: 500m
       RES_REQUEST_MEM_MANAGER: 1Gi
@@ -179,7 +177,7 @@ resourceTemplates:
 
       # Listener
       REPLICAS_LISTENER: '3'
-      IMAGE_TAG_LISTENER: 404a2a1 # v3.2.8
+      IMAGE_TAG_LISTENER: 4e00080 # v3.3.5
       LOG_LEVEL_LISTENER: info
       CONSUMER_COUNT_LISTENER: "4"
       RES_REQUEST_MEM_LISTENER: 256Mi
@@ -192,30 +190,31 @@ resourceTemplates:
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '5'
-      IMAGE_TAG_EVALUATOR_UPLOAD: 404a2a1 # v3.2.8
+      IMAGE_TAG_EVALUATOR_UPLOAD: 4e00080 # v3.3.5
       LOG_LEVEL_EVALUATOR_UPLOAD: debug
       ENABLE_BASELINE_EVAL_EVALUATOR_UPLOAD: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_UPLOAD: 'true'
       CONSUMER_COUNT_EVALUATOR_UPLOAD: "1"
-      GOMAXPROCS_EVALUATOR_UPLOAD: "4"
       RES_REQUEST_CPU_EVALUATOR_UPLOAD: 250m
       RES_REQUEST_MEM_EVALUATOR_UPLOAD: 1500Mi
       RES_LIMIT_CPU_EVALUATOR_UPLOAD: 500m
       RES_LIMIT_MEM_EVALUATOR_UPLOAD: 3000Mi
-      VMAAS_CACHE_SIZE: '2500'
+      VMAAS_CACHE_SIZE: '100' # try to turn off vmaas cache since the evaluation is very slow and pods are restarting
+      ENABLE_VMAAS_CACHE_EVALUATOR_UPLOAD: 'false' # 2023-6-19 disabled to handle rhsm system import
+      ENABLE_PROFILER_EVALUATOR_UPLOAD: 'true' # enable profiler 2023-06-19
 
       # Evaluator - recalc
       REPLICAS_EVALUATOR_RECALC: '5'
-      IMAGE_TAG_EVALUATOR_RECALC: 404a2a1 # v3.2.8
+      IMAGE_TAG_EVALUATOR_RECALC: 4e00080 # v3.3.5
       LOG_LEVEL_EVALUATOR_RECALC: info
       ENABLE_BASELINE_EVAL_EVALUATOR_RECALC: 'true'
       ENABLE_LAZY_PACKAGE_SAVE_EVALUATOR_RECALC: 'true'
       CONSUMER_COUNT_EVALUATOR_RECALC: "1"
-      GOMAXPROCS_EVALUATOR_RECALC: "4"
       RES_REQUEST_CPU_EVALUATOR_RECALC: 250m
       RES_REQUEST_MEM_EVALUATOR_RECALC: 1500Mi
       RES_LIMIT_CPU_EVALUATOR_RECALC: 500m
       RES_LIMIT_MEM_EVALUATOR_RECALC: 3000Mi
+      ENABLE_VMAAS_CACHE_EVALUATOR_RECALC: 'false'  # 2023-6-19 disabled to handle rhsm system import
 
       # VMaaS sync
       LOG_LEVEL_VMAAS_SYNC: info
@@ -231,7 +230,7 @@ resourceTemplates:
       GOMEMLIMIT_VMAAS_SYNC: '460MiB'
 
       # Database admin
-      IMAGE_TAG_DATABASE_ADMIN: 404a2a1 # v3.2.8
+      IMAGE_TAG_DATABASE_ADMIN: 4e00080 # v3.3.5
       LOG_LEVEL_DATABASE_ADMIN: info
       UPDATE_USERS: 'false'  # add new users, update credentials
       UPDATE_DB_CONFIG: 'false'  # apply './database_admin/config.sql'
@@ -246,10 +245,11 @@ resourceTemplates:
       KAFKA_WRITER_MAX_ATTEMPTS: '60'
 
       # Jobs
-      IMAGE_TAG_JOBS: 404a2a1 # v3.2.8
+      IMAGE_TAG_JOBS: 4e00080 # v3.3.5
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
-      PKG_REFRESH_SUSPEND: 'false'  # turned on 2023-1-12
+      ADVISORY_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16
+      PKG_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16 due to rhsm-system-bridge-reporter systems
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'

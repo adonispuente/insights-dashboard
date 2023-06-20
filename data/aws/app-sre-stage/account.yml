@@ -31,6 +31,10 @@ premiumSupport: true
 
 enableDeletion: true
 
+disable:
+  integrations:
+  - terraform-tgw-attachments
+
 resetPasswords:
 - user:
     $ref: /teams/app-sre/users/jboll.yml
@@ -210,3 +214,14 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: managed-connectors-staging
   expiration: '2023-05-31'
+
+#For MR 71311 - recreating a service account for aws resource exporter scraper
+- type: aws_iam_access_key
+  name: aws-resource-exporter-cluster-scraper-stage-01
+  expiration: '2023-06-16'
+- type: aws_iam_user_policy_attachment
+  name: aws-resource-exporter-cluster-scraper-stage-01-AmazonVPCReadOnlyAccess
+  expiration: '2023-06-16'
+- type: aws_iam_user
+  name: aws-resource-exporter-cluster-scraper-stage-01
+  expiration: '20223-06-16'

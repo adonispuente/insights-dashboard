@@ -194,6 +194,17 @@ openshiftResources:
     vpc: true
     route53: true
     ec2: true
+### aws-resource-exporter scraper for app-sre-stage-01
+- provider: resource-template
+  path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
+  enable_query_support: true
+  variables:
+    name: aws-resource-exporter-app-sre-stage-01-scraper
+    account_name: app-sre-stage
+    rds: false
+    vpc: true
+    route53: false
+    ec2: false
 
 managedExternalResources: true
 
@@ -223,10 +234,21 @@ externalResources:
     - AmazonEC2ReadOnlyAccess
     output_resource_name: aws-resource-exporter-app-sre
   - provider: aws-iam-service-account
-    identifier: aws-resource-exporter-cluster-scraper-stage-01
-    output_resource_name: aws-resource-exporter-cluster-scraper-app-sre
-    policies:
-    - AmazonVPCReadOnlyAccess
+    identifier: aws-resource-exporter-cluster-scraper-app-sre-stage-01
+    output_resource_name: aws-resource-exporter-cluster-scraper-app-sre-stage-01
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Resource": "*"
+          }
+        ]
+      }
     aws_infrastructure_access:
       cluster:
         $ref: /openshift/app-sre-stage-01/cluster.yml

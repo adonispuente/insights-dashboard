@@ -7,7 +7,7 @@ description: SaaS tracking file for splunk-audit-exporter
 app:
   $ref: /services/osd-operators/app.yml
 pipelinesProvider:
-  $ref:
+  $ref: 
     /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
@@ -25,7 +25,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/splunk-audit-exporter
   path: /hack/deploy/hypershift/policy.yaml
   parameters:
-    IMAGE_TAG: 0.1.136-c5e36a4
+    IMAGE_TAG: 0.1.141-ea5c4dd
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
@@ -39,7 +39,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: ea5c4ddfd2645e1a29716b214c8a826fd68de504
     promotion:
       auto: true
       publish:
@@ -48,7 +48,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: ea5c4ddfd2645e1a29716b214c8a826fd68de504
     promotion:
       auto: true
       publish:

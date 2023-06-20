@@ -175,10 +175,10 @@ spec:
     # RHCLOUD-23406
     - alert: Kubernetes API server latency is abnormally high
       annotations:
-        message: kube-apiserver latency is over 300 milliseconds
+        message: kube-apiserver latency is over 500 milliseconds
         dashboard: "https://grafana.stage.devshift.net/d/BYb3BpZVz/ephemeral-cluster-metrics?orgId=1&var-nodes=All"
       expr: |
-        histogram_quantile(0.99, sum(rate(apiserver_request_duration_seconds_bucket{apiserver="kube-apiserver", verb!="WATCH"}[5m])) by (verb, le)) > 0.4
+        histogram_quantile(0.99, sum(rate(apiserver_request_duration_seconds_bucket{apiserver="kube-apiserver", verb!="WATCH"}[5m])) by (verb, le)) > 0.5
       for: 15m
       labels:
         service: insights

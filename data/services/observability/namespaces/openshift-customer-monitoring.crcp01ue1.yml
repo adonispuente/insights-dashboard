@@ -284,6 +284,10 @@ openshiftResources:
   path: /insights-prod/chrome-service-prod/chrome-service.servicemonitor.yml
 - provider: resource
   path: /insights-prod/crc-pdf-generator-prod/crc-pdf-generator.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/frontends-beta/hybrid-committed-spend.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/frontends/hybrid-committed-spend.servicemonitor.yml
 
 # unleash-proxy
 - provider: resource

@@ -61,7 +61,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: ca5bcec46d6ab980e5f5d670821631e0075a9406
+    ref: 625c0c1a1d712985dc33aa286885f4c30ef29cc2
 - name: telemeter
   path: /resources/services/telemeter-template.yaml
   url: https://github.com/rhobs/configuration
@@ -138,7 +138,7 @@ resourceTemplates:
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_VERSION: '1-51'
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
-    ref: a6eb1e36fddae34e7c0d37c763363fa86c6275fd
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: telemeter-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
@@ -169,7 +169,7 @@ resourceTemplates:
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_VERSION: '1-51'
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/telemeter-production.yml
-    ref: a6eb1e36fddae34e7c0d37c763363fa86c6275fd
+    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
     parameters:
       NAMESPACE: telemeter-production
       OBSERVATORIUM_NAMESPACE: observatorium-production

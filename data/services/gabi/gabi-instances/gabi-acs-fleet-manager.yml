@@ -34,6 +34,7 @@ users:
 - $ref: /teams/advanced-cluster-security/users/sbaumer.yml
 - $ref: /teams/advanced-cluster-security/users/schaudhr.yml
 - $ref: /teams/advanced-cluster-security/users/shesselm.yml
+- $ref: /teams/advanced-cluster-security/users/syethadk.yml
 - $ref: /teams/advanced-cluster-security/users/vbologa.yml
 - $ref: /teams/advanced-cluster-security/users/ykovalev.yml
 - $ref: /teams/lp-sre/users/ahrabovs.yml

@@ -25,6 +25,10 @@ sharedResources:
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
 
+managedResourceTypes:
+- Role
+- RoleBinding
+
 openshiftResources:
 - provider: vault-secret
   path: app-interface/web-rca/production/runtime
@@ -37,6 +41,11 @@ openshiftResources:
   path: /web-rca/production/web-rca.route.yaml
 - provider: route
   path: /web-rca/production/web-rca-ui.route.yaml
+# allows creation of Taskruns
+- provider: resource
+  path: /web-rca/production/taskrunner.rolebinding.yaml
+- provider: resource
+  path: /web-rca/production/taskrunner.role.yaml
 
 managedExternalResources: true
 

@@ -59,7 +59,7 @@ resourceTemplates:
       - edge-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/edge/namespaces/edge-prod.yml
-    ref: 8b05e029e72b15ccdc221d3cbcdbef2ae637f760
+    ref: 5a72aa7017f2341778c5d634a4d78df939242c9e
     parameters:
       LOG_LEVEL: DEBUG
       MIN_REPLICAS: 6
@@ -92,6 +92,7 @@ resourceTemplates:
       S3_PROXY_URL: https://${EDGE_TARBALLS_BUCKET}.s3.${S3_AWS_REGION}.amazonaws.com
       INVENTORYURL: http://${HOST_INVENTORY_HOST}:${HOST_INVENTORY_PORT}
       PLAYBOOKDISPATCHERURL: http://${PLAYBOOK_DISPATCHER_HOST}:${PLAYBOOK_DISPATCHER_PORT}
+      FEATURE_SKIP_UPDATE_REPO: true
 - name: edge-frontend
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/edge-frontend

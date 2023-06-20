@@ -27,19 +27,14 @@ managedResourceTypes:
   - ClusterRoleBinding.rbac.authorization.k8s.io
 
 managedResourceNames:
-  - resource: ClusterRole.rbac.authorization.k8s.io
-    resourceNames:
-      - logging-application-logs-reader
-  - resource: ClusterRoleBinding.rbac.authorization.k8s.io
-    resourceNames:
-      - logging-users-application-logs-reader
-  - resource: ClusterRole.rbac.authorization.k8s.io
-    resourceNames:
-      - logging-application-external-logs-reader
-  - resource: ClusterRoleBinding.rbac.authorization.k8s.io
-    resourceNames:
-      - logging-application-external-logs-reader
-
+- resource: ClusterRole.rbac.authorization.k8s.io
+  resourceNames:
+  - logging-application-logs-reader
+  - logging-application-external-logs-reader
+- resource: ClusterRoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - logging-users-application-logs-reader
+  - logging-application-external-logs-reader
 
 openshiftResources:
   - provider: resource

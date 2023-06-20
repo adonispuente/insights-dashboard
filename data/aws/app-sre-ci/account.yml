@@ -30,6 +30,7 @@ disable:
   integrations:
   - terraform-aws-route53
   - terraform-vpc-peerings
+  - terraform-tgw-attachments
 
 sharing:
 - provider: ami
