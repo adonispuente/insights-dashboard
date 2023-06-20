@@ -5,7 +5,7 @@ name: insights
 description: Red Hat Insights, OCM org ID 7770862
 environment:
   $ref: /dependencies/ocm/environments/production.yml
-orgId: 1TwGiocMTd2JBOEwZi0EURMwKTh
+orgId: 1SL9d01pYpbSbsTYgbnjAIrDJSW
 
 publishVersionData:
 - $ref: /dependencies/ocm/production.yml
