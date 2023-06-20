@@ -24,12 +24,30 @@ managedRoles: true
 
 managedResourceTypes:
 - ConfigMap
+- Role
+- RoleBinding
+- ClusterRoleBinding.rbac.authorization.k8s.io
+
+managedResourceNames:
+- resource: ClusterRoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - changelog-proxy-can-create-token-reviews
 
 openshiftResources:
 - provider: resource
   path: /insights-stage/platform-changelog-stage/platform-changelog-nginx-conf.configmap.yml
 - provider: route
   path: /insights-stage/platform-changelog-stage/changelog.route.yaml
+# oauth proxy setup
+- provider: resource
+  path: /insights-stage/platform-changelog-stage/changelog.oauth-access.configmap.yml
+- provider: resource
+  path: /insights-stage/platform-changelog-stage/changelog.role.yaml
+- provider: resource
+  path: /insights-stage/platform-changelog-stage/changelog.rolebinding.yaml
+- provider: resource
+  path: /insights-stage/platform-changelog-stage/changelog.clusterrolebinding.yaml
+# vault
 - provider: vault-secret
   path: insights/secrets/insights-stage/platform-changelog-stage/github-secret-token
   version: 1
