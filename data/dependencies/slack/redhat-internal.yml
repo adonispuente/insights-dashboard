@@ -86,6 +86,7 @@ managedUsergroups:
 - app-sre-stream-4
 - app-sre-stream-baguette
 - advanced-upgrade-service-enablement
+- sre-capabilities-enablement
 - sre-platform-primary
 - sre-platform-secondary
 - sre-platform-ic
