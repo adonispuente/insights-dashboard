@@ -105,7 +105,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
     ref: 59f2c8144215c72a4cc94a34a881b56dc8bf5258
-- name: pulp
+- name: content-sources-pulp
   url: https://github.com/pulp/pulp-clowder-deployments
   path: /deploy/clowdapp.yaml
   targets:
