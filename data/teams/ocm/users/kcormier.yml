@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Kevin Cormier
+org_username: kcormier
+github_username: KevinFCormier
+quay_username: kcormier
+tag_on_cluster_updates: false
+
+roles:
+  - $ref: /teams/ocm/roles/ui-dev.yml
+  - $ref: /teams/insights/roles/ephemeral-users.yml
