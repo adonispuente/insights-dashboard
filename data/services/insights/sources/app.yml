@@ -39,19 +39,19 @@ quayRepos:
     $ref: /dependencies/quay/cloudservices.yml
   items:
   - name: sources-api-go
-    public: false
+    public: true
     description: Repo for the sources-api (go rewrite) application
   - name: sources-monitor-go
-    public: false
+    public: true
     description: Repo for the sources-monitor (go rewrite) application
   - name: dev-reader-app
     public: false
     description: Repo for the Developers reader app
   - name: sources-superkey-worker
-    public: false
+    public: true
     description: Repo for the sources superkey worker
   - name: sources-satellite
-    public: false
+    public: true
     description: Repo for the sources satellite worker
   - name: sources-ui
     public: true
