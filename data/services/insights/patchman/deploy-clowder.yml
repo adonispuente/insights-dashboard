@@ -248,8 +248,8 @@ resourceTemplates:
       IMAGE_TAG_JOBS: fc9170e # v3.3.7
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
-      ADVISORY_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16
-      PKG_REFRESH_SUSPEND: 'true'  # turned off 2023-06-16 due to rhsm-system-bridge-reporter systems
+      ADVISORY_REFRESH_SUSPEND: 'false'
+      PKG_REFRESH_SUSPEND: 'false'
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'
