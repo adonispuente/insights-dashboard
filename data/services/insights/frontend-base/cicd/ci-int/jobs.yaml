@@ -46,6 +46,19 @@ config:
         display_name: better-platform-docs build-master
         branch: main
 - project:
+    name: insights-frontend-builder-common
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: insights-frontend-builder-common
+    quay_org: cloudservices
+    jobs:
+    - insights-gh-pr-check:
+        display_name: insights-frontend-builder-common pr-check
+    - insights-gh-build-master:
+        display_name: insights-frontend-builder-common build-master
+        branch: master
+- project:
     name: caddy-ubi
     label: insights
     node: insights
