@@ -107,14 +107,6 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
       SSO_URL: 'https://sso.redhat.com/auth/'
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: f756465b7eb49070fb1df027ad4c7c175cef0086
-    parameters:
-      ENV_NAME: "ib-devconf"
-      IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
-      SSO_URL: 'https://ib-devconf-9x6crfz2-auth.apps.c-rh-c-eph.8p0c.p1.openshiftapps.com/auth/'
 
 # Landing page
 - name: landing-page-frontend
@@ -152,13 +144,6 @@ resourceTemplates:
     ref: 8e5d10f5d3faacd6c9ff9f05faa01754063a21f7
     parameters:
       ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/landing-page-frontend"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: 9febc31e31be93ceb6cfcd5a9d95a64e6c12c549
-    parameters:
-      ENV_NAME: "ib-devconf"
       IMAGE: "quay.io/cloudservices/landing-page-frontend"
 
 # RBAC
@@ -198,13 +183,6 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: ffcef51c910210fb72ae815121b64bdca60a47c9
-    parameters:
-      ENV_NAME: "ib-devconf"
-      IMAGE: "quay.io/cloudservices/rbac-frontend"
 
 # Dashboard
 - name: insights-dashboard
@@ -242,13 +220,6 @@ resourceTemplates:
     ref: 320253c383bb8772755f523036dd51354cf324fd
     parameters:
       ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: 7bcfa09932e68e739eb4db49466d107bae8e529b
-    parameters:
-      ENV_NAME: "ib-devconf"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
 
 - name: frontend-configs
@@ -312,13 +283,6 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/api-frontend"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: e1d8d28642bf415ea85bcdf457d5a55150c6a045
-    parameters:
-      ENV_NAME: "ib-devconf"
-      IMAGE: "quay.io/cloudservices/api-frontend"
 
 # Deploys sed frontend
 - name: sed-frontend
@@ -363,13 +327,6 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
-    parameters:
-      ENV_NAME: "ib-devconf"
-      IMAGE: "quay.io/cloudservices/sed-frontend"
 
 # Learning Resources
 - name: learning-resources
@@ -407,11 +364,4 @@ resourceTemplates:
     ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
     parameters:
       ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/learning-resources"
-  # IB Devconf Deployment
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
-    parameters:
-      ENV_NAME: "ib-devconf"
       IMAGE: "quay.io/cloudservices/learning-resources"

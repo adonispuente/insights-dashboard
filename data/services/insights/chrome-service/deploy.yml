@@ -66,11 +66,6 @@ resourceTemplates:
     parameters:
       ENV_NAME: prod
       MIN_REPLICAS: 3
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ib-devconf.yml
-    ref: cb7fabd6dbb1218b38ab310413f6ef1dfb9a6a58
-    parameters:
-      ENV_NAME: ib-devconf
 
 - name: grafana-dashboard-insights-chrome-service-general
   url: https://github.com/RedHatInsights/chrome-service-backend
