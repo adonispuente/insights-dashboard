@@ -2,7 +2,7 @@ $schema: /app-sre/saas-file-target-1.yml
 
 namespace:
   $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-ref: 9562810ea4193d8015968d11f99c813a28c48f99
+ref: d943e286948aa606e3cdad97ed58febadf100bb0
 promotion:
   publish:
   - assisted-installer-production-deploy-success-channel
@@ -45,10 +45,10 @@ parameters:
   ALLOWED_DOMAINS: ${CONSOLE_BASE_URL},https://cloud.redhat.com
   INSTALLER_IMAGE: registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-275
   CONTROLLER_IMAGE: registry.redhat.io/rhai-tech-preview/assisted-installer-reporter-rhel8:v1.0.0-346
-  AGENT_DOCKER_IMAGE: registry.redhat.io/rhai-tech-preview/assisted-installer-agent-rhel8:v1.0.0-260
+  AGENT_DOCKER_IMAGE: registry.redhat.io/rhai-tech-preview/assisted-installer-agent-rhel8:v1.0.0-264
   OPENSHIFT_INSTALL_RELEASE_IMAGE: ""
   PUBLIC_CONTAINER_REGISTRIES: quay.io
-  RELEASE_TAG: v2.20.3
+  RELEASE_TAG: v2.21.2
   OS_IMAGES: |-
     [
       {
@@ -382,7 +382,6 @@ parameters:
   ENABLE_ORG_BASED_FEATURE_GATES: true
   ENABLE_EVENT_STREAMING: true
   KAFKA_EVENT_STREAM_TOPIC: events-stream-production
-  ISO_IMAGE_TYPE: full-iso
   EPHEMERAL_STORAGE_LIMIT: 35Gi
   EPHEMERAL_STORAGE_REQUEST: 32Gi
   MEMORY_REQUEST: "2.55G"
