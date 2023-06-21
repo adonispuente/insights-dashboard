@@ -39,7 +39,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: ea5c4ddfd2645e1a29716b214c8a826fd68de504
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     promotion:
       auto: true
       publish:
@@ -48,7 +48,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: ea5c4ddfd2645e1a29716b214c8a826fd68de504
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     promotion:
       auto: true
       publish:
