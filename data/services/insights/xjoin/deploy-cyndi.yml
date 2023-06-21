@@ -217,7 +217,8 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     parameters:
-      VALIDATION_THRESHOLD: "10"
+      VALIDATION_THRESHOLD: "15"
+      INSIGHTS_ONLY: "false"
     ref: f526e7bfae89eb7f9a61d992e1a67540ed0fc332
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
