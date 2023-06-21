@@ -118,6 +118,75 @@ self_service:
   - $ref: /openshift/my-cluster/cluster.yml
 ```
 
+### Transitive Ownership
+
+The ownership expansion shown in `indirect ownership` acts within a single change-type, defining many things in it. This might lead to situation where a change-type is not really reusable anymore in multiple contexts.
+
+But ownership expansion can hop between change-types as well. This makes change-type more reusable in different contexts.
+
+Lets say we have a change-type `namespace-owner` which has certain permissions to modify namespaces. This change-type can be used for direct ownership by bringing it together with a namespace in a role, but we would like to implicitely gain ownerhsip with this change-type over all namespaces of a cluster, if we have `cluster-owner` permissions on that cluster.
+
+For such a situation we define `cluster-owner` like this:
+
+```yaml
+---
+$schema: /app-interface/change-type-1.yml
+name: cluster-owner
+contextType: datafile
+contextSchema: /openshift/cluster-1.yml
+
+changes:
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/namespace-owner.yml
+  changeSchema: /openshift/namespace-1.yml
+  context:
+    selector: cluster.'$ref'
+```
+
+and `namespace-owner` like this
+
+```yaml
+---
+$schema: /app-interface/change-type-1.yml
+name: namespace-owner
+contextType: datafile
+contextSchema: /openshift/namespace-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - some.paths
+```
+
+Observe how `namespace-owner` does not even know that it is used in the context of clusters. It defines the namespace schema as its `contextSchema`. It is the `cluster-owner` change-type that declares that ownership of a cluster should expand to its namespaces using the permissions defined in `namespace-owner`.
+
+
+## Ownership expansion for resourcefiles
+
+Resource files usually don't define direct back references to their place of usage (e.g. namespace files do that by referencing their hosting cluster). Therefore ownership expansion works a bit different for resource files.
+
+Lets say you have change-type `rds-defaults-maintainer` granting permissions to change something in an `/aws/rds-defaults-1.yml` defaults resource file. But granting this change-type on all relevant defaults files is cumbersome. Instead we want the owner of the resource, that uses the defaults file, to be owner of the resource file as well.
+
+```yaml
+---
+$schema: /app-interface/change-type-1.yml
+
+name: namespace-owner
+contextType: datafile
+contextSchema: /openshift/namespace-1.yml
+
+changes:
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/rds-defaults-maintainer.yml
+  context:
+    where: backrefs
+    selector: externalResources[?(@.provider=="aws")].resources[?(@.provider=="rds")].defaults
+```
+
+The difference to our previous example is in the `where: backrefs` declaration. It defines, that ownership is expanded from a namespace to all defaults files used in that namespace, additionally restricting it with a jsonpath expression in `selector`.
+
 ## Advanced example: JSONPaths filtering, macro expansion and conditional context selectors
 
 Another scenario, where the change happens in one file but permissions need to be defined for another one, is role membership. Tenants want to approve membership requests to their roles but the change happens within the `/access/user-1.yml` file under `roles`.
