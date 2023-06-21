@@ -276,37 +276,10 @@ upgradePolicyClusters:
       sector: incidentrehearsal
       soakDays: 0
       mutexes: []
-- name: hs-sc-174p9qn40
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: incidentrehearsal
-      soakDays: 0
-      mutexes: []
-- name: hs-sc-174p9qnn0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: incidentrehearsal
-      soakDays: 0
-      mutexes: []
 - name: hs-mc-174p9qo3g
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: incidentrehearsal
-      soakDays: 0
-      mutexes: []
-- name: hs-sc-maq962esg
-  upgradePolicy:
-    workloads:
-    - service-cluster
     schedule: 0,15,30,45 20,21,22,23 * * *
     conditions:
       sector: incidentrehearsal
