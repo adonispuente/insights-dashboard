@@ -33,6 +33,7 @@ upgradePolicyAllowedMutexes:
 - us-west-2
 - us-east-2
 - us-east-1
+- ibm-infra
 - fleet-wide
 
 inheritVersionData:
@@ -57,6 +58,9 @@ sectors:
 - name: us-east-1
   dependencies:
   - name: us-east-2
+- name: ibm-infra
+  dependencies:
+  - name: us-east-1
 upgradePolicyDefaults:
 - name: production-canary
   matchLabels:
@@ -114,6 +118,14 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 15 * * 1-4
+      soakDays: 5
+- name: production-ibm-infra
+  matchLabels:
+    ext-hypershift.openshift.io/cluster-sector: ibm-infra
+  upgradePolicyTemplate:
+    path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
+    variables:
+      schedule: 0 13 * * 1-4
       soakDays: 5
 upgradePolicyClusters:
 - name: hs-sc-2q7qo6cug
