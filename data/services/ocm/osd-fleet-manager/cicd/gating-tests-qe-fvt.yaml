@@ -70,7 +70,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 6496d9cf4055eff0b39ead57b653d2bc61e4a4cc
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
