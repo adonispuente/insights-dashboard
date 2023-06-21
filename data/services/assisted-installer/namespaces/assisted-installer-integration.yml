@@ -109,6 +109,18 @@ openshiftResources:
   name: bug-master-secrets
   path: app-interface/assisted-installer/bug-master-secrets/integration
   version: 2
+- provider: vault-secret
+  name: msk-admin-user
+  path: app-interface/assisted-installer/msk-credentials/integration/admin
+  version: 1
+- provider: vault-secret
+  name: msk-read-user
+  path: app-interface/assisted-installer/msk-credentials/integration/assisted-events-streams
+  version: 1
+- provider: vault-secret
+  name: msk-write-user
+  path: app-interface/assisted-installer/msk-credentials/integration/assisted-service
+  version: 1
 
 managedRoles: true
 
