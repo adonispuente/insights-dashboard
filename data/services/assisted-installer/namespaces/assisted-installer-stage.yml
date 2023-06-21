@@ -112,6 +112,18 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-admin-user
+  path: app-interface/assisted-installer/msk-credentials/stage/admin
+  version: 1
+- provider: vault-secret
+  name: msk-read-user
+  path: app-interface/assisted-installer/msk-credentials/stage/assisted-events-streams
+  version: 1
+- provider: vault-secret
+  name: msk-write-user
+  path: app-interface/assisted-installer/msk-credentials/stage/assisted-service
+  version: 1
 
 managedRoles: true
 
