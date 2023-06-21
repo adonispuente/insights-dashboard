@@ -15,7 +15,6 @@ metadata:
   annotations:
     feature.dynatrace.com/automatic-kubernetes-api-monitoring: "true"
 spec:
-  # TODO: it might make sense to set this in schema at cluster level -> hence no need to pass as parameter resource.namespace.cluster.dynatraceApiUrl
   apiUrl: https://test/api
   skipCertCheck: false
   tokens: dynatrace-tokens

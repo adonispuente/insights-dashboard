@@ -1,10 +1,17 @@
-# TODO: introduce logging flag in namespace to check whether logging is enabled | selectattr("enableLogging", "equalto", true)
-{%- set namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | selectattr("name", "equalto", "github-mirror-stage") | map(attribute="name") | list -%}
+{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces -%}
+{%- set namespace_names = [] -%}
+{%- for namespace in all_namespaces -%}
+{%- set namespace_labels = namespace.labels | json_to_dict -%}
+{%- if "enableDynatraceLogging" in namespace_labels -%}
+{%- set tmp = namespace_names.append(namespace.name) -%}
+{%- endif -%}
+{%- endfor -%}
+{%- set cluster_labels = resource.namespace.cluster.labels | json_to_dict -%}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-{{ hash_list(namespaces)[:8] }}
+  name: log-config-{{ hash_list(namespace_names)[:8] }}
   namespace: dynatrace
 spec:
   backoffLimit: 0
@@ -34,9 +41,9 @@ spec:
               #!/bin/bash
               set -eo pipefail
 
-              NAMESPACES=({%- for namespace in namespaces -%}"{{ namespace }}" {% endfor -%})
+              NAMESPACES=({%- for namespace in namespace_names -%}"{{ namespace }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
-              DT_API_URL="{{ DT_ENV_URL }}/api/v2"
+              DT_API_URL="{{ cluster_labels['dynatraceEnvironmentUrl'] }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
               RULE_NAME="log-cluster-namespaces"
               # Lets give the DT stack a total of 10 minutes to bootstrap

@@ -1,3 +1,4 @@
+{%- set cluster_labels = resource.namespace.cluster.labels | json_to_dict -%}
 ---
 # DynaKube for log ingestion.
 # DynaKube is the monitoring configuration object.
@@ -15,8 +16,7 @@ metadata:
   annotations:
     feature.dynatrace.com/automatic-kubernetes-api-monitoring: "true"
 spec:
-  # TODO: it might make sense to set this in schema at cluster level -> hence no need to pass as parameter resource.namespace.cluster.dynatraceApiUrl
-  apiUrl: {{ DT_ENV_URL }}/api
+  apiUrl: {{ cluster_labels['dynatraceEnvironmentUrl'] }}/api
   skipCertCheck: false
   tokens: dynatrace-tokens
   oneAgent:

@@ -1,4 +1,3 @@
-# TODO: introduce logging flag in namespace to check whether logging is enabled | selectattr("enableLogging", "equalto", true)
 ---
 apiVersion: batch/v1
 kind: Job
@@ -33,7 +32,7 @@ spec:
               #!/bin/bash
               set -eo pipefail
 
-              NAMESPACES=()
+              NAMESPACES=(dynatrace)
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="https://test/api/v2"
               CLUSTER_NAME="test-cluster"
