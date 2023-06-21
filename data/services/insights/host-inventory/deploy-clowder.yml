@@ -49,7 +49,7 @@ resourceTemplates:
     ref: internal  # populated by bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: e9166dd7613402b3ef0aa72d50ed5c564d4bcece
+    ref: ddf029bdc3d3e14576c24500c0c11ab304d45d13
     parameters:
       ENV_NAME: "env-stage"
 
