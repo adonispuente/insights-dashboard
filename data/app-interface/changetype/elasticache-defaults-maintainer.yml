@@ -1,0 +1,20 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: elasticache-defaults-maintainer
+description: |
+  Allow updates on AWS ElastiCache defaults file in resources.
+
+priority: high
+
+contextType: resourcefile
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - deletion_protection
+  - engine_version
+  - maintenance_window
+  - parameter_group_name
