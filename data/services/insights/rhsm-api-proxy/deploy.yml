@@ -139,7 +139,7 @@ resourceTemplates:
       QUARKUS_PROFILE: stage
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/prod-rhsm-api-proxy-prod.yml
-    ref: 47a96a1af34c91638557a463d06353a3d195070c
+    ref: 62e08b45e5a1eeb75067dd5d3d45b5eeb315b5ce
     parameters:
       ENV_NAME: prod
       QUARKUS_PROFILE: prod
@@ -153,4 +153,4 @@ resourceTemplates:
       ref: main
     - namespace:
         $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-      ref: 8d7482268d3d7219a75b25a69ee9e6177ddae2eb
+      ref: 62e08b45e5a1eeb75067dd5d3d45b5eeb315b5ce
