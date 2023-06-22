@@ -96,7 +96,7 @@ spec:
             runbook: ""
           expr: |
             reconciler:fleet_manager_reconciler_failure_count:rate5m{namespace="{{{ namespace }}}"} > 0
-          for: 1m
+          for: 15m
           labels:
             severity: medium
             team: osd
@@ -106,12 +106,10 @@ spec:
     {{% for wt in worker_types %}}
         - expr: |
             label_replace(max by (worker_type, service, reconciliation_step, namespace) (fleet_manager_reconciler_duration_in_seconds{namespace="{{{ namespace }}}",worker_type="{{{ wt.name }}}"}), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
-          labels:
-            job: fleet-manager-metrics
           record: reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max
         - alert: OSD Fleet Manager {{{ wt.name }}} reconciler long duration
           annotations:
-            message: "The maximum reconciler duration was {{ $value | humanizeDuration }} for reconciler {{{ wt.name }}} in sector {{ $labels.sector }} in {{{ namespace }}}"
+            message: "The maximum reconciler duration was {{ $value | humanizeDuration }} for reconciler {{{ wt.name }}} at step {{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in {{{ namespace }}}"
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
