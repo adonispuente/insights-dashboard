@@ -1,0 +1,67 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  platform: insights
+  service: idmsvc
+
+
+name: idmsvc
+
+description: Directory and Domain services on console.redhat.com
+
+architectureDocument: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-backend/-/blob/main/docs/ARCHITECTURE.md 
+sopsUrl: https://TODO
+grafanaUrls:
+- title: Notifications Dashboard
+  url: https://TODO
+onboardingStatus: InProgress
+# https://issues.redhat.com/browse/HMS-1903
+
+parentApp:
+  $ref: /services/insights/app.yml
+
+escalationPolicy:
+  $ref: /teams/idm/escalation-policies/idmsvc-escalation.yml
+
+serviceOwners:
+- name: Andre Boscatto (Product Owner)
+  email: aboscatt@redhat.com
+- name: Christian Heimes (Dev)
+  email: cheimes@redhat.com
+- name: Fraser Tweedale (Dev Lead)
+  email: ftweedal@redhat.com
+- name: Alejandro Visiedo Garcia
+  email: avisiedo@redhat.com
+- name: Andreas Schneider (Dev)
+  email: anschnei@redhat.com
+- name: Michael Shriver (QE Lead)
+  email: mshriver@redhat.com
+
+dependencies:
+- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/openshift/service.yml
+# - $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/ci-int/service.yml
+# - $ref: /dependencies/kafka/service.yml
+
+quayRepos:
+- org:
+    $ref: /dependencies/quay/cloudservices.yml
+  items:
+  - name: idmsvc-backend
+    public: false
+    description: Backend API service for Directory and Domain services
+  - name: idmsvc-frontend
+    public: false
+    description: containerized frontend for Directory and Domain services 
+
+codeComponents:
+- name: idmsvc-backend
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-backend
+- name: idmsvc-frontend
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-frontend
+

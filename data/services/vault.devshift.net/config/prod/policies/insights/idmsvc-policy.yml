@@ -1,0 +1,31 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "idmsvc-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "app-interface/metadata/" {
+    capabilities = ["list"]
+  }
+  path "app-interface/metadata/idmsvc/" {
+    capabilities = ["list"]
+  }
+  path "app-interface/metadata/idmsvc/stage/*" {
+    capabilities = ["list", "read"]
+  }
+  path "app-interface/data/idmsvc/stage/*" {
+    capabilities = ["create", "update", "read"]
+  }
+  path "app-interface/metadata/idmsvc/prod/*" {
+    capabilities = ["list", "read"]
+  }
+  path "app-interface/data/idmsvc/prod/*" {
+    capabilities = ["read"]
+  }
+  path "insights-cicd/idmsvc/*" {
+    capabilities = ["list", "create", "read", "update"]
+  }
