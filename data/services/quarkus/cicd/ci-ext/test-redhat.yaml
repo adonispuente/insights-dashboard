@@ -47,7 +47,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-redhat-stage.yml
-    ref: 5b53b6c79cd5e6a18bc8aadd681df12387d593e5
+    ref: bc424ce26c9a4fd609122bcbb7cc2510753e036f
     parameters:
       IMAGE: quay.io/quarkus/code-quarkus-acceptance-test
       CODE_QUARKUS_STAGING_URL: https://code.quarkus.stage.redhat.com
