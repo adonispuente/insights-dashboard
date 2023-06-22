@@ -999,7 +999,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       publish:
       - ocm-osdfm-deployed-production-canary
