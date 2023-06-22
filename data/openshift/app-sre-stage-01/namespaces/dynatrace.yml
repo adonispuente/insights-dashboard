@@ -30,6 +30,7 @@ openshiftResources:
   path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
   version: 1
   name: dynatrace-tokens
+# TODO: fix network policy - currently requires ingress 0.0.0.0/0
 # - provider: resource-template
 #   type: jinja2
 #   path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
