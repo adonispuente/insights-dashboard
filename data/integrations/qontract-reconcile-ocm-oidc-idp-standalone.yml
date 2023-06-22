@@ -2,14 +2,11 @@ $schema: /app-sre/integration-1.yml
 
 labels: {}
 
-name: ocm-oidc-idp
+name: ocm-oidc-idp-standalone
 
-description: Manages OIDC IDPs in OCM
+description: SRE RHIDP capability - Manages OIDC IDPs in OCM
 
 upstream: https://github.com/app-sre/qontract-reconcile
-
-pr_check:
-  cmd: ocm-oidc-idp --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
 
 managed:
 - namespace:
@@ -22,7 +19,8 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
+    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/ocm --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw
+    #                                                                                app-sre-stage               # app-sre-prod
     logs:
       slack: true
 - namespace:
@@ -35,7 +33,8 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
+    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/ocm --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw
+    #                                                                                app-sre-stage               # app-sre-prod
     logs:
       slack: true
 
