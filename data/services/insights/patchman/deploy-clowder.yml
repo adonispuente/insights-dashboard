@@ -202,6 +202,7 @@ resourceTemplates:
       VMAAS_CACHE_SIZE: '100' # try to turn off vmaas cache since the evaluation is very slow and pods are restarting
       ENABLE_VMAAS_CACHE_EVALUATOR_UPLOAD: 'false' # 2023-6-19 disabled to handle rhsm system import
       ENABLE_PROFILER_EVALUATOR_UPLOAD: 'true' # enable profiler 2023-06-19
+      MAX_EVAL_GOROUTINES_UPLOAD: '10'
 
       # Evaluator - recalc
       REPLICAS_EVALUATOR_RECALC: '5'
@@ -215,6 +216,7 @@ resourceTemplates:
       RES_LIMIT_CPU_EVALUATOR_RECALC: 500m
       RES_LIMIT_MEM_EVALUATOR_RECALC: 3000Mi
       ENABLE_VMAAS_CACHE_EVALUATOR_RECALC: 'false'  # 2023-6-19 disabled to handle rhsm system import
+      MAX_EVAL_GOROUTINES_RECALC: '10'
 
       # VMaaS sync
       LOG_LEVEL_VMAAS_SYNC: info
