@@ -1,0 +1,17 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-06-22-query-edge-images
+namespace:
+  $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
+identifier: image-builder-stage
+output: stdout
+queries:
+- |
+  SELECT
+    job_id, org_id, req->>'image_type', created_at
+  FROM
+    composes, jsonb_array_elements(composes.request->'image_requests') as req
+  WHERE
+    req->>'image_type' LIKE '%edge%' AND
+    CURRENT_TIMESTAMP - created_at <= INTERVAL '2D';
