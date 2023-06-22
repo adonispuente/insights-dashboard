@@ -105,6 +105,10 @@ rules: |
   path "app-sre/integrations-input/*" {
     capabilities = ["read"]
   }
+  # RHIDP capability needs read/write/list permissions
+  path "app-sre/integrations-input/rhidp/*" {
+    capabilities = ["create", "update", "read", "list", "delete"]
+  }
   # Change: this was made read-only
   path "app-sre/integrations-output/*" {
     capabilities = ["read"]
