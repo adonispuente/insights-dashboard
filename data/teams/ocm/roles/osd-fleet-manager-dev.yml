@@ -92,6 +92,7 @@ self_service:
   - /services/ocm/stage/aws-account-operator-consumer-credentials.secret.yaml
   - /services/ocm/production/aws-account-operator-consumer-credentials.secret.yaml
   - /observability/prometheusrules/osd-fleet-manager-nonprod.prometheusrules.yaml.j2
+  - /observability/prometheusrules/osd-fleet-manager-nonprod.prometheusrulestests.yaml
 - change_type:
     $ref: /app-interface/changetype/osd-fleet-manager-alerting-sector-maintainer.yml
   datafiles:
