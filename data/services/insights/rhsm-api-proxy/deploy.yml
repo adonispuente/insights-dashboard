@@ -100,7 +100,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/stage-rhsm-api-proxy-stage.yml
-    ref: 76f72e2088c40edba8c685329734ac4d88abdae6
+    ref: 12bee4ad5d598aa645ca9b994ba0862fb58d42b2
     parameters:
       RHSM_SERVICE_URL: https://api.rhsm.stage.redhat.com/v1/cloud_access_providers
       USER_SERVICE_URL: https://user.stage.api.redhat.com
