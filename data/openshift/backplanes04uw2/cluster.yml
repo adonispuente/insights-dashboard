@@ -30,8 +30,8 @@ spec:
   product: rosa
   account:
     $ref: /aws/sd-infra-stage-01/account.yml
-  id: ''
-  external_id: ''
+  id: 24d18rk5acidi8smbv18qupvfks9boqh
+  external_id: f8e0a54d-e1d8-4f09-9e66-148b0f88a100
   provider: aws
   region: us-west-2
   channel: candidate
@@ -41,7 +41,7 @@ spec:
   nodes: 9
   instance_type: m5.xlarge
   private: true
-  provision_shard_id: ''
+  provision_shard_id: 03f35bb5-c700-4658-a8f2-c25b76107a63
   disable_user_workload_monitoring: true
   hypershift: false
   subnet_ids:
