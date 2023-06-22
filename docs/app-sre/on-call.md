@@ -27,3 +27,12 @@ Schedule: https://redhat.pagerduty.com/schedules#PHS3079
 The secondary on-call is a 24/7 on-call rotation that serves as backup and support function for the primary on-call. The secondary on-call will be paged if the primary on-call does not aknowledge the incident via Pagerduty (via app, slack integration or other means). The engineer assigned is required to be available for the initial response within 30 minutes of the page.
 
 Schedule: https://redhat.pagerduty.com/schedules#PSTVSQD
+
+### Pages important considerations
+
+* Follow alert SOPs and escalation procedures.
+* Follow [incident process](./incident-process.md) in case of a major event.
+* Always escalate in doubt and never play hero.
+* Apart from the SOP escalation, you have the secondary to help and a manager escalation. In order to trigger the escalation, just assign the incident to the corresponding escalation policy in Pager Duty.
+* On working hours, always make sure to dedicate time to evaluate the need of the page. This is especially important for pages that you can resolve yourself and do not constitute an incident.
+* In case of a page that's a no-op or a trivial workaround, work with the service team to make them improve the alert and do not hesitate to reduce severity if needed, in coordination with the service team (the next primary will love you for this).
