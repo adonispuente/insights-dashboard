@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-f83319e0
+  name: log-config-v2-f83319e0
   namespace: dynatrace
 spec:
   backoffLimit: 0
