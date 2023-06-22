@@ -2148,11 +2148,11 @@
       "locked": false,
       "fontSize": 46.86303720451718,
       "fontFamily": 1,
-      "text": "AppInterface",
+      "text": "App-Interface",
       "textAlign": "center",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "AppInterface",
+      "originalText": "App-Interface",
       "lineHeight": 1.1779006076601286,
       "baseline": 40
     },
