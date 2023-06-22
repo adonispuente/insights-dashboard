@@ -105,7 +105,7 @@ peering:
     cidrBlock: 172.16.0.0/12
     manageRoutes: true
     manageSecurityGroups: true
-    manageRoute53Associations: true
+    # manageRoute53Associations: true
   # access to backplane from OSD bastions
   # This should not be needed anymore with backplane allowing traffic from Internet
   # - provider: account-vpc-mesh
