@@ -59,7 +59,7 @@ config:
         display_name: content-sources-backend pr-check-prod-freeze
         branch: 2023-prod-freeze
 - project:
-    name: pulp
+    name: content-sources-pulp
     label: insights
     node: insights
     gh_org: pulp
@@ -67,9 +67,9 @@ config:
     quay_org: cloudservices
     jobs:
     - "insights-gh-build-master":
-        display_name: pulp build-master
+        display_name: content-sources-pulp build-master
         branch: main
         slack_channel_notification: team-pulp-services
     - "hms-gh-pr-check":
-        display_name: pulp pr-check
+        display_name: content-sources-pulp pr-check
         branch: main
