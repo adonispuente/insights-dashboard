@@ -25,7 +25,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/splunk-audit-exporter
   path: /hack/deploy/hypershift/policy.yaml
   parameters:
-    IMAGE_TAG: 0.1.141-ea5c4dd
+    IMAGE_TAG: 0.1.143-23813df
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
@@ -57,39 +57,39 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: c5e36a4feb37671d82ed4c0702753f7acb656b64
+    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
     parameters:
-      IMAGE_TAG: 0.1.136-c5e36a4
+      IMAGE_TAG: 0.1.143-23813df
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
