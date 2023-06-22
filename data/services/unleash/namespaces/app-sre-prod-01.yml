@@ -22,7 +22,7 @@ networkPoliciesAllow:
 managedRoles: true
 
 openshiftResources:
-### AppInterface
+### App-Interface
 - provider: vault-secret
   path: app-sre/unleash/app-interface-config
   version: 1
@@ -58,7 +58,7 @@ externalResources:
   provisioner:
     $ref: /aws/app-sre/account.yml
   resources:
-# AppInterface
+# App-Interface
   - provider: rds
     identifier: app-interface-unleash-production
     defaults: /terraform/resources/unleash/rds-app-interface-prod-1.yml
