@@ -38,17 +38,17 @@ An OIDC authentication capability for OpenShift clusters consists of the followi
 
 The proposal is to split the capability into two parts:
 
-* A capability that manages the SSO client configuration on auth.redhat.com
-* A capability that manages the OIDC client configuration on the OpenShift cluster
+* An integration that manages the SSO client configuration on auth.redhat.com
+* An integration that manages the OIDC client configuration on the OpenShift cluster
 
 Splitting the work into two parts allows us to reuse this capability for App-Interface managed clusters, easier code flow, code testing, and having a proper reconciliation loop for both parts.
 
-Both capabilities will be available in two flavors:
+Due to the different alerting and support models, both integrations will be available in two flavors:
 
 * One flavor gets the clusters to manage via OCM cluster subscription labels (`sre-capabilties.rhidp: "enabled"`)
-* The second one will get the clusters from App-Inferface
+* The second one will get the clusters from App-Interface
 
-And both use the same code base. Later, the App-Interface flavor will be refactored to label the clusters in OCM and use the OCM flavor too.
+And both use the same code base. Later, as soon as the SRE capabilities initiative is more mature and the deployment model is settled, we can merge both flavors into one.
 
 ![](images/rhidp.png)
 
