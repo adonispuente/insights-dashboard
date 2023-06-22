@@ -75,7 +75,7 @@ spec:
                 "schemaId": "builtin:logmonitoring.log-storage-settings",
                 "scope": "$hostGroupId",
                 "value": {
-                  "enabled": false,
+                  "enabled": true,
                   "config-item-title": "$RULE_NAME",
                   "send-to-storage": true,
                   "matchers": [
