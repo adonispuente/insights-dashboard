@@ -136,11 +136,11 @@ resourceTemplates:
     parameters:
       CPU_LIMITS: '1'
       CPU_REQUESTS: '1'
-      MEMORY_LIMITS: '2Gi'
-      MEMORY_REQUESTS: '2Gi'
-      NUM_REPLICAS: '2'
-      XMS: '1G'
-      XMX: '1G'
+      MEMORY_LIMITS: '4Gi'
+      MEMORY_REQUESTS: '4Gi'
+      NUM_REPLICAS: '4'
+      XMS: '2G'
+      XMX: '2G'
 
 #
 # CyndiPipeline definitions below
