@@ -69,7 +69,7 @@ spec:
           type: Resource
       minReplicas: 1
       status: DISABLED
-    replicas: 1
+    replicas: 3
     resources:
       limits:
         cpu: 200m
