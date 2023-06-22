@@ -697,7 +697,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 34ccaf640d3dc603c43f2d79bdff535474b75f8e
+    ref: a581d7147c75e07f79ada8a2f4eb2f4fc41a2831
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
@@ -715,14 +715,14 @@ resourceTemplates:
     # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: a01cb29c1c124fdf943a61a07b0f41ef9b9e1a89
+    ref: ad0b22b07a9c5b2357feeb90d02e5e84fc9b08a1
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 7a712e908df0ae486a545e77163b102982059645
+    ref: 60cff010871b3a24b9d3eade6aae6f7144fb7179
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
