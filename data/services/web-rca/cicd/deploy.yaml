@@ -77,6 +77,9 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       SENTRY_PROJECT: 45
       SENTRY_URL: https://glitchtip.devshift.net
       UI_ADDRESS: https://web-rca.devshift.net
+      WEBRCA_ANSIBLE_TAG: 120f25b
+      SLACK_DOMAIN: redhat-internal
+      SLACK_USER: WebRCA
       REPLICAS: 3
 - name: service-template-ui
   path: /templates/service-template.yaml
