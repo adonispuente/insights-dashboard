@@ -69,6 +69,10 @@ externalResources:
     identifier: s3-devshift-org
     name: s3.devshift.org
     output_resource_name: route53-creds
+  - provider: route53-zone
+    identifier: s4-devshift-org
+    name: s4.devshift.org
+    output_resource_name: route53-creds-4
 - provider: aws
   provisioner:
     $ref: /aws/osd-privatelink-stage/account.yml
