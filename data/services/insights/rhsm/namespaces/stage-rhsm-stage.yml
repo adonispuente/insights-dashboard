@@ -164,3 +164,7 @@ externalResources:
         ]
       }
     output_resource_name: rhsm-subscriptions-egress-s3-reader
+
+
+sharedResources:
+- $ref: /services/insights/shared-resources/metrics-export-stage.yml
