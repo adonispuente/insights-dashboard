@@ -106,6 +106,10 @@ rules: |
   path "app-sre/integrations-throughput/*" {
     capabilities = ["create", "update", "read"]
   }
+  # RHIDP capability needs read/write/list permissions
+  path "app-sre/integrations-throughput/rhidp/*" {
+    capabilities = ["create", "update", "read", "list", "delete"]
+  }
   path "acs-fleet-manager-ci/*" {
     capabilities = ["read"]
   }
