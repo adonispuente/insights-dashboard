@@ -1,0 +1,190 @@
+---
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+  name: osd-fleet-manager-production
+spec:
+  groups:
+    - name: osd-fleet-manager-production
+      rules:
+      {{% for sector in sectors %}}
+        - alert: OSD Fleet Manager production down - {{{ sector }}} sector
+          annotations:
+            message: "No instances found for OSD Fleet Manager in {{{ sector }}} sector - OSD Fleet Manager production is down."
+          expr: |
+            absent(up{service="fleet-manager-metrics-{{{ sector }}}",namespace="osd-fleet-manager-production"} == 1)
+          for: 15m
+          labels:
+            severity: high
+            team: osd
+            namespace: osd-fleet-manager-production
+            service: osd-fleet-manager
+            sector: {{{ sector }}}
+      {{% endfor %}}
+        - alert: OSD Fleet Manager is crashing
+          annotations:
+            message: OSD Fleet Manager container '{{ $labels.container }}' of pod '{{ $labels.pod }}' is crashing more than 2 times in 15 minutes in namespace 'production' and sector '{{ $labels.sector }}'
+          expr: |
+            sum(label_replace(increase(kube_pod_container_status_restarts_total{namespace="osd-fleet-manager-production", pod=~"^fleet-manager-metrics-.*"}[5m]),"sector", "$1", "service", "fleet-manager-metrics-(.*)")) by (sector,container,pod) > 2
+          for: 15m
+          labels:
+            severity: high
+            team: osd
+            namespace: osd-fleet-manager-production
+            service: osd-fleet-manager
+
+    - name: osd-fleet-manager-nonprod-api
+      rules:
+        - expr: |
+            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production",code=~"5.."}[1h]))
+            /
+            sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production"}[1h]))
+          labels:
+            service: osd-fleet-manager
+            exported_namespace: osd-fleet-manager-production
+            route: osd-fleet-manager
+          record: haproxy_backend_http_500_responses
+        - alert: OSD Fleet Manager returning 5xx 
+          annotations:
+            message: 'OSD Fleet Manager is returning 5xx error codes in osd-fleet-manager-production (current value: {{ $value | humanize }})'
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(haproxy_backend_http_500_responses{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production"}) > 1-0.99000
+          for: 10m
+          labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            team: osd
+            severity: medium
+        - expr: |
+            label_replace(sum(rate(api_outbound_request_count{path=~"/api/clusters_mgmt/v1/clusters/.*",namespace="osd-fleet-manager-production",apiservice="ocm-clusters-service",code=~"4.."}[5m])) /
+            sum(rate(api_outbound_request_count{path=~"/api/clusters_mgmt/v1/clusters/.*",namespace="osd-fleet-manager-production",apiservice="ocm-clusters-service"}[5m])),"sector","$1","service","fleet-manager-metrics-(.*)")
+          labels:
+            namespace: osd-fleet-manager-production
+            sector: main
+          record: outbound_http_responses_total
+        - alert: OSD Fleet Manager outbound api response errors
+          annotations:
+            message: "OSD Fleet Manager is receiving 4xx error codes from OCM in sector {{ $labels.sector}} of namespace osd-fleet-manager-production (current value: {{ $value }})"
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(outbound_http_responses_total{namespace="osd-fleet-manager-production"}) by (sector) > 1 - 0.99
+          for: 15m
+          labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            team: osd
+            severity: medium
+
+    - name: osd-fleet-manager-nonprod-reconciler
+      rules:
+        - expr: |
+            label_replace(sum by (worker_type, service, reconciliation_step, namespace) (rate(fleet_manager_reconciler_failure_count{namespace="osd-fleet-manager-production"}[5m])), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
+          labels:
+            job: fleet-manager-metrics
+          record: reconciler:fleet_manager_reconciler_failure_count:rate5m
+        - alert: OSD Fleet Manager reconciler failure
+          annotations:
+            message: The reconciler {{ $labels.worker_type }}/{{ $labels.reconciliation_step }} for sector {{ $labels.sector }} in production failed with a rate of {{ $value | printf "%.2f" }}/s over the last 15 minutes.
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            reconciler:fleet_manager_reconciler_failure_count:rate5m{namespace="osd-fleet-manager-production"} > 0
+          for: 15m
+          labels:
+            severity: medium
+            team: osd
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+        
+    {{% for wt in worker_types %}}
+        - expr: |
+            label_replace(max by (worker_type, service, reconciliation_step, namespace) (fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-production",worker_type="{{{ wt.name }}}"}), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
+          record: reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max
+        - alert: OSD Fleet Manager {{{ wt.name }}} reconciler long duration
+          annotations:
+            message: "The maximum reconciler duration was {{ $value | humanizeDuration }} for reconciler {{{ wt.name }}} at step {{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in osd-fleet-manager-production"
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max{namespace="osd-fleet-manager-production"} > {{{ wt.reconciler_duration_threshold | default(30) }}}
+          labels:
+            severity: medium
+            service: osd-fleet-manager
+            worker_type: {{{ wt.name }}}
+            namespace: osd-fleet-manager-production
+    {{% endfor %}}
+        
+    {{% for sector in sectors %}}
+        - alert: OSD Fleet Manager cluster provision long duration
+          annotations:
+            message: "Long provision duration {{ $value | humanizeDuration }} for cluster {{ $labels.cluster_id }} of type {{ $labels.cluster_type }} in sector {{{ sector }}} in production"
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-{{{ sector }}}"} > 18000
+          labels:
+            severity: medium
+            service: osd-fleet-manager
+            sector: {{{ sector }}}
+    {{% endfor %}}
+
+    - name: osd-fleet-manager-cluster-operation
+      rules:
+    {{% for sector in sectors %}}
+        - alert: OSD Fleet Manager cluster failed operations
+          annotations:
+            message: "Cluster provision failed in sector {{{ sector }}} in environment production" 
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            sum(rate(fleet_manager_cluster_status_count{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-{{{ sector }}}", status="failed"}[1h])) > 0
+          labels:
+            severity: high
+            service: osd-fleet-manager
+            sector: {{{ sector }}}
+            namespace: osd-fleet-manager-production
+    {{% endfor %}}
+
+    - name: osd-fleet-manager-nonprod-saturation-level
+      rules:
+        - alert: OSD Fleet Manager saturation level exceeding 90% 
+          annotations:
+            message: 'High saturation level exceeding 90% for service cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of production (current value: {{ $value }})'
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            fleet_manager_saturation_level{namespace="osd-fleet-manager-production"} >= 0.9
+          for: 15m
+          labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            severity: high
+            team: osd
+        - alert: OSD Fleet Manager saturation level exceeding 85%
+          annotations:
+            message: 'Saturation level exceeding 85% for service cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of production (current value: {{ $value }})'
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+          expr: |
+            fleet_manager_saturation_level{namespace="osd-fleet-manager-production"} >= 0.85
+            and
+            fleet_manager_saturation_level{namespace="osd-fleet-manager-production"} < 0.9
+          for: 15m
+          labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            team: osd
+            severity: medium
+        - expr: |
+            label_replace((sum(fleet_manager_management_cluster_hosted_cluster_count{namespace="osd-fleet-manager-production"}) by (service, region, service_cluster)) / (sum(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="osd-fleet-manager-production"}) by (service, region, service_cluster) * avg(fleet_manager_max_desired_hosted_cluster_count{namespace="osd-fleet-manager-production"}) by (service, region, service_cluster)),"sector","$1","service","fleet-manager-metrics-(.*)")
+          labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+          record: fleet_manager_saturation_level

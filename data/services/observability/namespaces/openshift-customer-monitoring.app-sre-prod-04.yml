@@ -477,8 +477,30 @@ openshiftResources:
 
   ### OSD Fleet Manager
 - provider: prometheus-rule
-  path: /observability/prometheusrules/osd-fleet-manager-production.prometheusrules.yaml
-  type: resource
+  path: /observability/prometheusrules/osd-fleet-manager-production.prometheusrules.yaml.j2
+  type: resource-template-extracurlyjinja2
+  tests:
+  - /observability/prometheusrules/osd-fleet-manager-production.prometheusrulestests.yaml
+  variables:
+    sectors:
+      - canary
+      - us-east-1
+      - us-east-2
+      - us-west-2
+      - eu-central-1
+      - eu-west-1
+    worker_types: # reconcilation max values for each worker type
+    - name: terraform-manager
+      reconciler_duration_threshold: 60
+    - name: sc-ready-manager
+    - name: mc-ready-manager
+    - name: service-account-token-renewal
+    - name: autoscaling-manager
+    - name: hs-mc
+    - name: network-manager
+    - name: hs-sc
+    - name: access-key-worker-manager
+    - name: region-manager   
 
   ### MAS-SSO
 - provider: resource-template
