@@ -30,9 +30,9 @@ openshiftResources:
   path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
   version: 1
   name: dynatrace-tokens
-- provider: resource-template
-  type: jinja2
-  path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
+# - provider: resource-template
+#   type: jinja2
+#   path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
 - provider: resource-template
   type: jinja2
   path: /setup/dynatrace/log-config-job.yaml.j2
