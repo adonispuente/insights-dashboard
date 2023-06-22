@@ -112,7 +112,7 @@ resourceTemplates:
       JIRA_PRODUCT: ''
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 64f40c567bccc89d8742cc9b4ee25e364a5f47ac
+    ref: e7d3030013b91cafe6f7e4314d4d01ccc4e8ecd0
     promotion:
       publish:
       - ocm-cs-deployed-prod
