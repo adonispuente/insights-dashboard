@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/app-sre-stage/account.yml
+
+name: SREP-S3-Verifier-Logs
+description: S3 group to access verifier s3 buckets that contain inflight check results and debug logs
+
+policies:
+- IAMUserChangePassword
