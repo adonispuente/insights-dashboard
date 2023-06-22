@@ -164,6 +164,8 @@ resourceTemplates:
       READ_USERNAME_SECRET_KEY: username
       WRITE_USERNAME_SECRET_NAME: msk-write-user
       WRITE_USERNAME_SECRET_KEY: username
+      INIT_KAFKA_MEMORY_REQUEST: 2G
+      INIT_KAFKA_MEMORY_LIMIT: 3G
   - ref: master
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
