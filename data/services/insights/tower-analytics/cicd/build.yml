@@ -101,7 +101,7 @@ config:
     jobs:
     - "insights-automation-analytics-s3-sync":
         display_name: insights automation analytics s3 sync
-        cron_expression: '0 9,21 * * *'
+        cron_expression: '0 6 * * *'
 
 - project:
     name: automation-analytics-cypress-ci
