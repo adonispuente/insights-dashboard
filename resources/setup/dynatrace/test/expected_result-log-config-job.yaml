@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-ca978112
+  name: log-config-f83319e0
   namespace: dynatrace
 spec:
   backoffLimit: 0
@@ -32,7 +32,7 @@ spec:
               #!/bin/bash
               set -eo pipefail
 
-              NAMESPACES=(dynatrace)
+              NAMESPACES=("dynatrace" )
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="https://test/api/v2"
               CLUSTER_NAME="test-cluster"
