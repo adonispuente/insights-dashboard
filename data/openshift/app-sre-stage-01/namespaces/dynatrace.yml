@@ -1,0 +1,39 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Monitoring and Logging Stack for Dynatrace
+
+cluster:
+  $ref: /openshift/app-sre-stage-01/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- Secret
+- OperatorGroup
+- Subscription
+- DynaKube
+- Job
+
+sharedResources:
+- $ref: /services/app-sre/shared-resources/dynatrace-operator.yaml
+
+openshiftResources:
+- provider: vault-secret
+  path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
+  version: 1
+  name: dynatrace-tokens
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/log-config-job.yaml.j2
+  enable_query_support: true
