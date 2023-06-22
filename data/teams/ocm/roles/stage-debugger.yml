@@ -6,7 +6,7 @@ name: stage-debugger
 
 permissions: []
 
-expirationDate: '2022-02-17'
+expirationDate: '2023-06-24'
 
 access:
 - cluster:
