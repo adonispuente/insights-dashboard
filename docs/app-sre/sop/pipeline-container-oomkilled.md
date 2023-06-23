@@ -54,3 +54,11 @@ The next steps are independent of where you found the `Pipeline` name
 
 - In `app-interface` search for a saas-file with name equals the `Pipeline` name minus `o-openshift-saas-deploy-`. i. e. `o-openshift-saas-deploy-ccx-data-pipeline-clowder` is defined by the saas file with `name: ccx-data-pipeline-clowder`.
 - Compare `deployResources` in the saas file with our [default value](https://gitlab.cee.redhat.com/service/app-interface/-/blob/051facc49398c4815332363c079d99cd5f575770/data/pipelines/tekton-provider-global-defaults.yaml#L56) if current deployResources is smaller than default, then remove deployResources section, otherwise bump memory limit.
+
+### Stopping the alert
+
+When you are finished you can delete the pods that where OOMKilled in order to make the alert go away.
+
+```bash
+oc delete pod <pod-name> [<more-pod-names>]
+```
