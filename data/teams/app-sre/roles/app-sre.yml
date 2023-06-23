@@ -282,6 +282,7 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/observability/app.yml
+  - $ref: /services/observability/netobserv/app.yml
   - $ref: /services/app-interface/app.yml
   - $ref: /services/glitchtip/app.yml
   - $ref: /services/app-interface/go-qontract-reconcile/app.yml
