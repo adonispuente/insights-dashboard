@@ -250,8 +250,8 @@ resourceTemplates:
       IMAGE_TAG_JOBS: fc9170e # v3.3.7
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
-      ADVISORY_REFRESH_SUSPEND: 'false'
-      PKG_REFRESH_SUSPEND: 'false'
+      ADVISORY_REFRESH_SUSPEND: 'true'  # disabled on 2023-06-23, it's slow when there is a lot of recalcs
+      PKG_REFRESH_SUSPEND: 'true'  # disabled on 2023-06-23, it's slow when there is a lot of recalcs
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'
