@@ -52,7 +52,8 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/ccx-data-pipeline
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -99,7 +100,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     delete: false
     ref: master
     upstream:
@@ -156,7 +158,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-smart-proxy
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -169,7 +172,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 034420cc44bce7057db43ba156b3b18b23586b9e
+    ref: 89161e31c8488d494dd754026297ba9a99cca4e6
     delete: false
     parameters:
       MIN_REPLICAS: "3"
@@ -208,7 +211,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator-cleaner
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     # Note: Automerge latest master version to STAGE env.
     #       Implementation: latest master build is deployed to STAGE.
@@ -234,7 +238,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-content-service
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -272,7 +277,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-operator-gathering-conditions-service
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: main
     upstream:
       instance:
@@ -301,7 +307,8 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/ccx-sha-extractor
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -330,7 +337,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator-exporter
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     parameters:
       OUTPUT: "S3"
@@ -379,7 +387,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/ccx-notification-writer
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -409,7 +418,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/ccx-notification-writer
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     disable: false
     ref: master
     upstream:
@@ -439,7 +449,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/ccx-notification-service
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
@@ -484,7 +495,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator-exporter
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     disable: true
     ref: master
     parameters:
@@ -531,7 +543,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-content-template-renderer
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     parameters:
       LOG_LEVEL: INFO
@@ -552,7 +565,8 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/ccx-upgrades-inference
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: main
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
@@ -567,7 +581,8 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/ccx/ccx-upgrades-data-eng
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: main
     parameters:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
@@ -593,7 +608,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     parameters:
       REDIS_STORAGE: "2Gi"
@@ -635,7 +651,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-kafka-monitor
   targets:
   - namespace:
-      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: 
+        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
     upstream:
       instance:
