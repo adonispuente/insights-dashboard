@@ -50,8 +50,7 @@ resourceTemplates:
     MEMORY_REQUEST: 1Gi
     CPU_REQUEST: 200m
     CPU_LIMIT: '1'
-    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ]
-      }'
+    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
     CLUSTER_TEMPLATES: |2-
         # HyperShift Service Cluster
         hs-sc:
@@ -116,8 +115,7 @@ resourceTemplates:
     READ_ONLY_USERS:
     - fleet-manager-debug
     REPLICAS: 1
-    RHOBS_URL: 
-      https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform-staging/api/v1/receive
+    RHOBS_URL: https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform-staging/api/v1/receive
     RHOBS_ENV: int
     SECTOR_ASSIGNMENT_POLICY: |-
       rules:
@@ -269,8 +267,7 @@ resourceTemplates:
     MEMORY_REQUEST: 1Gi
     CPU_REQUEST: 200m
     CPU_LIMIT: '1'
-    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ]
-      }'
+    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
     CLUSTER_TEMPLATES: |2-
         # HyperShift Service Cluster
         hs-sc:
@@ -341,8 +338,7 @@ resourceTemplates:
     - fleet-manager-debug
     REPLICAS: 1
     RHOBS_ENV: staging
-    RHOBS_URL: 
-      https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform-staging/api/v1/receive
+    RHOBS_URL: https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform-staging/api/v1/receive
     SECTOR_ASSIGNMENT_POLICY: |-
       rules:
       # the following service clusters go to the first perf sector
@@ -422,8 +418,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
-      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ]
-        ] }'
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -549,8 +544,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
-      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ]
-        ] }'
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -612,8 +606,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
-      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ]
-        ] }'
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -700,8 +693,7 @@ resourceTemplates:
       publish:
       - ocm-osdfm-deployed-stage-main
     parameters:
-      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ]
-        ] }'
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       DEPLOYMENT_NAME: main
       ENABLE_GLOBAL_WORKERS: true
       # TODO enablement of the simple IDP (htpasswd) should be temporary
@@ -719,8 +711,7 @@ resourceTemplates:
     MEMORY_REQUEST: 1Gi
     CPU_REQUEST: 200m
     CPU_LIMIT: '1'
-    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ]
-      }'
+    CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
     CLUSTER_TEMPLATES: |2-
         # HyperShift Service Cluster
         hs-sc:
@@ -773,8 +764,7 @@ resourceTemplates:
     MANAGEMENT_CLUSTER_HIGH_SATURATION_THRESHOLD: '80'
     OCM_URL: ${OCM_BASE_URL}
     REPLICAS: 3
-    RHOBS_URL: 
-      https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform/api/v1/receive
+    RHOBS_URL: https://rhobs.rhobsp02ue1.api.openshift.com/api/metrics/v1/hypershift-platform/api/v1/receive
     RHOBS_ENV: prod
     SECTOR_ASSIGNMENT_POLICY: |-
       rules:
@@ -1004,7 +994,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-ibm-infra
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -1033,8 +1023,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: canary
       CLUSTER_CHANNEL: stable
-      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ]
-        ] }'
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
