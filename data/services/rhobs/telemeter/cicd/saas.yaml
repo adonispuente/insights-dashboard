@@ -33,7 +33,8 @@ managedResourceTypes:
 - ServiceAccount
 - PodDisruptionBudget
 - PersistentVolumeClaim
-- PrometheusRule # adding everything that exists. this will be moved to a separate saas file
+- PrometheusRule
+- Secret
 
 imagePatterns:
 - quay.io/thanos/thanos
@@ -49,6 +50,9 @@ imagePatterns:
 parameters:
   OAUTH_PROXY_IMAGE: quay.io/openshift/origin-oauth-proxy
   OAUTH_PROXY_IMAGE_TAG: 4.8.0 # Pinning version before 4.9.0 due to https://github.com/openshift/oauth-proxy/issues/229.
+
+allowedSecretParameterPaths:
+  - rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
 
 resourceTemplates:
 - name: telemeter-dashboards
@@ -194,3 +198,27 @@ resourceTemplates:
       TOKEN_REFRESHER_LOG_LEVEL: debug
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_IMAGE: 'quay.io/app-sre/ubi8-nginx-118'
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_VERSION: '1-51'
+- name: rhelemeter
+  parameters:
+    RHELEMETER_OIDC_ISSUER: https://sso.redhat.com/auth/realms/redhat-external
+  url: https://github.com/rhobs/configuration
+  path: /resources/services/rhelemeter-template.yaml
+  targets:
+  - namespace:
+      $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+    ref: 391a396f348e21cd6da2930b4a24635130d09577
+    parameters:
+      NAMESPACE: rhelemeter-stage
+      RHELEMETER_FORWARD_URL: http://observatorium-observatorium-mst-api.observatorium-mst-stage.svc.cluster.local:8080/api/metrics/v1/rhel/api/v1/receive
+      IMAGE_TAG: bba4a6f
+    secretParameters:
+      - name: RHELEMETER_CLIENT_ID
+        secret:
+          path: rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
+          field: client_id
+          version: 1
+      - name: RHELEMETER_CLIENT_SECRET
+        secret:
+          path: rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
+          field: client_secret
+          version: 1
