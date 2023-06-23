@@ -344,6 +344,21 @@ resourceTemplates:
       THANOS_RECEIVE_REPLICAS: 6
       THANOS_RECEIVE_HASHRINGS_ALGORITHM: ketama
       THANOS_RECEIVE_TSDB_RETENTION: 1d
+      THANOS_RECEIVE_LIMIT_CONFIG:
+        write:
+          global:
+            max_concurrency: 0 # unlimited
+            meta_monitoring_url: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
+            meta_monitoring_limit_query: 'sum(prometheus_tsdb_head_series{namespace="observatorium-mst-stage"}) by (tenant)'
+          default:
+            request:
+              size_bytes_limit: 0 # unlimited
+              series_limit: 5000
+              samples_limit: 5000
+            head_series_limit: 100000 # 100k
+          tenants:
+            1b9b6e43-9128-4bbf-bfff-3c120bbe6f11: # rhacs
+              head_series_limit: 10000000 # 10M
       THANOS_RULE_SYNCER_IMAGE_TAG: main-2022-09-14-338f9ec
       THANOS_RULER_CPU_LIMIT: '4'
       THANOS_RULER_CPU_REQUEST: '4'
@@ -776,29 +791,4 @@ resourceTemplates:
         NAMESPACE: observatorium-production
         REMOTE_NAMESPACE: observatorium-mst-production
         SERVICE_ACCOUNT_NAME: observatorium
-- name: thanos-receive-limits
-  path: /resources/services/observatorium-metrics-limits-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-    - namespace:
-        $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-      ref: 41105cc928dc89902e2b5268adc51844bb6dcd01
-      parameters:
-        CONFIGMAP_NAME: observatorium-thanos-receive-limits
-        RECEIVE_LIMITS: | # setting the content as string, otherwise it gets serialized as JSON in the resulting configmap
-          write:
-            global:
-              max_concurrency: 0 # unlimited
-              meta_monitoring_url: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
-              meta_monitoring_limit_query: 'sum(prometheus_tsdb_head_series{namespace="observatorium-mst-stage"}) by (tenant)'
-            default:
-              request:
-                size_bytes_limit: 0 # unlimited
-                series_limit: 5000
-                samples_limit: 5000
-              head_series_limit: 100000 # 100k
-            tenants:
-              1b9b6e43-9128-4bbf-bfff-3c120bbe6f11: # rhacs
-                head_series_limit: 10000000 # 10M
-   
 
