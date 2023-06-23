@@ -61,6 +61,16 @@ externalResources:
     parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-content-sources-stage.yml
     output_resource_name: content-sources-db
     enhanced_monitoring: true
+  - provider: rds
+    identifier: content-sources-pulp-stage
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
+    overrides:
+      apply_immediately: true
+      enabled_cloudwatch_logs_exports: ['postgresql', 'upgrade']
+    parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-content-sources-pulp-stage.yml
+    output_resource_name: content-sources-pulp-db
+    enhanced_monitoring: true
+
   - provider: elasticache
     identifier: content-sources-elasticache-stage
     defaults: /terraform/resources/insights/stage/elasticache/elasticache-content-sources-1.yml
