@@ -786,8 +786,8 @@ resourceTemplates:
         sector: canary
       - predicate:
           label:
-            key: "ibm-infra"
-            value: "true"
+            key: "sector-override"
+            value: "ibm-infra"
         sector: ibm-infra
       - predicate:
           region: ap-southeast-3
