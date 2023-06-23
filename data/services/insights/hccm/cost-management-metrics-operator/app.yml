@@ -1,0 +1,35 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: cost-management-metrics-operator
+  platform: insights
+  deployment_validation_operator_minimum_three_replicas: skip # not supported by cost-management-metrics-operator
+
+name: cost-management-metrics-operator
+
+description: Cost Management Metrics Operator
+
+architectureDocument: https://gitlab.cee.redhat.com/cost-management/service-docs/-/blob/main/architecture.md
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/
+grafanaUrls:
+- title: Cost Management Dashboard
+  url: https://grafana.app-sre.devshift.net/d/R0HueuFGk/cost-management?orgId=1
+- title: Cost Management SLO Dashboard
+  url: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=cost-management
+onboardingStatus: OnBoarded
+
+parentApp:
+  $ref: /services/insights/hccm/app.yml
+
+escalationPolicy:
+  $ref: /teams/insights/escalation-policies/crc-cost-mgmt-escalations.yml
+serviceOwners:
+- name: Cost Management Team
+  email: cost-mgmt@redhat.com
+
+dependencies:
+- $ref: /dependencies/openshift/service.yml
+- $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/ci-int/service.yml

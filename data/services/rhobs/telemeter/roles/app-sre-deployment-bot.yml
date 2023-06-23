@@ -22,3 +22,10 @@ access:
 - namespace:
     $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
   role: view
+# rhelemeter
+- namespace:
+    $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+  role: admin
+- namespace:
+    $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+  role: view

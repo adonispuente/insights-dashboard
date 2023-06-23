@@ -91,7 +91,7 @@ openshiftResources:
   name: clowder-auth
 - provider: vault-secret
   path: insights/secrets/insights-stage/strimzi-stage/lag-exporter-config
-  version: 13
+  version: 14
   name: lag-exporter-config
 
 managedExternalResources: true

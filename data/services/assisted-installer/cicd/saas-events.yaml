@@ -29,6 +29,7 @@ imagePatterns:
 - quay.io/edge-infrastructure/redis-exporter
 - quay.io/app-sre/auto-report
 - quay.io/openshift/origin-oauth-proxy
+- quay.io/strimzi/kafka
 
 resourceTemplates:
 - name: assisted-events-scraper-dashboards
@@ -146,6 +147,25 @@ resourceTemplates:
       KAFKA_EVENT_STREAM_TOPIC: events-stream-integration
       IMAGE_NAME: quay.io/app-sre/assisted-events-stream
       KAFKA_GROUP_ID: enriched-event-projection-integration
+      ZOOKEEPER_CONNECT_STRING_SECRET_NAME: assisted-installer-msk
+      ZOOKEEPER_CONNECT_STRING_SECRET_KEY: zookeeper_connect_string_tls
+      ZOOKEEPER_TLS: "true"
+      BOOTSTRAP_BROKERS_SECRET_NAME: assisted-installer-msk
+      BOOTSTRAP_BROKERS_SECRET_KEY: bootstrap_brokers_sasl_scram
+      KAFKA_TOPIC_PARTITIONS: "6"
+      KAFKA_TOPIC_REPLICATION_FACTOR: "3"
+      KAFKA_CREDENTIALS_SECRETNAME: msk-read-user
+      KAFKA_SASL_MECHANISM: "SCRAM"
+      ADMIN_USERNAME_SECRET_NAME: msk-admin-user
+      ADMIN_USERNAME_SECRET_KEY: username
+      ADMIN_PASSWORD_SECRET_NAME: msk-admin-user
+      ADMIN_PASSWORD_SECRET_KEY: password
+      READ_USERNAME_SECRET_NAME: msk-read-user
+      READ_USERNAME_SECRET_KEY: username
+      WRITE_USERNAME_SECRET_NAME: msk-write-user
+      WRITE_USERNAME_SECRET_KEY: username
+      INIT_KAFKA_MEMORY_REQUEST: 2G
+      INIT_KAFKA_MEMORY_LIMIT: 3G
   - ref: master
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
@@ -162,6 +182,23 @@ resourceTemplates:
       KAFKA_GROUP_ID: enriched-event-projection-stage
       LOG_LEVEL: debug
       REPLICAS_COUNT: 3
+      ZOOKEEPER_CONNECT_STRING_SECRET_NAME: assisted-installer-msk
+      ZOOKEEPER_CONNECT_STRING_SECRET_KEY: zookeeper_connect_string_tls
+      ZOOKEEPER_TLS: "true"
+      BOOTSTRAP_BROKERS_SECRET_NAME: assisted-installer-msk
+      BOOTSTRAP_BROKERS_SECRET_KEY: bootstrap_brokers_sasl_scram
+      KAFKA_TOPIC_PARTITIONS: "6"
+      KAFKA_TOPIC_REPLICATION_FACTOR: "3"
+      KAFKA_CREDENTIALS_SECRETNAME: msk-read-user
+      KAFKA_SASL_MECHANISM: "SCRAM"
+      ADMIN_USERNAME_SECRET_NAME: msk-admin-user
+      ADMIN_USERNAME_SECRET_KEY: username
+      ADMIN_PASSWORD_SECRET_NAME: msk-admin-user
+      ADMIN_PASSWORD_SECRET_KEY: password
+      READ_USERNAME_SECRET_NAME: msk-read-user
+      READ_USERNAME_SECRET_KEY: username
+      WRITE_USERNAME_SECRET_NAME: msk-write-user
+      WRITE_USERNAME_SECRET_KEY: username
   - ref: e6586bdbc82d3398a57097d2b6246a7a58be372a
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oauth-service-account-access
+  namespace: platform-changelog-stage
+data:
+  description: Fake ConfigMap to give all authenticated users access to a given service behind openshift-oauth-proxy.

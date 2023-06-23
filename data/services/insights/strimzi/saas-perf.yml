@@ -82,7 +82,7 @@ resourceTemplates:
       KAFKA_HEAP_OPTS_XMS: 6g
       KAFKA_HEAP_OPTS_XMX: 6g
       KAFKA_VOL_SIZE: 800Gi
-      KAFKA_VERSION: 3.1.0
+      KAFKA_VERSION: 3.3.1
       READY_DELAY: 600
       READY_TIMEOUT: 60
       READY_THRESHOLD: 5

@@ -1,0 +1,29 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+# For running these tests locally see https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/prometheus-rules-tests-in-app-interface.md
+
+rule_files:
+- /insights-prod/rhsm-api-proxy-prod/automatic-registration-listener.prometheusrules.yml
+
+evaluation_interval: 5m
+tests:
+  # TalliesWillMissWindow
+- interval: 1m
+  input_series:
+  - series: kafka_consumergroup_group_lag{topic='platform.sources.event-stream',group='automatic-registration-listener'}
+    values: "1000 80000-100x120"
+  alert_rule_test:
+  - eval_time: 2h
+    alertname: automatic-registration-listener kafka processing too slow
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: prod
+        app_team: rhsm-api-proxy
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/8wCTC5Tmz/strimzi-kafka?orgId=1&var-kubernetes_namespace=platform-mq-prod&var-strimzi_cluster_name=platform-mq&var-kafka_broker=All&var-kafka_topic=platform.sources.event-stream&var-kafka_partition=All&var-datasource=crcp01ue1-prometheus&viewPanel=103"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/rhsm-api-proxy-prod/deployments"
+        message: "automatic-registration-listener predicted to be unable to keep up with messages"
+        runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/rhsm-api-proxy/automatic-registration-listener-slow.md'

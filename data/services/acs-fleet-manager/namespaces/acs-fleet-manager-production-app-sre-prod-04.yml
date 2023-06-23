@@ -34,7 +34,7 @@ openshiftResources:
 - provider: vault-secret
   name: fleet-manager-dataplane-certificate
   path:  app-interface/acs-fleet-manager/prod/service/dataplane-certificate
-  version: 1
+  version: 2
   annotations:
     qontract.recycle: "true"
 - provider: resource

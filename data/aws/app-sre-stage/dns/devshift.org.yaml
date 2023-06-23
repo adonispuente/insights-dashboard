@@ -62,3 +62,18 @@ records:
   - ns-cloud-e2.googledomains.com
   - ns-cloud-e3.googledomains.com
   - ns-cloud-e4.googledomains.com
+
+- name: i4
+  type: NS
+  _target_namespace_zone:
+    namespace:
+      $ref: /services/ocm/namespaces/uhc-integration.yml
+    name: i4.devshift.org
+
+- name: s4
+  type: NS
+  _target_namespace_zone:
+    namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    name: s4.devshift.org
+

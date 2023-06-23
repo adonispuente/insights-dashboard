@@ -4,7 +4,7 @@ $schema: /aws/account-1.yml
 labels: {}
 
 name: sd-infra-stage-01
-description: App SRE AWS account for STS/Privatelink clusters for backplane
+description: App SRE AWS account for STS/Privatelink clusters for stage backplane and potential other SD infra clusters
 consoleUrl: https://611491592236.signin.aws.amazon.com/console
 uid: '611491592236'
 resourcesDefaultRegion: us-east-1
@@ -12,6 +12,7 @@ supportedDeploymentRegions:
 - us-east-1
 - us-east-2
 - us-west-1
+- us-west-2
 providerVersion: '3.76.0'
 
 terraformUsername: terraform

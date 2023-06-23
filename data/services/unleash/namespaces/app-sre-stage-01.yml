@@ -26,7 +26,7 @@ sharedResources:
 - $ref: /services/unleash/shared-resources/insights-perf.yml
 
 openshiftResources:
-### AppInterface
+### App-Interface
 - provider: vault-secret
   path: app-sre/unleash/app-interface-stage-config
   version: 1
@@ -70,7 +70,7 @@ externalResources:
   provisioner:
     $ref: /aws/app-sre-stage/account.yml
   resources:
-  ### AppInterface
+  ### App-Interface
   - provider: sns
     identifier: unleash-rds-notification
     defaults: /terraform/resources/unleash/sns-stage-1.yml

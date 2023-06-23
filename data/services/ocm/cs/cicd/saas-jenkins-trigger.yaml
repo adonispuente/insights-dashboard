@@ -20,7 +20,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration-tests.yml
-    ref: 5ffc65e2b20140cb84ddf170d0d5a4a77fce751f
+    ref: bce9d80e73249946d87c50a687a9c894c00e220c
     promotion:
       auto: true
       subscribe:
@@ -31,7 +31,7 @@ resourceTemplates:
       JENKINS_JOB_NAME: uhc-integration-tests-integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-tests.yml
-    ref: 5ffc65e2b20140cb84ddf170d0d5a4a77fce751f
+    ref: bce9d80e73249946d87c50a687a9c894c00e220c
     promotion:
       auto: true
       subscribe:

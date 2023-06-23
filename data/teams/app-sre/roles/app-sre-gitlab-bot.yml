@@ -76,6 +76,7 @@ self_service:
   - $ref: /openshift/backplanes03ue1/cluster.yml
   - $ref: /openshift/backplanep01ue1/cluster.yml
   - $ref: /openshift/backplanep02uw2/cluster.yml
+  - $ref: /openshift/backplanes04uw2/cluster.yml
   - $ref: /openshift/stonesoups01ue1/cluster.yml
   - $ref: /openshift/stonesoupp01ue1/cluster.yml
 - change_type:

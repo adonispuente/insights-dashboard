@@ -58,6 +58,10 @@ access:
 - namespace:
     $ref: /openshift/rhobsp02ue1/namespaces/openshift-logging.yaml
   role: view
+# rhelemeter
+- namespace:
+    $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+  role: view
 
 self_service:
 - change_type:

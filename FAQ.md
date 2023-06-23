@@ -135,7 +135,7 @@ An AppSRE team member, whether currently designated as the IC (Interrupt Catcher
 tickets or allocate any work to other engineers under most circumstances - this concerns both the reviews and approvals
 alike.
 
-**Note:** the role of an IC is not to distribute work to others but rather to provide support to AppInterface users,
+**Note:** the role of an IC is not to distribute work to others but rather to provide support to App-Interface users,
 whether by offering hands-on aid, guidance, or self-service enablement.
 
 If you wish to receive help from the AppSRE team that does not require immediate attention, please consider raising
@@ -447,13 +447,14 @@ More information: [Continuous Delivery in App-interface](/docs/app-sre/continuou
 
 ### How to delete external resource
 
-To remove an external resource (a resource that has been provisioned through AppInterface and outside of the OpenShift
+To remove an external resource (a resource that has been provisioned through App-Interface and outside of the OpenShift
 clusters, such as a data store from the AWS public cloud or DNS zone from Cloudflare), several steps are usually
 required:
 
 - A change to add so-called "deletion approvals" needs to be raised as a Merge Request against a specific account (as
-  defined in AppInterface) where any given resources are currently being managed. Ensure that the expiration date spans
-  a little into the future to avoid issues related to time zones (the time zone in which the services operate is UTC).
+  defined in App-Interface) where any given resources are currently being managed. Ensure that the expiration date
+  spans a little into the future to avoid issues related to time zones (the time zone in which the services operate is
+  UTC).
 
   For more details, see:
 
@@ -461,13 +462,13 @@ required:
     - [Delete Cloudflare resource][delete-cloudflare-resource]
 
 - (_Optionally_) Some resources, such as the RDS database instances, might require an additional change aside from
-  providing deletion approvals: deletion protection has to be disabled on the AWS side; otherwise, the resource deletion
-  would fail with an error (as expected). Deletion protection can be disabled using the `deletion_protection: false`
-  attribute added to the `overrides` property of a given resource. **Note:** this change has to be merged before removing
-  corresponding resource definitions from AppInterface, as otherwise, the change would fail with an error originating
-  from AWS.
+  providing deletion approvals: deletion protection has to be disabled on the AWS side; otherwise, the resource
+  deletion would fail with an error (as expected). Deletion protection can be disabled using the `deletion_protection:
+  false` attribute added to the `overrides` property of a given resource. **Note:** this change has to be merged
+  before removing corresponding resource definitions from App-Interface, as otherwise, the change would fail with an
+  error originating from AWS.
 
-- Remove desired resource definitions that you wish to delete from AppInterface. If you aim to remove a resource from
+- Remove desired resource definitions that you wish to delete from App-Interface. If you aim to remove a resource from
   AWS public cloud, then there is no need to add the `delete: true` attribute before removing the resource definition.
   However, other types of resources, such as the Cloudflare DNS zones, require this property to be added before the
   resource definition is removed - this will, therefore, need a separate change to be merged beforehand. **Note:** the
@@ -479,8 +480,9 @@ required:
   Jenkins web UI for a related job.
 
 - (_Optionally_) If you are removing RDS database instances, then make sure that references to these databases have also
-  been either removed or updated from templates that define SQL queries to be made via AppInterface (this is the access
-  method that predated the addition of the GABI service) as otherwise, the change would fail due to missing references.
+  been either removed or updated from templates that define SQL queries to be made via App-Interface (this is the
+  access method that predated the addition of the GABI service) as otherwise, the change would fail due to missing
+   references.
 
   For more details, see:
 
@@ -611,7 +613,7 @@ You can encounter one of three common errors while accessing your GABI instance:
     is an empty list of authorized users - there aren't any users who are allowed
     to access this particular GABI instance.
 
-    Authorized users need to be assigned via the AppInterface.
+    Authorized users need to be assigned via the App-Interface.
 
   - `403 Forbidden`, with error message "User does not have required permissions"
 
@@ -620,7 +622,7 @@ You can encounter one of three common errors while accessing your GABI instance:
     access this particular GABI instance.
 
     A specific user has to be assigned to the right GABI instance (granted access)
-    via the AppInterface.
+    via the App-Interface.
 
   - `503 Service Unavailable`, with error message "The service instance has expired"
 
@@ -629,7 +631,7 @@ You can encounter one of three common errors while accessing your GABI instance:
 
     The expiry date for a given GABI instance has to be refreshed (note: the expiration
     date cannot be greater than 90 days from the current date). This can be done via
-    AppInterface.
+    App-Interface.
 
 However, if your requests fail and you are confident that you see none of the above errors,
 see about [contacting AppSRE](#contacting-appsre). Please describe the problem you see and

@@ -8,6 +8,7 @@ instance_types:
 - c5d.large
 - c6a.large
 - c6i.large
+- c6id.large
 iam_role_name: workers-aoc-staging-role
 
 vpc_zone_identifier:
@@ -38,5 +39,5 @@ block_device_mappings:
 - device_name: /dev/sda1
   ebs:
     volume_size: 50
-    volume_type: gp2
+    volume_type: gp3
     encrypted: true

@@ -125,7 +125,7 @@ resourceTemplates:
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: 8871350f4d13c4b6dac5557a29949e4f67a06703
+    ref: 938fb47176ea4e9d3b1afc4da91fc0796eb2476a
     parameters:
       MEMORY_LIMIT: '2Gi'
       KRUIZE_IMAGE_TAG: 'f7a5f77'

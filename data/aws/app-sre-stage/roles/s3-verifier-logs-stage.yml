@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: rh-osd-network-verifier-staging-s3-logs
+
+permissions: []
+
+aws_groups:
+- $ref: /aws/app-sre-stage/groups/Verifier-logs.yml
+
+user_policies:
+- $ref: /aws/app-sre-stage/policies/VerifierLogAccess.yml
+- $ref: /aws/app-sre-stage/policies/ManageOwnMFA.yml

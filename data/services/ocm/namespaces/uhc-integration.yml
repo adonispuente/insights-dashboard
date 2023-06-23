@@ -179,6 +179,10 @@ externalResources:
     identifier: i3-devshift-org
     name: i3.devshift.org
     output_resource_name: route53-creds
+  - provider: route53-zone
+    identifier: i4-devshift-org
+    name: i4.devshift.org
+    output_resource_name: route53-creds-4
   - provider: s3-cloudfront
     identifier: rh-oidc-integration
     defaults: /terraform/resources/ocm/s3-cloudfront-integration.yml

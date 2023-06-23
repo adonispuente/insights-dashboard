@@ -10,6 +10,9 @@ description: Insights notifications-stage on the Stage cluster under e2e-deploy/
 cluster:
   $ref: /openshift/crcs02ue1/cluster.yml
 
+quota:
+  $ref: /services/insights/notifications/notifications-quota.yml
+
 app:
   $ref: /services/insights/notifications/app.yml
 

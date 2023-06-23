@@ -71,7 +71,7 @@ resourceTemplates:
       SOURCE_NAMESPACE: xjoin-stage
       TARGET_NAMESPACE: xjoin-stage
       VALIDATION_ATTEMPTS_THRESHOLD_INIT: "60"
-      VALIDATION_PERCENTAGE_THRESHOLD: "25"
+      VALIDATION_PERCENTAGE_THRESHOLD: "10"
       CONNECTOR_TOPIC: "platform-mq-stage.platform.inventory.events"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
@@ -136,11 +136,11 @@ resourceTemplates:
     parameters:
       CPU_LIMITS: '1'
       CPU_REQUESTS: '1'
-      MEMORY_LIMITS: '2Gi'
-      MEMORY_REQUESTS: '2Gi'
-      NUM_REPLICAS: '2'
-      XMS: '1G'
-      XMX: '1G'
+      MEMORY_LIMITS: '4Gi'
+      MEMORY_REQUESTS: '4Gi'
+      NUM_REPLICAS: '4'
+      XMS: '2G'
+      XMX: '2G'
 
 #
 # CyndiPipeline definitions below
@@ -159,8 +159,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
@@ -190,8 +189,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
@@ -214,11 +212,13 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
       INSIGHTS_ONLY: "false"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+    parameters:
+      VALIDATION_THRESHOLD: "15"
+      INSIGHTS_ONLY: "false"
     ref: f526e7bfae89eb7f9a61d992e1a67540ed0fc332
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
@@ -243,14 +243,14 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
       INSIGHTS_ONLY: "false"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: f526e7bfae89eb7f9a61d992e1a67540ed0fc332
     parameters:
-      VALIDATION_THRESHOLD: "10"
+      VALIDATION_THRESHOLD: "15"
+      INSIGHTS_ONLY: "false"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/cyndi-perf.yml
     ref: master
@@ -276,8 +276,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: f526e7bfae89eb7f9a61d992e1a67540ed0fc332
@@ -299,8 +298,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-cyndi-operator-gh-build-master
     parameters:
-      SOURCE_TOPIC: "platform-mq-stage.platform.inventory.events"
-      VALIDATION_THRESHOLD: "25"
+      VALIDATION_THRESHOLD: "10"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e

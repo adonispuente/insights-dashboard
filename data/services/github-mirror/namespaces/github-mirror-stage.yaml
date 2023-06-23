@@ -1,7 +1,9 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels: {}
+labels:
+  # TODO: only used during PoC phase -> move this to schema on namespace level
+  enableDynatraceLogging: ""
 
 name: github-mirror-stage
 description: stage namespace for github-mirror
