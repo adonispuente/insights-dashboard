@@ -18,7 +18,7 @@ terraformUsername: terraform
 
 accountOwners:
 - name: App-SRE Team
-  email: sd-app-sre@redhat
+  email: sd-app-sre+quayio@redhat.com
 
 automationToken:
   path: app-sre/creds/terraform/quayio-prod/config

@@ -57,6 +57,7 @@ externalResources:
     defaults: /terraform/resources/insights/stage/rds/postgres13-rds-1.yml
     overrides:
       apply_immediately: true
+      enabled_cloudwatch_logs_exports: ['postgresql', 'upgrade']
     parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-content-sources-stage.yml
     output_resource_name: content-sources-db
     enhanced_monitoring: true
@@ -64,6 +65,10 @@ externalResources:
     identifier: content-sources-elasticache-stage
     defaults: /terraform/resources/insights/stage/elasticache/elasticache-content-sources-1.yml
     output_resource_name: in-memory-db
+  - provider: s3
+    identifier: content-sources-s3-custom-repos-stage
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: content-sources-s3-custom-repos
   - provider: cloudwatch
     identifier: content-sources-stage
     defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml

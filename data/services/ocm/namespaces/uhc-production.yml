@@ -158,6 +158,10 @@ externalResources:
     identifier: p3-openshiftapps-com
     name: p3.openshiftapps.com
     output_resource_name: route53-creds
+  - provider: route53-zone
+    identifier: p4-openshiftapps-com
+    name: p4.openshiftapps.com
+    output_resource_name: route53-creds-4
 - provider: aws
   provisioner:
     $ref: /aws/osd-privatelink-prod/account.yml

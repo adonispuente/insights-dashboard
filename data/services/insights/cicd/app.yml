@@ -104,6 +104,9 @@ quayRepos:
   - name: better-platform-docs
     public: true
     description: Image thats hosts all platform docs
+  - name: releaser
+    public: true
+    description: Image for releasing plat-exp frontends
   - name: cypress-e2e-image
     public: true
     description: Image that is used to run cypress e2e test in Jenkins
@@ -124,6 +127,9 @@ codeComponents:
 - name: better-platform-docs
   resource: upstream
   url: https://github.com/RedHatInsights/better-platform-docs
+- name: insights-frontend-builder-common
+  resource: upstream
+  url: https://github.com/RedHatInsights/insights-frontend-builder-common
 - name: cicd-common
   resource: upstream
   url: https://gitlab.cee.redhat.com/insights-platform/cicd-common

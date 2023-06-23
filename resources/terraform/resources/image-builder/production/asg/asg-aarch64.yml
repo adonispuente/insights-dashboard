@@ -5,8 +5,6 @@ min_size: 4
 instance_types:
 - c6g.large
 - c6gd.large
-- c6g.xlarge
-- c6gd.xlarge
 iam_role_name: workers-aoc-production-role
 
 vpc_zone_identifier:
@@ -21,9 +19,10 @@ capacity_rebalance: true
 max_instance_lifetime: 604800
 
 instances_distribution:
-  spot_allocation_strategy: lowest-price
+  spot_allocation_strategy: price-capacity-optimized
   on_demand_base_capacity: 0
   on_demand_percentage_above_base_capacity: 0
+  spot_instance_pools: 0
 
 vpc_security_group_ids: ["sg-0e9186322f8a76e1e"]
 
@@ -37,5 +36,5 @@ block_device_mappings:
 - device_name: /dev/sda1
   ebs:
     volume_size: 50
-    volume_type: gp2
+    volume_type: gp3
     encrypted: true

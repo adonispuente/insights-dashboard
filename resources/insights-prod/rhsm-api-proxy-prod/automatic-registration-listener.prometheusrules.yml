@@ -1,0 +1,30 @@
+# Documentation:
+# https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/monitoring.md#adding-alerting-for-an-application-from-scratch
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+  name: rhsm-automatic-registration-listener-prod
+spec:
+  groups:
+  - name: rhsm-automatic-registration-listener-prod
+    rules:
+    - alert: automatic-registration-listener kafka processing too slow
+      # Predicts when the listener is predicted to leave unprocessed messages
+      # based on the last 10 minutes data; alerts when every prediction across 1h shows unprocessed messages
+      expr: sum(predict_linear(kafka_consumergroup_group_lag{topic='platform.sources.event-stream',group='automatic-registration-listener'}[10m], 3600)) > 0
+      for: 1h
+      labels:
+        severity: medium
+        service: insights
+        env: prod
+        app_team: rhsm-api-proxy
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/8wCTC5Tmz/strimzi-kafka?orgId=1&var-kubernetes_namespace=platform-mq-prod&var-strimzi_cluster_name=platform-mq&var-kafka_broker=All&var-kafka_topic=platform.sources.event-stream&var-kafka_partition=All&var-datasource=crcp01ue1-prometheus&viewPanel=103"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/rhsm-api-proxy-prod/deployments"
+        message: "automatic-registration-listener predicted to be unable to keep up with messages"
+        runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/rhsm-api-proxy/automatic-registration-listener-slow.md'
+

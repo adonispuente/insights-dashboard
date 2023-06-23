@@ -24,6 +24,7 @@ managedResourceTypes:
 - ClowdJobInvocation
 - ConfigMap
 - CronJob
+- FloorPlan
 - Frontend
 
 imagePatterns:
@@ -52,6 +53,12 @@ resourceTemplates:
     # populated by bonfire
     ref: internal
     parameters:
+      # These deprecated Floorist parameters are here to avoid any dependant
+      # applications to run into issues when deploying Notifications to
+      # ephemeral, since we are still transitioning to the new Floorist
+      # operator and Bonfire might pick up an old ref which requires them.
+      # For more information, check: https://issues.redhat.com/browse/RHCLOUD-25863
+      FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-ephemeral
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
       FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'true'
@@ -68,11 +75,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
-      FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
-      FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'false'
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -126,24 +131,40 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-google-chat.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
+  # prod
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/notifications-prod.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MIN_REPLICAS: 0
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-connector-microsoft-teams
 - name: notifications-connector-microsoft-teams
@@ -151,24 +172,40 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-microsoft-teams.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
+  # prod
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/notifications-prod.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MIN_REPLICAS: 0
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-connector-slack
 - name: notifications-connector-slack
@@ -176,24 +213,40 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/notifications-backend
   targets:
 
-    # ephemeral
+  # ephemeral
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-      # app-sre will not deploy this target
+    # app-sre will not deploy this target
     disable: true
-      # populated by bonfire
+    # populated by bonfire
     ref: internal
 
-    # stage
+  # stage
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-      # notifications-backend commit hash that determines the clowdapp-slack.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
+  # prod
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/notifications-prod.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
+    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MIN_REPLICAS: 0
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
 
 # notifications-engine
 - name: notifications-engine
@@ -222,7 +275,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -274,7 +327,9 @@ resourceTemplates:
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
       NOTIFICATIONS_SINGLE_EMAIL_TEST_USER: gduval-stage
+      QUARKUS_REST_CLIENT_EXPORT_SERVICE_URL: http://${EXPORT_SERVICE_HOST}:10000
       QUARKUS_REST_CLIENT_LOGGING_SCOPE: request-response
+      QUARKUS_LOG_CATEGORY__COM_REDHAT_CLOUD_NOTIFICATIONS_EXPORTS_EXPORTEVENTLISTENER__LEVEL: DEBUG
       QUARKUS_LOG_CATEGORY__ORG_JBOSS_RESTEASY_REACTIVE_CLIENT_LOGGING__LEVEL: DEBUG
       QUARKUS_CAMEL_ROUTES_DISCOVERY_ENABLED: false
       NOTIFICATIONS_DRAWER_ENABLED: true
@@ -358,7 +413,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 050526fca272efdc663071b545d11f1299748cdb
+    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m

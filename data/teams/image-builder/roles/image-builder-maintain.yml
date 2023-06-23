@@ -26,7 +26,7 @@ self_service:
   - $ref: /services/insights/image-builder/iqe-trigger.yml
   - $ref: /services/insights/image-builder/iqe-trigger-integration.yml
 - change_type:
-    $ref: /app-interface/changetype/asg-promoter.yml
+    $ref: /app-interface/changetype/asg-maintainer.yml
   datafiles:
   - $ref: /services/image-builder/namespaces/workers-stage.yml
   - $ref: /services/image-builder/namespaces/workers-production.yml

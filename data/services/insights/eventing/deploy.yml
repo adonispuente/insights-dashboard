@@ -51,7 +51,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/eventing/namespaces/eventing-prod.yml
-    ref: 285b44ef483256cfead3386af22e46d090e2b714
+    ref: b8ac168e4a429129822c1daa9ba3ea58ee7743cc
 
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
@@ -77,7 +77,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/eventing/namespaces/eventing-prod.yml
-    ref: 285b44ef483256cfead3386af22e46d090e2b714
+    ref: b8ac168e4a429129822c1daa9ba3ea58ee7743cc
 
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml

@@ -86,9 +86,10 @@ resourceTemplates:
       UNLEASH_URL: https://ocm-integration.unleash.devshift.net/api
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
+      PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -115,9 +116,10 @@ resourceTemplates:
       RBAC_PROXY: ''
       RBAC_RECONCILER_WORKER_COUNT: 2
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
+      PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
+    ref: f972d5f04591cd8683aa5e59e0cf751054c919a8
     parameters:
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
@@ -195,9 +197,10 @@ resourceTemplates:
       MOA_SKU: SER0579
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
+      PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -223,6 +226,7 @@ resourceTemplates:
       UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
       QUAY_REGISTRY_TEAM_NAME: staginginstallers
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
+      PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
     ref: master
@@ -278,7 +282,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
+    ref: f972d5f04591cd8683aa5e59e0cf751054c919a8
     promotion:
       publish:
       - ocm-ams-deployed-prod
@@ -317,4 +321,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
+    ref: f972d5f04591cd8683aa5e59e0cf751054c919a8

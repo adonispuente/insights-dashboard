@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/template-test-1.yml
+
+labels:
+  service: dynatrace
+
+name: render-dynatrace-log-config-job
+description: test for the dynamically generated dynatrace log config job
+
+resourcePath: /setup/dynatrace/log-config-job.yaml.j2
+expectedResult: /setup/dynatrace/test/expected_result-log-config-job.yaml

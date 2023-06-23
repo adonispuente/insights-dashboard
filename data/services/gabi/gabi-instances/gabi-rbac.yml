@@ -24,7 +24,7 @@ users:
 
 instances:
   - account: insights-stage
-    identifier: rbac-stage
+    identifier: rbac-stage-postgres14
     namespace:
       $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
   - account: insights-prod

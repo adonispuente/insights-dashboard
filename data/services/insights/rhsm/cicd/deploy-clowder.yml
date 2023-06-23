@@ -27,6 +27,7 @@ managedResourceTypes:
 - Service
 - Frontend
 # - HorizontalPodAutoscaler
+- FloorPlan
 
 imagePatterns:
 - quay.io/cloudservices

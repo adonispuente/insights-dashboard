@@ -28,14 +28,14 @@ slos:
 - name: Cost Management API Latency
   dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?var-datasource=crcp01ue1-prometheus&var-label=cost-management&viewPanel=32
   SLIType: latency
-  SLISpecification: ratio of services request durations under 2 seconds
+  SLISpecification: ratio of services request durations under 4 seconds
   SLOTarget: 0.90
   SLOTargetUnit: percent_0_1
   SLOParameters:
     window: 28d
-  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hccm/hccm-slo-availability.md
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hccm/hccm-slo-latency.md
   expr: |
-    sum(rate(api_3scale_gateway_api_time_bucket{le="2000.0", exported_service="cost-management"}[{{window}}]))
+    sum(rate(api_3scale_gateway_api_time_bucket{le="4000.0", exported_service="cost-management"}[{{window}}]))
     /
     sum(rate(api_3scale_gateway_api_time_count{exported_service="cost-management"}[{{window}}]))
   prometheusRules: /insights-prod/hccm-prod/hccm.prometheusrules.yaml

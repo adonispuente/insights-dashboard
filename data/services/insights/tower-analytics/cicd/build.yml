@@ -48,9 +48,6 @@ config:
         pr_check_script_path: 'make benchmark'
         slack_channel_notification: aa-cicd-events
         name: "aa-benchmark"
-    - "insights-automation-analytics-s3-sync":
-        display_name: insights automation analytics s3 sync
-        cron_expression: '0 9,21 * * *'
 
     # PR Check Enhancement
     - "insights-gl-pipeline":
@@ -93,6 +90,18 @@ config:
         slack_channel_notification: aa-cicd-events
         image: "quay.io/cloudservices/insights-platform-cicd-clamscan"
         image_tag: latest
+
+- project:
+    name: insights-automation-analytics-s3-sync-ci
+    label: insights
+    node: insights
+    gl_group: automation-analytics
+    gl_project: s3-data-sync
+    quay_org: cloudservices
+    jobs:
+    - "insights-automation-analytics-s3-sync":
+        display_name: insights automation analytics s3 sync
+        cron_expression: '0 6 * * *'
 
 - project:
     name: automation-analytics-cypress-ci

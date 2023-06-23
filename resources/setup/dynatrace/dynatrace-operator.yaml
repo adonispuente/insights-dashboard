@@ -1,0 +1,9 @@
+---
+# Install the Dynatrace Operator in an OSD cluster
+# The Dynatrace Operator reconciles monitoring agents
+# and gateways based on DynaKube configuration objects.
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: dynatrace-operator
+  namespace: dynatrace

@@ -60,7 +60,7 @@ quayRepos:
     public: true
   - name: dynatrace-config-job
     description: Tools for basic communication with the Dynatrace API
-    public: false
+    public: true
   - name: nginx-gate
     description: ''
     public: true

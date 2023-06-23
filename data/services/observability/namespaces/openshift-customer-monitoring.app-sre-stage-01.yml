@@ -435,6 +435,8 @@ openshiftResources:
 - provider: prometheus-rule
   type: resource-template-extracurlyjinja2
   path: /observability/prometheusrules/osd-fleet-manager-nonprod.prometheusrules.yaml.j2
+  tests:
+  - /observability/prometheusrules/osd-fleet-manager-nonprod.prometheusrulestests.yaml
   variables:
     environment: stage
     namespace: osd-fleet-manager-stage

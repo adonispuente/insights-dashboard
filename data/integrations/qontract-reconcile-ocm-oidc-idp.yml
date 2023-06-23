@@ -9,7 +9,7 @@ description: Manages OIDC IDPs in OCM
 upstream: https://github.com/app-sre/qontract-reconcile
 
 pr_check:
-  cmd: ocm-oidc-idp --vault-input-path app-sre/integrations-input
+  cmd: ocm-oidc-idp --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
 
 managed:
 - namespace:
@@ -22,7 +22,7 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --vault-input-path app-sre/integrations-input
+    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
     logs:
       slack: true
 - namespace:
@@ -35,7 +35,7 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --vault-input-path app-sre/integrations-input
+    extraArgs: --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
     logs:
       slack: true
 

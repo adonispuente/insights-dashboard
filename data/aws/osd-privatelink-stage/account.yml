@@ -10,11 +10,15 @@ consoleUrl: https://644306948063.signin.aws.amazon.com/console
 uid: '644306948063'
 resourcesDefaultRegion: us-east-1
 supportedDeploymentRegions:
+- af-south-1
+- ap-east-1
+- ap-northeast-1
+- ap-northeast-2
+- ap-northeast-3
 - us-east-1
 - us-east-2
 - us-west-1
 - us-west-2
-- ap-northeast-3
 providerVersion: '3.76.1'
 
 terraformUsername: terraform

@@ -166,3 +166,6 @@ externalResources:
       clowder/database: swatch-tally
     output_resource_db_name: rhsm-subscriptions
     parameter_group: /terraform/resources/insights/production/rds/postgres12-parameter-group-rhsm-prod.yml
+
+sharedResources:
+- $ref: /services/insights/shared-resources/metrics-export-prod.yml

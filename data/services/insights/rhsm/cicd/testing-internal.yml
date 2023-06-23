@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-stage-testing.yml
-    ref: 6636d7c33d24019380ebf6506287cbed5797180d
+    ref: 11e4df8f21da2ce6be1e46a1e97c4975d96b3f8c
     promotion:
       auto: true
       subscribe:
@@ -45,5 +45,5 @@ resourceTemplates:
       - channel: swatch-producer-aws-stage-deploy-success-channel
         data:
         - parent_saas: rhsm-clowder
-          target_config_hash: 3c20a1b9c57e3b13
+          target_config_hash: 968c28bf99fd606f
           type: parent_saas_config

@@ -193,6 +193,9 @@ access:
 - cluster:
     $ref: /openshift/backplanes03ue1/cluster.yml
   group: dedicated-admins
+- cluster:
+    $ref: /openshift/backplanes04uw2/cluster.yml
+  group: dedicated-admins
 ## stonesoup control plane clusters
 - cluster:
     $ref: /openshift/stonesoups01ue1/cluster.yml
@@ -223,6 +226,7 @@ aws_groups:
 - $ref: /aws/cna-service/groups/App-SRE-admin.yml
 - $ref: /aws/hypershift-dns01/groups/AppSRE-admin.yml
 - $ref: /aws/sd-infra-stage-01/groups/App-SRE-admin.yml
+- $ref: /aws/sd-infra-prod-01/groups/App-SRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
@@ -246,6 +250,7 @@ user_policies:
 - $ref: /aws/cna-service/policies/ManageOwnMFA.yml
 - $ref: /aws/hypershift-dns01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-stage-01/policies/ManageOwnMFA.yml
+- $ref: /aws/sd-infra-prod-01/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:

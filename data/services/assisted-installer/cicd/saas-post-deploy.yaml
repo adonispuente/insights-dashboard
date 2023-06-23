@@ -7,8 +7,7 @@ description: SaaS tracking file for assisted-installer post deployment tests
 app:
   $ref: /services/assisted-installer/app.yml
 pipelinesProvider:
-  $ref: 
-    /services/assisted-installer/pipelines/tekton.assisted-installer-pipelines.appsrep05ue1.yaml
+  $ref: /services/assisted-installer/pipelines/tekton.assisted-installer-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
@@ -27,7 +26,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
-    ref: cab4a1978a3a4cb1b57e78d3b8532715a8b2deb6
+    ref: d6fed3b1844ae84ad0a311007ee416525a0078ea
     promotion:
       auto: true
       subscribe:
@@ -40,7 +39,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-    ref: b93f4864bea4fcfc278c7a8033c4c8dd6282081b
+    ref: d943e286948aa606e3cdad97ed58febadf100bb0
     promotion:
       auto: true
       subscribe:
@@ -49,11 +48,11 @@ resourceTemplates:
       - channel: assisted-installer-stage-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: 450af7f9e19b997f
+          target_config_hash: c70d4f18e0db677d
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-    ref: 9562810ea4193d8015968d11f99c813a28c48f99
+    ref: d943e286948aa606e3cdad97ed58febadf100bb0
     promotion:
       auto: true
       subscribe:
@@ -62,5 +61,5 @@ resourceTemplates:
       - channel: assisted-installer-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: c811b0bc3a899dce
+          target_config_hash: f9cd67fbd27ac50a
           type: parent_saas_config

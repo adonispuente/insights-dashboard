@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/template-test-1.yml
+
+labels:
+  service: dynatrace
+
+name: render-dynakube-cluster-config
+description: test for the dynamically generated dynakube cluster config
+
+resourcePath: /setup/dynatrace/dynakube-cluster-config.yaml.j2
+expectedResult: /setup/dynatrace/test/expected_result-dynakube-cluster-config.yaml

@@ -172,7 +172,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-qetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -225,7 +225,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-dynatrace
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -235,7 +235,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -248,7 +248,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-upgradetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -402,7 +402,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -414,7 +414,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -477,7 +477,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -541,7 +541,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -604,7 +604,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -666,7 +666,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-incidentrehearsal
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -680,7 +680,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-migrationtesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       publish:
@@ -692,7 +692,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: da40b7ef91dd75343d6b23a25cd005719b6a5d42
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -823,7 +823,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -888,7 +888,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -910,7 +910,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-west-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -932,7 +932,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-eu-west-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -955,7 +955,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-ap-southeast-3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -977,7 +977,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-eu-central-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       auto: true
       subscribe:
@@ -999,7 +999,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: fe0941c88b35aa4f3db15a9928aee845fb23812b
+    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
     promotion:
       publish:
       - ocm-osdfm-deployed-production-canary

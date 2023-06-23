@@ -12,12 +12,12 @@ description: |
   that enables customers to benefit from discounts across products in both
   direct and marketplace purchases.
 
-architectureDocument: https://TODO
+architectureDocument: https://gitlab.cee.redhat.com/hybrid-committed-spend/service-docs/-/blob/main/architecture.md
 
-sopsUrl: https://gitlab.cee.redhat.com/TODO
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/
 grafanaUrls:
-- title: Hybrid Committed Spend
-  url: https://TODO
+- title: Hybrid Committed Spend Frontend Pod Uptime
+  url: https://grafana.app-sre.devshift.net/d/k8s-compute-resources-namespace-pods/kubernetes-compute-resources-namespace-pods
 
 onboardingStatus: InProgress
 

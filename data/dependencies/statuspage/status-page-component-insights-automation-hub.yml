@@ -1,0 +1,23 @@
+---
+$schema: /dependencies/status-page-component-1.yml
+
+labels: {}
+
+name: insights-automation-hub
+
+app:
+  $ref: /services/insights/automation-hub/app.yml
+
+displayName: Ansible Automation Platform - Automation Hub
+groupName: console.redhat.com
+instructions: >
+  TODO
+page:
+  $ref: /dependencies/statuspage/status-redhat-com.yml
+
+status:
+- provider: manual
+  manual:
+    componentStatus: under_maintenance
+    from: "2023-06-27T08:00:00-0400"
+    until: "2023-06-27T09:00:00-0400"

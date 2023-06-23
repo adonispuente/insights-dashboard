@@ -112,6 +112,18 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-admin-user
+  path: app-interface/assisted-installer/msk-credentials/stage/admin
+  version: 1
+- provider: vault-secret
+  name: msk-read-user
+  path: app-interface/assisted-installer/msk-credentials/stage/assisted-events-streams
+  version: 1
+- provider: vault-secret
+  name: msk-write-user
+  path: app-interface/assisted-installer/msk-credentials/stage/assisted-service
+  version: 1
 
 managedRoles: true
 
@@ -166,6 +178,11 @@ externalResources:
         path: app-interface/assisted-installer/msk-credentials/stage/assisted-events-streams
         field: all
         version: 1
+    - name: scram-admin-stage
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/admin
+        field: all
+        version: 1
     - name: scram-assisted-service-integration
       secret:
         path: app-interface/assisted-installer/msk-credentials/integration/assisted-service
@@ -174,6 +191,11 @@ externalResources:
     - name: scram-assisted-events-streams-integration
       secret:
         path: app-interface/assisted-installer/msk-credentials/integration/assisted-events-streams
+        field: all
+        version: 1
+    - name: scram-admin-integration
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/integration/admin
         field: all
         version: 1
 

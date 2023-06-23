@@ -175,3 +175,11 @@ To keep your repo up to date:
 ```sh
 $ git pull upstream master && git push <redhat_username> master
 ```
+
+### How-to setup those remotes
+```sh
+$ git remote rename origin <redhat_username>
+$ git remote add upstream git@gitlab.cee.redhat.com:service/app-interface.git
+```
+
+You may also need to set `git config pull.rebase true` for the repo.

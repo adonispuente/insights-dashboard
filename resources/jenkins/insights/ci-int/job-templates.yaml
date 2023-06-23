@@ -548,6 +548,9 @@
     - string:
         name: VAULT_PATH_QUAY_TOKEN
         default: 'insights-cicd/quay/{quay_org}'
+    - string:
+        name: VAULT_PATH_APP_INTERFACE_CREDS
+        default: 'app-sre/creds/app-interface/production/basic-auth'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'Jenkinsfile'
@@ -618,6 +621,9 @@
     - string:
         name: VAULT_PATH_QUAY_TOKEN
         default: 'insights-cicd/quay/{quay_org}'
+    - string:
+        name: VAULT_PATH_APP_INTERFACE_CREDS
+        default: 'app-sre/creds/app-interface/production/basic-auth'
     pipeline-scm:
         # make parameter to override template name
         script-path: 'Jenkinsfile'

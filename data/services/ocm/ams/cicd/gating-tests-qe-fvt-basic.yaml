@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -52,7 +52,7 @@ resourceTemplates:
       ENVIRONMENT: integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -71,7 +71,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -82,7 +82,7 @@ resourceTemplates:
       ENVIRONMENT: integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 3593c92d2065206e791c1ab05604c35093e3aba2
+    ref: 6c2234421c83ee3e7f000f2699bc46a12d81ef26
     promotion:
       auto: true
       subscribe:
@@ -93,7 +93,7 @@ resourceTemplates:
       ENVIRONMENT: staging
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: a5f72ada00e758ec23979fca24dc6aee973e39e5
+    ref: f972d5f04591cd8683aa5e59e0cf751054c919a8
     promotion:
       auto: true
       subscribe:

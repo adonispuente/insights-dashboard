@@ -24,21 +24,18 @@ spec:
             namespace: {{{ namespace }}}
             service: osd-fleet-manager
             sector: {{{ sector }}}
-        - alert: OSD Fleet Manager {{{ environment }}} is crashing - {{{ sector }}} sector - pod "fleet-manager-{{{ sector }}}"
+      {{% endfor %}}
+        - alert: OSD Fleet Manager is crashing
           annotations:
-            message: OSD Fleet manager {{{ environment }}} clusters container '{{ $labels.container }}' of pod '{{ $labels.pod }}' is crashing
+            message: OSD Fleet Manager container '{{ $labels.container }}' of pod '{{ $labels.pod }}' is crashing more than 2 times in 15 minutes in namespace '{{{ environment }}}' and sector '{{ $labels.sector }}'
           expr: |
-            sum(increase(kube_pod_container_status_restarts_total{namespace="{{{ namespace }}}",pod=~"^fleet-manager-.*$"}[10m]))
-            by (pod,container)
-            >= 2
-          for: 1m
+            sum(label_replace(increase(kube_pod_container_status_restarts_total{namespace="{{{ namespace }}}", pod=~"^fleet-manager-metrics-.*"}[5m]),"sector", "$1", "service", "fleet-manager-metrics-(.*)")) by (sector,container,pod) > 2
+          for: 15m
           labels:
             severity: high
             team: osd
             namespace: {{{ namespace }}}
             service: osd-fleet-manager
-            sector: {{{ sector }}}
-      {{% endfor %}}
 
     - name: osd-fleet-manager-nonprod-api
       rules:
@@ -50,45 +47,40 @@ spec:
             service: osd-fleet-manager
             exported_namespace: {{{ namespace }}}
             route: osd-fleet-manager
-          record: haproxy_backend_http_responses_total
+          record: haproxy_backend_http_500_responses
         - alert: OSD Fleet Manager returning 5xx 
           annotations:
-            message: 'OSD Fleet Manager is returning 5xx error codes for {{ $labels.service }} in {{{ namespace }}} (current value: {{ $value }})'
+            message: 'OSD Fleet Manager is returning 5xx error codes in {{{ namespace }}} (current value: {{ $value | humanize }})'
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            sum(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > 1-0.99000
+            sum(haproxy_backend_http_500_responses{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > 1-0.99000
           for: 10m
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: medium
-      {{% for sector in sectors %}}
-        - expr: |
-            sum(rate(api_outbound_request_count{service=~"fleet-manager-metrics-{{{ sector }}}",path=~"/api/clusters_mgmt/v1/clusters/.",apiservice="ocm-clusters-service",namespace="{{{ namespace }}}",code=~"4..|0"}[1h])) / 
-            sum(rate(api_outbound_request_count{service=~"fleet-manager-metrics-{{{ sector }}}", path=~"/api/clusters_mgmt/v1/clusters/.",namespace="$namespace",apiservice="ocm-clusters-service"}[1h]))
           labels:
             service: osd-fleet-manager
             namespace: {{{ namespace }}}
-            route: osd-fleet-manager
+            team: osd
+            severity: medium
+        - expr: |
+            label_replace(sum(rate(api_outbound_request_count{path=~"/api/clusters_mgmt/v1/clusters/.*",namespace="{{{ namespace }}}",apiservice="ocm-clusters-service",code=~"4.."}[5m])) /
+            sum(rate(api_outbound_request_count{path=~"/api/clusters_mgmt/v1/clusters/.*",namespace="{{{ namespace }}}",apiservice="ocm-clusters-service"}[5m])),"sector","$1","service","fleet-manager-metrics-(.*)")
+          labels:
+            namespace: {{{ namespace }}}
+            sector: main
           record: outbound_http_responses_total
         - alert: OSD Fleet Manager outbound api response errors
           annotations:
-            message: 'OSD Fleet Manager is receiving 4xx error codes from OCM for {{ $labels.service }} in {{{ namespace }}} (current value: {{ $value }})'
+            message: "OSD Fleet Manager is receiving 4xx error codes from OCM in sector {{ $labels.sector}} of namespace {{{ namespace }}} (current value: {{ $value }})"
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            sum(outbound_http_responses_total) > 1-0.99000
-          for: 10m
+            sum(outbound_http_responses_total{namespace="{{{ namespace }}}"}) by (sector) > 1 - 0.99
+          for: 15m
           labels:
             service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
+            namespace: {{{ namespace }}}
+            team: osd
             severity: medium
-            sector: {{{ sector }}}
-      {{% endfor %}}
-
 
     - name: osd-fleet-manager-nonprod-reconciler
       rules:
@@ -104,29 +96,29 @@ spec:
             runbook: ""
           expr: |
             reconciler:fleet_manager_reconciler_failure_count:rate5m{namespace="{{{ namespace }}}"} > 0
-          for: 1m
+          for: 15m
           labels:
             severity: medium
             team: osd
             service: osd-fleet-manager
+            namespace: {{{ namespace }}}
         
     {{% for wt in worker_types %}}
         - expr: |
             label_replace(max by (worker_type, service, reconciliation_step, namespace) (fleet_manager_reconciler_duration_in_seconds{namespace="{{{ namespace }}}",worker_type="{{{ wt.name }}}"}), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
-          labels:
-            job: fleet-manager-metrics
           record: reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max
         - alert: OSD Fleet Manager {{{ wt.name }}} reconciler long duration
           annotations:
-            message: "The maximum {{{ wt.name }}} reconciler duration was {{ $value | humanizeDuration }} for reconciler {{ $labels.worker_type }}/{{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in {{{ namespace }}}"
+            message: "The maximum reconciler duration was {{ $value | humanizeDuration }} for reconciler {{{ wt.name }}} at step {{ $labels.reconciliation_step }} in sector {{ $labels.sector }} in {{{ namespace }}}"
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name }}}:max{namespace="{{{ namespace }}}"} > {{{ wt.reconciler_duration_threshold | default(30) }}}
+            reconciler:fleet_manager_reconciler_duration_in_seconds:{{{ wt.name | replace("-","_") }}}:max{namespace="{{{ namespace }}}"} > {{{ wt.reconciler_duration_threshold | default(30) }}}
           labels:
             severity: medium
             service: osd-fleet-manager
             worker_type: {{{ wt.name }}}
+            namespace: {{{ namespace }}}
     {{% endfor %}}
         
     {{% for sector in sectors %}}
@@ -148,7 +140,7 @@ spec:
     {{% for sector in sectors %}}
         - alert: OSD Fleet Manager cluster failed operations
           annotations:
-            message: "Cluster provision failed of type {{ $labels.cluster_type }} in sector {{{ sector }}} in environment {{{ environment }}}" 
+            message: "Cluster provision failed in sector {{{ sector }}} in environment {{{ environment }}}" 
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
@@ -157,158 +149,42 @@ spec:
             severity: high
             service: osd-fleet-manager
             sector: {{{ sector }}}
+            namespace: {{{ namespace }}}
     {{% endfor %}}
-
 
     - name: osd-fleet-manager-nonprod-saturation-level
       rules:
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[5m]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[5m]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[5m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate5m
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[30m]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[30m]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[30m]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate30m
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[1h]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[1h]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[1h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate1h
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[2h]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[2h]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[2h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate2h
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[6h]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[6h]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[6h]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate6h
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[1d]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[1d]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[1d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate1d
-        - expr: |
-            sum by (region, service_cluster) (rate(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}[3d]))
-            /
-            (
-            sum by (region, service_cluster) (rate(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}[3d]))
-            *
-            sum by (region, service_cluster) (rate(fleet_manager_max_desired_hosted_cluster_count{service=~"fleet-manager-metrics.*",namespace="$namespace"}[3d]))
-            )
-          labels:
-            service: osd-fleet-manager
-            job: fleet-manager-metrics
-            namespace: {{{ namespace }}}
-          record: saturation:fleet_manager_saturation_level:rate3d
-        - alert: OSD Fleet Manager saturation level exceeding 90% error budget burn 5m to 1h
+        - alert: OSD Fleet Manager saturation level exceeding 90% 
           annotations:
-            message: 'High error budget burn of saturation level exceeding 90% for Service Cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
-          expr: |
-            sum(saturation:fleet_manager_saturation_level:rate5m{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (13.44 * (1-0.90000))
-            and
-            sum(saturation:fleet_manager_saturation_level:rate1h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (13.44 * (1-0.90000))
-          for: 2m
-          labels:
-            service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: high
-            team: osd
-        - alert: OSD Fleet Manager saturation level exceeding 90% error budget burn 30m to 6h
-          annotations:
-            message: 'High error budget burn of saturation level exceeding 90% for Service Cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
+            message: 'High saturation level exceeding 90% for service cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            sum(saturation:fleet_manager_saturation_level:rate30m{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (5.60 * (1-0.90000))
-            and
-            sum(saturation:fleet_manager_saturation_level:rate6h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (5.60 * (1-0.90000))
+            fleet_manager_saturation_level{namespace="{{{ namespace }}}"} >= 0.9
           for: 15m
           labels:
             service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: medium
-        - alert: OSD Fleet Manager saturation level exceeding 90% error budget burn 2h to 1d
+            namespace: {{{ namespace }}}
+            severity: high
+            team: osd
+        - alert: OSD Fleet Manager saturation level exceeding 85%
           annotations:
-            message: 'High error budget burn of saturation level exceeding 90% for Service Cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
+            message: 'Saturation level exceeding 85% for service cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
             dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
             runbook: ""
           expr: |
-            sum(saturation:fleet_manager_saturation_level:rate2h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (2.80 * (1-0.90000))
+            fleet_manager_saturation_level{namespace="{{{ namespace }}}"} >= 0.85
             and
-            sum(saturation:fleet_manager_saturation_level:rate1d{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (2.80 * (1-0.90000))
-          for: 1h
+            fleet_manager_saturation_level{namespace="{{{ namespace }}}"} < 0.9
+          for: 15m
           labels:
             service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
+            namespace: {{{ namespace }}}
+            team: osd
             severity: medium
-        - alert: OSD Fleet Manager saturation level exceeding 90% error budget burn 6h to 3d
-          annotations:
-            message: 'High error budget burn of saturation level exceeding 90% for for Service Cluster {{ $labels.service_cluster }} in region {{ $labels.region }} of {{{ environment }}} (current value: {{ $value }})'
-            dashboard: "https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
-            runbook: ""
-          expr: |
-            sum(saturation:fleet_manager_saturation_level:rate6h{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (1.00 * (1-0.90000))
-            and
-            sum(saturation:fleet_manager_saturation_level:rate3d{route="osd-fleet-manager",exported_namespace="{{{ namespace }}}"}) > (1.00 * (1-0.90000))
-          for: 3h
+        - expr: |
+            label_replace((sum(fleet_manager_management_cluster_hosted_cluster_count{namespace="{{{ namespace }}}"}) by (service, region, service_cluster)) / (sum(fleet_manager_available_management_clusters_by_service_cluster_count{namespace="{{{ namespace }}}"}) by (service, region, service_cluster) * avg(fleet_manager_max_desired_hosted_cluster_count{namespace="{{{ namespace }}}"}) by (service, region, service_cluster)),"sector","$1","service","fleet-manager-metrics-(.*)")
           labels:
             service: osd-fleet-manager
-            exported_namespace: {{{ namespace }}}
-            route: osd-fleet-manager
-            severity: medium
+            namespace: {{{ namespace }}}
+          record: fleet_manager_saturation_level
