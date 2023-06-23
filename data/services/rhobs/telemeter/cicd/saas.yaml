@@ -13,6 +13,15 @@ app:
 pipelinesProvider:
   $ref: /services/rhobs/observatorium/pipelines/observatorium-pipeline.appsrep05ue1.yaml
 
+deployResources:
+  requests:
+    cpu: 800m
+    memory: 1500Mi
+  limits:
+    cpu: 1200m
+    memory: 2000Mi
+
+
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
