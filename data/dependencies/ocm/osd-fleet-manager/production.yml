@@ -19,7 +19,8 @@ blockedVersions:
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
 # TODO
-# For now, block 4.13 upgrades until we are ready for sure
+# For now, block 4.12 and 4.13 upgrades until we are ready for sure
+- ^4\.12\..*$
 - ^4\.13\..*$
 upgradePolicyAllowedWorkloads:
 - service-cluster
