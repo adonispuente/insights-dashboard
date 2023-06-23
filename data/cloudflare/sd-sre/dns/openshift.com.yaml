@@ -8593,3 +8593,10 @@ records:
   value: dcv.digicert.com.
   proxied: false
   priority: 0
+- name: rhelemeter.api.stage.openshift.com
+  identifier: cname-rhelemeter-api-stage-openshift-com
+  type: CNAME
+  ttl: 900
+  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
+  proxied: false
+  priority: 0
