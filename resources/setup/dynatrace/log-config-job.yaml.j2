@@ -13,7 +13,6 @@ kind: Job
 metadata:
   name: log-config-v2-{{ hash_list(namespace_names)[:8] }}
   namespace: dynatrace
-  test: mytest
 spec:
   backoffLimit: 0
   template:
