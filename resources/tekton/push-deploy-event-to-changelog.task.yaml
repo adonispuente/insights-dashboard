@@ -32,16 +32,16 @@ spec:
         timestamp=$(date -u --iso-8601=seconds)
 
         echo "Sending deploy event to platform changelog"
-        echo "timestamp: ${timestamp}; status: ${task_status}; app: ${app_name}; env: ${env_name}"
+        echo "timestamp: ${timestamp}; status: $(params.task_status); app: $(params.app_name); env: $(params.env_name)"
 
         generate_post_data()
         {
           cat <<EOF
         {
-          "timestamp": "${timestamp}",
-          "status": "${task_status}",
-          "app": "${app_name}",
-          "env": "${env_name}"
+          "timestamp": "$timestamp",
+          "status": "$(params.task_status)",
+          "app": "$(params.app_name)",
+          "env": "$(params.env_name)"
         }
         EOF
         }
