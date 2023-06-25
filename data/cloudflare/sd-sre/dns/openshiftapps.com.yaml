@@ -218,6 +218,13 @@ records:
   value: ns-1717.awsdns-22.co.uk.
   proxied: false
   priority: 0
+- name: p4.openshiftapps.com
+  identifier: ns-p4-openshiftapps-com
+  type: NS
+  ttl: 900
+  value: ns-1655.awsdns-14.co.uk.
+  proxied: false
+  priority: 0
 - name: p2.openshiftapps.com
   identifier: ns-p2-openshiftapps-com-2
   type: NS
@@ -239,6 +246,13 @@ records:
   value: ns-1235.awsdns-26.org.
   proxied: false
   priority: 0
+- name: p4.openshiftapps.com
+  identifier: ns-p4-openshiftapps-com-2
+  type: NS
+  ttl: 900
+  value: ns-1288.awsdns-33.org.
+  proxied: false
+  priority: 0
 - name: p2.openshiftapps.com
   identifier: ns-p2-openshiftapps-com-3
   type: NS
@@ -251,6 +265,13 @@ records:
   type: NS
   ttl: 900
   value: ns-773.awsdns-32.net.
+  proxied: false
+  priority: 0
+- name: p4.openshiftapps.com
+  identifier: ns-p4-openshiftapps-com-3
+  type: NS
+  ttl: 900
+  value: ns-778.awsdns-33.net.
   proxied: false
   priority: 0
 - name: p2.openshiftapps.com
@@ -300,6 +321,13 @@ records:
   type: NS
   ttl: 900
   value: ns-264.awsdns-33.com.
+  proxied: false
+  priority: 0
+- name: p4.openshiftapps.com
+  identifier: ns-p4-openshiftapps-com-4
+  type: NS
+  ttl: 900
+  value: ns-144.awsdns-18.com.
   proxied: false
   priority: 0
 - name: online-starter.openshiftapps.com
