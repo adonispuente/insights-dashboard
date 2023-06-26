@@ -279,7 +279,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 3d05fb5bbc0fb5bc26ede9d1931f2dc6250b2ba9
+    ref: b12e735555025848bda8dcdbf1cc5497668f06d1
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: info
