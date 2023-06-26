@@ -37,7 +37,7 @@ spec:
             namespace: osd-fleet-manager-production
             service: osd-fleet-manager
 
-    - name: osd-fleet-manager-nonprod-api
+    - name: osd-fleet-manager-prod-api
       rules:
         - expr: |
             sum(rate(haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production",code=~"5.."}[1h]))
@@ -82,7 +82,7 @@ spec:
             team: osd
             severity: medium
 
-    - name: osd-fleet-manager-nonprod-reconciler
+    - name: osd-fleet-manager-prod-reconciler
       rules:
         - expr: |
             label_replace(sum by (worker_type, service, reconciliation_step, namespace) (rate(fleet_manager_reconciler_failure_count{namespace="osd-fleet-manager-production"}[5m])), "sector", "$1", "service", "fleet-manager-metrics-(.*)")
@@ -152,7 +152,7 @@ spec:
             namespace: osd-fleet-manager-production
     {{% endfor %}}
 
-    - name: osd-fleet-manager-nonprod-saturation-level
+    - name: osd-fleet-manager-prod-saturation-level
       rules:
         - alert: OSD Fleet Manager saturation level exceeding 90% 
           annotations:
