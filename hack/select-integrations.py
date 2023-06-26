@@ -286,7 +286,7 @@ def main():
     # We want to run template-tester whenever a jinja2 template changes
     # This might also happen on resource templates, thus we cannot infer
     # a schema
-    if any_modified(lambda p: re.match(r".j2$", p)) and is_test_data:
+    if any_modified(lambda p: re.match(r"^.*\.j2$", p)) and is_test_data:
         selected.add("template-tester")
 
     print_pr_check_cmds(
