@@ -46,5 +46,5 @@ resourceTemplates:
       - channel: content-sources-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: 391cc2a89c218441
+          target_config_hash: 6bdf4d364e204ef1
           type: parent_saas_config
