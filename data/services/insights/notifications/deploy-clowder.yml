@@ -105,7 +105,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -157,7 +157,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -200,7 +200,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -243,7 +243,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -351,7 +351,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 2Gi
@@ -439,7 +439,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: d30988c068047f7c1464f8ba293e9dc5c0c85abf
     parameters:
       CLOUDWATCH_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
