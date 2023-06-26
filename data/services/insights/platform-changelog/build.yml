@@ -32,6 +32,10 @@ config:
     - "insights-gh-pr-check":
         display_name: platform-changelog-go pr-check
         branch: main
+    - "insights-gh-pipeline":
+        display_name: 'platform-changelog-go pipeline'
+        branch: main
+        concurrent_build: true
 - project:
     name: platform-changelog-ui
     label: insights
@@ -46,3 +50,7 @@ config:
     - "insights-gh-pr-check":
         display_name: platform-changelog-ui pr-check
         branch: main
+    - "insights-gh-pipeline":
+        display_name: 'platform-changelog-ui pipeline'
+        branch: main
+        concurrent_build: true
