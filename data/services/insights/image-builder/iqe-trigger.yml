@@ -7,8 +7,7 @@ description: Trigger for IQE pipelines
 app:
   $ref: /services/image-builder/app.yml
 pipelinesProvider:
-  $ref: 
-    /services/image-builder/pipelines/tekton.image-builder-pipelines.appsrep05ue1.yml
+  $ref: /services/image-builder/pipelines/tekton.image-builder-pipelines.appsrep05ue1.yml
 managedResourceTypes:
 - Job
 
@@ -30,7 +29,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
-    ref: b02e1cb00bd9d82173a23c9297ffe5316988cce5
+    ref: 0364044e5fd75fb1542e0726569ee33a73a5f277
     promotion:
       auto: true
       subscribe:
