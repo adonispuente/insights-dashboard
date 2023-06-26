@@ -119,7 +119,7 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: f972d5f04591cd8683aa5e59e0cf751054c919a8
+    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
     parameters:
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
