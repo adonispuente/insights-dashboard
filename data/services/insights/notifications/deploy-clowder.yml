@@ -205,7 +205,7 @@ resourceTemplates:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MIN_REPLICAS: 0
+      MIN_REPLICAS: 1
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
