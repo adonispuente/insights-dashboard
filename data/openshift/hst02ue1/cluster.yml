@@ -75,5 +75,5 @@ observabilityNamespace:
 machinePools:
 - id: workers
   instance_type: m5.xlarge
-  replicas: 4
+  replicas: 2
   subnet: subnet-009741e4f5c6de157
