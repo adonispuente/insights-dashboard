@@ -9,23 +9,23 @@ evaluation_interval: 1m
 tests:
   - interval: 1m
     input_series:
-      - series: 'up{service="fleet-manager-metrics-main",namespace="osd-fleet-manager-production"}'
+      - series: 'up{service="fleet-manager-metrics-canary",namespace="osd-fleet-manager-production"}'
         values: '1+0x20 0x20'
     alert_rule_test:
     - eval_time: 20m
-      alertname: OSD Fleet Manager production down - main sector
+      alertname: OSD Fleet Manager production down - canary sector
       exp_alerts:
     - eval_time: 40m
-      alertname: OSD Fleet Manager production down - main sector
+      alertname: OSD Fleet Manager production down - canary sector
       exp_alerts:
         - exp_labels:
             service: osd-fleet-manager
             namespace: osd-fleet-manager-production
             severity: high
             team: osd
-            sector: main
+            sector: canary
           exp_annotations:
-            message: "No instances found for OSD Fleet Manager in main sector - OSD Fleet Manager production is down."
+            message: "No instances found for OSD Fleet Manager in canary sector - OSD Fleet Manager production is down."
   - interval: 1m
     input_series:
       - series: 'kube_pod_container_status_restarts_total{namespace="osd-fleet-manager-production",service="fleet-manager-metrics-main", container="container", pod="fleet-manager-metrics-abcd"}'
@@ -95,7 +95,7 @@ tests:
             runbook: ""
   - interval: 1m
     input_series:
-      - series: 'fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-production",worker_type="terraform-manager",service="fleet-manager-metrics-main", reconciliation_step="test"}'
+      - series: 'fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-production",worker_type="terraform-manager",service="fleet-manager-metrics-canary", reconciliation_step="test"}'
         values: 1x20 21+3x20
     alert_rule_test:
       - eval_time: 20m
@@ -107,14 +107,14 @@ tests:
           - exp_labels:
               alertname: OSD Fleet Manager terraform-manager reconciler long duration
               namespace: osd-fleet-manager-production
-              sector: main
+              sector: canary
               service: osd-fleet-manager
               severity: medium
               worker_type: "terraform-manager"
               reconciliation_step: "test"
             exp_annotations:
               dashboard: https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics
-              message: The maximum reconciler duration was 1m 18s for reconciler terraform-manager at step test in sector main in osd-fleet-manager-production
+              message: The maximum reconciler duration was 1m 18s for reconciler terraform-manager at step test in sector canary in osd-fleet-manager-production
               runbook:
   - interval: 1m
     input_series:
@@ -141,7 +141,7 @@ tests:
               runbook:
   - interval: 1m
     input_series:
-      - series: 'fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-main", cluster_id="test", cluster_type="hs-mc"}'
+      - series: 'fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-canary", cluster_id="test", cluster_type="hs-mc"}'
         values: 200 300 18001
     alert_rule_test:
       - eval_time: 1m
@@ -154,16 +154,16 @@ tests:
               severity: medium
               service: osd-fleet-manager
               namespace: osd-fleet-manager-production
-              sector: main
+              sector: canary
               cluster_type: hs-mc
               cluster_id: test
             exp_annotations:
-              message: Long provision duration 5h 0m 1s for cluster test of type hs-mc in sector main in production
+              message: Long provision duration 5h 0m 1s for cluster test of type hs-mc in sector canary in production
               dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
               runbook: 
   - interval: 1m
     input_series:
-      - series: 'fleet_manager_cluster_status_count{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-main",status="failed", cluster_type="hs-mc"}'
+      - series: 'fleet_manager_cluster_status_count{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-canary",status="failed", cluster_type="hs-mc"}'
         values: 0x60 1+1x60
     alert_rule_test:
       - eval_time: 60m
@@ -173,12 +173,12 @@ tests:
         alertname: OSD Fleet Manager cluster failed operations
         exp_alerts:
           - exp_labels:
-              sector: main
+              sector: canary
               severity: high
               service: osd-fleet-manager
               namespace: osd-fleet-manager-production
             exp_annotations:
-              message: Cluster provision failed in sector main in environment production
+              message: Cluster provision failed in sector canary in environment production
               dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
               runbook: 
   - interval: 1m
