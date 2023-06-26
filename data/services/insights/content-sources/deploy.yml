@@ -69,6 +69,8 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
+    parameters:
+      FEATURES_SNAPSHOTS_ENABLED: true #Allow all accounts
   - namespace: # STAGE
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
     ref: main
@@ -80,6 +82,9 @@ resourceTemplates:
       CLIENTS_RBAC_BASE_URL: http://${RBAC_HOST}:8080/api/rbac/v1
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/stage
       CLIENTS_PULP_SERVER:
+      FEATURES_SNAPSHOTS_ENABLED: false
+      # content9, hms-qa
+      FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865"
     promotion:
       publish:
       - content-sources-stage-deploy-success-channel
@@ -94,6 +99,8 @@ resourceTemplates:
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/prod
       NEW_TASKING_SYSTEM: false
       CLIENTS_PULP_SERVER:
+      FEATURES_SNAPSHOTS_ENABLED: false
+      FEATURES_SNAPSHOTS_ACCOUNTS: ""
 - name: content-sources-dashboards
   url: https://github.com/content-services/content-sources-backend
   path: /deployments/dashboards
