@@ -233,7 +233,8 @@ resourceTemplates:
         CREATE INDEX {{.TableName}}_system_profile_index ON inventory.{{.TableName}} USING gin (system_profile jsonb_path_ops);
         CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
         CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
-        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp)
+        CREATE INDEX {{.TableName}}_stale_timestamp_index ON inventory.{{.TableName}} USING btree (stale_timestamp);
+        CREATE INDEX {{.TableName}}_groups_index ON inventory.{{.TableName}} USING GIN (groups JSONB_PATH_OPS);
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
