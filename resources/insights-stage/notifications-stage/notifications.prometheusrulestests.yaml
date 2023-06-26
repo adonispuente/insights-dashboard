@@ -8,6 +8,384 @@ evaluation_interval: 1m
 
 tests:
 
+###################
+# Pod down alerts #
+###################
+
+# NotificationsBackendDownStage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-backend-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: NotificationsBackendDownStage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: NotificationsBackendDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications Backend Alert (Stage)"
+        description: "Notifications Backend: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsBackendDownProd.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: NotificationsBackendDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications Backend Alert (Stage)"
+        description: "Notifications Backend: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsBackendDownProd.html"
+
+# notifications-connector-google-chat-down-stage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-connector-google-chat-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: notifications-connector-google-chat-down-stage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: notifications-connector-google-chat-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-google-chat-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-google-chat-down-prod.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: notifications-connector-google-chat-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-google-chat-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-google-chat-down-prod.html"
+
+# notifications-connector-microsoft-teams-down-stage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-connector-microsoft-teams-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: notifications-connector-microsoft-teams-down-stage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: notifications-connector-microsoft-teams-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-microsoft-teams-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-down-prod.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: notifications-connector-microsoft-teams-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-microsoft-teams-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-down-prod.html"
+
+# notifications-connector-slack-down-stage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-connector-slack-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: notifications-connector-slack-down-stage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: notifications-connector-slack-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-slack-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-down-prod.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: notifications-connector-slack-down-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Pod down for 5 minutes [env=stage, service=notifications-connector-slack-service]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-down-prod.html"
+
+# NotificationsEngineDownStage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-engine-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: NotificationsEngineDownStage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: NotificationsEngineDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications Engine Alert (Stage)"
+        description: "Notifications Engine: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineDownProd.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: NotificationsEngineDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications Engine Alert (Stage)"
+        description: "Notifications Engine: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineDownProd.html"
+
+# NotificationsGWDownStage
+- interval: 1m
+  input_series:
+  - series: up{service="notifications-gw-service", namespace="notifications-stage"}
+    values: 1+0x10 0+0x5
+
+  alert_rule_test:
+  # No alert in the first 14 min
+  - eval_time: 15m
+    alertname: NotificationsGWDownStage
+    exp_alerts:
+
+  # Alert after 15 min (5 min with 0)
+  - eval_time: 16m
+    alertname: NotificationsGWDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications gw Alert (Stage)"
+        description: "Notifications GW: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsGWDownProd.html"
+
+  # Alert after 20 min (5 min with 0 or no metric)
+  - eval_time: 20m
+    alertname: NotificationsGWDownStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+        namespace: notifications-stage
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Notifications gw Alert (Stage)"
+        description: "Notifications GW: Down in Stage for 5 minutes."
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsGWDownProd.html"
+
+####################
+# Kafka lag alerts #
+####################
+
+# notifications-connector-google-chat-kafka-lag-stage
+- interval: 1m
+  input_series:
+  - series: kafka_consumergroup_group_lag{topic="platform.notifications.tocamel", group="notifications-connector-google-chat"}
+    values: 0 10 5 800 200 1001
+
+  alert_rule_test:
+  - eval_time: 1m
+    alertname: notifications-connector-google-chat-kafka-lag-stage
+    exp_alerts:
+
+  - eval_time: 5m
+    alertname: notifications-connector-google-chat-kafka-lag-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-google-chat]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-google-chat-kafka-lag-prod.html"
+
+# notifications-connector-microsoft-teams-kafka-lag-stage
+- interval: 1m
+  input_series:
+  - series: kafka_consumergroup_group_lag{topic="platform.notifications.tocamel", group="notifications-connector-microsoft-teams"}
+    values: 0 10 5 800 200 1001
+
+  alert_rule_test:
+  - eval_time: 1m
+    alertname: notifications-connector-microsoft-teams-kafka-lag-stage
+    exp_alerts:
+
+  - eval_time: 5m
+    alertname: notifications-connector-microsoft-teams-kafka-lag-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-microsoft-teams]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-kafka-lag-prod.html"
+
+# notifications-connector-slack-kafka-lag-stage
+- interval: 1m
+  input_series:
+  - series: kafka_consumergroup_group_lag{topic="platform.notifications.tocamel", group="notifications-connector-slack"}
+    values: 0 10 5 800 200 1001
+
+  alert_rule_test:
+  - eval_time: 1m
+    alertname: notifications-connector-slack-kafka-lag-stage
+    exp_alerts:
+
+  - eval_time: 5m
+    alertname: notifications-connector-slack-kafka-lag-stage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-slack]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-kafka-lag-prod.html"
+
+# NotificationsEngineIngressTopicKafkaLagStage
+- interval: 1m
+  input_series:
+  - series: kafka_consumergroup_group_lag{topic="platform.notifications.ingress", group="integrations"}
+    values: 0 10 5 800 200 1001
+
+  alert_rule_test:
+  - eval_time: 1m
+    alertname: NotificationsEngineIngressTopicKafkaLagStage
+    exp_alerts:
+
+  - eval_time: 5m
+    alertname: NotificationsEngineIngressTopicKafkaLagStage
+    exp_alerts:
+    - exp_labels:
+        severity: medium
+        service: insights
+        env: stage
+        app_team: notifications
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Kafka lag detected [env=stage, topic=platform.notifications.ingress, group=integrations]"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineIngressTopicKafkaLagProd.html"
+
 ##################################
 # Alerts about external services #
 ##################################
