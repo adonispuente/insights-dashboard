@@ -65,8 +65,8 @@ This step should be performed in a single merge request.
       version: (same as initial_version, this will be automatically updated with cluster upgrades. However remove suffix -fast if applicable.)
       initial_version: (desired version. ex: 4.4.11, use 4.4.11-fast if channel fast.)
       multi_az: true
-      nodes: (desired compute nodes total across all AZs)
-      autoscale: # optional. nodes should not be defined if autoscale is defined
+      nodes: (desired compute nodes total across all AZs) # do not set for hypershift
+      autoscale: # optional. do not set for hypershift, nodes should not be defined if autoscale is defined
         min_replicas: (desired minimal count of compute nodes total across all AZs)
         max_replicas: (desired maximal count of compute nodes total across all AZs)
       instance_type: (desired instance type. ex: m5.xlarge)
@@ -541,6 +541,27 @@ Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702
       ```
 
 Datasource should be available afterwards.
+
+## Hypershift: add workers machinepool
+
+In contrast to OSD clusters, Hypershift clusters can not be scaled by increasing the nodes attribute in the cluster spec. The reason is, that Hypershift has a different implementation for machine pools than OSD/ROSA Classic clusters. It does not have the concept of a default machine pool. Thus you need to scale the cluster by scaling the machine pool.
+
+Example, machine pool scaling:
+
+```yaml
+machinePools:
+- id: workers
+  instance_type: m5.xlarge
+  replicas: 2
+  subnet: subnet-0031fb992
+```
+
+In order to get the list of machinepools to add, run:
+
+```bash
+rosa list machinepools -c <clustername>
+```
+
 
 # Offboard an OSDv4 cluster from app-interface
 
