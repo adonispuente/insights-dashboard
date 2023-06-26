@@ -61,5 +61,5 @@ resourceTemplates:
       - channel: content-sources-prod-deploy-success-channel
         data:
         - parent_saas: content-sources
-          target_config_hash: 4c9f7e49ead72fd4
+          target_config_hash: 35037db4896f9e50
           type: parent_saas_config
