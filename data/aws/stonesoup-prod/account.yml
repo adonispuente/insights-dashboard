@@ -32,9 +32,9 @@ disable:
   integrations:
   # - terraform-aws-route53
   # - terraform-users
-  # - terraform-vpc-peerings
   - terraform-resources
   - terraform-tgw-attachments
+  - terraform-vpc-peerings
 
 premiumSupport: true
 
