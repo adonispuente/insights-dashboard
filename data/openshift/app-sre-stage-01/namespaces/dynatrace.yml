@@ -19,15 +19,12 @@ managedResourceTypes:
 - Secret
 - OperatorGroup
 - Subscription
+- NetworkPolicy
 - DynaKube
 - Job
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/dynatrace-operator.yaml
-
-networkPoliciesAllow:
-# Required for validation webhooks to work
-- $ref: /openshift/app-sre-stage-01/namespaces/default.yml
 
 openshiftResources:
 - provider: vault-secret
