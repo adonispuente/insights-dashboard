@@ -257,6 +257,7 @@ resourceTemplates:
       FLOORIST_SUSPEND: 'false'
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       FLOORIST_LOGLEVEL: DEBUG # as INFO level prints nothing :-)
+      FLOORIST_DB_SECRET_NAME: patchman-db-readonly
 
 # Grafana config
 - name: patchman-engine-dashboards
