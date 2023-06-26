@@ -1,10 +1,10 @@
 acl: private
 versioning: false
 lifecycle_rules:
-- id: 15_days_expiration
+- id: 1_day_expiration
   enabled: true
   expiration:
-    days: 15
+    days: 1
 server_side_encryption_configuration:
   rule:
     apply_server_side_encryption_by_default:
