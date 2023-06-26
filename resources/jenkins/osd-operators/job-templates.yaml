@@ -12,6 +12,7 @@
     id: 'gl-pr-check-osd-aws-privatelink-terraform-rosa'
     name: 'gl-pr-check-osd-aws-privatelink-terraform-rosa'
     pr_check_script_path: ./scripts/cicd.sh check
+    environment: production
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -21,6 +22,7 @@
         secrets:
         - *srep_privatelink_aws_credentials
         - *srep_pagerduty_credentials
+        - *app_interface_basic_auth
     <<: *gl_pr_check
 
 - job-template:
@@ -43,6 +45,7 @@
     id: 'gl-pr-check-osd-aws-privatelink-terraform-hypershift'
     name: 'gl-pr-check-osd-aws-privatelink-terraform-hypershift'
     pr_check_script_path: ./scripts/cicd.sh check
+    environment: production
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -51,6 +54,7 @@
         <<: *vault_defaults
         secrets:
         - *srep_privatelink_aws_credentials
+        - *app_interface_basic_auth
     <<: *gl_pr_check
 
 - job-template:
@@ -209,7 +213,7 @@
     <<: *gl_timed
 
 # gl-sync-package-operator and gh-sync-package-operator are used to sync upstream and downstream repositories of package-operator
-# gl-* is used to get triggered by changes in the downstream repo, gh-* to get triggered on github changes. Both get the 
+# gl-* is used to get triggered by changes in the downstream repo, gh-* to get triggered on github changes. Both get the
 # gitlab token of the app-sre bot to be able to push changes into the downstream repo.
 - job-template:
     id: 'gl-sync-package-operator'
