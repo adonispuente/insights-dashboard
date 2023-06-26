@@ -11,3 +11,5 @@ openshiftResources:
   path: /setup/dynatrace/dynatrace-subscription.yaml
 - provider: resource
   path: /setup/dynatrace/dynatrace-operator.yaml
+- provider: resource
+  path: /setup/dynatrace/network-policy.yaml
