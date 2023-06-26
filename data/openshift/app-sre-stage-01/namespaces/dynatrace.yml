@@ -19,6 +19,7 @@ managedResourceTypes:
 - Secret
 - OperatorGroup
 - Subscription
+- NetworkPolicy
 - DynaKube
 - Job
 
