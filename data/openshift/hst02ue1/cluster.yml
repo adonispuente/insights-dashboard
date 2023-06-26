@@ -36,7 +36,6 @@ spec:
   initial_version: 4.12.16
   version: 4.12.21
   multi_az: true
-  nodes: 2
   instance_type: m5.xlarge
   private: false
   disable_user_workload_monitoring: true
@@ -72,3 +71,9 @@ peering:
     assumeRole: arn:aws:iam::366871242094:role/network-mgmt-hst02ue1
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
+
+machinePools:
+- id: workers
+  instance_type: m5.xlarge
+  replicas: 2
+  subnet: subnet-009741e4f5c6de157
