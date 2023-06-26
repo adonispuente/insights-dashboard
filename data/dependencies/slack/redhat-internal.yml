@@ -66,6 +66,14 @@ integrations:
   channel: sd-app-sre
   username: AppSRE
   icon_emoji: app-sre
+- name: sd-app-sre-alert-report
+  token:
+    path: app-sre/creds/slack-app-sre-groups
+    field: bot_token
+  channel: CDW0S85QU  ## sd-app-sre-alert
+  username: AppSRE
+  icon_emoji: app-sre
+
 
 managedUsergroups:
 - osd-network-verifier
