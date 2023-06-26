@@ -25,7 +25,7 @@ spec:
       # aligned with https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/resources/dynatrace-dynakube/template.yaml
       # https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-oneagent/oneagent-configuration-via-command-line-interface
       - --set-host-group=test-cluster
-      - --set-host-tag=cluster={{ resource.namespace.cluster.name }}
+      - --set-host-tag=cluster=test-cluster
       - --set-host-tag=owner=app-sre
       - --set-infra-only=true
       tolerations:
