@@ -7,7 +7,7 @@ name: osd-experience
 description: Namespace for resources to provision resources required to create an OSD experience
 
 cluster:
-  $ref: /openshift/backplanei02ue1/cluster.yml
+  $ref: /openshift/backplanep03ue1/cluster.yml
 
 app:
   $ref: /services/app-sre/app.yml
