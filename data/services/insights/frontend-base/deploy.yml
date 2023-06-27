@@ -328,6 +328,23 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/sed-frontend"
 
+# Platform docs
+- name: platform-docs
+  path: /config/frontend.yml
+  url: https://github.com/RedHatInsights/better-platform-docs
+  targets:
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: better-platform-docs
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/better-platform-docs"
+
 # Learning Resources
 - name: learning-resources
   path: /deploy/frontend.yml
