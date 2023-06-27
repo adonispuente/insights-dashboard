@@ -32,7 +32,7 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosqueryisdown
         summary: Thanos component has disappeared from {{$labels.namespace}}.
       expr: |
-        absent(up{job="observatorium-thanos-query"} == 1)
+        absent(up{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"} == 1)
       for: 5m
       labels:
         service: telemeter
@@ -58,7 +58,7 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosruleisdown
         summary: Thanos component has disappeared from {{$labels.namespace}}.
       expr: |
-        absent(up{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"} == 1)
+        absent(up{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"} == 1)
       for: 5m
       labels:
         service: telemeter
@@ -160,9 +160,9 @@ spec:
         summary: Thanos Query is failing to handle requests.
       expr: |
         (
-          sum by (namespace, job) (rate(http_requests_total{code=~"5..", job="observatorium-thanos-query", handler="query"}[5m]))
+          sum by (namespace, job) (rate(http_requests_total{code=~"5..", job=~"observatorium-thanos-query.*|observatorium-ruler-query.*", handler="query"}[5m]))
         /
-          sum by (namespace, job) (rate(http_requests_total{job="observatorium-thanos-query", handler="query"}[5m]))
+          sum by (namespace, job) (rate(http_requests_total{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*", handler="query"}[5m]))
         ) * 100 > 5
       for: 5m
       labels:
@@ -177,9 +177,9 @@ spec:
         summary: Thanos Query is failing to handle requests.
       expr: |
         (
-          sum by (namespace, job) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         /
-          sum by (namespace, job) (rate(grpc_server_started_total{job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(grpc_server_started_total{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         * 100 > 5
         )
       for: 5m
@@ -195,9 +195,9 @@ spec:
         summary: Thanos Query is failing to send requests.
       expr: |
         (
-          sum by (namespace, job) (rate(grpc_client_handled_total{grpc_code!="OK", job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(grpc_client_handled_total{grpc_code!="OK", job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         /
-          sum by (namespace, job) (rate(grpc_client_started_total{job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(grpc_client_started_total{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         ) * 100 > 5
       for: 5m
       labels:
@@ -212,9 +212,9 @@ spec:
         summary: Thanos Query is having high number of DNS failures.
       expr: |
         (
-          sum by (namespace, job) (rate(thanos_query_store_apis_dns_failures_total{job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(thanos_query_store_apis_dns_failures_total{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         /
-          sum by (namespace, job) (rate(thanos_query_store_apis_dns_lookups_total{job="observatorium-thanos-query"}[5m]))
+          sum by (namespace, job) (rate(thanos_query_store_apis_dns_lookups_total{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*"}[5m]))
         ) * 100 > 1
       for: 15m
       labels:
@@ -229,9 +229,9 @@ spec:
         summary: Thanos Query has high latency for queries.
       expr: |
         (
-          histogram_quantile(0.99, sum by (namespace, job, le) (rate(http_request_duration_seconds_bucket{job="observatorium-thanos-query", handler="query"}[5m]))) > 90
+          histogram_quantile(0.99, sum by (namespace, job, le) (rate(http_request_duration_seconds_bucket{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*", handler="query"}[5m]))) > 90
         and
-          sum by (namespace, job) (rate(http_request_duration_seconds_bucket{job="observatorium-thanos-query", handler="query"}[5m])) > 0
+          sum by (namespace, job) (rate(http_request_duration_seconds_bucket{job=~"observatorium-thanos-query.*|observatorium-ruler-query.*", handler="query"}[5m])) > 0
         )
       for: 10m
       labels:
@@ -362,6 +362,42 @@ spec:
       labels:
         service: telemeter
         severity: high
+    - alert: ThanosReceiveLimitsConfigReloadFailure
+      annotations:
+        dashboard: https://grafana.app-sre.devshift.net/d/916a852b00ccc5ed81056644718fa4fb/thanos-receive?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
+        description: Thanos Receive {{$labels.job}} in {{$labels.namespace}} has not been able to reload the limits configuration.
+        message: Thanos Receive {{$labels.job}} in {{$labels.namespace}} has not been able to reload the limits configuration.
+        runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosreceivelimitsconfigreloadfailure
+        summary: Thanos Receive has not been able to reload the limits configuration.
+      expr: sum by(namespace, job) (increase(thanos_receive_limits_config_reload_err_total{job=~"observatorium-thanos-receive-default.*"}[5m])) > 0
+      for: 5m
+      labels:
+        service: telemeter
+        severity: medium
+    - alert: ThanosReceiveLimitsHighMetaMonitoringQueriesFailureRate
+      annotations:
+        dashboard: https://grafana.app-sre.devshift.net/d/916a852b00ccc5ed81056644718fa4fb/thanos-receive?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
+        description: Thanos Receive {{$labels.job}} in {{$labels.namespace}} is failing for {{$value | humanize}}% of meta monitoring queries.
+        message: Thanos Receive {{$labels.job}} in {{$labels.namespace}} is failing for {{$value | humanize}}% of meta monitoring queries.
+        runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosreceivelimitshighmetamonitoringqueriesfailurerate
+        summary: Thanos Receive has not been able to update the number of head series.
+      expr: (sum by(namespace, job) (increase(thanos_receive_metamonitoring_failed_queries_total{job=~"observatorium-thanos-receive-default.*"}[5m])) / 20) * 100 > 20
+      for: 5m
+      labels:
+        service: telemeter
+        severity: medium
+    - alert: ThanosReceiveTenantLimitedByHeadSeries
+      annotations:
+        dashboard: https://grafana.app-sre.devshift.net/d/916a852b00ccc5ed81056644718fa4fb/thanos-receive?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
+        description: Thanos Receive tenant {{$labels.tenant}} in {{$labels.namespace}} is limited by head series.
+        message: Thanos Receive tenant {{$labels.tenant}} in {{$labels.namespace}} is limited by head series.
+        runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosreceivetenantlimitedbyheadseries
+        summary: A Thanos Receive tenant is limited by head series.
+      expr: sum by(namespace, job, tenant) (increase(thanos_receive_head_series_limited_requests_total{job=~"observatorium-thanos-receive-default.*"}[5m])) > 0
+      for: 5m
+      labels:
+        service: telemeter
+        severity: medium
   - name: thanos-store
     rules:
     - alert: ThanosStoreGrpcErrorRate
@@ -370,7 +406,7 @@ spec:
         description: Thanos Store {{$labels.job}} in {{$labels.namespace}} is failing to handle {{$value | humanize}}% of requests.
         message: Thanos Store {{$labels.job}} in {{$labels.namespace}} is failing to handle {{$value | humanize}}% of requests.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosstoregrpcerrorrate
-        summary: Thanos Store is failing to handle qrpcd requests.
+        summary: Thanos Store is failing to handle gRPC requests.
       expr: |
         (
           sum by (namespace, job) (rate(grpc_server_handled_total{grpc_code=~"Unknown|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~"observatorium-thanos-store-shard.*"}[5m]))
@@ -427,7 +463,7 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosrulequeueisdroppingalerts
         summary: Thanos Rule is failing to queue alerts.
       expr: |
-        sum by (namespace, job, instance) (rate(thanos_alert_queue_alerts_dropped_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m])) > 0
+        sum by (namespace, job, instance) (rate(thanos_alert_queue_alerts_dropped_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m])) > 0
       for: 5m
       labels:
         service: telemeter
@@ -440,7 +476,7 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosrulesenderisfailingalerts
         summary: Thanos Rule is failing to send alerts to alertmanager.
       expr: |
-        sum by (namespace, job, instance) (rate(thanos_alert_sender_alerts_dropped_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m])) > 0
+        sum by (namespace, job, instance) (rate(thanos_alert_sender_alerts_dropped_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m])) > 0
       for: 5m
       labels:
         service: telemeter
@@ -454,15 +490,15 @@ spec:
         summary: Thanos Rule is failing to evaluate rules.
       expr: |
         (
-          sum by (namespace, job, instance) (rate(prometheus_rule_evaluation_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(prometheus_rule_evaluation_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         /
-          sum by (namespace, job, instance) (rate(prometheus_rule_evaluations_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(prometheus_rule_evaluations_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         * 100 > 5
         )
       for: 5m
       labels:
         service: telemeter
-        severity: medium
+        severity: high
     - alert: ThanosRuleHighRuleEvaluationWarnings
       annotations:
         dashboard: https://grafana.app-sre.devshift.net/d/35da848f5f92b2dc612e0c3a0577b8a1/thanos-rule?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
@@ -471,11 +507,11 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosrulehighruleevaluationwarnings
         summary: Thanos Rule has high number of evaluation warnings.
       expr: |
-        sum by (namespace, job, instance) (rate(thanos_rule_evaluation_with_warnings_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m])) > 0
+        sum by (namespace, job, instance) (rate(thanos_rule_evaluation_with_warnings_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m])) > 0
       for: 15m
       labels:
         service: telemeter
-        severity: medium
+        severity: high
     - alert: ThanosRuleRuleEvaluationLatencyHigh
       annotations:
         dashboard: https://grafana.app-sre.devshift.net/d/35da848f5f92b2dc612e0c3a0577b8a1/thanos-rule?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
@@ -485,9 +521,9 @@ spec:
         summary: Thanos Rule has high rule evaluation latency.
       expr: |
         (
-          sum by (namespace, job, instance, rule_group) (prometheus_rule_group_last_duration_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"})
+          sum by (namespace, job, instance, rule_group) (prometheus_rule_group_last_duration_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"})
         >
-          sum by (namespace, job, instance, rule_group) (prometheus_rule_group_interval_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"})
+          sum by (namespace, job, instance, rule_group) (prometheus_rule_group_interval_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"})
         )
       for: 5m
       labels:
@@ -502,9 +538,9 @@ spec:
         summary: Thanos Rule is failing to handle grpc requests.
       expr: |
         (
-          sum by (namespace, job, instance) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         /
-          sum by (namespace, job, instance) (rate(grpc_server_started_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(grpc_server_started_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         * 100 > 5
         )
       for: 5m
@@ -518,7 +554,7 @@ spec:
         message: Thanos Rule {{$labels.job}} in {{$labels.namespace}} has not been able to reload its configuration.
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosruleconfigreloadfailure
         summary: Thanos Rule has not been able to reload configuration.
-      expr: avg by (namespace, job, instance) (thanos_rule_config_last_reload_successful{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}) != 1
+      expr: avg by (namespace, job, instance) (thanos_rule_config_last_reload_successful{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}) != 1
       for: 5m
       labels:
         service: telemeter
@@ -532,9 +568,9 @@ spec:
         summary: Thanos Rule is having high number of DNS failures.
       expr: |
         (
-          sum by (namespace, job, instance) (rate(thanos_rule_query_apis_dns_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(thanos_rule_query_apis_dns_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         /
-          sum by (namespace, job, instance) (rate(thanos_rule_query_apis_dns_lookups_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(thanos_rule_query_apis_dns_lookups_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         * 100 > 1
         )
       for: 15m
@@ -550,9 +586,9 @@ spec:
         summary: Thanos Rule is having high number of DNS failures.
       expr: |
         (
-          sum by (namespace, job, instance) (rate(thanos_rule_alertmanagers_dns_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(thanos_rule_alertmanagers_dns_failures_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         /
-          sum by (namespace, job, instance) (rate(thanos_rule_alertmanagers_dns_lookups_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m]))
+          sum by (namespace, job, instance) (rate(thanos_rule_alertmanagers_dns_lookups_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m]))
         * 100 > 1
         )
       for: 15m
@@ -567,13 +603,13 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosrulenoevaluationfor10intervals
         summary: Thanos Rule has rule groups that did not evaluate for 10 intervals.
       expr: |
-        time() -  max by (namespace, job, instance, group) (prometheus_rule_group_last_evaluation_timestamp_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"})
+        time() -  max by (namespace, job, instance, group) (prometheus_rule_group_last_evaluation_timestamp_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"})
         >
-        10 * max by (namespace, job, instance, group) (prometheus_rule_group_interval_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"})
+        10 * max by (namespace, job, instance, group) (prometheus_rule_group_interval_seconds{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"})
       for: 5m
       labels:
         service: telemeter
-        severity: medium
+        severity: high
     - alert: ThanosNoRuleEvaluations
       annotations:
         dashboard: https://grafana.app-sre.devshift.net/d/35da848f5f92b2dc612e0c3a0577b8a1/thanos-rule?orgId=1&refresh=10s&var-datasource={{$externalLabels.cluster}}-prometheus&var-namespace={{$labels.namespace}}&var-job=All&var-pod=All&var-interval=5m
@@ -582,9 +618,9 @@ spec:
         runbook: https://github.com/rhobs/configuration/blob/main/docs/sop/observatorium.md#thanosnoruleevaluations
         summary: Thanos Rule did not perform any rule evaluations.
       expr: |
-        sum by (namespace, job, instance) (rate(prometheus_rule_evaluations_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}[5m])) <= 0
+        sum by (namespace, job, instance) (rate(prometheus_rule_evaluations_total{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}[5m])) <= 0
           and
-        sum by (namespace, job, instance) (thanos_rule_loaded_rules{job=~"observatorium-thanos-rule.*|observatorium-thanos-stateless-rule.*|observatorium-thanos-metric-federation-rule.*|observatorium-thanos-metric-fed-stateless-rule.*"}) > 0
+        sum by (namespace, job, instance) (thanos_rule_loaded_rules{job=~"observatorium-thanos-rule.*|observatorium-thanos-metric-federation-rule.*"}) > 0
       for: 5m
       labels:
         service: telemeter
