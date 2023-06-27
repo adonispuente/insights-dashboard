@@ -14,6 +14,8 @@ auth:
 - service: github-org-team
   org: app-sre
   team: hive-stage-01-cluster
+- service: oidc
+  name: redhat-app-sre-auth
 ocm:
   $ref: /dependencies/ocm/production.yml
 observabilityNamespace:

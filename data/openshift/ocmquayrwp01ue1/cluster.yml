@@ -17,6 +17,8 @@ auth:
 - service: github-org-team
   org: app-sre
   team: ocmquayrwp01ue1-cluster
+- service: oidc
+  name: redhat-app-sre-auth
 automationToken:
   path: app-sre/creds/kube-configs/ocmquayrwp01ue1
   field: token
