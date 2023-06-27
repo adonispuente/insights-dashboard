@@ -123,3 +123,4 @@ self_service:
   - $ref: /teams/lp-sre/roles/lp-sre-nasa-slack.yml
   - $ref: /teams/lp-sre/roles/addon-operator-devel.yml
   - $ref: /teams/lp-sre/roles/reference-addon-devel.yml
+  - $ref: /teams/advanced-cluster-security/roles/acs-lpsre.yml
