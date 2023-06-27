@@ -118,7 +118,7 @@ resourceTemplates:
       QE_ACCOUNTS: '13438478|12383032|11789772|13456124|12383032|13460159'
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
-    ref: 73c27a8070ad417f89b8a3617129133049cfdb7d
+    ref: 138481afbbc93e6cbd6372738f3c35707257a514
     parameters:
       SETTINGS__FORCE_IMPORT_SSGS: 'false'
       REPLICAS_BACKEND: 6
@@ -154,7 +154,7 @@ resourceTemplates:
       DEFAULT_RDS_DATASOURCE: 'app-sre-stage-01-prometheus'
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 73c27a8070ad417f89b8a3617129133049cfdb7d
+    ref: 138481afbbc93e6cbd6372738f3c35707257a514
     parameters:
       DEFAULT_DATASOURCE: 'crcp01ue1-prometheus'
       DEFAULT_RDS_DATASOURCE: 'app-sre-prod-01-prometheus'
