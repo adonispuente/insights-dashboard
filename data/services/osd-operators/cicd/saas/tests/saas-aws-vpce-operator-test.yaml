@@ -30,7 +30,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: 12b4c36deda8e026a2fb6ebe62aacf251edfe8bf
+    ref: ff56db117ab2effb938b022a120bf7ce908467b8
     promotion:
       auto: true
       subscribe:
