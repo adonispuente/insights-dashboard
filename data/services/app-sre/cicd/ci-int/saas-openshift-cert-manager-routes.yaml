@@ -94,6 +94,9 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/backplanep02uw2/namespaces/cert-manager.yml
     ref: main
+  - namespace:
+      $ref: /openshift/backplanep03ue1/namespaces/cert-manager.yml
+    ref: main
   # Insights
   - namespace:
       $ref: /openshift/insights/crcd01ue1/namespaces/cert-manager.yml
