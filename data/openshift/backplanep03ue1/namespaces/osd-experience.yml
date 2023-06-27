@@ -20,7 +20,7 @@ managedExternalResources: true
 externalResources:
 - provider: aws
   provisioner:
-    $ref: /aws/sd-infra-stage-01/account.yml
+    $ref: /aws/sd-infra-prod-01/account.yml
   resources:
   # Mocking the network-mgmt role of the OSD AWS Infrastructure Access feature
   # And providing the role defined in `assume_role` permissions to assume
@@ -28,18 +28,16 @@ externalResources:
   # Since this is a ROSA cluster, we create the role in the containing AWS account.
   # This is replacing the `awsInfrastructureAccess` feature in app-interface.
   - provider: aws-iam-role
-    identifier: network-mgmt-backplanei02ue1
+    identifier: network-mgmt-backplanep03ue1
     # users that are allowed to assume this role
     assume_role:
       AWS:
       # app-sre
       - arn:aws:iam::950916221866:user/terraform
-      # osd-privatelink-int
-      - arn:aws:iam::896164604406:user/terraform
-      # # osd-bastion-int - should not be needed with recent backplanes
-      # - arn:aws:iam::091314717878:user/terraform
-      # app-sre/backplane-vpc-backplanei02ue1 allows hive to associate hostedzones
-      - arn:aws:iam::950916221866:user/backplane-vpc-backplanei02ue1
+      # osd-privatelink-prod
+      - arn:aws:iam::710019948333:user/terraform
+      # app-sre/backplane-vpc-backplanep03ue1 allows hive to associate hostedzones
+      # - arn:aws:iam::950916221866:user/backplane-vpc-backplanep03ue1
     # copied (and modified) with love from
     # https://github.com/openshift/aws-account-operator/blob/84b11ddceb6baa5a2ee4fae56ce6fe686b415db8/hack/olm-registry/olm-artifacts-template.yaml#L105-L269
     inline_policy:
@@ -267,8 +265,8 @@ externalResources:
       }
 
   - provider: aws-iam-service-account
-    identifier: backplanei02ue1-hypershift-aws-vpce-operator
-    output_resource_name: backplanei02ue1-hypershift-aws-vpce-operator
+    identifier: backplanep03ue1-hypershift-aws-vpce-operator
+    output_resource_name: backplanep03ue1-hypershift-aws-vpce-operator
     user_policy:
       {
         "Version": "2012-10-17",

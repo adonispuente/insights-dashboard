@@ -53,16 +53,16 @@ spec:
   - us-east-1b
   - us-east-1c
 
-# automationToken:
-#   path: app-sre/creds/kube-configs/backplanep03ue1
-#   field: token
-# clusterAdmin: true
-# clusterAdminAutomationToken:
-#   path: app-sre/creds/kube-configs/backplanep03ue1-cluster-admin
-#   field: token
+automationToken:
+  path: app-sre/creds/kube-configs/backplanep03ue1
+  field: token
+clusterAdmin: true
+clusterAdminAutomationToken:
+  path: app-sre/creds/kube-configs/backplanep03ue1-cluster-admin
+  field: token
 
-# jumpHost:
-#   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+jumpHost:
+  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
 
 network:
   type: OVNKubernetes
@@ -110,9 +110,3 @@ peering:
 
 # observabilityNamespace:
 #   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep03ue1.yml
-
-disable:
-  integrations:
-  - openshift-groups
-  - openshift-users
-  - slack-usergroups
