@@ -154,7 +154,7 @@ resourceTemplates:
   # Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: ffcef51c910210fb72ae815121b64bdca60a47c9
+    ref: 00f36b0e85197447758551db6e1a023f2484d85e
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
