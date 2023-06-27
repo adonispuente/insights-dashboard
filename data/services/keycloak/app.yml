@@ -82,6 +82,15 @@ codeComponents:
   gitlabHousekeeping:
     enabled: true
     rebase: true
+  gitlabSync:
+    sourceProject:
+      name: keycloak-interface
+      group: service
+      branch: main
+    destinationProject:
+      name: keycloak-interface
+      group: service
+      branch: main
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
