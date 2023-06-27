@@ -107,7 +107,6 @@ resourceTemplates:
       ALLOWED_APPLICATION_TYPE_IDS: '3'
       KAFKA_BACKOFF_INTERVAL: '1'
       KAFKA_BACKOFF_MAX_FAILURE: '3'
-      REPLICAS: '0'
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/prod-rhsm-api-proxy-prod.yml
     ref: aa09c5c368dc438860d38f4a43facdfd3bb02c4c
