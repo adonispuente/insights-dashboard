@@ -112,6 +112,18 @@ resourceTemplates:
       WORKER_REFRESH_REPLICAS: 1
       # worker-summary
       WORKER_SUMMARY_REPLICAS: 2
+      # worker-cost-model-xl
+      WORKER_COST_MODEL_XL_REPLICAS: 0
+      # worker-download-xl
+      WORKER_DOWNLOAD_XL_REPLICAS: 0
+      # worker-ocp-xl
+      WORKER_OCP_XL_REPLICAS: 0
+      # worker-priority-xl
+      WORKER_PRIORITY_XL_REPLICAS: 0
+      # worker-refresh-xl
+      WORKER_REFRESH_XL_REPLICAS: 0
+      # worker-summary-xl
+      WORKER_SUMMARY_XL_REPLICAS: 0
       # worker-hcs
       WORKER_HCS_REPLICAS: 1
       # Change these settings when deploying migrations to Ephemeral
