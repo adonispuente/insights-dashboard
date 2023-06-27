@@ -14,6 +14,8 @@ auth:
 - service: github-org-team
   org: app-sre
   team: appsrep06ue2-cluster
+- service: oidc
+  name: redhat-app-sre-auth
 observabilityNamespace:
   $ref: 
     /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
