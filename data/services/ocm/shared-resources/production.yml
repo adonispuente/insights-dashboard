@@ -83,7 +83,7 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: app-interface/app-sre/uhc-production/uhc-acct-mngr
-  version: 26
+  version: 27
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
