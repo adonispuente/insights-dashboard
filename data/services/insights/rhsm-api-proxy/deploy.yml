@@ -105,6 +105,8 @@ resourceTemplates:
       RHSM_SERVICE_URL: https://api.rhsm.stage.redhat.com/v1/cloud_access_providers
       USER_SERVICE_URL: https://user.stage.api.redhat.com
       ALLOWED_APPLICATION_TYPE_IDS: '3'
+      KAFKA_BACKOFF_INTERVAL: '1'
+      KAFKA_BACKOFF_MAX_FAILURE: '3'
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/prod-rhsm-api-proxy-prod.yml
     ref: aa09c5c368dc438860d38f4a43facdfd3bb02c4c
