@@ -13,6 +13,8 @@ auth:
 - service: github-org-team
   org: app-sre
   team: hst02ue1-cluster
+- service: oidc
+  name: redhat-app-sre-auth
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedClusterRoles: true
