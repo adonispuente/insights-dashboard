@@ -1,0 +1,17 @@
+---
+$schema: /app-interface/credentials-request-1.yml
+
+labels: {}
+
+name: mprpic-corgi-client-app-interface-production-basic-auth
+
+description: |
+  Our bot account (/teams/prodsec/bots/component-registry-bot.yml) needs to
+  be able to query the GraphQL API in order to obtain information about the
+  images and repos used to build managed services in order to generate
+  component manifests in the Component Registry.
+
+user:
+  $ref: /teams/prodsec/users/mprpic.yml
+
+credentials: app-interface-production-dev-access
