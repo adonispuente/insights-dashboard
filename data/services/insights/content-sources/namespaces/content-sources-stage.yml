@@ -79,6 +79,10 @@ externalResources:
     identifier: content-sources-s3-custom-repos-stage
     defaults: /terraform/resources/s3-private-1.yml
     output_resource_name: content-sources-s3-custom-repos
+  - provider: s3
+    identifier: content-sources-pulp-s3
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: content-sources-pulp-s3
   - provider: cloudwatch
     identifier: content-sources-stage
     defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml
