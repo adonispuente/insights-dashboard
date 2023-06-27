@@ -65,6 +65,9 @@ quayRepos:
   - name: hccm-frontend
     public: true
     description: Repo for the hccm Insights app frontend
+  - name: s3-data-sync
+    public: true
+    description: Repo for the s3-data-sync
 
 codeComponents:
 - name: koku
