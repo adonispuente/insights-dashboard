@@ -573,10 +573,13 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 751d4fa64cb0b3fbd07b812175e7c5aef4ef839c
+    ref: 55d690ccd5ea6f906220e686518179ef80792c54
     parameters:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
+      CACHE_ENABLED: "1"
+      CACHE_TTL: "300"
+      CACHE_SIZE: "10000"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
