@@ -19,7 +19,8 @@ blockedVersions:
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
 # TODO
-# For now, block 4.13 upgrades until we are ready for sure
+# For now, block 4.12 and 4.13 upgrades until we are ready for sure
+- ^4\.12\..*$
 - ^4\.13\..*$
 upgradePolicyAllowedWorkloads:
 - service-cluster
@@ -32,6 +33,7 @@ upgradePolicyAllowedMutexes:
 - us-west-2
 - us-east-2
 - us-east-1
+- ibm-infra
 - fleet-wide
 
 inheritVersionData:
@@ -56,6 +58,9 @@ sectors:
 - name: us-east-1
   dependencies:
   - name: us-east-2
+- name: ibm-infra
+  dependencies:
+  - name: us-east-1
 upgradePolicyDefaults:
 - name: production-canary
   matchLabels:
@@ -113,6 +118,14 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
       schedule: 0 15 * * 1-4
+      soakDays: 5
+- name: production-ibm-infra
+  matchLabels:
+    ext-hypershift.openshift.io/cluster-sector: ibm-infra
+  upgradePolicyTemplate:
+    path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
+    variables:
+      schedule: 0 13 * * 1-4
       soakDays: 5
 upgradePolicyClusters:
 - name: hs-sc-2q7qo6cug
@@ -390,6 +403,16 @@ upgradePolicyClusters:
       mutexes:
       - ap-southeast-3
       - fleet-wide
+- name: hs-mc-bdstv4r4g
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0 13 * * 1-4
+    conditions:
+      sector: ibm-infra
+      soakDays: 0
+      mutexes:
+      - ibm-infra
 recommendedVersions:
 - workload: service-cluster
   channel: stable

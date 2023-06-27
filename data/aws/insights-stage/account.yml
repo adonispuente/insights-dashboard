@@ -91,6 +91,8 @@ deleteKeys:
 - AKIAVDTUBFCY2IJOEOFA
 ## system-baseline-stage - CloudWatch
 - AKIAVDTUBFCYZNKHAVM3
+## notifications-stage - CloudWatch
+- AKIAVDTUBFCYVH4MEKXP
 deletionApprovals:
 - type: aws_elasticache_replication_group
   name: cost-management-stage-elasticache

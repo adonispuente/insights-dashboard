@@ -24,6 +24,7 @@ automationToken:
 disable:
   integrations:
   - terraform-tgw-attachments
+  - terraform-vpc-peerings
 
 terraformState:
   $ref: /aws/hypershift-dns01/state.yml

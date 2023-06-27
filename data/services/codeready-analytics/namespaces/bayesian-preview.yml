@@ -62,7 +62,9 @@ openshiftResources:
     version: 2
   - provider: vault-secret
     path: app-interface/dsaas-stg/bayesian-preview/aws
-    version: 1
+    version: 2
+    annotations:
+      qontract.recycle: "true"
   - provider: vault-secret
     path: app-interface/dsaas-stg/bayesian-preview/coreapi-postgres
     version: 1

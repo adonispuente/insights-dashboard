@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/cloud-connector/namespaces/stage.yml
-    ref: bd3d1e17aadf414a7a66e8d2364a471414be895f
+    ref: f820fdcf1b2263a4ccc1903c023e40f66fe869ca
     parameters:
       IMAGE: quay.io/cloudservices/cloud-connector
       ENV_NAME: stage

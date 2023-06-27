@@ -115,8 +115,8 @@ records:
 - name: _acme-challenge.stage.quay.io
   type: TXT
   records:
-  - U1BFdOByGUWeYrxE9p57KNO9sC8enE87LPI1P1GIEgs
+  - tHCJZiBaK6V4oars07momOB-8WYwMp6J2iu_F9a9ihg
 - name: _acme-challenge.cdn03.stage.quay.io
   type: TXT
   records:
-  - RlkXQ2oEUc41tFmVI94i34s6hFntJnTfgbtit_rMpfA
+  - 83KtuVbLe6uCpuRWU_Ahss5UhvLkrhIKWnc8FpVLO_I

@@ -13,6 +13,15 @@ app:
 pipelinesProvider:
   $ref: /services/rhobs/observatorium/pipelines/observatorium-pipeline.appsrep05ue1.yaml
 
+deployResources:
+  requests:
+    cpu: 800m
+    memory: 1500Mi
+  limits:
+    cpu: 1200m
+    memory: 2000Mi
+
+
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
@@ -211,6 +220,7 @@ resourceTemplates:
       NAMESPACE: rhelemeter-stage
       RHELEMETER_FORWARD_URL: http://observatorium-observatorium-mst-api.observatorium-mst-stage.svc.cluster.local:8080/api/metrics/v1/rhel/api/v1/receive
       IMAGE_TAG: bba4a6f
+      RHELEMETER_LOG_LEVEL: debug
     secretParameters:
       - name: RHELEMETER_CLIENT_ID
         secret:

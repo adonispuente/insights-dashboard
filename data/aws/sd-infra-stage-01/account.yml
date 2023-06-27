@@ -30,6 +30,7 @@ premiumSupport: true
 disable:
   integrations:
   - terraform-tgw-attachments
+  - terraform-vpc-peerings
 
 terraformState:
   $ref: /aws/sd-infra-stage-01/state.yml

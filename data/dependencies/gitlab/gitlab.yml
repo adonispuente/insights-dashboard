@@ -55,6 +55,7 @@ projectRequests:
   - keycloak
   - keycloak-user-service
   - keycloak-config-manager
+  - keycloak-interface
 
 token:
   path: app-sre/ci-int/gitlab-token

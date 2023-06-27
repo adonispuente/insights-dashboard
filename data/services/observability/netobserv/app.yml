@@ -1,0 +1,30 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: app-sre-observability
+  deployment_validation_operator_no_anti_affinity: skip # not supported in netobserv-plugin
+
+name: netobserv
+
+description: netobserv
+
+parentApp:
+  $ref: /services/observability/app.yml
+
+architectureDocument: https://docs.openshift.com/container-platform/4.13/networking/network_observability/network-observability-overview.html
+sopsUrl: https://gitlab.cee.redhat.com/TODO
+grafanaUrls:
+- title: TODOREPLACE
+  url: https://TODO
+onboardingStatus: OnBoarded
+
+escalationPolicy:
+  $ref: /teams/app-sre/escalation-policies/general.yaml
+serviceOwners:
+- name: App-SRE Team
+  email: sd-app-sre@redhat.com
+
+dependencies:
+- $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/openshift/service.yml

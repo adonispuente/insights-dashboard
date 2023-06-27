@@ -116,11 +116,31 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
+- name: hs-sc-4ckuet1r0
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: main
+      soakDays: 0
+      mutexes:
+      - main
+- name: hs-mc-b82f67350
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: main
+      soakDays: 0
+      mutexes:
+      - main
 recommendedVersions:
 - workload: service-cluster
   channel: stable
-  recommendedVersion: 4.12.18
-  initialVersion: openshift-v4.12.18
+  recommendedVersion: 4.12.12
+  initialVersion: openshift-v4.12.12
 - workload: management-cluster
   channel: stable
   recommendedVersion: 4.12.18

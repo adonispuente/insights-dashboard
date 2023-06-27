@@ -7,8 +7,7 @@ description: image-builder integration testing
 app:
   $ref: /services/image-builder/app.yml
 pipelinesProvider:
-  $ref: 
-    /services/image-builder/pipelines/tekton.image-builder-pipelines.appsrep05ue1.yml
+  $ref: /services/image-builder/pipelines/tekton.image-builder-pipelines.appsrep05ue1.yml
 managedResourceTypes:
 - Job
 
@@ -30,9 +29,8 @@ resourceTemplates:
   path: /templates/iqe-trigger-integration.yml
   targets:
   - namespace:
-      $ref: 
-        /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
-    ref: b02e1cb00bd9d82173a23c9297ffe5316988cce5
+      $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
+    ref: c264faeed5878e1aa389c79fab514767e881a9ff
     promotion:
       auto: true
       subscribe:
