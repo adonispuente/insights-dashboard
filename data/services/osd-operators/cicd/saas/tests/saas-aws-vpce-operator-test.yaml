@@ -7,8 +7,7 @@ description: SaaS test file for AVO post deployment tests
 app:
   $ref: /services/osd-operators/app.yml
 pipelinesProvider:
-  $ref: 
-    /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
+  $ref: /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
@@ -31,7 +30,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: 30257036032781baf08e88eb97eea04d76edb2e8
+    ref: 12b4c36deda8e026a2fb6ebe62aacf251edfe8bf
     promotion:
       auto: true
       subscribe:
