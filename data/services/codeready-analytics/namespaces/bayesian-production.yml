@@ -54,7 +54,9 @@ openshiftResources:
     version: 1
   - provider: vault-secret
     path: app-interface/dsaas/bayesian-production/aws
-    version: 1
+    version: 2
+    annotations:
+      qontract.recycle: "true"
   - provider: vault-secret
     path: app-interface/dsaas/bayesian-production/snyk-secrets
     version: 3
