@@ -9,6 +9,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-nasa-slack.yml
 - $ref: /teams/app-sre/roles/app-sre-stream-2-slack.yml
+- $ref: /teams/app-sre/roles/aws-root-accounts.yaml
 public_gpg_key: |
   mQINBGFV1RgBEADorvw2hnFuj9GPzvIlwnVMKExUTr8R9V3UZCPNt7LQi4TPP9vS
   GJxA1ewLWBVmPjeaPBtzvHGSrs3DOmCuDz/3/cNitiUDz577rnK4LNBFSDBBDz58
