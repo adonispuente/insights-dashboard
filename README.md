@@ -1667,14 +1667,14 @@ For more information about the versions that RDS supports:
 | 13      | \>= 13.7              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 12      | \>= 12.11             | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 11      | \>= 11.16             | Announced as the minimum required version by email from AWS                                                                                                                                                |
-| ~~10~~  |                       | **End of life, do not use.**                                                                                                                                                 |
+| ~~10~~  |                       | **End of life, do not use.**                                                                                   |
 
 ###### MySQL
 
 | Version      | Minor Version | Notes |
 | ----------- | ----------- | ----------- |
 | 8 | \>= 8.0.23 | This is the minimum version required for the most recent release of [RDS OS upgrades](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Mandatory_OS_Updates) |
-| 5.7 | \>= 5.7.33 | This is the minimum version required for the most recent release of [RDS OS upgrades](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Mandatory_OS_Updates) |
+| ~~5.7~~ |            | **End of life, do not use.** |
 
 ##### RDS minor version upgrades
 

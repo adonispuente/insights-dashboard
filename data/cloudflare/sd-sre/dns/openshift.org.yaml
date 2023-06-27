@@ -215,6 +215,6 @@ records:
   identifier: cname-community-openshift-org
   type: CNAME
   ttl: 30
-  value: openshiftcommons.smugmug.com.
+  value: domains.smugmug.com.
   proxied: false
   priority: 0

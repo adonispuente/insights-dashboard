@@ -21,4 +21,7 @@ channels:
     $ref: /teams/insights/escalation-policies/general.yml
 
   jiraBoard:
-  - $ref: /teams/insights/jira/policies.yaml
+#  - $ref: /teams/insights/jira/policies.yaml
+# The file data/teams/insights/jira/policies/yaml is temporarily unused.
+# See https://issues.redhat.com/browse/APPSRE-7840, https://issues.redhat.com/browse/APPSRE-4926
+  - $ref: /teams/insights/jira/yuptoo.yaml

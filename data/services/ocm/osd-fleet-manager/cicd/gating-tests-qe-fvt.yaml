@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
+    ref: 97ca8dad86b2da0705596e711c3777401e496c7f
     name: integration-canary
     promotion:
       auto: true
@@ -55,7 +55,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
+    ref: 97ca8dad86b2da0705596e711c3777401e496c7f
     name: integration-main
     promotion:
       auto: true
@@ -70,7 +70,7 @@ resourceTemplates:
       SOAK_TIME: '15'
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: eb1a995f78bf319991685485b54efe6f82cc8b96
+    ref: 97ca8dad86b2da0705596e711c3777401e496c7f
     promotion:
       auto: true
       subscribe:

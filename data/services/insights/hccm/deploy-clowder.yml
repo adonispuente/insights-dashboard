@@ -271,12 +271,12 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: c2e7e8f6a5fa6aaac7e6d4d68f9df73cbe3743eb
+    ref: 86b8fe5112bf174ee9457418c152bb031e4e997e
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: c2e7e8f
+      DBM_IMAGE_TAG: bf68f02
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -311,8 +311,8 @@ resourceTemplates:
       UPDATE_TIMEOUT: 14400
       VACUUM_DATA_DAY_OF_WEEK: 0
 
-      TENANT_MULTIPROCESSING_MAX_PROCESSES: "2"
-      TENANT_MULTIPROCESSING_CHUNKS: "4"
+      TENANT_MULTIPROCESSING_MAX_PROCESSES: "4"
+      TENANT_MULTIPROCESSING_CHUNKS: "1"
 
       # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
       REPORT_DOWNLOAD_SCHEDULE_OCI: "0 8 * * *"
@@ -587,7 +587,7 @@ resourceTemplates:
       S3_BUCKET_NAME: hccm-stage-s3
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: ae5a6427cf2d1ceaae2598e033e9cc4e1deab7e1
+    ref: 60979fa2e2d326f8ac32a47b7ed75cc4bfb24860
     parameters:
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
       REPLICAS: 1

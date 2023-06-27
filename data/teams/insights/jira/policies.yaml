@@ -1,4 +1,6 @@
 ---
+# This file is temporarily deprecated and data/teams/insights/jira/yuptoo.yaml will be used.
+# See https://issues.redhat.com/browse/APPSRE-7840, https://issues.redhat.com/browse/APPSRE-4926
 $schema: /dependencies/jira-board-1.yml
 
 labels: {}

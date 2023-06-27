@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: rhelemeter-server
+spec:
+  host: rhelemeter.api.stage.openshift.com
+  port:
+    targetPort: external
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: passthrough
+  to:
+    kind: Service
+    name: rhelemeter-server
+    weight: 100
+  wildcardPolicy: None

@@ -25,7 +25,7 @@ managed:
         memory: 150Mi
         cpu: 200m
       limits:
-        memory: 200Mi
+        memory: 300Mi
         cpu: 300m
     cache: true
     extraArgs: --control-file-dir /.cache --no-compare-tags
@@ -37,7 +37,7 @@ managed:
         memory: 150Mi
         cpu: 200m
       limits:
-        memory: 200Mi
+        memory: 300Mi
         cpu: 300m
     cache: true
     # default compare-tags-interval is 28800s

@@ -220,6 +220,7 @@ resourceTemplates:
       NAMESPACE: rhelemeter-stage
       RHELEMETER_FORWARD_URL: http://observatorium-observatorium-mst-api.observatorium-mst-stage.svc.cluster.local:8080/api/metrics/v1/rhel/api/v1/receive
       IMAGE_TAG: bba4a6f
+      RHELEMETER_LOG_LEVEL: debug
     secretParameters:
       - name: RHELEMETER_CLIENT_ID
         secret:

@@ -1,0 +1,240 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+rule_files:
+- /observability/prometheusrules/osd-fleet-manager-production.prometheusrules.yaml.j2
+
+evaluation_interval: 1m
+
+tests:
+  - interval: 1m
+    input_series:
+      - series: 'up{service="fleet-manager-metrics-canary",namespace="osd-fleet-manager-production"}'
+        values: '1+0x20 0x20'
+    alert_rule_test:
+    - eval_time: 20m
+      alertname: OSD Fleet Manager production down - canary sector
+      exp_alerts:
+    - eval_time: 40m
+      alertname: OSD Fleet Manager production down - canary sector
+      exp_alerts:
+        - exp_labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            severity: high
+            team: osd
+            sector: canary
+          exp_annotations:
+            message: "No instances found for OSD Fleet Manager in canary sector - OSD Fleet Manager production is down."
+  - interval: 1m
+    input_series:
+      - series: 'kube_pod_container_status_restarts_total{namespace="osd-fleet-manager-production",service="fleet-manager-metrics-main", container="container", pod="fleet-manager-metrics-abcd"}'
+        values: '0x15 0+1x30'
+    alert_rule_test:
+    - eval_time: 20m
+      alertname: OSD Fleet Manager is crashing
+      exp_alerts:
+    - eval_time: 40m
+      alertname: OSD Fleet Manager is crashing
+      exp_alerts:
+        - exp_labels:
+            alertname: OSD Fleet Manager production is crashing - main sector
+            severity: high
+            team: osd
+            namespace: osd-fleet-manager-production
+            service: osd-fleet-manager
+            sector: main
+            container: container
+            pod: fleet-manager-metrics-abcd
+          exp_annotations:
+            message: "OSD Fleet Manager container 'container' of pod 'fleet-manager-metrics-abcd' is crashing more than 2 times in 15 minutes in namespace 'production' and sector 'main'"
+  - interval: 1m
+    input_series:
+      - series: 'haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production", service="fleet-manager-metrics-main", code="5xx"}'
+        values: '0+0x60 0+1x30'
+      - series: 'haproxy_backend_http_responses_total{route="osd-fleet-manager",exported_namespace="osd-fleet-manager-production", service="fleet-manager-metrics-main"}'
+        values: '0+1x60 61+9x30'
+    alert_rule_test:
+    - eval_time: 60m
+      alertname: 'OSD Fleet Manager returning 5xx'
+      exp_alerts:
+    - eval_time: 90m 
+      alertname: 'OSD Fleet Manager returning 5xx'
+      exp_alerts:
+        - exp_labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            team: osd
+            severity: medium
+          exp_annotations:
+            message: 'OSD Fleet Manager is returning 5xx error codes in osd-fleet-manager-production (current value: 90.34m)'
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+  - interval: 1m
+    input_series:
+      - series: 'api_outbound_request_count{service="fleet-manager-metrics-main",path="/api/clusters_mgmt/v1/clusters/test",apiservice="ocm-clusters-service",namespace="osd-fleet-manager-production",code="400"}'
+        values: 0+0x20 20+1x20
+      - series: 'api_outbound_request_count{service="fleet-manager-metrics-main",path="/api/clusters_mgmt/v1/clusters/test",apiservice="ocm-clusters-service",namespace="osd-fleet-manager-production"}'
+        values: 1+1x20 21+9x20
+    alert_rule_test:
+    - eval_time: 20m
+      alertname: 'OSD Fleet Manager outbound api response errors'
+      exp_alerts:
+    - eval_time: 40m
+      alertname: 'OSD Fleet Manager outbound api response errors'
+      exp_alerts:
+        - exp_labels:
+            service: osd-fleet-manager
+            namespace: osd-fleet-manager-production
+            team: osd
+            severity: medium
+            sector: main
+          exp_annotations:
+            message: "OSD Fleet Manager is receiving 4xx error codes from OCM in sector main of namespace osd-fleet-manager-production (current value: 0.1)"
+            dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+            runbook: ""
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-production",worker_type="terraform-manager",service="fleet-manager-metrics-canary", reconciliation_step="test"}'
+        values: 1x20 21+3x20
+    alert_rule_test:
+      - eval_time: 20m
+        exp_alerts:
+        alertname: OSD Fleet Manager terraform-manager reconciler long duration
+      - eval_time: 40m
+        alertname: OSD Fleet Manager terraform-manager reconciler long duration
+        exp_alerts:
+          - exp_labels:
+              alertname: OSD Fleet Manager terraform-manager reconciler long duration
+              namespace: osd-fleet-manager-production
+              sector: canary
+              service: osd-fleet-manager
+              severity: medium
+              worker_type: "terraform-manager"
+              reconciliation_step: "test"
+            exp_annotations:
+              dashboard: https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics
+              message: The maximum reconciler duration was 1m 18s for reconciler terraform-manager at step test in sector canary in osd-fleet-manager-production
+              runbook:
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-production",worker_type="mc-ready-manager",service="fleet-manager-metrics-main", reconciliation_step="test"}'
+        values: 1x20 21+1x20
+    alert_rule_test:
+      - eval_time: 20m
+        exp_alerts:
+        alertname: OSD Fleet Manager mc-ready-manager reconciler long duration
+      - eval_time: 40m
+        alertname: OSD Fleet Manager mc-ready-manager reconciler long duration
+        exp_alerts:
+          - exp_labels:
+              alertname: OSD Fleet Manager mc-ready-manager reconciler long duration
+              namespace: osd-fleet-manager-production
+              sector: main
+              service: osd-fleet-manager
+              severity: medium
+              worker_type: "mc-ready-manager"
+              reconciliation_step: "test"
+            exp_annotations:
+              dashboard: https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics
+              message: The maximum reconciler duration was 40s for reconciler mc-ready-manager at step test in sector main in osd-fleet-manager-production
+              runbook:
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_cluster_provisioning_elapsed_time_in_seconds{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-canary", cluster_id="test", cluster_type="hs-mc"}'
+        values: 200 300 18001
+    alert_rule_test:
+      - eval_time: 1m
+        exp_alerts:
+        alertname: OSD Fleet Manager cluster provision long duration
+      - eval_time: 3m
+        alertname: OSD Fleet Manager cluster provision long duration
+        exp_alerts:
+          - exp_labels:
+              severity: medium
+              service: osd-fleet-manager
+              namespace: osd-fleet-manager-production
+              sector: canary
+              cluster_type: hs-mc
+              cluster_id: test
+            exp_annotations:
+              message: Long provision duration 5h 0m 1s for cluster test of type hs-mc in sector canary in production
+              dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+              runbook: 
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_cluster_status_count{namespace="osd-fleet-manager-production", service="fleet-manager-metrics-canary",status="failed", cluster_type="hs-mc"}'
+        values: 0x60 1+1x60
+    alert_rule_test:
+      - eval_time: 60m
+        exp_alerts:
+        alertname: OSD Fleet Manager cluster failed operations
+      - eval_time: 120m
+        alertname: OSD Fleet Manager cluster failed operations
+        exp_alerts:
+          - exp_labels:
+              sector: canary
+              severity: high
+              service: osd-fleet-manager
+              namespace: osd-fleet-manager-production
+            exp_annotations:
+              message: Cluster provision failed in sector canary in environment production
+              dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+              runbook: 
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_management_cluster_hosted_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 0+1x10 10+0x10 19+0x20
+      - series: 'fleet_manager_available_management_clusters_by_service_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 2+0x20 2+0x20
+      - series: 'fleet_manager_max_desired_hosted_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 10+0x20 10+0x20
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: OSD Fleet Manager saturation level exceeding 90%
+        exp_alerts:
+      - eval_time: 40m
+        alertname: OSD Fleet Manager saturation level exceeding 90%
+        exp_alerts:
+          - exp_labels:
+              sector: main
+              severity: high
+              region: us-west-2
+              service_cluster: test
+              service: osd-fleet-manager
+              namespace: osd-fleet-manager-production
+              team: osd
+            exp_annotations:
+              message: "High saturation level exceeding 90% for service cluster test in region us-west-2 of production (current value: 0.95)"
+              dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+              runbook: 
+  - interval: 1m
+    input_series:
+      - series: 'fleet_manager_management_cluster_hosted_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 0+1x10 10+0x10 17+0x20 19+0x20
+      - series: 'fleet_manager_available_management_clusters_by_service_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 2+0x20 2+0x20 2+0x20
+      - series: 'fleet_manager_max_desired_hosted_cluster_count{namespace="osd-fleet-manager-production", region="us-west-2", service="fleet-manager-metrics-main", service_cluster="test"}'
+        values: 10+0x20 10+0x20 10+0x20
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: OSD Fleet Manager saturation level exceeding 85%
+        exp_alerts:
+      - eval_time: 40m
+        alertname: OSD Fleet Manager saturation level exceeding 85%
+        exp_alerts:
+          - exp_labels:
+              sector: main
+              severity: medium
+              region: us-west-2
+              service_cluster: test
+              service: osd-fleet-manager
+              namespace: osd-fleet-manager-production
+              team: osd
+            exp_annotations:
+              message: "Saturation level exceeding 85% for service cluster test in region us-west-2 of production (current value: 0.85)"
+              dashboard: "https://grafana.app-sre.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics"
+              runbook: 
+      - eval_time: 60m
+        alertname: OSD Fleet Manager saturation level exceeding 80%
+        exp_alerts:

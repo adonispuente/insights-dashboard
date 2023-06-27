@@ -32,7 +32,19 @@ spec:
         timestamp=$(date -u --iso-8601=seconds)
 
         echo "Sending deploy event to platform changelog"
-        echo "timestamp: $timestamp; status: $(params.task_status); app: $(params.app_name); env: $(params.env_name)"
+        echo "timestamp: ${timestamp}; status: $(params.task_status); app: $(params.app_name); env: $(params.env_name)"
+
+        generate_post_data()
+        {
+          cat <<EOF
+        {
+          "timestamp": "$timestamp",
+          "status": "$(params.task_status)",
+          "app": "$(params.app_name)",
+          "env": "$(params.env_name)"
+        }
+        EOF
+        }
 
         # TODO: Send the commit ref as well
-        curl -X POST https://changelog.stage.devshift.net/api/v1/tekton -s --data '{"timestamp": $timestamp, "status": $(params.task_status), "app": $(params.app_name), "env": $(params.env_name)}' -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}"
+        curl -X POST https://changelog.stage.devshift.net/api/v1/tekton -s --data "$(generate_post_data)" -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}"

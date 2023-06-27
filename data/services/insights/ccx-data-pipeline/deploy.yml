@@ -63,7 +63,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 7dac28c710e9762f67e74cea657f4d302dee66a0
+    ref: 12b08dd936f9d5b9998f540fc58461f7d5cbc462
     parameters:
       MIN_REPLICAS: "32"
       MAX_REPLICAS: "32"
@@ -242,7 +242,7 @@ resourceTemplates:
       name: RedHatInsights-insights-content-service-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 59604fce899799d65885bbad536ec68dc2606366
+    ref: 18d1865493d05e5e58c9eb59de1a5423d692e614
     delete: false
     parameters:
       CPU_LIMIT: "250m"
@@ -313,7 +313,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 5d28f373af24cd7ac05115cc084f4709ed68b59a
+    ref: 7a3da0763867ef931f60c0c4aa8e7ed5769e13d5
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
@@ -573,10 +573,13 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 751d4fa64cb0b3fbd07b812175e7c5aef4ef839c
+    ref: 55d690ccd5ea6f906220e686518179ef80792c54
     parameters:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
+      CACHE_ENABLED: "1"
+      CACHE_TTL: "300"
+      CACHE_SIZE: "10000"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:

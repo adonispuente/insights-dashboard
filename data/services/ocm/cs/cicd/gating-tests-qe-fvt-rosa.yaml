@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: bce9d80e73249946d87c50a687a9c894c00e220c
+    ref: dbd19f2ffb1297c28dbd0fec805e581b99f8e9aa
     name: rosa-advanced
     promotion:
       auto: true
@@ -54,7 +54,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: bce9d80e73249946d87c50a687a9c894c00e220c
+    ref: dbd19f2ffb1297c28dbd0fec805e581b99f8e9aa
     name: rosa-advanced
     promotion:
       auto: true

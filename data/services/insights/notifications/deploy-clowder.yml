@@ -75,7 +75,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       FLOORIST_SUSPEND: 'false'
@@ -105,7 +105,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
       FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
@@ -143,11 +143,12 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
+      NOTIFICATIONS_LOG_LEVEL: DEBUG
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -156,12 +157,13 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MIN_REPLICAS: 0
+      MIN_REPLICAS: 3
+      NOTIFICATIONS_LOG_LEVEL: INFO
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -184,11 +186,12 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
+      NOTIFICATIONS_LOG_LEVEL: DEBUG
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -197,12 +200,13 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MIN_REPLICAS: 0
+      MIN_REPLICAS: 3
+      NOTIFICATIONS_LOG_LEVEL: INFO
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -225,11 +229,12 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
+      NOTIFICATIONS_LOG_LEVEL: DEBUG
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -238,12 +243,13 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
       KAFKA_CLIENT_LOG_LEVEL: WARN
-      MIN_REPLICAS: 0
+      MIN_REPLICAS: 3
+      NOTIFICATIONS_LOG_LEVEL: INFO
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -275,7 +281,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -328,12 +334,11 @@ resourceTemplates:
       NOTIFICATIONS_SEND_SINGLE_EMAIL_FOR_MULTIPLE_RECIPIENTS_ENABLED: true
       NOTIFICATIONS_SINGLE_EMAIL_TEST_USER: gduval-stage
       QUARKUS_REST_CLIENT_EXPORT_SERVICE_URL: http://${EXPORT_SERVICE_HOST}:10000
-      QUARKUS_REST_CLIENT_LOGGING_SCOPE: request-response
       QUARKUS_LOG_CATEGORY__COM_REDHAT_CLOUD_NOTIFICATIONS_EXPORTS_EXPORTEVENTLISTENER__LEVEL: DEBUG
-      QUARKUS_LOG_CATEGORY__ORG_JBOSS_RESTEASY_REACTIVE_CLIENT_LOGGING__LEVEL: DEBUG
       QUARKUS_CAMEL_ROUTES_DISCOVERY_ENABLED: false
       NOTIFICATIONS_DRAWER_ENABLED: true
       MP_MESSAGING_OUTGOING_DRAWER_ENABLED: true
+      KAFKA_CLIENT_LOG_LEVEL: WARN
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -346,7 +351,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 2Gi
@@ -413,7 +418,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 6fb87a2ff309193fbf865c781873dd9fb0897f56
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
@@ -434,7 +439,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 55f2755302f0224ad004ac83c407ca872443468f
+    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       CLOUDWATCH_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
@@ -488,6 +493,8 @@ resourceTemplates:
     ref: 214a1003af7dd76be49d79e0124b98258d748992
     parameters:
       CLOUDWATCH_ENABLED: true
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 250m
       MIN_REPLICAS: 3
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       SENTRY_DSN: https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=

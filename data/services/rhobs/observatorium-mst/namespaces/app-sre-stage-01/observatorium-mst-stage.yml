@@ -85,15 +85,6 @@ openshiftResources:
     tenant: osd
   annotations:
     qontract.recycle: "true"
-## hypershift-platform
-- name: rhobs-hypershift-platform-tenant
-  provider: vault-secret
-  path: osd-sre/rhobs-hypershift-platform-staging
-  version: 2
-  labels:
-    tenant: hypershift-platform
-  annotations:
-    qontract.recycle: "true"
 ## appsre
 - provider: vault-secret
   path: app-sre/creds/observatorium-appsre-staging

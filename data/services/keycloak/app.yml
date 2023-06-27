@@ -74,6 +74,23 @@ codeComponents:
   gitlabHousekeeping:
     enabled: true
     rebase: true
+- name: keycloak-interface
+  resource: other
+  url: https://gitlab.cee.redhat.com/service/keycloak-interface
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
+  gitlabSync:
+    sourceProject:
+      name: keycloak-interface
+      group: service
+      branch: main
+    destinationProject:
+      name: keycloak-interface
+      group: service
+      branch: main
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml

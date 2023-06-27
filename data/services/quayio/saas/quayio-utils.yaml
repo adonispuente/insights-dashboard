@@ -115,7 +115,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: c93928f28f214d62a62f4bf0b1b723d17cf13885
+    ref: 3152b1021e70061737c39f18f849c2755b77f08c
 
 - name: quayio-update-py2-db
   path: /openshift.yml

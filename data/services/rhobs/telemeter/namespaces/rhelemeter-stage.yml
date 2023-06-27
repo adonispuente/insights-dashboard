@@ -20,5 +20,12 @@ networkPoliciesAllow:
 
 managedRoles: true
 
+managedResourceTypes:
+  - Route
+
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+openshiftResources:
+  - provider: route
+    path: /app-sre-stage/rhelemeter-stage/rhelemeter-server.route.yaml
