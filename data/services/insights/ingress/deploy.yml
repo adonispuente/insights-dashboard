@@ -94,7 +94,7 @@ resourceTemplates:
       INGRESS_BLACK_LISTED_ORGIDS: "7759136"
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
-    ref: 9ca794b2097bfd968d1b95ec31a055bbab176821
+    ref: 99a87b3552e08e3da3932acf1d50429ca13c1a5b
     parameters:
       ENV_NAME: prod
       INGRESS_STAGEBUCKET: insights-ingress-prod
