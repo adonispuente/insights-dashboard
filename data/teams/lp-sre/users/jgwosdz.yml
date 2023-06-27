@@ -1,0 +1,62 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Josh Gwosdz
+org_username: jgwosdz
+github_username: erdii
+quay_username: erdii
+
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/mt-sre/roles/mt-sre.yml
+- $ref: /teams/lp-sre/roles/lp-sre.yml
+- $ref: /teams/lp-sre/roles/app-sre-osd-addons.yml
+- $ref: /teams/lp-sre/roles/saas-managed-tenants-approver.yml
+- $ref: /teams/lp-sre/roles/lp-sre-emea-slack.yml
+- $ref: /teams/advanced-cluster-security/roles/acs-lpsre.yml
+- $ref: /teams/lp-sre/roles/package-operator.yml
+
+public_gpg_key: |
+  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
+  eSW5kX2nlUIUyEy77OtpYcnOlEeOGxEXPWxCDIJM3q7X5n/gXY+g8KWXzsyuUJjZ2pt0dGYGpShb
+  SABh5f51myRemuMLcXTFnPpY1hf5kfLgUgoPdkzenxUHS18U6f8dS9YrfBVNjESKhHThU4paC55a
+  sPKFH5v7xVgRNStdhpZjrxlfEXRxoqV3Cjk/N/fDdwj6GQkYtMHoa7ubIkaaR6yRIN2KHEEVge8W
+  vYiSIXD+m3HhV4SDkonw6h9k8hLJBYK2QeXetr84vvTPisq7HTiKftLBi0j+bbaAso9Zr1YDEb0g
+  vk94Xj1IyhcQq3fMxYpAp++rjb99bogzRk3beLDDNnck7ld7iBKjA0ul0LZjxuOAb/R6z62IV6l4
+  4pxI6xAIHw5Q94KvK8S2xbmxe3+leHJC8qp19f46kyVK+GckTOxDT07Y2QwkoymRZlhKfDw01XuE
+  wYhrdpCKw13wJOcpzM3EnDzYy6lEK/gB85Wj3BjvwYjzPrwr7Z5FJR/9ezReT9h85eme+EdkMVtI
+  ND2yCxP8mafg71P0PiMMH31dDSt9182a5K1jSnDL5A==
