@@ -59,7 +59,7 @@ resourceTemplates:
         $ref: /dependencies/quay/cloudservices.yml
       name: compliance-ssg
 - name: compliance
-  path: deploy/clowdapp.yaml
+  path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/compliance-backend
   targets:
   - namespace:
