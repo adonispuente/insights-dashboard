@@ -11,6 +11,7 @@ quay_username: dkliban
 
 roles:
 - $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/content-sources-monitor.yml
 
 public_gpg_key: |
   mDMEZIxs3RYJKwYBBAHaRw8BAQdAjbeZvd1ad9efKxg2yYQIQGLtM5E82rKYM8s4
