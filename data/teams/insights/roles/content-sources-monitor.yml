@@ -1,0 +1,30 @@
+---
+$schema: /access/role-1.yml
+
+labels:
+  platform: insights
+  service: content-sources
+
+name: content-sources-monitor
+
+permissions:
+- $ref: /teams/insights/permissions/crc-content-sources-team-coreos-slack.yml
+
+access:
+- namespace:
+    $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
+  role: view
+- namespace:
+    $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
+  role: view
+- namespace:
+    $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
+  role: view
+
+glitchtip_roles:
+- organization:
+    $ref: /dependencies/glitchtip/organizations/insights.yml
+  role: admin
+
+glitchtip_teams:
+- $ref: /dependencies/glitchtip/teams/hcc-content-sources.yml
