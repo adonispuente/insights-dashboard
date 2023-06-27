@@ -537,8 +537,8 @@ records:
 - name: _acme-challenge.cdn03.quay.io
   type: TXT
   records:
-  - vlUbJhFv-70QBTuLhboP_0PzI4osRM_ntyUUungwNeA
+  - gWrqb72vXaIHp0D1-TwIuJv5tQxPhlA-FDr-OOhtwAE
 - name: _acme-challenge.quay.io
   type: TXT
   records:
-  - gux2xIdwqN7ONrNBgBj3CFg7DT4Md51amRNltd_-F1s
+  - mRQb_jGdI6AvEW2Oz_hxfROd__X-erl8eZpA4gx22HA
