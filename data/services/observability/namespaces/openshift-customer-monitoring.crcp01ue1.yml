@@ -131,6 +131,12 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/notifications-prod/notifications-backend.servicemonitor.yml
 - provider: resource
+  path: /insights-prod/notifications-prod/notifications-connector-google-chat.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/notifications-prod/notifications-connector-microsoft-teams.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/notifications-prod/notifications-connector-slack.servicemonitor.yml
+- provider: resource
   path: /insights-prod/notifications-prod/notifications-engine.servicemonitor.yml
 - provider: resource
   path: /insights-prod/notifications-prod/notifications-gw.servicemonitor.yml
