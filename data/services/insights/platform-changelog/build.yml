@@ -36,6 +36,7 @@ config:
         display_name: 'platform-changelog-go pipeline'
         branch: main
         concurrent_build: true
+        status_context: ci.ext.devshift.net PR pipeline
 - project:
     name: platform-changelog-ui
     label: insights
@@ -54,3 +55,4 @@ config:
         display_name: 'platform-changelog-ui pipeline'
         branch: main
         concurrent_build: true
+        status_context: ci.ext.devshift.net PR pipeline
