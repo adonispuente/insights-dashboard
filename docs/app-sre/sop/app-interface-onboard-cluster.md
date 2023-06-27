@@ -17,17 +17,7 @@ This step should be performed in a single merge request.
     - Note that quota is driven via this [repo](https://gitlab.cee.redhat.com/service/ocm-resources/) and this is our [org file](https://gitlab.cee.redhat.com/service/ocm-resources/blob/master/data/uhc-production/orgs/12147054.yaml) in prod. The `@ocm-resources` Slack alias can also be pinged for any questions or if the change is urgent.
     - Use the [OCM resource cost mappings spreadsheet](https://docs.google.com/spreadsheets/d/1HGvQnahZCxb_zYH2kSnnTFsxy9MM49vywd-P0X_ISLA/edit#gid=315221665) mapping table to find which are correspondences between OCM types and AWS instance types
 
-1. Create a new App-SRE Github Oauth Client.
-    In order to create the OAuth client register to create a new application here:
-    https://github.com/organizations/app-sre/settings/applications
-
-    - Name: `<cluster_name> cluster`
-    - Homepage URL: `https://console-openshift-console.apps.<cluster_name>.TBD.p1.openshiftapps.com`
-    - Authorization callback URL: `https://oauth-openshift.apps.<cluster_name>.TBD.p1.openshiftapps.com/oauth2callback/github-app-sre`
-
-1. Place the `client-id` and `client-secret` from the Oauth Client in a secret in [Vault](https://vault.devshift.net/ui/vault/secrets/app-sre/list/integrations-input/ocm-github-idp/github-org-team/app-sre/) named `<cluster_name>-cluster`.
-
-1. Cluster creation in OCM is self-serviced in app-interface. As such cluster.yml file should be added to app-interface at this point
+1. Cluster creation in OCM is self-serviced in app-interface. As such `cluster.yml` file should be added to app-interface at this point
 
     ```yaml
     # /data/openshift/<cluster_name>/cluster.yml
@@ -47,9 +37,8 @@ This step should be performed in a single merge request.
     elbFQDN: ''
 
     auth:
-    - service: github-org-team
-      org: app-sre
-      team: <cluster_name>-cluster
+    - service: oidc
+      name: redhat-app-sre-auth
 
     ocm:
       $ref: /dependencies/ocm/production.yml
@@ -188,12 +177,6 @@ This step should be performed in a single merge request.
     ```
 
     These values will be added automatically by the `ocm_clusters` integration.
-
-1. Update App-SRE Github Oauth Client.
-    - Homepage URL: `https://console-openshift-console.apps.<cluster_name>.<cluster_id>.p1.openshiftapps.com/`
-        * Note: cluster_id can be obtained from the console.  In OCM, click on the link for the cluster and then click on the `Open Console` button in the upper right corner.  Looking at the URL bar there should be something like: `oauth-openshift.apps.<cluster_name>.<cluster_id>.p1.openshiftapps.com`
-    - Authorization callback URL: `https://oauth-openshift.apps.<cluster_name>.<cluster_id>.p1.openshiftapps.com/oauth2callback/github-app-sre`
-
 
 1. If your cluster is private, you should first make sure you can access it through ci.ext via VPC peering.
 
