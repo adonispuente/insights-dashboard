@@ -17,9 +17,6 @@ roles:
 - $ref: /teams/managed-services/roles/prod-credentials-full.yml
 - $ref: /teams/managed-services/roles/stage-credentials-full.yml
 - $ref: /teams/managed-services/roles/managed-application-services.yml
-- $ref: /teams/mas-sso/roles/mas-sso-s3-perf-test-logs.yml
-- $ref: /teams/managed-services/roles/saas-mas-sso-approver.yml
-- $ref: /teams/managed-services/roles/mas-sso-dev.yml
 
 public_gpg_key: |
   mQINBGB3d5EBEACiLksx5+e+MRRpYvBDNBFgGzTgZexFoNZBAJAGTFqx3YWf6guQ

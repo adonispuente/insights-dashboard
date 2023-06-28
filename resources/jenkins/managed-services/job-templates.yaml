@@ -709,23 +709,6 @@
     - shell: ./deploy/promote-ui.sh
 
 - job-template:
-    id: mas-sso-build-template
-    name: "{gl_group}-{gl_project}-gl-build-{branch}"
-    description: "mass-sso build template"
-    wrappers:
-      - timeout_wrapper:
-          timeout: "{timeout}"
-      - ansicolor
-      - vault-secrets:
-          <<: *vault_defaults
-          secrets:
-            - *rhoas-quay-access
-            - *app_sre_bot_push_token
-#    publishers:
-#      - <<: *slack_notify
-    <<: *gl_build_master
-
-- job-template:
     id: gl-build-main-kas-fleet-manager
     name: "{gl_group}-{gl_project}-gl-build-{branch}"
     publishers:
@@ -759,19 +742,6 @@
           - *quay_secret_push
           - *rhoas-quay-access
           - *kas_fleet_manager_pr_check
-    <<: *gl_pr_check
-
-- job-template:
-    id: 'gl-pr-check-mas-sso'
-    name: '{gl_group}-{gl_project}-gl-pr-check'
-    wrappers:
-    - timeout_wrapper:
-        timeout: '{timeout}'
-    - ansicolor
-    - vault-secrets:
-        <<: *vault_defaults
-        secrets:
-        - *rhoas-quay-access
     <<: *gl_pr_check
 
 - job-template:
@@ -915,17 +885,3 @@
     - archive:
         artifacts: '{artifacts_path}'
         allow-empty: true
-
-- job-template:
-    id: mas-sso-perf-tests
-    name: mas-sso-perf-tests-stage
-    wrappers:
-      - timeout_wrapper:
-          timeout: "{timeout}"
-      - ansicolor
-      - vault-secrets:
-          <<: *vault_defaults
-          secrets:
-            - *saas_mas_sso_perf_test_stage
-    ci_cmd: './test/load-test/performanceTest.sh'
-    <<: *gl_timed
