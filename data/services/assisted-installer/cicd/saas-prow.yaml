@@ -58,7 +58,7 @@ resourceTemplates:
       EQUINIX_USAGES_SCRAPE_INTERVAL: "month"
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-    ref: 64bfeebe44dfca51a15bac73d1e7efc65c31deb6
+    ref: abf3f9859cf0a6c58be6b16bcf5727920b0de5fb
     parameters:
       JOBS_AUTO_WEEKLY_REPORT_SCHEDULE: "0 8 * * 1"
       JOBS_AUTO_MONTHLY_REPORT_SCHEDULE: "0 9 1 * *"
