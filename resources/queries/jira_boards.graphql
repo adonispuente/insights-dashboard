@@ -9,5 +9,10 @@
       }
       issueResolveState
       issueReopenState
+      escalationPolicies {
+        channels {
+          jiraComponent
+        }
+      }
     }
 }
