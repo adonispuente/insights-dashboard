@@ -48,5 +48,9 @@ resourceTemplates:
   - namespace:
       $ref:  /services/insights/yuptoo/namespaces/perf-yuptoo-perf.yml
     ref: main
+    image:
+      name: yuptoo
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
     parameters:
       MEMORY_LIMIT: 2Gi
