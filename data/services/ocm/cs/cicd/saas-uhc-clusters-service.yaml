@@ -66,6 +66,7 @@ resourceTemplates:
       FORCE_MIGRATION: ''
       JIRA_PROJECT: SDAINT
       CLUSTER_ERROR_REPORT: 'false'
+      USER_DEFINED_DNS_BASE_DOMAIN: 'i4.devshift.org'
       JIRA_ISSUE_TYPE: Bug
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
@@ -87,6 +88,7 @@ resourceTemplates:
       FORCE_MIGRATION: ''
       JIRA_PROJECT: SDAINT
       CLUSTER_ERROR_REPORT: 'true'
+      USER_DEFINED_DNS_BASE_DOMAIN: 's4.devshift.org'
       JIRA_ISSUE_TYPE: Bug
       JIRA_COMPONENTS: ''
       JIRA_PRODUCT: ''
@@ -107,6 +109,7 @@ resourceTemplates:
       LEADERSHIP_ENABLED: 'false'
       JIRA_PROJECT: SDAINT
       CLUSTER_ERROR_REPORT: 'true'
+      USER_DEFINED_DNS_BASE_DOMAIN: 's4.devshift.org'
       JIRA_ISSUE_TYPE: Bug
       JIRA_COMPONENTS: ''
       JIRA_PRODUCT: ''
@@ -123,6 +126,7 @@ resourceTemplates:
       FORCE_MIGRATION: ''
       JIRA_PROJECT: OHSS
       CLUSTER_ERROR_REPORT: 'true'
+      USER_DEFINED_DNS_BASE_DOMAIN: 'p4.openshiftapps.com'
       JIRA_ISSUE_TYPE: Incident
       JIRA_COMPONENTS: ''
       JIRA_PRODUCT: ''
