@@ -62,6 +62,7 @@ parameters:
 
 allowedSecretParameterPaths:
   - rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
+  - rhobs/staging/certs 
 
 resourceTemplates:
 - name: telemeter-dashboards
@@ -215,7 +216,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
-    ref: 391a396f348e21cd6da2930b4a24635130d09577
+    ref: 5d8b1ece3b5c6a6301877def9d62ca9b641662c6
     parameters:
       NAMESPACE: rhelemeter-stage
       RHELEMETER_FORWARD_URL: http://observatorium-observatorium-mst-api.observatorium-mst-stage.svc.cluster.local:8080/api/metrics/v1/rhel/api/v1/receive
@@ -232,3 +233,18 @@ resourceTemplates:
           path: rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
           field: client_secret
           version: 1
+      - name: RHELEMETER_EXTERNAL_MTLS_KEY
+        secret:
+          path: rhobs/staging/certs
+          field: cert_req_name.key
+          version: 2
+      - name: RHELEMETER_EXTERNAL_MTLS_CRT
+        secret:
+          path: rhobs/staging/certs
+          field: rhelemeter.crt
+          version: 2
+      - name: RHELEMETER_EXTERNAL_MTLS_CA
+        secret:
+          path: rhobs/staging/certs
+          field: clientCA.crt
+          version: 2
