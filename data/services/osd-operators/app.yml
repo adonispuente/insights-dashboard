@@ -100,6 +100,9 @@ quayRepos:
   - name: managed-node-metadata-operator-test-harness
     description: managed-node-metadata-operator osde2e test harness
     public: true
+  - name: ocm-agent-operator-test-harness
+    description: ocm-agent-operator osde2e test harness
+    public: true
   - name: boilerplate
     description: boilerplate dependencies image
     public: true
