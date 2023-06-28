@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import re
@@ -23,7 +23,9 @@ def get_integrations(data):
 
 
 def get_modified_files():
-    return check_output(["git", "diff", ORIGIN_BRANCH, "--name-only"]).split()
+    return check_output(
+        ["git", "diff", ORIGIN_BRANCH, "--name-only"]
+    ).decode().split()
 
 
 def get_data_schema(data, modified_file):
