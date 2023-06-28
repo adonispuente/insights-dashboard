@@ -6,7 +6,6 @@ subject: "[Action Required] Glitchtip Access Revalidation - 2023-04-05"
 to:
   services:
     - $ref: "/services/insights/ccx-data-pipeline/app.yml"
-    - $ref: "/services/mas-sso/app.yml"
     - $ref: "/services/app-interface/app.yml"
     - $ref: "/services/quarkus/registry/app.yml"
     - $ref: "/services/ocm/osl/app.yml"

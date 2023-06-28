@@ -6,6 +6,7 @@ labels:
 
 name: mas-sso-pipelines
 description: mas-sso pipelines namespace
+delete: true
 
 cluster:
   $ref: /openshift/appsrep05ue1/cluster.yml
@@ -16,10 +17,8 @@ app:
 environment:
   $ref: /products/app-sre/environments/production.yml
 
-managedRoles: true
+managedRoles: false
 
-managedResourceTypes:
-- Secret
+managedResourceTypes: []
 
-sharedResources:
-- $ref: /services/app-interface/shared-resources/app-sre-pipelines.yml
+sharedResources: []

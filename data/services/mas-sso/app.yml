@@ -25,7 +25,7 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: MAS SSO Monitoring
   url: https://grafana.app-sre.devshift.net/d/_LLa8q_Gk/mas-sso-monitoring?orgId=1
-onboardingStatus: OnBoarded
+onboardingStatus: OffBoarding
 
 serviceOwners:
 - name: Managed Application Services Security
@@ -43,34 +43,6 @@ dependencies:
 - $ref: /dependencies/openshift/service.yml
 - $ref: /dependencies/aws/service.yml
 
-quayRepos:
-- org:
-    $ref: /dependencies/quay/managedservices-rhoas.yml
-  teams:
-  - permissions:
-    - $ref: /dependencies/quay/permissions/quay-membership-rhoas-managed-services.yml
-    role: read
-  items:
-  - name: rhsso-operator
-    description: RedHat SSO Operator
-    public: false
-  - name: rhsso
-    description: RedHat SSO container image
-    public: false
-  - name: rhsso-init-container
-    description: RedHat SSO init container image
-    public: false
-  - name: mas-sso-operator-bundle
-    description: MAS SSO Operator bundle
-    public: true
-  - name: mas-sso-operator-catalog
-    description: MAS SSO Operator catalog
-    public: true
-  - name: mas-sso-perf-test
-    description: MAS SSO Performance Test container image
-    public: false
+quayRepos: []
 
-codeComponents:
-- name: saas-mas-sso
-  resource: upstream
-  url: https://gitlab.cee.redhat.com/service/saas-mas-sso
+codeComponents: []

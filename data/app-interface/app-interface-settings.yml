@@ -151,7 +151,6 @@ alertingServices:
 - insights
 - job-queue
 - kas-fleet-manager
-- mas-sso
 - obervatorium-logs
 - observability
 - observatorium-api

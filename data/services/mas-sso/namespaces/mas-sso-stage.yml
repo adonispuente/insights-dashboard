@@ -5,6 +5,7 @@ labels: {}
 
 name: mas-sso-stage
 description: staging namespace for mas-sso
+delete: true
 
 cluster:
   $ref: /openshift/app-sre-stage-01/cluster.yml
@@ -15,61 +16,14 @@ app:
 environment:
   $ref: /products/osdv4/environments/stage.yml
 
-networkPoliciesAllow:
-- $ref: /openshift/app-sre-stage-01/namespaces/openshift-operator-lifecycle-manager.yml
-- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+networkPoliciesAllow: []
 
-managedRoles: true
+managedRoles: false
 
-managedResourceTypes:
-- ServiceAccount
-- Secret
+managedResourceTypes: []
 
-openshiftResources:
-- provider: vault-secret
-  path: managed-services/quay-org-accounts/rhoas/robots/rhoas-pull-docker
-  version: 1
-  type: kubernetes.io/dockerconfigjson
-- provider: resource-template
-  path: /services/mas-sso/serviceaccount.yaml
-  variables:
-    name: default
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /services/mas-sso/mas-sso-db-config.secret.yaml
-- provider: vault-secret
-  path: app-interface/mas-sso/stage/performance-test-client
-  version: 1
-- provider: route
-  path: /services/mas-sso/mas-sso-staging.route.yaml
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /services/mas-sso/mas-sso-credentials.secret.yaml
-  variables:
-    vault_secret_version: 1
+openshiftResources: []
 
 managedExternalResources: true
 
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/app-sre/account.yml
-  resources:
-  - provider: rds
-    identifier: mas-sso-staging
-    defaults: /terraform/resources/app-sre/staging/rds-1.yml
-    output_resource_name: mas-sso-rds
-    overrides:
-      allocated_storage: 100
-      maintenance_window: wed:05:56-wed:06:26
-      engine_version: '12.7'
-      apply_immediately: true
-      deletion_protection: false
-    enhanced_monitoring: true
-  - provider: s3
-    identifier: mas-sso-s3-resource
-    defaults: /terraform/resources/telemeter/s3-private-1.yml
-    output_resource_name: mas-sso-stage-perf-test-s3-storage
-
-glitchtipProjects:
-- $ref: /dependencies/glitchtip/projects/glitchtip-production/mas-sso-stage.yml
+externalResources: []

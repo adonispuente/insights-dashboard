@@ -186,19 +186,6 @@ openshiftResources:
   variables:
     namespace: uhc-production
 
-### MAS SSO
-- provider: prometheus-rule
-  path: /observability/prometheusrules/mas-sso-slo-availability-production.prometheusrules.yaml
-  type: resource
-- provider: prometheus-rule
-  path: /observability/prometheusrules/mas-sso-availability-production.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/mas-sso-availability-production.prometheusrulestests.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/mas-sso-slo-latency-production.prometheusrules.yaml
-  type: resource
-
 ### Status Board
 - provider: prometheus-rule
   path: /observability/prometheusrules/status-board-production.prometheusrules.yaml
@@ -501,14 +488,6 @@ openshiftResources:
     - name: hs-sc
     - name: access-key-worker-manager
     - name: region-manager   
-
-  ### MAS-SSO
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/mas-sso.servicemonitor.yaml
-  variables:
-    environment: production
-    namespace: mas-sso-production
 
 ### Status-Board
 - provider: resource-template
