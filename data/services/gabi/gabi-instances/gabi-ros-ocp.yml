@@ -18,6 +18,7 @@ users:
 - $ref: /teams/insights/users/sdutta.yml
 - $ref: /teams/insights/users/supatil.yml
 - $ref: /teams/insights/users/aupadhye.yaml
+- $ref: /teams/insights/users/yajgaonk.yml
 
 instances:
 - account: insights-stage
