@@ -1,0 +1,24 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: insights
+
+name: s3-data-sync
+description: Insights s3-data-sync
+
+cluster:
+  $ref: /openshift/appsrep05ue1/cluster.yml
+
+app:
+  $ref: /services/insights/cicd/app.yml
+
+environment:
+  $ref: /products/insights/environments/production.yml
+
+managedRoles: true
+
+openshiftResources:
+- provider: vault-secret
+  path: insights/secrets/s3-sync/hccm-s3-sync
+  version: 1

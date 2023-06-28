@@ -123,3 +123,15 @@ config:
         additional_arg: ''
         components: ''
         deploy_timeout: 300
+
+- project:
+    name: s3-data-sync
+    label: insights
+    node: insights
+    quay_org: cloudservices
+    gl_group: cost-management
+    gl_project: s3-data-sync
+    jobs:
+    - gl-build-master:
+        display_name: s3-data-sync build-main
+        branch: main

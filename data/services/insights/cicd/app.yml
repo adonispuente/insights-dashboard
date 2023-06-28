@@ -112,6 +112,9 @@ quayRepos:
     description: Image that is used to run cypress e2e test in Jenkins
     # mirror:
     #   $ref: /dependencies/image-mirrors/docker.io/minio-mc.yml
+  - name: s3-data-sync
+    public: true
+    description: Repo for the s3-data-sync
 
 dependencies:
 - $ref: /dependencies/github/service.yml
@@ -119,6 +122,7 @@ dependencies:
 - $ref: /dependencies/ci-ext/service.yml
 - $ref: /dependencies/gitlab/service.yml
 - $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/openshift/service.yml
 
 codeComponents:
 - name: saas-templates
@@ -148,4 +152,7 @@ codeComponents:
       name: qe-tekton-pipelines
       group: consoledot
       branch: main
+- name: s3-data-sync
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/cost-management/s3-data-sync
 

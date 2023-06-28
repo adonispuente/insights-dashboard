@@ -22,3 +22,5 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-prod/hccm-prod/s3-sync
   version: 1
+
+delete: true

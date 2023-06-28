@@ -65,9 +65,6 @@ quayRepos:
   - name: hccm-frontend
     public: true
     description: Repo for the hccm Insights app frontend
-  - name: s3-data-sync
-    public: true
-    description: Repo for the s3-data-sync
 
 codeComponents:
 - name: koku
@@ -97,6 +94,3 @@ codeComponents:
 - name: hccm-frontend
   resource: upstream
   url: https://github.com/project-koku/koku-ui
-- name: s3-data-sync
-  resource: upstream
-  url: https://gitlab.cee.redhat.com/cost-management/s3-data-sync
