@@ -58,8 +58,12 @@ openshiftResources:
 - provider: resource
   path: /insights-perf/hccm/koku-processor.configmap.yaml
 - provider: resource
-  path: /insights-perf/hccm/koku-upload.configmap.yaml
-
+  path: /insights-perf/hccm/koku-upload.configmap.yml
+# secrets
+- provider: vault-secret
+  path: insights/secrets/global/rh-registry-pull
+  version: 2
+  type: kubernetes.io/dockerconfigjson
 - provider: vault-secret
   path: insights/quay/quay.io
   version: 3
@@ -77,7 +81,27 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/insights-stage/hccm-stage/koku-oci
-  version: 6
+  version: 3
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/hccm-stage/koku-secret
+  version: 2
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/hccm-stage/nise-populator-secret
+  version: 8
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/hccm-stage/koku-sentry
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/global/rds-client-ca
+  version: 1
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
