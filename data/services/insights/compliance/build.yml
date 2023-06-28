@@ -26,9 +26,6 @@ config:
     gh_org: RedHatInsights
     gh_repo: compliance-backend
     jobs:
-    - "insights-gh-pr-check":
-        display_name: compliance-backend pr-check
-        concurrent_build: true
     - "insights-gh-build-master":
         display_name: compliance-backend build-master
         disable_retry_on_failure: false
