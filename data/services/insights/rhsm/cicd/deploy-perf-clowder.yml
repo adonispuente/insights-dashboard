@@ -94,3 +94,5 @@ resourceTemplates:
       KAFKA_MESSAGE_THREADS: 1
       ENABLE_SYNCHRONOUS_OPERATIONS: 'true'
       OTEL_JAVAAGENT_ENABLED: 'false'
+      PURGE_EVENTS_SCHEDULE: '@yearly'
+      METERING_SCHEDULE: '@yearly'
