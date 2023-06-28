@@ -14,18 +14,10 @@ app:
 pipelinesProvider:
   $ref: /services/insights/pipelines/tekton.crc-pipelines.appsrep05ue1.yaml
 
-deployResources:
-  requests:
-    cpu: 300m
-    memory: 600Mi
-  limits:
-    cpu: 300m
-    memory: 600Mi
-
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
-  channel: team-clouddot-info
+  channel: cost-mgmt-bots
 
 managedResourceTypes:
 - ClowdApp
@@ -49,33 +41,35 @@ parameters:
 
 resourceTemplates:
 - name: koku-cji
+  # repo deploy file: https://github.com/project-koku/koku/blob/main/deploy/koku-cji.yaml
+  # container image: quay.io/cloudservices/koku
+  # container repo:  https://quay.io/repository/cloudservices/koku
   path: /deploy/koku-cji.yaml
   url: https://github.com/project-koku/koku
   targets:
-    #   perf
+  # Performance:
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 4a9bbef95f063bd4164aae7cc7ce8833338d6450
+    ref: dbfe096de9624982d8c80db8cbce7da6312681f9
     parameters:
       CJI_INVOCATION: "01"
 
 - name: koku
+  # repo deploy file: https://github.com/project-koku/koku/blob/main/deploy/clowdapp.yaml
+  # container image: quay.io/cloudservices/koku
+  # container repo:  https://quay.io/repository/cloudservices/koku
   path: /deploy/clowdapp.yaml
   url: https://github.com/project-koku/koku
   targets:
-# Performance:
+  # Performance:
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: main
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: project-koku-koku-gh-build-main
+    ref: 86b8fe5112bf174ee9457418c152bb031e4e997e
     parameters:
       ############# MIGRATIONS #############
-      # Change these settings when deploying migrations to Staging
+      # Change these settings when deploying migrations to Performance
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 13efbbb
+      DBM_IMAGE_TAG: bf68f02
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -86,193 +80,217 @@ resourceTemplates:
       # Ex: ""
       _MIGRATION_DIRECTIVE: ""
       ######################################
-      APP_DOMAIN: apps.crcs02ue1.urby.p1.openshiftapps.com
+      APP_DOMAIN: apps.crcp01ue1.o9m8.p1.openshiftapps.com
+      ROS_OCP_API: ros-ocp-backend-api.ros-perf.svc.cluster.local
       S3_BUCKET_NAME: hccm-perf-s3
+      S3_ROS_BUCKET_NAME: hccm-ros-perf-s3
       KOKU_SENTRY_ENV: perf
-        #ENABLE_API_SENTRY: True
-        #ENABLE_CELERY_SENTRY: True
-        #DEMO_ACCOUNTS: '{"6193296":{"arn:aws:iam::589173575009:role/NisePopulatorAccessRole":{"source_type": "AWS", "report_prefix":"cur","report_name":"awscost"},"5d4eb34d-43c7-4b06-8257-1cb599b48d1e":{"source_type": "Azure", "report_prefix":"cur","report_name":"azurecost","container_name":"cur"}}}'
+      ENABLE_API_SENTRY: True
+      ENABLE_CELERY_SENTRY: True
+      DEMO_ACCOUNTS: '{"6193296":{"arn:aws:iam::589173575009:role/NisePopulatorAccessRole":{"source_type": "AWS", "report_prefix":"cur","report_name":"awscost"},"5d4eb34d-43c7-4b06-8257-1cb599b48d1e":{"source_type": "Azure", "report_prefix":"cur","report_name":"azurecost","container_name":"cur"}}}'
       ENABLE_PARQUET_PROCESSING: True
       ENABLE_S3_ARCHIVING: True
-      ENABLE_TRINO_SOURCES: ''
+      ENABLE_TRINO_SOURCES: 'f71993c9-db47-4dcf-b375-c32d84502b13,118445f0-7304-4311-aa22-ed86b484f48d,79419ac3-cf38-450c-84cf-7d2accc2c293,889668d0-8bdc-4e96-84fe-4311b3514efb,b139babe-9f1a-4519-ae49-bfd4e06807a2,cbf2420e-ab4b-4ab3-b27c-d5a05d578262,d24bd391-fc65-4275-a7bb-174c91e1c9fe,f1eb8998-4984-4ee5-9bfb-f0370cb690a4,cc11e600-9888-4614-be92-634b132c0f44,a84c1928-4891-4ff0-b458-f4fd27a7218a,a6568967-155a-428f-a20c-3c5d46f45ad8,bfad1e15-91eb-478f-a600-ffb3b0ee1042'
       ENABLE_TRINO_SOURCE_TYPE: 'GCP'
-      ENABLE_TRINO_ACCOUNTS: 'acct6193296'
-      TRINO_DATE_STEP: 31
+      ENABLE_TRINO_ACCOUNTS: 'acct7049367'
+      QE_SCHEMA: 'acct6089719'
+      TRINO_DATE_STEP: 3  # 5
       AUTO_DATA_INGEST: True
+      RETAIN_NUM_MONTHS: 5
+      # INITIAL_INGEST_OVERRIDE: 'True'
+      # INITIAL_INGEST_NUM_MONTHS: 1
+      SCHEDULE_CHECK_INTERVAL: 720
+      SOURCE_STATUS_FREQUENCY_MINUTES: 60
       UPDATE_TIMEOUT: 14400
-      RETAIN_NUM_MONTHS: 4
       VACUUM_DATA_DAY_OF_WEEK: 0
-      REPORT_DOWNLOAD_SCHEDULE: "0 4,16 * * *"
-      PARQUET_PROCESSING_BATCH_SIZE: "500000"
-      PRESTO_HOST: trino-coordinator
-      RBAC_CACHE_TIMEOUT: 1
+
+      TENANT_MULTIPROCESSING_MAX_PROCESSES: "4"
+      TENANT_MULTIPROCESSING_CHUNKS: "1"
+
+      # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 8 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 10 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
+      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 14 * * *"
+
+      TRINO_HOST: trino-coordinator
+      GUNICORN_THREADS: False
+      GUNICORN_WORKERS: 2
       # Deployment specific variables:
       # koku-api
-      KOKU_MIN_REPLICAS: 3
-      KOKU_CPU_REQUEST: 100m
+      KOKU_REPLICAS: 10
+      KOKU_CPU_REQUEST: 250m
       KOKU_CPU_LIMIT: 1
-      KOKU_MEMORY_REQUEST: 768Mi
-      KOKU_MEMORY_LIMIT: 1536Mi
+      KOKU_MEMORY_REQUEST: 2Gi
+      KOKU_MEMORY_LIMIT: 4Gi
       # listener
-      LISTENER_MIN_REPLICAS: 3
+      LISTENER_REPLICAS: 6  # 6
       LISTENER_CPU_REQUEST: 200m
-      LISTENER_CPU_LIMIT: 500m
-      LISTENER_MEMORY_REQUEST: 512Mi
-      LISTENER_MEMORY_LIMIT: 1Gi
+      LISTENER_CPU_LIMIT: 1
+      LISTENER_MEMORY_REQUEST: 1Gi
+      LISTENER_MEMORY_LIMIT: 2Gi
       # masu
-      MASU_MIN_REPLICAS: 1
+      MASU_REPLICAS: 1
       MASU_MEMORY_REQUEST: 512Mi
       MASU_MEMORY_LIMIT: 1Gi
       # scheduler
-      SCHEDULER_MIN_REPLICAS: 1
+      SCHEDULER_REPLICAS: 1  # 1
       SCHEDULER_MEMORY_REQUEST: 256Mi
       SCHEDULER_MEMORY_LIMIT: 512Mi
       # sources-client
-      SOURCES_CLIENT_MIN_REPLICAS: 3
-      SOURCES_CLIENT_CPU_REQUEST: 50m
-      SOURCES_CLIENT_CPU_LIMIT: 250m
+      SOURCES_CLIENT_REPLICAS: 3
+      SOURCES_CLIENT_CPU_REQUEST: 250m
+      SOURCES_CLIENT_CPU_LIMIT: 500m
       SOURCES_CLIENT_MEMORY_REQUEST: 256Mi
-      SOURCES_CLIENT_MEMORY_LIMIT: 512Mi
+      SOURCES_CLIENT_MEMORY_LIMIT: 1Gi
       # sources-listener
-      SOURCES_LISTENER_MIN_REPLICAS: 1
-      SOURCES_LISTENER_CPU_REQUEST: 50m
-      SOURCES_LISTENER_CPU_LIMIT: 250m
+      SOURCES_LISTENER_REPLICAS: 1
+      SOURCES_LISTENER_CPU_REQUEST: 250m
+      SOURCES_LISTENER_CPU_LIMIT: 500m
       SOURCES_LISTENER_MEMORY_REQUEST: 256Mi
-      SOURCES_LISTENER_MEMORY_LIMIT: 512Mi
+      SOURCES_LISTENER_MEMORY_LIMIT: 1Gi
       # workers global
-      WORKER_PROC_ALIVE_TIMEOUT: 8
+      WORKER_PROC_ALIVE_TIMEOUT: 9
       # worker-celery
-      WORKER_CELERY_MIN_REPLICAS: 3
-      WORKER_CELERY_CPU_REQUEST: 50m
-      WORKER_CELERY_CPU_LIMIT: 250m
-      WORKER_CELERY_MEMORY_REQUEST: 512Mi
-      WORKER_CELERY_MEMORY_LIMIT: 1Gi
+      WORKER_CELERY_REPLICAS: 3
+      WORKER_CELERY_CPU_REQUEST: 200m
+      WORKER_CELERY_CPU_LIMIT: 1
+      WORKER_CELERY_MEMORY_REQUEST: 1Gi
+      WORKER_CELERY_MEMORY_LIMIT: 2Gi
       # worker-cost-model
-      WORKER_COST_MODEL_MIN_REPLICAS: 3
-      WORKER_COST_MODEL_CPU_REQUEST: 50m
-      WORKER_COST_MODEL_CPU_LIMIT: 200m
-      WORKER_COST_MODEL_MEMORY_REQUEST: 400Mi
-      WORKER_COST_MODEL_MEMORY_LIMIT: 600Mi
+      WORKER_COST_MODEL_REPLICAS: 3
+      WORKER_COST_MODEL_CPU_REQUEST: 100m
+      WORKER_COST_MODEL_CPU_LIMIT: 300m
+      WORKER_COST_MODEL_MEMORY_REQUEST: 512Mi
+      WORKER_COST_MODEL_MEMORY_LIMIT: 1Gi
       # worker-download
-      WORKER_DOWNLOAD_MIN_REPLICAS: 3
-      WORKER_DOWNLOAD_CPU_REQUEST: 500m
-      WORKER_DOWNLOAD_CPU_LIMIT: 1
+      WORKER_DOWNLOAD_REPLICAS: 6  # 6
+      WORKER_DOWNLOAD_CPU_REQUEST: 700m
+      WORKER_DOWNLOAD_CPU_LIMIT: 1500m
       WORKER_DOWNLOAD_MEMORY_REQUEST: 5Gi
       WORKER_DOWNLOAD_MEMORY_LIMIT: 8Gi
       # worker-ocp
-      WORKER_OCP_MIN_REPLICAS: 3
-      WORKER_OCP_CPU_REQUEST: 75m
-      WORKER_OCP_CPU_LIMIT: 200m
-      WORKER_OCP_MEMORY_REQUEST: 600Mi
-      WORKER_OCP_MEMORY_LIMIT: 600Mi
+      WORKER_OCP_REPLICAS: 7  # 7
+      WORKER_OCP_CPU_REQUEST: 300m
+      WORKER_OCP_CPU_LIMIT: 500m
+      WORKER_OCP_MEMORY_REQUEST: 1Gi
+      WORKER_OCP_MEMORY_LIMIT: 2Gi
       # worker-priority
-      WORKER_PRIORITY_MIN_REPLICAS: 3
-      WORKER_PRIORITY_CPU_REQUEST: 75m
-      WORKER_PRIORITY_CPU_LIMIT: 500m
-      WORKER_PRIORITY_MEMORY_REQUEST: 1Gi
-      WORKER_PRIORITY_MEMORY_LIMIT: 2Gi
+      WORKER_PRIORITY_REPLICAS: 1  # 3
+      WORKER_PRIORITY_CPU_REQUEST: 500m
+      WORKER_PRIORITY_CPU_LIMIT: 1
+      WORKER_PRIORITY_MEMORY_REQUEST: 3Gi
+      WORKER_PRIORITY_MEMORY_LIMIT: 5Gi
       # worker-refresh
-      WORKER_REFRESH_MIN_REPLICAS: 3
-      WORKER_REFRESH_CPU_REQUEST: 50m
+      WORKER_REFRESH_REPLICAS: 3  # 3
+      WORKER_REFRESH_CPU_REQUEST: 100m
       WORKER_REFRESH_CPU_LIMIT: 200m
-      WORKER_REFRESH_MEMORY_REQUEST: 420Mi
+      WORKER_REFRESH_MEMORY_REQUEST: 300Mi
       WORKER_REFRESH_MEMORY_LIMIT: 600Mi
       # worker-summary
-      WORKER_SUMMARY_MIN_REPLICAS: 3
-      WORKER_SUMMARY_CPU_REQUEST: 75m
+      WORKER_SUMMARY_REPLICAS: 6  # 6
+      WORKER_SUMMARY_CPU_REQUEST: 100m
       WORKER_SUMMARY_CPU_LIMIT: 200m
-      WORKER_SUMMARY_MEMORY_REQUEST: 650Mi
-      WORKER_SUMMARY_MEMORY_LIMIT: 800Mi
+      WORKER_SUMMARY_MEMORY_REQUEST: 512Mi
+      WORKER_SUMMARY_MEMORY_LIMIT: 2Gi
       # worker-hcs
-      WORKER_HCS_MIN_REPLICAS: 3
-      WORKER_HCS_CPU_REQUEST: 75m
+      WORKER_HCS_REPLICAS: 3
+      WORKER_HCS_CPU_REQUEST: 100m
       WORKER_HCS_CPU_LIMIT: 200m
-      WORKER_HCS_MEMORY_REQUEST: 425Mi
-      WORKER_HCS_MEMORY_LIMIT: 600Mi
+      WORKER_HCS_MEMORY_REQUEST: 500Mi
+      WORKER_HCS_MEMORY_LIMIT: 1Gi
+
 
 - name: hive-metastore
+  # repo deploy file: https://github.com/RedHatInsights/ubi-hive/blob/main/deploy/clowdapp.yaml
+  # container image: quay.io/cloudservices/ubi-hive
+  # container repo:  https://quay.io/repository/cloudservices/ubi-hive
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/ubi-hive
   targets:
-#Performance
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 691afe7a37e86f7365705552f6977ec55e5e00b3 
+    ref: ab1350614a39ae246c77fedd1bc97c56da3e4347
     parameters:
       IMAGE_TAG: 3.1.3-metastore-015
+      MIN_REPLICAS: 1
       S3_BUCKET_NAME: hccm-perf-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      MEMORY_REQUEST: 6Gi
-      MEMORY_LIMIT: 16Gi
-      MAX_HEAP_SIZE: 14G
-
+      MEMORY_REQUEST: 18Gi
+      MEMORY_LIMIT: 20Gi
+      MAX_HEAP_SIZE: 18G
 
 - name: presto
+  # repo deploy file: https://github.com/RedHatInsights/ubi-trino/blob/main/deploy/clowdapp.yaml
+  # container image: quay.io/cloudservices/ubi-trino
+  # container repo:  https://quay.io/repository/cloudservices/ubi-trino
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/ubi-trino
   targets:
-# Performance 
+  # Performance
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab 
+    ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
     parameters:
-      CONFIGMAP_HASH: '000003' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 411-002
+      CONFIGMAP_HASH: 'gffsf6' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
+      IMAGE_TAG: 418-002
       S3_BUCKET_NAME: hccm-perf-s3
       MACHINE_POOL_OPTION: memory-optimized
-      COORDINATOR_REPLICAS: 1
-      WORKER_REPLICAS: 3
-      COORDINATOR_CPU_REQUEST: 600m
-      COORDINATOR_CPU_LIMIT: 2
-      COORDINATOR_MEMORY_REQUEST: 12Gi
-      COORDINATOR_MEMORY_LIMIT: 36Gi
-      WORKER_CPU_REQUEST: 300m
-      WORKER_CPU_LIMIT: 2
-      WORKER_MEMORY_REQUEST: 6Gi
-      WORKER_MEMORY_LIMIT: 10Gi
-      QUERY_MAX_MEMORY_PER_NODE: 6.5GB # (jvm max - heap headroom)
-      QUERY_MAX_MEMORY: 19.5GB # (max per node * worker count)
-      QUERY_MAX_TOTAL_MEMORY: 39GB # (max-memory * 2)
-      MEMORY_HEAP_HEADROOM_PER_NODE: 1GB
-      MAX_HEAP_SIZE: 7680M
+      COORDINATOR_REPLICAS: 1 # 1
+      WORKER_REPLICAS: 4 # 4
+      COORDINATOR_CPU_REQUEST: 4
+      COORDINATOR_CPU_LIMIT: 7800m
+      COORDINATOR_MEMORY_REQUEST: 54Gi
+      COORDINATOR_MEMORY_LIMIT: 56Gi
+      WORKER_CPU_REQUEST: 4
+      WORKER_CPU_LIMIT: 7800m
+      WORKER_MEMORY_REQUEST: 54Gi
+      WORKER_MEMORY_LIMIT: 56Gi
+      QUERY_MAX_MEMORY_PER_NODE: 25GB # (jvm max - heap headroom)
+      QUERY_MAX_MEMORY: 100GB # (max per node * worker count)
+      QUERY_MAX_TOTAL_MEMORY: 200GB # (max-memory * 2)
+      MEMORY_HEAP_HEADROOM_PER_NODE: 25GB
+      MAX_HEAP_SIZE: 51200M # 51200 == 50 GiB
       LIVENESS_PROBE_PERIOD: 120
       LIVENESS_PROBE_TIMEOUT: 120
 
-        #- name: koku-report-emailer
-        #path: /deploy/clowdapp.yaml
-        #url: https://github.com/project-koku/koku-report-emailer
-        #targets:
-      #Performance 
-      #- namespace:
-      #$ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-      #ref: main
-      #upstream:
-      #instance:
-      #$ref: /dependencies/ci-ext/ci-ext.yml
-      #name: project-koku-koku-report-emailer-gh-build-main
-      #parameters:
-      #EMAIL_SCHEDULE: '0 13 * * 1,3,5'
-
 - name: koku-daily
+  # repo deploy file: https://github.com/project-koku/koku-daily/blob/main/deploy/clowdapp.yaml
+  # container image: quay.io/cloudservices/koku-daily
+  # container repo:  https://quay.io/repository/cloudservices/koku-daily
   path: /deploy/clowdapp.yaml
   url: https://github.com/project-koku/koku-daily
   targets:
-    #Performance
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: main
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: project-koku-koku-daily-gh-build-main
+    ref: 60979fa2e2d326f8ac32a47b7ed75cc4bfb24860
     parameters:
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
       REPLICAS: 1
       APP_URL_PREFIX: /api/cost-management/v1/koku-daily/
-      CPU_REQUEST: 125m
+      CPU_REQUEST: 100m
       CPU_LIMIT: 250m
-      MEMORY_REQUEST: 250Mi
-        #MEMORY_LIMIT: 500Mi
-        #EMAIL_GROUPS: {"engineering": "cost-mgmt-metrics-eng@redhat.com", "marketing": "cost-mgmt-metrics-mkt@redhat.com"}
-        #S3_BUCKET_NAME: hccm-perf-s3
+      MEMORY_REQUEST: 500Mi
+      MEMORY_LIMIT: 1Gi
+      EMAIL_GROUPS: {"engineering": "cost-mgmt-metrics-eng@redhat.com", "marketing": "cost-mgmt-metrics-mkt@redhat.com"}
+      EMAIL_SCHEDULE: '0 17 * * *'
+      S3_BUCKET_NAME: hccm-perf-s3
+      S3_SCHEDULE: "0 19 * * *"
+      WEEKLY_REPORT_SCHEDULED_DAY: "3"
+
+  #- name: nise-populator
+  # repo deploy file: https://github.com/project-koku/nise-populator/blob/main/deploy/clowdapp.yaml
+  # container image: quay.io/cloudservices/nise-populator
+  # container repo:  https://quay.io/repository/cloudservices/nise-populator
+  #path: /deploy/clowdapp.yaml
+  #url: https://github.com/project-koku/nise-populator
+  #targets:
+  #- namespace:
+  #    $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
+  #  ref: 66d67ed148f49cf775a9bd681bb0ad865943018d
+  #  parameters:
+  #    CPU_REQUEST: 250m
+  #    CPU_LIMIT: 500m
+  #    POPULATE_SCHEDULE: "0 11 * * *"
+  #    POPULATE_SOURCES: "ocp"
