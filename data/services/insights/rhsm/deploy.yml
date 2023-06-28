@@ -80,7 +80,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 4a0364fe64a42a778458556b6f00fdc2e5897ec8
+    ref: 85baecb90298a4e55fca28fb918fe4e7ddf85177
 
 # NOTE: needs Deployment, ConfigMap, Service in managedResources (as is common)
 # but also needs ClusterRole, ClusterRoleBinding, ServiceAccount permissions to inject k8s metadata into traces
