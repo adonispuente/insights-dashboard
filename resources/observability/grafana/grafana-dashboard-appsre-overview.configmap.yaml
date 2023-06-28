@@ -1122,26 +1122,16 @@ data:
                 "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
+                "fillOpacity": 80,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
                   "tooltip": false,
                   "viz": false
                 },
-                "lineInterpolation": "linear",
                 "lineWidth": 1,
-                "pointSize": 5,
                 "scaleDistribution": {
                   "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
                 },
                 "thresholdsStyle": {
                   "mode": "off"
@@ -1180,16 +1170,24 @@ data:
             }
           ],
           "options": {
+            "barRadius": 0,
+            "barWidth": 0.52,
+            "groupWidth": 0.7,
             "legend": {
               "calcs": [],
               "displayMode": "list",
               "placement": "bottom",
               "showLegend": true
             },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "normal",
             "tooltip": {
               "mode": "single",
               "sort": "none"
-            }
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 100
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -1199,14 +1197,17 @@ data:
                 "uid": "P2C3F6ECC774D80E6"
               },
               "editorMode": "builder",
+              "exemplar": false,
               "expr": "count by (current_version) (aus_cluster_upgrade_policy_info{current_version!=\"\"})",
+              "instant": false,
+              "interval": "1d",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
           ],
           "title": "Cluster versions (AUS)",
-          "type": "timeseries"
+          "type": "barchart"
         },
         {
           "collapsed": false,
