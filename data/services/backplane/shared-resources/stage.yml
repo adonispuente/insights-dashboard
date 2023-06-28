@@ -38,13 +38,13 @@ openshiftResources:
     - 52.70.201.140
     # bastion-nasa-2.ops.openshift.com
     - 52.6.0.240
-    # squid.corp.redhat.com sin2
+    # squid.corp.redhat.com backends
     - 209.132.188.14
-    # squid.corp.redhat.com iad2
+    - 209.132.189.136
+    - 209.132.189.152
+    - 209.132.178.49
+    - 209.132.189.136
+    - 209.132.186.24
     - 209.132.179.1
-    # squid.corp.redhat.com rdu2
     - 66.187.233.202
-    # squid.corp.redhat.com ams2
     - 209.132.186.246
-    # file.rdu.redhat.com
-    - 66.187.233.202
