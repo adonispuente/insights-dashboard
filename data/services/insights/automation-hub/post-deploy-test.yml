@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage-tests.yml
-    ref: a314e119a4ca86c481c29d79a0e50f390bdfd344
+    ref: c74586f78f42831f29e81e8493e62953ff9eea59
     promotion:
       auto: true
       subscribe:
@@ -45,7 +45,7 @@ resourceTemplates:
       - channel: automation-hub-stage-deploy-success-channel
         data:
         - parent_saas: automation-hub-clowder
-          target_config_hash: 3f142e5c40807e23
+          target_config_hash: 80b7ebe6101102a4
           type: parent_saas_config
     parameters:
       IQE_MEMORY_REQUEST: 100Mi
