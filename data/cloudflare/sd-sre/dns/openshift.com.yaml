@@ -4805,13 +4805,6 @@ records:
   value: ptnr-6955-master-72142693.ap-southeast-2.elb.amazonaws.com.
   proxied: false
   priority: 0
-- name: identity.api.stage.openshift.com
-  identifier: cname-identity-api-stage-openshift-com
-  type: CNAME
-  ttl: 300
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
 - name: metrics.snowman.openshift.com
   identifier: cname-metrics-snowman-openshift-com
   type: CNAME
@@ -7856,13 +7849,6 @@ records:
   type: CNAME
   ttl: 900
   value: evg-infra-2006188620.us-east-1.elb.amazonaws.com.
-  proxied: false
-  priority: 0
-- name: identity.api.openshift.com
-  identifier: cname-identity-api-openshift-com
-  type: CNAME
-  ttl: 300
-  value: elb.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com.
   proxied: false
   priority: 0
 - name: metrics.sectest-use1-04.openshift.com
