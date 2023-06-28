@@ -17,6 +17,10 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/stonesoup/roles/stonesoup.yml
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/osd-operators/cicd/saas/saas-rhtap-rules.yaml
 
 access:
 - namespace:
