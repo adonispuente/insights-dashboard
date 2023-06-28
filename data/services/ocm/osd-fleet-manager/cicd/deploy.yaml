@@ -410,7 +410,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -472,7 +472,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -536,7 +536,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -598,7 +598,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -659,7 +659,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-incidentrehearsal
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -673,7 +673,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-migrationtesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       publish:
@@ -685,7 +685,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2ac897490c03d5e5edf28eb9f84c9ff6db17de41
+    ref: 2b4297ffb715a1af9f4690d9bbb87398ff6db07e
     promotion:
       auto: true
       subscribe:
