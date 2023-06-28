@@ -847,12 +847,25 @@ data:
               "editorMode": "code",
               "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\"}[24h]))",
               "interval": "1d",
-              "legendFormat": "merge requests",
+              "legendFormat": "all merge requests",
               "range": true,
-              "refId": "merge requests"
+              "refId": "all merge requests"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P2C3F6ECC774D80E6"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\",self_service=\"False\"}[24h]))",
+              "hide": false,
+              "interval": "1d",
+              "legendFormat": "non self-serviceable merge requests",
+              "range": true,
+              "refId": "non self-serviceable merge requests"
             }
           ],
-          "title": "Number of merge requests merged",
+          "title": "Merge Requests self-service (Hybrid SRE)",
           "type": "timeseries"
         },
         {
