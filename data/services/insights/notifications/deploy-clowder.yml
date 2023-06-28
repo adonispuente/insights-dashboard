@@ -53,14 +53,6 @@ resourceTemplates:
     # populated by bonfire
     ref: internal
     parameters:
-      # These deprecated Floorist parameters are here to avoid any dependant
-      # applications to run into issues when deploying Notifications to
-      # ephemeral, since we are still transitioning to the new Floorist
-      # operator and Bonfire might pick up an old ref which requires them.
-      # For more information, check: https://issues.redhat.com/browse/RHCLOUD-25863
-      FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-ephemeral
-      FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
-      FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'true'
       DB_NAME: notifications-backend
       DB_SECRET_HOSTNAME_KEY: hostname
@@ -108,8 +100,6 @@ resourceTemplates:
     ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
     parameters:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
-      FLOORIST_IMAGE_TAG: 2a0fbe6 # 2023-05-11
-      FLOORIST_SCHEDULE: 0 6 * * *
       FLOORIST_SUSPEND: 'false'
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 1Gi
