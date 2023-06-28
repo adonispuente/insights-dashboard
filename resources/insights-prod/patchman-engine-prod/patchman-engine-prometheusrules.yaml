@@ -48,7 +48,8 @@ spec:
         message: 'Upload evaluation delay increased ({{ $value }}s)'
         runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/patchman/PatchmanAlertEvalDelay.md'
       labels:
-        severity: high
+        # TODO: evaluate as this alert is triggering multiple times a day w/o any action since over a week
+        severity: medium
         service: insights
         env: prod
         app_team: patch
