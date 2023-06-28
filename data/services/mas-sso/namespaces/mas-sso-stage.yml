@@ -64,6 +64,7 @@ externalResources:
       maintenance_window: wed:05:56-wed:06:26
       engine_version: '12.7'
       apply_immediately: true
+      deletion_protection: false
     enhanced_monitoring: true
   - provider: s3
     identifier: mas-sso-s3-resource
