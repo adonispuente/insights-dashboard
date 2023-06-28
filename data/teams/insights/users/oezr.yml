@@ -21,6 +21,7 @@ roles:
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/insights/roles/aws/stage-app-developers.yml
 - $ref: /teams/insights/roles/aws/prod-app-developers.yml
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
 
 public_gpg_key: |
   mDMEY0AJQBYJKwYBBAHaRw8BAQdAvyCEmn7nVYAqkR9RJTvdQNWGKmfwUv0l9rlvUKruTCG0KU9u

@@ -12,3 +12,4 @@ quay_username: dguhr
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml

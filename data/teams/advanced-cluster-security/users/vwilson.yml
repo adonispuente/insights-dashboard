@@ -9,3 +9,4 @@ github_username: vjwilson
 
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
+  - $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
