@@ -14,3 +14,4 @@ roles:
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/managed-services/roles/devexps.yml
 - $ref: /teams/ciam/roles/ciam-s-client-integration-team.yml
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml

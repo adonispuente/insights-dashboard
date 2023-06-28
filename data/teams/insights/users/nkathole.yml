@@ -16,6 +16,7 @@ roles:
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/insights/roles/insights-qe.yml
 - $ref: /teams/ocm/roles/ocm-telemeter.yml
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
 
 public_gpg_key: |
   mDMEYKpVwxYJKwYBBAHaRw8BAQdAmowCmSsaMclcLCmFooQOH+T/Cdqua02csnp4

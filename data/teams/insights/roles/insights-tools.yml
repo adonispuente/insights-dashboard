@@ -66,6 +66,7 @@ self_service:
   - $ref: /teams/insights/roles/insights-view-all-namespaces.yml
   - $ref: /teams/insights/roles/auth-only.yml
   - $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
+  - $ref: /teams/insights/roles/crcd-dev-jenkins-editors.yml
 - change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:

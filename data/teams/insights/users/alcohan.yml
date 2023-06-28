@@ -24,7 +24,7 @@ roles:
 - $ref: /teams/insights/roles/marketplace-gateway.yml
 - $ref: /teams/insights/roles/platform-changelog.yml
 - $ref: /teams/insights/roles/export-service.yml
-
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
 
 public_gpg_key: |
   mQINBF8h1S4BEADZ/ep7gL66KRyZb7aPfstire6qlHw1dmYv3EGTDOCK6gGdjBK2VdMdFkiQVl6ax5nFFQUy5jZEakNdF+7VktO/O1t/ewwOQsfUR7z800j7mmVwesqQzHW/0zF08FPDm2HJp8kOmyGsoRYVqXiztwFsWD5yv1

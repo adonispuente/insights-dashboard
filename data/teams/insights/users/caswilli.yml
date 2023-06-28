@@ -23,6 +23,7 @@ roles:
 - $ref: /teams/insights/roles/ephemeral-users.yml
 - $ref: /teams/insights/roles/backoffice-proxy.yml
 - $ref: /teams/insights/roles/devprod.yml
+- $ref: /teams/insights/roles/insights-tools.yml
 
 public_gpg_key: |
   mQINBF/8ajsBEADhxjBbGtNj9Px734JC+FYlIKAq9HOc7QiItZJzN16O68WJ8lmY
