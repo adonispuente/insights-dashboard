@@ -340,10 +340,10 @@ resourceTemplates:
 
 ### Test Namespace Selector
 
-Use the CLI command `saas-namespace-selector` to verify the namespace selector and review the selected namespace. It shows the complete target list with all selected namespaces and resolved Jinja variables. E.g., for the `prometheus` example above:
+Use the CLI command `saas-targets` to verify the namespace selector and review the selected namespace. It shows the complete target list with all selected namespaces and resolved Jinja variables. E.g., for the `prometheus` example above:
 
 ```bash
-$ qontract-cli --config config.toml saas-namespace-selector --app-name app-sre-observability --saas-name saas-app-sre-observability-per-cluster
+$ qontract-cli --config config.toml saas-targets --app-name app-sre-observability --saas-file-name saas-app-sre-observability-per-cluster
 
 targets:
 ...
