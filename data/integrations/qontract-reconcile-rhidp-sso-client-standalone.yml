@@ -19,7 +19,7 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/ocm
+    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
     #                        app-sre-stage               app-sre-prod
     logs:
       slack: true
@@ -33,7 +33,7 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/ocm
+    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
     #                        app-sre-stage               app-sre-prod
     logs:
       slack: true
