@@ -7,11 +7,12 @@ labels:
 name: Trayvon McKnight
 org_username: tmcknigh
 github_username: TrayvonMcKnight
+quay_username: rhn-sqe-tmcknigh
 
 roles:
 - $ref: /teams/insights/roles/rhsm.yml
 - $ref: /teams/insights/roles/rhsm-api-proxy.yml
 - $ref: /teams/insights/roles/insights-qe.yml
 - $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/ephemeral-users.yml
-
