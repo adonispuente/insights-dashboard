@@ -404,7 +404,7 @@ At this point you should be able to access the cluster via the console / `oc` cl
 
 1. Configure a [deadmanssnitch](https://deadmanssnitch.com/) snitch for the new cluster. The snitch settings should be as follow:
     - Name: prometheus.<cluster_name>.devshift.net
-    - Alert type: Basic
+    - Alert type: Heartbeat
     - Interval: 15 min
     - Tags: app-sre
     - Alert email: sd-app-sre@redhat.com

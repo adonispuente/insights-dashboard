@@ -23,8 +23,6 @@ ocm:
 managedGroups:
 - dedicated-admins
 
-# managedClusterRoles: true
-
 spec:
   product: rosa
   account:
@@ -65,6 +63,7 @@ jumpHost:
 
 network:
   type: OVNKubernetes
+  # vpc_id = vpc-02e1602b47285215a
   vpc: 10.170.40.0/22
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
@@ -107,5 +106,7 @@ peering:
     manageRoutes: true
     manageSecurityGroups: true
 
-# observabilityNamespace:
-#   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep03ue1.yml
+managedClusterRoles: true
+
+observabilityNamespace:
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep03ue1.yml
