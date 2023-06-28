@@ -32,7 +32,7 @@ resourceTemplates:
     namespaceSelector:
       jsonPathSelectors:
         include:
-          - namespace[?(@.cluster.name=~"hive.*" & @.name=="integration-.*")]
+          - namespace[?(@.cluster.name=~"hive.*" & @.name=~"integration-.*")]
     ref: main
     parameters:
       REGION: us-west-2
