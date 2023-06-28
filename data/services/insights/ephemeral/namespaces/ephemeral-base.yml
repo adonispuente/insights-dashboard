@@ -51,7 +51,7 @@ openshiftResources:
   type: kubernetes.io/dockerconfigjson
   name: quay-cloudservices-pull
 - provider: vault-secret
-  path: insights/secrets/perf/quay
+  path: insights/secrets/perf/quay/rhcloudperfscale-experiment-toolbox-puller
   version: 2
   type: kubernetes.io/dockerconfigjson
   name: rhcloudperfscale-experiment-toolbox-puller
