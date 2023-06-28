@@ -7,7 +7,7 @@ name: osd-experience
 description: Namespace for resources to provision resources required to create an OSD experience
 
 cluster:
-  $ref: /openshift/backplanes03ue1/cluster.yml
+  $ref: /openshift/backplanes04uw2/cluster.yml
 
 app:
   $ref: /services/app-sre/app.yml
@@ -20,7 +20,7 @@ managedExternalResources: true
 externalResources:
 - provider: aws
   provisioner:
-    $ref: /aws/app-sre-rosa/account.yml
+    $ref: /aws/sd-infra-stage-01/account.yml
   resources:
   # Mocking the network-mgmt role of the OSD AWS Infrastructure Access feature
   # And providing the role defined in `assume_role` permissions to assume
@@ -28,7 +28,7 @@ externalResources:
   # Since this is a ROSA cluster, we create the role in the containing AWS account.
   # This is replacing the `awsInfrastructureAccess` feature in app-interface.
   - provider: aws-iam-role
-    identifier: network-mgmt-backplanes03ue1
+    identifier: network-mgmt-backplanes04uw2
     # users that are allowed to assume this role
     assume_role:
       AWS:
@@ -38,8 +38,6 @@ externalResources:
       - arn:aws:iam::644306948063:user/terraform
       # osd-bastion-stage
       - arn:aws:iam::010745826683:user/terraform
-      # app-sre/backplane-vpc-backplanes03ue1 allows hive to associate hostedzones
-      - arn:aws:iam::950916221866:user/backplane-vpc-backplanes03ue1
     # copied (and modified) with love from
     # https://github.com/openshift/aws-account-operator/blob/84b11ddceb6baa5a2ee4fae56ce6fe686b415db8/hack/olm-registry/olm-artifacts-template.yaml#L105-L269
     inline_policy:
@@ -262,27 +260,6 @@ externalResources:
             "Effect": "Allow",
             "Action": "autoscaling:Describe*",
             "Resource": "*"
-          }
-        ]
-      }
-
-  - provider: aws-iam-service-account
-    identifier: backplanes03ue1-hypershift-aws-vpce-operator
-    output_resource_name: backplanes03ue1-hypershift-aws-vpce-operator
-    user_policy:
-      {
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Sid": "AVOAssociatedVPC",
-            "Effect": "Allow",
-            "Action": [
-              "ec2:DescribeVpcs",
-              "route53:AssociateVPCWithHostedZone"
-            ],
-            "Resource": [
-              "*"
-            ]
           }
         ]
       }
