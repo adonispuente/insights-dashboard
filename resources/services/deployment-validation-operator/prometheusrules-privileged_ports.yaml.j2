@@ -27,7 +27,11 @@ spec:
         service: deployment-validation-operator
         app: {{{ namespace.app.name }}}
         severity: medium
+        {{%- if namespace.app.escalationPolicy.channels.jiraComponent %}}
+        jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}/{{{ namespace.app.escalationPolicy.channels.jiraComponent }}}
+        {{%- else %}}
         jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}
+        {{%- endif %}}
     {{%- endif %}}
     {{%- endif %}}
     {{%- endfor %}}
