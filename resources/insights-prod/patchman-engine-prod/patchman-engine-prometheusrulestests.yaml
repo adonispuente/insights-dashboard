@@ -87,7 +87,7 @@ tests:
         message: 'Upload evaluation delay increased (8333s)'
         runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/patchman/PatchmanAlertEvalDelay.md'
       exp_labels:
-        severity: high
+        severity: medium
         service: insights
         env: prod
         app_team: patch
