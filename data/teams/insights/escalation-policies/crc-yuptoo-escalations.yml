@@ -19,6 +19,7 @@ channels:
 
   jiraBoard:
   - $ref: /teams/insights/jira/rhineng.yaml
+  jiraComponent: Satellite Integration
 
   nextEscalationPolicy:
     $ref: /teams/insights/escalation-policies/crc-ma-escalations.yml
