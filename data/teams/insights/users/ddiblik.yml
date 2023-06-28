@@ -1,0 +1,15 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Daniel Diblik
+org_username: ddiblik
+github_username: danmyway
+quay_username: ddiblik
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/insights-qe.yml
