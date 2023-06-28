@@ -1,0 +1,51 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: fedramp-customer-interest
+  platform: insights
+
+name: fedramp-customer-interest
+
+description: |
+ The FedRAMP customer interest service translates customer interest in FedRAMP to ServiceNow incidents
+
+architectureDocument: https://TODO
+sopsUrl: https://TODO
+grafanaUrls:
+- title: https://TODO
+  url: https://TODO
+onboardingStatus: InProgress
+
+parentApp:
+  $ref: /services/insights/app.yml
+
+serviceOwners:
+- name: Ecosystem AppEng
+  email: ecosystem-appeng@redhat.com
+
+escalationPolicy:
+  $ref: /teams/swat/escalation-policies/general-policy.yml
+
+dependencies:
+- $ref: /dependencies/ci-int/service.yml
+- $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/openshift/service.yml
+
+quayRepos:
+- org:
+    $ref: /dependencies/quay/cloudservices.yml
+  items:
+  - name: fedramp-customer-interest
+    public: false
+    description: Repo for the fedramp-customer-interest service
+codeComponents:
+- name: fedramp-customer-interest
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
