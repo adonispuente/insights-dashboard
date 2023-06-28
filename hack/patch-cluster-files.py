@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from pathlib import Path
 from typing import Generator
 from typing import OrderedDict

@@ -75,7 +75,7 @@ exit_status=$?
 set -e
 
 # Write report
-python ./$CURRENT_DIR/gen-report.py ${RESULTS} > ${REPORT}
+python3 ./$CURRENT_DIR/gen-report.py ${RESULTS} > ${REPORT}
 echo "Report written to: ${REPORT}"
 
 # Exit if there was a validation error
@@ -87,7 +87,7 @@ echo "$CONFIG_TOML" | base64 -d > ${TEMP_DIR}/config.toml
 ./$CURRENT_DIR/manual_reconcile.sh ${TEMP_DIR}/validate/data.json ${TEMP_DIR}/config.toml ${IS_TEST_DATA} || exit_status=$?
 
 # Write report
-python ./$CURRENT_DIR/gen-report.py ${RESULTS} $TEMP_DIR/reports > ${REPORT}
+python3 ./$CURRENT_DIR/gen-report.py ${RESULTS} $TEMP_DIR/reports > ${REPORT}
 echo "Report written to: ${REPORT}"
 
 # Exit if there was an error
@@ -113,7 +113,7 @@ exit_status=$?
 set -e
 
 # Write report
-python ./$CURRENT_DIR/gen-report.py ${RESULTS} > ${REPORT}
+python3 ./$CURRENT_DIR/gen-report.py ${RESULTS} > ${REPORT}
 echo "Report written to: ${REPORT}"
 
 # Exit if there was a validation error
@@ -125,7 +125,7 @@ echo "$CONFIG_TOML" | base64 -d > ${TEMP_DIR}/config.toml
 ./$CURRENT_DIR/manual_reconcile.sh ${TEMP_DIR}/validate-test-data/data.json ${TEMP_DIR}/config.toml ${IS_TEST_DATA} || exit_status=$?
 
 # Write report
-python ./$CURRENT_DIR/gen-report.py ${RESULTS} $TEMP_DIR/reports-test-data > ${REPORT}
+python3 ./$CURRENT_DIR/gen-report.py ${RESULTS} $TEMP_DIR/reports-test-data > ${REPORT}
 echo "Report written to: ${REPORT}"
 
 exit $exit_status
