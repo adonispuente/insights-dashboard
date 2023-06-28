@@ -18,7 +18,7 @@ channels:
     - yupana-team@redhat.com
 
   jiraBoard:
-  - $ref: /teams/insights/jira/yuptoo.yaml
+  - $ref: /teams/insights/jira/rhineng.yaml
 
   nextEscalationPolicy:
     $ref: /teams/insights/escalation-policies/crc-ma-escalations.yml
