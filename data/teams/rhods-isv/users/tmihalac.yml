@@ -9,4 +9,6 @@ github_username: tmihalac
 quay_username: tmihalac
 
 roles: 
-- $ref: /teams/rhods-isv/roles/app-sre-vault-rhods.yml 
+- $ref: /teams/rhods-isv/roles/app-sre-vault-rhods.yml
+- $ref: /teams/swat/roles/dev.yml
+- $ref: /teams/swat/roles/appeng-keycloak-slack.yml
