@@ -33,8 +33,7 @@ resourceTemplates:
   url: https://github.com/ansible/galaxy_ng
   targets:
   - namespace:
-      $ref: 
-        /services/insights/automation-hub/namespaces/stage-automation-hub-stage-tests.yml
+      $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage-tests.yml
     ref: a314e119a4ca86c481c29d79a0e50f390bdfd344
     promotion:
       auto: true
@@ -46,7 +45,7 @@ resourceTemplates:
       - channel: automation-hub-stage-deploy-success-channel
         data:
         - parent_saas: automation-hub-clowder
-          target_config_hash: df67579e43b286c4
+          target_config_hash: d5bda149c83691fa
           type: parent_saas_config
     parameters:
       IQE_MEMORY_REQUEST: 100Mi
