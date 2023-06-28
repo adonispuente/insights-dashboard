@@ -29,6 +29,7 @@ config:
         branch: main
         status_context: ci.ext.devshift.net PR build (smoke tests)
         concurrent_build: true
+        disabled: true
     - "insights-gh-build-master":
         display_name: koku build-main
         branch: main
