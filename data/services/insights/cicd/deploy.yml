@@ -24,6 +24,9 @@ managedResourceTypes:
 imagePatterns:
 - quay.io/cloudservices
 
+parameters:
+  NAMESPACE_URL: https://console-openshift-console.apps.appsrep05ue1.zqxk.p1.openshiftapps.com/k8s/ns/s3-data-sync
+
 resourceTemplates:
 - name: s3-data-sync
   path: /deploy.yaml
@@ -36,4 +39,4 @@ resourceTemplates:
     parameters:
       NAME: hccm-s3-sync
       SECRET_NAME: hccm-s3-sync
-      CRON_SCHEDULE: 0 17 * * *
+      CRON_SCHEDULE: 30 18 * * *
