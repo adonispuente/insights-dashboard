@@ -287,7 +287,7 @@ resourceTemplates:
   url: https://github.com/project-koku/nise-populator
   targets:
   - namespace:
-     $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
+      $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
     ref: f287775b29c7189c6cd0636830c9cce3d91f303f
     parameters:
       CPU_REQUEST: 250m
