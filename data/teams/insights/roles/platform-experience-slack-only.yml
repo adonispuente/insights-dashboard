@@ -3,7 +3,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: platform-experience
+name: platform-experience-slack-only
 
 permissions:
 # slack
