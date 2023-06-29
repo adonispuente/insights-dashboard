@@ -23,3 +23,5 @@ openshiftResources:
     path: /rhobs/logs/loki-operator-subscription.yaml
   - provider: resource
     path: /setup/tempo/tempo-operator.subscription.yaml
+  - provider: resource
+    path: /setup/otel/otel-operator.subscription.yaml
