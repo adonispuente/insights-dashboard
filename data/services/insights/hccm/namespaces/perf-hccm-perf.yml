@@ -86,7 +86,7 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
-  path: insights/secrets/insights-stage/hccm-stage/koku-sentry
+  path: insights/secrets/insights-stage/hccm-prod/koku-sentry
   version: 1
   annotations:
     qontract.recycle: "true"
