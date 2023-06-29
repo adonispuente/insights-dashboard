@@ -78,7 +78,7 @@ resourceTemplates:
       SCHEMA_REGISTRY_SECRET_NAME: "service-registry-stage"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: 0422723322bffa016c2e1dab5e73e6b3005cb774
+    ref: d974fb796fde4f83c1664a5946e20b3c7d5855fe
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
@@ -220,7 +220,7 @@ resourceTemplates:
       CONNECT_CLUSTER_NAMESPACE: "xjoin-stage"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: 0422723322bffa016c2e1dab5e73e6b3005cb774
+    ref: d974fb796fde4f83c1664a5946e20b3c7d5855fe
     parameters:
       KAFKA_CLUSTER_NAMESPACE: "platform-mq-prod"
       CONNECT_CLUSTER_NAMESPACE: "xjoin-prod"
