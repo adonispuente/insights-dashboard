@@ -23,6 +23,7 @@
           jiraBoard {
             name
           }
+          jiraComponent
         }
       }
     }

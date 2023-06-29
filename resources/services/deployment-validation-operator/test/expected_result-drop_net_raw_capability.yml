@@ -57,7 +57,7 @@ spec:
       for: 1m
       labels:
         app: app-metadata-tests
-        jiralert: TEST
+        jiralert: TEST/app-metadata
         service: deployment-validation-operator
         severity: medium
     - alert: deployment_validation_operator_drop_net_raw_capability
