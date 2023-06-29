@@ -33,7 +33,7 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
-  name: iib-services-config
+  name: iib-preview-services-config
   path: hacbs/hacbs-internal-services/iib/iib-preview-services-config
   version: 1
   type: Opaque
