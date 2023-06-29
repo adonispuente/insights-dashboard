@@ -52,7 +52,11 @@ spec:
         {{%- else %}}
         severity: high
         {{%- endif %}}
+        {{%- if namespace.app.escalationPolicy.channels.jiraComponent %}}
+        jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}/{{{ namespace.app.escalationPolicy.channels.jiraComponent }}}
+        {{%- else %}}
         jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}
+        {{%- endif %}}
       expr: predict_linear(aws_rds_burst_balance_average{dbinstance_identifier="{{{ tfr.identifier }}}"}[15m], 3600 * 9) <= 0
       for: 1h
       annotations:
@@ -69,7 +73,11 @@ spec:
         {{%- else %}}
         severity: high
         {{%- endif %}}
+        {{%- if namespace.app.escalationPolicy.channels.jiraComponent %}}
+        jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}/{{{ namespace.app.escalationPolicy.channels.jiraComponent }}}
+        {{%- else %}}
         jiralert: {{{ namespace.app.escalationPolicy.channels.jiraBoard[0].name }}}
+        {{%- endif %}}
       expr: predict_linear(aws_rds_free_storage_space_average{dbinstance_identifier="{{{ tfr.identifier }}}"}[1h], 3600 * 9) < 0
       for: 1h
       annotations:

@@ -25,7 +25,7 @@ spec:
       for: 1m
       labels:
         app: app-metadata-tests
-        jiralert: TEST
+        jiralert: TEST/app-metadata
         service: app-sre-contract
         severity: medium
     - alert: IncorrectMetadataSOPsUrl
@@ -44,6 +44,6 @@ spec:
       for: 1m
       labels:
         app: app-metadata-tests
-        jiralert: TEST
+        jiralert: TEST/app-metadata
         service: app-sre-contract
         severity: medium
