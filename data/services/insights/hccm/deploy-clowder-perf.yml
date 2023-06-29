@@ -81,7 +81,7 @@ resourceTemplates:
       _MIGRATION_DIRECTIVE: ""
       ######################################
       APP_DOMAIN: apps.crcp01ue1.o9m8.p1.openshiftapps.com
-      ROS_OCP_API: ros-ocp-backend-api.ros-perf.svc.cluster.local
+      ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
       S3_BUCKET_NAME: hccm-perf-s3
       S3_ROS_BUCKET_NAME: hccm-ros-perf-s3
       KOKU_SENTRY_ENV: perf
