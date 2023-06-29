@@ -41,7 +41,7 @@ acceptanceCriteria:
 - comment: 'SOPs need SRE review: https://github.com/stackrox/acs-managed-service-runbooks/tree/master/sops'
   name: INCIDENT-MGMT-0007
   status: green
-- comment: 'Work in progress: https://issues.redhat.com/browse/MTSRE-1084'
+- comment: 'Work in progress and depending on the Addon deployed to Dataplane clusters: https://issues.redhat.com/browse/MTSRE-1084'
   name: INCIDENT-MGMT-0008
   status: yellow
 - comment: ''
@@ -92,9 +92,9 @@ acceptanceCriteria:
 - comment: 'Does not apply.'
   name: RELIABILITY-0005
   status: green
-- comment: '[Exception Required] Upgrades of ACS versions will disrupt the service because Central is single-replica. Product has made a decision not to block GA on the refactor to make Central horizontally scalable.'
+- comment: 'https://issues.redhat.com/browse/ROX-17882 Upgrades of ACS versions will disrupt the service because Central is single-replica. Product has made a decision not to block GA on the refactor to make Central horizontally scalable.'
   name: RELIABILITY-0006
-  status: red
+  status: yellow
 - comment: 'Checked'
   name: RELIABILITY-0007
   status: green
