@@ -29,7 +29,11 @@ spec:
         service: app-sre-contract
         app: {{{ app.name }}}
         severity: medium
+        {{%- if app.escalationPolicy.channels.jiraComponent %}}
+        jiralert: {{{ app.escalationPolicy.channels.jiraBoard[0].name }}}/{{{ app.escalationPolicy.channels.jiraComponent }}}
+        {{%- else %}}
         jiralert: {{{ app.escalationPolicy.channels.jiraBoard[0].name }}}
+        {{%- endif %}}
     {{%- endif %}}
     {{%- endif %}}
     # end architectureDocument
@@ -49,7 +53,11 @@ spec:
         service: app-sre-contract
         app: {{{ app.name }}}
         severity: medium
+        {{%- if app.escalationPolicy.channels.jiraComponent %}}
+        jiralert: {{{ app.escalationPolicy.channels.jiraBoard[0].name }}}/{{{ app.escalationPolicy.channels.jiraComponent }}}
+        {{%- else %}}
         jiralert: {{{ app.escalationPolicy.channels.jiraBoard[0].name }}}
+        {{%- endif %}}
     {{%- endif %}}
     {{%- endif %}}
     # end sopsUrl
