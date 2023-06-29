@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels:
+  service: fedramp-customer-interest
+
+name: fedramp-customer-interest-owner
+
+permissions: []
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/insights/fedramp-customer-interest/app.yml
