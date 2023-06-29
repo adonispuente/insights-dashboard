@@ -294,3 +294,4 @@ resourceTemplates:
       CPU_LIMIT: 500m
       POPULATE_SCHEDULE: "0 11 * * *"
       POPULATE_SOURCES: "ocp"
+
