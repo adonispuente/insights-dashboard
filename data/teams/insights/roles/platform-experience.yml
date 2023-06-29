@@ -60,3 +60,4 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/platform-experience.yml
+  - $ref: /teams/insights/roles/platform-experience-slack-only.yml

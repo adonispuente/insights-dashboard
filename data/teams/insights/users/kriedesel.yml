@@ -8,7 +8,10 @@ name: Katie Riedesel
 org_username: kriedese
 github_username: katiewinriedesel
 
+tag_on_merge_requests: true
+
 roles:
 - $ref: /teams/insights/roles/crc-escalation.yml
-- $ref: /teams/insights/roles/platform-experience.yml
-
+- $ref: /services/observability/roles/observability-access.yml
+- $ref: /teams/insights/roles/platform-experience-slack-only.yml
+- $ref: /teams/insights/roles/rhcloud-owner.yml
