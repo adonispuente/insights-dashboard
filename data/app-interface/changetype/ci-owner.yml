@@ -39,7 +39,7 @@ changes:
     when: added
 - provider: change-type
   changeTypes:
-  - $ref: /app-interface/changetype/resource-owner.yml
+  - $ref: /app-interface/changetype/jenkins-config-owner.yml
+  changeSchema: /dependencies/jenkins-config-1.yml
   context:
-    where: backrefs
-    selector: config_path
+    selector: app.'$ref'
