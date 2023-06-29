@@ -37,3 +37,9 @@ changes:
   context:
     selector: app.'$ref'
     when: added
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/jenkins-config-owner.yml
+  changeSchema: /dependencies/jenkins-config-1.yml
+  context:
+    selector: app.'$ref'
