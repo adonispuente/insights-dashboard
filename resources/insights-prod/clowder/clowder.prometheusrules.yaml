@@ -112,8 +112,7 @@ spec:
           dashboard: "https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus"
           message: "Clowder's reconciliation time has exceeded 4 seconds"
       - alert: ClowderWorkQueueDepth
-        expr: 1 - sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[28d])) by (name) < 0.90
-        for: 5m
+        expr: 1 - sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m])) < 0.90
         labels:
           severity: medium
           service: insights
