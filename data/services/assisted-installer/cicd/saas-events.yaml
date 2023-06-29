@@ -181,7 +181,7 @@ resourceTemplates:
       IMAGE_NAME: quay.io/app-sre/assisted-events-stream
       KAFKA_GROUP_ID: enriched-event-projection-stage
       LOG_LEVEL: debug
-      REPLICAS_COUNT: 3
+      REPLICAS_COUNT: 4
       ZOOKEEPER_CONNECT_STRING_SECRET_NAME: assisted-installer-msk
       ZOOKEEPER_CONNECT_STRING_SECRET_KEY: zookeeper_connect_string_tls
       ZOOKEEPER_TLS: "true"
