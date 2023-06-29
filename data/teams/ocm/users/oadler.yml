@@ -18,6 +18,7 @@ roles:
 - $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
 - $ref: /teams/ocm/roles/ocm-stage-unleash-admin.yml
 - $ref: /teams/ocm/roles/uhc-clusters-service-approver.yml
+- $ref: /teams/ocm/roles/route53-reader.yml
 
 public_gpg_key: |
   mQINBGGThkMBEACgMuS/SUMIR82rAduE+b/cUkFvPtsOEjUTYWFtPGJA+7DAO7fGrSxxQkAs1qdB
