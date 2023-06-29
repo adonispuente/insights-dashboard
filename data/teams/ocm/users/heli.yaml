@@ -11,3 +11,4 @@ quay_username: heli
 roles:
 - $ref: /teams/ocm/roles/dev.yml
 - $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
+- $ref: /teams/ocm/roles/ocm-qe.yml
