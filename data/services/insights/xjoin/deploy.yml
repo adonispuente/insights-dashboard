@@ -84,7 +84,7 @@ resourceTemplates:
       HEARTBEAT_SCHEDULE: '@daily'
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-    ref: &xjoin-search-prod-ref 429dbeef262f0c9d37ef2f2d1ba3aafd00e92add
+    ref: &xjoin-search-prod-ref 4decbe3d4a0e771dabbf0b30fabc518167d910ca
     parameters:
       CPU_REQUESTS: 500m
       CPU_LIMITS: 2
