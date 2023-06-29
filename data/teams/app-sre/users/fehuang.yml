@@ -12,6 +12,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-nasa-slack.yml
 - $ref: /teams/app-sre/roles/app-sre-stream-2-slack.yml
+- $ref: /teams/insights/roles/s3-data-sync.yml
 
 public_gpg_key: |
   mQINBF5igOMBEACcWb6XbwKgexnubCEECQQ8mXXAJkq8gVNxP6LUEmfLGYjL+JLj

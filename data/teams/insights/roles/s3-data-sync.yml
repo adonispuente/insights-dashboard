@@ -1,0 +1,26 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: s3-data-sync
+
+permissions: []
+
+access:
+- namespace:
+    $ref: /services/insights/cicd/namespaces/s3-data-sync.yml
+  role: view
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/insights/cicd/deploy.yml
+- change_type:
+    $ref: /app-interface/changetype/namespace-owner.yml
+  datafiles:
+  - $ref: /services/insights/cicd/namespaces/s3-data-sync.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/insights/roles/s3-data-sync.yml
