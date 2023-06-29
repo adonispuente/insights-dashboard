@@ -22,6 +22,7 @@ channels:
 
   jiraBoard:
   - $ref: /teams/insights/jira/host-inventory.yaml
+  jiraComponent: config-manager
 
   nextEscalationPolicy:
     $ref: /teams/insights/escalation-policies/general.yml
