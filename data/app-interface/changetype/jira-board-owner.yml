@@ -1,0 +1,23 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: jira-board-owner
+description: |
+  Owners of jira boards can approve updates to boards to to referencing resources.
+
+priority: low
+
+contextType: datafile
+contextSchema: /dependencies/jira-board-1.yml
+
+changes:
+- provider: jsonPath
+  changeSchema: /app-sre/escalation-policy-1.yml
+  jsonPathSelectors:
+  - channels.jiraBoard[?(@.'$ref'=='{{ ctx_file_path }}')]
+  - channels.jiraComponent
+  context:
+    selector: channels.jiraBoard[*].'$ref'
+    when: added
