@@ -410,6 +410,7 @@ channels:
 
   jiraBoard:
   - $ref: /teams/<teamname>/jira/<boardname>.yml
+  jiraComponent: <component to use in tickets> # optional
 
   pagerduty:
     $ref: /dependencies/pagerduty/<teamname>-oncall.yml
