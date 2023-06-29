@@ -19,3 +19,10 @@ changes:
   context:
     where: backrefs
     selector: config_path
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: config_path
+    when: added
