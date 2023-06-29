@@ -56,8 +56,6 @@ spec:
       pullSecrets:
       - namespace: ephemeral-base
         name: quay-cloudservices-pull
-      - namespace: ephemeral-base
-        name: rhcloudperfscale-experiment-toolbox-puller
       testing:
         k8sAccessLevel: edit
         configAccess: environment
