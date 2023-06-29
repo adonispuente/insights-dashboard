@@ -96,11 +96,6 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
-  path: insights/secrets/insights-stage/hccm-stage/koku-secret
-  version: 1
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
   path: insights/secrets/insights-stage/hccm-stage/hadoop-config
   version: 1
   annotations:
