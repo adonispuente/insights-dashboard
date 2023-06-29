@@ -36,7 +36,7 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
     parameters:
-      CHANNEL: candidate
+      CHANNEL: development
       RESOURCE_REQUEST_CPU: 100m
       RESOURCE_LIMIT_CPU: 200m
       RESOURCE_REQUEST_MEMORY: 512Mi
