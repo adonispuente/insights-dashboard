@@ -35,7 +35,7 @@ for each cluster:
         create a ticket on violated DVO metrics
 ```
 
-Each alert includes a `jiralert` label, which will tell Jiralert where to route the alert (now ticket) according to the service [escalation policy](./README.md#define-an-escalation-policy-for-a-service).
+Each alert includes a `jiralert` label, which will tell Jiralert where to route the alert (now ticket) according to the service [escalation policy](./README.md#define-an-escalation-policy-for-a-service). Additional information on AppSRE's usage of Jiralert can be found [here](/docs/app-sre/jiralert.md).
 
 ## Metrics
 

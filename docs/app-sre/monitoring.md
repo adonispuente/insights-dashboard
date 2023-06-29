@@ -261,7 +261,7 @@ You have to declare a receiver, i.e., a slack channel to which alerts can be rou
 
 Routing paths can be unexpected. It is highly recommended to [verify the routing rules](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/alert-to-receiver.md).
 
-An alert may be routed to a Jira ticket by setting the `jiralert` alert label. The value of the label can either be a name of a board in jira, such as `APPSRE`, or a combination of a board and a component, such as `PROJQUAY/quay.io`.
+An alert may be routed to a Jira ticket by setting the `jiralert` alert label. The value of the label can either be a name of a board in jira, such as `APPSRE`, or a combination of a board and a component, such as `PROJQUAY/quay.io`. Additional information on AppSRE's usage of Jiralert can be found [here](/docs/app-sre/jiralert.md).
 
 ### Recommended Alerts
 
