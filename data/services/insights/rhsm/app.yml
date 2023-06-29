@@ -26,18 +26,8 @@ escalationPolicy:
 serviceOwners:
 - name: Subscription Experience Team
   email: subscription-experience@redhat.com
-- name: Kevin Howell
-  email: khowell@redhat.com
-- name: Alex Wood
-  email: awood@redhat.com
-- name: Michael Stead
-  email: mstead@redhat.com
-- name: Jesse Harrison
-  email: jharriso@redhat.com
-- name: Barnaby Court
-  email: bcourt@redhat.com
-- name: Lindsey Burnett
-  email: lburnett@redhat.com
+- name: Subscription Watch Developer List
+  email: swatch-dev@redhat.com
 
 dependencies:
 - $ref: /dependencies/aws/service.yml
