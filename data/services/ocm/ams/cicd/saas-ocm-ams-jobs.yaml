@@ -685,6 +685,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      CRON_SCHEDULE: '*/10 * * * *'
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -697,6 +698,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      CRON_SCHEDULE: '*/10 * * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -710,6 +712,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      CRON_SCHEDULE: '*/10 * * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -723,6 +726,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      CRON_SCHEDULE: '*/10 * * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
