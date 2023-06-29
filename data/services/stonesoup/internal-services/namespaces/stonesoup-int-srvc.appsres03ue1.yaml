@@ -33,6 +33,20 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
+  name: iib-services-config
+  path: hacbs/hacbs-internal-services/iib/iib-preview-services-config
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: fbc-preview-publishing-credentials
+  path: hacbs/hacbs-internal-services/fbc/preview/publishing-credentials
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
   name: iib-overwrite-fromimage-credentials
   path: stonesoup/staging/release/quay/hacbs-release-tests_iib-pub
   version: 1
