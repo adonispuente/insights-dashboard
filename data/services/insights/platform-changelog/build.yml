@@ -29,9 +29,6 @@ config:
     - "insights-gh-build-master":
         display_name: platform-changelog-go build-master
         branch: main
-    - "insights-gh-pr-check":
-        display_name: platform-changelog-go pr-check
-        branch: main
     - "insights-gh-pipeline":
         display_name: 'platform-changelog-go pipeline'
         branch: main
@@ -47,9 +44,6 @@ config:
     jobs:
     - "insights-gh-build-master":
         display_name: platform-changelog-ui build-master
-        branch: main
-    - "insights-gh-pr-check":
-        display_name: platform-changelog-ui pr-check
         branch: main
     - "insights-gh-pipeline":
         display_name: 'platform-changelog-ui pipeline'
