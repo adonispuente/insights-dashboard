@@ -36,6 +36,10 @@ dependencies:
 quayRepos:
 - org:
     $ref: /dependencies/quay/cloudservices.yml
+  teams:
+  - permissions:
+    - $ref: /dependencies/quay/permissions/quay-membership-swat.yml
+    role: read
   items:
   - name: fedramp-customer-interest
     public: false
