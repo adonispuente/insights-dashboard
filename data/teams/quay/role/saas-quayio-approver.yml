@@ -20,6 +20,7 @@ self_service:
   - $ref: /services/quayio/saas/quay-db-jobs.yaml
   - $ref: /services/quayio/saas/opensearch-dashboards-proxy.yaml
   - $ref: /services/quayio/saas/quay-dashboards.yaml
+  - $ref: /services/clair/saas/clair-db-jobs.yaml
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:

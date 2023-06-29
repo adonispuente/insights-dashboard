@@ -1,0 +1,51 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: clair
+
+name: clair-db-jobs
+description: Various db tasks that enable us to modify the Clair DBs without using direct access.
+
+app:
+  $ref: /services/clair/app.yml
+
+pipelinesProvider:
+  $ref: /services/quayio/pipelines/tekton.quayio-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: oncall-quay
+
+managedResourceTypes:
+- Job
+
+imagePatterns:
+- quay.io/app-sre/clair
+
+authentication:
+  code:
+    path: app-sre/creds/github-app-sre-bot
+    field: openshift-saas-deploy
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+parameters:
+  IMAGE: "quay.io/app-sre/clair"
+
+resourceTemplates:
+- name: clair-db-jobs
+  path: /contrib/openshift/manifests/db-job.yaml
+  url: https://github.com/quay/clair
+  targets:
+  - namespace:
+      $ref: /services/clair/namespaces/stage.yml
+    ref: 44638edf5b99ddcc7c73b8313557f200469228d4
+    parameters:
+      JOB_NAME: "test-job"
+      SUBCOMMAND: "pre"
+      VERSION: "4.7.0"
+      CONFIG_NAME: "clair-db-jobs-config"
+      IMAGE: "quay.io/app-sre/clair"
