@@ -17,9 +17,7 @@ This document describes the process of upgrading these components.
 ## cert-manager Operator
 
 1. Check release notes for the new version of cert-manager operator, [example](https://docs.openshift.com/container-platform/4.13/security/cert_manager_operator/cert-manager-operator-release-notes.html)
-1. Create a new subscription, [example](/resources/cert-manager/openshift-cert-manager-operator-stable-v1.subscription.yaml)
-1. Update to use new subscription in clusters, [example](data/openshift/appsres03ue1/namespaces/cert-manager-operator.yml)
-1. Delete unused subscription
+1. Update channels mapping in [openshift-cert-manager-operator.subscription.j2](/resources/cert-manager/openshift-cert-manager-operator.subscription.j2)
 
 ## Event Router
 
