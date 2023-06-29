@@ -25,6 +25,7 @@ channels:
 
   jiraBoard:
   - $ref: /teams/quay/jira/projquay.yaml
+  jiraComponent: clair
 
   pagerduty:
     $ref: /dependencies/pagerduty/quay-oncall.yml
