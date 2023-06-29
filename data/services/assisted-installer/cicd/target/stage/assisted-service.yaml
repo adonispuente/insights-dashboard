@@ -347,7 +347,7 @@ parameters:
         "version": "4.14.0-ec.2-multi"
       },
       {
-        "openshift_version": "4.14",
+        "openshift_version": "4.14-nightly",
         "cpu_architecture": "x86_64",
         "cpu_architectures": [
           "x86_64"
