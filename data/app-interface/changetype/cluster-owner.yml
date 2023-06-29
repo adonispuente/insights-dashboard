@@ -15,45 +15,12 @@ contextSchema: /openshift/cluster-1.yml
 changes:
 - provider: change-type
   changeTypes:
-  - $ref: /app-interface/changetype/saas-file-namespace-target-self-service.yml
-  changeSchema: /openshift/namespace-1.yml
+  - $ref: /app-interface/changetype/cluster-owner-namespace-admin.yml
   context:
     selector: cluster.'$ref'
-- provider: jsonPath
-  changeSchema: /openshift/namespace-1.yml
-  jsonPathSelectors:
-  - labels
-  - name
-  - description
-  - app
-  - environment
-  - grafanaUrl
-  - limitRanges
-  - quota
-  - networkPoliciesAllow
-  - managedRoles
-  - managedResourceTypes
-  - openshiftResources
-  - externalResources[*].resources
-  context:
-    selector: cluster.'$ref'
-- provider: jsonPath
-  changeSchema: /openshift/namespace-1.yml
-  jsonPathSelectors:
-  - labels
-  - name
-  - description
-  - cluster
-  - app
-  - environment
-  - grafanaUrl
-  - limitRanges
-  - quota
-  - networkPoliciesAllow
-  - managedRoles
-  - managedResourceTypes
-  - openshiftResources
-  - externalResources[*].resources
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/cluster-owner-namespace-admin.yml
   context:
     selector: cluster.'$ref'
     when: added

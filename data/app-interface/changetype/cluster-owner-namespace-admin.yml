@@ -1,0 +1,65 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: cluster-owner-namespace-admin
+description: |
+  Higher level change permission on namespaces for cluster owners.
+
+priority: high
+
+contextType: datafile
+contextSchema: /openshift/namespace-1.yml
+
+changes:
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/saas-file-namespace-target-self-service.yml
+  changeSchema: /openshift/namespace-1.yml
+  context:
+    selector: cluster.'$ref'
+- provider: jsonPath
+  changeSchema: /openshift/namespace-1.yml
+  jsonPathSelectors:
+  - labels
+  - name
+  - description
+  - app
+  - environment
+  - grafanaUrl
+  - limitRanges
+  - quota
+  - networkPoliciesAllow
+  - managedRoles
+  - managedResourceTypes
+  - openshiftResources
+  - externalResources[*].resources
+  context:
+    selector: cluster.'$ref'
+- provider: jsonPath
+  changeSchema: /openshift/namespace-1.yml
+  jsonPathSelectors:
+  - labels
+  - name
+  - description
+  - cluster
+  - app
+  - environment
+  - grafanaUrl
+  - limitRanges
+  - quota
+  - networkPoliciesAllow
+  - managedRoles
+  - managedResourceTypes
+  - openshiftResources
+  - externalResources[*].resources
+  context:
+    selector: cluster.'$ref'
+    when: added
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: openshiftResources[?(@.provider=="resource")].path
