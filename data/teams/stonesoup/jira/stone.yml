@@ -12,3 +12,4 @@ severityPriorityMappings:
   $ref: /dependencies/jira/severity-priority-mappings/major-major.yml
 
 issueResolveState: Closed
+issueReopenState: New
