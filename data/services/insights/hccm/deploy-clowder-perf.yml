@@ -69,7 +69,7 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Performance
       # Migrations Image Tag
-      DBM_IMAGE_TAG: bf68f02
+      DBM_IMAGE_TAG: c4a98f1
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -264,7 +264,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 60979fa2e2d326f8ac32a47b7ed75cc4bfb24860
+    ref: d2172aa56f0c2a3dd14784b58b3919a927fd4b6c
     parameters:
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
       REPLICAS: 1
@@ -279,18 +279,19 @@ resourceTemplates:
       S3_SCHEDULE: "0 19 * * *"
       WEEKLY_REPORT_SCHEDULED_DAY: "3"
 
-  #- name: nise-populator
+- name: nise-populator
   # repo deploy file: https://github.com/project-koku/nise-populator/blob/main/deploy/clowdapp.yaml
   # container image: quay.io/cloudservices/nise-populator
   # container repo:  https://quay.io/repository/cloudservices/nise-populator
-  #path: /deploy/clowdapp.yaml
-  #url: https://github.com/project-koku/nise-populator
-  #targets:
-  #- namespace:
-  #    $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-  #  ref: 66d67ed148f49cf775a9bd681bb0ad865943018d
-  #  parameters:
-  #    CPU_REQUEST: 250m
-  #    CPU_LIMIT: 500m
-  #    POPULATE_SCHEDULE: "0 11 * * *"
-  #    POPULATE_SOURCES: "ocp"
+  path: /deploy/clowdapp.yaml
+  url: https://github.com/project-koku/nise-populator
+  targets:
+  - namespace:
+      $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
+    ref: f287775b29c7189c6cd0636830c9cce3d91f303f
+    parameters:
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      POPULATE_SCHEDULE: "0 11 * * *"
+      POPULATE_SOURCES: "ocp"
+
