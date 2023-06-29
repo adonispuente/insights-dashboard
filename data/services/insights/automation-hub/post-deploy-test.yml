@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage-tests.yml
-    ref: c74586f78f42831f29e81e8493e62953ff9eea59
+    ref: 8948803c51b9168a7e6f8b7c11df3d7e4a54ed4e
     promotion:
       auto: true
       subscribe:
