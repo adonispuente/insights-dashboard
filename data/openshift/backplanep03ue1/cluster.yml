@@ -70,6 +70,15 @@ network:
 
 internal: false
 
+upgradePolicy:
+  workloads:
+  - backplane
+  schedule: 0 14 * * 1-4
+  conditions:
+    soakDays: 12
+    mutexes:
+    - backplane
+
 peering:
   connections:
   # Jenkins and the internal app-sre bastion
