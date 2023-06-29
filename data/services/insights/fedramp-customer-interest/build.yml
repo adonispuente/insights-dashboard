@@ -25,6 +25,8 @@ config:
     quay_org: cloudservices
     jobs:
     - 'gl-build-master':
-        display_name: fedramp-customer-interest build master
+        display_name: fedramp-customer-interest build main
+        branch: main
     - 'gl-pr-check':
         display_name: fedramp-customer-interest pr-check
+        branch: main
