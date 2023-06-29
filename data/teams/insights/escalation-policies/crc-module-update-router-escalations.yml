@@ -20,5 +20,6 @@ channels:
   - insights-platform@redhat.com
   jiraBoard:
   - $ref: /teams/insights/jira/host-inventory.yaml
+  jiraComponent: module-update-router
   nextEscalationPolicy:
     $ref: /teams/insights/escalation-policies/general.yml
