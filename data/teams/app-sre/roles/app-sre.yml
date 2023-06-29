@@ -277,6 +277,10 @@ sendgrid_accounts:
 
 self_service:
 - change_type:
+    $ref: /app-interface/changetype/change-type-admin.yml
+- change_type:
+    $ref: /app-interface/changetype/self-service-admin.yml
+- change_type:
     $ref: /app-interface/changetype/rds-maintainer.yml
   datafiles:
   - $ref: /services/dashdot/namespaces/app-sre-stage-01.yml

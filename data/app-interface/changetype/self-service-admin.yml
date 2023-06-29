@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: self-service-admin
+description: |
+  Allow updates to the self-service sections of roles.
+
+priority: low
+
+contextType: datafile
+contextSchema: /access/role-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - self_service
