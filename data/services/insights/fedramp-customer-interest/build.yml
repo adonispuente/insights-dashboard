@@ -22,9 +22,9 @@ config:
     node: insights
     gl_group: service
     gl_project: fedramp-customer-interest-service
-    quay_org: app-sre
+    quay_org: cloudservices
     jobs:
-    - 'gl-build-master-fedramp-customer-interest':
+    - 'gl-build-master':
         display_name: fedramp-customer-interest build master
-    - 'gl-pr-check-fedramp-customer-interest':
+    - 'gl-pr-check':
         display_name: fedramp-customer-interest pr-check
