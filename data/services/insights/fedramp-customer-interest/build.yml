@@ -19,7 +19,7 @@ config:
 - project:
     name: fedramp-customer-interest
     label: insights
-    node: insights
+    node: rhel8
     gl_group: service
     gl_project: fedramp-customer-interest-service
     quay_org: cloudservices
