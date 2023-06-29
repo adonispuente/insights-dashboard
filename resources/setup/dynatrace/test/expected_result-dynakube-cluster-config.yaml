@@ -10,7 +10,7 @@
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: dynakube-v3
+  name: dynakube-v4
   namespace: dynatrace
   annotations:
     feature.dynatrace.com/automatic-kubernetes-api-monitoring: "true"
@@ -26,6 +26,10 @@ spec:
       - --set-host-group=test-cluster
       - --set-host-tag=cluster-owner=app-sre
       - --set-host-tag=cluster-name=test-cluster
+      - --set-host-tag=rh.cluster.owner=app-sre
+      - --set-host-tag=rh.cluster.name=test-cluster
+      - --set-host-tag=k8s.cluster.name=test-cluster
+      - --set-host-tag=dt.kubernetes.cluster.name=test-cluster
       - --set-infra-only=true
       tolerations:
         - effect: NoSchedule
