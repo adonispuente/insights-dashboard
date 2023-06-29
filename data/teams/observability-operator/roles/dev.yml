@@ -17,3 +17,8 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/osd-operators/observability-operator/app.yaml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/observability-operator/roles/dev.yml
+  - $ref: /teams/observability-operator/roles/oncall.yml
