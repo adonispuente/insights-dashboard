@@ -141,7 +141,7 @@ cat "$CONFIG_TOML" \
 ## Run integrations on local server
 
 # run integrations based on their pr_check definitions
-python $CURRENT_DIR/select-integrations.py ${DATAFILES_BUNDLE} ${IS_TEST_DATA} > $TEMP_DIR/integrations.sh
+python3 $CURRENT_DIR/select-integrations.py ${DATAFILES_BUNDLE} ${IS_TEST_DATA} > $TEMP_DIR/integrations.sh
 exit_status=$?
 if [ $exit_status != 0 ]; then
   exit $exit_status
