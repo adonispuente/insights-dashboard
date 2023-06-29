@@ -419,6 +419,13 @@ resourceTemplates:
       ENVIRONMENT: integration
       EXTERNAL_URL: https://prometheus.backplanei02ue1.devshift.net
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
+    parameters:
+      CLUSTER_LABEL: backplanes04uw2
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://prometheus.backplanes04uw2.devshift.net
+    ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
 
 # Alertmanager
 - name: alertmanager
@@ -730,4 +737,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: integration
       EXTERNAL_URL: https://alertmanager.backplanei02ue1.devshift.net
+    ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
+    parameters:
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://alertmanager.backplanes04uw2.devshift.net
     ref: ab64b1ac3262dad5d653ea595b2b9d8058fa5ae0
