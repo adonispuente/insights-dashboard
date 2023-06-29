@@ -757,7 +757,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 538f9d41a310d003cf9661044d112ea4afc023d5
+    ref: 8cb28dd87354415b43db774976eac9abd41cf2ae
 
 - name: grafana-dashboard-insights-content-template-renderer
   url: https://github.com/RedHatInsights/insights-content-template-renderer
