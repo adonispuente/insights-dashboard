@@ -57,8 +57,8 @@ openshiftResources:
   path: /insights-perf/hccm/koku-monitoring.configmap.yaml
 - provider: resource
   path: /insights-perf/hccm/koku-processor.configmap.yaml
-- provider: resource
-  path: /insights-perf/hccm/koku-upload.configmap.yml
+    #- provider: resource
+    #  path: /insights-perf/hccm/koku-upload.configmap.yml
 # secrets
 - provider: vault-secret
   path: insights/secrets/insights-stage/hccm-stage/koku-aws
