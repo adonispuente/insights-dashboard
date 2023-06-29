@@ -27,6 +27,13 @@ openshiftResources:
     secret_name: backplanep02uw2-aws-vpce-operator
 - provider: resource-template
   type: jinja2
+  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
+  variables:
+    hypershift_cluster_type: management-cluster
+    secret_name: backplanep03ue1-hypershift-aws-vpce-operator
+
+- provider: resource-template
+  type: jinja2
   path: /services/osd-operators/hypershift-vpcendpointtemplate.selectorsyncset.yaml.j2
   variables:
     name: "backplane-prod"
@@ -39,6 +46,10 @@ openshiftResources:
       - id: "vpc-062d496f58dd06fc8"
         region: "us-west-2"
         secret_name: "backplanep02uw2-aws-vpce-operator"
+      - id: "vpc-02e1602b47285215a"
+        region: "us-east-1"
+        secret_name: "backplanep03ue1-hypershift-aws-vpce-operator"
+
 - provider: resource-template
   type: jinja2
   path: /services/osd-operators/aws-vpce-operator-transit-resources.selectorsyncset.yaml.j2

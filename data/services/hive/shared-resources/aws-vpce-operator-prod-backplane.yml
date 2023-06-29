@@ -15,3 +15,7 @@ openshiftResources:
   path: osd-sre/backplane/hypershift/backplanep02uw2
   version: 1
   name: backplanep02uw2-aws-vpce-operator
+- provider: vault-secret
+  path: app-sre/integrations-output/terraform-resources/backplanep03ue1/osd-experience/backplanep03ue1-hypershift-aws-vpce-operator
+  version: 1
+  name: backplanep03ue1-hypershift-aws-vpce-operator
