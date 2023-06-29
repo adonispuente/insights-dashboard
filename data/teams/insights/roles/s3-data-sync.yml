@@ -15,7 +15,7 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
-  - $ref: /services/insights/cicd/deploy.yml
+  - $ref: /services/insights/cicd/s3-data-sync.yml
 - change_type:
     $ref: /app-interface/changetype/namespace-owner.yml
   datafiles:
