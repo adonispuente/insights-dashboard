@@ -61,15 +61,6 @@ openshiftResources:
   path: /insights-perf/hccm/koku-upload.configmap.yml
 # secrets
 - provider: vault-secret
-  path: insights/secrets/global/rh-registry-pull
-  version: 2
-  type: kubernetes.io/dockerconfigjson
-- provider: vault-secret
-  path: insights/quay/quay.io
-  version: 3
-  type: kubernetes.io/dockerconfigjson
-  name: quay-cloudservices-pull
-- provider: vault-secret
   path: insights/secrets/insights-stage/hccm-stage/koku-aws
   version: 2
   annotations:
