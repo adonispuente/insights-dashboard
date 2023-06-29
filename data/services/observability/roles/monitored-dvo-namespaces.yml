@@ -46,6 +46,9 @@ access:
     $ref: /openshift/backplanep03ue1/namespaces/openshift-deployment-validation-operator.yml
   role: view
 - namespace:
+    $ref: /openshift/backplanes04uw2/namespaces/openshift-deployment-validation-operator.yml
+  role: view
+- namespace:
     $ref: /openshift/backplanes01ue1/namespaces/openshift-deployment-validation-operator.yml
   role: view
 - namespace:

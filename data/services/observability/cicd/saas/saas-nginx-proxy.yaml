@@ -317,3 +317,9 @@ resourceTemplates:
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hst02ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hst02ue1.devshift.net
+  - namespace:
+      $ref: /openshift/backplanes04uw2/namespaces/app-sre-observability-per-cluster.yml
+    ref: master
+    parameters:
+      ALERTMANAGER_SERVER_NAME: alertmanager.backplanes04uw2.devshift.net
+      PROMETHEUS_SERVER_NAME: prometheus.backplanes04uw2.devshift.net

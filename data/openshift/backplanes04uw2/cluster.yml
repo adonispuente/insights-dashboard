@@ -128,3 +128,6 @@ disable:
   - openshift-groups
   - openshift-users
   - slack-usergroups
+managedClusterRoles: true
+observabilityNamespace:
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
