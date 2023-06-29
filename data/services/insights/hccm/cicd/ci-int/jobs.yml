@@ -24,7 +24,4 @@ config:
     gh_org: project-koku
     gh_repo: koku
     quay_org: cloudservices
-    jobs:
-    - 'insights-hccm-s3-sync':
-        display_name: 'insights-hccm-s3-sync'
-        cron_expression: '0 23 * * *'
+    jobs: []

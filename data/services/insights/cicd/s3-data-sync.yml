@@ -39,4 +39,5 @@ resourceTemplates:
     parameters:
       NAME: hccm-s3-sync
       SECRET_NAME: hccm-s3-sync
-      CRON_SCHEDULE: 30 18 * * *
+      CRON_SCHEDULE: 0 23 * * *
+      DRY_RUN: "false"
