@@ -20,5 +20,5 @@ managedRoles: true
 
 openshiftResources:
 - provider: vault-secret
-  path: insights/secrets/s3-sync/hccm-s3-sync
+  path: insights/secrets/insights-prod/hccm-prod/hccm-s3-sync
   version: 1
