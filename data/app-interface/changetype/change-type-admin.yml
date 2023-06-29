@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: change-type-admin
+description: |
+  Allow updates on change-types
+
+priority: low
+
+contextType: datafile
+contextSchema: /app-interface/change-type-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - $
