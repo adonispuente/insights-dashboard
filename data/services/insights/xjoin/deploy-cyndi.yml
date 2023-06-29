@@ -75,7 +75,7 @@ resourceTemplates:
       CONNECTOR_TOPIC: "platform-mq-stage.platform.inventory.events"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-    ref: 9630ea30ddea2362d6e3685b5f2014ad2387adda
+    ref: 9994a7a04e70f5acb006889e372b96ec34a70a03
     parameters:
       REFRESH: "1664974151"
       SSL_MODE: require
