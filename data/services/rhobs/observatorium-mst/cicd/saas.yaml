@@ -359,6 +359,8 @@ resourceTemplates:
           tenants:
             1b9b6e43-9128-4bbf-bfff-3c120bbe6f11: # rhacs
               head_series_limit: 10000000 # 10M
+            0fc2b00e-201b-4c17-b9f2-19d91adc4fd2: # rhobs
+              head_series_limit: 20000 # 20k while current count is 25k
       THANOS_RULE_SYNCER_IMAGE_TAG: main-2022-09-14-338f9ec
       THANOS_RULER_CPU_LIMIT: '4'
       THANOS_RULER_CPU_REQUEST: '4'
