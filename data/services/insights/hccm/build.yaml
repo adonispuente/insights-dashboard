@@ -45,6 +45,7 @@ config:
         branch: main
         trigger_exclude_path: 'docs/.*\n.*\.adoc'
         status_context: ci.ext.devshift.net PR pipeline
+        concurrent_build: true
 
 - project:
     name: koku-daily
