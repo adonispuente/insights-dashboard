@@ -531,8 +531,8 @@ resourceTemplates:
         DEVTEST_EVENT_EDITING_ENABLED: true
         ENABLE_ACCOUNT_RESET: true
         USER_HOST: user.stage.api.redhat.com
-        CPU_LIMIT: 1
-        CPU_REQUEST: 500m
+        CPU_LIMIT: 2
+        CPU_REQUEST: 2
         MEMORY_REQUEST: 1200Mi
         MEMORY_LIMIT: 4096Mi
         REPLICAS: 3
