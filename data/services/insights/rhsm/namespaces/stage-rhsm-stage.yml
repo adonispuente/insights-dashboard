@@ -22,6 +22,9 @@ networkPoliciesAllow:
 - $ref: /services/insights/turnpike/namespaces/stage-turnpike-stage.yml
 - $ref: /services/insights/sources/namespaces/stage-sources-stage.yml
 
+quota:
+  $ref: /services/insights/rhsm/rhsm-quota.yml
+
 managedRoles: true
 
 managedResourceTypes:
