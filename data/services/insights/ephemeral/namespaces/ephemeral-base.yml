@@ -50,6 +50,11 @@ openshiftResources:
   version: 3
   type: kubernetes.io/dockerconfigjson
   name: quay-cloudservices-pull
+- provider: vault-secret
+  path: insights/secrets/perf/quay/rhcloudperfscale-experiment-toolbox-puller
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: rhcloudperfscale-experiment-toolbox-puller
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-common/iqe-vault.secret.yaml
