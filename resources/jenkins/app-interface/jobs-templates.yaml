@@ -82,7 +82,7 @@
         - *app_interface_state
     publishers:
     - git:
-        push-merge: false
+        push-merge: true
         push-only-if-success: true
         branches:
         - branch:
