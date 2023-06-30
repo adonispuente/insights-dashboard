@@ -87,3 +87,8 @@ where `<instance-id>` is shown in Jenkins UI, e.g. `i-08c2168b1bb67b8eb`
 Once you have the IP, you can use your own RedHat user to log in.
 
 As a quick workaround, you can use the [dynamic inventory](https://gitlab.cee.redhat.com/app-sre/infra/-/blob/master/ansible/hosts/aws_ec2_host.json) used by the Housekeeping jobs to find the IP of a host.
+
+Note: steps to access ci.ext Jenkins agents
+
+1. `sshuttle -r ci.ext.ssh.devshift.net 192.168.16.0/20`
+2. `ssh <jenkins-agent-ip>`
