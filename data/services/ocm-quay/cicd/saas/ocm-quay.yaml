@@ -27,8 +27,8 @@ managedResourceTypes:
 - Deployment
 - Service
 - ServiceAccount
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - Job
 
 imagePatterns:

@@ -20,8 +20,8 @@ slack:
 
 managedResourceTypes:
 - ServiceAccount
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - DeploymentConfig
 - Deployment
 - Service
@@ -81,4 +81,3 @@ resourceTemplates:
     ref: 16ab519afccb425322f317767341079f388c1d28
     parameters:
       REDIRECTOR_DESTINATION: https://grafana.app-sre.devshift.net
-

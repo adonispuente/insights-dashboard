@@ -29,8 +29,8 @@ slack:
   channel: team-clouddot-info
 
 managedResourceTypes:
-- ClusterRole
-- ClusterRoleBinding
+- ClusterRole.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 - ConfigMap
 - CronJob
 - Deployment

@@ -25,8 +25,8 @@ managedRoles: true
 managedResourceTypes:
 - ServiceAccount
 - ConfigMap
-# - Role
-# - RoleBinding
+# - Role.rbac.authorization.k8s.io
+# - RoleBinding.rbac.authorization.k8s.io
 - Secret
 
 openshiftResources:

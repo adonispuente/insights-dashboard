@@ -36,8 +36,8 @@ managedResourceTypes:
 - Service
 - StatefulSet
 - ConfigMap
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 - PodDisruptionBudget
 - PersistentVolumeClaim
@@ -119,5 +119,3 @@ resourceTemplates:
           secret:
             path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-loki
             field: endpoint
-
-

@@ -34,12 +34,12 @@ managedResourceTypes:
 - CustomResourceDefinition
 - Deployment
 - Service
-- ClusterRole
-- Role
+- ClusterRole.rbac.authorization.k8s.io
+- Role.rbac.authorization.k8s.io
 - ConfigMap
 - ServiceAccount
-- RoleBinding
-- ClusterRoleBinding
+- RoleBinding.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 
 authentication:
   image:

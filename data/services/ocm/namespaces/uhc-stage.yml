@@ -24,8 +24,8 @@ managedResourceTypes:
 - ConfigMap
 - Secret
 - ServiceAccount
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml

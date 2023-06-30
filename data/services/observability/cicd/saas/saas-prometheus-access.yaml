@@ -20,7 +20,7 @@ slack:
 
 managedResourceTypes:
 - ServiceAccount
-- RoleBinding
+- RoleBinding.rbac.authorization.k8s.io
 
 imagePatterns:
 - quay.io/app-sre
@@ -84,4 +84,3 @@ resourceTemplates:
     ref: master
     parameters:
       SERVICE_ACCOUNT_NAME: consoledot-metrics
-    
