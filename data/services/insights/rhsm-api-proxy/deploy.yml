@@ -109,10 +109,12 @@ resourceTemplates:
       KAFKA_BACKOFF_MAX_FAILURE: '3'
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/prod-rhsm-api-proxy-prod.yml
-    ref: aa09c5c368dc438860d38f4a43facdfd3bb02c4c
+    ref: 0b0ab435374dd289d2a62006b2dc9b67f71ca95c
     parameters:
-      RHSM_SERVICE_URL: https://api.rhsm.redhat.com/v1/cloud_access_providers/
+      RHSM_SERVICE_URL: https://api.rhsm.redhat.com/v1/cloud_access_providers
       USER_SERVICE_URL: https://user.api.redhat.com
+      KAFKA_BACKOFF_INTERVAL: '1'
+      KAFKA_BACKOFF_MAX_FAILURE: '3'
   # Delete from the rhsm namespace
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
