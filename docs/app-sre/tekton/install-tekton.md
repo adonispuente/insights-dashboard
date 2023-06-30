@@ -29,6 +29,7 @@ managedResourceTypes:
 - Subscription.operators.coreos.com
 
 openshiftResources:
-- provider: resource
-  path: /tekton/openshift-pipelines-operator-rh-1-9.subscription.yaml
+- provider: resource-template
+  type: jinja2
+  path: /tekton/openshift-pipelines-operator-rh.subscription.j2
 ```
