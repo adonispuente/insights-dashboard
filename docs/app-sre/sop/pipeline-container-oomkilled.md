@@ -47,13 +47,15 @@ $ oc get TaskRun -o json ccx-dat4fd84d114d19e4d7a89246262d10708a-push-deploy-eve
 - Now get `Pipeline` name
 ```bash
 $ oc get PipelineRun -o json ccx-data-pipeline-clowder-app-sre-stage-202306141441 | jq '.metadata.labels."tekton.dev/pipeline"'
-"o-openshift-saas-deploy-ccx-data-pipeline-clowder"
+"o-saas-deploy-ccx-data-pipeline-clowder"
 ```
 
 The next steps are independent of where you found the `Pipeline` name
 
-- In `app-interface` search for a saas-file with name equals the `Pipeline` name minus `o-openshift-saas-deploy-`. i. e. `o-openshift-saas-deploy-ccx-data-pipeline-clowder` is defined by the saas file with `name: ccx-data-pipeline-clowder`.
+- In `app-interface` search for a saas-file with name equals the `Pipeline` name minus `o-saas-deploy-`. i. e. `o-saas-deploy-ccx-data-pipeline-clowder` is defined by the saas file with `name: ccx-data-pipeline-clowder`.
 - Compare `deployResources` in the saas file with our [default value](https://gitlab.cee.redhat.com/service/app-interface/-/blob/051facc49398c4815332363c079d99cd5f575770/data/pipelines/tekton-provider-global-defaults.yaml#L56) if current deployResources is smaller than default, then remove deployResources section, otherwise bump memory limit.
+
+After new `deployResources` applied, rerun the failed pipeline if needed.
 
 ### Stopping the alert
 
