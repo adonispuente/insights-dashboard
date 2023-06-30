@@ -89,6 +89,29 @@ config:
         commands: 'clusters-network quay-mirrors ocm-aws-infrastructure-access-switch-role-links terraform-users-credentials clusters namespaces version-history cluster-upgrade-policies clusters-aws-account-ids cluster-openshift-resources aws-terraform-resources app-interface-review-queue app-interface-merge-queue app-interface-merge-history app-interface-open-selfserviceable-mr-queue ocm-fleet-upgrade-policies ocm-addon-upgrade-policies change-types'
 
 - project:
+    name: sd-app-sre-alert-report
+    label: app-interface
+    node: app-sre
+    gl_group: service
+    gl_project: app-interface-output
+    jobs:
+    - 'app-interface-output-single-command-run':
+        display_name: sd-app-sre-alert-report 1 day
+        single_command: 'sd-app-sre-alert-report --days 1'
+        output_file: 'sd-app-sre-alert-report-1-day.md'
+        cron_expression: 'H 6,13 * * *'
+    - 'app-interface-output-single-command-run':
+        display_name: sd-app-sre-alert-report 7 day
+        single_command: 'sd-app-sre-alert-report --days 7'
+        output_file: 'sd-app-sre-alert-report-7-day.md'
+        cron_expression: 'H 0 * * 1'
+    - 'app-interface-output-single-command-run':
+        display_name: sd-app-sre-alert-report 7 day
+        single_command: 'sd-app-sre-alert-report --days 30'
+        output_file: 'sd-app-sre-alert-report-30-day.md'
+        cron_expression: 'H 0 * * *'
+
+- project:
     name: container-images-internal
     label: app-interface
     node: app-sre

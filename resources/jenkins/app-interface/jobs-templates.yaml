@@ -98,6 +98,37 @@
     cron_expression: H/10 * * * *
     <<: *gl_timed
 
+- job-template:
+    id: 'app-interface-output-single-command-run'
+    job_name: 'app-interface-output-single-command-run'
+    name: '{job_name}'
+    commands: ''
+    wrappers:
+    - timestamps
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *reconcile_toml
+        - *app_interface_state
+    publishers:
+    - git:
+        push-merge: false
+        push-only-if-success: true
+        branches:
+        - branch:
+            name: "master"
+    parameters:
+    - string:
+        name: QONTRACT_RECONCILE_IMAGE
+        default: '{qontract_reconcile_image|quay.io/app-sre/qontract-reconcile}'
+    - string:
+        name: SINGLE_COMMAND
+        default: '{single_command}'
+    - string:
+        name: OUTPUT_FILE
+        default: '{output_file}'
+    cron_expression: '{cron_expression}'
+    <<: *gl_timed
 
 
 # this job template is a copy of gl-pr-check-app-interface but with
