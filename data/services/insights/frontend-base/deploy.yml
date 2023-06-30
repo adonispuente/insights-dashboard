@@ -20,12 +20,12 @@ managedResourceTypes:
 - Deployment
 - DeploymentConfig
 - Service
-- ClusterRole.rbac.authorization.k8s.io
-- Role.rbac.authorization.k8s.io
+- ClusterRole
+- Role
 - ConfigMap
 - ServiceAccount
-- RoleBinding.rbac.authorization.k8s.io
-- ClusterRoleBinding.rbac.authorization.k8s.io
+- RoleBinding
+- ClusterRoleBinding
 - Frontend
 - Bundle
 
