@@ -17,6 +17,7 @@ managedTeams:
 - appsre
 - cloudsre
 - automationanalytics
+- swat
 
 automationToken:
   path: insights/quay/cloudservices-adminbot
