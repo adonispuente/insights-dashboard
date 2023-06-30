@@ -48,7 +48,7 @@ config:
         display_name: storage-broker pr-check
     - "insights-gh-pipeline":
         display_name: 'storage-broker pipeline'
-        branch: main
+        branch: master
         concurrent_build: true
         status_context: ci.int.devshift.net PR pipeline
     - "insights-gh-build-master":
@@ -73,7 +73,7 @@ config:
         display_name: ingress pr-check
     - "insights-gh-pipeline":
         display_name: 'ingress pipeline'
-        branch: main
+        branch: master
         concurrent_build: true
         status_context: ci.int.devshift.net PR pipeline
     - "insights-gh-build-master":
