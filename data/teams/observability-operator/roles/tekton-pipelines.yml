@@ -1,0 +1,22 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: observability-operator-pipelines
+
+permissions: []
+
+# Observability operator is deployed by the osd-operators pipeline running on the appsrep05ue1 cluster.
+access:
+- namespace:
+    $ref: /services/osd-operators/namespaces/osd-operators-pipelines.appsrep05ue1.yaml
+  role: view
+- namespace:
+    $ref: /services/osd-operators/namespaces/osd-operators-pipelines.appsrep05ue1.yaml
+  role: tekton-trigger-access
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/observability-operator/roles/tekton-pipelines.yml
