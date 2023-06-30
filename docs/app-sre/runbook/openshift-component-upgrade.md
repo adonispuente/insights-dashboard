@@ -10,9 +10,7 @@ This document describes the process of upgrading these components.
 ## OpenShift Pipelines
 
 1. Check release notes for the new version of OpenShift Pipelines, [example](https://docs.openshift.com/container-platform/4.13/cicd/pipelines/op-release-notes.html)
-1. Create a new subscription, [example](/resources/tekton/openshift-pipelines-operator-rh-1-9.subscription.yaml)
-1. Update to use new subscription in clusters, [example](data/openshift/appsres03ue1/namespaces/openshift-operators.yaml)
-1. Delete unused subscription
+1. Update channels mapping in [openshift-pipelines-operator-rh.subscription.j2](/resources/tekton/openshift-pipelines-operator-rh.subscription.j2)
 
 ## cert-manager Operator
 
