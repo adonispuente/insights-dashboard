@@ -80,6 +80,7 @@
         secrets:
         - *reconcile_toml
         - *app_interface_state
+        - *app_sre_bot_push_token
     publishers:
     - git:
         push-merge: true
