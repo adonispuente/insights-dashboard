@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 """Receives a path to a user file in app-interface as an argument, and
 some secret to be encrypted via stdin. Prints out the secret encrypted
 with that user's public GPG key and encoded in base64, so that it can
