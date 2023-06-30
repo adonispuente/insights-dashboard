@@ -92,18 +92,6 @@ config:
         image_tag: latest
 
 - project:
-    name: insights-automation-analytics-s3-sync-ci
-    label: insights
-    node: insights
-    gl_group: automation-analytics
-    gl_project: s3-data-sync
-    quay_org: cloudservices
-    jobs:
-    - "insights-automation-analytics-s3-sync":
-        display_name: insights automation analytics s3 sync
-        cron_expression: '0 6 * * *'
-
-- project:
     name: automation-analytics-cypress-ci
     label: insights
     node: insights

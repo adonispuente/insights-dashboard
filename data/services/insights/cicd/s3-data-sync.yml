@@ -35,7 +35,7 @@ resourceTemplates:
   - name: hccm-s3-sync
     namespace:
       $ref: /services/insights/cicd/namespaces/s3-data-sync.yml
-    ref: main
+    ref: bfb51d0f4d817389dcd20c3360d8630b88528358
     parameters:
       NAME: hccm-s3-sync
       SECRET_NAME: hccm-s3-sync
@@ -44,9 +44,9 @@ resourceTemplates:
   - name: automation-analytics-s3-sync
     namespace:
       $ref: /services/insights/cicd/namespaces/s3-data-sync.yml
-    ref: main
+    ref: bfb51d0f4d817389dcd20c3360d8630b88528358
     parameters:
       NAME: automation-analytics-s3-sync
       SECRET_NAME: automation-analytics-s3-sync
       CRON_SCHEDULE: 0 6 * * *
-      DRY_RUN: "true"
+      DRY_RUN: "false"
