@@ -44,7 +44,7 @@ def get_data_schema(data, modified_file):
         # file has been deleted, we need to obtain it from git history
         datafile_raw = check_output(
             ["git", "show", "{}:{}".format(ORIGIN_BRANCH, modified_file)]
-        )
+        ).decode()
         datafile = yaml.safe_load(datafile_raw)
 
     return datafile["$schema"]
@@ -67,7 +67,7 @@ def get_resource_schema(data, modified_file):
         # file has been deleted, we need to obtain it from git history
         datafile_raw = check_output(
             ["git", "show", "{}:{}".format(ORIGIN_BRANCH, modified_file)]
-        )
+        ).decode()
         schema_re = re.compile(r"^\$schema: (?P<schema>.+\.ya?ml)$", re.MULTILINE)
         s = schema_re.search(datafile_raw)
         if s:
