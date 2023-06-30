@@ -99,8 +99,10 @@ quayRepos:
     public: true
     description: Build pipeline a UBI based Caddy server image
   - name: mc
-    public: true
     description: Mirror of minio/mc
+    public: false
+    mirror:
+      $ref: /dependencies/image-mirrors/docker.io/minio-mc.yml
   - name: better-platform-docs
     public: true
     description: Image thats hosts all platform docs
