@@ -32,3 +32,8 @@ config:
     - "insights-gh-pr-check":
         display_name: export-service pr-check
         branch: main
+    - "insights-gh-pipeline":
+        display_name: 'export-service pipeline'
+        branch: main
+        concurrent_build: true
+        status_context: ci.ext.devshift.net PR pipeline
