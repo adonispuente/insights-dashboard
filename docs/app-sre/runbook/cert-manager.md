@@ -53,6 +53,12 @@ Access keys to the issuer or by the Metadata Server using IRSA, kube2iam or simi
 ### External Cluster
 
 1. 1st MR: Install openshift-cert-manager-operator with OLM [Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/72726e4da2f494c8b525c2eab3e8375a752ffbab/data/openshift/app-sre-stage-01/namespaces/cert-manager-operator.yml#L23-26).
+    - note: use new template config
+      ```yaml
+      - provider: resource-template
+        type: jinja2
+        path: /cert-manager/openshift-cert-manager-operator.subscription.j2
+      ```
     - This will install `cert-manager-operator` in the `cert-manager-operator` namespace.
     - This may fail in HyperShift cluster first due to no permission for `app-sre-bot`, can retry after 2 hours since namespace creation, or add `clusterAdmin: true` in `cert-manager-operator.yml`.
 
@@ -67,6 +73,12 @@ Access keys to the issuer or by the Metadata Server using IRSA, kube2iam or simi
 ### Private Clusters (Not reachable from Internet)
 
 1. 1st MR: Install openshift-cert-manager-operator with OLM [Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/72726e4da2f494c8b525c2eab3e8375a752ffbab/data/openshift/appsres03ue1/namespaces/cert-manager-operator.yml#L23-26).
+   - note: use new template config
+     ```yaml
+     - provider: resource-template
+       type: jinja2
+       path: /cert-manager/openshift-cert-manager-operator.subscription.j2
+     ```
     - This will install `cert-manager-operator` in the `cert-manager-operator` namespace.
     - This may fail in HyperShift cluster first due to no permission for `app-sre-bot`, can retry after 2 hours since namespace creation, or add `clusterAdmin: true` in `cert-manager-operator.yml`.
 

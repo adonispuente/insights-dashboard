@@ -20,7 +20,8 @@ managedResourceTypes:
 - OperatorGroup
 
 openshiftResources:
-- provider: resource
-  path: /cert-manager/openshift-cert-manager-operator-stable-v1.subscription.yaml
+- provider: resource-template
+  type: jinja2
+  path: /cert-manager/openshift-cert-manager-operator.subscription.j2
 - provider: resource
   path: /cert-manager/cert-manager-operator-operatorgroup.yaml
