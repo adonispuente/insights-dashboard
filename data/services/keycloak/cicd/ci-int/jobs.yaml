@@ -56,3 +56,16 @@ config:
         branch: main
     - 'gl-pr-check':
         display_name: keycloak-config-manager pr-check
+- project:
+    name: keycloak-interface
+    label: keycloak-interface
+    node: app-sre
+    gl_group: service
+    gl_project: keycloak-interface
+    quay_org: app-sre
+    jobs:
+    - 'gl-build-master':
+        display_name: keycloak-interface build main
+        branch: main
+    - 'gl-pr-check':
+        display_name: keycloak-interface pr-check
