@@ -111,7 +111,7 @@ resourceTemplates:
       name: RedHatInsights-ros-ocp-backend-gh-build-main
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_IMAGE_TAG: 'f7a5f77'
+      KRUIZE_IMAGE_TAG: 'f8d46aa'
       KRUIZE_REPLICA_COUNT: 1
       KRUIZE_DB_NAME: 'kruize'
       KRUIZE_CPU_REQUEST: 3
