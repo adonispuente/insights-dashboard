@@ -13,6 +13,9 @@ openshiftResources:
 - provider: vault-secret
   path: ocm-qe/cs-qe-credentials
   version: 5
+- provider: vault-secret
+  path: ocm-qe/osdfm-qe-credentials
+  version: 1
 - provider: resource-template
   path: /services/ocm/serviceaccount.yaml
   variables:

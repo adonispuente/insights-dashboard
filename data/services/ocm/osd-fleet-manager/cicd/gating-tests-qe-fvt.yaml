@@ -53,6 +53,8 @@ resourceTemplates:
       ENVIRONMENT: integration
       GATE_NAME: ocm-osdfm-qe-gating-test-int
       SOAK_TIME: '15'
+      RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
+      RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
     ref: 9a1f709cb90b0af6e2c03b267fe7b0ac8bc6ffb8
@@ -68,6 +70,8 @@ resourceTemplates:
       ENVIRONMENT: integration
       GATE_NAME: ocm-osdfm-qe-gating-test-int
       SOAK_TIME: '15'
+      RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
+      RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
     ref: 9a1f709cb90b0af6e2c03b267fe7b0ac8bc6ffb8
@@ -82,6 +86,8 @@ resourceTemplates:
       ENVIRONMENT: stage
       GATE_NAME: ocm-osdfm-qe-gating-test-stage
       SOAK_TIME: '15'
+      RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
+      RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: eb1a995f78bf319991685485b54efe6f82cc8b96
@@ -96,3 +102,5 @@ resourceTemplates:
       ENVIRONMENT: production
       GATE_NAME: ocm-osdfm-qe-gating-test-stage
       SOAK_TIME: '15'
+      RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-qe-read
+      RHOBS_HO_TENANT: hypershift-platform
