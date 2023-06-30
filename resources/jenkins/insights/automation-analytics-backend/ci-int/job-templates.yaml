@@ -40,34 +40,6 @@
     <<: *gl_pr_check
 
 - job-template:
-    id: 'insights-automation-analytics-s3-sync'
-    name: 'insights-automation-analytics-s3-sync'
-    branch: main
-    gl_group: automation-analytics
-    gl_project: s3-data-sync
-    ci_cmd: './sync.sh'
-    wrappers:
-    - ansicolor
-    - vault-secrets:
-        <<: *vault_defaults
-        secrets:
-        - *gitlab_token
-        - *app_sre_bot_push_token
-        - *insightsdroid_github
-        - *insights_aa_sync_source_provider
-        - *insights_aa_sync_source_access_key_id
-        - *insights_aa_sync_source_secret_access_key
-        - *insights_aa_sync_source_region
-        - *insights_aa_sync_source_bucket
-        - *insights_aa_sync_destination_provider
-        - *insights_aa_sync_destination_access_key_id
-        - *insights_aa_sync_destination_secret_access_key
-        - *insights_aa_sync_destination_region
-        - *insights_aa_sync_destination_endpoint
-        - *insights_aa_sync_destination_bucket
-    <<: *gl_timed
-
-- job-template:
     id: 'insights-automation-analytics-backend-cypress-gl-pr-check'
     name: '{gl_group}-{gl_project}-cypress'
     success_note: false
