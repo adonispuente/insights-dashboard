@@ -1,0 +1,66 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: advisor
+name: advisor-2023-07-01
+app:
+  $ref: /services/insights/advisor/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/insights-platform/advisor-backend:
+    - branch: master
+      total: 13
+      success: 13
+    https://github.com/RedHatInsights/insights-advisor-frontend:
+    - branch: master
+      total: 14
+      success: 14
+    https://gitlab.cee.redhat.com/insights-rules/insights-content-server:
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/RedHatInsights/tasks-frontend:
+    - branch: master
+      total: 1
+      success: 1
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: advisor-prod
+    vulnerabilities:
+      Unknown: 29
+      Medium: 341
+      High: 241
+      Low: 46
+  - cluster: crcs02ue1
+    namespace: advisor-stage
+    vulnerabilities:
+      Unknown: 13
+      Medium: 183
+      High: 133
+      Low: 25
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: advisor-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 12
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 12
+      deployment_validation_operator_no_node_affinity:
+        Failed: 12
+  - cluster: crcs02ue1
+    namespace: advisor-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 7
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 11
+      deployment_validation_operator_no_node_affinity:
+        Failed: 11
+  service_slo: null

@@ -1,0 +1,51 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: telemeter
+name: telemeter-2023-07-01
+app:
+  $ref: /services/rhobs/telemeter/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/rhobs/configuration:
+    - branch: master
+      total: 35
+      success: 35
+    https://github.com/openshift/telemeter:
+    - branch: master
+      total: 11
+      success: 11
+  container_vulnerabilities:
+  - cluster: telemeter-prod-01
+    namespace: telemeter-production
+    vulnerabilities:
+      Unknown: 18
+      Medium: 285
+      High: 109
+      Low: 23
+      Critical: 1
+  - cluster: app-sre-stage-01
+    namespace: telemeter-stage
+    vulnerabilities:
+      Unknown: 11
+      Medium: 222
+      High: 74
+      Low: 23
+      Critical: 1
+  - cluster: app-sre-stage-01
+    namespace: telemeter-integration
+    vulnerabilities:
+      Unknown: 11
+      Medium: 219
+      High: 83
+      Low: 23
+      Critical: 1
+  - cluster: app-sre-stage-01
+    namespace: rhelemeter-stage
+    vulnerabilities:
+      High: 4
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

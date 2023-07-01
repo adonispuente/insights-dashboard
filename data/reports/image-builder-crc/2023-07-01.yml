@@ -1,0 +1,78 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: image-builder-crc
+name: image-builder-crc-2023-07-01
+app:
+  $ref: /services/insights/image-builder/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/image-builder-frontend:
+    - branch: master
+      total: 59
+      success: 2
+    - branch: master
+      total: 57
+      success: 56
+    https://github.com/osbuild/image-builder:
+    - branch: master
+      total: 65
+      success: 38
+    - branch: master
+      total: 9
+      success: 9
+  container_vulnerabilities:
+  - cluster: crcs02ue1
+    namespace: image-builder-stage
+    vulnerabilities:
+      Unknown: 6
+      Medium: 6
+      High: 6
+  - cluster: crcp01ue1
+    namespace: image-builder-prod
+    vulnerabilities:
+      Unknown: 6
+      Medium: 9
+      High: 6
+  - cluster: appsres03ue1
+    namespace: image-builder-stage-tests
+    vulnerabilities:
+      Unknown: 1
+      Medium: 9
+      High: 2
+      Low: 3
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: image-builder-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 2
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 2
+      deployment_validation_operator_no_node_affinity:
+        Failed: 2
+  - cluster: crcs02ue1
+    namespace: image-builder-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 6
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 3
+      deployment_validation_operator_no_node_affinity:
+        Failed: 3
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: image-builder-prod
+    slo_name: image-builder latency
+    slo_doc_name: image-builder
+    slo_value: 99.1770638950663
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: image-builder-prod
+    slo_name: image-builder compose success
+    slo_doc_name: image-builder
+    slo_value: 0.0465541873909041
+    slo_target: 95.0

@@ -1,0 +1,84 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: compliance
+name: compliance-2023-07-01
+app:
+  $ref: /services/insights/compliance/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/compliance-backend:
+    - branch: master
+      total: 50
+      success: 47
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 4
+      success: 4
+    https://gitlab.cee.redhat.com/insights-platform/compliance-ssg:
+    - branch: master
+      total: 4
+      success: 4
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/RedHatInsights/compliance-frontend:
+    - branch: master
+      total: 6
+      success: 6
+    https://github.com/RedHatInsights/attache:
+    - branch: master
+      total: 1
+      success: 1
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: compliance-prod
+    vulnerabilities:
+      Unknown: 9
+      Medium: 186
+      High: 28
+      Low: 13
+  - cluster: crcs02ue1
+    namespace: compliance-stage
+    vulnerabilities:
+      Unknown: 15
+      Medium: 101
+      High: 34
+      Low: 13
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: compliance-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 7
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 7
+      deployment_validation_operator_no_node_affinity:
+        Failed: 7
+  - cluster: crcs02ue1
+    namespace: compliance-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 6
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 11
+      deployment_validation_operator_no_node_affinity:
+        Failed: 11
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: compliance-prod
+    slo_name: compliance latency
+    slo_doc_name: compliance
+    slo_value: 98.8435539119109
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: compliance-prod
+    slo_name: compliance availability
+    slo_doc_name: compliance
+    slo_value: 99.985783848303
+    slo_target: 90.0

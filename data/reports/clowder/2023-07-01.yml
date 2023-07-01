@@ -1,0 +1,69 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: clowder
+name: clowder-2023-07-01
+app:
+  $ref: /services/insights/clowder/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/clowder:
+    - branch: master
+      total: 12
+      success: 12
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 5
+      success: 5
+    - branch: master
+      total: 12
+      success: 0
+    https://github.com/RedHatInsights/clowder-plugin:
+    - branch: master
+      total: 5
+      success: 5
+  container_vulnerabilities:
+  - cluster: crcs02ue1
+    namespace: clowder-system
+    vulnerabilities:
+      Medium: 14
+      Low: 6
+  - cluster: crcp01ue1
+    namespace: clowder-system
+    vulnerabilities:
+      Medium: 14
+      Low: 6
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcs02ue1
+    namespace: clowder-system
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 6
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: clowder-system
+    slo_name: clowder workqueue depth
+    slo_doc_name: clowder
+    slo_value: 8.29885312504774
+    slo_target: 99.0
+  - cluster: crcp01ue1
+    namespace: clowder-system
+    slo_name: clowder reconciliation time
+    slo_doc_name: clowder
+    slo_value: 2.75333007363483
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: clowder-system
+    slo_name: clowder reconciliation error rate
+    slo_doc_name: clowder
+    slo_value: 73.8551269459731
+    slo_target: 90.0

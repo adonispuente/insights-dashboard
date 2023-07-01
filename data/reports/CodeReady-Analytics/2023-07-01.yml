@@ -1,0 +1,31 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: CodeReady-Analytics
+name: CodeReady-Analytics-2023-07-01
+app:
+  $ref: /services/codeready-analytics/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities: null
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: bayesian-preview
+    vulnerabilities:
+      Unknown: 411
+      Medium: 1917
+      High: 2309
+      Low: 346
+      Critical: 178
+  - cluster: app-sre-prod-01
+    namespace: bayesian-production
+    vulnerabilities:
+      Unknown: 757
+      Medium: 14359
+      High: 23058
+      Low: 2998
+      Critical: 1557
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

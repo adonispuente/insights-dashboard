@@ -1,0 +1,15 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: cost-management-metrics-operator
+name: cost-management-metrics-operator-2023-07-01
+app:
+  $ref: /services/insights/hccm/cost-management-metrics-operator/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities: null
+  container_vulnerabilities: null
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null
