@@ -1,0 +1,65 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: rbac
+name: rbac-2023-07-01
+app:
+  $ref: /services/insights/rbac/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/insights-rbac-ui:
+    - branch: master
+      total: 1
+      success: 1
+    https://github.com/RedHatInsights/insights-rbac:
+    - branch: master
+      total: 8
+      success: 8
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 4
+      success: 4
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: rbac-prod
+    vulnerabilities:
+      Unknown: 9
+      Medium: 175
+      High: 44
+      Low: 13
+  - cluster: crcs02ue1
+    namespace: rbac-stage
+    vulnerabilities:
+      Unknown: 10
+      Medium: 176
+      High: 44
+      Low: 13
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: rbac-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 5
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 5
+      deployment_validation_operator_no_node_affinity:
+        Failed: 5
+      deployment_validation_operator_duplicate_env_var:
+        Failed: 1
+  - cluster: crcs02ue1
+    namespace: rbac-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 25
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 12
+      deployment_validation_operator_no_node_affinity:
+        Failed: 12
+      deployment_validation_operator_duplicate_env_var:
+        Failed: 1
+  service_slo: null

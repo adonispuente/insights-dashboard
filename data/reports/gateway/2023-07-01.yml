@@ -1,0 +1,81 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: gateway
+name: gateway-2023-07-01
+app:
+  $ref: /services/insights/gateway/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/APIcast:
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/RedHatInsights/cloudwatch-aggregator:
+    - branch: master
+      total: 2
+      success: 2
+    - branch: master
+      total: 1
+      success: 1
+    - branch: master
+      total: 4
+      success: 4
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: 3scale-prod
+    vulnerabilities:
+      Medium: 158
+      High: 50
+      Low: 26
+  - cluster: crcs02ue1
+    namespace: 3scale-stage
+    vulnerabilities:
+      Medium: 152
+      High: 48
+      Low: 18
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: apicast-test-services-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 1
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  - cluster: crcp01ue1
+    namespace: 3scale-prod
+    validations:
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 2
+      deployment_validation_operator_no_node_affinity:
+        Failed: 2
+  - cluster: crcs02ue1
+    namespace: 3scale-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 21
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 2
+      deployment_validation_operator_no_node_affinity:
+        Failed: 2
+  - cluster: crcs02ue1
+    namespace: apicast-test-services
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 5
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  service_slo: null

@@ -1,0 +1,52 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: engine
+name: engine-2023-07-01
+app:
+  $ref: /services/insights/engine/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/insights-platform/insights-engine:
+    - branch: master
+      total: 9
+      success: 9
+    - branch: master
+      total: 4
+      success: 4
+  container_vulnerabilities:
+  - cluster: crcs02ue1
+    namespace: engine-stage
+    vulnerabilities:
+      Medium: 192
+      High: 144
+      Low: 48
+  - cluster: crcp01ue1
+    namespace: engine-prod
+    vulnerabilities:
+      Medium: 768
+      High: 576
+      Low: 192
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: engine-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 1
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  - cluster: crcs02ue1
+    namespace: engine-stage
+    validations:
+      deployment_validation_operator_dangling_networkpolicy:
+        Failed: 3
+      deployment_validation_operator_dnsconfig_options:
+        Failed: 1
+      deployment_validation_operator_no_node_affinity:
+        Failed: 1
+  service_slo: null

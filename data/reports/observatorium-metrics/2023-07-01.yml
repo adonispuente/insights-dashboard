@@ -1,0 +1,35 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: observatorium-metrics
+name: observatorium-metrics-2023-07-01
+app:
+  $ref: /services/rhobs/observatorium/observatorium-metrics/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/rhobs/configuration:
+    - branch: master
+      total: 35
+      success: 35
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: observatorium-metrics-stage
+    vulnerabilities:
+      Unknown: 130
+      Medium: 2151
+      High: 708
+      Low: 321
+      Critical: 16
+  - cluster: telemeter-prod-01
+    namespace: observatorium-metrics-production
+    vulnerabilities:
+      Unknown: 136
+      Medium: 2254
+      High: 736
+      Low: 338
+      Critical: 16
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

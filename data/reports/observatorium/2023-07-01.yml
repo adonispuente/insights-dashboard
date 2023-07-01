@@ -1,0 +1,39 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: observatorium
+name: observatorium-2023-07-01
+app:
+  $ref: /services/rhobs/observatorium/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/rhobs/configuration:
+    - branch: master
+      total: 35
+      success: 35
+    https://github.com/rhobs/obsctl-reloader:
+    - branch: master
+      total: 3
+      success: 3
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: observatorium-stage
+    vulnerabilities:
+      Unknown: 272
+      Medium: 650
+      High: 294
+      Low: 102
+      Critical: 30
+  - cluster: telemeter-prod-01
+    namespace: observatorium-production
+    vulnerabilities:
+      Unknown: 170
+      Medium: 311
+      High: 156
+      Low: 51
+      Critical: 18
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

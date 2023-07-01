@@ -1,0 +1,31 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: addons
+name: addons-2023-07-01
+app:
+  $ref: /services/addons/app.yml
+date: '2023-07-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/service/managed-tenants:
+    - branch: master
+      total: 44
+      success: 44
+    https://gitlab.cee.redhat.com/service/managed-tenants-bundles:
+    - branch: master
+      total: 26
+      success: 26
+    https://github.com/mt-sre/addon-metadata-operator:
+    - branch: refs/tags/*
+      total: 12
+      success: 0
+    https://github.com/mt-sre/ocm-addons:
+    - branch: refs/tags/*
+      total: 17
+      success: 0
+  container_vulnerabilities: null
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null
