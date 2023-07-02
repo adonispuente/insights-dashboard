@@ -11,7 +11,7 @@ app:
   $ref: /services/insights/fedramp-customer-interest/app.yml
 environment:
   $ref: /products/insights/environments/stage.yml
-manageRoles: true
+managedRoles: true
 openshiftResources:
 - provider: vault-secret
   path: insights/quay/quay.io
