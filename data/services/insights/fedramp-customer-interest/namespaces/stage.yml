@@ -20,6 +20,4 @@ openshiftResources:
   name: quay-cloudservices-pull
 - provider: vault-secret
   path: insights/secrets/insights-stage/fedramp-customer-interest-stage/servicenow
-  name: servicenow
-  type: Opaque
   version: 1
