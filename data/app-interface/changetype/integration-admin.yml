@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: integration-admin
+description: |
+  Allow updates on integrations
+
+priority: low
+
+contextType: datafile
+contextSchema: /app-sre/integration-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - $
