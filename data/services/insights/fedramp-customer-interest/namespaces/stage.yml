@@ -1,0 +1,13 @@
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: fedramp-customer-interest
+
+name: fedramp-customer-interest-stage
+description: Stage namespace for fedramp-customer-interest service
+cluster:
+  $ref: /openshift/crcs02ue1/cluster.yml
+app:
+  $ref: /services/insights/fedramp-customer-interest/app.yml
+environment:
+  $ref: /products/insights/environments/stage.yml
