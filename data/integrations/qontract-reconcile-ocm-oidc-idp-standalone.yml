@@ -19,8 +19,8 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
-    #                        app-sre-stage               app-sre-prod
+    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
+    #                        app-sre-stage               app-sre-prod                ota (APPSRE-7879)
 
     logs:
       slack: true
@@ -34,8 +34,8 @@ managed:
       limits:
         memory: 200Mi
         cpu: 200m
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
-    #                        app-sre-stage               app-sre-prod
+    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
+    #                        app-sre-stage               app-sre-prod                ota (APPSRE-7879)
     logs:
       slack: true
 
