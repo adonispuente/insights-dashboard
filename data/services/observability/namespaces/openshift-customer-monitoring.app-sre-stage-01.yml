@@ -1240,14 +1240,6 @@ openshiftResources:
   variables:
     namespace: app-sre-observability-stage
 
-### Jiralert
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/jiralert.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-stage
-
-
 ### Gabi
 - provider: prometheus-rule
   type: resource-template-extracurlyjinja2
