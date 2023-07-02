@@ -9,7 +9,7 @@ name: fedramp-customer-interest-owner
 permissions: []
 
 oidc_permissions:
-- $ref: /services/vault.devshift.net/config/prod/policies/insights/global-list-only-policy.yml
+- $ref: /dependencies/vault/permissions/oidc/prod/insights/vault-list-only.yml
 - $ref: /dependencies/vault/permissions/oidc/prod/insights/fedramp-customer-interest.yml
 
 self_service:
