@@ -11,3 +11,10 @@ app:
   $ref: /services/insights/fedramp-customer-interest/app.yml
 environment:
   $ref: /products/insights/environments/stage.yml
+managedRoles: true
+openshiftResources:
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
