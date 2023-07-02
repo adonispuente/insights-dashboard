@@ -279,6 +279,8 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/change-type-admin.yml
 - change_type:
+    $ref: /app-interface/changetype/integration-admin.yml
+- change_type:
     $ref: /app-interface/changetype/self-service-admin.yml
 - change_type:
     $ref: /app-interface/changetype/rds-maintainer.yml
