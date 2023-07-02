@@ -12,6 +12,7 @@ resourcesDefaultRegion: us-east-1
 supportedDeploymentRegions:
 - us-east-1
 - us-west-1
+- us-west-2
 providerVersion: '3.76.1'
 
 terraformUsername: terraform
@@ -26,6 +27,8 @@ automationToken:
   version: 1
 
 premiumSupport: false
+
+enableDeletion: true
 
 disable:
   integrations:
