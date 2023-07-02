@@ -480,13 +480,6 @@ openshiftResources:
   path: /observability/prometheusrules/promlens.prometheusrules.yaml
   type: resource-template-extracurlyjinja2
 
-### Jiralert
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/jiralert.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-production
-
 ### Unleash
 - provider: prometheus-rule
   type: resource-template-extracurlyjinja2
