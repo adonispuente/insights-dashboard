@@ -13,3 +13,4 @@ roles:
 - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/fedframp-customer-interest.yaml
+- $ref: /teams/insights/roles/fedramp-customer-interest-allow-port-forwarding.yml
