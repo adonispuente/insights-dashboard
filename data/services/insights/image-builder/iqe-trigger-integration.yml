@@ -52,3 +52,9 @@ resourceTemplates:
       - image-builder-prod-deploy-success-channel
       publish:
       - image-builder-prod-post-deploy-integration-tests-success-channel
+      promotion_data:
+      - channel: image-builder-prod-deploy-success-channel
+        data:
+        - parent_saas: image-builder
+          target_config_hash: dc8ec787eeb2629b
+          type: parent_saas_config
