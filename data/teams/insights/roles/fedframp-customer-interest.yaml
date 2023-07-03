@@ -29,3 +29,4 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/fedframp-customer-interest.yaml
+  - $ref: /teams/insights/roles/fedramp-customer-interest-allow-port-forwarding.yml
