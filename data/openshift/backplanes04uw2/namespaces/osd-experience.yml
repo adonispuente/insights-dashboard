@@ -265,3 +265,24 @@ externalResources:
           }
         ]
       }
+
+  - provider: aws-iam-service-account
+    identifier: backplanes04uw2-hypershift-aws-vpce-operator
+    output_resource_name: backplanes04uw2-hypershift-aws-vpce-operator
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "AVOAssociatedVPC",
+            "Effect": "Allow",
+            "Action": [
+              "ec2:DescribeVpcs",
+              "route53:AssociateVPCWithHostedZone"
+            ],
+            "Resource": [
+              "*"
+            ]
+          }
+        ]
+      }
