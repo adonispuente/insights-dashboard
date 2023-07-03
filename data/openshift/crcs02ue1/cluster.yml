@@ -22,6 +22,7 @@ ocm:
 managedGroups:
 - dedicated-admins
 - dedicated-readers
+- fedramp-customer-interest-allow-port-forwarding
 
 internal: false
 managedClusterRoles: true

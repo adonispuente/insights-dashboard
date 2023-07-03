@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: fedramp-customer-interest-allow-port-forwarding
+
+permissions: []
+
+expirationDate: '2023-07-10'
+
+access:
+- cluster:
+    $ref: /openshift/crcs02ue1/cluster.yml
+  group: fedramp-customer-interest-allow-port-forwarding

@@ -12,6 +12,9 @@ app:
 environment:
   $ref: /products/insights/environments/stage.yml
 managedRoles: true
+managedResourceTypes:
+- Role
+- RoleBinding
 openshiftResources:
 - provider: vault-secret
   path: insights/quay/quay.io
@@ -21,3 +24,8 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-stage/fedramp-customer-interest-stage/servicenow
   version: 1
+# Port forwarding for debugging
+- provider: resource
+  path: /insights-stage/fedramp-customer-interest-stage/allow-port-forwarding.role.yml
+- provider: resource
+  path: /insights-stage/fedramp-customer-interest-stage/allow-port-forwarding.rolebinding.yml
