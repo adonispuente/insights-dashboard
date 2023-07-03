@@ -26,7 +26,7 @@ imagePatterns: []
 resourceTemplates:
 - name: dynatrace-operator-integration
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
-  path: /resources/dynatrace-operator/template.yaml
+  path: /resources/dynatrace-operator/template-raw.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
