@@ -54,7 +54,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: bc061f064e2298157ceef600ac2866bdd91f53de
+    ref: 30653aef028b4dc9a6f8005db00f00b2e1ff947a
     name: rosa-advanced
     promotion:
       auto: true
