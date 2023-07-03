@@ -5,7 +5,7 @@ labels: {}
 
 name: Marques Devoe
 org_username: mdefoe
-github_username: devoem
+github_username: madevoe
 
 roles:
 - $ref: /teams/odf-managed-service/roles/odf-sre.yml
