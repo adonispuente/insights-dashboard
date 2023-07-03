@@ -13,6 +13,8 @@ roles:
   - $ref: /teams/image-builder/roles/image-builder-maintain.yml
   - $ref: /teams/insights/roles/insights-engineers.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+  - $ref: /teams/insights/roles/insights-unleash-admin.yml
 
 public_gpg_key: |
   mQINBGD6y0sBEADToQsWczIPodv5CRKCepe4oivc6+J6O/yiE8jAYhdKuyQDUVhz0w44vzVI9L3J
