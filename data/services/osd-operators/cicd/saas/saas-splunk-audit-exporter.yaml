@@ -24,7 +24,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/splunk-audit-exporter
   path: /hack/deploy/hypershift/policy.yaml
   parameters:
-    IMAGE_TAG: 0.1.143-23813df
+    IMAGE_TAG: 0.1.145-b377c74
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
