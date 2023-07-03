@@ -14,26 +14,26 @@ namespaces:
 
 slos:
 - name: RHSM api success
-  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=rhsm-subscriptions&viewPanel=36
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=rhsm-subscriptions&viewPanel=30
   SLIType: availability
   SLISpecification: ratio of HTTP response codes that are not 5xx
   SLOTarget: 0.90
   SLOTargetUnit: percent_0_1
   SLOParameters:
     window: 28d
-  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rhsm/rhsm-slo-availability.yml
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rhsm/rhsm-slo-availability.md
   expr: 1.00 - (sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions", status="5xx"}[5m])) / sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions"}[5m])))
   prometheusRules: /insights-prod/rhsm/rhsm.prometheusrules.yaml
 
 - name: RHSM api latency
-  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=rhsm-subscriptions&viewPanel=36
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=rhsm-subscriptions&viewPanel=37
   SLIType: latency
   SLISpecification: ratio of services request durations under 2 seconds
   SLOTarget: 0.90
   SLOTargetUnit: percent_0_1
   SLOParameters:
     window: 28d
-  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rhsm/rhsm-slo-latency.yml
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rhsm/rhsm-slo-latency.md
   expr: |
     sum(rate(api_3scale_gateway_api_time_bucket{le="2000.0", exported_service="rhsm-subscriptions"}[{{window}}]))
     /
