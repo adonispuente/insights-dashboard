@@ -100,7 +100,7 @@
 
 - job-template:
     id: 'app-interface-output-single-command-run'
-    job_name: 'app-interface-output-single-command-run'
+    job_name: '{job_name}'
     name: '{job_name}'
     commands: ''
     wrappers:
