@@ -55,7 +55,7 @@ externalResources:
           {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::277304166082:role/Backplanei02ue1"
+            "Resource": "arn:aws:iam::277304166082:role/backplanei02ue1"
           }
         ]
       }
