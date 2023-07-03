@@ -16,7 +16,7 @@ grafanaUrls:
 - title: TODOREPLACE
   url: https://TODO
 # Not setting as OnBoarded because this has nothing to do with other tests related to validating OnBoarded status
-onboardingStatus: InProgress
+onboardingStatus: BestEffort
 
 escalationPolicy:
   $ref: /teams/app-sre/escalation-policies/test.yml

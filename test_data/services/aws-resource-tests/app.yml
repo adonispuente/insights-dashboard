@@ -9,7 +9,7 @@ name: aws-resource-tests
 description: Dummy data for tests related to AWS resources
 
 # Not setting as OnBoarded because this has nothing to do with other tests related to validating OnBoarded status
-onboardingStatus: InProgress
+onboardingStatus: BestEffort
 architectureDocument: https://TODO
 sopsUrl: https://gitlab.cee.redhat.com/TODO
 
