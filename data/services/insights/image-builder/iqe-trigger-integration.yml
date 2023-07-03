@@ -43,3 +43,12 @@ resourceTemplates:
         - parent_saas: image-builder
           target_config_hash: 3e4d89134f996d29
           type: parent_saas_config
+  - namespace:
+      $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
+    ref: 7ffc7125a4df22cac77afd9d88ca57f747d5dbd1
+    promotion:
+      auto: true
+      subscribe:
+      - image-builder-prod-deploy-success-channel
+      publish:
+      - image-builder-prod-post-deploy-integration-tests-success-channel
