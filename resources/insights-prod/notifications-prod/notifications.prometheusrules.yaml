@@ -168,6 +168,16 @@ spec:
       ##################################
       # Alerts about external services #
       ##################################
+      - alert: ITServiceFailuresThreshold
+        expr: sum(rate(it_failures_total{namespace="notifications-prod"}[5m])) > 0.5
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          message: "Requests to IT have been failing in production for 5 minutes."
       - alert: RbacIsDown
         expr: absent(up{service="rbac-service", namespace="rbac-prod"}) or up{service="rbac-service", namespace="rbac-prod"} == 0
         for: 5m
@@ -178,6 +188,16 @@ spec:
           app_team: notifications
         annotations:
           message: "RBAC service: down in production for 5 minutes."
+      - alert: RBACServiceFailuresThreshold
+        expr: sum(rate(rbac_failures_total{namespace="notifications-prod"}[5m])) > 0.5
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          message: "RBAC requests have been failing in production for 5 minutes."
       - alert: SourcesIsDown
         expr: absent(up{service="sources-api-svc", namespace="sources-prod"}) or up{service="sources-api-svc", namespace="sources-prod"} == 0
         for: 5m

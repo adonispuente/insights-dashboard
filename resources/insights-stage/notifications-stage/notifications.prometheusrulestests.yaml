@@ -389,6 +389,30 @@ tests:
 ##################################
 # Alerts about external services #
 ##################################
+# ITServiceFailuresThreshold
+- interval: 1m
+  input_series:
+    - series: it_failures_total{namespace="notifications-stage"}
+      values: 1+10x25
+
+  alert_rule_test:
+    - eval_time: 4m
+      alertname: ITServiceFailuresThreshold
+      exp_alerts:
+  
+  alert_rule_test:
+    - eval_time: 5m
+      alertname: ITServiceFailuresThreshold
+      exp_alerts:
+        - exp_labels:
+            app_team: notifications
+            env: stage
+            namespace: notifications-stage
+            service: insights
+            serverity: medium
+          exp_annotations:
+            message: "Requests to IT have been failing in stage for 5 minutes."
+
 # RbacIsDown
 - interval: 1m
   input_series:
@@ -412,6 +436,30 @@ tests:
             severity: medium
           exp_annotations:
             message: "RBAC service: down in stage for 5 minutes."
+
+# RBACServiceFailuresThreshold
+- interval: 1m
+  input_series:
+    - series: rbac_failures_total{namespace="notifications-stage"}
+      values: 1+10x25
+
+  alert_rule_test:
+    - eval_time: 4m
+      alertname: RBACServiceFailuresThreshold
+      exp_alerts:
+  
+  alert_rule_test:
+    - eval_time: 5m
+      alertname: RBACServiceFailuresThreshold
+      exp_alerts:
+        - exp_labels:
+            app_team: notifications
+            env: stage
+            namespace: notifications-stage
+            service: insights
+            serverity: medium
+          exp_annotations:
+            message: "RBAC requests have been failing in stage for 5 minutes."
 
 # SourcesIsDown
 - interval: 1m
