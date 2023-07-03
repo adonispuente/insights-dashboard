@@ -28,7 +28,6 @@ config:
         display_name: payload-tracker pr-check
     - "insights-gh-pipeline":
         display_name: 'payload-tracker pipeline'
-        branch: master
         concurrent_build: true
         status_context: ci.int.devshift.net PR pipeline
     - "insights-gh-build-master":
@@ -53,7 +52,6 @@ config:
         display_name: payload-tracker-frontend pr-check
     - "insights-gh-pipeline":
         display_name: 'payload-tracker-frontend pipeline'
-        branch: master
         concurrent_build: true
         status_context: ci.int.devshift.net PR pipeline
     - "insights-gh-build-master":
