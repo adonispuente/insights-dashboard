@@ -1,0 +1,11 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Marques Devoe
+org_username: mdefoe
+github_username: madevoe
+
+roles:
+- $ref: /teams/odf-managed-service/roles/odf-sre.yml
