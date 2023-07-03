@@ -12,7 +12,7 @@ spec:
   - name: contract-violations.rules
     rules:
     {{%- for app in query('/queries/apps.graphql') %}}
-    {{%- if app.onboardingStatus == 'OnBoarded' %}}
+    {{%- if app.onboardingStatus in ('OnBoarded', 'InProgress', 'TransitionPeriod') %}}
     {{%- if "metadata_architecture_document" not in app.labels %}}
     # architectureDocument
     {{%- if not url(app.architectureDocument) %}}
