@@ -133,10 +133,10 @@ resourceTemplates:
       CPU_REQUEST_CONSUMER: 800m
       CPU_LIMIT_SIDEKIQ: 1600m
       CPU_LIMIT_CONSUMER: 1600m
-      MEMORY_REQUEST_SIDEKIQ: 4000Mi
-      MEMORY_REQUEST_CONSUMER: 4000Mi
-      MEMORY_LIMIT_CONSUMER: 8000Mi
-      MEMORY_LIMIT_SIDEKIQ: 8000Mi
+      MEMORY_REQUEST_SIDEKIQ: 6000Mi
+      MEMORY_REQUEST_CONSUMER: 6000Mi
+      MEMORY_LIMIT_CONSUMER: 12000Mi
+      MEMORY_LIMIT_SIDEKIQ: 12000Mi
 - name: compliance-frontend
   path: /deployment_template.yaml
   url: https://github.com/RedHatInsights/compliance-frontend
