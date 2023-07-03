@@ -222,7 +222,14 @@ resourceTemplates:
     ref: 5ed2b953da897800594131a703af683337918aad
     parameters:
       MANAGED_SCRIPTS_GIT_SHA: fca4bf7d9fe243b764355b5f4001611d240a224e
-      AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"          
+      AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
+  - namespace:
+      $ref: /services/backplane/namespaces/backplane-prod-backplanep03ue1.yml
+    ref: 5ed2b953da897800594131a703af683337918aad
+    parameters:
+      MANAGED_SCRIPTS_GIT_SHA: fca4bf7d9fe243b764355b5f4001611d240a224e
+      AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
+      BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"
 - name: grafana-backplane-api
   url: https://gitlab.cee.redhat.com/service/backplane-api
   path: /dashboards
