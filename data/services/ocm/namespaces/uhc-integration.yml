@@ -1,7 +1,8 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels: {}
+labels:
+  enableDynatraceLogging: ""
 
 name: uhc-integration
 description: integration namespace for uhc
