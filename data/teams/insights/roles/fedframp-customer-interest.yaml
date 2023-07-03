@@ -1,0 +1,31 @@
+---
+$schema: /access/role-1.yml
+
+labels:
+  service: fedramp-customer-interest
+
+name: fedramp-customer-interest
+
+permissions: []
+
+access:
+- namespace:
+    $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
+  role: view
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/insights/fedramp-customer-interest.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/insights/fedramp-customer-interest/app.yml
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/insights/fedramp-customer-interest/deploy.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/insights/roles/fedframp-customer-interest.yaml
