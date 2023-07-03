@@ -9,5 +9,6 @@ github_username: bmozaffa
 quay_username: bmozaffa
 
 roles:
-  - $ref: /teams/swat/roles/dev.yml
-  - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
+- $ref: /teams/swat/roles/dev.yml
+- $ref: /teams/swat/roles/appeng-keycloak-slack.yml
+- $ref: /teams/insights/roles/fedframp-customer-interest.yaml
