@@ -32,11 +32,11 @@ managedResourceTypes:
 - Route
 - ConfigMap
 - ServiceAccount
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - CronJob
-- ClusterRole
-- ClusterRoleBinding
+- ClusterRole.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 
 imagePatterns:
 - quay.io/app-sre/backplane-api

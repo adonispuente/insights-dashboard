@@ -23,8 +23,8 @@ managedRoles: true
 
 # TODO: Add all resources - Routes, Secrets, Cluster Role etc.
 managedResourceTypes:
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 - Secret
 

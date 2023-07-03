@@ -29,8 +29,8 @@ slack:
 managedResourceTypes:
   - EventListener
   - Pipeline
-  - RoleBinding
-  - Role
+  - RoleBinding.rbac.authorization.k8s.io
+  - Role.rbac.authorization.k8s.io
   - ServiceAccount
   - Task
   - Trigger

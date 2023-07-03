@@ -28,8 +28,8 @@ grafanaUrl: https://grafana.app-sre.devshift.net/d/Tg-mH0rizaSJDKSADJ/telemeter?
 managedRoles: true
 
 managedResourceTypes:
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 - Secret
 

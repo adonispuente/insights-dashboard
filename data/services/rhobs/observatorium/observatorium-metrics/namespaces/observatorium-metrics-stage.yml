@@ -26,8 +26,8 @@ grafanaUrl: https://grafana.app-sre.devshift.net/d/0cb8830a6e957978796729870f560
 managedRoles: true
 
 managedResourceTypes:
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 - Secret
 

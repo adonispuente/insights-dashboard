@@ -24,7 +24,7 @@ imagePatterns: []
 
 managedResourceTypes:
 - CustomResourceDefinition
-- ClusterRole
+- ClusterRole.rbac.authorization.k8s.io
 
 resourceTemplates:
 - name: observatorium

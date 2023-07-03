@@ -22,7 +22,7 @@ managedResourceTypes:
 - Deployment
 - Service
 - ServiceAccount
-- ClusterRoleBinding
+- ClusterRoleBinding.rbac.authorization.k8s.io
 
 imagePatterns:
 - quay.io/app-sre

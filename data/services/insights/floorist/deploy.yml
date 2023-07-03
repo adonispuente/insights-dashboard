@@ -34,10 +34,10 @@ compare: false
 managedResourceTypes:
 - CustomResourceDefinition
 - ServiceAccount
-- Role
-- ClusterRole
-- RoleBinding
-- ClusterRoleBinding
+- Role.rbac.authorization.k8s.io
+- ClusterRole.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 - ConfigMap
 - Deployment
 - Service

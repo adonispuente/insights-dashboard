@@ -36,8 +36,8 @@ managedResourceTypes:
 - Service
 - ConfigMap
 - StatefulSet
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 - PodDisruptionBudget
 - PersistentVolumeClaim

@@ -26,8 +26,8 @@ networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
 
 managedResourceTypes:
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 
 openshiftResources:
 - provider: vault-secret

@@ -30,8 +30,8 @@ grafanaUrl: https://grafana.app-sre.devshift.net/dashboards/f/xIQ-GuaGk/observat
 managedRoles: true
 
 managedResourceTypes:
-- Role
-- RoleBinding
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 - ServiceAccount
 
 sharedResources:

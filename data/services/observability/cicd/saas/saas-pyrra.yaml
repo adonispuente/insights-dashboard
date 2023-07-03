@@ -22,8 +22,8 @@ managedResourceTypes:
 - ServiceAccount
 - Deployment
 - Service
-- ClusterRole
-- ClusterRoleBinding
+- ClusterRole.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 - CustomResourceDefinition
 - PersistentVolumeClaim
 

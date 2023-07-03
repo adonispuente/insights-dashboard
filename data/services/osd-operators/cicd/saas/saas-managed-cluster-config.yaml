@@ -23,8 +23,8 @@ slack:
 managedResourceTypes:
 - SelectorSyncSet
 - SelectorSyncIdentityProvider
-- ClusterRole
-- ClusterRoleBinding
+- ClusterRole.rbac.authorization.k8s.io
+- ClusterRoleBinding.rbac.authorization.k8s.io
 
 imagePatterns:
 - quay.io/app-sre/managed-cluster-config-registry
