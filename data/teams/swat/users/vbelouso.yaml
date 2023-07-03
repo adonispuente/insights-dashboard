@@ -9,6 +9,7 @@ github_username: vbelouso
 quay_username: vbelouso
 
 roles:
-  - $ref: /teams/swat/roles/dev.yml
-  - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
-  - $ref: /services/insights/fedramp-customer-interest/roles/app-owner.yaml
+- $ref: /teams/swat/roles/dev.yml
+- $ref: /teams/swat/roles/appeng-keycloak-slack.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/fedframp-customer-interest.yaml
