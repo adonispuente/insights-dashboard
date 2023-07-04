@@ -1,7 +1,7 @@
 ---
 $schema: /access/user-1.yml
 
-labels: 
+labels:
   platform: insights
 
 name: Jan Smejkal
@@ -65,4 +65,3 @@ public_gpg_key: |
   MrgQXzGeEVRMjO36Fftd9DXLg5COzpNUPKV6kN/4giLkijvqhQGgOooaFa+fJfDW
   fGgBH6ZocK8GoKi68zmRRGxH5A4fyJTNsiYj1+AsHVGjQDUjWuITZ+woCruQnaEt
   CpKv+2+7bZzivIUCgYwvYVESC18c6xEpWyDjzSJcHo3gPTkZpB4FE05tYKO/
-  =Nh0P
