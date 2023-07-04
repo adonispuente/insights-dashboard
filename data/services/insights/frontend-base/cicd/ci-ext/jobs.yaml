@@ -99,7 +99,7 @@ config:
         display_name: service-accounts pr-check
     - "insights-gh-build-master":
         display_name: service-accounts-build build-master
-        branch: "master"
+        branch: "main"
     - "insights-gh-build-master":
         display_name: service-accounts-build build-master-stable
         branch: "master-stable"
