@@ -58,6 +58,12 @@ You can get a 2FA from RedHat's BitWarden's Vault in the AppSRE collection. An e
 ## Set root account password and 2FA
 
 We'll use the password recovery mechanism for this. It is mandatory that you have access to the email associated to the account.
+First, take a look at the `accountOwners[0].email` reference in app-interface like [this one](https://gitlab.cee.redhat.com/service/app-interface/-/blob/8c19ffb74195a73640fdab6f39ce294610fed548/data/aws/cna-service/account.yml#L18). If that email doesn't work, try the following patterns:
+
+- `sd-app-sre+<account-name>@redhat.com`
+- `sd-app-sre+aws-<account-name>@redhat.com`
+
+Further, check your gmail history with the account name and account id - the email address should appear in there somewhere.
 
 ### Root account password
 
