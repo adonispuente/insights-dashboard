@@ -211,23 +211,27 @@ def print_pr_check_cmds(
         namespaces = integration.get("managed")
         if namespaces:
             aws_accounts = []
-            for n in namespaces:
-                sharding = n.get("sharding")
-                if sharding and sharding["strategy"] == "per-aws-account":
-                    overrides = sharding.get("shardSpecOverrides")
-                    if overrides:
-                        accounts_map = get_accounts_image_ref_map(overrides)
-                        for image_ref, account_names in accounts_map.items():
-                            aws_accounts += account_names
-                            print_cmd(
-                                pr,
-                                select_all,
-                                non_bundled_data_modified,
-                                int_name,
-                                image_ref=image_ref,
-                                account_names=account_names,
-                                has_integrations_changes=has_integrations_changes,
-                            )
+            per_aws_account_overrides = (
+                overrides
+                for n in namespaces
+                if (sharding := n.get("sharding"))
+                and sharding.get("strategy") == "per-aws-account"
+                and (overrides := sharding.get("shardSpecOverrides"))
+            )
+
+            for overrides in per_aws_account_overrides:
+                accounts_map = get_accounts_image_ref_map(overrides)
+                for image_ref, account_names in accounts_map.items():
+                    aws_accounts += account_names
+                    print_cmd(
+                        pr,
+                        select_all,
+                        non_bundled_data_modified,
+                        int_name,
+                        image_ref=image_ref,
+                        account_names=account_names,
+                        has_integrations_changes=has_integrations_changes,
+                    )
             if int_name == "terraform-resources":
                 print_cmd(
                     pr,
