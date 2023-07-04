@@ -22,6 +22,8 @@ resourceTemplates:
     url: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service
     path: /deploy/openshift/template.yaml
     provider: openshift-template
+    parameters:
+      REPLICAS: 3
     targets:
       - namespace:
           $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
