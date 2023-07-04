@@ -116,7 +116,7 @@ def print_cmd(
         select_all (bool): A flag indicating whether to run every integration.
         non_bundled_data_modified (bool): A flag indicating whether non-bundled data has been modified.
         int_name (str): The name of the integration to run.
-        account_names (Optional[List[str]]): An optional list of account names to use in terraform resources as --account-name argument.
+        account_names (Optional[List[str]]): An optional list of account names to use in terraform-resources integration as --account-name argument.
         image_ref (Optional[str]): An optional imageRef to use to run an integration on a specific image tag.
         has_integrations_changes (bool): A flag indicating whether there are changes to the integrations definitions.
         exclude_accounts (Optional[List[str]]): An optional list of accounts to exclude in case of a sharded deployment That only work on terraform-resources.

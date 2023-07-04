@@ -54,7 +54,7 @@ a certain environment. This also serves as documentation for what
 
 ## Updating specific shards
 
-> Note: the output is only working for `terraform-resources` integration
+> Note: the output only works for the `terraform-resources` integration.
 
 If you want to promote a qontract-reconcile change for only one shard you can do this by adding a shardSpecOverride. Add it to the integration configuration in app-interface you changed. In the MR process the integration will run with the image specified in shardSpecOverride and the image configured in `.env`. The change you test must be compatible to the old image (in reference to the schema).
 
