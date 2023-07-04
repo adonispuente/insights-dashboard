@@ -24,9 +24,7 @@ def get_integrations(data):
 
 
 def get_modified_files():
-    return check_output(
-        ["git", "diff", ORIGIN_BRANCH, "--name-only"]
-    ).decode().split()
+    return check_output(["git", "diff", ORIGIN_BRANCH, "--name-only"]).decode().split()
 
 
 def get_data_schema(data, modified_file):
@@ -232,12 +230,12 @@ def print_pr_check_cmds(
                             )
             if int_name == "terraform-resources":
                 print_cmd(
-                        pr,
-                        select_all,
-                        non_bundled_data_modified,
-                        int_name,
-                        exclude_accounts=aws_accounts,
-                    )
+                    pr,
+                    select_all,
+                    non_bundled_data_modified,
+                    int_name,
+                    exclude_accounts=aws_accounts,
+                )
                 continue
 
         print_cmd(pr, select_all, non_bundled_data_modified, int_name)
