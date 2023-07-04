@@ -4,8 +4,7 @@ $schema: /access/role-1.yml
 labels: {}
 name: dev
 
-permissions:
-- $ref: /services/observability/permissions/observability-access.yml
+permissions: []
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/business-insights.yml

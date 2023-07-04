@@ -8,7 +8,6 @@ org_username: jluza
 github_username: midnightercz
 
 roles:
-- $ref: /services/observability/roles/observability-access.yml
 - $ref: /teams/quay/role/dev.yml
 
 public_gpg_key: |

@@ -22,7 +22,6 @@ roles:
 - $ref: /teams/insights/roles/provisioning.yml
 - $ref: /teams/insights/roles/provisioning-secrets.yml
 - $ref: /teams/insights/roles/content-sources.yml
-- $ref: /services/observability/roles/observability-access.yml
 
 public_gpg_key: |
   mQENBFAXtBgBCADQ1GjGvMv2P1yh01GPjm+Ezi45PCY2C/MRekSnuBSi+0pS/AblIBN6NwidKRLz

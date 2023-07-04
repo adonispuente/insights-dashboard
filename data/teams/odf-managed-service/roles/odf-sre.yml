@@ -4,9 +4,7 @@ $schema: /access/role-1.yml
 labels: {}
 name: odf-sre
 
-permissions:
-# observability
-- $ref: /services/observability/permissions/observability-access.yml
+permissions: []
 
 access:
 # observability

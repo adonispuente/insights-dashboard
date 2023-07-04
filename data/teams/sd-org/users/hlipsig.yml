@@ -9,7 +9,6 @@ github_username: hlipsig
 quay_username: hlipsig
 
 roles:
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
 - $ref: /services/observability/roles/observability-access-elevated.yml
 
 public_gpg_key: |

@@ -12,7 +12,6 @@ slack_username: Ann Marie
 roles:
 - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml

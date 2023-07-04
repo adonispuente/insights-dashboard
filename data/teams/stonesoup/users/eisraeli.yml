@@ -19,7 +19,6 @@ roles:
 - $ref: /teams/stonesoup/roles/stonesoup-stage-aws-setup-admin.yml
 - $ref: /teams/stonesoup/roles/stonesoup-prod-aws-setup-admin.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
 
 public_gpg_key: |
   mDMEZBt05xYJKwYBBAHaRw8BAQdAX179iVJalkg6kNEESoxKgWQYimti133YOl2sZA9n3P60IkVy

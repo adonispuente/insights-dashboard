@@ -7,7 +7,6 @@ name: devfile-registry-dev
 permissions:
 - $ref: /dependencies/ci-ext/permissions/ci-ext-read-only.yml
 - $ref: /dependencies/ci-int/permissions/ci-int-read-only.yml
-- $ref: /services/observability/permissions/observability-access.yml
 - $ref: /teams/devfile-registry/permissions/devfile-registry-team-coreos-slack.yml
 
 access:

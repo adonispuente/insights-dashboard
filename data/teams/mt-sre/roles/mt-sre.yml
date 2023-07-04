@@ -24,8 +24,6 @@ permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-mtsre-owners.yml
 - $ref: /dependencies/quay/permissions/quay-membership-osd-addons-owners.yml
 - $ref: /dependencies/quay/permissions/quay-membership-osd-addons-test-owners.yml
-# observability
-- $ref: /services/observability/permissions/observability-access.yml
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/mt-sre.yml

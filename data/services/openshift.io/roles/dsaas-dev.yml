@@ -6,9 +6,7 @@ labels:
 
 name: dsaas-dev
 
-permissions:
-- $ref: /dependencies/dev-cluster/permissions/auth.yml
-- $ref: /services/observability/permissions/observability-access.yml
+permissions: []
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/app-interface-dsaas.yml

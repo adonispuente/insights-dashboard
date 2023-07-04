@@ -6,8 +6,7 @@ labels:
 
 name: launchpad-dev
 
-permissions:
-- $ref: /dependencies/dev-cluster/permissions/auth.yml
+permissions: []
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/app-interface-launchpad.yml

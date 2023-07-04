@@ -15,8 +15,6 @@ roles:
 - $ref: /teams/ocm/roles/stage-debugger.yml
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-# From old user account in teams/devtools
-- $ref: /services/openshift.io/roles/dev-cluster.yml
 - $ref: /services/openshift.io/roles/dsaas-dev.yml
 
 public_gpg_key: |

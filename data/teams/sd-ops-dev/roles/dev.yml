@@ -7,8 +7,6 @@ name: sd-ops-dev
 permissions:
 # jenkins
 - $ref: /dependencies/ci-int/permissions/ci-int-read-only.yml
-# observability
-- $ref: /services/observability/permissions/observability-access.yml
 # quay.io
 - $ref: /dependencies/quay/permissions/quay-membership-sd-ops-dev.yml
 # slack
