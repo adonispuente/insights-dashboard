@@ -106,13 +106,13 @@ config:
         job_name: sd-app-sre-alert-report-7-days
         single_command: 'sd-app-sre-alert-report --days 7'
         output_file: 'sd-app-sre-alert-report-7-day.md'
-        cron_expression: 'H 0 * * 1'
+        cron_expression: 'H 6 * * *'
     - 'app-interface-output-single-command-run':
         display_name: sd-app-sre-alert-report 30 days
         job_name: sd-app-sre-alert-report-30-days
         single_command: 'sd-app-sre-alert-report --days 30'
         output_file: 'sd-app-sre-alert-report-30-day.md'
-        cron_expression: 'H 0 * * *'
+        cron_expression: 'H 0 1 * *'
 
 - project:
     name: container-images-internal
