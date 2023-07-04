@@ -26,6 +26,7 @@ roles:
 - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/unleash-proxy.yml
+- $ref: /teams/insights/roles/s3-data-sync.yml
 
 public_gpg_key: |
   mQGNBGLoDs8BDADQ8lUM/CtPIZtspnOWumDRSV0tyA8LVj4FolOdjEVX7CV9W91O
