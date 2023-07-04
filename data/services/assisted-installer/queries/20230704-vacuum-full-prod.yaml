@@ -1,0 +1,11 @@
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 20230704-vacuum-full-prod
+namespace:
+  $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
+identifier: assisted-installer
+requestor:
+  $ref: /teams/assisted-installer/users/rpiccoli.yml
+output: stdout
+query: |
+  VACUUM FULL;
