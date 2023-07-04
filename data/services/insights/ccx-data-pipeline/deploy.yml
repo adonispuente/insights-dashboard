@@ -492,9 +492,10 @@ resourceTemplates:
       MEMORY_REQUEST: 5Gi
       MEMORY_LIMIT: 8Gi
       ACTIVE_DEADLINE_SECONDS: "1200" # 20 minutes
-      TABLES_TO_IGNORE: ""
-      SELECT_LIMIT: "10"
+      TABLES_TO_IGNORE: "migration_info,notification_types,states,event_targets,reported"
+      SELECT_LIMIT: "100"
       DB_NAME: ccx-notification-writer
+      TEST_DATE: 07/04/2023
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
