@@ -13,7 +13,7 @@ https://issues.redhat.com/browse/APPSRE-5558
 
 ## Problem Statement
 
-Publishing data from App-Interface in Status Board enables us to start using Web RCA during our incidents. This is necause the application list from Status Board is used to populate the drop-down list that is available in web-rca.
+Publishing data from App-Interface in Status Board enables us to start using Web RCA during our incidents. This is because the application list from Status Board is used to populate the drop-down list that is available in web-rca.
 
 We would want to have every product/application listed in App-Interface in Status Board. More details on status-board can be found here:
 
