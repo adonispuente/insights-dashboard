@@ -94,7 +94,10 @@ externalResources:
         },{
           "Action": [
             "ec2:DescribeRegions",
-            "ec2:DescribeInstanceTypeOfferings"
+            "ec2:DescribeInstanceTypeOfferings",
+            "iam:GetRole",
+            "iam:CreateRole",
+            "iam:UpdateAssumeRolePolicy"
           ],
           "Effect": "Allow",
           "Resource": "*"
