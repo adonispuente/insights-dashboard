@@ -473,7 +473,6 @@ tests:
         - exp_labels:
             app_team: notifications
             env: prod
-            namespace: notifications-prod
             service: insights
             severity: medium
           exp_annotations:
@@ -521,7 +520,6 @@ tests:
         - exp_labels:
             app_team: notifications
             env: prod
-            namespace: notifications-prod
             service: insights
             severity: medium
           exp_annotations:
