@@ -10,9 +10,6 @@ alertmanagerUrl: https://alertmanager.hst02ue1.devshift.net
 serverUrl: https://api.hst02ue1.niad.p3.openshiftapps.com:443
 elbFQDN: elb.apps.rosa.hst02ue1.niad.p3.openshiftapps.com
 auth:
-- service: github-org-team
-  org: app-sre
-  team: hst02ue1-cluster
 - service: oidc
   name: redhat-app-sre-auth
 ocm:

@@ -11,9 +11,6 @@ alertmanagerUrl: https://alertmanager.backplanep02uw2.devshift.net
 serverUrl: https://api.backplanep02uw2.y7tz.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.backplanep02uw2.y7tz.p1.openshiftapps.com
 auth:
-- service: github-org-team
-  org: app-sre
-  team: backplanep02uw2-cluster
 - service: oidc
   name: redhat-app-sre-auth
 ocm:

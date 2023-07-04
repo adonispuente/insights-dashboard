@@ -14,9 +14,6 @@ serverUrl: https://api.backplanei02ue1.qklc.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.backplanei02ue1.qklc.p1.openshiftapps.com
 
 auth:
-- service: github-org-team
-  org: app-sre
-  team: backplanei02ue1-cluster
 - service: oidc
   name: redhat-app-sre-auth
 

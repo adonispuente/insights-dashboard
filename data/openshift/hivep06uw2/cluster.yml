@@ -13,9 +13,6 @@ elbFQDN: elb.apps.hivep06uw2.bjee.p1.openshiftapps.com
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep06uw2.yml
 auth:
-- service: github-org-team
-  org: app-sre
-  team: hivep06uw2-cluster
 - service: oidc
   name: redhat-app-sre-auth
 ocm:
