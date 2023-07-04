@@ -88,7 +88,7 @@ resourceTemplates:
       FLOORIST_QUERY_PREFIX: "hms_analytics/provisioning/stage"
       ENV_NAME: stage
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
-      APP_NOTIFICATIONS_ENABLED: false
+      APP_NOTIFICATIONS_ENABLED: true
   - namespace: # PROD api
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
     ref: 9f67a21b79312922b1219533b7a640964b5a41a8
