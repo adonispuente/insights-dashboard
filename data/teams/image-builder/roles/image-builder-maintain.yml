@@ -6,8 +6,7 @@ labels:
 
 name: image-builder-maintain
 
-permissions:
-- $ref: /teams/image-builder/permissions/image-builder-maintain.yml
+permissions: []
 
 access:
 - namespace:
