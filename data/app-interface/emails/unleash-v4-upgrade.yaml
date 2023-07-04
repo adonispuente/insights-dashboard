@@ -15,8 +15,6 @@ to:
   - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
   - $ref: /teams/insights/roles/insights-tools.yml
   - $ref: /teams/insights/roles/insights-unleash-admin.yml
-  - $ref: /teams/managed-services/roles/managed-services-stage-unleash-admin.yml
-  - $ref: /teams/managed-services/roles/managed-services-unleash-admin.yml
   - $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
   - $ref: /teams/ocm/roles/ocm-stage-unleash-admin.yml
   - $ref: /teams/ocm/roles/ocm-unleash-admin.yml

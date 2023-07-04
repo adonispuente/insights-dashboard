@@ -43,13 +43,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-sre/unleash/insights-unleash-token
   version: 1
-### managed-services
-- provider: vault-secret
-  path: app-sre/unleash/managed-services-config
-  version: 1
-- provider: vault-secret
-  path: app-sre/unleash/managed-services-unleash-token
-  version: 1
 
 managedExternalResources: true
 
@@ -81,12 +74,4 @@ externalResources:
     output_resource_name: insights-unleash-rds
     overrides:
       engine_version: '12.13'
-      apply_immediately: true
-# Managed-services
-  - provider: rds
-    identifier: managed-services-unleash
-    defaults: /terraform/resources/unleash/rds-managed-services-prod-1.yml
-    output_resource_name: managed-services-unleash-rds
-    overrides:
-      engine_version: '13.9'
       apply_immediately: true

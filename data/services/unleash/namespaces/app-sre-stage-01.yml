@@ -55,13 +55,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-sre/unleash/insights-perf-config
   version: 1
-### managed-services stage
-- provider: vault-secret
-  path: app-sre/unleash/managed-services-stage-config
-  version: 1
-- provider: vault-secret
-  path: app-sre/unleash/managed-services-stage-unleash-token
-  version: 1
 
 managedExternalResources: true
 
@@ -92,14 +85,6 @@ externalResources:
         - failover
         - maintenance
         - backup
-  ### Managed-services Stage
-  - provider: rds
-    identifier: managed-services-stage-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
-    output_resource_name: managed-services-stage-unleash-rds
-    overrides:
-      engine_version: '13.9'
-      apply_immediately: true
   ### Insights Stage
   - provider: rds
     identifier: insights-stage-unleash

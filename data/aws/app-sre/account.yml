@@ -2468,8 +2468,8 @@ deletionApprovals:
   name: vpc-0a053d0b5b8993ae1-vpc-0931f724085025405
   expiration: '2023-02-10'
 - type: aws_db_instance
-  name: managed-services-stage-unleash
-  expiration: '2023-02-12'
+  name: managed-services-unleash
+  expiration: '2023-07-10'
 - type: aws_iam_access_key
   name: certmgr-hacbss02ue1-devshift-net-sa
   expiration: '2023-02-16'
