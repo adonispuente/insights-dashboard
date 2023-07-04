@@ -189,6 +189,18 @@ def get_accounts_image_ref_map(overrides):
     return result
 
 
+def get_per_aws_account_overrides(namespaces):
+    per_aws_account_overrides = []
+    for n in namespaces:
+        sharding = n.get("sharding")
+        if sharding and sharding.get("strategy") == "per-aws-account":
+            overrides = sharding.get("shardSpecOverrides")
+            if overrides:
+                per_aws_account_overrides.append(overrides)
+
+    return per_aws_account_overrides
+
+
 def print_pr_check_cmds(
     integrations,
     selected=None,
@@ -211,13 +223,7 @@ def print_pr_check_cmds(
         namespaces = integration.get("managed")
         if namespaces:
             aws_accounts = []
-            per_aws_account_overrides = (
-                overrides
-                for n in namespaces
-                if (sharding := n.get("sharding"))
-                and sharding.get("strategy") == "per-aws-account"
-                and (overrides := sharding.get("shardSpecOverrides"))
-            )
+            per_aws_account_overrides = get_per_aws_account_overrides(namespaces)
 
             for overrides in per_aws_account_overrides:
                 accounts_map = get_accounts_image_ref_map(overrides)
