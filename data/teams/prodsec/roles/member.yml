@@ -4,8 +4,7 @@ $schema: /access/role-1.yml
 labels: {}
 name: prodsec-member
 
-permissions:
-- $ref: /services/visual-app-interface.devshift.net/permissions/github-app-sre.yml
+permissions: []
 
 self_service:
 - change_type:

@@ -1,8 +1,0 @@
----
-$schema: /access/role-1.yml
-
-labels: {}
-name: operator-enablement-member
-
-permissions:
-- $ref: /services/visual-app-interface.devshift.net/permissions/github-app-sre.yml

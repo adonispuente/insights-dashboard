@@ -11,7 +11,6 @@ quay_username: ldupont
 
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
 - $ref: /teams/insights/roles/module-update-router.yml
 - $ref: /teams/insights/roles/ingress.yml
 - $ref: /teams/insights/roles/ingress-slack.yml

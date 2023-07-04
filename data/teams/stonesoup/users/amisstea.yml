@@ -17,7 +17,6 @@ roles:
 - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
 
 # Export with gpg --export your_public_key_id | base64
 public_gpg_key: |

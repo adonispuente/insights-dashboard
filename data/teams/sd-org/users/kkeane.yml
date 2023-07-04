@@ -7,5 +7,4 @@ name: Kat Keane
 org_username: kkeane
 github_username: katherinekeane
 
-roles:
-- $ref: /services/visual-app-interface.devshift.net/roles/visual-app-interface.yml
+roles: []
