@@ -8,7 +8,6 @@ org_username: dnicol
 github_username: gitdallas      
 
 roles:
-- $ref: /services/openshift.io/roles/dev-cluster.yml
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/hccm.yml
 - $ref: /teams/insights/roles/hccm-ui.yml

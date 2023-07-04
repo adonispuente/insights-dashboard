@@ -7,7 +7,6 @@ labels:
 name: bayesian-dev
 
 permissions:
-- $ref: /dependencies/dev-cluster/permissions/auth.yml
 - $ref: /dependencies/quay/permissions/quay-membership-app-sre-codeready-analytics.yml
 - $ref: /dependencies/ci-ext/permissions/ci-ext-job-control.yml
 - $ref: /dependencies/ci-int/permissions/ci-int-read-only.yml

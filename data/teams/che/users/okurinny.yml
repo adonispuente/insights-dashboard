@@ -8,5 +8,4 @@ org_username: okurinny
 github_username: akurinnoy
 
 roles:
-- $ref: /services/openshift.io/roles/dev-cluster.yml
 - $ref: /teams/che/roles/che-dev.yml

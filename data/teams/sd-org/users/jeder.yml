@@ -12,7 +12,6 @@ roles:
 - $ref: /teams/osde2e/roles/dev.yml
 - $ref: /teams/hive/roles/dev.yml
 - $ref: /teams/telemeter/roles/dev.yml
-- $ref: /services/openshift.io/roles/dev-cluster.yml
 - $ref: /teams/ocm/roles/dev.yml
 - $ref: /teams/lp-sre/roles/saas-managed-tenants-approver.yml
 - $ref: /teams/sig-sre/roles/sig-sre.yml
