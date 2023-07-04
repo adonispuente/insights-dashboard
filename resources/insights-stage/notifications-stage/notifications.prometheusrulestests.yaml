@@ -393,7 +393,7 @@ tests:
 - interval: 1m
   input_series:
     - series: it_failures_total{namespace="notifications-stage"}
-      values: 1+10x25
+      values: 1+100x25
 
   alert_rule_test:
     - eval_time: 4m
@@ -401,7 +401,7 @@ tests:
       exp_alerts:
   
   alert_rule_test:
-    - eval_time: 5m
+    - eval_time: 7m
       alertname: ITServiceFailuresThreshold
       exp_alerts:
         - exp_labels:
@@ -409,7 +409,7 @@ tests:
             env: stage
             namespace: notifications-stage
             service: insights
-            serverity: medium
+            severity: medium
           exp_annotations:
             message: "Requests to IT have been failing in stage for 5 minutes."
 
@@ -441,7 +441,7 @@ tests:
 - interval: 1m
   input_series:
     - series: rbac_failures_total{namespace="notifications-stage"}
-      values: 1+10x25
+      values: 1+100x25
 
   alert_rule_test:
     - eval_time: 4m
@@ -449,7 +449,7 @@ tests:
       exp_alerts:
   
   alert_rule_test:
-    - eval_time: 5m
+    - eval_time: 7m
       alertname: RBACServiceFailuresThreshold
       exp_alerts:
         - exp_labels:
@@ -457,7 +457,7 @@ tests:
             env: stage
             namespace: notifications-stage
             service: insights
-            serverity: medium
+            severity: medium
           exp_annotations:
             message: "RBAC requests have been failing in stage for 5 minutes."
 
