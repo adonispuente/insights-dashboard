@@ -19,6 +19,10 @@ for file_name in sys.stdin:
         logging.info([file_name, "skipping binary file"])
         continue
 
+    if file_name.endswith(".excalidraw"):
+        logging.info([file_name, "skipping .excalidraw file"])
+        continue
+
     if re.search(IGNORE_PATTERN, file_name):
         logging.info([file_name, "skipping file matching IGNORE_PATTERN"])
         continue
