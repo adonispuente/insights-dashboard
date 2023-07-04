@@ -146,7 +146,7 @@ spec:
       expr: koku:celery:download_queue > 550
       for: 10m
       labels:
-        severity: high
+        severity: medium
         service: insights
         env: prod
         app_team: costmanagement
