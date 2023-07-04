@@ -64,7 +64,7 @@ externalResources:
     identifier: host-inventory-perf
     defaults: /terraform/resources/insights/perf/rds/postgres13-rds-host-inventory-perf.yml
     overrides:
-      instance_class: db.t3.2xlarge
+      instance_class: db.t3.xlarge
       apply_immediately: true
       allocated_storage: 300
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-host-inventory-perf.yml
