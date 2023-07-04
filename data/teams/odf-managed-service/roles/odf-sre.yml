@@ -16,3 +16,9 @@ access:
 - namespace:
     $ref: /services/observability/namespaces/app-sre-observability-stage.yml
   role: view
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/odf-managed-service/roles/odf-sre.yml
