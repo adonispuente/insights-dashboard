@@ -4,6 +4,7 @@ import os
 import re
 import sys
 from subprocess import check_output
+from collections import defaultdict
 import json
 
 import yaml
@@ -182,12 +183,11 @@ def get_accounts_image_ref_map(overrides):
     """
     Returns a map array of accounts for each unique image ref passed in shardSpecOverride
     """
-    image_refs = [o["imageRef"] for o in overrides]
-    result = {}
-    for image_r in image_refs:
-        result[image_r] = [o["shard"]["$ref"].split("/")[2]
-            for o in overrides if o["imageRef"] == image_r]
+    result = defaultdict(set)
+    for o in overrides:
+        result[o["imageRef"]].add(o["shard"]["$ref"].split("/")[2])
     return result
+
 
 def print_pr_check_cmds(
     integrations,
