@@ -26,13 +26,6 @@ clusterAdminAutomationToken:
   field: token
   version: 2
 
-# this cluster is a CCS cluster and app-sre does not have ocm access,
-# so app-interface cannot create an IDP for it.
-#auth:
-#  service: github-org-team
-#  org: app-sre
-#  team: insights-crcd01ue1-cluster
-
 managedGroups:
 - dedicated-readers
 

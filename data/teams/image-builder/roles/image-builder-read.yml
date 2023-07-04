@@ -7,7 +7,6 @@ labels:
 name: image-builder-read
 
 permissions:
-- $ref: /teams/image-builder/permissions/image-builder-read.yml
 - $ref: /teams/image-builder/permissions/image-builder-coreos-slack.yml
 
 aws_groups:
