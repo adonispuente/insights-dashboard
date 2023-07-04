@@ -13,7 +13,6 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-emea-slack.yml
 - $ref: /teams/app-sre/roles/app-sre-stream-4-slack.yml
-- $ref: /teams/app-sre/roles/aws-root-accounts.yaml
 
 public_gpg_key: |
   mQINBGE2J0YBEADBHFX7EDQZ8Hr5gc2pysb4Qae+ZzpSWRX03pfRvjIpe6sgXeDT
