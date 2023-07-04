@@ -11,7 +11,6 @@ permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-rhoas-managed-services.yml
 - $ref: /dependencies/quay/permissions/quay-membership-bf2-managed-services.yml
 - $ref: /dependencies/ci-int/permissions/ci-int-job-control.yml
-- $ref: /services/observability/permissions/observability-access.yml
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/managed-services.yml

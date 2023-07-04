@@ -9,5 +9,4 @@ github_username: shellymiron
 
 roles:
 - $ref: /teams/ocm/roles/dev.yml
-- $ref: /services/observability/roles/observability-access.yml
 

@@ -8,5 +8,4 @@ org_username: bbrownin
 github_username: bbrowning
 
 roles:
-  - $ref: /services/observability/roles/observability-access.yml
-  - $ref: /teams/telemeter/roles/telemetry-sme.yml
+- $ref: /teams/telemeter/roles/telemetry-sme.yml

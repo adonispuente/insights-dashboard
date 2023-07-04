@@ -6,8 +6,7 @@ name: support
 
 tag_on_cluster_updates: false
 
-permissions:
-- $ref: /services/observability/permissions/observability-access.yml
+permissions: []
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/insights/vault-list-only.yml

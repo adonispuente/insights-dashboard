@@ -8,7 +8,6 @@ name: dsaas-keycloak-dev
 
 permissions:
 - $ref: /dependencies/dev-cluster/permissions/auth.yml
-- $ref: /services/observability/permissions/observability-access.yml
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/app-interface-dsaas-keycloak.yml

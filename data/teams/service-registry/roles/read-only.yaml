@@ -6,7 +6,6 @@ name: read-only
 
 permissions:
 - $ref: /teams/service-registry/permissions/service-registry-coreos-slack.yml # access to service registry slack channels
-- $ref: /services/observability/permissions/observability-access.yml # Read access to prometheus, alertmanager and grafana
 
 access:
 - namespace:

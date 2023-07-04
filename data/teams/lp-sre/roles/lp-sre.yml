@@ -17,8 +17,6 @@ permissions:
 # gitlab
 - $ref: /dependencies/gitlab/permissions/mt-sre-member.yml
 - $ref: /dependencies/gitlab/permissions/cssre-member.yml
-# observability
-- $ref: /services/observability/permissions/observability-access.yml
 # quay
 - $ref: /dependencies/quay/permissions/quay-membership-app-sre-owners.yml
 - $ref: /dependencies/quay/permissions/quay-membership-rhoas-mt-sre.yml

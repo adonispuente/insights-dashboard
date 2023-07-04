@@ -7,7 +7,6 @@ name: cs-sre
 permissions:
 - $ref: /teams/lp-sre/permissions/github-cs-sre.yml
 - $ref: /dependencies/gitlab/permissions/cssre-member.yml
-- $ref: /services/observability/permissions/observability-access.yml
 - $ref: /dependencies/quay/permissions/quay-membership-rhoas-cs-sre.yml
 - $ref: /dependencies/quay/permissions/quay-membership-bf2-managed-services.yml
 - $ref: /dependencies/ci-int/permissions/ci-int-read-only.yml

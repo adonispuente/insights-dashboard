@@ -11,7 +11,6 @@ tag_on_cluster_updates: false
 roles:
 - $ref: /teams/osde2e/roles/dev.yml
 - $ref: /teams/hive/roles/dev.yml
-- $ref: /services/observability/roles/observability-access.yml
 - $ref: /teams/telemeter/roles/dev.yml
 - $ref: /services/openshift.io/roles/dev-cluster.yml
 - $ref: /teams/ocm/roles/dev.yml

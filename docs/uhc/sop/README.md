@@ -515,7 +515,6 @@ https://infogw-proxy.api.stage.openshift.com/ (data from staging telemeter)
  
 - Console access to the cluster that runs the clusters service (`app-sre` and
   `app-sre-stage`).
-- /app-interface/blob/master/data/services/observability/permissions/observability-access.yml.
 
 ### Steps:
 

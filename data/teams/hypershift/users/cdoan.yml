@@ -8,7 +8,6 @@ org_username: cdoan
 github_username: cdoan1
 
 roles:
-- $ref: /services/observability/roles/observability-access.yml
 - $ref: /teams/ocm/roles/dev.yml
 - $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
 - $ref: /teams/ocm/roles/sentry-access.yml
