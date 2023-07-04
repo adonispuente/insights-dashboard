@@ -75,6 +75,9 @@ quayRepos:
   - name: settings-frontend
     public: true
     description: Quay repo for settings-frontend
+  - name: service-accounts
+    public: true
+    description: Quay repo for service-accounts frontend
 
 
 codeComponents:
@@ -102,4 +105,6 @@ codeComponents:
 - name: settings-frontend
   resource: upstream
   url: https://github.com/RedHatInsights/settings-frontend
-
+- name: service-accounts
+  resource: upstream
+  url: https://github.com/RedHatInsights/service-accounts
