@@ -165,16 +165,18 @@ def print_cmd(
             accounts_param = []
             if account_names:
                 accounts_param = [" --account-name " + ac for ac in account_names]
-            cmd += "ALIAS=" + pr["cmd"] + "_override_" + image_ref + " "
-            cmd += "IMAGE=" + image_ref + " "
-            cmd += "run_int " + pr["cmd"] + "".join(accounts_param) + " &"
+            cmd += (
+                f"ALIAS={pr['cmd']}_override_{image_ref} "
+                f"IMAGE={image_ref} "
+                f"run_int {pr['cmd']}{''.join(accounts_param)} &"
+            )
         elif exclude_accounts:
-            cmd += "run_int " + pr["cmd"]
+            cmd += f"run_int {pr['cmd']}"
             cmd += (
                 "".join([" --exclude-accounts " + ac for ac in exclude_accounts]) + " &"
             )
         else:
-            cmd += "run_int " + pr["cmd"] + " &"
+            cmd += f"run_int {pr['cmd']} &"
 
     print(cmd)
 
