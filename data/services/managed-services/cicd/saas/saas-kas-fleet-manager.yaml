@@ -150,6 +150,8 @@ resourceTemplates:
     # The TTL is a small value for now to avoid several renewals attempts.
     # This value will be bumped to a bigger number after https://issues.redhat.com/browse/MGDSTRM-10900 is implemented
     KAFKA_TLS_CERTIFICATE_MANAGEMENT_SECURE_STORAGE_CACHE_TTL: 1m
+    # Disable configuration of the identity provider for SRE access in the data plane
+    ENABLE_KAFKA_SRE_IDENTITY_PROVIDER_CONFIGURATION: false
 
   targets:
   - namespace:
