@@ -48,7 +48,7 @@ resourceTemplates:
       name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 0c3fab064c655699faa76f0d441c21085c87539d
+    ref: 50a9764f9d3ca108285565bfc25894d754bb7c63
     promotion:
       auto: true
       subscribe:
@@ -57,7 +57,7 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 0c3fab064c655699faa76f0d441c21085c87539d
+    ref: 50a9764f9d3ca108285565bfc25894d754bb7c63
     promotion:
       auto: true
       subscribe:
