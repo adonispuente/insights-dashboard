@@ -90,9 +90,8 @@ resourceTemplates:
   # managed kafka changes in playbook dispatcher connect
   - namespace:
       $ref: /services/insights/playbook-dispatcher/namespaces/stage.yml
-    ref: 62b37c70acdd7b6ae8b58f9844e0b15c146de59e
+    ref: 3cf866486c98618f7d6f2f0a06a2094227a7c29c
     parameters:
-      IMAGE_TAG: 971ce0a
       CONNECTOR_PAUSE: "false"
   - namespace:
       $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
