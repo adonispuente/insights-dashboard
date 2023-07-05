@@ -24,10 +24,6 @@ config:
     gh_repo: ephemeral-namespace-operator
     quay_org: cloudservices
     jobs:
-    - "insights-operator-gh-pr-check":
-        display_name: ephemeral-namespace-operator pr-check
-        branch: main
-        trigger_exclude_path: 'docs/.*\n.*\.adoc'
     - 'gh-build-catalog-master-with-upstream':
         display_name: ephemeral-namespace-operator catalog build main
         upstream: RedHatInsights-ephemeral-namespace-operator-gh-build-main
