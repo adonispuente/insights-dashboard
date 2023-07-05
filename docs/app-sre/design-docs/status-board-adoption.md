@@ -33,7 +33,7 @@ We would want to have every product/application listed in App-Interface in Statu
 
 ### Status board objects
 
-Luckily we already have a hierachy for products and appliations, that we can use to create the necessary objects in Status Board. Based on this [discussion](https://redhat-internal.slack.com/archives/C03M8A471V1/p1688388520514439), there is no convention or global list to align with. We can create the names as they make sense for us.
+Luckily we already have a hierarchy for products and applications, that we can use to create the necessary objects in Status Board. Based on this [discussion](https://redhat-internal.slack.com/archives/C03M8A471V1/p1688388520514439), there is no convention or global list to align with. We can create the names as they make sense for us.
 
 According to our data some examples for status-board objects would be:
 
