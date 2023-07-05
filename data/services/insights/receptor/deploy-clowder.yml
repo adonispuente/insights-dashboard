@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/receptor/namespaces/stage-receptor-stage.yml
-    ref: bb4ab24fe50a4c001d8223d1b27617e52ee533a9
+    ref: 1d1c90c2ecaef8d466079ab72bc35d07edba1f7e
     parameters:
       IMAGE: quay.io/cloudservices/receptor-gateway
       ENV_NAME: stage
