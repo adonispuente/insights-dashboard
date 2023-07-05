@@ -4,6 +4,8 @@ The interrupt catcher is a rotation that dedicates an AppSRE engineer to triage 
 
 The IC schedule matches the AppSRE escalation policy in Pager Duty, which is [Follow The Sun](https://redhat.pagerduty.com/schedules#PQ022DV) when someone is defined, and [Primary Oncall](https://redhat.pagerduty.com/schedules#PHS3079) otherwise.
 
+[TOC]
+
 ## AppSRE engineer guide to IC responsibilities
 
 There are several tasks that are expected of the AppSRE engineering acting as the IC for the shift. They are listed below in the order of priority.
@@ -94,3 +96,13 @@ The [incident response doc](/docs/app-sre/incident-process.md) covers this topic
 - [Developer guidelines](https://gitlab.cee.redhat.com/service/dev-guidelines)
 - [App-Interface Frequently Asked Questions](https://gitlab.cee.redhat.com/service/app-interface/blob/master/FAQ.md)
 - [Service Delivery support](https://gitlab.cee.redhat.com/dtsd/housekeeping/blob/master/docs/support.md) - for OpenShift upstream issues
+
+## AppSRE engineer guide to onboarding-ic responsibilities
+
+Apart from the mentioned regular IC shift, we have a separate rotation called onboarding-ic that follows a weekly [schedule](https://gitlab.cee.redhat.com/service/app-interface/-/blob/09594ca5b63a260c3ac010600f9f0f5e7349b1dd/data/teams/app-sre/schedules/app-sre-onboarding-ic.yml). This rotation doesn't comply to the [SLO](https://gitlab.cee.redhat.com/app-sre/contract/-/blob/master/README.md#service-agreements) mentioned above.
+
+onboarding-ic's tasks during shift are:
+1. Watching [#sd-app-sre-onboarding](https://redhat-internal.slack.com/archives/C02CMTM9GG1) channel and answers tenant's questions.
+2. Review all open MRs with the label `onboarding`. 
+  \* Specifically for SLO MRs, onboarding-ic should also do as much as possible to let the assignee of the onboarding epic know this change had happened and preferably defer it to the assignee to merge the MR. We recommend that 1. assign the MR to the assignee of the onboarding epic ticket( [onboarding Jira board](https://issues.redhat.com/secure/Dashboard.jspa?selectPageId=12341197) is where you can find them) 2. Find the SLO Review ticket under the epic, then comment it in the MR if it wasn't mentioned already. 
+  This will greatly reduce turnaround time during SLO MR review and make the onboarding process smoother.
