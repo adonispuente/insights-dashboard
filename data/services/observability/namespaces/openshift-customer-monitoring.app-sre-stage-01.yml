@@ -528,6 +528,10 @@ openshiftResources:
   variables:
     namespace: cincinnati-stage
     route: cincinnati-route-stg
+### SREP configuration-anomaly-detection rules
+- provider: prometheus-rule
+  path: /observability/prometheusrules/srep-configuration-anomaly-detection-stage.prometheusrules.yaml
+  type: resource
 ### Devfile Registry
 - provider: prometheus-rule
   path: /observability/prometheusrules/devfile-registry-stage.prometheusrules.yaml

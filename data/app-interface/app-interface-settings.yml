@@ -170,6 +170,7 @@ alertingServices:
 - rds-deprecated-major-versions
 - smart-proxy
 - srep
+- srep-cad
 - status-board
 - telemeter
 - uhc

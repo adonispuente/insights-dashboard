@@ -1,0 +1,37 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+rule_files:
+  - /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrules.yaml
+evaluation_interval: 1m
+
+tests:
+  - interval: 1m
+    input_series:
+      - series: 'kube_pod_status_phase{container="kube-rbac-proxy-main", endpoint="https-main", job="kube-state-metrics", namespace="configuration-anomaly-detection-production", phase="Failed", pod="cad-check-48213b9f50303bfd28dcc0cc71260ce2a1f2af111d4e8e487-pod", prometheus="openshift-monitoring/k8s", prometheus_replica="prometheus-k8s-1", service="kube-state-metrics", uid="f9103c94-0f70-41b5-b1d9-133402fe8a0f"}'
+        values: '0x2 1x5'
+      - series: 'kube_pod_status_phase{container="kube-rbac-proxy-main", endpoint="https-main", job="kube-state-metrics", namespace="configuration-anomaly-detection-stage", phase="Failed", pod="cad-check-48213b9f50303bfd28dcc0cc71260ce2a1f2af111d4e8e487-pod", prometheus="openshift-monitoring/k8s", prometheus_replica="prometheus-k8s-1", service="kube-state-metrics", uid="f9103c94-0f70-41b5-b1d9-133402fe8a0f"}'
+        values: '1x7'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: CADPipelineFailure
+        exp_alerts: []
+      - eval_time: 5m
+        alertname: CADPipelineFailure
+        exp_alerts:
+          - exp_labels:
+              alertname: CADPipelineFailure
+              service: srep-cad
+              container: kube-rbac-proxy-main
+              job: kube-state-metrics
+              namespace: configuration-anomaly-detection-production
+              endpoint: https-main
+              phase: Failed
+              pod: cad-check-48213b9f50303bfd28dcc0cc71260ce2a1f2af111d4e8e487-pod
+              prometheus: openshift-monitoring/k8s
+              prometheus_replica: prometheus-k8s-1
+              uid: f9103c94-0f70-41b5-b1d9-133402fe8a0f
+              severity: high
+            exp_annotations:
+              message: "CAD production pipeline failed: cad-check-48213b9f50303bfd28dcc0cc71260ce2a1f2af111d4e8e487-pod"
+              logs_url: "https://grafana.app-sre.devshift.net/explore?orgId=1&left=%7B%22datasource%22:%22P1A97A9592CB7F392%22,%22queries%22:%5B%7B%22id%22:%22%22,%22region%22:%22us-east-1%22,%22namespace%22:%22%22,%22refId%22:%22A%22,%22datasource%22:%7B%22type%22:%22cloudwatch%22,%22uid%22:%22P1A97A9592CB7F392%22%7D,%22queryMode%22:%22Logs%22,%22logGroupNames%22:%5B%22app-sre-prod-01.configuration-anomaly-detection-production%22%5D,%22logGroups%22:%5B%5D,%22expression%22:%22fields%20message%5Cn%7C%20filter%20kubernetes.pod_name%20%3D%20%5C%22cad-check-48213b9f50303bfd28dcc0cc71260ce2a1f2af111d4e8e487-pod%5C%22%22,%22statsGroups%22:%5B%5D%7D%5D,%22range%22:%7B%22from%22:%22now-2d%22,%22to%22:%22now%22%7D%7D"

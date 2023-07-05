@@ -560,6 +560,14 @@ openshiftResources:
   tests:
   - /web-rca/production/web-rca-rds.prometheusrulestest.yaml
 
+### SREP configuration-anomaly-detection rules
+- provider: prometheus-rule
+  path: /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrules.yaml
+  type: resource
+  tests: 
+  - /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrulestest.yaml
+
+
 sharedResources:
 - $ref: /services/observability/shared-resources/dvo-openshift.yml
 - $ref: /services/observability/shared-resources/dvo-alerts.yml
