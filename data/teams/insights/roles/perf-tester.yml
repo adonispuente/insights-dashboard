@@ -86,6 +86,9 @@ access:
 - namespace:
     $ref: /services/insights/playbook-dispatcher/namespaces/perf.yml
   role: edit
+- namespace:
+    $ref: /services/insights/content-sources/namespaces/content-sources-perf.yml
+  role: edit
 
 self_service:
 - change_type:
@@ -119,6 +122,7 @@ self_service:
   - $ref: /services/insights/rhsm/cicd/deploy-perf-clowder.yml
   - $ref: /services/insights/vulnerability/deploy-perf.yml
   - $ref: /services/insights/patchman/deploy-perf.yml
+  - $ref: /services/insights/content-sources/deploy-perf.yml
 - change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:
@@ -139,6 +143,7 @@ self_service:
   - /terraform/resources/insights/perf/elasticache/elasticache-cloudigrade-1.yml
   - /terraform/resources/insights/perf/elasticache/elasticache-compliance-1.yml
   - /terraform/resources/insights/perf/elasticache/elasticache-compliance-2.yml
+  - /terraform/resources/insights/perf/elasticache/elasticache-content-sources-1.yml
   - /terraform/resources/insights/perf/elasticsearch/xjoin.yml
   - /terraform/resources/insights/perf/rds/postgres10-parameter-group-host-inventory-perf-read-replica.yml
   - /terraform/resources/insights/perf/rds/postgres10-rds-1.yml
@@ -171,6 +176,7 @@ self_service:
   - /terraform/resources/insights/perf/rds/postgres10-rds-system-baseline-perf.yml
   - /terraform/resources/insights/perf/rds/postgres12-rds-cloud-connector-perf.yml
   - /terraform/resources/insights/perf/rds/postgres12-rds-rhsm-perf.yml
+  - /terraform/resources/insights/perf/rds/postgres13-parameter-group-content-sources-perf.yml
   - /terraform/resources/insights/perf/s3/s3-gdpr-14.yml
   - /terraform/resources/insights/perf/sqs-insights-sideload-perf.yml
 - change_type:

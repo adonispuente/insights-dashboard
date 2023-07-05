@@ -1,0 +1,72 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: content-sources
+
+name: content-sources-perf
+description: Content Sources on the Perf cluster under app-interface management
+
+cluster:
+  $ref: /openshift/insights/cluster-insights-perf.yml
+
+app:
+  $ref: /services/insights/content-sources/app.yml
+
+environment:
+  $ref: /products/insights/environments/perf.yml
+
+networkPoliciesAllow:
+# - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml
+# - $ref: /services/insights/gateway/namespaces/3scale-prod.yml
+- $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
+
+managedRoles: true
+
+managedResourceTypes:
+- Secret
+
+openshiftResources:
+- provider: vault-secret
+  name: content-sources-certs
+  path: app-interface/content-sources/stage/certs
+  version: 2
+- provider: vault-secret
+  path: app-interface/content-sources/stage/floorist-bucket
+  version: 1
+- provider: vault-secret
+  name: content-sources-glitchtip
+  path: app-interface/content-sources/stage/glitchtip
+  version: 1
+
+sharedResources:
+  - $ref: /services/insights/shared-resources/metrics-export-prod.yml
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-perf/account.yml
+  resources:
+  - provider: rds
+    identifier: content-sources-perf
+    defaults: /terraform/resources/insights/perf/rds/postgres13-rds-1.yml
+    overrides:
+      apply_immediately: true
+      enabled_cloudwatch_logs_exports: ['postgresql', 'upgrade']
+    parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-content-sources-perf.yml
+    output_resource_name: content-sources-db
+    enhanced_monitoring: true
+  - provider: elasticache
+    identifier: content-sources-elasticache-perf
+    defaults: /terraform/resources/insights/perf/elasticache/elasticache-content-sources-1.yml
+    output_resource_name: in-memory-db
+  - provider: cloudwatch
+    identifier: content-sources-perf
+    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-2.yml
+    output_resource_name: cloudwatch
+    # es_identifier: kibana-elasticsearch
+
+glitchtipProjects:
+- $ref: /dependencies/glitchtip/projects/glitchtip-production/hcc-content-sources-prod.yml
