@@ -9,7 +9,7 @@ name: floorist
 
 description: Floorist service for Insights Platform applications
 
-architectureDocument: ""
+architectureDocument: https://docs.engineering.redhat.com/display/COMPL/Floorist+onboarding
 sopsUrl: https://gitlab.cee.redhat.com/TODO
 grafanaUrls:
 - title: Floorist
