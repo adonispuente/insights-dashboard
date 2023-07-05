@@ -5,6 +5,7 @@ auto_minor_version_upgrade: false
 backup_retention_period: 7
 backup_window: 03:00-04:00
 db_subnet_group_name: 'insights-subnet-group'
+vpc_security_group_ids: ['sg-03c8ee3586a6aa74a']
 deletion_protection: true
 engine_version: "14.5"
 engine: postgres
