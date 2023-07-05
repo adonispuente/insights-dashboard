@@ -250,6 +250,8 @@ openshiftResources:
   path: /insights-prod/yuptoo-prod/yuptoo.servicemonitor.yml
 - provider: resource
   path: /insights-prod/content-sources-prod/content-sources.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/export-service-prod/export-service.servicemonitor.yml
 # automation-hub
 - provider: resource
   path: /insights-prod/automation-hub-prod/galaxy-api.servicemonitor.yml
