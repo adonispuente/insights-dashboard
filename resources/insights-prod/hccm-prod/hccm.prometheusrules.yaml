@@ -162,7 +162,7 @@ spec:
       expr: koku:celery:summary_queue > 300
       for: 10m
       labels:
-        severity: high
+        severity: medium
         service: insights
         env: prod
         app_team: costmanagement
