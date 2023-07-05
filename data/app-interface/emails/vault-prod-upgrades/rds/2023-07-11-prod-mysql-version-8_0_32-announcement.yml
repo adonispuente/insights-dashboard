@@ -1,0 +1,21 @@
+---
+$schema: /app-interface/app-interface-email-1.yml
+labels: {}
+name: 2023-07-11-vault-prod-mysql-upgrade-8_0_32
+subject: 'vault.devshift.net rds instance major version upgrade scheduled for July 11 2023'
+to:
+  aliases:
+    - all-service-owners
+
+body: |
+  Hello,
+  
+  The App SRE team will be performing an AWS RDS MySQL major version upgrade (5.x -> 8.x) for vault.devshift.net beginning at 21:00 UTC on July 11.
+
+  There is no anticipated impact to performance during the change window.
+  
+  We will send communication the day of for both start and completion of the upgrade.
+
+  Sincerely,
+
+  The AppSRE Team.
