@@ -15,7 +15,7 @@ spec:
         html_url: https://gitlab.cee.redhat.com/service/app-interface/blob/master/resources/app-sre/app-sre-contract/app-sre-contract.prometheusrules.yaml.j2
         link_url: https://gitlab.cee.redhat.com/app-sre/contract/-/blob/master/content/service/metadata.md
         message: We have identified that app app-metadata-tests, stored in app-interface
-          under /services/app-metadata-tests/app.yml does not have a valid architectureDocument.
+          under /services/app-metadata-tests/app.yml does not have a valid architectureDocument or the url provided is not available.
           The value we have found is https://TODO. Note that this URL can be inside and outside the VPN but must be publicly accessible (no authentication required).
         runbook: Please correct this piece of information, which is part of the acceptance
           criteria for keeping this application supported by app-sre.
@@ -34,7 +34,7 @@ spec:
         html_url: https://gitlab.cee.redhat.com/service/app-interface/blob/master/resources/app-sre/app-sre-contract/app-sre-contract.prometheusrules.yaml.j2
         link_url: https://gitlab.cee.redhat.com/app-sre/contract/-/blob/master/content/service/metadata.md
         message: We have identified that app app-metadata-tests, stored in app-interface
-          under /services/app-metadata-tests/app.yml does not have a valid sopsUrl.
+          under /services/app-metadata-tests/app.yml does not have a valid sopsUrl or the url provided is not available.
           The value we have found is https://TODO. Note that this URL can be inside and outside the VPN but must be publicly accessible (no authentication required).
         runbook: Please correct this piece of information, which is part of the acceptance
           criteria for keeping this application supported by app-sre.
