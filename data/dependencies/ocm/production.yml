@@ -17,6 +17,8 @@ blockedVersions:
 - ^.*-ec\..*$
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
+# block all upgrades for IBM LakeHouse GA
+- ^.*$
 
 upgradePolicyAllowedWorkloads:
 - appsre
