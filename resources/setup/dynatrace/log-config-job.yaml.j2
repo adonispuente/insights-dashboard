@@ -17,7 +17,7 @@ spec:
   backoffLimit: 8  # ~10 minutes
   template:
     spec:
-      restartPolicy: Never
+      restartPolicy: OnFailure
       volumes:
         - name: dynatrace-tokens
           projected:
