@@ -36,15 +36,15 @@ parameters:
   IMAGE: "quay.io/app-sre/clair"
 
 resourceTemplates:
-- name: clair-db-jobs
+- name: clair-db-jobs-index-create-stage
   path: /contrib/openshift/manifests/db-job.yaml
   url: https://github.com/quay/clair
   targets:
   - namespace:
       $ref: /services/clair/namespaces/stage.yml
-    ref: 44638edf5b99ddcc7c73b8313557f200469228d4
+    ref: d2b3d826bba6522e69d214023d16070287b9da15
     parameters:
-      JOB_NAME: "test-job"
+      JOB_NAME: "indexing-job"
       SUBCOMMAND: "pre"
       VERSION: "4.7.0"
       CONFIG_NAME: "clair-db-jobs-config"
