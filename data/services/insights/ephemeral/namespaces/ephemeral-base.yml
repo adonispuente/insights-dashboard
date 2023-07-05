@@ -221,7 +221,7 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/content-sources/stage/certs
   name: content-sources-certs
-  version: 1
+  version: 2
 
 # provisioning
 - provider: vault-secret

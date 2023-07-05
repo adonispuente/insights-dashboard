@@ -30,7 +30,7 @@ openshiftResources:
 - provider: vault-secret
   name: content-sources-certs
   path: app-interface/content-sources/stage/certs
-  version: 2
+  version: 2 #make sure to bump the ephemeral version when this gets bumped
 - provider: vault-secret
   path: app-interface/content-sources/stage/floorist-bucket
   version: 1
