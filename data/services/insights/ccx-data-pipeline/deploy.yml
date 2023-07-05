@@ -455,6 +455,7 @@ resourceTemplates:
       PLATFORM_UI_HOSTNAME: console.stage.redhat.com
       TEMPLATE_RENDERER_SERVER: "http://insights-content-template-renderer-svc:8000/"
       SERVICE_LOG__URL: "https://api.stage.openshift.com/api/service_logs/v1/cluster_logs"
+      LOG_LEVEL: "debug"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: ebc5d1496be94bcb50df71006738a5d2390cd4e9
