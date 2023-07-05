@@ -32,3 +32,6 @@ config:
     - gl-build-master:
         display_name: OSD Fleet Manager push image
         branch: main
+    - gl-build-master:
+        display_name: OSDFM push prod-freeze-7-7-23 image
+        branch: prod-freeze-7-7-23
