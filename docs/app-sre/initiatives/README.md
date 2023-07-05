@@ -11,4 +11,5 @@ Full design document can be found [here](/docs/app-sre/design-docs/initiative-pr
 | Name | Link | Description | Status |
 |------|------|-------------|--------|
 | Fine grained app-interface review permission model | [fine-grained-permission-model.md](fine-grained-permission-model.md) | Reduce the number of changes to be reviewed by AppSRE by selectively delegating review work to tenants | Done |
-| SRE capabilitites | [sre-capabilitites.md](sre-capabilitites.md) | Offer AppSRE expertise and tooling beyond app-interface | Proposed |
+| SRE capabilitites | [sre-capabilities.md](sre-capabilities.md) | Offer AppSRE expertise and tooling beyond app-interface | Proposed |
+| Terraform v1 upgrade | [terrform-v1-upgrade.md](terrform-v1-upgrade.md) | Upgrade Terraform to the latest stable 1.x release to futureproof what providers and features we can support going forward | Proposed |
