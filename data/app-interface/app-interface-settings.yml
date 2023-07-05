@@ -194,6 +194,7 @@ alertingServices:
 - provisioning
 - skupper-network-monitoring
 - rhsm-system-profile-bridge
+- rhidp
 
 endpointMonitoringBlackboxExporterModules:
 - http_2xx

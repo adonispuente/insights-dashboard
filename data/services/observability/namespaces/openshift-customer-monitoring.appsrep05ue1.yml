@@ -206,6 +206,13 @@ openshiftResources:
   tests:
   - /observability/prometheusrules/pipeline-containers-oomkilled.prometheusrulestests.yaml
 
+### RHIDP
+- provider: prometheus-rule
+  type: resource
+  path: /observability/prometheusrules/app-sre-rhidp.prometheusrules.yml
+  tests:
+  - /observability/prometheusrules/app-sre-rhidp.prometheusrulestests.yml
+
 sharedResources:
 - $ref: /services/observability/shared-resources/dvo-openshift.yml
 - $ref: /services/observability/shared-resources/dvo-alerts.yml
