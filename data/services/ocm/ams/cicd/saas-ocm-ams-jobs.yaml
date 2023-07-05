@@ -1588,7 +1588,7 @@ resourceTemplates:
     RBAC_RECONCILER_LIMIT: -1
     RBAC_BASE_URL: https://mtls.internal.console.redhat.com
     RBAC_PROXY: ''
-    WORKER_COUNT: 4
+    WORKER_COUNT: 1
     SUSPEND_JOB: 'false'
     IMAGE_REGISTRY: quay.io
     IMAGE_REPOSITORY: app-sre/uhc-account-manager
