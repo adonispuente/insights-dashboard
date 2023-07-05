@@ -75,5 +75,5 @@ resourceTemplates:
     parameters:
       LOG_LEVEL: DEBUG
       MIN_REPLICAS: 3
-      EXPORT_SERVICE_BUCKET: export-service-s3
+      EXPORT_SERVICE_BUCKET: export-service-prod-s3
       ENABLE_CLOUDWATCH_LOGGING: "true"
