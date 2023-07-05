@@ -4,7 +4,7 @@ allow_major_version_upgrade: true
 auto_minor_version_upgrade: false
 backup_retention_period: 7
 backup_window: 03:00-04:00
-db_subnet_group_name: 'app-sre rds subnet group'
+db_subnet_group_name: 'insights-subnet-group'
 deletion_protection: true
 engine_version: "14.5"
 engine: postgres
