@@ -66,7 +66,7 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hives02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       auto: false
       subscribe:
@@ -76,37 +76,37 @@ resourceTemplates:
       - aws-vpce-operator-sss-deployed-success-channel-hivep07ue2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep06uw2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep05ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep04ew2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep03uw1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep01ue1
