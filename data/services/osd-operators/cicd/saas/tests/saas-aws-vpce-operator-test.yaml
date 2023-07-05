@@ -60,7 +60,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: ff56db117ab2effb938b022a120bf7ce908467b8
+    ref: 0c3fab064c655699faa76f0d441c21085c87539d
     promotion:
       auto: true
       subscribe:
@@ -71,5 +71,5 @@ resourceTemplates:
       - channel: aws-vpce-operator-sss-deployed-success-channel-hives02ue1
         data:
         - parent_saas: saas-avo
-          target_config_hash: c61be165f4c4cca5
+          target_config_hash: fd93fbcaee39c8c9
           type: parent_saas_config
