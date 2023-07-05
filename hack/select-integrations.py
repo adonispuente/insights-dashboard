@@ -190,15 +190,12 @@ def get_accounts_image_ref_map(overrides):
 
 
 def get_per_aws_account_overrides(namespaces):
-    per_aws_account_overrides = []
     for n in namespaces:
         sharding = n.get("sharding")
         if sharding and sharding.get("strategy") == "per-aws-account":
             overrides = sharding.get("shardSpecOverrides")
             if overrides:
-                per_aws_account_overrides.append(overrides)
-
-    return per_aws_account_overrides
+                yield overrides
 
 
 def print_pr_check_cmds(
