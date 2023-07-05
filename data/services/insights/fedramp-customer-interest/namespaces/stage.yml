@@ -33,3 +33,7 @@ openshiftResources:
   path: /insights-stage/fedramp-customer-interest-stage/allow-port-forwarding.rolebinding.yml
 - provider: route
   path: /insights-stage/fedramp-customer-interest-stage/stage-route.yml
+
+# network policies 
+networkPoliciesAllow:
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml

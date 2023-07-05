@@ -449,6 +449,9 @@ access:
 
 # insights v4
 - namespace:
+    $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
+  role: view
+- namespace:
     $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
   role: view
 - namespace:
