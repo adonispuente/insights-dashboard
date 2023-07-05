@@ -67,7 +67,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -133,7 +133,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -176,7 +176,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -219,7 +219,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -269,7 +269,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -366,9 +366,9 @@ resourceTemplates:
       SOURCES_ENABLED: true
       # Remove when clowder supports private-endpoints in production
       QUARKUS_REST_CLIENT_EXPORT_SERVICE_URL: http://localhost:10010
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE: ""
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_PASSWORD: ""
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_TYPE: ""
+      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE: ''
+      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_PASSWORD: ''
+      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_TYPE: ''
     promotion:
       publish:
       - notifications-engine-prod-deploy-success-channel
@@ -391,7 +391,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 1119ccb626331185d4f10cba9e2a83d32522af01
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
