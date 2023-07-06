@@ -1,0 +1,14 @@
+---
+
+$schema: /access/role-1.yml
+
+labels: {}
+name: ehineng owner
+
+permissions: []
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/jira-board-owner.yml
+  datafiles:
+  - $ref: /teams/insights/jira/rhineng.yaml
