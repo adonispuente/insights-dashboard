@@ -31,6 +31,8 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
     ref: 1f7a63ada3399a034a361fd95194b3991bccc88c
+    parameters:
+      ENV_FOR_DYNACONF: stage
     promotion:
       auto: true
       subscribe:
@@ -46,6 +48,8 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
     ref: 7ffc7125a4df22cac77afd9d88ca57f747d5dbd1
+    parameters:
+      ENV_FOR_DYNACONF: prod
     promotion:
       auto: true
       subscribe:
