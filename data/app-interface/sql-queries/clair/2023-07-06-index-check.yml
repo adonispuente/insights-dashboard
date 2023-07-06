@@ -1,0 +1,12 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: clair-manifest-index-check
+namespace:
+  $ref: /services/clair/namespaces/production.yml
+identifier: clair-indexer
+output: stdout
+# Run each hour
+schedule: "0 * * * *"
+queries:
+  - select command, phase, blocks_total, blocks_done, tuples_total, tuples_done, lockers_total, lockers_done from pg_stat_progress_create_index;
