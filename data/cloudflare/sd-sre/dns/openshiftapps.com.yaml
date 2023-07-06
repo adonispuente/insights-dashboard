@@ -2010,3 +2010,10 @@ records:
   value: qmul-eecs-infra-router-1768250629.eu-west-2.elb.amazonaws.com.
   proxied: false
   priority: 0
+- name: 'oidc.p1.openshiftapps.com'
+  identifier: cname-oidc-p1-openshiftapps-com
+  type: CNAME
+  ttl: 1800
+  value: dvbwgdztaeq9o.cloudfront.net
+  proxied: false
+  priority: 0
