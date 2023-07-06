@@ -81,7 +81,7 @@ resourceTemplates:
       _MIGRATION_DIRECTIVE: ""
       ######################################
       APP_DOMAIN: apps.crcp01ue1.o9m8.p1.openshiftapps.com
-      ROS_OCP_API: ros-ocp-backend-api.ros-perf.svc.cluster.local
+      ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
       S3_BUCKET_NAME: hccm-perf-s3
       S3_ROS_BUCKET_NAME: hccm-ros-perf-s3
       KOKU_SENTRY_ENV: perf
@@ -255,29 +255,29 @@ resourceTemplates:
       LIVENESS_PROBE_PERIOD: 120
       LIVENESS_PROBE_TIMEOUT: 120
 
-- name: koku-daily
+        #- name: koku-daily
   # repo deploy file: https://github.com/project-koku/koku-daily/blob/main/deploy/clowdapp.yaml
   # container image: quay.io/cloudservices/koku-daily
   # container repo:  https://quay.io/repository/cloudservices/koku-daily
-  path: /deploy/clowdapp.yaml
-  url: https://github.com/project-koku/koku-daily
-  targets:
-  - namespace:
-      $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: d2172aa56f0c2a3dd14784b58b3919a927fd4b6c
-    parameters:
-      PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
-      REPLICAS: 1
-      APP_URL_PREFIX: /api/cost-management/v1/koku-daily/
-      CPU_REQUEST: 100m
-      CPU_LIMIT: 250m
-      MEMORY_REQUEST: 500Mi
-      MEMORY_LIMIT: 1Gi
-      EMAIL_GROUPS: {"engineering": "cost-mgmt-metrics-eng@redhat.com", "marketing": "cost-mgmt-metrics-mkt@redhat.com"}
-      EMAIL_SCHEDULE: '0 17 * * *'
-      S3_BUCKET_NAME: hccm-perf-s3
-      S3_SCHEDULE: "0 19 * * *"
-      WEEKLY_REPORT_SCHEDULED_DAY: "3"
+  #  path: /deploy/clowdapp.yaml
+  #url: https://github.com/project-koku/koku-daily
+  #targets:
+  #- namespace:
+  #    $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
+  #  ref: d2172aa56f0c2a3dd14784b58b3919a927fd4b6c
+  #  parameters:
+  #    PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
+  #    REPLICAS: 1
+  #    APP_URL_PREFIX: /api/cost-management/v1/koku-daily/
+  #    CPU_REQUEST: 100m
+  #    CPU_LIMIT: 250m
+  #    MEMORY_REQUEST: 500Mi
+  #    MEMORY_LIMIT: 1Gi
+  #    EMAIL_GROUPS: {"engineering": "cost-mgmt-metrics-eng@redhat.com", "marketing": "cost-mgmt-metrics-mkt@redhat.com"}
+  #    EMAIL_SCHEDULE: '0 17 * * *'
+  #    S3_BUCKET_NAME: hccm-perf-s3
+  #    S3_SCHEDULE: "0 19 * * *"
+  #    WEEKLY_REPORT_SCHEDULED_DAY: "3"
 
 - name: nise-populator
   # repo deploy file: https://github.com/project-koku/nise-populator/blob/main/deploy/clowdapp.yaml
