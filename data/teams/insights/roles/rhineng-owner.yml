@@ -1,9 +1,8 @@
 ---
-
 $schema: /access/role-1.yml
 
 labels: {}
-name: rhcloud owner
+name: rhineng owner
 
 permissions: []
 
@@ -11,8 +10,8 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/jira-board-owner.yml
   datafiles:
-  - $ref: /teams/insights/jira/rhcloud.yaml
+  - $ref: /teams/insights/jira/rhineng.yaml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
-  - $ref: /teams/insights/roles/rhcloud-owner.yml
+  - $ref: /teams/insights/roles/rhineng-owner.yml
