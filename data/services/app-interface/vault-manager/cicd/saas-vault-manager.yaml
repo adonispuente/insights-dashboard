@@ -66,3 +66,4 @@ resourceTemplates:
       SLACK_CHANNEL: sd-app-sre-reconcile
       KUBE_AUTH: true
       KUBE_AUTH_MOUNT: kubernetes-appsrep05ue1
+      FLUENTD_IMAGE_TAG: 8e1d986
