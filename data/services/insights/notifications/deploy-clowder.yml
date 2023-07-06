@@ -97,7 +97,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
@@ -147,7 +147,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -190,7 +190,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -233,7 +233,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CPU_LIMIT: 200m
       CPU_REQUEST: 100m
@@ -319,7 +319,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       IT_SERVICE_TO_SERVICE_KEY_STORE: file:/mnt/secrets/clientkeystore.jks
@@ -412,7 +412,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 96d9dfaa96f8d0cc8c3150b0e189b7b4cb612b85
+    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
     parameters:
       CLOUDWATCH_ENABLED: true
       CRONTAB_AGGREGATION_JOB: 0/15 * * * *
@@ -463,7 +463,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-gw commit hash that determines the clowdapp.yaml version
-    ref: 214a1003af7dd76be49d79e0124b98258d748992
+    ref: 743d91211a792b0fde9697cec5673123eafd7751
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 250m
