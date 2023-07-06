@@ -685,7 +685,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 3c820b45c96b14b4c2b92f6d92f64c2e0e2b44e5
+    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
     promotion:
       publish:
       - ocm-osdfm-deployed-stage-main
