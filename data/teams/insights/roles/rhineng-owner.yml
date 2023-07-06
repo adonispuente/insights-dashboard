@@ -11,3 +11,7 @@ self_service:
     $ref: /app-interface/changetype/jira-board-owner.yml
   datafiles:
   - $ref: /teams/insights/jira/rhineng.yaml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/insights/roles/rhineng-owner.yml
