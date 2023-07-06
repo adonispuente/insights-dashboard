@@ -77,7 +77,7 @@ products:
 
 ## Alternatives considered
 
-* Creating a static reference fom Status Board schema to corresponding apps
+* Creating a static reference from Status Board schema to corresponding apps
 
 
 ## Milestones
