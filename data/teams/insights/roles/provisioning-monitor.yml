@@ -8,7 +8,7 @@ labels:
 name: provisioning-monitor
 
 permissions:
-- $ref: /teams/insights/permissions/crc-provisioning-team-coreos-slack.yml
+- $ref: /teams/insights/permissions/crc-provisioning-team-slack.yml
 
 access:
 - namespace:

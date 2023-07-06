@@ -3,7 +3,7 @@ $schema: /access/permission-1.yml
 
 labels: {}
 
-name: crc-provisioning-team-coreos-slack
+name: crc-provisioning-team-slack
 
 description: Provisioning service team slack group.
 
@@ -16,3 +16,5 @@ workspace:
 
 channels:
   - envision-team
+  - provisioning-status
+  - hms-alerts
