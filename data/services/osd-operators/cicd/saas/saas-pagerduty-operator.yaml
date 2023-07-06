@@ -170,7 +170,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/pagerduty-operator.yml
     ref: c5371cef4735431753477e4864f09f4fc9439ec4
@@ -196,7 +196,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/pagerduty-operator.yml
     ref: c5371cef4735431753477e4864f09f4fc9439ec4
