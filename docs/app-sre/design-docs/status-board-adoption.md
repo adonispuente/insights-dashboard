@@ -59,7 +59,8 @@ ocm:
   $ref: data/dependencies/ocm/environments/production.yml
 
 
-appSelector:
+globalAppSelector:
+  exclude:
     - 'apps[?@.onboardingStatus=="OnBoarded"]'
 
 products:
@@ -68,12 +69,15 @@ products:
     - productEnvironment:
         $ref: /products/app-interface/environments/production-int.yml
       appSelector:
-        - 'apps[?@.name!="FooBar"]'
+        exclude:
+          - 'apps[?@.name!="FooBar"]'
     ...
 ```
 
-* Products need to be statically listed in the Status Board schema.
-* Apps will be dynamically listed based on the products in Status Board schema. They can additionally be filtered using an appSelector. This is useful for example to exclude apps that are not yet onboarded.
+Schema explanation:
+
+* `products`: List of the products/productEnvironments that will be published to Status Board.
+* `appSelector`/`globalAppSelector`: All apps, that are associated to the listed Product Environments will be considered for export. Use the selector fields to exclude certain apps. In the beginning, this will only be an exclude list. This is useful for example to exclude apps that are not yet onboarded. If global and product specific selectors are configured, they are all considered during filtering.
 
 ## Alternatives considered
 
