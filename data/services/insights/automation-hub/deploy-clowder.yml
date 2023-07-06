@@ -90,7 +90,7 @@ resourceTemplates:
         REPLICAS: 1
         SUFFIX: '-cwa'
 
-        NGINX_IMAGE_TAG: '2c85733'
+        NGINX_IMAGE_TAG: '40328c2'
         NGINX_CPU_REQUEST: 100m
         NGINX_MEMORY_REQUEST: 128Mi
 
