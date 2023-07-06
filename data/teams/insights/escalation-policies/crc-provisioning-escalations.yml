@@ -12,7 +12,7 @@ description: |
 
 channels:
   slackUserGroup:
-  - $ref: /teams/insights/permissions/crc-provisioning-team-coreos-slack.yml
+  - $ref: /teams/insights/permissions/crc-provisioning-team-slack.yml
 
   email:
     - oezr@redhat.com
