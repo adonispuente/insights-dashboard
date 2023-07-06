@@ -112,7 +112,7 @@ spec:
           message: "Clowder's reconciliation time has exceeded 4 seconds"
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/clowder"
       - alert: ClowderWorkQueueDepth
-        expr: avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m]) > 10
+        expr: sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m])) > 10
         labels:
           severity: medium
           service: insights
