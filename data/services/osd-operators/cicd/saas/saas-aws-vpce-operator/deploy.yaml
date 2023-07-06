@@ -29,13 +29,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
-    promotion:
-      publish:
-      - aws-vpce-operator-sss-deployed-success-channel-hivei01ue1
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-aws-vpce-operator-gh-build-main
+    delete: true
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: main
@@ -50,28 +44,18 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
-      auto: true
-      subscribe:
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hivei01ue1
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
-      auto: true
-      subscribe:
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hivei01ue1
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hives02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
     promotion:
-      auto: false
-      subscribe:
-      - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hives02ue1
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep07ue2
   - namespace:
