@@ -82,6 +82,7 @@ Schema explanation:
 ## Alternatives considered
 
 * Creating a static reference from Status Board schema to corresponding apps
+* Adding a new field to the App schema in app-interface, cause this would require changes when adding new apps
 
 
 ## Milestones
