@@ -1,0 +1,21 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: jira-board-auto-remover
+description: |
+  Permissions to approve the removal of a Jira board.
+
+priority: low
+
+contextType: datafile
+contextSchema: /dependencies/jira-board-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - $
+  context:
+    selector: $
+    when: removed
