@@ -21,7 +21,7 @@ workerFleets:
   fsRoot: /var/lib/jenkins
   labelString: app-interface app-sre insights backplane srep-operators quarkus
   numExecutors: 4
-  maxTotalUses: 200
+  maxTotalUses: 150
 - identifier: ci-ext-jenkins-worker-codeready-analytics
   account: app-sre
   namespace:
