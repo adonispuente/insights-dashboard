@@ -42,7 +42,7 @@ resourceTemplates:
       - channel: content-sources-stage-deploy-success-channel
         data:
         - parent_saas: content-sources
-          target_config_hash: 34a3a88f1639b216
+          target_config_hash: ba977e7cbed9349f
           type: parent_saas_config
   ## Production
   - namespace:
