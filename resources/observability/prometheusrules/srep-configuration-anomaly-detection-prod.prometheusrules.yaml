@@ -13,7 +13,7 @@ spec:
       rules:
         - alert: CADPipelineFailure
           expr: |
-            sum(kube_pod_status_phase{namespace="configuration-anomaly-detection-production", phase="Failed"} == 1) by (pod) - sum(kube_pod_status_phase{namespace="configuration-anomaly-detection-production", phase="Failed"} offset 5m) by (pod) > 0
+            sum(kube_pod_status_phase{namespace="configuration-anomaly-detection-production", phase="Failed"} == 1) by (pod) unless sum(kube_pod_status_phase{namespace="configuration-anomaly-detection-production", phase="Failed"} offset 5m) by (pod) > 0
           labels:
             service: srep-cad
             severity: high
