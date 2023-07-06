@@ -49,3 +49,16 @@ resourceTemplates:
       VERSION: "4.7.0"
       CONFIG_NAME: "clair-db-jobs-config"
       IMAGE: "quay.io/app-sre/clair"
+- name: clair-db-jobs-index-create-prod
+  path: /contrib/openshift/manifests/db-job.yaml
+  url: https://github.com/quay/clair
+  targets:
+  - namespace:
+      $ref: /services/clair/namespaces/production.yml
+    ref: d2b3d826bba6522e69d214023d16070287b9da15
+    parameters:
+      JOB_NAME: "indexing-job-prod"
+      SUBCOMMAND: "pre"
+      VERSION: "4.7.0"
+      CONFIG_NAME: "clair-db-jobs-config"
+      IMAGE: "quay.io/app-sre/clair"
