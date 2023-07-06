@@ -70,6 +70,15 @@ network:
   pod: 10.128.0.0/14
 internal: false
 
+upgradePolicy:
+  workloads:
+  - backplane
+  schedule: 0 16 * * 1-5
+  conditions:
+    soakDays: 6
+    mutexes:
+    - backplane
+
 peering:
   connections:
   # Jenkins and the internal app-sre bastion
