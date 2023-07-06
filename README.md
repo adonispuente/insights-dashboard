@@ -1664,6 +1664,7 @@ For more information about the versions that RDS supports:
 
 | Version | Minimum minor version | Notes                                                                                                                                                                                                      |
 |---------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 15      | \>= 15.2              | Documented as a minimum required version from AWS                                                  |
 | 14      | \>= 14.3              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 13      | \>= 13.7              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 12      | \>= 12.11             | Announced as the minimum required version by email from AWS                                                                                                                                                |
