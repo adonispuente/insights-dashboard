@@ -22,4 +22,4 @@ managedResourceTypes:
 - Secret
 
 sharedResources:
-- $ref: /services/github-mirror/shared-resources/github-mirror-pipelines.yml
+- $ref: /services/app-interface/shared-resources/app-sre-pipelines.yml
