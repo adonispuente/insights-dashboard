@@ -85,5 +85,3 @@ self_service:
   datafiles:
   - $ref: /services/observability/roles/app-sre-osdv4-monitored-clusters-view.yml
   - $ref: /services/observability/roles/app-sre-osdv4-monitored-namespaces-view.yml
-- change_type:
-    $ref: /app-interface/changetype/jira-board-auto-remover.yml
