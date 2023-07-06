@@ -291,6 +291,15 @@ data:
                 },
                 "orgId": 1,
                 "type": "file"
+            },
+            {
+                "folder": "ServicesDashboard",
+                "name": "ServicesDashboard",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/ServicesDashboard"
+                },
+                "orgId": 1,
+                "type": "file"
             }
         ]
     }
