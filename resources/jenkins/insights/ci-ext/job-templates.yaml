@@ -165,6 +165,12 @@
     id: 'insights-gh-build-master'
     name: '{gh_org}-{gh_repo}-gh-build-{branch}'
     slack_channel_notification: 'consoledot-development-fails'
+    env:
+        - valueFrom:
+            secretKeyRef:
+                name: jenkins-oauth-token
+                key: token
+            name: TOKEN
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -185,6 +191,35 @@
     - naginator:
         max-failed-builds: 3
     <<: *gh_build_master
+    parameters:
+    - string:
+        name: APP_NAME
+        default: '{app_name}'
+        description: "(REQUIRED) name of app-sre 'application' folder this component lives in"
+    shell: |
+        # send a curl request to changelog.stage.devshift.net
+        #!/bin/sh
+
+        # desired data from the jenkins job:
+        # - app name (as defined here in app-interface)
+        # - "project" name (as defined here in app-interface)
+        # - repo
+        # - branch merged from
+        # - branch merged to (monitored branch, master or main)
+        # - merged by
+        # - PR title and URL
+        # - PR number
+        # - data on each commmit:
+        #   - **commit ref** 
+        #   - commit message
+        #   - commit timestamps
+        #   - commit author info (name, email, username)
+
+        echo 'Building commit info for changelog.stage.devshift.net'
+        commit_info={"tenant": "Insights"}
+
+        echo 'Sending curl request to changelog.stage.devshift.net'
+        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$commit_info" -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}"
 
 - job-template:
     id: 'insights-gh-build-master-stable'
