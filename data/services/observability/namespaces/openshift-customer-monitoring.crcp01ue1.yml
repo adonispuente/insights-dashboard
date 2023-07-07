@@ -517,6 +517,8 @@ openshiftResources:
 - provider: prometheus-rule
   path: /insights-prod/ros-prod/ros.prometheusrules.yml
   type: resource
+  tests:
+  - /insights-prod/ros-prod/ros.prometheusrules-tests.yml
 - provider: prometheus-rule
   path: /insights-prod/eventing-prod/eventing-prometheusrules.yaml
   type: resource
