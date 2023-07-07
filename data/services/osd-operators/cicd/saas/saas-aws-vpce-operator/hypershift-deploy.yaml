@@ -34,6 +34,7 @@ resourceTemplates:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: main
+    delete: true
     parameters:
       REGION: us-west-2
       SECTOR_NAME: main
@@ -51,6 +52,7 @@ resourceTemplates:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+    delete: true
     parameters:
       REGION: eu-central-1
       SECTOR_NAME: main
@@ -64,6 +66,7 @@ resourceTemplates:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+    delete: true
     parameters:
       REGION: us-east-1
       SECTOR_NAME: main
