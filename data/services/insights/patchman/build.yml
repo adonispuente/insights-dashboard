@@ -51,6 +51,6 @@ config:
         display_name: patchman-ui pr-check
     - "insights-gh-build-master":
         display_name: patchman-ui build-master
-    - "insights-gh-build-master":
+    - "insights-gh-build-stage-stable":
         display_name: patchman-ui build-stage-stable
         branch: "stage-stable"
