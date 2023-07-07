@@ -326,7 +326,7 @@ resourceTemplates:
 
       REPORT_DOWNLOAD_SCHEDULE: "0 * * * *" # Every hour
       POLLING_TIMER: 82800 # 23Hrs between same provider polling
-      POLLING_BATCH_SIZE: 100
+      POLLING_BATCH_SIZE: 50
 
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False
