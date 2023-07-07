@@ -226,6 +226,7 @@ aws_groups:
 - $ref: /aws/hypershift-dns01/groups/AppSRE-admin.yml
 - $ref: /aws/sd-infra-stage-01/groups/App-SRE-admin.yml
 - $ref: /aws/sd-infra-prod-01/groups/App-SRE-admin.yml
+- $ref: /aws/app-sre-rosa-stage-01/groups/App-SRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
@@ -250,6 +251,7 @@ user_policies:
 - $ref: /aws/hypershift-dns01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-stage-01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-prod-01/policies/ManageOwnMFA.yml
+- $ref: /aws/app-sre-rosa-stage-01/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:
