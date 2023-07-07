@@ -7,8 +7,7 @@ description: SaaS tracking file for devfile-registry post deployment tests
 app:
   $ref: /services/devfile-registry/app.yml
 pipelinesProvider:
-  $ref: 
-    /services/devfile-registry/pipelines/tekton.devfile-registry-pipelines.appsrep05ue1.yaml
+  $ref: /services/devfile-registry/pipelines/tekton.devfile-registry-pipelines.appsrep05ue1.yaml
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
@@ -28,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/devfile-registry/namespaces/devfile-registry-stage.yml
-    ref: e008706f6373f50dd77bb77fdec0218b995efee5
+    ref: 1b9159b53ed828c60535f52c1def49554415e6e0
     parameters:
       REGISTRY: https://registry.stage.devfile.io
       IMAGE_TAG: next
