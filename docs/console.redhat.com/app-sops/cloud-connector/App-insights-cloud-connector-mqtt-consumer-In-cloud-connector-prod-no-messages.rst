@@ -23,6 +23,19 @@ Summary
 This alert fires when the Cloud-Connector mqtt consumer has not received a message
 from the MQTT broker in over 30 minutes.
 
+This is due to an issue on the MQTT broker.
+
+Situation
+- client connection to the MQTT broker fails
+- client reconnects to the MQTT broker
+- client connection is handled by the same broker instance as the original connection
+- MQTT broker will determine that the original connection has been severed
+    - MQTT broker removes the client's subscriptions (this removes the subscriptions associated with the old and new connection)
+
+This results in no messages being delivered to the new connection, but the
+client (cloud-connector mqtt consumer) does not know that there is an issue.
+
+
 Access required
 ---------------
 
