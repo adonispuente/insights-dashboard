@@ -3,7 +3,7 @@ retention_in_days: 3653
 
 # lambda
 release_url: repos/app-sre/logs-to-elasticsearch-lambda/releases/latest
-runtime: nodejs12.x
+runtime: nodejs18.x
 timeout: 60
 handler: index.handler
 memory_size: 128
