@@ -116,6 +116,9 @@ resetPasswords:
 - user:
     $ref: /teams/stonesoup/users/lmendes.yml
   requestId: pwd-reset-05-16-2023
+- user:
+    $ref: /teams/advanced-cluster-security/users/lcleroux.yml
+  requestId: pwd-reset-lcleroux-07-13-2023
 deleteKeys:
 # APPSRE-4733
 - AKIA22PYG6QIGRKWXAM2
