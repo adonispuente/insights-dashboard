@@ -44,5 +44,5 @@ resourceTemplates:
       - channel: advisor-stage-deploy-success-channel
         data:
         - parent_saas: advisor
-          target_config_hash: ad3449be48f078d5
+          target_config_hash: 17401c14a435d370
           type: parent_saas_config
