@@ -53,6 +53,6 @@ externalResources:
   resources:
   - provider: cloudwatch
     identifier: slo-report-prod
-    defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml
+    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-2.yml
     output_resource_name: cloudwatch
     es_identifier: kibana-elasticsearch
