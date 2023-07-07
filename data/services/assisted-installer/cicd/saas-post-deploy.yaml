@@ -48,7 +48,7 @@ resourceTemplates:
       - channel: assisted-installer-stage-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: bcba853523bc5451
+          target_config_hash: f42c8e8229a1a0d0
           type: parent_saas_config
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
