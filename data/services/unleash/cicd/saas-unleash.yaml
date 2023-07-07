@@ -48,6 +48,7 @@ resourceTemplates:
       tokenSecret: app-interface-stage-token
       org: app-sre
       team: app-interface-unleash
+      admin_roles: app-sre
       host: app-interface.unleash.stage.devshift.net
   - name: app-interface-production
     namespace:
