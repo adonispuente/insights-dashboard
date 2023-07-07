@@ -56,3 +56,9 @@ resourceTemplates:
       - provisioning-prod-deploy-success-channel
       publish:
       - provisioning-prod-post-deploy-tests-success-channel
+      promotion_data:
+      - channel: provisioning-prod-deploy-success-channel
+        data:
+        - parent_saas: provisioning
+          target_config_hash: 13a5f9f1260f0c79
+          type: parent_saas_config
