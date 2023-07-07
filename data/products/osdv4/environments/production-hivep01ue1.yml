@@ -22,8 +22,6 @@ parameters:
   SSO_BASE_URL: https://sso.redhat.com/auth/realms/redhat-external
   TELEMETER_BASE_URL: https://infogw-proxy.api.openshift.com
   TELEMETER_SERVER_URL: https://infogw.api.openshift.com
-  ALERT_GROUPING_TYPE: 'time'
-  ALERT_GROUPING_TIMEOUT: '60'
 
 dependsOn:
   $ref: /products/osdv4/environments/stage-01.yml

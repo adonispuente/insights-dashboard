@@ -167,6 +167,8 @@ resourceTemplates:
     # send CICD org to silent policy
     SILENT_ALERT_LEGALENTITY_IDS: ["1aV37K1VQv2zSStwSkdwBNOUBGI", "1V97SrKxtAKGZyNo2H8G3QfOaiS", "1OAqHaUmVnfTJ1PariqvRqJ2nvq", "1Ktf8lg4cB76Up4OCiiOGilLRe0", "1xJPTZZdq6sW8bJh8X32Q05bxuo", "1XKiYgdrr8gjbH256YTtuDKj78J"]
     SERVICE_ORCHESTRATION_ENABLED: 'true'
+    ALERT_GROUPING_TYPE: 'time'
+    ALERT_GROUPING_TIMEOUT: 60
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/pagerduty-operator.yml
@@ -182,13 +184,13 @@ resourceTemplates:
     ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
 
 - name: pagerduty-service-orchestration-osd
   url: https://github.com/openshift/pagerduty-operator
@@ -208,10 +210,10 @@ resourceTemplates:
     ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
-    ref: c5371cef4735431753477e4864f09f4fc9439ec4
+    ref: ff030106ef5f126be1e89013e5cca0098973537f
