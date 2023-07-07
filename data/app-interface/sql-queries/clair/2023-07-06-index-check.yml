@@ -10,3 +10,4 @@ output: stdout
 schedule: "0 * * * *"
 queries:
   - select command, phase, blocks_total, blocks_done, tuples_total, tuples_done, lockers_total, lockers_done from pg_stat_progress_create_index;
+delete: true
