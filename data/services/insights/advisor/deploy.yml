@@ -158,9 +158,7 @@ resourceTemplates:
       WEEKLY_REPORT_JOB_SCHEDULE: 11 11 * * 1
       CONTENT_PUSH_JOB_SCHEDULE: 30 8,14,20 * * *
       FLOORIST_SUSPEND: 'false'
-      FLOORIST_IMAGE_TAG: d2fb0c4
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
-      FLOORIST_SCHEDULE: 40 0 * * *
       RBAC_ENABLED: 'true'
       RUN_DJANGO_MIGRATION_NUM: 8
       ENABLE_AUTOSUB: 'true'
