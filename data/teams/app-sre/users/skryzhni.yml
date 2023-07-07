@@ -13,6 +13,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre-emea-slack.yml
 - $ref: /teams/app-sre/roles/app-sre-stream-4-slack.yml
 - $ref: /dependencies/ci-stage/roles/ci-stage-admin-access.yml
+- $ref: /teams/app-sre/roles/aws-root-accounts.yaml
 
 public_gpg_key: |
   mQENBFm/zogBCAC2seTFqKSw9l7m+l45vJUw136+hbTGX+f+BzfCFjW/RZIFsJme+ZDuE23rPszJ
