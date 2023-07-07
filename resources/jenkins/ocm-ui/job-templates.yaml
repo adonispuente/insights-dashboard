@@ -65,7 +65,7 @@
     - vault-secrets:
         <<: *vault_defaults
         secrets:
-        - *ocm_selenium_tests
+        - *ocm_qe_cypress_tests
         - *quay_secret_pull
     - ansicolor
     parameters:
