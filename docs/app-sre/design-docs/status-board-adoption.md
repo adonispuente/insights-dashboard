@@ -58,6 +58,8 @@ name: AppSRE status-board production
 ocm:
   $ref: data/dependencies/ocm/environments/production.yml
 
+additionalOwners:
+  $ref: /teams/app-sre/roles/app-sre.yml
 
 globalAppSelector:
   exclude:
@@ -78,6 +80,7 @@ Schema explanation:
 
 * `products`: List of the products/productEnvironments that will be published to Status Board.
 * `appSelector`/`globalAppSelector`: All apps, that are associated to the listed Product Environments will be considered for export. Use the selector fields to exclude certain apps. In the beginning, this will only be an exclude list. This is useful for example to exclude apps that are not yet onboarded. If global and product specific selectors are configured, they are all considered during filtering.
+* `additionalOwners`: Reference of additional owners that will be added to the created products/applications. The users associated to that role will be added to the products/applications. Usually only the service account, that created the product will be it's owner. By adding, i.e. us App-SRE we can make sure we do not loose ownership over products/applications. Note: Non owners will still be apble to create incidents for the products/applications in Web-RCA.
 
 ## Alternatives considered
 
