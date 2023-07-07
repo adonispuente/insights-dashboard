@@ -9,10 +9,10 @@ description: shared ocm-qe Secret resources for ocm namespaces
 openshiftResources:
 - provider: vault-secret
   path: ocm-qe/ams-qe-credentials
-  version: 10
+  version: 11
 - provider: vault-secret
   path: ocm-qe/cs-qe-credentials
-  version: 5
+  version: 7
 - provider: vault-secret
   path: ocm-qe/osdfm-qe-credentials
   version: 1
