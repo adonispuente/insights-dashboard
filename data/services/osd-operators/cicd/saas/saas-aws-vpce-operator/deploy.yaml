@@ -27,10 +27,6 @@ resourceTemplates:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
   targets:
   - namespace:
-      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: main
-    delete: true
-  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: main
     promotion:
