@@ -27,6 +27,8 @@ managedResourceTypes:
 - PersistentVolumeClaim
 - Service
 - Route
+- Frontend
+- Secret
 
 imagePatterns:
 - quay.io/cloudservices
