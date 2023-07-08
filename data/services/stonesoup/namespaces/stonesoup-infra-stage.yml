@@ -58,7 +58,10 @@ externalResources:
               "Principal": "*",
               "Action": "s3:*",
               "Resource": ["arn:aws:s3:::redhat-stg-plnsvc", "arn:aws:s3:::redhat-stg-plnsvc/*"],
-              "Condition": {"StringNotEquals": {"aws:sourceVpc": "vpc-0b9bed0483260f046"}},
+              "Condition": {
+                "StringNotEquals": {"aws:sourceVpc": "vpc-0b9bed0483260f046"},
+                "StringNotEquals": {"aws:username": "arn:aws:iam::663944276957:user/terraform"}
+                },
             },
           ],
       }
@@ -76,7 +79,10 @@ externalResources:
               "Principal": "*",
               "Action": "s3:*",
               "Resource": ["arn:aws:s3:::multi-tenant-stg-plnsvc", "arn:aws:s3:::multi-tenant-stg-plnsvc/*"],
-              "Condition": {"StringNotEquals": {"aws:sourceVpc": "vpc-082af53efdf33dcf0"}},
+              "Condition": {
+                "StringNotEquals": {"aws:sourceVpc": "vpc-082af53efdf33dcf0"},
+                "StringNotEquals": {"aws:username": "arn:aws:iam::663944276957:user/terraform"}
+                },
             },
           ],
       }
