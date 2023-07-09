@@ -17,6 +17,8 @@ pipelinesProvider:
 managedResourceTypes:
 - ConfigMap
 
+imagePatterns: []
+
 resourceTemplates:
 - name: services-dashboard-dashboards
   url: https://gitlab.cee.redhat.com/service/dashboard
