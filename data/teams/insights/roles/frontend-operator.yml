@@ -37,10 +37,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/frontend-operator/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/frontend-operator/namespaces/stage.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/frontend-operator.yml

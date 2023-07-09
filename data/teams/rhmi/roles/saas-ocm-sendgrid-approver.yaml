@@ -17,9 +17,3 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/sendgrid/app.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/sendgrid/namespaces/sendgrid-stage.yml
-  - $ref: /services/sendgrid/namespaces/sendgrid-stage-appsres04ue2.yml
-  - $ref: /services/sendgrid/namespaces/sendgrid-production.yml

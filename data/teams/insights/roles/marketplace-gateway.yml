@@ -30,10 +30,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/marketplace-gateway/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/marketplace-gateway/namespaces/stage.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/marketplace-gateway.yml

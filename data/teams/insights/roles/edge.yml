@@ -29,11 +29,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/edge/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/edge/namespaces/stage-edge-stage.yml
-  - $ref: /services/insights/edge/namespaces/edge-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/edge.yml

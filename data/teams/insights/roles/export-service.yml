@@ -31,12 +31,6 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/insights/export-service/app.yml
-# Template for future namespace owner definitions
-#- change_type:
-#    $ref: /app-interface/changetype/namespace-owner.yml
-#  datafiles:
-#  - $ref: /services/insights/export-service/namespaces/prod.yml
-#  - $ref: /services/insights/export-service/namespaces/stage.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:

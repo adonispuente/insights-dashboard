@@ -16,11 +16,6 @@ self_service:
   datafiles:
   - $ref: /services/managed-connectors/app.yaml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/managed-connectors/namespaces/managed-connectors-stage.yaml
-  - $ref: /services/managed-connectors/namespaces/managed-connectors-production.yaml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/managed-connectors/roles/dev.yml

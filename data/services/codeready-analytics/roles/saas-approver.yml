@@ -38,8 +38,3 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/codeready-analytics/app.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/codeready-analytics/namespaces/bayesian-preview.yml
-  - $ref: /services/codeready-analytics/namespaces/bayesian-production.yml

@@ -57,16 +57,6 @@ self_service:
   - $ref: /services/status-board/app.yml
   - $ref: /services/web-rca/app.yml
   - $ref: /services/cna/app.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/status-board/namespaces/stage.yml
-  - $ref: /services/status-board/namespaces/production.yml
-  - $ref: /services/web-rca/namespaces/stage.yml
-  - $ref: /services/web-rca/namespaces/production.yml
-  - $ref: /services/cna/namespaces/stage.yml
-  - $ref: /services/cna/namespaces/integration.yml
-  - $ref: /services/cna/namespaces/prod.yml
 
 glitchtip_roles:
 - organization:

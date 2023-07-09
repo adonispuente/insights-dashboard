@@ -16,11 +16,6 @@ self_service:
   datafiles:
   - $ref: /services/managed-services/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/managed-services/namespaces/managed-services-stage.yml
-  - $ref: /services/managed-services/namespaces/managed-services-production.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/managed-services/roles/dev.yml

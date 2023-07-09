@@ -35,11 +35,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/patchman/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/patchman/namespaces/stage-patchman-engine-stage.yml
-  - $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/patchman.yml
