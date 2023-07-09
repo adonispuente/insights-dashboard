@@ -1,0 +1,35 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: services-dashboard
+
+name: saas-services-dashboard
+
+description: SaaS tracking file for Services Dashboard
+
+app:
+  $ref: /services/services-dashboard/app.yml
+
+pipelinesProvider:
+  $ref: /teams/sd-ops-dev/pipelines/tekton.sd-ops-dev-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: sd-ops-services-dev
+
+managedResourceTypes:
+- ConfigMap
+
+imagePatterns: []
+
+resourceTemplates:
+- name: services-dashboard-dashboards
+  url: https://gitlab.cee.redhat.com/service/dashboard
+  path: /dashboards
+  provider: directory
+  targets:
+    - namespace:
+        $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+      ref: main
