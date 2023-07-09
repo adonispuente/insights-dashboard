@@ -4,8 +4,8 @@ $schema: /openshift/namespace-1.yml
 labels:
   provider: tekton
 
-name: web-rca-pipelines
-description: Web RCA pipelines namespace
+name: sd-ops-dev-pipelines
+description: SD OpsDev pipelines namespace
 
 cluster:
   $ref: /openshift/appsrep05ue1/cluster.yml

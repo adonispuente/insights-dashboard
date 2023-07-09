@@ -22,23 +22,11 @@ access:
     $ref: /services/status-board/namespaces/production.yml
   role: view
 - namespace:
-    $ref: /services/status-board/namespaces/status-board-pipelines.appsrep05ue1.yaml
-  role: view
-- namespace:
-    $ref: /services/status-board/namespaces/status-board-pipelines.appsrep05ue1.yaml
-  role: tekton-trigger-access
-- namespace:
     $ref: /services/web-rca/namespaces/stage.yml
   role: view
 - namespace:
     $ref: /services/web-rca/namespaces/production.yml
   role: view
-- namespace:
-    $ref: /services/web-rca/namespaces/web-rca-pipelines.appsrep05ue1.yaml
-  role: view
-- namespace:
-    $ref: /services/web-rca/namespaces/web-rca-pipelines.appsrep05ue1.yaml
-  role: tekton-trigger-access
 # This is temporary while CNA builds their integration environment
 - namespace:
     $ref: /services/cna/namespaces/stage.yml
@@ -50,10 +38,10 @@ access:
     $ref: /services/cna/namespaces/prod.yml
   role: view
 - namespace:
-    $ref: /services/cna/namespaces/cna-pipelines.appsrep05ue1.yaml
+    $ref: /teams/sd-ops-dev/pipelines/sd-ops-dev-pipelines.appsrep05ue1.yaml
   role: view
 - namespace:
-    $ref: /services/cna/namespaces/cna-pipelines.appsrep05ue1.yaml
+    $ref: /teams/sd-ops-dev/pipelines/sd-ops-dev-pipelines.appsrep05ue1.yaml
   role: tekton-trigger-access
 
 self_service:
