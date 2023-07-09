@@ -15,7 +15,6 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/hive/app.yml
-  - $ref: /services/hive/namespaces/hivep07ue2/hive-production.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
