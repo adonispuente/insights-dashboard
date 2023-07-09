@@ -27,7 +27,7 @@
     <<: *gl_pr_check
     publishers:
     - archive:
-        artifacts: '**/*.tfplan.txt'
+        artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
 
 - job-template:
     id: 'gl-build-master-osd-aws-privatelink-terraform-rosa'
@@ -46,7 +46,7 @@
     <<: *gl_build_master
     publishers:
     - archive:
-        artifacts: '**/*.tfplan.txt'
+        artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
 
 - job-template:
     id: 'gl-pr-check-osd-aws-privatelink-terraform-hypershift'
