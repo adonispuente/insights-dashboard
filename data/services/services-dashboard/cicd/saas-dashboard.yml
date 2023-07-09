@@ -11,6 +11,9 @@ description: SaaS tracking file for Services Dashboard
 app:
   $ref: /services/services-dashboard/app.yml
 
+pipelinesProvider:
+  $ref: /teams/sd-ops-dev/pipelines/tekton.sd-ops-dev-pipelines.appsrep05ue1.yaml
+
 resourceTemplates:
 - name: services-dashboard-dashboards
   url: https://gitlab.cee.redhat.com/service/dashboard
