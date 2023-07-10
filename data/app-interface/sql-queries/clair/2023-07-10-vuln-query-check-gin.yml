@@ -1,7 +1,7 @@
 ---
 $schema: /app-interface/app-interface-sql-query-1.yml
 labels: {}
-name: clair-matcher-vuln-query-check-gin
+name: clair-matcher-vuln-query-check-gin-2
 namespace:
   $ref: /services/clair/namespaces/production.yml
 identifier: clair-matcher
@@ -48,7 +48,7 @@ query:  |
       AND ("repo_name" = 'go') 
       AND (
         ("version_kind" = 'semver') 
-        AND vulnerable_range @ > '{0,1,9,0,0,0,0,0,0,0}' :: int[]
+        AND vulnerable_range @> '{0,1,9,0,0,0,0,0,0,0}'::int[]
       )
     );
 
