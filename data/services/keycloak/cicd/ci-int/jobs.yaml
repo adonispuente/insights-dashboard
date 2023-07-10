@@ -68,4 +68,4 @@ config:
         display_name: keycloak-interface build main
         branch: main
     - 'gl-pr-check':
-        display_name: keycloak-interface pr-check
+        display_name: keycloak-interface pr check
