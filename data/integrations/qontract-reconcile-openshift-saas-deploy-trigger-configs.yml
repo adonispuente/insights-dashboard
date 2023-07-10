@@ -68,3 +68,5 @@ schemas:
 - /openshift/namespace-1.yml
 - /dependencies/quay-org-1.yml
 - /dependencies/quay-instance-1.yml
+- /access/user-1.yml
+- /access/bot-1.yml
