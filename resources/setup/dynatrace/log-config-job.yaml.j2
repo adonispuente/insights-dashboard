@@ -1,4 +1,4 @@
-{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces -%}
+{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | sort(attribute='name') -%}
 {%- set namespace_names = [] -%}
 {%- for namespace in all_namespaces -%}
 {%- set namespace_labels = namespace.labels | json_to_dict -%}
