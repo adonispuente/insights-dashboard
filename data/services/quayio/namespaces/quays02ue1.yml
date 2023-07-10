@@ -398,7 +398,7 @@ externalResources:
     ip_address_type: dualstack
     vpc:
       $ref: /aws/quayio-stage/vpcs/default.yml
-    certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/aa509131-4bed-4b14-88f8-4826d1f57238
+    certificate_arn: arn:aws:acm:us-east-1:019044362261:certificate/b081e623-095d-40c8-bdb0-db211fc20a35
     ingress_cidr_blocks: ["0.0.0.0/0"]
     targets:
     - name: quayio-stage-py3
