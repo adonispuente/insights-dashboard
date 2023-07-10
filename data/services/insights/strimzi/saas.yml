@@ -77,7 +77,7 @@ resourceTemplates:
     parameters:
       KAFKA_CONNECT_IMAGE: quay.io/cloudservices/kafka-connect
       BOOTSTRAP_CONFIG_PROVIDER: ${KAFKA_BOOTSTRAP_HOST}9093
-      KAFKA_CONNECT_VERSION: 3.1.0
+      KAFKA_CONNECT_VERSION: 3.4.0
 - name: strimzi
   path: /deploys/openshift/amq-streams.yaml
   url: https://github.com/RedHatInsights/platform-mq
