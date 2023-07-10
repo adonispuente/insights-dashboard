@@ -187,3 +187,23 @@ externalResources:
     identifier: ai-production-es
     defaults: /terraform/resources/assisted-installer/elasticsearch-production-1.yml
     output_resource_name: assisted-installer-elasticsearch
+  - provider: msk
+    identifier: assisted-installer-production
+    defaults: /terraform/resources/assisted-installer/msk-production-1.yml
+    output_resource_name: assisted-installer-msk
+    users:
+    - name: scram-assisted-service-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/assisted-service
+        field: all
+        version: 1
+    - name: scram-assisted-events-streams-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/assisted-events-streams
+        field: all
+        version: 1
+    - name: scram-admin-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/admin
+        field: all
+        version: 1
