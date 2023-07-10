@@ -25,8 +25,8 @@ Steps
 - Check the `clowder-controller-manager` pod logs and events in the `clowder-system` namespace
 - Analyze errors in clowder-controller-manager pod logs.
 - Try to determine if root cause is user error or a clowder bug. If it is a user error, it will have 
-  a message like `error failed to reconcile`. If the logs have a golang panic with traceback message, it 
-  is a Clowder issue.
+  a message like `error failed to reconcile`. If the logs have a golang panic with a traceback message, 
+  it is a Clowder issue.
 
 Escalations
 -----------
