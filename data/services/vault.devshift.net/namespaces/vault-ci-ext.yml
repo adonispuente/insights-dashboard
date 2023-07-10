@@ -50,6 +50,7 @@ externalResources:
     overrides:
       maintenance_window: Thu:20:00-Thu:21:00
       apply_immediately: true
+      engine_version: '8.0.32'
   - provider: s3
     identifier: app-sre-vault-ci-ext
     defaults: /terraform/resources/s3-private-1.yml
