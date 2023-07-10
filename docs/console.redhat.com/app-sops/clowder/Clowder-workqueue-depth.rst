@@ -30,4 +30,4 @@ Steps
 Escalations
 -----------
 
-Ping the DevProd team
+Ping the DevProd team on Slack at #team-consoledot-devprod
