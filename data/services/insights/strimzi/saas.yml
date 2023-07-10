@@ -76,7 +76,7 @@ resourceTemplates:
     ref: master
     parameters:
       KAFKA_CONNECT_IMAGE: quay.io/cloudservices/kafka-connect
-      BOOTSTRAP_CONFIG_PROVIDER: ${KAFKA_BOOTSTRAP_HOST}9093
+      BOOTSTRAP_CONFIG_PROVIDER: ${KAFKA_BOOTSTRAP_HOST}:9093
       KAFKA_CONNECT_VERSION: 3.4.0
 - name: strimzi
   path: /deploys/openshift/amq-streams.yaml
@@ -96,7 +96,7 @@ resourceTemplates:
       KAFKA_HEAP_OPTS_XMS: 6g
       KAFKA_HEAP_OPTS_XMX: 6g
       KAFKA_VOL_SIZE: 450Gi
-      KAFKA_VERSION: 3.1.0
+      KAFKA_VERSION: 3.4.0
       ZOOKEEPER_NUM_REPLICAS: 3
   - namespace:
       $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
