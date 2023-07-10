@@ -1,0 +1,23 @@
+---
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  creationTimestamp: null
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+  name: app-sre-dynatrace-config-jobs
+spec:
+  groups:
+  - name: app-sre-dynatrace-config-jobs
+    rules:
+    - alert: DynatraceConfigJobFailed
+      expr: kube_job_status_failed{namespace="dynatrace"} > 0
+      labels:
+        # TODO: critical once the feature is released and runs in production
+        severity: info
+        service: dynatrace
+      annotations:
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/tree/master/docs/app-sre/sop/dynatrace.md"
+        message: "Dynatrace Configuration Job did not finish successfully."

@@ -1,4 +1,4 @@
-{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces -%}
+{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | sort(attribute='name') -%}
 {%- set namespace_names = [] -%}
 {%- for namespace in all_namespaces -%}
 {%- set namespace_labels = namespace.labels | json_to_dict -%}
@@ -11,13 +11,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-v2-{{ hash_list(namespace_names)[:8] }}
+  name: log-config-v3-{{ hash_list(namespace_names)[:8] }}
   namespace: dynatrace
 spec:
-  backoffLimit: 0
+  backoffLimit: 8  # ~10 minutes
   template:
     spec:
-      restartPolicy: Never
+      restartPolicy: OnFailure
       volumes:
         - name: dynatrace-tokens
           projected:
@@ -46,28 +46,14 @@ spec:
               DT_API_URL="{{ cluster_labels['dynatraceEnvironmentUrl'] }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
               RULE_NAME="log-cluster-namespaces"
-              # Lets give the DT stack a total of 10 minutes to bootstrap
-              MAX_TRIES=30
-              SLEEP_TIME_IN_S=20
 
-              for ((i=1; i<=$MAX_TRIES; i++))
-              do
-                  hostGroupData=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/entities?entitySelector=type(\"HOST_GROUP\"),entityName(\"$CLUSTER_NAME\")&fields=properties")
-                  totalCount=$(echo "$hostGroupData" | jq -r '.totalCount')
-                  if [ "$totalCount" -eq 1 ]; then
-                      hostGroupId=$(echo $hostGroupData | jq -r '.entities[0].entityId')
-                      break  # Exit the loop since condition is met
-                  else
-                      echo "$DT_API_URL returned $totalCount occurrences of cluster $CLUSTER_NAME amongst Dynatrace HOST_GROUPS. Retrying in $SLEEP_TIME_IN_S seconds..."
-                      sleep $SLEEP_TIME_IN_S  # Wait for specified time before retrying
-                  fi
-
-                  if [ $i -eq $MAX_TRIES ]; then
-                      echo "Reached maximum number of tries. Exiting..."
-                      exit 1
-                  fi
-              done
-
+              hostGroupData=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/entities?entitySelector=type(\"HOST_GROUP\"),entityName(\"$CLUSTER_NAME\")&fields=properties")
+              totalCount=$(echo "$hostGroupData" | jq -r '.totalCount')
+              if [ "$totalCount" -ne 1 ]; then
+                echo "[ERROR] $DT_API_URL returned $totalCount occurrences of cluster $CLUSTER_NAME amongst Dynatrace HOST_GROUPS. If 0, then maybe DT stack isnt ready yet -> retry."
+                exit 1
+              fi
+              hostGroupId=$(echo $hostGroupData | jq -r '.entities[0].entityId')
               ruleObjectId=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/settings/objects?schemaIds=builtin:logmonitoring.log-storage-settings&scopes=$hostGroupId" | jq -r '.items[] | select(.value."config-item-title" == "'$RULE_NAME'") | .objectId')
 
               namespaces_json="["

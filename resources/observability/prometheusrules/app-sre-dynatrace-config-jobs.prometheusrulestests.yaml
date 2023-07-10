@@ -1,0 +1,33 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+rule_files:
+- /observability/prometheusrules/app-sre-dynatrace-config-jobs.prometheusrules.yaml
+
+evaluation_interval: 1m
+
+tests:
+- interval: 1m
+  input_series:
+  - series: kube_job_status_failed{job_name="dynatrace-config-job", namespace="dynatrace"}
+    values: _ 1 0
+
+  alert_rule_test:
+  # No metrics for job -> dont fail
+  - eval_time: 1m
+    alertname: DynatraceConfigJobFailed
+    exp_alerts: []
+  # Job failing
+  - eval_time: 2m
+    alertname: DynatraceConfigJobFailed
+    exp_alerts:
+    - exp_labels:
+        service: dynatrace
+        severity: info
+        namespace: dynatrace
+      exp_annotations:
+        message: Dynatrace Configuration Job did not finish successfully.
+  # Job not failing
+  - eval_time: 3m
+    alertname: DynatraceConfigJobFailed
+    exp_alerts: []
