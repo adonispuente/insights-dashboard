@@ -70,6 +70,17 @@ externalResources:
     overrides:
       engine_version: "13.9"
       apply_immediately: false
+  - provider: rds
+    identifier: kruize-stage
+    annotations:
+      clowder/database: kruize
+    defaults: /terraform/resources/insights/stage/rds/postgres13-rds-1.yml
+    parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-ros-stage.yml
+    output_resource_name: kruize-stage
+    enhanced_monitoring: true
+    overrides:
+      engine_version: "13.9"
+      apply_immediately: true
   - provider: cloudwatch
     identifier: ros-stage
     defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml
