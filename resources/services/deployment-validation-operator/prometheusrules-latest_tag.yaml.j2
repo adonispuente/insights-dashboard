@@ -12,7 +12,7 @@ spec:
   - name: deployment-validation-operator-latest_tag.rules
     rules:
     {{%- for cluster in query('/queries/cluster-namespace-app-jira.graphql', name=resource.namespace.cluster.name) %}}
-    {{%- for namespace in cluster.namespaces %}}
+    {{%- for namespace in cluster.namespaces | sort(attribute='name') %}}
     {{%- if not namespace.name.startswith('openshift-') %}}
     {{%- if "deployment_validation_operator_latest_tag" not in namespace.app.labels %}}
     - alert: deployment_validation_operator_latest_tag

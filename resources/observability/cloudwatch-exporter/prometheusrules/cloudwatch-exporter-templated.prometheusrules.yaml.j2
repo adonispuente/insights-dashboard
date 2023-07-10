@@ -36,7 +36,7 @@ spec:
         runbook: https://github.com/rhobs/configuration/tree/main/docs/sop
     {{%- endfor %}}
 
-    {{%- for namespace in query('/queries/namespace-terraform-app-jira.graphql') %}}
+    {{%- for namespace in query('/queries/namespace-terraform-app-jira.graphql') | sort(attribute='name') %}}
     {{%- if (namespace.managedExternalResources and namespace.externalResources) %}}
     {{%- for er in namespace.externalResources %}}
     {{%- if (er.provider == 'aws' and er.provisioner.name in accounts_with_cloudwatch_exporter) %}}

@@ -13,7 +13,7 @@ spec:
   # and ensuring that the tests still pass.
   - name: rds-version-checks
     rules:
-    {{%- for namespace in query('/queries/namespace-terraform-app-jira.graphql') %}}
+    {{%- for namespace in query('/queries/namespace-terraform-app-jira.graphql') | sort(attribute='name') %}}
     {{%- if (namespace.managedExternalResources and namespace.externalResources) %}}
     {{%- for er in namespace.externalResources %}}
     {{%- if (er.provider == 'aws' and er.provisioner.name in accounts_with_aws_resource_exporter) %}}
