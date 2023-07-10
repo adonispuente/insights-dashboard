@@ -196,3 +196,15 @@ spec:
           message: "The current free storage space of DB instance {{ $labels.dbinstance_identifier }} is less than 20%."
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/blob/master/docs/aws/aws-rds-resources.md#rdsstoragelow"
           dashboard: "https://grafana.app-sre.devshift.net/d/AWSRDSdbi/aws-rds?orgId=1&var-datasource=AWS%20insights-prod&var-region=default&var-dbinstanceidentifier=ccx-notification-prod&from=now-7d&to=now"
+      - alert: CCXUpgradesDataEngCacheFull
+        expr: max (container_memory_working_set_bytes{container="ccx-upgrades-data-eng-instance"}) / min(kube_pod_container_resource_limits{resource="memory", container="ccx-upgrades-data-eng-instance"}) > 0.8
+        for: 2m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: ccx-data-pipeline
+        annotations:
+          message: "ccx-upgrades-data-eng service memory usage is too high and will reach the limits. Probably the cache is growing too much <!subteam^S043UGRST2L>"
+          dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
