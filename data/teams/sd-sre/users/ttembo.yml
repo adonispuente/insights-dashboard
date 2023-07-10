@@ -1,0 +1,15 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Tom Nelson Tembo
+org_username: ttembo
+github_username: TomNelsonTembo
+quay_username: ttembo_openshift
+
+roles:
+- $ref: /teams/sd-sre/roles/sre.yml
+- $ref: /teams/sd-sre/roles/sd-sre-emea.yml
+
+
