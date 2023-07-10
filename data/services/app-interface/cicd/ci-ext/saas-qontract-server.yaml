@@ -67,7 +67,7 @@ resourceTemplates:
       name: app-sre-qontract-server-gh-build-master
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production.yml
-    ref: 7b24629c73704d0041cdb7885427f62dc9214115
+    ref: 447bb7293182dd3fb2e084d7dfb70a4d198911f2
 - name: qontract-server dashboard
   url: https://github.com/app-sre/qontract-server
   path: /grafana-dashboards
@@ -75,7 +75,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: 7b24629c73704d0041cdb7885427f62dc9214115
+    ref: 447bb7293182dd3fb2e084d7dfb70a4d198911f2
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 7b24629c73704d0041cdb7885427f62dc9214115
+    ref: 447bb7293182dd3fb2e084d7dfb70a4d198911f2
