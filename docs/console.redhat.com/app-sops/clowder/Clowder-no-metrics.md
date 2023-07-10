@@ -32,10 +32,11 @@ Access required
 Steps
 -----
 
--  Log into the console / namespace and verify if pods are up / stuck / etc
--  Check logs / events for pods in the `clowder` namespace
--  Check if there were any recent changes to the CR's in the namespace, in
-   particular the `ClusterServiceVersion` or `Subscription` with the name `clowder`.
+- Log into the console and check the `clowder-system` namespace to verify if pods are up, stuck, etc
+- Check the `clowder-controller-manager` pod logs and events in the `clowder-system` namespace
+- Analyze errors in clowder-controller-manager pod logs.
+- Check if there were any recent changes to the CR's in the namespace, in
+  particular the `ClusterServiceVersion` or `Subscription` with the name `clowder`.
 
 Escalations
 -----------

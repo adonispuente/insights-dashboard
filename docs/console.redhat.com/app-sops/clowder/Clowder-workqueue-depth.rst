@@ -21,11 +21,12 @@ Access required
 Steps
 -----
 
-- Log into the console / namespace and verify if pods are up / stuck / etc
-- Check logs / events for pods in the `clowder-system` namespace
-- Analyze errors in clowder-controller-manager pod logs.  Try to determine if
-  root cause is user error or clowder bug.
-
+- Log into the console and check the `clowder-system` namespace to verify if pods are up, stuck, etc
+- Check the `clowder-controller-manager` pod logs and events in the `clowder-system` namespace
+- Analyze errors in clowder-controller-manager pod logs.
+- Try to determine if root cause is user error or a clowder bug. If it is a user error, it will have 
+  a message like `error failed to reconcile`. If the logs have a golang panic with a traceback message, 
+  it is a Clowder issue.
 Escalations
 -----------
 
