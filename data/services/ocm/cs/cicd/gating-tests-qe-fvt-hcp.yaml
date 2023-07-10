@@ -42,6 +42,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    name: rosa-hcp-advanced
     promotion:
       auto: true
       subscribe:
@@ -54,6 +55,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    name: rosa-hcp-advanced
     promotion:
       auto: true
       subscribe:
@@ -63,6 +65,19 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    name: rosa-hcp-private-link-main
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-rosa-hcp-pl-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: rosa-hcp-pl
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
@@ -76,3 +91,16 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: hcp-e2e
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    name: rosa-hcp-upgrade
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-hcp-upgrade-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: rosa-hcp-upgrade
