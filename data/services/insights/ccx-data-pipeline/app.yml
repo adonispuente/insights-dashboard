@@ -71,9 +71,6 @@ quayRepos:
   - name: ccx-rules-ocp
     public: false
     description: Repo for rules content of ccx-rules-ocp 
-  - name: io-gathering-conditions
-    public: false
-    description: Repo for the Insights Operator Gathering Conditions Insights app
   - name: io-gathering-conditions-service
     public: true
     description: Repo for the Insights Operator Gathering Conditions Service Insights app
@@ -136,9 +133,6 @@ codeComponents:
 - name: io-gathering-service
   resource: upstream
   url: https://github.com/RedHatInsights/insights-operator-gathering-conditions-service
-- name: io-gathering-conditions
-  resource: upstream
-  url: https://github.com/RedHatInsights/insights-operator-gathering-conditions
 - name: ccx-sha-extractor
   resource: upstream
   url: https://gitlab.cee.redhat.com/ccx/ccx-sha-extractor
