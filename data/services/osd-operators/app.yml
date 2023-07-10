@@ -693,4 +693,7 @@ codeComponents:
     rebase: false
 - name: configure-goalert-operator
   resource: upstream
-  url: https://github.com/openshift/configure-goalert-operator    
+  url: https://github.com/openshift/configure-goalert-operator
+- name: saas-configure-goalert-operator-bundle
+  resource: bundle
+  url: https://gitlab.cee.redhat.com/service/saas-configure-goalert-operator-bundle    
