@@ -43,13 +43,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/xjoin/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
-  - $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
-  - $ref: /services/insights/xjoin/namespaces/stage-xjoin-operator-stage.yml
-  - $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/xjoin.yml

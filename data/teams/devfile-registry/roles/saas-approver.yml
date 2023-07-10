@@ -19,10 +19,3 @@ self_service:
   datafiles:
   - $ref: /services/devfile-registry/app.yml
   - $ref: /services/devfile-registry/app-redhat.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/devfile-registry/namespaces/devfile-registry-stage.yml
-  - $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
-  - $ref: /services/devfile-registry/namespaces/devfile-registry-redhat-stage.yml
-  - $ref: /services/devfile-registry/namespaces/devfile-registry-redhat-production.yml

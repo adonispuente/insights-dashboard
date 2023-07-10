@@ -50,11 +50,6 @@ self_service:
   - $ref: /services/insights/vulnerability/app.yml
   - $ref: /services/insights/ocp-vulnerability/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/vulnerability/namespaces/stage-vmaas-stage.yml
-  - $ref: /services/insights/vulnerability/namespaces/vmaas-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/vulnerabilities.yml

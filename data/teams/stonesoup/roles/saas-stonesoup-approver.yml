@@ -26,15 +26,6 @@ self_service:
   - $ref: /services/stonesoup/jvm-build-service/app.yml
   - $ref: /services/stonesoup/application-service/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres03ue1.yaml
-  - $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsrep05ue1.yaml
-  - $ref: /services/stonesoup/namespaces/stonesoup-infra-stage.yml
-  - $ref: /services/stonesoup/namespaces/stonesoup-infra-production.yml
-  - $ref: /services/stonesoup/namespaces/stonesoup-infra-stage-s01ue1.yml
-  - $ref: /services/stonesoup/namespaces/stonesoup-infra-prod-s01ue1.yml
-- change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:
   - $ref: /aws/stonesoup-stage/account.yml

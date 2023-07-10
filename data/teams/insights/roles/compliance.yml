@@ -31,11 +31,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/compliance/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/compliance/namespaces/compliance-stage.yml
-  - $ref: /services/insights/compliance/namespaces/compliance-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/compliance.yml

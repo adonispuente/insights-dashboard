@@ -30,11 +30,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/payload-tracker/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/payload-tracker/namespaces/payload-tracker-prod.yml
-  - $ref: /services/insights/payload-tracker/namespaces/stage-payload-tracker-stage.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/payload-tracker.yml
