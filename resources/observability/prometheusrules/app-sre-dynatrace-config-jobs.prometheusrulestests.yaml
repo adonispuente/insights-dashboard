@@ -23,7 +23,7 @@ tests:
     exp_alerts:
     - exp_labels:
         service: dynatrace
-        severity: high
+        severity: info
         namespace: dynatrace
       exp_annotations:
         message: Dynatrace Configuration Job did not finish successfully.
