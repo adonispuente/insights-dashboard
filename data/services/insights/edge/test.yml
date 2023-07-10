@@ -32,7 +32,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/edge/namespaces/stage-edge-stage.yml
-    ref: 8e089f56c6dc5e64c8dfb4aaf7fdf2d718bca409
+    ref: eb1c5d1b3310c6ba009fdc546fc5a851d43c459e
     parameters:
       ENV_NAME: stage
       GATE_PROMETHEUS_ENDPOINT: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
