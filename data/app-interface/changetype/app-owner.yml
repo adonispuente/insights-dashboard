@@ -28,6 +28,12 @@ changes:
   changeSchema: /openshift/namespace-1.yml
   context:
     selector: app.'$ref'
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/saas-file-self-service.yml
+  changeSchema: /app-sre/saas-file-2.yml
+  context:
+    selector: app.'$ref'
 - provider: jsonPath
   jsonPathSelectors:
   - labels
