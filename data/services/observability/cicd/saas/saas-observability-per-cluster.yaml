@@ -228,6 +228,7 @@ resourceTemplates:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
     ref: f84dab7f66d7ccc73e2843b5ed395ac04c4385c8
     parameters:
+      VERSION: v2.45.0
       CLUSTER_LABEL: appsrep05ue1
       ENVIRONMENT: production
       EXTERNAL_URL: https://prometheus.appsrep05ue1.devshift.net
