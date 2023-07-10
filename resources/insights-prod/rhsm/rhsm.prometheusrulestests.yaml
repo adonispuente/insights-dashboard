@@ -41,7 +41,7 @@ tests:
         message: "RHSM: more than 10% requests in prod returned HTTP 5XX in last 15 minutes"
         runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/rhsm/Rhsm5xx.md'
       exp_labels:
-        severity: medium
+        severity: high
         service: insights
         env: prod
         app_team: rhsm
@@ -82,7 +82,7 @@ tests:
         message: "RHSM: slow responses observed; more than 10% of requests with response time > 2 seconds for the last 15 minutes in prod"
         runbook: 'https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/rhsm/RhsmLatency.md'
       exp_labels:
-        severity: medium
+        severity: high
         service: insights
         env: prod
         app_team: rhsm
