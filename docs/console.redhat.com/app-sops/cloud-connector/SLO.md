@@ -18,7 +18,7 @@ The following categories will correspond to the SLIs and SLOs below.
 
 1. `> 95%` of HTTP requests are non-5xx
 2. `> 95%` of mqtt messages consumed are placed onto kafka successfully
-3. Duration of an increase in Kafka lag should not exceed 30 minutes
+3. There are less than 100 messages waiting to be processed 95% of the time over 28 days
 4. `> 95%` uptime
 
 ## Rationale
