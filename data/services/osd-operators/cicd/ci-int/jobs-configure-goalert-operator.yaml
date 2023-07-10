@@ -28,5 +28,5 @@ config:
     backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gh-build-master':
-        display_name: pagerduty-operator build master
+        display_name: configure-goalert-operator build master
         branch: main
