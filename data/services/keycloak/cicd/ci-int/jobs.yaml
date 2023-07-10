@@ -64,8 +64,8 @@ config:
     gl_project: keycloak-interface
     quay_org: app-sre
     jobs:
-    - 'gl-build-master':
+    - 'keycloak-interface-build-master':
         display_name: keycloak-interface build main
         branch: main
-    - 'keycloak-interface-pr-check':
+    - 'gl-pr-check':
         display_name: keycloak-interface pr-check

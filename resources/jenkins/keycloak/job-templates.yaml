@@ -12,7 +12,7 @@
     <<: *gl_build_master
 
 - job-template:
-    id: 'keycloak-interface-pr-check'
+    id: 'keycloak-interface-build-master'
     name: '{gl_group}-{gl_project}-gl-build-master'
     wrappers:
     - timeout_wrapper:
@@ -22,4 +22,4 @@
         <<: *vault_defaults
         secrets:
         - *kcm_secret
-    <<: *gl_pr_check
+    <<: *gl_build_master
