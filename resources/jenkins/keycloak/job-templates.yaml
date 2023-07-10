@@ -10,3 +10,16 @@
         secrets:
         - *realm_properties
     <<: *gl_build_master
+
+- job-template:
+    id: 'keycloak-interface-pr-check'
+    name: '{gl_group}-{gl_project}-gl-build-master'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *kcm_secret
+    <<: *gl_pr_check
