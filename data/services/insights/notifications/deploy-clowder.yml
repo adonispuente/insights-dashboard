@@ -345,11 +345,6 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: true
-      # Remove when clowder supports private-endpoints in production
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_URL: http://localhost:10010
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE: ''
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_PASSWORD: ''
-      QUARKUS_REST_CLIENT_EXPORT_SERVICE_TRUST_STORE_TYPE: ''
     promotion:
       publish:
       - notifications-engine-prod-deploy-success-channel
