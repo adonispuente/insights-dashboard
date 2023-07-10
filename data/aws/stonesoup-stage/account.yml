@@ -32,7 +32,6 @@ disable:
   integrations:
   # - terraform-users
   - terraform-aws-route53
-  - terraform-resources
   - terraform-tgw-attachments
   - terraform-vpc-peerings
 
@@ -42,4 +41,10 @@ premiumSupport: false
 
 resetPasswords: []
 
-deletionApprovals: []
+deletionApprovals:
+- type: aws_s3_bucket_policy
+  name: multi-tenant-stg-plnsvc
+  expiration: '2023-07-11'
+- type: aws_s3_bucket_policy
+  name: redhat-stg-plnsvc
+  expiration: '2023-07-11'
