@@ -296,19 +296,11 @@ tkn pipelinerun logs openshift-saas-deploy-run-r2mkz -f -n crc-pipelines
 
 ## Approval process
 
-Most MRs to app-interface require a review from the App SRE team.  Merging of MRs to saas files does NOT require an approval from App SRE and should be completely self serviced.
+Merging of MRs to saas files does NOT require an approval from App SRE and should be self serviceable.
 
-Each saas file must be referenced from at least one role under the `self_service[].datafiles` field. [Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/e0de2a25f3eb43dc8979c496a5bd48aee720bed5/data/teams/app-sre/roles/app-sre.yml#L274-333). Each such role must be referenced from at least one user file. TL;DR - every saas file should have at least one owner.
-
-Each user with this role can approve MRs by adding a `/lgtm` comment in the MR in the following cases -
-- the MR only changes saas files that this user is an owner of and no other files
-- the MR only changes one or more of the following fields in a saas file:
-    - `ref`
-    - `parameters`
-    - `secretParameters`
-    - `upstream`
-    - `disable`
-    - `deployResources`
+Each saas file references an app. Each user with a role that references the same app can approve MRs by adding a `/lgtm` comment in the MR in the following cases -
+- the MR only changes saas files that this user is an owner of (via app ownership) and no other files
+- the MR only changes fields in a saas file that are mentioned under the [saas-file-self-service change type](/data/app-interface/changetype/saas-file-self-service.yml).
 - all tests are passing successfully
 - approving user is an owner of the saas file in a merged version in app-interface (prevent privilege escalation). [Read more](/docs/app-sre/sop/app-interface-integrations-flow-and-failure-scenarios.md)
 
