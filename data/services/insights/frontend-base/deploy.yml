@@ -158,6 +158,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
+    delete: true
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
@@ -169,6 +170,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
+    delete: true
   # Prod Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
@@ -176,6 +178,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
+    delete: true
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
@@ -183,6 +186,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
+    delete: true
 
 # Dashboard
 - name: insights-dashboard
