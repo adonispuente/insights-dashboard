@@ -11,7 +11,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-v2-{{ hash_list(namespace_names)[:8] }}
+  name: log-config-v3-{{ hash_list(namespace_names)[:8] }}
   namespace: dynatrace
 spec:
   backoffLimit: 8  # ~10 minutes
