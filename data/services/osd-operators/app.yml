@@ -299,6 +299,12 @@ quayRepos:
   - name: signature-updater
     description: signature-updater container image for the clamav signature mirror
     public: true
+  - name: configure-goalert-operator
+    description: main configure-goalert-operator container
+    public: true
+  - name: configure-goalert-operator-registry
+    description: configure-goalert-operator-registry for olm catalog
+    public: true    
 
 codeComponents:
 - name: hypershift-dataplane-metrics-forwarder
@@ -685,3 +691,6 @@ codeComponents:
   gitlabHousekeeping:
     enabled: true
     rebase: false
+- name: configure-goalert-operator
+  resource: upstream
+  url: https://github.com/openshift/configure-goalert-operator    
