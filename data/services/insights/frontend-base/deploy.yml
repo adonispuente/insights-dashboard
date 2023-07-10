@@ -146,48 +146,6 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/landing-page-frontend"
 
-# RBAC
-- name: insights-rbac-ui
-  path: /deploy/frontend.yaml
-  url: https://github.com/RedHatInsights/insights-rbac-ui
-  targets:
-  # Stage Stable
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 00f36b0e85197447758551db6e1a023f2484d85e
-    parameters:
-      ENV_NAME: "frontends"
-      IMAGE: "quay.io/cloudservices/rbac-frontend"
-    delete: true
-  # Stage Beta Deployment
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-    ref: master
-    image:
-      org:
-        $ref: /dependencies/quay/cloudservices.yml
-      name: insights-rbac-ui
-    parameters:
-      ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/rbac-frontend"
-    delete: true
-  # Prod Stable
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: ffcef51c910210fb72ae815121b64bdca60a47c9
-    parameters:
-      ENV_NAME: "frontends"
-      IMAGE: "quay.io/cloudservices/rbac-frontend"
-    delete: true
-  # Prod Beta Deployment
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: ffcef51c910210fb72ae815121b64bdca60a47c9
-    parameters:
-      ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/rbac-frontend"
-    delete: true
-
 # Dashboard
 - name: insights-dashboard
   path: /frontend.yml
