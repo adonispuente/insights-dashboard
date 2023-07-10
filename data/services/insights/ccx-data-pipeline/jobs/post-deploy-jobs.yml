@@ -4,8 +4,7 @@ labels:
   service: ccx-data-pipeline
   platform: insights
 name: ccx-data-pipeline-post-deploy-jobs
-description: ccx-data-pipeline post deploy jobs for the Insights Platform deployed
-  via Clowder
+description: ccx-data-pipeline post deploy jobs for the Insights Platform deployed via Clowder
 app:
   $ref: /services/insights/ccx-data-pipeline/app.yml
 pipelinesProvider:
@@ -40,9 +39,8 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator-exporter
   targets:
   - namespace:
-      $ref: 
-        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
-    ref: 7e09414cd17fa4e4fd7daedf0e71b64cf90dd288
+      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+    ref: fb9115c003bc8e298eaed8ac0c083b412b40a6be
     promotion:
       auto: true
       subscribe:
@@ -81,8 +79,7 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/insights-results-aggregator-exporter
   targets:
   - namespace:
-      $ref: 
-        /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+      $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: c3d0a9813084329d1a572c7fb974ff80d1d04d28
     disable: true
     parameters:
