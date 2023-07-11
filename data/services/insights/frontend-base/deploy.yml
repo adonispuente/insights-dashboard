@@ -355,3 +355,18 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/learning-resources"
+
+  # IAM Console
+- name: iam-console
+  path: /deploy/frontend.yaml
+  url: https://github.com/RedHatInsights/iam-ui-build
+  targets:
+    - namespace:
+        $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+      disable: true  # do not create an app-sre deploy job for ephemeral namespace
+      ref: master  # populated by bonfire
+    - namespace:
+        $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+      disable: true
+      ref: internal
+
