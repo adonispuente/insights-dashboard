@@ -6,3 +6,9 @@ name: crc-escalation
 
 permissions:
 - $ref: /teams/insights/permissions/crc-escalation-coreos-slack.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/escalation-policy-owner.yml
+  datafiles:
+  - $ref: /teams/insights/escalation-policies/crc-ma-escalations.yml
