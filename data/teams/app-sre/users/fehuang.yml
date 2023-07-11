@@ -14,6 +14,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre-stream-2-slack.yml
 - $ref: /teams/stonesoup/roles/stonesoup-stage-aws-setup-admin.yml
 - $ref: /teams/stonesoup/roles/stonesoup-prod-aws-setup-admin.yml
+- $ref: /teams/app-sre/roles/aws-root-accounts.yaml
 
 public_gpg_key: |
   mQINBF5igOMBEACcWb6XbwKgexnubCEECQQ8mXXAJkq8gVNxP6LUEmfLGYjL+JLj
