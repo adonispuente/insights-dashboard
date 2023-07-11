@@ -18,8 +18,7 @@ auth:
   name: redhat-app-sre-auth
   issuer: https://auth.redhat.com/auth/realms/EmployeeIDP
 observabilityNamespace:
-  $ref: 
-    /services/observability/namespaces/openshift-customer-monitoring.appsres03ue1.yml
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres03ue1.yml
 managedGroups:
 - dedicated-admins
 - dedicated-readers
@@ -35,7 +34,7 @@ spec:
   multi_az: false
   autoscale:
     min_replicas: 4
-    max_replicas: 10
+    max_replicas: 12
   instance_type: m5.xlarge
   storage: 600
   load_balancers: 0
