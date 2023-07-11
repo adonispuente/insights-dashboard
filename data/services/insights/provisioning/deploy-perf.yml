@@ -1,0 +1,65 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  platform: insights
+  service: provisioning
+
+name: provisioning-perf
+description: provisioning app on the Insights Platform
+
+app:
+  $ref: /services/insights/provisioning/app.yml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: proj-perf-insights-cluster
+
+pipelinesProvider:
+  $ref: /services/insights/pipelines/tekton.crc-pipelines.appsrep05ue1.yaml
+
+managedResourceTypes:
+- Deployment
+- DeploymentConfig
+- Service
+- ConfigMap
+- ClowdApp
+- ClowdJobInvocation
+- Frontend
+- FloorPlan
+
+imagePatterns:
+- quay.io/cloudservices
+
+authentication:
+  image:
+    path: insights/quay/cloudservices-push
+    field: all
+    version: 3
+  code:
+    path: app-sre/creds/github-app-sre-bot
+    field: openshift-saas-deploy
+
+resourceTemplates:
+- name: provisioning-backend
+  path: /deploy/clowdapp.yaml
+  url: https://github.com/RHEnVision/provisioning-backend
+  targets:
+  - namespace: # perf api
+      $ref: /services/insights/provisioning/namespaces/provisioning-perf.yml
+    ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RHEnVision-provisioning-backend-gh-build-main
+    promotion:
+      publish:
+      - provisioning-perf-deploy-success-channel
+    parameters:
+      LOGGING_LEVEL: trace
+      DATABASE_LOGGING_LEVEL: debug
+      FLOORIST_QUERY_PREFIX: "hms_analytics/provisioning/perf"
+      ENV_NAME: stage
+      IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
+      APP_NOTIFICATIONS_ENABLED: false
