@@ -244,6 +244,34 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
+# notifications-connector-splunk
+- name: notifications-connector-splunk
+  path: /.rhcicd/clowdapp-connector-splunk.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+  # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    # app-sre will not deploy this target
+    disable: true
+    # populated by bonfire
+    ref: internal
+
+  # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
+    ref: 235bda06309efc6b34250ea06b22e8cfea41b032
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      NOTIFICATIONS_LOG_LEVEL: DEBUG
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
 # notifications-engine
 - name: notifications-engine
   path: /.rhcicd/clowdapp-engine.yaml
