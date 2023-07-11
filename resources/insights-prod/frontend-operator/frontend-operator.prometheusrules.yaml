@@ -1,0 +1,37 @@
+---
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: frontend-operator
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+spec:
+  groups:
+  - name: frontend-operator
+    rules:
+      # frontend-operator SLOs
+      - alert: FrontendOperatorReconciliationTime
+        expr: 100 * sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="4"}[28d])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="+Inf"}[28d])) < 0.95
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: platform
+        annotations:
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontend-operator-system/deployments"
+          dashboard: "https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus"
+          message: "The frontend-operator's reconciliation time has exceeded 4 seconds"
+      - alert: ClowderWorkQueueDepth
+        expr: 1 - sum(avg_over_time(workqueue_depth{service="frontend-operator-controller-manager-metrics-service-non-auth"}[5m])) < 0.90
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: platform
+        annotations:
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontend-operator-system/deployments"
+          dashboard: "https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus"
+          message: "The frontend-operator's workqueue depth is too deep"
