@@ -4,11 +4,14 @@ number_of_broker_nodes: 3
 broker_node_group_info:
   instance_type: kafka.m5.large
   client_subnets:
-  - subnet-0786814828eec71d5
-  - subnet-090931fcf0e6ff05b
-  - subnet-007d55f94dbc50101
+  # All subnets are from VPC vpc-0e9fbceea37f50cc8 (app-sre vpc 01 - peered).
+  - subnet-0786814828eec71d5 # app-sre 01 MSK subnet - east-1a
+  - subnet-090931fcf0e6ff05b # app-sre 02 MSK subnet - east-1b
+  - subnet-007d55f94dbc50101 # app-sre 03 MSK subnet - east-1c
   security_groups:
-  - sg-0f32ecf196442c3de
+  # Security Groups allowing access to the MSK cluster:
+  #- sg-0f32ecf196442c3de # app-sre-prod-01-msk
+  - sg-046ac227f673aa3b6 # app-sre-prod-04-msk
   ebs_volume_size: 100
 server_properties: |
   auto.create.topics.enable=false
