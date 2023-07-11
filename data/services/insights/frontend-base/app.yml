@@ -78,6 +78,9 @@ quayRepos:
   - name: service-accounts
     public: true
     description: Quay repo for service-accounts frontend
+  - name: subscriptions-dashboard-ui
+    public: true
+    description: Quay repo for subscriptions-dashboard-ui frontend
 
 
 codeComponents:
@@ -108,3 +111,6 @@ codeComponents:
 - name: service-accounts
   resource: upstream
   url: https://github.com/RedHatInsights/service-accounts
+- name: subscriptions-dashboard-ui
+  resource: upstream
+  url: https://github.com/RedHatInsights/subscriptions-dashboard-ui
