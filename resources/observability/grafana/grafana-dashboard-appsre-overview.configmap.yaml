@@ -819,8 +819,8 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 11,
-            "w": 12,
+            "h": 9,
+            "w": 8,
             "x": 0,
             "y": 3
           },
@@ -866,6 +866,175 @@ data:
           ],
           "title": "Merge Requests self-service (Hybrid SRE)",
           "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P2C3F6ECC774D80E6"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "Percentage of merge requests",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 30,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 8,
+            "y": 3
+          },
+          "id": 4,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P2C3F6ECC774D80E6"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"60.0\"}[24h])) / sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"+Inf\"}[24h])) * 100",
+              "interval": "24h",
+              "legendFormat": "merge requests",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Merge requests merged in < 1 hour",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P2C3F6ECC774D80E6"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 16,
+            "y": 3
+          },
+          "id": 32,
+          "interval": "1h",
+          "options": {
+            "calculate": false,
+            "cellGap": 1,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "mode": "scheme",
+              "reverse": true,
+              "scale": "exponential",
+              "scheme": "Oranges",
+              "steps": 64
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto"
+            },
+            "tooltip": {
+              "show": true,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false
+            }
+          },
+          "pluginVersion": "9.3.8",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P2C3F6ECC774D80E6"
+              },
+              "editorMode": "code",
+              "expr": "sum by (priority) (rate(qontract_reconcile_time_to_merge_merge_request_minutes_sum{project_id=\"13582\",priority!=\"\"}[1h])) /\nsum by (priority) (rate(qontract_reconcile_time_to_merge_merge_request_minutes_count{project_id=\"13582\",priority!=\"\"}[1h]))",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Hourly average time to merge",
+          "type": "heatmap"
         },
         {
           "datasource": {
@@ -925,10 +1094,10 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 12,
-            "y": 3
+            "h": 9,
+            "w": 8,
+            "x": 0,
+            "y": 12
           },
           "id": 14,
           "options": {
@@ -1028,402 +1197,6 @@ data:
               "custom": {
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "Percentage of merge requests",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 30,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 12,
-            "x": 0,
-            "y": 14
-          },
-          "id": 4,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P2C3F6ECC774D80E6"
-              },
-              "editorMode": "code",
-              "expr": "sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"60.0\"}[24h])) / sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"+Inf\"}[24h])) * 100",
-              "interval": "24h",
-              "legendFormat": "merge requests",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Merge requests merged in < 1 hour",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P2C3F6ECC774D80E6"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "scaleDistribution": {
-                  "type": "linear"
-                }
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 12,
-            "x": 12,
-            "y": 14
-          },
-          "id": 32,
-          "interval": "1h",
-          "options": {
-            "calculate": false,
-            "cellGap": 1,
-            "color": {
-              "exponent": 0.5,
-              "fill": "dark-orange",
-              "mode": "scheme",
-              "reverse": true,
-              "scale": "exponential",
-              "scheme": "Oranges",
-              "steps": 64
-            },
-            "exemplars": {
-              "color": "rgba(255,0,255,0.7)"
-            },
-            "filterValues": {
-              "le": 1e-9
-            },
-            "legend": {
-              "show": true
-            },
-            "rowsFrame": {
-              "layout": "auto"
-            },
-            "tooltip": {
-              "show": true,
-              "yHistogram": false
-            },
-            "yAxis": {
-              "axisPlacement": "left",
-              "reverse": false
-            }
-          },
-          "pluginVersion": "9.3.8",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P2C3F6ECC774D80E6"
-              },
-              "editorMode": "code",
-              "expr": "sum by (priority) (rate(qontract_reconcile_time_to_merge_merge_request_minutes_sum{project_id=\"13582\",priority!=\"\"}[1h])) /\nsum by (priority) (rate(qontract_reconcile_time_to_merge_merge_request_minutes_count{project_id=\"13582\",priority!=\"\"}[1h]))",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Hourly average time to merge",
-          "type": "heatmap"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 24
-          },
-          "id": 8,
-          "panels": [],
-          "title": "Tenant SLOs",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "postgres",
-            "uid": "${slo_datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "mappings": [],
-              "unit": "none"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "missed"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "dark-red",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "achieved"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "green",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 0,
-            "y": 25
-          },
-          "id": 10,
-          "options": {
-            "displayLabels": [
-              "percent",
-              "name"
-            ],
-            "legend": {
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "9.4.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "postgres",
-                "uid": "${slo_datasource}"
-              },
-              "editorMode": "code",
-              "format": "table",
-              "rawQuery": true,
-              "rawSql": "SELECT sum(case when serviceslo.target > serviceslo.value then 1 else 0 end) as missed, sum(case when serviceslo.target <= serviceslo.value then 1 else 0 end) as achieved\nFROM cluster, namespace, service, serviceslo, slitype, slodoc\nWHERE serviceslo.slitype_id = slitype.id\n  AND serviceslo.slodoc_id = slodoc.id\n  AND serviceslo.service_id = service.id\n  AND serviceslo.namespace_id = namespace.id\n  AND namespace.cluster_id = cluster.id\n  AND serviceslo.token_id = (\n        SELECT distinct(token.id)\n        FROM token, latesttokens, serviceslo\n        WHERE token.id = latesttokens.token_id\n        AND token.data_type = 'SLODataType'\n        AND serviceslo.token_id = token.id\n  );",
-              "refId": "A",
-              "sql": {
-                "columns": [
-                  {
-                    "parameters": [],
-                    "type": "function"
-                  }
-                ],
-                "groupBy": [
-                  {
-                    "property": {
-                      "type": "string"
-                    },
-                    "type": "groupBy"
-                  }
-                ],
-                "limit": 50
-              }
-            }
-          ],
-          "title": "Tenant SLO achievement for previous month",
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "postgres",
-            "uid": "${slo_datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": "auto",
-                "displayMode": "auto",
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 25
-          },
-          "id": 12,
-          "options": {
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true
-          },
-          "pluginVersion": "9.3.8",
-          "targets": [
-            {
-              "datasource": {
-                "type": "postgres",
-                "uid": "${slo_datasource}"
-              },
-              "editorMode": "code",
-              "format": "table",
-              "rawQuery": true,
-              "rawSql": "SELECT service.name as service_name, serviceslo.name as slo_name, serviceslo.target as target_slo, serviceslo.value as observed_value\nFROM cluster, namespace, service, serviceslo, slitype, slodoc\nWHERE serviceslo.slitype_id = slitype.id\n  AND serviceslo.slodoc_id = slodoc.id\n  AND serviceslo.service_id = service.id\n  AND serviceslo.namespace_id = namespace.id\n  AND namespace.cluster_id = cluster.id\n  AND serviceslo.token_id = (\n        SELECT distinct(token.id)\n        FROM token, latesttokens, serviceslo\n        WHERE token.id = latesttokens.token_id\n        AND token.data_type = 'SLODataType'\n        AND serviceslo.token_id = token.id\n  )\n  AND serviceslo.target > serviceslo.value;",
-              "refId": "A",
-              "sql": {
-                "columns": [
-                  {
-                    "parameters": [],
-                    "type": "function"
-                  }
-                ],
-                "groupBy": [
-                  {
-                    "property": {
-                      "type": "string"
-                    },
-                    "type": "groupBy"
-                  }
-                ],
-                "limit": 50
-              }
-            }
-          ],
-          "title": "Tenant Missed SLOs",
-          "type": "table"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 34
-          },
-          "id": 34,
-          "panels": [],
-          "title": "Capabilities",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P2C3F6ECC774D80E6"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -1490,17 +1263,17 @@ data:
                   },
                   {
                     "id": "custom.pointSize",
-                    "value": 8
+                    "value": 5
                   }
                 ]
               }
             ]
           },
           "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 0,
-            "y": 35
+            "h": 9,
+            "w": 8,
+            "x": 8,
+            "y": 12
           },
           "hideTimeOverride": false,
           "id": 26,
@@ -1617,10 +1390,10 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 11,
-            "w": 12,
-            "x": 12,
-            "y": 35
+            "h": 9,
+            "w": 8,
+            "x": 16,
+            "y": 12
           },
           "id": 28,
           "links": [
@@ -1658,6 +1431,220 @@ data:
           ],
           "title": "Managed IdP (RH SSO)",
           "type": "timeseries"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 21
+          },
+          "id": 8,
+          "panels": [],
+          "title": "Tenant SLOs",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${slo_datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "missed"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "achieved"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 22
+          },
+          "id": 10,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "postgres",
+                "uid": "${slo_datasource}"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "rawQuery": true,
+              "rawSql": "SELECT sum(case when serviceslo.target > serviceslo.value then 1 else 0 end) as missed, sum(case when serviceslo.target <= serviceslo.value then 1 else 0 end) as achieved\nFROM cluster, namespace, service, serviceslo, slitype, slodoc\nWHERE serviceslo.slitype_id = slitype.id\n  AND serviceslo.slodoc_id = slodoc.id\n  AND serviceslo.service_id = service.id\n  AND serviceslo.namespace_id = namespace.id\n  AND namespace.cluster_id = cluster.id\n  AND serviceslo.token_id = (\n        SELECT distinct(token.id)\n        FROM token, latesttokens, serviceslo\n        WHERE token.id = latesttokens.token_id\n        AND token.data_type = 'SLODataType'\n        AND serviceslo.token_id = token.id\n  );",
+              "refId": "A",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
+            }
+          ],
+          "title": "Tenant SLO achievement for previous month",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${slo_datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto",
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 22
+          },
+          "id": 12,
+          "options": {
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "9.3.8",
+          "targets": [
+            {
+              "datasource": {
+                "type": "postgres",
+                "uid": "${slo_datasource}"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "rawQuery": true,
+              "rawSql": "SELECT service.name as service_name, serviceslo.name as slo_name, serviceslo.target as target_slo, serviceslo.value as observed_value\nFROM cluster, namespace, service, serviceslo, slitype, slodoc\nWHERE serviceslo.slitype_id = slitype.id\n  AND serviceslo.slodoc_id = slodoc.id\n  AND serviceslo.service_id = service.id\n  AND serviceslo.namespace_id = namespace.id\n  AND namespace.cluster_id = cluster.id\n  AND serviceslo.token_id = (\n        SELECT distinct(token.id)\n        FROM token, latesttokens, serviceslo\n        WHERE token.id = latesttokens.token_id\n        AND token.data_type = 'SLODataType'\n        AND serviceslo.token_id = token.id\n  )\n  AND serviceslo.target > serviceslo.value;",
+              "refId": "A",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
+            }
+          ],
+          "title": "Tenant Missed SLOs",
+          "type": "table"
         }
       ],
       "refresh": "",
@@ -1669,7 +1656,7 @@ data:
         "list": [
           {
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "dashdotdb-rds",
               "value": "dashdotdb-rds"
             },
@@ -1696,7 +1683,7 @@ data:
       "timezone": "",
       "title": "AppSRE Overview",
       "uid": "xNTPSl-Vk",
-      "version": 6,
+      "version": 13,
       "weekStart": ""
     }
 kind: ConfigMap
