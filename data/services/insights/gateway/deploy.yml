@@ -68,7 +68,7 @@ resourceTemplates:
       IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: 86c1579e891c223d37ec2bd9d8a1078568ba0da5
+    ref: 9c4264bba96f911aa00e71484d768633dbd52da2
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -118,7 +118,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: 86c1579e891c223d37ec2bd9d8a1078568ba0da5
+    ref: 9c4264bba96f911aa00e71484d768633dbd52da2
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
