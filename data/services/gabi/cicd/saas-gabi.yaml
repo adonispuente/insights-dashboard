@@ -484,6 +484,8 @@ resourceTemplates:
       NAMESPACE: rhsm-stage
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
+      OAUTH_PROXY_UPSTREAM_TIMEOUT: 180s
+      REQUEST_TIMEOUT: 120s
       MEMORY_REQUEST: 512Mi
       MEMORY_LIMIT: 2Gi
   - namespace:
@@ -498,6 +500,8 @@ resourceTemplates:
       NAMESPACE: rhsm-prod
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
+      OAUTH_PROXY_UPSTREAM_TIMEOUT: 180s
+      REQUEST_TIMEOUT: 120s
       MEMORY_REQUEST: 512Mi
       MEMORY_LIMIT: 2Gi
   - namespace:
