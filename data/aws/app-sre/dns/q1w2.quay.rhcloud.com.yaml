@@ -26,6 +26,8 @@ records:
 - { name: cdn02, type: CNAME, records: [d143q1oyu145nx.cloudfront.net] }
 
 ### OCM Quay stage endpoints
+- { name: cdn01.stage, type: CNAME, records: [dqupkv3s9icsz.cloudfront.net] }
+- { name: cdn02.stage, type: CNAME, records: [d2fpjk36jov6kl.cloudfront.net] }
 - name: pull.stage
   type: CNAME
   ttl: 5
