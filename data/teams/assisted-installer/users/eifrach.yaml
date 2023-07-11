@@ -1,0 +1,12 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  team: assisted-installer
+
+name: Eran Ifrach
+org_username: eifrach
+github_username: eifrach
+
+roles:
+- $ref: /teams/assisted-installer/roles/dev.yml
