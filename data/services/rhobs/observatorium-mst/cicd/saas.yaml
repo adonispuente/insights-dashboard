@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 274dca8be3cf0c896f62fc1ff2ffa3ca166a32c7
+    ref: 5bc3e32d8e13d7560b5ba2ce3f128acd73492029
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
