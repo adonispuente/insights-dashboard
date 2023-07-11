@@ -51,4 +51,5 @@ query:  |
         AND vulnerable_range @> '{0,1,9,0,0,0,0,0,0,0}'::int[]
       )
     );
+delete: true
 

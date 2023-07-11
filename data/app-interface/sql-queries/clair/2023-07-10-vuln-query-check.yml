@@ -46,4 +46,4 @@ query:  |
       AND (package_module = '')
       AND (repo_name = 'cpe:/o:redhat:rhel:8.3::baseos')
     );
-
+delete: true
