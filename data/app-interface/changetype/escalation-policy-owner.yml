@@ -7,6 +7,7 @@ name: escalation-policy-owner
 description: |
   Owners of escalation policies can:
   - allow other escalation policies to use their escalation policy as a nextEscalationPolicy
+  - allow apps to use their escalation policy
 
 priority: low
 
@@ -14,11 +15,20 @@ contextType: datafile
 contextSchema: /app-sre/escalation-policy-1.yml
 
 changes:
-# the owner of the nextEscalationPolicy can approve changes
+# the owner of the policy referenced by another escalation policies
+# nextEscalationPolicy can approve the usage
 - provider: jsonPath
   changeSchema: /app-sre/escalation-policy-1.yml
   jsonPathSelectors:
   - channels.nextEscalationPolicy
   context:
     selector: channels.nextEscalationPolicy.'$ref'
+    when: added
+# the owner of the policy referenced from an app-file can approve the usage
+- provider: jsonPath
+  changeSchema: /app-sre/app-1.yml
+  jsonPathSelectors:
+  - escalationPolicy.'$ref'
+  context:
+    selector: escalationPolicy.'$ref'
     when: added
