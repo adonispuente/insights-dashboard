@@ -370,3 +370,40 @@ resourceTemplates:
       disable: true
       ref: internal
 
+# Service accounts
+- name: service-accounts
+  path: /deploy/frontend.yml
+  url: https://github.com/RedHatInsights/service-accounts
+  targets:
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: d4b907b69494345c0d46b90fd10ae2f5b813b1da
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/service-accounts"
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: service-accounts
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/service-accounts"
+  # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: d4b907b69494345c0d46b90fd10ae2f5b813b1da
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/service-accounts"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: ab492b53bd25eba7247dc8492078848b6a335234
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/service-accounts"
