@@ -199,7 +199,7 @@ resourceTemplates:
       READ_USERNAME_SECRET_KEY: username
       WRITE_USERNAME_SECRET_NAME: msk-write-user
       WRITE_USERNAME_SECRET_KEY: username
-  - ref: e6586bdbc82d3398a57097d2b6246a7a58be372a
+  - ref: f7f66aeda33d82d20240d658be0190a325b6c4eb
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     promotion:
@@ -210,8 +210,21 @@ resourceTemplates:
       IMAGE_NAME: quay.io/app-sre/assisted-events-stream
       KAFKA_GROUP_ID: enriched-event-projection-production
       LOG_LEVEL: debug
-      REPLICAS_COUNT: 0
-      MEMORY_LIMIT: 1024Mi
-      MEMORY_REQUEST: 256Mi
-      CPU_REQUEST: 10m
-      CPU_LIMIT: 8
+      REPLICAS_COUNT: 4
+      ZOOKEEPER_CONNECT_STRING_SECRET_NAME: assisted-installer-msk
+      ZOOKEEPER_CONNECT_STRING_SECRET_KEY: zookeeper_connect_string_tls
+      ZOOKEEPER_TLS: "true"
+      BOOTSTRAP_BROKERS_SECRET_NAME: assisted-installer-msk
+      BOOTSTRAP_BROKERS_SECRET_KEY: bootstrap_brokers_sasl_scram
+      KAFKA_TOPIC_PARTITIONS: "6"
+      KAFKA_TOPIC_REPLICATION_FACTOR: "3"
+      KAFKA_CREDENTIALS_SECRETNAME: msk-read-user
+      KAFKA_SASL_MECHANISM: "SCRAM"
+      ADMIN_USERNAME_SECRET_NAME: msk-admin-user
+      ADMIN_USERNAME_SECRET_KEY: username
+      ADMIN_PASSWORD_SECRET_NAME: msk-admin-user
+      ADMIN_PASSWORD_SECRET_KEY: password
+      READ_USERNAME_SECRET_NAME: msk-read-user
+      READ_USERNAME_SECRET_KEY: username
+      WRITE_USERNAME_SECRET_NAME: msk-write-user
+      WRITE_USERNAME_SECRET_KEY: username
