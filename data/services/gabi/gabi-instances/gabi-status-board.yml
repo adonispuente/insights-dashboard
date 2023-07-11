@@ -25,4 +25,4 @@ instances:
   identifier: status-board-production-readonly
   namespace:
     $ref: /services/status-board/namespaces/production.yml
-expirationDate: '2023-07-05'
+expirationDate: '2023-10-01'
