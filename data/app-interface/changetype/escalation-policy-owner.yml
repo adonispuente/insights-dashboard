@@ -16,7 +16,7 @@ contextSchema: /app-sre/escalation-policy-1.yml
 
 changes:
 # the owner of the policy referenced by another escalation policies
-# nextEscalationPolicy can approve the usage
+# nextEscalationPolicy can approve the usage or removal of usage
 - provider: jsonPath
   changeSchema: /app-sre/escalation-policy-1.yml
   jsonPathSelectors:
@@ -24,6 +24,13 @@ changes:
   context:
     selector: channels.nextEscalationPolicy.'$ref'
     when: added
+- provider: jsonPath
+  changeSchema: /app-sre/escalation-policy-1.yml
+  jsonPathSelectors:
+  - channels.nextEscalationPolicy
+  context:
+    selector: channels.nextEscalationPolicy.'$ref'
+    when: removed
 # the owner of the policy referenced from an app-file can approve the usage
 - provider: jsonPath
   changeSchema: /app-sre/app-1.yml
