@@ -64,6 +64,7 @@ resourceTemplates:
       PROVISIONING_CHECK_PATH: /api/provisioning/v1/availability_status/sources
       LOG_LEVEL: DEBUG
       RBAC_PORT: "8080"
+      SOURCE_TYPE_SKIP_LIST: "rh-marketplace"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
     ref: 885fe8aa490063d3699ffa2144ba77bf7f7d6f8a
@@ -77,7 +78,7 @@ resourceTemplates:
       PROVISIONING_CHECK_PATH: /api/provisioning/v1/availability_status/sources
       LOG_LEVEL: DEBUG
       RBAC_PORT: "8080"
-      SOURCE_TYPE_SKIP_LIST: "ibm"
+      SOURCE_TYPE_SKIP_LIST: "ibm,rh-marketplace"
 - name: sources-monitor-go
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/sources-monitor-go
