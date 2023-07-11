@@ -41,20 +41,33 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    name: osd-ccs-advanced-gcp
+    name: osd-ccs-aws-advanced
     ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
     promotion:
       auto: true
       subscribe:
       - ocm-cs-deployed-int
       publish:
-      - ocm-cs-qe-fvt-osd-ccs-gcp-ad-int-ok
+      - ocm-cs-qe-fvt-osd-ccs-aws-ad-int-ok
     parameters:
       ENVIRONMENT: integration
-      TEST_PROFILE: osd-ccs-gcp-ad
+      TEST_PROFILE: osd-ccs-aws-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-integration.yml
+    name: osd-rh-gcp
+    ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-int
+      publish:
+      - ocm-cs-qe-fvt-osd-rh-gcp-int-ok
+    parameters:
+      ENVIRONMENT: integration
+      TEST_PROFILE: osd-rh-gcp
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    name: osd-ccs-advanced-gcp
+    name: osd-ccs-gcp-advanced
     ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
     promotion:
       auto: true
@@ -65,3 +78,16 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: osd-ccs-gcp-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    name: osd-rh-aws
+    ref: 660b8cd8c18d2aab6408ff83e66f955fa84841bb
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-osd-rh-aws-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: osd-rh-aws
