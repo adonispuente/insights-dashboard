@@ -108,7 +108,7 @@ resourceTemplates:
       TEST_PROFILE: basic-e2e
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 7dda54b8f210059cac4490cfd6cd4a5755d2889f
     promotion:
       auto: true
       subscribe:
