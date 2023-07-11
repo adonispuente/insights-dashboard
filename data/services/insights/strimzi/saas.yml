@@ -70,7 +70,7 @@ resourceTemplates:
     ref: 886340ec51f9bd583bcd5d0503d1069562b8d809
     parameters:
       BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_HOST}:9093
-      KAFKA_CONNECT_VERSION: 3.1.0
+      KAFKA_CONNECT_VERSION: 3.2.3
   - namespace:
       $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
     ref: master
@@ -110,7 +110,7 @@ resourceTemplates:
       KAFKA_HEAP_OPTS_XMS: 6g
       KAFKA_HEAP_OPTS_XMX: 6g
       KAFKA_VOL_SIZE: 1100Gi
-      KAFKA_VERSION: 3.1.0
+      KAFKA_VERSION: 3.2.3
       READY_DELAY: 600
       READY_TIMEOUT: 60
       READY_THRESHOLD: 5
