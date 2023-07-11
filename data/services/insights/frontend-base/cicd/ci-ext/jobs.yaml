@@ -103,3 +103,19 @@ config:
     - "insights-gh-build-master":
         display_name: service-accounts-build build-master-stable
         branch: "master-stable"
+- project:
+    name: subscriptions-dashboard-ui
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: subscriptions-dashboard-ui
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pr-check":
+        display_name: subscriptions-dashboard-ui pr-check
+    - "insights-gh-build-master":
+        display_name: subscriptions-dashboard-ui-build build-master
+        branch: "master"
+    - "insights-gh-build-master":
+        display_name: subscriptions-dashboard-ui-build build-master-stable
+        branch: "master-stable"
