@@ -1,0 +1,24 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: escalation-policy-owner
+description: |
+  Owners of escalation policies can:
+  - allow other escalation policies to use their escalation policy as a nextEscalationPolicy
+
+priority: low
+
+contextType: datafile
+contextSchema: /app-sre/escalation-policy-1.yml
+
+changes:
+# the owner of the nextEscalationPolicy can approve changes
+- provider: jsonPath
+  changeSchema: /app-sre/escalation-policy-1.yml
+  jsonPathSelectors:
+  - channels.nextEscalationPolicy
+  context:
+    selector: channels.nextEscalationPolicy.'$ref'
+    when: added
