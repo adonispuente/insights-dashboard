@@ -45,6 +45,6 @@ externalResources:
   resources:
   - provider: cloudwatch
     identifier: crc-pdf-generator-prod
-    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-2.yml
+    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
     es_identifier: kibana-elasticsearch

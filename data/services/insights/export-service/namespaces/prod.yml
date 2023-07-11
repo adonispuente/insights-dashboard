@@ -49,7 +49,7 @@ externalResources:
   resources:
   - provider: cloudwatch
     identifier: export-service-prod-cloudwatch
-    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-3.yml
+    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
     es_identifier: kibana-elasticsearch
   - provider: rds
