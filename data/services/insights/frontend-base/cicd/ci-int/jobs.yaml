@@ -187,24 +187,24 @@ config:
         display_name: cloud-services-config build-prod-beta
         branch: "prod-beta"
 - project:
-      name: iam-ui-build
-      label: insights
-      node: insights
-      gh_org: RedHatInsights
-      gh_repo: iam-ui-build
-      quay_org: cloudservices
-      jobs:
-          - "insights-gh-pr-check":
-                display_name: iam-ui-build pr-check
-          - "insights-gh-build-master":
-                display_name: iam-ui-build build-stage-beta
-                branch: "master"
-          - "insights-gh-build-master":
-                display_name: iam-ui-build build-stage-stable
-                branch: "stage-stable"
-          - "insights-gh-build-master":
-                display_name: iam-ui-build build-prod-stable
-                branch: "prod-stable"
-          - "insights-gh-build-master":
-                display_name: iam-ui-build build-prod-beta
-                branch: "prod-beta"
+    name: iam-ui-build
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: iam-ui-build
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pr-check":
+        display_name: iam-ui-build pr-check
+    - "insights-gh-build-master":
+        display_name: iam-ui-build build-stage-beta
+        branch: "master"
+    - "insights-gh-build-master":
+        display_name: iam-ui-build build-stage-stable
+        branch: "stage-stable"
+    - "insights-gh-build-master":
+        display_name: iam-ui-build build-prod-stable
+        branch: "prod-stable"
+    - "insights-gh-build-master":
+        display_name: iam-ui-build build-prod-beta
+        branch: "prod-beta"
