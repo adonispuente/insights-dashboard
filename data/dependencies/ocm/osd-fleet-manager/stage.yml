@@ -267,6 +267,16 @@ upgradePolicyClusters:
       sector: incidentrehearsal
       soakDays: 0
       mutexes: []
+- name: hs-mc-9c1o9bbsg
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: main
+      soakDays: 0
+      mutexes:
+      - main
 recommendedVersions:
 - workload: service-cluster
   channel: stable
