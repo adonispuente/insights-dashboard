@@ -987,6 +987,42 @@ spec:
       - availabilityZone: me-central-1c
         subnetID: subnet-0234b869330f944a9
       vpcID: vpc-076cba88fa6b4e06a
+    - region: ap-south-2
+      subnets:
+      - availabilityZone: 'ap-south-2a'
+        subnetID: 'subnet-0c8ddf0fc5b17d094'
+      - availabilityZone: 'ap-south-2b'
+        subnetID: 'subnet-0b58f8da18dfca87c'
+      - availabilityZone: 'ap-south-2c'
+        subnetID: 'subnet-022a33cf633b53b9b'
+      vpcID: 'vpc-0d4ddbf68a827e3a5'
+    - region: ap-south-2
+      subnets:
+      - availabilityZone: 'ap-south-2a'
+        subnetID: 'subnet-0be2410f805b20844'
+      - availabilityZone: 'ap-south-2b'
+        subnetID: 'subnet-020a1e076e4c86f2f'
+      - availabilityZone: 'ap-south-2c'
+        subnetID: 'subnet-0a79fefb17eef4219'
+      vpcID: 'vpc-000f8669e8435387b'
+    - region: ap-south-2
+      subnets:
+      - availabilityZone: 'ap-south-2a'
+        subnetID: 'subnet-0cd486732fd5d38da'
+      - availabilityZone: 'ap-south-2b'
+        subnetID: 'subnet-01db32a141baf6342'
+      - availabilityZone: 'ap-south-2c'
+        subnetID: 'subnet-041cf49f1d478bf35'
+      vpcID: 'vpc-06193448ad50e3c8d'
+    - region: ap-south-2
+      subnets:
+      - availabilityZone: 'ap-south-2a'
+        subnetID: 'subnet-0476455054d1c1c5f'
+      - availabilityZone: 'ap-south-2b'
+        subnetID: 'subnet-0819574d29239b5c3'
+      - availabilityZone: 'ap-south-2c'
+        subnetID: 'subnet-0c089de6862c9f9b7'
+      vpcID: 'vpc-0f014180eaef4ff49'
   serviceProviderCredentialsConfig:
     aws:
       credentialsSecretRef:
