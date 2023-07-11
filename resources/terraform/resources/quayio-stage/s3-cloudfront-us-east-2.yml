@@ -50,4 +50,4 @@ distribution_config:
     acm_certificate_arn: "arn:aws:acm:us-east-1:019044362261:certificate/b081e623-095d-40c8-bdb0-db211fc20a35"
     minimum_protocol_version: TLSv1
     ssl_support_method: sni-only
-  aliases: ["cdn02.stage.quay.io", "cdn01.stage.q1w2.quay.rhcloud.com"]
+  aliases: ["cdn02.stage.quay.io", "cdn02.stage.q1w2.quay.rhcloud.com"]
