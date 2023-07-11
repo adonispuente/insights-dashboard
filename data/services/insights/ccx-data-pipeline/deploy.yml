@@ -178,7 +178,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
       AMS_API_URL: https://api.openshift.com
       DEBUG: false
-      LOGGING_TO_CLOUD_WATCH_ENABLED: "true"
+      LOGGING_TO_CLOUD_WATCH_ENABLED: "false"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
