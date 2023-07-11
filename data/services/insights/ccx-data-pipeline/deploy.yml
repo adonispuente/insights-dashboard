@@ -169,7 +169,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: bf1089bd3b2416296afb0433300ba905b8bb5ed5
+    ref: aea70029f1cbc31183c5db333f25a9868b438297
     delete: false
     parameters:
       MIN_REPLICAS: "3"
