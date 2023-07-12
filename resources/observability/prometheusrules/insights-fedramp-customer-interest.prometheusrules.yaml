@@ -17,7 +17,7 @@ spec:
           description: "[STAGE] FedRAMP customer interest has disappeared from Prometheus target discovery."
           runbook_url: "https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service/-/blob/main/docs/architecture.md"
           summary: "Target disappeared from Prometheus target discovery."
-        expr: "absent(up{job="fedramp-customer-interest",namespace="fedramp-customer-interest-stage"} == 1)"
+        expr: absent(up{job="fedramp-customer-interest",namespace="fedramp-customer-interest-stage"} == 1)
         for: 5m
         labels:
           service: insights
