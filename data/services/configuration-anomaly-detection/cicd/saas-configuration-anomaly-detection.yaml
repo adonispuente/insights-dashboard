@@ -59,4 +59,4 @@ resourceTemplates:
           name: openshift-configuration-anomaly-detection-gh-build-main
       - namespace:
           $ref: /services/configuration-anomaly-detection/namespaces/configuration-anomaly-detection-production.yaml
-        ref: bcae8c68cdf9952d57f0cee802093b5afd86b995
+        ref: 6d2037748fc4a17c1f298c2bcce53ace08c6bd18
