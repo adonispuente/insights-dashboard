@@ -61,7 +61,7 @@ resourceTemplates:
   # Ephemeral
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/ephem.yml
-    ref: efa590c35bb2e5c8d7b4f436a5ceb3fac862d4e9
+    ref: 46f4aa4562b063bc0f2793723ea03fee5edc7e90
   # CRCD
   # This cluster is the only one that gets deployed from a specific branch
   - namespace:
@@ -74,7 +74,7 @@ resourceTemplates:
   # Stage
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage.yml
-    ref: dcc69a106ffef2c3dedc53480bdeefa8bb31baee
+    ref: 46f4aa4562b063bc0f2793723ea03fee5edc7e90
   # Perf
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/perf.yml
