@@ -26,6 +26,7 @@ managedResourceNames:
   - aws-vpce-operator-transit-resources-service-cluster
   - hypershift-cert-manager-route53-creds-integration
   - insights-operator-integration-hack
+  # these 2 will need to be removed once the SelectorSyncSet are removed
   - backplanei02ue1-hypershift-aws-vpce-operator
   - backplanei01ue1-aws-vpce-operator
   - backplane-int-vpcendpointtemplate
