@@ -172,7 +172,7 @@ resourceTemplates:
   # Prod Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 7bcfa09932e68e739eb4db49466d107bae8e529b
+    ref: f0160207f5083a45bb2da8945bf526f5df796427
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
