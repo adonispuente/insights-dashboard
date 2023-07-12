@@ -14,7 +14,7 @@ sopsUrl: https://github.com/RedHatInsights/clowder/blob/master/docs/antora/modul
 grafanaUrls:
 - title: Clowder Metrics
   url: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?orgId=1&var-datasource=crcp01ue1-prometheus
-onboardingStatus: InProgress
+onboardingStatus: Done
 
 parentApp:
   $ref: /services/insights/app.yml
