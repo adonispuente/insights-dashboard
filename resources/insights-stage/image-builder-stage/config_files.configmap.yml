@@ -9,11 +9,11 @@ data:
       }
     }
   # 13331782 = obudai
-  # 13076175 = sraymaek
+  # 16704093 = image-builder-sray (stage)
   allow_list.json: |-
     {
       "13331782": ["*"],
-      "13076175": ["*"]
+      "16704093": ["*"]
     }
 metadata:
   labels:
