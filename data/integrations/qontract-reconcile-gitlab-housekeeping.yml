@@ -24,6 +24,8 @@ managed:
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
+    # TODO: https://issues.redhat.com/browse/APPSRE-7967
+    # sleepDurationSecs: "0"
     sleepDurationSecs: "60"
     resources:
       requests:

@@ -17,6 +17,8 @@ managed:
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
   spec:
+    # TODO: https://issues.redhat.com/browse/APPSRE-7967
+    # sleepDurationSecs: "150"
     sleepDurationSecs: "600"
     resources:
       requests:
@@ -31,6 +33,8 @@ managed:
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
+    # TODO: https://issues.redhat.com/browse/APPSRE-7967
+    # sleepDurationSecs: "150"
     sleepDurationSecs: "300"
     resources:
       requests:
