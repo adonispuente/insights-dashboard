@@ -456,7 +456,7 @@ resourceTemplates:
       LOG_LEVEL: "debug"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: ebc5d1496be94bcb50df71006738a5d2390cd4e9
+    ref: 9d4a0131bd4379578a611b21c7152bb95492913e
     parameters:
       CONTENT_SERVICE_PORT: 10000
       JOB_SCHEDULE__NOTIFICATION_BACKEND: "*/15 * * * *"
