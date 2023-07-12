@@ -56,8 +56,7 @@ upgradePolicy:
   - clair
   schedule: 0 12 * * 1-5
   conditions:
-    # Blocking upgrades temporarily because of https://issues.redhat.com/browse/DI-72
-    soakDays: 365
+    soakDays: 0
     mutexes:
     # shared by all clusters on the candidate channel and having 0 soak days
     - candidate-0
