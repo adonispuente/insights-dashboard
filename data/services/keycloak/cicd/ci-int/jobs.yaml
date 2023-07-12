@@ -25,7 +25,7 @@ config:
     gl_project: keycloak
     quay_org: app-sre
     jobs:
-    - 'keycloak-build-master':
+    - 'gl-build-master':
         display_name: keycloak build master
         branch: main
     - 'gl-pr-check':
