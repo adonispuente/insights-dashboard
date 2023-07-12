@@ -165,12 +165,6 @@
     id: 'insights-gh-build-master'
     name: '{gh_org}-{gh_repo}-gh-build-{branch}'
     slack_channel_notification: 'consoledot-development-fails'
-    env:
-        - valueFrom:
-            secretKeyRef:
-                name: jenkins-oauth-token
-                key: token
-            name: TOKEN
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -191,11 +185,21 @@
     - naginator:
         max-failed-builds: 3
     <<: *gh_build_master
-    parameters:
-    - string:
-        name: APP_NAME
-        default: '{app_name}'
-        description: "(REQUIRED) name of app-sre 'application' folder this component lives in"
+
+- job-template:
+    id: 'insights-platform-changelog-test-build-master'
+    name: '{gh_org}-{gh_repo}-gh-build-{branch}'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *insights_rh_registry_pull_secret
+        - *quay_secret_push
+        - *quay_api_token
+    <<: *gh_build_master
     shell: |
         # send a curl request to changelog.stage.devshift.net
         #!/bin/sh
