@@ -61,7 +61,7 @@ resourceTemplates:
   # Ephemeral
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/ephem.yml
-    ref: dcc69a106ffef2c3dedc53480bdeefa8bb31baee
+    ref: efa590c35bb2e5c8d7b4f436a5ceb3fac862d4e9
   # CRCD
   # This cluster is the only one that gets deployed from a specific branch
   - namespace:
