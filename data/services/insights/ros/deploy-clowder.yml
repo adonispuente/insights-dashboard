@@ -150,7 +150,7 @@ resourceTemplates:
     parameters:
       MEMORY_LIMIT: '2Gi'
       KRUIZE_REPLICA_COUNT: 1
-      KRUIZE_IMAGE_TAG: 'f7a5f77'
+      KRUIZE_IMAGE_TAG: '190a6cc'
       KRUIZE_CPU_REQUEST: 3
       KRUIZE_MEMORY_REQUEST: '4Gi'
       KRUIZE_CPU_LIMIT: 3
