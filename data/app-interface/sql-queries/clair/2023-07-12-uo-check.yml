@@ -1,0 +1,13 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: clair-matcher-uo-query-check
+namespace:
+  $ref: /services/clair/namespaces/production.yml
+identifier: clair-matcher
+output: stdout
+queries:
+  - |
+    EXPLAIN (ANALYZE, COSTS, VERBOSE, BUFFERS) SELECT DISTINCT ON (updater) id FROM update_operation WHERE kind='vulnerability' ORDER BY updater, id DESC;
+  - |
+    EXPLAIN (ANALYZE, COSTS, VERBOSE, BUFFERS) SELECT DISTINCT ON (updater) id FROM update_operation ORDER BY updater, id DESC;
