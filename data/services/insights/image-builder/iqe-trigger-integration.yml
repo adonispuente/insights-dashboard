@@ -30,7 +30,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
-    ref: f34c6500ae0330afb7f86b229621338e9390b787
+    ref: 836e7114fa422d02f9b2928aa755ddeb014667e2
     parameters:
       ENV_FOR_DYNACONF: stage
     promotion:
