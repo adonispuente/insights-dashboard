@@ -145,7 +145,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 274dca8be3cf0c896f62fc1ff2ffa3ca166a32c7
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -208,7 +208,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -395,7 +395,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: f53e47d938134857b03c11a1f28989a797cd7c65
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_NAMESPACE: observatorium-mst-production
