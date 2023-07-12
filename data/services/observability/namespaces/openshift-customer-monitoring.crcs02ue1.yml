@@ -133,6 +133,8 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-slack.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/notifications-stage/notifications-connector-splunk.servicemonitor.yml
+- provider: resource
   path: /insights-stage/remediations-stage/remediations.servicemonitor.yml
 - provider: resource
   path: /insights-stage/hccm-stage/rdsexporter.servicemonitor.yml
