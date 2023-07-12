@@ -33,6 +33,10 @@ self_service:
   datafiles:
   - $ref: /services/insights/app.yml
 - change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/insights/clowder/app.yml
+- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/clowder.yml
