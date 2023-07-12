@@ -139,7 +139,6 @@ resourceTemplates:
     ref: internal  # populated by bonfire
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_DB_NAME: 'kruize'
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
@@ -152,7 +151,6 @@ resourceTemplates:
       MEMORY_LIMIT: '2Gi'
       KRUIZE_REPLICA_COUNT: 1
       KRUIZE_IMAGE_TAG: 'f7a5f77'
-      KRUIZE_DB_NAME: 'kruize'
       KRUIZE_CPU_REQUEST: 3
       KRUIZE_MEMORY_REQUEST: '4Gi'
       KRUIZE_CPU_LIMIT: 3
