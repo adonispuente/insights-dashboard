@@ -13,25 +13,13 @@ namespaces:
 - $ref: /services/insights/clowder/namespaces/prod.yml
 
 slos:
-- name: clowder reconciliation error rate
-  SLIType: correctness
-  SLISpecification: Percentage of Clowder Reconciliations that are Successful
-  SLODetails: https://github.com/RedHatInsights/clowder
-  SLOParameters:
-    window: 28d
-  expr: (sum(rate(controller_runtime_reconcile_total{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", result=~"success"}[{{window}}]))) / (sum(rate(controller_runtime_reconcile_total{controller=~"clowdapp|clowdjobinvocation|clowdenvironment"}[28d])))
-  SLOTarget: 0.90
-  SLOTargetUnit: percent_0_1
-  prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
-  dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&editPanel=17
-
 - name: clowder reconciliation time
   SLIType: correctness
   SLISpecification: Percentage of Clowder Reconciliations that complete within 4 seconds 
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(rate(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="4"}[{{window}}])) / sum(rate(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment"}[28d]))
+  expr: 100 * sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="4"}[28d])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[28d])) by (controller)
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
@@ -43,7 +31,7 @@ slos:
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[{{window}}]))
+  expr: 1 - sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m]))
   SLOTarget: 0.99
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
