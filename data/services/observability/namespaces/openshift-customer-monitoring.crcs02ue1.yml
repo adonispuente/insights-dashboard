@@ -523,6 +523,9 @@ openshiftResources:
   type: resource
   tests:
   - /insights-stage/rhsm-api-proxy-stage/rhsm-system-profile-bridge.prometheusrulestests.yml
+- provider: prometheus-rule
+  path: /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
+  type: resource
 
 ### Gabi
 - provider: prometheus-rule

@@ -1,0 +1,25 @@
+---
+$schema: /openshift/prometheus-rule-1.yml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: fedramp-customer-interest
+  labels:
+    prometheus: app-sre
+    role: alert-rules
+spec:
+  groups:
+  - name: fedramp-customer-interest-stage
+    rules:
+      - alert: "[STAGE] FedRAMPCustomerInterestDown"
+        annotations:
+          message: "[STAGE] FedRAMP customer interest service is down. Namespace: {{ $labels.namespace }}"
+          description: "[STAGE] FedRAMP customer interest has disappeared from Prometheus target discovery."
+          runbook: "https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service/-/blob/main/docs/architecture.md"
+          summary: "Target disappeared from Prometheus target discovery."
+        expr: absent(up{job="fedramp-customer-interest",namespace="fedramp-customer-interest-stage"} == 1)
+        for: 5m
+        labels:
+          service: insights
+          severity: info
+          env: stage
