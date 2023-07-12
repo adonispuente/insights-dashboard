@@ -113,3 +113,7 @@ rules: |
   path "acs-fleet-manager-ci/*" {
     capabilities = ["read"]
   }
+  #keycloak for read
+  path "swat/*" {
+     capabilities = ["read"]
+  }
