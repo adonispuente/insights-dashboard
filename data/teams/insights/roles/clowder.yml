@@ -29,9 +29,12 @@ self_service:
   - $ref: /services/insights/clowder/deploy-perf.yml
   - $ref: /services/insights/clowder/deploy-gitlab.yml
 - change_type:
-    $ref: /app-interface/changetype/app-owner.yml
+    $ref: /app-interface/changetype/hierarchical-app-owner.yml
   datafiles:
   - $ref: /services/insights/app.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
   - $ref: /services/insights/clowder/app.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml

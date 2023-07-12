@@ -1,5 +1,5 @@
 {%- for app in query('/queries/apps-self-service-roles.graphql') %}
-{%- if not app.selfServiceRoles %}
+{%- if not app.selfServiceRoles and (not app.parentApp or not app.parentApp.selfServiceRoles) %}
 
 # raise an error if an app is not referenced by a self-service section of any roles
 {% raise_error('app ' + app.name + ' (path: ' + app.path + ') should be covered with the app-ownership change-type') %}

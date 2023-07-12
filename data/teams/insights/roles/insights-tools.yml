@@ -29,9 +29,12 @@ self_service:
   - $ref: /services/insights/third-party-operators/deploy.yml
   - $ref: /services/insights/strimzi/saas.yml
 - change_type:
-    $ref: /app-interface/changetype/app-owner.yml
+    $ref: /app-interface/changetype/hierarchical-app-owner.yml
   datafiles:
   - $ref: /services/insights/app.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
   - $ref: /services/insights/cicd/app.yml
   - $ref: /services/insights/strimzi/app.yml
   - $ref: /services/insights/ephemeral/app.yml
