@@ -22,7 +22,7 @@ slos:
   SLOParameters:
     window: 28d
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rhsm/rhsm-slo-availability.md
-  expr: 1.00 - (sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions", status="5xx"}[5m])) / sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions"}[5m])))
+  expr: 1.00 - (sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions", status="5xx"}[{{window}}])) / sum(rate(api_3scale_gateway_api_status{exported_service="rhsm-subscriptions"}[{{window}}])))
   prometheusRules: /insights-prod/rhsm/rhsm.prometheusrules.yaml
 
 - name: RHSM api latency
