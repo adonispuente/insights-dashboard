@@ -18,3 +18,5 @@ roles:
 # sentry teams
 - $ref: /teams/insights/roles/entitlements.yml
 - $ref: /teams/insights/roles/backoffice-proxy.yml
+- $ref: /teams/insights/roles/platform-experience.yml
+
