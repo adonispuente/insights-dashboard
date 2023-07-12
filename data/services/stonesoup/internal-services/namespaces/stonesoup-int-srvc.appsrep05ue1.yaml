@@ -54,6 +54,13 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
+  name: iib-preview-overwrite-fromimage-credential
+  path: stonesoup/production/release/quay/rh-osbs__rhtap_preview_iib
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
   name: iib-overwrite-fromimage-credentials
   path: stonesoup/production/release/quay/rh-osbs__iib-pub
   version: 1
