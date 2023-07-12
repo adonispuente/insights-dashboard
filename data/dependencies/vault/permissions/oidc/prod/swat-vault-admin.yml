@@ -1,0 +1,15 @@
+---
+$schema: /access/oidc-permission-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: swat-vault-admin
+description: swat vault admin oidc permission
+
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+
+service: vault
+vault_policies:
+- $ref: /services/vault.devshift.net/config/prod/policies/swat-admin-policy.yml
