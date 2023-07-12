@@ -10,10 +10,13 @@ spec:
     path: /metrics
     port: composer-api
     scheme: http
+  - interval: 30s
+    path: /metrics
+    port: prometheus
+    scheme: http
   namespaceSelector:
     matchNames:
     - {{namespace}}
   selector:
     matchLabels:
       app: composer
-      port: composer-api
