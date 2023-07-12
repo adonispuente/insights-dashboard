@@ -386,3 +386,5 @@ self_service:
     $ref: /app-interface/changetype/escalation-policy-owner.yml
   datafiles:
   - $ref: /teams/app-sre/escalation-policies/general.yaml
+- change_type:
+    $ref: /app-interface/changetype/query-validation-admin.yml
