@@ -65,3 +65,35 @@ resourceTemplates:
     ACTIVEGATE_MEM_REQUEST: 512Mi
     ACTIVEGATE_CPU_LIMIT: 2000m
     ACTIVEGATE_MEM_LIMIT: 4Gi
+
+- name: dynatrace-token-stage
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-token/cluster-bootstrap.yaml
+  targets:
+  - name: dynatrace-token-stage-us-east-virginia-hrm15629
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="dynatrace")]
+    ref: main
+    parameters:
+      DT_REGION: us-east-virginia
+      DT_TENANT_ID: hrm15629
+      REGIONS:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  - name: dynatrace-token-stage-eu-west-ireland-wmb10400
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="dynatrace")]
+    ref: main
+    parameters:
+      DT_REGION: eu-west-ireland
+      DT_TENANT_ID: wmb10400
+      REGIONS:
+      - eu-west-1
+      - eu-central-1
