@@ -93,28 +93,3 @@ resourceTemplates:
       - ocm-ams-qe-fvt-basic-stage-ok
     parameters:
       ENVIRONMENT: staging
-  - namespace:
-      $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 89fcbbd6e8224fae1cb87e5696c6aaf68914d4a5
-    name: ams-basic-e2e
-    promotion:
-      auto: true
-      subscribe:
-      - ocm-ams-qe-fvt-basic-stage-ok
-      publish:
-      - ocm-ams-qe-fvt-basic-e2e-stage-ok
-    parameters:
-      ENVIRONMENT: staging
-      TEST_PROFILE: basic-e2e
-  - namespace:
-      $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 7dda54b8f210059cac4490cfd6cd4a5755d2889f
-    promotion:
-      auto: true
-      subscribe:
-      - ocm-ams-deployed-prod
-      publish:
-      - ocm-ams-qe-fvt-basic-prod-ok
-    parameters:
-      ENVIRONMENT: production
-      TEST_PROFILE: basic-e2e
