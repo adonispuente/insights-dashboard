@@ -75,7 +75,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 5bc3e32d8e13d7560b5ba2ce3f128acd73492029
+    ref: dae095204d6d83ed7f13f3c849b125a567cef21f
 - name: telemeter
   path: /resources/services/telemeter-template.yaml
   url: https://github.com/rhobs/configuration
