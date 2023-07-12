@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 5bc3e32d8e13d7560b5ba2ce3f128acd73492029
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -279,7 +279,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: b12e735555025848bda8dcdbf1cc5497668f06d1
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: info
