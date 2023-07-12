@@ -884,7 +884,7 @@ data:
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "drawStyle": "line",
-                "fillOpacity": 30,
+                "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -897,7 +897,7 @@ data:
                 "scaleDistribution": {
                   "type": "linear"
                 },
-                "showPoints": "auto",
+                "showPoints": "always",
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -913,8 +913,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -929,6 +928,7 @@ data:
             "y": 3
           },
           "id": 4,
+          "interval": "1d",
           "options": {
             "legend": {
               "calcs": [],
@@ -949,13 +949,25 @@ data:
               },
               "editorMode": "code",
               "expr": "sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"60.0\"}[24h])) / sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", le=\"+Inf\"}[24h])) * 100",
-              "interval": "24h",
-              "legendFormat": "merge requests",
+              "interval": "",
+              "legendFormat": "% MR merged in less than 1h",
               "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P2C3F6ECC774D80E6"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", priority=\"1 - bot/approved: urgent\", le=\"20.0\"}[24h])) / sum(increase(qontract_reconcile_time_to_merge_merge_request_minutes_bucket{project_id=\"13582\", priority=\"1 - bot/approved: urgent\", le=\"+Inf\"}[24h])) * 100",
+              "hide": false,
+              "legendFormat": "% Urgent MR merged in < 20min",
+              "range": true,
+              "refId": "B"
             }
           ],
-          "title": "Merge requests merged in < 1 hour",
+          "title": "Merge requests merge duration",
           "type": "timeseries"
         },
         {
@@ -1683,7 +1695,7 @@ data:
       "timezone": "",
       "title": "AppSRE Overview",
       "uid": "xNTPSl-Vk",
-      "version": 13,
+      "version": 3,
       "weekStart": ""
     }
 kind: ConfigMap
