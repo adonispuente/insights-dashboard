@@ -67,6 +67,9 @@ quayRepos:
   - name: ocm-agent
     description: ocm-agent images
     public: true
+  - name: ocm-container
+    description: ocm-container images
+    public: true
   - name: osd-network-verifier
     description: osd-network-verifier validation images
     public: true
@@ -325,6 +328,9 @@ codeComponents:
 - name: ocm-agent
   resource: upstream
   url: https://github.com/openshift/ocm-agent
+- name: ocm-container
+  resource: upstream
+  url: https://github.com/openshift/ocm-container
 - name: osd-network-verifier
   resource: upstream
   url: https://github.com/openshift/osd-network-verifier
