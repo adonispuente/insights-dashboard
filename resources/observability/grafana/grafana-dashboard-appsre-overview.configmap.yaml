@@ -54,12 +54,6 @@ data:
               "color": {
                 "mode": "thresholds"
               },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
-              },
               "mappings": [],
               "thresholds": {
                 "mode": "absolute",
@@ -85,14 +79,18 @@ data:
           },
           "id": 19,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -130,7 +128,7 @@ data:
             }
           ],
           "title": "Services",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -142,12 +140,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -174,14 +166,18 @@ data:
           },
           "id": 18,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -219,7 +215,7 @@ data:
             }
           ],
           "title": "Clusters",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -231,12 +227,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -263,14 +253,18 @@ data:
           },
           "id": 16,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -308,7 +302,7 @@ data:
             }
           ],
           "title": "Namespaces",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -320,12 +314,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -352,14 +340,18 @@ data:
           },
           "id": 20,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -397,7 +389,7 @@ data:
             }
           ],
           "title": "Users",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -409,12 +401,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -441,14 +427,18 @@ data:
           },
           "id": 21,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -486,7 +476,7 @@ data:
             }
           ],
           "title": "AWS Accounts",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -498,12 +488,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -530,14 +514,18 @@ data:
           },
           "id": 22,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -581,7 +569,7 @@ data:
             }
           ],
           "title": "Slack usergroups",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -593,12 +581,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -625,14 +607,18 @@ data:
           },
           "id": 23,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -670,7 +656,7 @@ data:
             }
           ],
           "title": "OCM organizations",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -682,12 +668,6 @@ data:
             "defaults": {
               "color": {
                 "mode": "thresholds"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "auto",
-                "filterable": false,
-                "inspect": false
               },
               "mappings": [],
               "thresholds": {
@@ -714,14 +694,18 @@ data:
           },
           "id": 24,
           "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
+            "colorMode": "none",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
               ],
-              "show": false
+              "fields": "",
+              "values": false
             },
-            "showHeader": false
+            "textMode": "auto"
           },
           "pluginVersion": "9.3.8",
           "targets": [
@@ -759,7 +743,7 @@ data:
             }
           ],
           "title": "Glitchtip projects",
-          "type": "table"
+          "type": "stat"
         },
         {
           "datasource": {
@@ -913,7 +897,8 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -1695,7 +1680,7 @@ data:
       "timezone": "",
       "title": "AppSRE Overview",
       "uid": "xNTPSl-Vk",
-      "version": 3,
+      "version": 4,
       "weekStart": ""
     }
 kind: ConfigMap
