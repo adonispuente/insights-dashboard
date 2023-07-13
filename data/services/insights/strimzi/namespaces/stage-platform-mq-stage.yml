@@ -146,7 +146,7 @@ externalResources:
     output_resource_name: strimzi-bucket-read-write
   - provider: msk
     identifier: consoledot-stage
-    defaults: /terraform/resources/insights-stage/strimzi/msk-stage-1.yml
+    defaults: /terraform/resources/insights-stage/msk-stage-1.yml
     output_resource_name: consoledot-stage-msk
     users:
     - name: scram-admin-stage
