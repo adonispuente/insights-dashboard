@@ -537,7 +537,7 @@ resourceTemplates:
       LOG_LEVEL: INFO
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 9f43db1f0e2732c1dc3f41e2b24f783376a4a75d
+    ref: f126d1e9ab6bf3e88793942a1a80ce7ea88168f5
     parameters:
       LOG_LEVEL: INFO
   - namespace:
