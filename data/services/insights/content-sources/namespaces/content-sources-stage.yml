@@ -26,6 +26,7 @@ managedRoles: true
 managedResourceTypes:
 - Secret
 - OperatorGroup
+- Pulp
 
 openshiftResources:
 - provider: vault-secret
@@ -45,6 +46,9 @@ openshiftResources:
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-stage/content-sources-stage/content-sources-pulp-operator-group.yml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-cr.yml
 
 sharedResources:
   - $ref: /services/insights/shared-resources/metrics-export-stage.yml
