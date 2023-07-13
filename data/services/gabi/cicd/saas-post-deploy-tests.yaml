@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/gabi/namespaces/gabi-stage.yml
-    ref: a1eddbae276d625b8d90738b7efc86f19de0da93
+    ref: 8372e1462172b373f9a30edfef4a15608a154e52
     parameters:
       NAMESPACE: gabi-stage
       GABI_INSTANCE: gabi-stage
