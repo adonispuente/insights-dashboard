@@ -24,14 +24,20 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-- name: dynatrace-operator-integration
+- name: dynatrace-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-operator/template-raw.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
-- name: dynatrace-token-integration-hs-management-clusters
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+- name: dynatrace-token-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/template.yaml
   targets:
@@ -41,7 +47,7 @@ resourceTemplates:
   parameters:
     HYPERSHIFT_CLUSTER_TYPE: management-cluster
     SECRET_NAME: hs-management-clusters
-- name: dynatrace-token-integration-hs-service-clusters
+- name: dynatrace-token-hs-service-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/template.yaml
   targets:
@@ -51,7 +57,7 @@ resourceTemplates:
   parameters:
     HYPERSHIFT_CLUSTER_TYPE: service-cluster
     SECRET_NAME: hs-service-clusters
-- name: dynatrace-dynakube-integration-hs-management-clusters
+- name: dynatrace-dynakube-hs-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-dynakube/template.yaml
   targets:
