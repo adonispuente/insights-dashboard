@@ -63,3 +63,7 @@ externalResources:
         identifier: app-sre-stage-01-observatorium-loki
         defaults: /terraform/resources/telemeter/s3-private-1.yml
         output_resource_name: observatorium-loki
+      - provider: s3
+        identifier: app-sre-stage-01-observatorium-parca
+        defaults: /terraform/resources/telemeter/s3-private-1.yml
+        output_resource_name: observatorium-parca
