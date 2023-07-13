@@ -78,8 +78,8 @@ resourceTemplates:
   # Perf
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/perf.yml
-    ref: dcc69a106ffef2c3dedc53480bdeefa8bb31baee
+    ref: 46f4aa4562b063bc0f2793723ea03fee5edc7e90
   # Prod
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod.yml
-    ref: dcc69a106ffef2c3dedc53480bdeefa8bb31baee
+    ref: 46f4aa4562b063bc0f2793723ea03fee5edc7e90
