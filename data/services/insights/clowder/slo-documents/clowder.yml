@@ -32,7 +32,7 @@ slos:
   SLOParameters:
     window: 28d
   expr: 1 - sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m]))
-  SLOTarget: 0.99
+  SLOTarget: 0.90
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
   dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&viewPanel=6
