@@ -15,21 +15,21 @@ blockedVersions:
 - ^.*-ec\..*$
 - ^.*-fc\..*$
 
-# upgradePolicyClusters:
-# - name: c-rh-c-eph
-#   upgradePolicy:
-#     workloads:
-#     - crc
-#     schedule: 0 9 * * 3
-#     conditions:
-#       soakDays: 0
-# - name: crcd01ue1
-#   upgradePolicy:
-#     workloads:
-#     - crc
-#     schedule: 0 14 * * 3
-#     conditions:
-#       soakDays: 0
+upgradePolicyClusters:
+- name: c-rh-c-eph
+  upgradePolicy:
+    workloads:
+    - crc
+    schedule: 0 9 * * 3
+    conditions:
+      soakDays: 0
+- name: crcd01ue1
+  upgradePolicy:
+    workloads:
+    - crc
+    schedule: 0 14 * * 3
+    conditions:
+      soakDays: 0
 recommendedVersions:
 - workload: crc
   channel: candidate
