@@ -10,9 +10,9 @@ API
 
 ## SLI
 
-API Availability: `sum(rate(fci_http_server_requests_total{status_code!~"5.."}[$__rate_interval]))/sum(rate(fci_http_server_requests_total[$__rate_interval]))`
+API Availability: `sum(rate(fci_http_server_requests_total{status_code!~"5.."}[{{window}}]))/sum(rate(fci_http_server_requests_total[{{window}}]))`
 
-API Latency: `histogram_quantile(0.90,sum by (le) (rate(fci_http_server_request_duration_seconds_bucket[$__rate_interval])))`
+API Latency: `histogram_quantile(0.90,sum by (le) (rate(fci_http_server_request_duration_seconds_bucket[{{window}}])))`
 
 ServiceNow incident completeness: `sum(fci_processed_ops_total)` and `sum(fci_successful_ops_total)`
 
