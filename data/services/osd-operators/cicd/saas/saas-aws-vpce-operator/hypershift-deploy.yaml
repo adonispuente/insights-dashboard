@@ -44,13 +44,26 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: openshift-aws-vpce-operator-gh-build-main
+  - name: aws-vpce-operator-integration-us-east-2
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+          - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
+    ref: a3f1b6a37b63a247188cb28840c188f76d141939
+    parameters:
+      REGION: us-east-2
+      SECTOR_NAME: main
+    promotion:
+      publish:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-2
   - name: aws-vpce-operator-integration-eu-central-1
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+    ref: a3f1b6a37b63a247188cb28840c188f76d141939
     parameters:
       REGION: eu-central-1
       SECTOR_NAME: main
@@ -58,15 +71,13 @@ resourceTemplates:
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-eu-central-1
   - name: aws-vpce-operator-integration-us-east-1
+    delete: true
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+    ref: a3f1b6a37b63a247188cb28840c188f76d141939
     parameters:
       REGION: us-east-1
       SECTOR_NAME: main
-    promotion:
-      publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
