@@ -26,6 +26,8 @@ managedResourceTypes:
 - Subscription
 - Service
 - XJoinPipeline
+- XJoinIndex
+- XJoinDataSource
 - KafkaUser
 
 imagePatterns:
