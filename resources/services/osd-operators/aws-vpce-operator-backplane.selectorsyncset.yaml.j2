@@ -8,7 +8,7 @@ spec:
   clusterDeploymentSelector:
     matchLabels:
       ext-hypershift.openshift.io/cluster-type: {{ hypershift_cluster_type }}
-  resourceApplyMode: Sync
+  resourceApplyMode: Upsert
   secretMappings:
   - sourceRef:
       name: {{ secret_name }}
