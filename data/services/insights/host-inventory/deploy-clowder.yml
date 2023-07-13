@@ -53,6 +53,9 @@ resourceTemplates:
     ref: ddf029bdc3d3e14576c24500c0c11ab304d45d13
     parameters:
       ENV_NAME: "env-stage"
+    promotion:
+      publish:
+      - host-inventory-stage-post-deploy-success-channel
 
 - name: host-inventory
   path: /deploy/clowdapp.yml
@@ -86,6 +89,9 @@ resourceTemplates:
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
       GUNICORN_WORKERS: 4
       GUNICORN_THREADS: 8
+    promotion:
+      publish:
+      - host-inventory-stage-post-deploy-success-channel
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     ref: a87342172df2b7a4d6d07ae05d22894bcdb9540b
