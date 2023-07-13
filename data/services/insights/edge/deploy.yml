@@ -54,6 +54,7 @@ resourceTemplates:
       EDGEAPIBASEURL: https://console.stage.redhat.com
       EDGECERTAPIBASEURL: https://cert.console.stage.redhat.com
       CONTENT_SOURCES_URL: http://${CONTENT_SOURCES_HOST}:${CONTENT_SOURCES_PORT}
+      CLEANUP_SUSPEND: false
     promotion:
       publish:
       - edge-stage-deploy-success-channel
@@ -73,6 +74,7 @@ resourceTemplates:
       EDGEAPIBASEURL: https://console.redhat.com
       EDGECERTAPIBASEURL: https://cert.console.redhat.com
       CONTENT_SOURCES_URL: http://${CONTENT_SOURCES_HOST}:${CONTENT_SOURCES_PORT}
+      CLEANUP_SUSPEND: true
     promotion:
       auto: true
       subscribe:
@@ -93,6 +95,7 @@ resourceTemplates:
       INVENTORYURL: http://${HOST_INVENTORY_HOST}:${HOST_INVENTORY_PORT}
       PLAYBOOKDISPATCHERURL: http://${PLAYBOOK_DISPATCHER_HOST}:${PLAYBOOK_DISPATCHER_PORT}
       FEATURE_SKIP_UPDATE_REPO: true
+      CLEANUP_SUSPEND: true
 - name: edge-frontend
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/edge-frontend
