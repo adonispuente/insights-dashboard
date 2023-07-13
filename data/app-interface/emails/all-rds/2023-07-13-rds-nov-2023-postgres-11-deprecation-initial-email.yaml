@@ -1,0 +1,36 @@
+---
+$schema: /app-interface/app-interface-email-1.yml
+labels: {}
+name: 2023-07-13-rds-nov-2023-postgres-11-deprecation-initial-email
+subject: '[Action required] AWS RDS PostgreSQL 11 database upgrades - required by November 6, 2023'
+to:
+  aliases:
+    - all-service-owners
+body: |
+  Hello,
+
+  This email is related to RDS instance upgrades that are required by the
+  majority of instances managed in app-interface. If your team doesn't use AWS
+  RDS, then you can skip this email now.
+
+  AWS is ending standard support for for PostgreSQL 11 and minor versions.
+  This means that RDS instances running PostgreSQL 11 engine versions will
+  require an upgrade.
+
+  The deadline for the database engine upgrades will be November 6, 2023.
+  We ask that tenants running the listed versions above upgrade to one of
+  the approved versions [1].
+
+  Your next step should be to see our page "PostgreSQL RDS Upgrades - November 2023" [2] to
+  determine if your RDS instances are affected, and begin planning for the
+  upgrades if they are.
+
+  Please feel free to reach out with any questions or concerns.
+
+  [1] https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/README.md#approved-rds-versions
+  [2] https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/aws/maintenance/rds-upgrades-nov-2023.md
+
+
+  Sincerely,
+
+  The AppSRE Team.
