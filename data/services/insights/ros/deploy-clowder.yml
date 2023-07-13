@@ -98,7 +98,6 @@ resourceTemplates:
     ref: internal  # populated by bonfire
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_DB_NAME: 'postgres'
       RBAC_ENABLE: 'False'
       LOG_LEVEL: 'DEBUG'
   - namespace:
@@ -110,13 +109,6 @@ resourceTemplates:
       name: RedHatInsights-ros-ocp-backend-gh-build-main
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_REPLICA_COUNT: 1
-      KRUIZE_DB_NAME: 'kruize'
-      KRUIZE_CPU_REQUEST: 3
-      KRUIZE_MEMORY_REQUEST: '4Gi'
-      KRUIZE_CPU_LIMIT: 3
-      KRUIZE_MEMORY_LIMIT: '8Gi'
-      MACHINE_POOL_OPTION: memory-optimized
       API_REPLICA_COUNT: 1
       PROCESSOR_REPLICA_COUNT: 1
       RECOMMENDER_REPLICA_COUNT: 3
@@ -137,6 +129,36 @@ resourceTemplates:
       API_REPLICA_COUNT: 3
       PROCESSOR_REPLICA_COUNT: 1
       RECOMMENDER_REPLICA_COUNT: 1
+
+- name: kruize
+  path: /kruize-clowdapp.yaml
+  url: https://github.com/RedHatInsights/ros-ocp-backend
+  targets:
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true  # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal  # populated by bonfire
+    parameters:
+      MEMORY_LIMIT: '2Gi'
+      LOG_LEVEL: 'DEBUG'
+  - namespace:
+      $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
+    ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-ros-ocp-backend-gh-build-main
+    parameters:
+      MEMORY_LIMIT: '2Gi'
+      KRUIZE_REPLICA_COUNT: 1
+      KRUIZE_IMAGE_TAG: '190a6cc'
+      KRUIZE_CPU_REQUEST: 3
+      KRUIZE_MEMORY_REQUEST: '4Gi'
+      KRUIZE_CPU_LIMIT: 3
+      KRUIZE_MEMORY_LIMIT: '8Gi'
+      MACHINE_POOL_OPTION: memory-optimized
+      LOG_LEVEL: 'DEBUG'
+
 - name: ros-ocp-dashboards
   url: https://github.com/RedHatInsights/ros-ocp-backend
   path: /dashboards
