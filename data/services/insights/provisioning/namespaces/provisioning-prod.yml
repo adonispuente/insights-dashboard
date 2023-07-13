@@ -37,6 +37,10 @@ openshiftResources:
   name: provisioning-azure-acc
   path: app-interface/provisioning/production/azure-acc
   version: 2
+- provider: vault-secret
+  path: app-interface/provisioning/production/gcp-account
+  name: provisioning-gcp-acc
+  version: 1
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-common/iqe-vault.secret.yaml
