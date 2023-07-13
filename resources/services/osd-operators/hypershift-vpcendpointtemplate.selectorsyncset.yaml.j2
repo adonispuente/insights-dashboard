@@ -9,7 +9,6 @@ spec:
     matchLabels:
       ext-hypershift.openshift.io/cluster-type: {{ hypershift_cluster_type }}
   resourceApplyMode: Sync
-  {%- if include_secrets | default(true) %}
   secretMappings:
   {%- for vpc in vpcs %}
   - sourceRef:
@@ -19,7 +18,6 @@ spec:
       name: "{{ vpc.secret_name }}"
       namespace: openshift-aws-vpce-operator
   {%- endfor %}
-  {%- endif %}
   resources:
   - apiVersion: avo.openshift.io/v1alpha2
     kind: VpcEndpointTemplate
