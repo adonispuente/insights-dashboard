@@ -21,7 +21,6 @@ openshiftResources:
     name: "backplane-prod"
     avo_credential_secret_name: "osd-privatelink-prod-aws-vpce-operator"
     hypershift_cluster_type: management-cluster
-    include_secrets: false
     vpcs:
       - id: "vpc-05b75e3ba154224fe"
         region: "us-east-1"
