@@ -23,6 +23,7 @@ users:
 - $ref: /teams/quay/users/hdonnay.yml
 - $ref: /teams/quay/users/bcaton.yml
 - $ref: /teams/quay/users/bdettelb.yml
+- $ref: /teams/quay/users/sdadi.yml
 
 instances:
 - account: quayio-stage
