@@ -8,7 +8,7 @@ The Quarkus Extension Registry API is a component in the Openshift ecosystem, it
 
 ## Implementation details
 We count the number of successful API requests that are sufficiently fast and divide it by the total of all the successful API requests.
-It is measured at the router using the `http_request_duration_seconds` metric.
+It is measured at the router using the `http_server_requests_seconds_bucket` metric.
 
 ## SLO Rationale
 The Quarkus Extension Registry is expected to serve at lest 90% of the requests in less than 1[s].
