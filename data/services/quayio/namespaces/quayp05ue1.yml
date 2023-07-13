@@ -322,6 +322,14 @@ externalResources:
       alternate_names:
       - '*.quay.redhat.io'
       - 'quay.io'
+  - provider: acm
+    identifier: wildcard-quayio-1
+    domain:
+      domain_name: '*.quay.io'
+      alternate_names:
+      - 'quay.io'
+      - '*.quay.redhat.io'
+      - '*.q1w2.quay.rhcloud.com'
   - provider: alb
     identifier: quayio-production-alb01
     output_resource_name: quayio-production-alb
