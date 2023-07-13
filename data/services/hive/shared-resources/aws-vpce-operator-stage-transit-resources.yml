@@ -20,7 +20,6 @@ openshiftResources:
     name: "backplane-stage"
     avo_credential_secret_name: "osd-privatelink-stage-aws-vpce-operator"
     hypershift_cluster_type: management-cluster
-    include_secrets: false
     vpcs:
       - id: "vpc-01a71a3e0ae29b71e"
         region: "us-east-1"
