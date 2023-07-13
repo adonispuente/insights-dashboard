@@ -22,9 +22,8 @@ slos:
   SLOParameters:
     window: 28d
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/fedramp-customer-interest-availability.md
-  # TODO Should we replace $__rate_interval with window parameter?
   expr: |
-    sum(rate(fci_http_server_requests_total{status_code!~"5.."}[$__rate_interval]))/sum(rate(fci_http_server_requests_total[$__rate_interval]))
+    sum(rate(fci_http_server_requests_total{status_code!~"5.."}[{{window}}]))/sum(rate(fci_http_server_requests_total[{{window}}]))
   prometheusRules: /resources/observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
 
 - name: Request latency
@@ -36,9 +35,8 @@ slos:
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/fedramp-customer-interest-latency.md
   SLOParameters:
     window: 28d
-  # TODO Should we replace $__rate_interval with window parameter?
   expr: |
-    histogram_quantile(0.90,sum by (le) (rate(fci_http_server_request_duration_seconds_bucket[$__rate_interval])))
+    histogram_quantile(0.90,sum by (le) (rate(fci_http_server_request_duration_seconds_bucket[{{window}}])))
   prometheusRules: /resources/observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
 
 - name: ServiceNow incidents
