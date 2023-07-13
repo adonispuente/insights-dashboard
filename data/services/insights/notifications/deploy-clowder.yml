@@ -256,6 +256,21 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
+  # prod
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/notifications-prod.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
+    ref: 098e76d50b5bc7eb9e6416f6874fbbd5558fc7e8
+    parameters:
+      CPU_LIMIT: 200m
+      CPU_REQUEST: 100m
+      KAFKA_CLIENT_LOG_LEVEL: WARN
+      MIN_REPLICAS: 0
+      NOTIFICATIONS_LOG_LEVEL: INFO
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
 # notifications-engine
 - name: notifications-engine
   path: /.rhcicd/clowdapp-engine.yaml
