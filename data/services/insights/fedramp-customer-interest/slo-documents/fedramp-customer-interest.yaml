@@ -1,0 +1,55 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: insights
+
+name: fedramp-customer-interest
+
+app:
+  $ref: /services/insights/fedramp-customer-interest/app.yml
+
+namespaces:
+- $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
+
+slos:
+- name: Requests result in successful (non-5xx) response
+  dashboard: https://grafana.stage.devshift.net/goto/NshbdOC4k?orgId=1
+  SLIType: availability
+  SLISpecification: The proportion of successful requests. Any HTTP status other than 500-599 is considered successful.
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/fedramp-customer-interest-availability.md
+  # TODO Should we replace $__rate_interval with window parameter?
+  expr: |
+    sum(rate(fci_http_server_requests_total{status_code!~"5.."}[$__rate_interval]))/sum(rate(fci_http_server_requests_total[$__rate_interval]))
+  prometheusRules: /resources/observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
+
+- name: Request latency
+  dashboard: https://grafana.stage.devshift.net/goto/RmwfddjVz?orgId=1
+  SLIType: latency
+  SLISpecification: Proportion of requests with less than <2000 ms against all requests.
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/fedramp-customer-interest-latency.md
+  SLOParameters:
+    window: 28d
+  # TODO Should we replace $__rate_interval with window parameter?
+  expr: |
+    histogram_quantile(0.90,sum by (le) (rate(fci_http_server_request_duration_seconds_bucket[$__rate_interval])))
+  prometheusRules: /resources/observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
+
+- name: ServiceNow incidents
+  dashboard: https://grafana.stage.devshift.net/goto/iq3IoOCVz?orgId=1
+  SLIType: correctness
+  SLISpecification: Proportion of successfully created ServiceNow incidents against all requests.
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_100
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/fedramp-customer-interest-snow-incidents.md
+  SLOParameters:
+    window: 28d
+  expr: |
+    sum(fci_successful_ops_total) / sum(fci_processed_ops_total)
+  prometheusRules: /resources/observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
