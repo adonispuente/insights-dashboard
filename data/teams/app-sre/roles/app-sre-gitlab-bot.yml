@@ -76,6 +76,7 @@ self_service:
   - $ref: /openshift/backplanep03ue1/cluster.yml
   - $ref: /openshift/stonesoups01ue1/cluster.yml
   - $ref: /openshift/stonesoupp01ue1/cluster.yml
+  - $ref: /openshift/backplanep04uw2/cluster.yml
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:

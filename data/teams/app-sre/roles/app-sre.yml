@@ -195,6 +195,9 @@ access:
 - cluster:
     $ref: /openshift/backplanep03ue1/cluster.yml
   group: dedicated-admins
+- cluster:
+    $ref: /openshift/backplanep04uw2/cluster.yml
+  group: dedicated-admins
 ## stonesoup control plane clusters
 - cluster:
     $ref: /openshift/stonesoups01ue1/cluster.yml
