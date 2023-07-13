@@ -92,7 +92,7 @@ resourceTemplates:
               multi_az: true
               schedulable: true
               status: ready
-              central_instance_limit: 40
+              central_instance_limit: 12
               provider_type: standalone
               supported_instance_type: "standard"
               cluster_dns: apps.acs-stage-dp-02.8csb.p1.openshiftapps.com
