@@ -140,6 +140,7 @@ externalResources:
       - 'quay.io'
   - provider: acm
     identifier: wildcard-quayio-ue2-1
+    region: us-east-2
     domain:
       domain_name: '*.quay.io'
       alternate_names:
