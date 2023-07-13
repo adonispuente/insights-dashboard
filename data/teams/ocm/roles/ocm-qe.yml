@@ -22,6 +22,7 @@ self_service:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-basic.yaml
+  - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-basic-e2e.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-aws.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-gcp.yaml
   - $ref: /services/ocm/cs/cicd/gating-tests-qe-fvt-hcp.yaml

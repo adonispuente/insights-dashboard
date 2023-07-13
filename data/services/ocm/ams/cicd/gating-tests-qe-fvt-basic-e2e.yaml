@@ -1,0 +1,64 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: uhc
+name: saas-ams-qe-fvt-basic-e2e-e2e
+description: SaaS deployment for AMS testing
+app:
+  $ref: /services/ocm/ams/app.yml
+pipelinesProvider:
+  $ref: /services/ocm/pipelines/tekton.ocm-pipelines.appsrep05ue1.yaml
+deployResources:
+  requests:
+    cpu: 600m
+    memory: 2000Mi
+  limits:
+    cpu: 1200m
+    memory: 2000Mi
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: ocm-qe-fvt-release
+managedResourceTypes:
+- Job
+imagePatterns:
+- quay.io/app-sre/uhc-account-manager
+- quay.io/app-sre/ocm-backend-tests
+- quay.io/centos/centos
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+validateTargetsInApp: true
+resourceTemplates:
+- name: uhc-account-manager-main
+  url: https://gitlab.cee.redhat.com/service/uhc-account-manager
+  path: /templates/gating-tests-qe-fvt-basic-template.yml
+  parameters:
+    IMAGE_REGISTRY: quay.io
+    IMAGE_REPOSITORY: app-sre/uhc-account-manager
+    DEPLOYMENT_NAME: main
+    TEST_PROFILE: basic-e2e
+  targets:
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 4144068d6f9333245bf088ab2041e965dd937944
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-ams-qe-fvt-basic-stage-ok
+      publish:
+      - ocm-ams-qe-fvt-basic-e2e-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-production.yml
+    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-ams-deployed-prod
+      publish:
+      - ocm-ams-qe-fvt-basic-e2e-prod-ok
+    parameters:
+      ENVIRONMENT: production
