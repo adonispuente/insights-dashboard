@@ -93,7 +93,7 @@ resourceTemplates:
       SLEEP_DURATION_SECONDS: '15'
       MANAGED_TENANTS: 'rhobs'
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: 'a39316a'
+      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
       RHOBS_RELOADER_SECRET_NAME: observatorium-rhobs-testing
       LOG_RULES_ENABLED: false
       AVALANCHE_REPLICAS: '0'
@@ -125,7 +125,7 @@ resourceTemplates:
       RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-staging
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: 'a39316a'
+      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
     promotion:
@@ -157,7 +157,7 @@ resourceTemplates:
       RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-production
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: 'a39316a'
+      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
       METRICS_WRITE_SERVICE_NAME: 'observatorium-thanos-receive'
       METRICS_WRITE_SERVICE_PORT: '19291'
 - name: jaeger
