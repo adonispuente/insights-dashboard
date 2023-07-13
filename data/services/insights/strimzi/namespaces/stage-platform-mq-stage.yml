@@ -3,6 +3,8 @@ $schema: /openshift/namespace-1.yml
 
 labels:
   service: strimzi
+  deployment_validation_operator_minimum_three_replicas: skip
+
 
 name: platform-mq-stage
 description: Insights platform-mq-stage on the Stage cluster under e2e-deploy/ocdeployer management
