@@ -17,6 +17,7 @@ managedResourceTypes:
   - Deployment
   - Service
   - ServiceAccount
+  - ConfigMap
 resourceTemplates:
   - name: fedramp-customer-interest
     url: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service
@@ -27,6 +28,14 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
+        ref: main
+  - name: grafana-dashboard-fedramp-customer-interest
+    url: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service
+    path: /dashboards
+    provider: directory
+    targets:
+      - namespace:
+          $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
         ref: main
 imagePatterns:
   - quay.io/cloudservices/fedramp-customer-interest
