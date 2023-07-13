@@ -448,6 +448,7 @@ resourceTemplates:
         MEMORY_LIMIT: 800Mi
         OTEL_JAVAAGENT_ENABLED: 'true'
         OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
+        LOGGING_LEVEL: 'DEBUG'
     - namespace:
         $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
       ref: b215f5151bc49605ee48c865669630e0cd1e060e
