@@ -22,6 +22,7 @@ networkPoliciesAllow:
 # NOTICE(prekumar): For allowing metric federation using Thanos Ruler running in observatoium-metrics-stage.
 - $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
 - $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
+- $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
 
 grafanaUrl: https://grafana.app-sre.devshift.net/d/Tg-mH0rizaSJDKSADJ/telemeter?orgId=1&var-datasource=app-sre-stage-prometheus&var-cluster=app-sre-stage&var-namespace=observatorium-mst-stage
 

@@ -46,6 +46,7 @@ managedResourceTypes:
 - LokiStack
 - ClusterRole.rbac.authorization.k8s.io
 - ClusterRoleBinding.rbac.authorization.k8s.io
+- Route
 
 clusterAdmin: true
 
@@ -118,4 +119,36 @@ resourceTemplates:
         - name: S3_BUCKET_ENDPOINT
           secret:
             path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-loki
+            field: endpoint
+- name: observatorium-meta-monitoring-con-prof
+  path: /resources/services/meta-monitoring/profiling-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
+      ref: 872a13377e0cd1202764801bdae199c776623100
+      parameters:
+        NAMESPACE: observatorium-tools
+        SD_NAMESPACE_LIST: '["observatorium-mst-stage"]'
+        IMAGE_TAG: v0.18.0
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
             field: endpoint
