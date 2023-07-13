@@ -48,5 +48,5 @@ resourceTemplates:
       - channel: edge-stage-deploy-success-channel
         data:
         - parent_saas: edge
-          target_config_hash: 583bffccf20be909
+          target_config_hash: cc62a870a65a88af
           type: parent_saas_config
