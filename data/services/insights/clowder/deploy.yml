@@ -98,7 +98,7 @@ resourceTemplates:
       RECONCILIATION_METRICS: "true"
   - namespace:
       $ref: /services/insights/clowder/namespaces/prod.yml
-    ref: ddfd85e9d3a8bc8d5bb41d3b5f5fcde2bb77a587
+    ref: c1066bc007273e25c471bfea355a0cf6ddb62583
     parameters:
       PER_PROVIDER_METRICS: "true"
       TARGET_NAMESPACE: "clowder-system"
@@ -115,7 +115,7 @@ resourceTemplates:
     #   name: RedHatInsights-clowder-plugin-gh-build-master
   - namespace:
       $ref: /services/insights/clowder/namespaces/stage.yml
-    ref: 2abf074b26eefc0d63b0d7cdafc5c563a327c2b0
+    ref: 69cf4baa0b2846fe4f4c9477f2eef84c3371095d
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
@@ -129,7 +129,7 @@ resourceTemplates:
       name: RedHatInsights-clowder-plugin-gh-build-master
   - namespace:
       $ref: /services/insights/clowder/namespaces/prod.yml
-    ref: 2abf074b26eefc0d63b0d7cdafc5c563a327c2b0
+    ref: 69cf4baa0b2846fe4f4c9477f2eef84c3371095d
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
