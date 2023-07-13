@@ -21,18 +21,6 @@ openshiftResources:
     secret_name: backplanes01ue1-aws-vpce-operator
 - provider: resource-template
   type: jinja2
-  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
-  variables:
-    hypershift_cluster_type: management-cluster
-    secret_name: backplanes02uw2-aws-vpce-operator
-- provider: resource-template
-  type: jinja2
-  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
-  variables:
-    hypershift_cluster_type: management-cluster
-    secret_name: backplanes03ue1-hypershift-aws-vpce-operator
-- provider: resource-template
-  type: jinja2
   path: /services/osd-operators/hypershift-vpcendpointtemplate.selectorsyncset.yaml.j2
   variables:
     name: "backplane-stage"
