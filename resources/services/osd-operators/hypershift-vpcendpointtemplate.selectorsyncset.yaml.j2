@@ -9,7 +9,7 @@ spec:
     matchLabels:
       ext-hypershift.openshift.io/cluster-type: {{ hypershift_cluster_type }}
   resourceApplyMode: Sync
-  {%- if include_secrets | default(false) %}
+  {%- if include_secrets | default(true) %}
   secretMappings:
   {%- for vpc in vpcs %}
   - sourceRef:
