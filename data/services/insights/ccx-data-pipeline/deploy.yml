@@ -542,6 +542,8 @@ resourceTemplates:
       LOG_LEVEL: INFO
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    parameters:
+      LOGGING_TO_CW_ENABLED: 'False'
     disable: true # TODO: enable when there is any test running in ephemeral
     ref: internal
 
@@ -559,6 +561,8 @@ resourceTemplates:
     ref: 6a1ec9940caf2f975e3e3fd72a8af10a5982f2a7
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    parameters:
+      LOGGING_TO_CW_ENABLED: 'False'
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
@@ -587,6 +591,7 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
       RH_SSO_URL: http://sso-mock-svc:8080/default
       ALLOW_INSECURE: 'True'
+      LOGGING_TO_CW_ENABLED: 'False'
     ref: internal
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
 
