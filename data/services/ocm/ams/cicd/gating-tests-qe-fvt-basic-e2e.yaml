@@ -42,7 +42,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 4144068d6f9333245bf088ab2041e965dd937944
+    ref: 92f12634990c06755f2f7d7ad19db51972965a75
     promotion:
       auto: true
       subscribe:
