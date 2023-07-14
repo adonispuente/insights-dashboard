@@ -196,8 +196,8 @@ resourceTemplates:
       # Deployment specific variables:
       # koku-api
       KOKU_REPLICAS: 3
-      KOKU_CPU_REQUEST: 100m
-      KOKU_CPU_LIMIT: 300m
+      KOKU_CPU_REQUEST: 300m
+      KOKU_CPU_LIMIT: 600m
       KOKU_MEMORY_REQUEST: 768Mi
       KOKU_MEMORY_LIMIT: 1536Mi
       # clowder-api nginx
