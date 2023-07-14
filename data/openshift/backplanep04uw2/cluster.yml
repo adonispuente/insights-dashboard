@@ -62,6 +62,7 @@ clusterAdminAutomationToken:
 
 jumpHost:
   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+
 network:
   type: OVNKubernetes
   vpc: 10.170.44.0/22
