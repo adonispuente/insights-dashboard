@@ -72,6 +72,20 @@ resourceTemplates:
     ACTIVEGATE_CPU_LIMIT: 2000m
     ACTIVEGATE_MEM_LIMIT: 4Gi
 
+- name: dynatrace-cluster-bootstrap-job
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-cluster-bootstrap/template.yaml
+  targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+
 - name: dynatrace-token-stage
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/cluster-bootstrap.yaml
