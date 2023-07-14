@@ -511,9 +511,9 @@ resourceTemplates:
       S3_BUCKET_NAME: hccm-prod-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      MEMORY_REQUEST: 18Gi
-      MEMORY_LIMIT: 20Gi
-      MAX_HEAP_SIZE: 18G
+      MEMORY_REQUEST: 6Gi
+      MEMORY_LIMIT: 10Gi
+      MAX_HEAP_SIZE: 6G
 
 - name: presto
   # repo deploy file: https://github.com/RedHatInsights/ubi-trino/blob/main/deploy/clowdapp.yaml
