@@ -100,7 +100,7 @@ spec:
 
       # Clowder SLOs
       - alert: ClowderReconciliationTime
-        expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="4"}[10m])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[10m])) by (controller) < 0.95
+        expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="4"}[10m])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[10m])) by (controller) < 0.5
         labels:
           severity: medium
           service: insights
