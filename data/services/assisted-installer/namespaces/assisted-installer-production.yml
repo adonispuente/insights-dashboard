@@ -120,6 +120,10 @@ openshiftResources:
   name: msk-write-user
   path: app-interface/assisted-installer/msk-credentials/production/assisted-service
   version: 1
+- provider: vault-secret
+  name: msk-mirrormaker
+  path: app-interface/assisted-installer/msk-credentials/production/mirrormaker
+  version: 1
 
 managedRoles: true
 
