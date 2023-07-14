@@ -22,8 +22,6 @@ parentApp:
 escalationPolicy:
   $ref: /teams/insights/escalation-policies/crc-devprod-escalations.yml
 serviceOwners:
-- name: Kyle Lape
-  email: klape@redhat.com
 - name: Pete Savage
   email: psavage@redhat.com
 
