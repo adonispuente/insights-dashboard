@@ -67,7 +67,7 @@ resourceTemplates:
       APICAST_CPU_LIMIT: 400m
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: 9c4264bba96f911aa00e71484d768633dbd52da2
+    ref: 42380f0ed4b4812fa9a0680dbdaa1004bf392d12
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -117,7 +117,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: 9c4264bba96f911aa00e71484d768633dbd52da2
+    ref: 42380f0ed4b4812fa9a0680dbdaa1004bf392d12
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
