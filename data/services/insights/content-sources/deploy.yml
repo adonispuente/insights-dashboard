@@ -30,6 +30,7 @@ managedResourceTypes:
 - FloorPlan
 - Secret
 - OperatorGroup
+- Pulp
 - Subscription.operators.coreos.com
 
 imagePatterns:
