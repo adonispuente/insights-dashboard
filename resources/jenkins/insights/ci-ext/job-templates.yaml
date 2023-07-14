@@ -199,6 +199,7 @@
         - *insights_rh_registry_pull_secret
         - *quay_secret_push
         - *quay_api_token
+        - *changelog_htpasswd
     <<: *gh_build_master
     shell: |
         # send a curl request to changelog.stage.devshift.net
@@ -223,7 +224,7 @@
         commit_info={"tenant": "Insights"}
 
         echo 'Sending curl request to changelog.stage.devshift.net'
-        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$commit_info" -H "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN}"
+        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$commit_info" -H "Content-Type: application/json" -H "Authorization: Basic ${HTPASSWD}"
 
 - job-template:
     id: 'insights-gh-build-master-stable'
