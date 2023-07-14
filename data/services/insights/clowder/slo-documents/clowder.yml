@@ -13,38 +13,38 @@ namespaces:
 - $ref: /services/insights/clowder/namespaces/prod.yml
 
 slos:
-- name: clowder reconciliation error rate
+- name: ClowdApp reconciliation time for Clowder
   SLIType: correctness
-  SLISpecification: Percentage of Clowder Reconciliations that are Successful
+  SLISpecification: Percentage of ClowdApp Reconciliations that complete within 4 seconds 
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: (sum(rate(controller_runtime_reconcile_total{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", result=~"success"}[{{window}}]))) / (sum(rate(controller_runtime_reconcile_total{controller=~"clowdapp|clowdjobinvocation|clowdenvironment"}[28d])))
-  SLOTarget: 0.90
-  SLOTargetUnit: percent_0_1
-  prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
-  dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&editPanel=17
-
-- name: clowder reconciliation time
-  SLIType: correctness
-  SLISpecification: Percentage of Clowder Reconciliations that complete within 4 seconds 
-  SLODetails: https://github.com/RedHatInsights/clowder
-  SLOParameters:
-    window: 28d
-  expr: sum(rate(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="4"}[{{window}}])) / sum(rate(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment"}[28d]))
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdapp", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdapp", le="+Inf"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
   dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&viewPanel=6
 
-- name: clowder workqueue depth
+- name: ClowdEnvironment reconciliation time for Clowder
   SLIType: correctness
-  SLISpecification: The Average Workqueue Depth over the course of 28 days should be below 10
+  SLISpecification: Percentage of ClowdEnvironment Reconciliations that complete within 4 seconds 
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[{{window}}]))
-  SLOTarget: 0.99
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdenvironment", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdenvironment", le="+Inf"}[{{window}}]))
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
+  dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&viewPanel=6
+
+- name: ClowdJobInvocation reconciliation time for Clowder
+  SLIType: correctness
+  SLISpecification: Percentage of ClowdJobInvocation Reconciliations that complete within 4 seconds 
+  SLODetails: https://github.com/RedHatInsights/clowder
+  SLOParameters:
+    window: 28d
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdjobinvocation", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdjobinvocation", le="+Inf"}[{{window}}]))
+  SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
   dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&viewPanel=6
