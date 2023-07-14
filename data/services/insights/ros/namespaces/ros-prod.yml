@@ -73,6 +73,19 @@ externalResources:
     overrides:
       engine_version: "13.9"
       apply_immediately: false
+  - provider: rds
+    identifier: kruize-prod
+    annotations:
+      clowder/database: kruize
+    defaults: /terraform/resources/insights/production/rds/rds-ros-prod.yml
+    old_parameter_group: /terraform/resources/insights/production/rds/postgres10-parameter-group-ros-prod.yml
+    parameter_group: /terraform/resources/insights/production/rds/postgres13-parameter-group-ros-prod.yml
+    output_resource_name: kruize-prod
+    output_resource_db_name: postgres
+    enhanced_monitoring: true
+    overrides:
+      engine_version: "13.9"
+      apply_immediately: true
   - provider: cloudwatch
     identifier: ros-prod
     defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
