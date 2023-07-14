@@ -23,7 +23,7 @@ parentApp:
   $ref: /services/insights/app.yml
 
 escalationPolicy:
-  $ref: /teams/insights/escalation-policies/crc-eventing-escalations.yml
+  $ref: /teams/insights/escalation-policies/crc-notifications-escalations.yml
 serviceOwners:
 - name: Notifications Team Mailing List
   email: notifications-team@redhat.com
