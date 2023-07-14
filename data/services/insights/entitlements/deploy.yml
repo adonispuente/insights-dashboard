@@ -68,7 +68,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/stage-entitlements-stage.yml
-    ref: 3c36e418fab340839af83e76af979fba1127c9e9
+    ref: 0d5a8115a3e5a27bfb040e43197c1be5c569d3f0
 
 # Prod environment
 - name: entitlements-api-go-prod
