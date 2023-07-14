@@ -19,7 +19,7 @@ slos:
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp", le="4"}[28d])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[28d])) by (controller)
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdapp", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdapp", le="+Inf"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
@@ -31,7 +31,7 @@ slos:
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdenvironment", le="4"}[28d])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[28d])) by (controller)
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdenvironment", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdenvironment", le="+Inf"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
@@ -43,7 +43,7 @@ slos:
   SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdjobinvocation", le="4"}[28d])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"clowdapp|clowdjobinvocation|clowdenvironment", le="+Inf"}[28d])) by (controller)
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdjobinvocation", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="clowdjobinvocation", le="+Inf"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
