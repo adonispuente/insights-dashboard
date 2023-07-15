@@ -157,7 +157,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:download_xl_queue
-      expr: max(download_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(download_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-download-XL-queue-overload-In-hccm
       expr: koku:celery:download_xl_queue > 550
       for: 10m
@@ -189,7 +189,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:summary_xl_queue
-      expr: max(summary_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(summary_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-summary-XL-queue-overload-In-hccm
       expr: koku:celery:summary_xl_queue > 300
       for: 10m
@@ -221,7 +221,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:priority_xl_queue
-      expr: max(priority_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(priority_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-priority-XL-queue-overload-In-hccm
       expr: koku:celery:priority_xl_queue > 100
       for: 10m
@@ -253,7 +253,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:refresh_xl_queue
-      expr: max(refresh_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(refresh_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-refresh-XL-queue-overload-In-hccm
       expr: koku:celery:refresh_xl_queue > 100
       for: 10m
@@ -285,7 +285,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:cost_model_xl_queue
-      expr: max(cost_model_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(cost_model_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-cost-model-XL-queue-overload-In-hccm
       expr: koku:celery:cost_model_xl_queue > 100
       for: 10m
@@ -333,7 +333,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hccm/App-insights-hccm-worker-queue-overload.rst"
 
     - record: koku:celery:ocp_xl_queue
-      expr: max(ocp_backlog{namespace="hccm-prod", pod=~".+worker.+"})
+      expr: max(ocp_xl_backlog{namespace="hccm-prod", pod=~".+worker.+"})
     - alert: App-cost-celery-queue-overload-In-hccm
       expr: koku:celery:ocp_xl_queue > 300
       for: 10m
