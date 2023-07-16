@@ -46,5 +46,15 @@ resourceTemplates:
     ref: main
     parameters:
       ENVIRONMENT: integration
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
