@@ -95,7 +95,7 @@ resourceTemplates:
     namespaceSelector:
       jsonPathSelectors:
         include:
-        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="dynatrace")]
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="cluster-scope")]
     ref: main
     parameters:
       DT_REGION: us-east-virginia
@@ -109,7 +109,7 @@ resourceTemplates:
     namespaceSelector:
       jsonPathSelectors:
         include:
-        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="dynatrace")]
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="cluster-scope")]
     ref: main
     parameters:
       DT_REGION: eu-west-ireland
