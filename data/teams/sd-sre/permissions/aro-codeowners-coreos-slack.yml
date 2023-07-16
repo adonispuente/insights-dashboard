@@ -1,0 +1,16 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: aro-codeowners-coreos-slack
+description: CODEOWNERS of the ARO-RP (managed via app-interface)
+
+service: slack-usergroup
+handle: aro-codeowners
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+- forum-aro
