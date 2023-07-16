@@ -68,10 +68,10 @@ schedule:
   end: '2022-08-15 17:00'
   users:
   - $ref: /teams/app-sre/users/kfischer.yml
-- start: '2022-08-16 07:00'
-  end: '2022-08-16 14:00'
-  users:
-  - $ref: /teams/app-sre/users/agallofr.yml
+# - start: '2022-08-16 07:00'
+#   end: '2022-08-16 14:00'
+#   users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
 - start: '2022-08-17 14:00'
   end: '2022-08-17 21:00'
   users:
@@ -112,14 +112,14 @@ schedule:
   end: '2022-08-30 14:00'
   users:
   - $ref: /teams/app-sre/users/rporresm.yml
-- start: '2022-08-31 07:00'
-  end: '2022-08-31 14:00'
-  users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-- start: '2022-09-01 07:00'
-  end: '2022-09-01 14:00'
-  users:
-  - $ref: /teams/app-sre/users/agallofr.yml
+# - start: '2022-08-31 07:00'
+#   end: '2022-08-31 14:00'
+#   users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+# - start: '2022-09-01 07:00'
+#   end: '2022-09-01 14:00'
+#   users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
 - start: '2022-09-02 07:00'
   end: '2022-09-02 14:00'
   users:
@@ -307,42 +307,42 @@ schedule:
   start: '2022-10-21 17:00'
   end: '2022-10-21 19:00'
 # w43
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-10-24 08:00'
-  end: '2022-10-24 10:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-10-24 08:00'
+#   end: '2022-10-24 10:00'
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
   start: '2022-10-24 17:00'
   end: '2022-10-24 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-10-25 08:00'
-  end: '2022-10-25 10:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-10-25 08:00'
+#   end: '2022-10-25 10:00'
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
   start: '2022-10-25 17:00'
   end: '2022-10-25 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-10-26 08:00'
-  end: '2022-10-26 10:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-10-26 08:00'
+#   end: '2022-10-26 10:00'
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
   start: '2022-10-26 17:00'
   end: '2022-10-26 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-10-27 08:00'
-  end: '2022-10-27 10:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-10-27 08:00'
+#   end: '2022-10-27 10:00'
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
   start: '2022-10-27 17:00'
   end: '2022-10-27 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-10-28 08:00'
-  end: '2022-10-28 10:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-10-28 08:00'
+#   end: '2022-10-28 10:00'
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
   start: '2022-10-28 17:00'
@@ -413,18 +413,18 @@ schedule:
   - $ref: /teams/app-sre/users/essilva.yml
   start: '2022-11-09 17:00'
   end: '2022-11-09 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-11-10 09:00'
-  end: '2022-11-10 11:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-11-10 09:00'
+#   end: '2022-11-10 11:00'
 - users:
   - $ref: /teams/app-sre/users/essilva.yml
   start: '2022-11-10 17:00'
   end: '2022-11-10 19:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-11-11 09:00'
-  end: '2022-11-11 11:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-11-11 09:00'
+#   end: '2022-11-11 11:00'
 - users:
   - $ref: /teams/app-sre/users/essilva.yml
   start: '2022-11-11 17:00'
@@ -569,26 +569,26 @@ schedule:
   start: '2022-12-09 17:00'
   end: '2022-12-09 19:00'
 # w49 - emea
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-12-05 10:00'
-  end: '2022-12-05 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-12-05 10:00'
+#   end: '2022-12-05 12:00'
 - users:
   - $ref: /teams/app-sre/users/jboll.yml
   start: '2022-12-06 10:00'
   end: '2022-12-06 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-12-07 10:00'
-  end: '2022-12-07 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-12-07 10:00'
+#   end: '2022-12-07 12:00'
 - users:
   - $ref: /teams/app-sre/users/jboll.yml
   start: '2022-12-08 10:00'
   end: '2022-12-08 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2022-12-09 10:00'
-  end: '2022-12-09 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2022-12-09 10:00'
+#   end: '2022-12-09 12:00'
 # w50
 - users:
   - $ref: /teams/app-sre/users/tpate.yml
@@ -754,22 +754,22 @@ schedule:
   - $ref: /teams/app-sre/users/goberlec.yml
   start: '2023-01-23 10:00'
   end: '2023-01-23 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-01-24 10:00'
-  end: '2023-01-24 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-01-25 10:00'
-  end: '2023-01-25 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-01-26 10:00'
-  end: '2023-01-26 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-01-27 10:00'
-  end: '2023-01-27 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-01-24 10:00'
+#   end: '2023-01-24 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-01-25 10:00'
+#   end: '2023-01-25 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-01-26 10:00'
+#   end: '2023-01-26 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-01-27 10:00'
+#   end: '2023-01-27 12:00'
 # w4 - nasa - Alex
 - users:
   - $ref: /teams/app-sre/users/anjaasta.yml
@@ -792,10 +792,10 @@ schedule:
   start: '2023-01-27 17:00'
   end: '2023-01-27 19:00'
 # w5 - emea - Gerd
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-01-30 10:00'
-  end: '2023-01-30 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-01-30 10:00'
+#   end: '2023-01-30 12:00'
 - users:
   - $ref: /teams/app-sre/users/goberlec.yml
   start: '2023-01-31 10:00'
@@ -1146,27 +1146,27 @@ schedule:
   - $ref: /teams/app-sre/users/cassing.yml
   start: '2023-03-27 10:00'
   end: '2023-03-27 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-03-28 10:00'
-  end: '2023-03-28 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-03-29 10:00'
-  end: '2023-03-29 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-03-30 10:00'
-  end: '2023-03-30 12:00'
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-03-31 10:00'
-  end: '2023-03-31 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-03-28 10:00'
+#   end: '2023-03-28 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-03-29 10:00'
+#   end: '2023-03-29 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-03-30 10:00'
+#   end: '2023-03-30 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-03-31 10:00'
+#   end: '2023-03-31 12:00'
 # w14 - emea - andreu + chris
-- users:
-  - $ref: /teams/app-sre/users/agallofr.yml
-  start: '2023-04-03 10:00'
-  end: '2023-04-03 12:00'
+# - users:
+#   - $ref: /teams/app-sre/users/agallofr.yml
+#   start: '2023-04-03 10:00'
+#   end: '2023-04-03 12:00'
 - users:
   - $ref: /teams/app-sre/users/cassing.yml
   start: '2023-04-04 10:00'
