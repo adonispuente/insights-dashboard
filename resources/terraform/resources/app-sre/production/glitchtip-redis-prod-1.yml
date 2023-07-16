@@ -1,7 +1,7 @@
 replication_group_id: glitchtip-redis-production
 replication_group_description: glitchtip elasticache replication group
 number_cache_clusters: 2
-node_type: cache.t3.small
+node_type: cache.t3.medium
 automatic_failover_enabled: true
 auto_minor_version_upgrade: false
 availability_zones: ["us-east-1a", "us-east-1b"]
