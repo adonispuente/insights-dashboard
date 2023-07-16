@@ -33,3 +33,9 @@ externalResources:
     enhanced_monitoring: true
     output_resource_name: deploy-events-db
     grafana_datasource: true
+
+openshiftServiceAccountTokens:
+- namespace:
+    $ref: /services/insights/platform-changelog/namespaces/stage-platform-changelog-stage.yml
+  serviceAccountName: jenkins-jobs
+  name: platform-changelog-stage-jenkins-jobs-sa-token
