@@ -64,9 +64,20 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
+    parameters:
+      ENVIRONMENT: integration
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
-    ENVIRONMENT: integration
     ACTIVEGATE_CPU_REQUEST: 500m
     ACTIVEGATE_MEM_REQUEST: 512Mi
     ACTIVEGATE_CPU_LIMIT: 2000m
