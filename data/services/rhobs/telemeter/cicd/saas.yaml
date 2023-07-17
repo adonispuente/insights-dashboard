@@ -62,7 +62,7 @@ parameters:
 
 allowedSecretParameterPaths:
   - rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
-  - rhobs/staging/certs 
+  - rhobs/staging/certs
 
 resourceTemplates:
 - name: telemeter-dashboards
@@ -75,7 +75,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: dae095204d6d83ed7f13f3c849b125a567cef21f
+    ref: b57999e8e6bfd9496a414f7c98d087509456c0db
 - name: telemeter
   path: /resources/services/telemeter-template.yaml
   url: https://github.com/rhobs/configuration
