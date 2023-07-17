@@ -100,7 +100,7 @@ resourceTemplates:
   # production instance
   - namespace:
       $ref: /services/glitchtip/namespaces/glitchtip-production.yaml
-    ref: e2d25ac1cdc2f53d6d87e1e1990e2354e2eea96a
+    ref: 060b26217b5e8532f977c34ddca6c5869423a214
     parameters:
       GLITCHTIP_DOMAIN: https://glitchtip.devshift.net
     secretParameters:
