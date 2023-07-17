@@ -56,6 +56,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -160,6 +161,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -266,6 +268,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -370,6 +373,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -473,6 +477,7 @@ resourceTemplates:
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     MAX_DELETE_CLUSTERS: '1'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -574,6 +579,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -677,6 +683,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -783,6 +790,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -885,6 +893,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -988,6 +997,7 @@ resourceTemplates:
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     CLIENT_CARDINALITY: '500'
     WORKER_COUNT: '3'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1093,6 +1103,7 @@ resourceTemplates:
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     TELEMETER_URL: ${TELEMETER_BASE_URL}
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1197,6 +1208,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1298,6 +1310,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1403,6 +1416,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1503,6 +1517,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1607,6 +1622,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1718,6 +1734,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1816,6 +1833,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
