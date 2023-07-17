@@ -50,7 +50,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: a3f1b6a37b63a247188cb28840c188f76d141939
+    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
     parameters:
       REGION: us-east-2
       SECTOR_NAME: main
@@ -63,7 +63,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: a3f1b6a37b63a247188cb28840c188f76d141939
+    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
     parameters:
       REGION: eu-central-1
       SECTOR_NAME: main
