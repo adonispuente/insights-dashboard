@@ -33,13 +33,17 @@ internal: false
 
 managedClusterRoles: true
 
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
+
 disable:
   integrations:
+  # this cluster is a CCS cluster and app-sre does not have ocm access,
+  # so app-interface cannot create the OIDC config via OCM for it.
+  - ocm-oidc-idp
+  # These disabled intregrations will be removed with the next MR which will include the OIDC config
+  # that enables the RedHat SSO cluster login with RH usernames
+  - openshift-clusterrolebindings
   - openshift-users
-  # - openshift-groups
-  # - openshift-resources
-  # - openshift-rolebindings
-  # - openshift-network-policies
-  # - openshift-namespaces
-  # - openshift-namespace-labels
-auth: []
+  - openshift-rolebindings
