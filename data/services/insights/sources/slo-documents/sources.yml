@@ -1,0 +1,38 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: sources
+
+name: sources
+
+app:
+  $ref: /services/insights/sources/app.yml
+
+namespaces:
+- $ref: /services/insights/sources/namespaces/sources-prod.yml
+
+slos:
+- name: Sources service error rate uptime
+  SLIType: availability
+  SLISpecification: Availability of Sources service in defined time window.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/sources/SLO.md
+  SLOParameters:
+    window: 28d
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  expr: avg_over_time(service:sli:status_5xx:pctl5rate5m{exported_service="sources"}[{{window}}])
+  prometheusRules: /resources/insights-prod/sources/sources.prometheusrules.yml
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources
+
+- name: Sources service latency uptime
+  SLIType: latency
+  SLISpecification: The Proportion of the service request durations under 2 seconds during the defined time window.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/sources/SLO.md
+  SLOParameters:
+    window: 28d
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  expr: avg_over_time(service:sli:latency_gt_2000:pctl10rate5m{exported_service="sources"}[{{window}}])
+  prometheusRules: /resources/insights-prod/sources/sources.prometheusrules.yml
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources 

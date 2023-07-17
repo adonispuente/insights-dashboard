@@ -1,20 +1,17 @@
-# Sources SLOs
+# Sources SLO details
 
-## SLO
+Sources availability and latency is calculated from metrics gathered through 3Scale Gateway.
 
-* Availability: Pods are down no longer than 2 minutes
-* Restarts: Pods aren't restarted more than 5 times in 30 minutes for the last 1 hour
-* Kafka lag: is less than 1000 in the last 10 minutes
-* API: 
-  * 90% of requests result in successful (non-5xx) response
-  * Average request duration <= 500 ms for the last 10 minutes
-* Satellite Ops:
-  * Average number of errors was <= 10 per 10 mins for the last 30 minutes
+SLO document: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/data/services/insights/sources/slo-documents/sources.yml
 
-## SLI
+Grafana Dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources 
 
-* https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/insights-prod/sources/sources.prometheusrules.yml
 
-## Dashboards
+Prometheus alerts: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/insights-prod/sources/sources.prometheusrules.yml 
 
-* [Sources Dashboard](https://grafana.app-sre.devshift.net/d/zxZKNnAMz/sources?orgId=1)
+## SLO Availability
+The percentage of time the Sources service has been up as an average of the last 28 days is higher than 95 %.
+
+
+## SLO Latency
+The Proportion of the service request durations under 2 seconds during the last 28 days is higher than 95 %.
