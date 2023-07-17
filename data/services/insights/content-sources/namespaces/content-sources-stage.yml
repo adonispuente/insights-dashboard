@@ -45,6 +45,12 @@ openshiftResources:
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-stage/content-sources-stage/content-sources-pulp-operator-group.yml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-in-memory-db.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-s3.secret.yaml
 
 sharedResources:
   - $ref: /services/insights/shared-resources/metrics-export-stage.yml
@@ -73,6 +79,15 @@ externalResources:
       enabled_cloudwatch_logs_exports: ['postgresql', 'upgrade']
     parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-content-sources-pulp-stage.yml
     output_resource_name: content-sources-pulp-db
+    output_format:
+      provider: generic-secret
+      data:
+        POSTGRES_HOST: "{{ db.host }}"
+        POSTGRES_DB_NAME: "{{ db.name }}"
+        POSTGRES_PORT: "{{ db.port }}"
+        POSTGRES_USERNAME: "{{ db.user }}"
+        POSTGRES_PASSWORD: "{{ db.password }}"
+        POSTGRES_SSLMODE: enable
     enhanced_monitoring: true
 
   - provider: elasticache
