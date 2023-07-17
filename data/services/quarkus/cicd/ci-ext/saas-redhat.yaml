@@ -42,7 +42,7 @@ resourceTemplates:
       - code-quarkus-redhat-api-stage-deploy-success-channel
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-redhat-production.yml
-    ref: 46646eb3b61b8310e869269befeede860984d377
+    ref: ec8be2ce263f6849e801d77d1120efe7ebe6bf7f
     parameters:
       REPLICAS: 3
       QUARKUS_LOG_SENTRY: 'true'
