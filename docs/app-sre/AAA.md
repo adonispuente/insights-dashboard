@@ -188,6 +188,10 @@ Every AppSRE/MT-SRE engineer should have access to the following:
     * Check out [this download page](https://access.redhat.com/downloads/content/290) or, alternatively [this mirror](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/).
     * Instructions for installing are [here](https://docs.openshift.com/container-platform/4.10/cli_reference/openshift_cli/getting-started-cli.html).
     * qontract-reconcile uses a specific version of the oc binary [referenced in cli.py](https://github.com/app-sre/qontract-reconcile/blob/master/reconcile/cli.py#L136)
+* BitWarden
+  * Get someone in AppSRE to invite you to the [AppSRE passwords](https://rover.redhat.com/groups/group/appsre-passwords) Rover group. Once you're in there, you should have access to the "AppSRE Passwords" collection.
+  * The previous step should make you receive an invitation per [existing documentation](https://redhat.service-now.com/help?id=kb_article_view&sysparm_article=KB0010984). If not, create a SNOW ticket to Infosec or send them an email infosec@redhat.com as instructed in the [BitWarden's FAQ](https://source.redhat.com/departments/it/it-information-security/wiki/intro_to_bitwarden_password_management_and_frequently_asked_questions)
+  * Don't forget to set 2FA in your BitWarden account.
 
 Every AppSRE engineer should have access to the following:
 
