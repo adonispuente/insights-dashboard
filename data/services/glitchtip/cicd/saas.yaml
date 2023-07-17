@@ -140,8 +140,7 @@ resourceTemplates:
         field: token
         version: 1
     promotion:
-      # temporary disabled for APPSRE-7027
-      # auto: true
+      auto: true
       subscribe:
       - glitchtip-stage-post-deploy-tests-success-channel
 
