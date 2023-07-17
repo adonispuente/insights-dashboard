@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: account-reconciler-job
   url: https://gitlab.cee.redhat.com/service/uhc-account-manager
