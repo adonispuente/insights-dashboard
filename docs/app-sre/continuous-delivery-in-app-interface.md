@@ -252,7 +252,8 @@ For more information, please follow [CI/CD - Builds, Triggers, Deployments and P
 
 Whenever changes are detected for an environment, a saas file, a resource template or a target, the corresponding Tekton Pipeline will be triggered automatically by an automated creation of a PipelineRun resource.
 
-To trigger a deployment manually, log in to OpenShift, navigate to the Pipelines page, find the `openshift-saas-deploy` Pipeline in your pipelines namespace and from the top right corner choose "Actions -> Start". Supply the name of the SaaS file and the name of the environment to deploy to. :warning: **NOTE:** In current versions of OpenShift 4.7, developers may not be able to trigger PipelineRuns via the web console due to a [known bug](https://bugzilla.redhat.com/show_bug.cgi?id=1949935). As a workaround, you can [use the `tkn` CLI tool](#triggering-pipelineruns-using-the-tkn-cli-tool).
+To trigger a deployment manually, log in to OpenShift, navigate to the Pipelines page, find the `openshift-saas-deploy` Pipeline in your pipelines namespace and from the top right corner choose "Actions -> Start". Supply the name of the SaaS file and the name of the environment to deploy to.
+All required values can be found from `Pipeline Runs` hover tooltips on service page in visual qontract, [example](https://visual-app-interface.devshift.net/services#/services/app-interface/app.yml).
 
 To cancel a deployment manually, delete the active offending PipelineRun resource.
 
