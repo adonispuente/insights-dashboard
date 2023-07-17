@@ -63,7 +63,7 @@ resourceTemplates:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-stage
       SOURCE_NAMESPACE: xjoin-operator-stage
-      LOG_LEVEL: "info"
+      LOG_LEVEL: "debug"
       VALIDATION_INTERVAL: "1800"
       VALIDATION_ATTEMPTS_THRESHOLD: "2"
       VALIDATION_ATTEMPTS_THRESHOLD_INIT: "60"
