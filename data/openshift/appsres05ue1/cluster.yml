@@ -1,0 +1,108 @@
+---
+$schema: /openshift/cluster-1.yml
+
+labels:
+  service: backplane
+
+name: appsres05ue1
+description: appsres05ue1 cluster
+consoleUrl: https://console-openshift-console.apps.appsres05ue1.pwhm.p1.openshiftapps.com
+kibanaUrl: ''
+prometheusUrl: https://prometheus.appsres05ue1.devshift.net
+alertmanagerUrl: https://alertmanager.appsres05ue1.devshift.net
+serverUrl: https://api.appsres05ue1.pwhm.p1.openshiftapps.com:6443
+elbFQDN: elb.apps.appsres05ue1.pwhm.p1.openshiftapps.com
+
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
+
+ocm:
+  $ref: /dependencies/ocm/production.yml
+
+managedGroups:
+- dedicated-admins
+
+managedClusterRoles: true
+
+spec:
+  product: rosa
+  account:
+    $ref: /aws/app-sre-rosa-stage-01/account.yml
+  id: 251bb6dtt2k4rt3dpo5408o8lt0b8qh6
+  external_id: 8169418f-d5ba-475b-8a63-e344a84ba8c7
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: 4.13.4
+  initial_version: 4.13.4
+  multi_az: true
+  nodes: 3
+  instance_type: m5.xlarge
+  private: true
+  disable_user_workload_monitoring: true
+  hypershift: false
+  subnet_ids:
+  - subnet-0781a156aaf05e896
+  - subnet-019dd11fe373d7cb3
+  - subnet-0a8757cd67aa4a615
+  availability_zones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1c
+
+# This doesn't exist yet
+automationToken:
+  path: app-sre/creds/kube-configs/appsres05ue1
+  field: token
+
+clusterAdmin: true
+
+network:
+  type: OVNKubernetes
+  # vpcid: vpc-036cb989c3d8c781c
+  vpc: 10.29.92.0/22
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+
+internal: true
+
+peering:
+  connections:
+  - provider: account-vpc
+    name: appsres05ue1_app-sre_mesh_app-sre-vpc-0e9fbceea37f50cc8
+    vpc:
+      $ref: /aws/app-sre/vpcs/app-sre-vpc-01.yml
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+    manageRoutes: true
+    manageAccountRoutes: true
+  - provider: account-vpc
+    name: appsres05ue1_app-sre2_mesh_app-sre-vpc-0e3cd01521be5489e
+    vpc:
+      $ref: /aws/app-sre/vpcs/app-sre-vpc-02.yml
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+    manageRoutes: true
+    manageAccountRoutes: true
+  - provider: account-vpc
+    name: appsres05ue1_app-sre-stage
+    vpc:
+      $ref: /aws/app-sre-stage/vpcs/app-sre-stage-vpc.yml
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+    manageRoutes: true
+    manageAccountRoutes: true
+  - provider: account-tgw
+    name: appsres05ue1
+    account:
+      $ref: /aws/app-sre/account.yml
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+    tags:
+      service: ci-int
+    manageRoutes: true
+    cidrBlock: 10.0.0.0/8
+
+disable:
+  integrations:
+  # disabling these integrations until we have a token for this cluster
+  - openshift-groups
+  - openshift-users
+  - openshift-clusterrolebindings
