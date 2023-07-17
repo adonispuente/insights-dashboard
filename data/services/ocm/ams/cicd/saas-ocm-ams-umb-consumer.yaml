@@ -47,6 +47,7 @@ resourceTemplates:
     UMB_TIMEOUT: 5m
     USE_CANDLEPIN_BASIC_AUTH: 'false'
     REPLICAS: '5'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml

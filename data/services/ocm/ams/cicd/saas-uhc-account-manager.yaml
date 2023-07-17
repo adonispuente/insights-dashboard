@@ -60,6 +60,7 @@ resourceTemplates:
     GODEBUG: http2server=0
     PPROF_SERVER_BINDADDRESS: ''
     TELEMETER_URL: ${TELEMETER_BASE_URL}
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -174,6 +175,7 @@ resourceTemplates:
     MANDRILL_TIMEOUT: 60s
     GODEBUG: http2server=0
     PPROF_SERVER_BINDADDRESS: ''
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
