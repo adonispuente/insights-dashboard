@@ -26,7 +26,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-stage.yml
-    ref: 46646eb3b61b8310e869269befeede860984d377
+    ref: ec8be2ce263f6849e801d77d1120efe7ebe6bf7f
     parameters:
       CODE_QUARKUS_STAGING_URL: https://stage.code.quarkus.io
     promotion:
