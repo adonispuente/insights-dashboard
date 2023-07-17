@@ -405,7 +405,7 @@ tests:
         message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-slack]"
         runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-kafka-lag-prod.html"
 
-  # notifications-connector-slack-kafka-lag-stage
+# notifications-connector-splunk-kafka-lag-stage
 - interval: 1m
   input_series:
   - series: kafka_consumergroup_group_lag{topic="platform.notifications.tocamel", group="notifications-connector-splunk"}
