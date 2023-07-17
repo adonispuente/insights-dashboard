@@ -15,6 +15,7 @@ changes:
 - provider: jsonPath
   jsonPathSelectors:
   - deletion_protection
-  - engine_version
   - maintenance_window
   - parameter_group_name
+  # re-enable after APPSRE-7864
+  #- engine_version
