@@ -34,7 +34,7 @@ externalResources:
               "Effect": "Allow",
               "Principal": "*",
               "Action": "s3:GetObject",
-              "Resource": "arn:aws:s3:::fedramp-customer-interest-rob/*"
+              "Resource": "arn:aws:s3:::fedramp-customer-interest-rob-stage/*"
             }
           ]
         }
