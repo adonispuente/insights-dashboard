@@ -18,7 +18,7 @@ app:
 openshiftResources:
 - provider: vault-secret
   path: osd-sre/dynatrace/stage/hypershift-cluster-bootstrap-eu-west-ireland-wmb10400
-  version: 1
+  version: 2
 - provider: vault-secret
   path: osd-sre/dynatrace/stage/hypershift-cluster-bootstrap-us-east-virginia-hrm15629
-  version: 1
+  version: 2
