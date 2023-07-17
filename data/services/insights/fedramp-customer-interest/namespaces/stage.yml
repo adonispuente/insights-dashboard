@@ -22,7 +22,7 @@ externalResources:
     $ref: /aws/insights-stage/account.yml
   resources:
     - provider: s3
-      identifier: fedramp-customer-interest-rob
+      identifier: fedramp-customer-interest-rob-stage
       defaults: /terraform/resources/s3-public-read-1.yml
       output_resource_name: fedramp-customer-interest-rob-s3
       bucket_policy:
