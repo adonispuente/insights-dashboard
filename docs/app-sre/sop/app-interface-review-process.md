@@ -10,6 +10,12 @@ This is a WIP SOP intended for use by App SRE team members acting as Interrupt C
 4. If any additional reviewers are required, ping them on the MR (see [additional-reviewers](#additional-reviewers)).
 5. Once the MR looks good to you, add the `lgtm` label or comment `/label lgtm`. The MR will be merged automatically within minutes. See also the documented [approval process](/docs/app-sre/continuous-delivery-in-app-interface.md#approval-process)
 
+### Temporary Special Case Elasticache
+
+Verify that any change in elasticache `engine_verison` is applied immediately.
+
+Due to [APPSRE-7864](https://issues.redhat.com/browse/APPSRE-7864) we must make sure that Elasticache `engine_version` upgrades are applied immediately. I.e., either the `apply_immediately` flag is set or the MR merge happens within the `maintenance_window`.
+
 ## Notes
 
 * Some merge requests will be created with an `automerge` label. No need to review or merge those.
