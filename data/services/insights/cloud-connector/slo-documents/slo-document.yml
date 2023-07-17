@@ -1,0 +1,76 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: cloud-connector
+
+name: cloud-connector
+
+namespaces:
+- $ref: /services/insights/cloud-connector/namespaces/prod.yml
+
+app:
+  $ref:  /services/insights/cloud-connector/app.yml
+
+slos:
+- name: API requests result in successful (non-5xx) response
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: availability
+  SLISpecification: Proportion of sucessful API requests with a non-5xx response against all requests on cloud-connector internal API
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  expr: |
+    sum(rate(
+      cloud_connector_http_status_code_counter{service="cloud-connector-api", status_code!~"5.*"}[{{window}}]
+    )) / sum(rate(
+      cloud_connector_http_status_code_counter{service="cloud-connector-api"}[{{window}}]
+    ))
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+
+
+- name: Consumed mqtt messages written to kafka
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: availability
+  SLISpecification: Proportion of consumed mqtt messages written to kafka
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  expr: |
+    sum(rate(
+      cloud_connector_mqtt_message_consumer_kafka_writer_publish_success_count[{{window}}]
+    )) / sum(rate(
+      cloud_connector_mqtt_control_message_received_count[{{window}}]
+    ))
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+
+
+- name: Kafka lag for the platform.cloud-connector.rhc-message-ingress topic
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: latency
+  SLISpecification: current lag time in ms for events sent
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  SLOParameters:
+    window: 28d
+  expr: max(sum(sum_over_time(kafka_consumergroup_group_lag_seconds{group=~"cloud-connector-rhc-message-consumer"}[28d])) by (topic, partition)/sum(increase(kafka_consumergroup_group_offset{group=~"cloud-connector-rhc-message-consumer"}[28d])) by (topic, partition)) < bool 1
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+
+
+- name: Availability
+  dashboard: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  SLIType: availability
+  SLISpecification: The pods are up 95% of the time
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/cloud-connector/SLO.md
+  SLOParameters:
+    window: 28d
+  expr: |
+    avg(avg_over_time(up{container=~"cloud-connector-.*"}[{{window}}]))
+  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
