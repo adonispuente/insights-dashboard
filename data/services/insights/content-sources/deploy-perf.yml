@@ -67,6 +67,7 @@ resourceTemplates:
       publish:
       - content-sources-perf-deploy-success-channel
     parameters:
+      ENV_NAME: perf
       CLIENTS_RBAC_BASE_URL: http://${RBAC_HOST}:8080/api/rbac/v1
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/perf
       NEW_TASKING_SYSTEM: false
