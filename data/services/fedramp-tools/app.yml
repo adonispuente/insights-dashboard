@@ -46,9 +46,9 @@ grafanaUrls:
 - title: TODOREPLACE
   url: https://TODO
 
-sopsUrl: 'https://github.com/openshift/ops-sop'
+sopsUrl: 'https://gitlab.cee.redhat.com/service/goalert/-/blob/main/README.md'
 
-architectureDocument: ''
+architectureDocument: 'https://gitlab.cee.redhat.com/service/goalert/-/blob/main/README.md'
 
 quayRepos:
 - org:
