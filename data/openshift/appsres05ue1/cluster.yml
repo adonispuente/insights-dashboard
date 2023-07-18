@@ -35,7 +35,7 @@ spec:
   region: us-east-1
   channel: candidate
   version: 4.13.4
-  initial_version: 4.13.4
+  initial_version: 4.13.4-candidate
   multi_az: true
   nodes: 3
   instance_type: m5.xlarge
@@ -103,6 +103,4 @@ peering:
 disable:
   integrations:
   # disabling these integrations until we have a token for this cluster
-  - openshift-groups
-  - openshift-users
   - openshift-clusterrolebindings
