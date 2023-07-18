@@ -1668,8 +1668,8 @@ For more information about the versions that RDS supports:
 | 14      | \>= 14.3              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 13      | \>= 13.7              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 12      | \>= 12.11             | Announced as the minimum required version by email from AWS                                                                                                                                                |
-| 11      | \>= 11.16             | Announced as the minimum required version by email from AWS                                                                                                                                                |
-| ~~10~~  |                       | **End of life, do not use.**                                                                                   |
+| ~~11~~      |              | **End of life, do not use.**                                                                                                                                                |
+
 
 ###### MySQL
 
