@@ -1885,3 +1885,24 @@ resourceTemplates:
       SENTRY_URL: glitchtip.devshift.net
       UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-production.yml
+    ref: bc5f15f16bbba44683148d781f347a55b0e755d1
+    parameters:
+      JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
+      RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
+      RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
+      RHIT_BASE_REGISTRY_URL: https://container-registry-authorizer.api.redhat.com/v1/
+      RHIT_BASE_REGNUM_URL: https://subscription.api.redhat.com/svcrest/regnum/v5/
+      RHIT_BASE_EXPORT_COMPLIANCE_URL: https://export-compliance.api.redhat.com/v1/
+      RHIT_BASE_TERMS_URL: https://terms.api.redhat.com/svcrest/terms/
+      RHIT_BASE_TNC_URL: https://www.redhat.com/wapps/tnc
+      RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.redhat.com/candlepin
+      SENTRY_URL: glitchtip.devshift.net
+      ENABLE_CERTIFICATE_MOCK: 'false'
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_for_vault_secret_21
+      UNLEASH_URL: https://ocm.unleash.devshift.net/api
+      QUAY_REGISTRY_TEAM_NAME: installers
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local
+      SENTRY_PROJECT: '50'
+      MOA_SKU: MW01369
