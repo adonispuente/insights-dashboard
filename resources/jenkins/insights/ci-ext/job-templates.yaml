@@ -220,11 +220,11 @@
         #   - commit timestamps
         #   - commit author info (name, email, username)
 
-        echo 'Building commit info for changelog.stage.devshift.net'
-        commit_info={"tenant": "Insights"}
+        echo 'Building merge info for changelog.stage.devshift.net'
+        merge_info={"tenant": "Insights", "commits": $GIT_COMMIT, "url": $GIT_URL}
 
         echo 'Sending curl request to changelog.stage.devshift.net'
-        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$commit_info" -H "Content-Type: application/json" -H "Authorization: Bearer ${PLATFORM_CHANGELOG_TOKEN}"
+        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$merge_info" -H "Content-Type: application/json" -H "Authorization: Bearer ${PLATFORM_CHANGELOG_TOKEN}"
 
 - job-template:
     id: 'insights-gh-build-master-stable'
