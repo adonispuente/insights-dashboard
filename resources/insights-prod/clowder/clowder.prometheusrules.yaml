@@ -114,7 +114,7 @@ spec:
       - alert: ClowderWorkQueueDepth
         expr: sum(avg_over_time(workqueue_depth{service="clowder-controller-manager-metrics-service-non-auth"}[5m])) > 10
         labels:
-          severity: medium
+          severity: critical-fts
           service: insights
           env: prod
           app_team: platform
