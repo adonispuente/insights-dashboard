@@ -56,3 +56,12 @@ codeComponents:
 - name: ocm-service-log
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/ocm-service-log
+  gitlabSync: # FedRAMP Sync
+    sourceProject:
+      name: ocm-service-log
+      group: service
+      branch: master
+    destinationProject:
+      name: ocm-service-log
+      group: service
+      branch: master
