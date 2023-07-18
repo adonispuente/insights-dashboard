@@ -4,11 +4,11 @@ number_of_broker_nodes: 3
 broker_node_group_info:
   instance_type: kafka.m5.large
   client_subnets:
-  - subnet-0ac848efc38a8e561
-  - subnet-0c9fe7f2a2d21cb27
-  - subnet-0b599b492eb072bde
+  - subnet-0ce5305f5c698982c
+  - subnet-0cb2da15b5b5cdc58
+  - subnet-0287b8c7474574e85
   security_groups:
-  - sg-043df7643040be950
+  - sg-003ccbf54999bd14c
   ebs_volume_size: 100
 server_properties: |
   auto.create.topics.enable=false
