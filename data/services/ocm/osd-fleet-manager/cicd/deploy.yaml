@@ -687,6 +687,9 @@ resourceTemplates:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
     ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
     promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
       publish:
       - ocm-osdfm-deployed-stage-main
     parameters:
