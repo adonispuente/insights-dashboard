@@ -173,6 +173,7 @@ resourceTemplates:
       ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
       S3_BUCKET_NAME: hccm-stage-s3
       S3_ROS_BUCKET_NAME: hccm-ros-stage-s3
+      S3_SUBS_BUCKET_NAME: hccm-subs-stage-s3
       KOKU_SENTRY_ENV: stage
       ENABLE_API_SENTRY: True
       ENABLE_CELERY_SENTRY: True
