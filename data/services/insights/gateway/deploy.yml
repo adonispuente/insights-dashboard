@@ -89,6 +89,8 @@ resourceTemplates:
       ALLOW_EXTERNAL_TRAFFIC: 'true'
       APICAST_INTERNAL_IDP_TARGET: auth.redhat.com
       APICAST_COMPLIANCE_DISABLED: 'false'
+      APICAST_MEM_REQ: 2Gi
+      APICAST_MEM_LIMIT: 4Gi
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: 42380f0ed4b4812fa9a0680dbdaa1004bf392d12
@@ -150,6 +152,8 @@ resourceTemplates:
       ALLOW_EXTERNAL_TRAFFIC: 'true'
       APICAST_INTERNAL_IDP_TARGET: auth.redhat.com
       APICAST_COMPLIANCE_DISABLED: 'false'
+      APICAST_MEM_REQ: 2Gi
+      APICAST_MEM_LIMIT: 4Gi
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: 42380f0ed4b4812fa9a0680dbdaa1004bf392d12
