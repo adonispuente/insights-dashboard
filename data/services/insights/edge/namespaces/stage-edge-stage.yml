@@ -89,6 +89,14 @@ externalResources:
     identifier: rh-edge-tarballs-stage
     defaults: /terraform/resources/s3-public-read-1.yml
     output_resource_name: rh-edge-tarballs
+    overrides:
+      lifecycle_rules:
+      - id: expire_noncurrent_object_versions
+        enabled: true
+        noncurrent_version_expiration:
+          days: 5
+        expiration:
+          expired_object_delete_marker: true
 
 glitchtipProjects:
 - $ref: /dependencies/glitchtip/projects/glitchtip-production/edge-api-stage.yml
