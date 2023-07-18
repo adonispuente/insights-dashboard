@@ -3,6 +3,4 @@ kind: OperatorGroup
 metadata:
   name: loki-operator-group
   namespace: openshift-operators-redhat
-spec:
-  targetNamespaces:
-    - openshift-operators-redhat
+
