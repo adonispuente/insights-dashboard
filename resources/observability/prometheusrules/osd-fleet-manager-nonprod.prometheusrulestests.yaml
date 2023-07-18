@@ -96,7 +96,7 @@ tests:
   - interval: 1m
     input_series:
       - series: 'fleet_manager_reconciler_duration_in_seconds{namespace="osd-fleet-manager-stage",worker_type="terraform-manager",service="fleet-manager-metrics-main", reconciliation_step="test"}'
-        values: 1x20 21+3x20
+        values: 1x20 400x20
     alert_rule_test:
       - eval_time: 20m
         exp_alerts:
@@ -114,7 +114,7 @@ tests:
               reconciliation_step: "test"
             exp_annotations:
               dashboard: https://grafana.stage.devshift.net/d/osd_fleet_manager/osd-fleet-manager-metrics
-              message: The maximum reconciler duration was 1m 18s for reconciler terraform-manager at step test in sector main in osd-fleet-manager-stage
+              message: The maximum reconciler duration was 6m 40s for reconciler terraform-manager at step test in sector main in osd-fleet-manager-stage
               runbook:
   - interval: 1m
     input_series:

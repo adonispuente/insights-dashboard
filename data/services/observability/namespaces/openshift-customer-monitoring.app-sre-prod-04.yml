@@ -478,7 +478,7 @@ openshiftResources:
       - eu-west-1
     worker_types: # reconcilation max values for each worker type
     - name: terraform-manager
-      reconciler_duration_threshold: 60
+      reconciler_duration_threshold: 300
     - name: sc-ready-manager
     - name: mc-ready-manager
     - name: service-account-token-renewal
