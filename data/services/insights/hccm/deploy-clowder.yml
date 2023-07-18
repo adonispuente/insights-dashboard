@@ -187,7 +187,7 @@ resourceTemplates:
       UPDATE_TIMEOUT: 14400
       RETAIN_NUM_MONTHS: 4
       VACUUM_DATA_DAY_OF_WEEK: 0
-      REPORT_DOWNLOAD_SCHEDULE: "0 0,6,12,18 * * *" # Every 6 hours
+      REPORT_DOWNLOAD_SCHEDULE: "0 0,5,15,22 * * *" # 4 times a day avoiding QE test runs
       POLLING_TIMER: 72000 # 20 hours
       POLLING_BATCH_SIZE: 25 # Polling provider count
       PARQUET_PROCESSING_BATCH_SIZE: "500000"
