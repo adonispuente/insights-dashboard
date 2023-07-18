@@ -113,7 +113,7 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/clowder/clowder.servicemonitor.yml
 - provider: resource
-  path: /insights-stage/frontend-operator/frontend-operator.servicemonitor.yml
+  path: /insights-prod/frontend-operator/frontend-operator.servicemonitor.yml
 - provider: resource
   path: /insights-prod/sources/sources-api.servicemonitor.yml
 - provider: resource
