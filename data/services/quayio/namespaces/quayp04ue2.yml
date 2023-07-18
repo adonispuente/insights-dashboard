@@ -164,6 +164,58 @@ externalResources:
       default: true
       openshift_service: quay-py3-load-balancer-service
     rules: []
+  ##############################
+  # BEGIN: quayio-ocm-quay-ue2 #
+  ##############################
+  - provider: alb
+    identifier: quayio-ocm-quay-ue2
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-prod/vpcs/quayio-prod.yml # VPC in us-east-2
+    certificate_arn: arn:aws:acm:us-east-2:206170669542:certificate/239519f2-2814-41d8-8604-b3c1dc9b519a
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-production-py2
+      default: false
+      openshift_service: quay-load-balancer-service
+    - name: quayio-production-py3
+      default: true
+      openshift_service: quay-py3-load-balancer-service
+    rules:
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.q1w2.quay.rhcloud.com'
+      - type: path-pattern
+        path_pattern:
+        - '/v2'
+        - '/v2/'
+        - '/v2/auth*'
+        - '/v2/openshift-release-dev/*'
+      action:
+        type: forward
+        forward:
+          target_group:
+          - target: quayio-production-py3
+            weight: 100
+          # Second target needed due to a bug in the terraform provider. Set with weight of 0 to avoid traffic being sent to it.
+          # https://github.com/app-sre/qontract-schemas/blob/14a4747aa72ec931a4e9a025a4e3ea487ce82f60/schemas/aws/terraform-resource-2.yml#L1141
+          - target: quayio-production-py2
+            weight: 0
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.q1w2.quay.rhcloud.com'
+      action:
+        type: fixed-response
+        fixed_response:
+          status_code: 401
+          content_type: application/json
+          message_body: '{"errors":[{"code":"UNAUTHORIZED","detail":{},"message":"access to the requested resource is not authorized"}]}'
+  ####################################
+  # END: quayio-stage-ocm-quay stage #
+  ####################################
   ######################################
   # BEGIN POC for ocm-quay APPSRE-7479 #
   ######################################
