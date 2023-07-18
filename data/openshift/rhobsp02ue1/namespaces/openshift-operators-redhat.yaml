@@ -17,7 +17,10 @@ environment:
 
 managedResourceTypes:
 - Subscription.operators.coreos.com
+- OperatorGroup.operators.coreos.com
 
 openshiftResources:
 - provider: resource
   path: /setup/loki/loki-operator.subscription.yaml
+- provider: resource
+  path: /setup/loki/loki-operator.group.yaml
