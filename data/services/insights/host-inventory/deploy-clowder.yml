@@ -137,7 +137,7 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-insights-host-inventory-gh-build-master
     parameters:
-      SYNCHRONIZER_RUN_NUMBER: 25
+      SYNCHRONIZER_RUN_NUMBER: 26
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     ref: d1a84d7596d15f1b6a11e03719cadbd4d9604947
