@@ -89,6 +89,9 @@ quayRepos:
     public: false
     mirror:
       $ref: /dependencies/image-mirrors/docker.io/ruby.yml
+  - name: uhc-portal
+    description: Repo for the uhc-portal app frontend
+    public: true
 
 codeComponents:
 - name: uhc-portal
