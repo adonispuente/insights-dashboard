@@ -35,3 +35,6 @@ disable:
 
 terraformState:
   $ref: /aws/app-sre-rosa-stage-01/state.yml
+
+rosa:
+  $ref: /aws/app-sre-rosa-stage-01/rosa.yml
