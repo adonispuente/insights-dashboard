@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: thanos-store-s3-bucket-stage
+
+permissions: []
+
+aws_groups:
+- $ref: /aws/app-sre-stage/groups/Thanos-bucket.yml
+
+user_policies:
+- $ref: /aws/app-sre-stage/policies/ThanosBucketView.yml
+- $ref: /aws/app-sre-stage/policies/ManageOwnMFA.yml

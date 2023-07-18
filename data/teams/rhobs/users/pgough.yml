@@ -17,6 +17,8 @@ roles:
   - $ref: /teams/telemeter/roles/stage-debugger.yml
   - $ref: /teams/telemeter/roles/prod-debugger.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /aws/app-sre/roles/thanos-bucket.yml
+  - $ref: /aws/app-sre-stage/roles/thanos-bucket.yml
 
 public_gpg_key: |
   mQINBGIxwyoBEACzeOIh3EnoC2LoepRhclnC92Mgp1euWjeH9CvbDYM2c/j/gxyc
