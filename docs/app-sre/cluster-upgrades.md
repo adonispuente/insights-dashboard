@@ -255,13 +255,13 @@ sectors:
   - name: prod-blue
 ```
 
-### Defining inherintence
+### Defining inheritance
 
-Version data can be inherited from other orgs. `inheritVersionData` is a list of OCM organizations from which we will retrieve cluster version informations (current versions stats, soak days, sectors, ..). `
+Version data can be inherited from other orgs. `inheritVersionData` is a list of OCM organizations from which we will retrieve cluster version informations (current versions stats, soak days, sectors, ..).  `publishVersionData` is a list of OCM organizations to which we will publish our version data.
 
-So `inheritVersionData` has 2 impacts:
+So configuring inheritance has 2 impacts:
 
-* soakDays from the inherited org are accounted for, they are accumulated with the local org soakdays
+* soakDays from the inherited org are accounted for, they are accumulated with the local org soakdays for each matching workload from the publishing org.
 * All clusters from the inherited org must run at least the considered version so it can be considered for an upgrade
 
 
