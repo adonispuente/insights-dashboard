@@ -407,3 +407,41 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/service-accounts"
+
+# Subscriptions dashboard UI
+- name: subscriptions-dashboard-ui
+  path: /deploy/frontend.yaml
+  url: https://github.com/RedHatInsights/subscriptions-dashboard-ui
+  targets:
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: 242e73c93d8646097c5b0412e291d7da399cc1a7
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/subscriptions-dashboard-ui"
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: master
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: subscriptions-dashboard-ui
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/subscriptions-dashboard-ui"
+  # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: 242e73c93d8646097c5b0412e291d7da399cc1a7
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/subscriptions-dashboard-ui"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 94cfc32fab9e81f7040f3b7d176d3e75d1b41371
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/subscriptions-dashboard-ui"
