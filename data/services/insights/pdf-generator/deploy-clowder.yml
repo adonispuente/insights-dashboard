@@ -60,6 +60,9 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: automation-analytics-pdf-generator-gl-build-main
+    promotion:
+      publish:
+      - pdf-generator-stage-deploy-success-channel
 
   - namespace:
       $ref: /services/insights/pdf-generator/namespaces/pdf-generator-prod.yml
