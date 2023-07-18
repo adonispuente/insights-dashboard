@@ -80,3 +80,6 @@ config:
         display_name: sources-ui pr-check
     - "insights-gh-build-master":
         display_name: sources-ui build-master
+    - "insights-gh-build-master":
+        display_name: sources-ui build-stable
+        branch: "stable"
