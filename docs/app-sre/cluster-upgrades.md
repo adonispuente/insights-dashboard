@@ -255,6 +255,31 @@ sectors:
   - name: prod-blue
 ```
 
+### Defining inheritance
+
+Version data can be inherited from other orgs. `inheritVersionData` is a list of OCM organizations from which we will retrieve cluster version informations (current versions stats, soak days, sectors, ..).  `publishVersionData` is a list of OCM organizations to which we will publish our version data.
+
+So configuring inheritance has 2 impacts:
+
+* soakDays from the inherited org are accounted for, they are accumulated with the local org soakdays for each matching workload from the publishing org.
+* All clusters from the inherited org must run at least the considered version so it can be considered for an upgrade
+
+
+Configuration in Stage:
+
+```yaml
+publishVersionData:
+- $ref: /dependencies/ocm/production.yml
+```
+
+Configuration in production:
+```yaml
+....
+inheritVersionData:
+- $ref: /dependencies/ocm/stage.yml
+....
+```
+
 ## Upgrade channels
 
 Note that each cluster follows an upgrade channel. Clusters following different channels don't get the same version available at the same time (e.g. the `stable` channel enables upgrade paths much later than the `candidate` and `fast` channels). Timely version progression from cluster to cluster works best if all clusters share the same upgrade `channel`.
