@@ -351,3 +351,30 @@ We need to make more space for the image service to be able to download images
 
 ### Escalations
 `@edge-cloud-team` can help with this, alternatively `@assistedinstaller-team` can be pinged.
+
+## RDS free disk space running low
+
+### Severity: Warning
+
+### Impact
+If disk gets too low, there could be a possibility that we won't be able to free space with `VACUUM FULL` pgsql command.
+
+### Summary
+We need to run `VACUM FULL` or other means of freeing up space. If this won't work we most likely
+need to increment disk size.
+
+### Access required
+
+- Gitlab https://gitlab.cee.redhat.com/service/app-interface/
+
+
+### Steps
+- Check RDS free space:
+  - [production](https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1)
+  - [stage](https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1&var-instance=assisted-installer-stage&var-datasource=app-sre-prod-01-prometheus)
+  - [integration](https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1&var-instance=assisted-installer-integration-v4&var-datasource=app-sre-prod-01-prometheus)
+- Try to run `VACUUM FULL` (or alternative tools), ([example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/assisted-installer/queries/20230704-vacuum-full.yaml))
+- If not enough space left for vacuum, or vacuum did not free enough space, [resize RDS disk](https://gitlab.cee.redhat.com/service/app-interface/-/commit/5aef20b2e4fc45d976f69b256da00461e36b3da3)
+
+### Escalations
+`@edge-cloud-team` can help with this, alternatively `@assistedinstaller-team` can be pinged.

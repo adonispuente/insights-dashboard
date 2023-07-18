@@ -423,3 +423,36 @@ tests:
     alertname: "Assisted Installer - Volume claim high disk usage"
     exp_alerts:
       []
+
+# RDS free disk space
+- interval: 1m
+  input_series:
+  - series: aws_rds_free_storage_space_sum{dbinstance_identifier="assisted-installer"}
+    values: 10000-100x90
+  - series: aws_resources_exporter_rds_allocatedstorage{dbinstance_identifier="assisted-installer"}
+    values: 10000+0x90
+
+  alert_rule_test:
+    # 10m past threshold
+  - eval_time: 81m
+    alertname: "Assisted Installer - RDS disk usage too high"
+    exp_alerts:
+    - exp_labels:
+        dbinstance_identifier: "assisted-installer"
+        service: assisted-installer
+        severity: warning
+      exp_annotations:
+        message: Assisted Installer RDS instance assisted-installer free disk space less than 30% (19.00%) <!subteam^S01T3MZGJ9M>
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#RDS-free-disk-space-running-low"
+        dashboard: "https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1"
+
+    # 9m past threshold: should not alert
+  - eval_time: 80m
+    alertname: "Assisted Installer - RDS disk usage too high"
+    exp_alerts:
+      []
+    # ratio still above 30%: should not alert
+  - eval_time: 60m
+    alertname: "Assisted Installer - RDS disk usage too high"
+    exp_alerts:
+      []
