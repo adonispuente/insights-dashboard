@@ -310,6 +310,7 @@ resourceTemplates:
       USER_MAX_ATTEMPTS: 1
       SPRING_ACTIVEMQ_BROKER_URL: ssl://umb.stage.api.redhat.com:61616
       UMB_SERVICE_ACCOUNT_NAME: nonprod-insightsrhsm
+      UMB_ENABLED: true
       INVENTORY_SECRET_KEY_NAME: host-inventory-db-readonly
       INVENTORY_SECRET_KEY_NAME_PREFIX: 'db.'
       DATABASE_MAX_POOL_SIZE: '6'
@@ -334,6 +335,7 @@ resourceTemplates:
       USER_HOST: user.api.redhat.com
       SPRING_ACTIVEMQ_BROKER_URL: ssl://umb.api.redhat.com:61616
       UMB_SERVICE_ACCOUNT_NAME: insightsrhsm
+      UMB_ENABLED: true
       UMB_PROCESSING_ENABLED: true
       INVENTORY_SECRET_KEY_NAME: host-inventory-db-readonly
       INVENTORY_SECRET_KEY_NAME_PREFIX: 'db.'
