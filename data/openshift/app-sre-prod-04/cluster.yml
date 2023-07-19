@@ -129,6 +129,9 @@ awsInfrastructureManagementAccounts:
 - account:
     $ref: /aws/svc-transit-prod/account.yml
   accessLevel: network-mgmt
+- account:
+    $ref: /aws/insights-prod/account.yml
+  accessLevel: network-mgmt
 awsInfrastructureAccess:
 - awsGroup:
     $ref: /aws/app-sre/groups/App-SRE-admin.yml
