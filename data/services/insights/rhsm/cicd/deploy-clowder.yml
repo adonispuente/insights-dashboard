@@ -116,6 +116,7 @@ resourceTemplates:
       ENABLE_SPLUNK_HEC: 'true'
       SPLUNK_HEC_URL: 'https://splunk-hec.redhat.com:8088'
       LOGGING_LEVEL_COM_REDHAT_SWATCH: 'DEBUG'
+      QUARKUS_PROFILE: ephemeral
   - namespace:
       $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
     ref: main
@@ -138,8 +139,10 @@ resourceTemplates:
       REPLICAS: 3
       KAFKA_BILLABLE_USAGE_REPLICAS: 3
       KAFKA_BILLABLE_USAGE_PARTITIONS: 24
+      # NOTE otel params can be removed once https://github.com/RedHatInsights/rhsm-subscriptions/pull/2335 lands
       OTEL_ENABLED: 'true'
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
+      QUARKUS_PROFILE: stage
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
     ref:  fa6b61f3aeb5a4414c4be9bb661fb278fd44b01b
@@ -154,8 +157,10 @@ resourceTemplates:
       REPLICAS: 3
       KAFKA_BILLABLE_USAGE_REPLICAS: 3
       KAFKA_BILLABLE_USAGE_PARTITIONS: 24
+      # NOTE otel params can be removed once https://github.com/RedHatInsights/rhsm-subscriptions/pull/2335 lands
       OTEL_ENABLED: 'true'
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
+      # NOTE: no need for QUARKUS_PROFILE, as "prod" is default
 
 - name: swatch-producer-red-hat-marketplace
   path: /swatch-producer-red-hat-marketplace/deploy/clowdapp.yaml
@@ -490,6 +495,7 @@ resourceTemplates:
     parameters:
       REPLICAS: 3
       QUARKUS_PROFILE: stage
+      # NOTE otel params can be removed once https://github.com/RedHatInsights/rhsm-subscriptions/pull/2335 lands
       OTEL_ENABLED: 'true'
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
@@ -497,6 +503,7 @@ resourceTemplates:
     ref: fa6b61f3aeb5a4414c4be9bb661fb278fd44b01b
     parameters:
       REPLICAS: 3
+      # NOTE otel params can be removed once https://github.com/RedHatInsights/rhsm-subscriptions/pull/2335 lands
       OTEL_ENABLED: 'true'
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
       # NOTE: no need for QUARKUS_PROFILE, as "prod" is default
