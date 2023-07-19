@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
+    ref: 5b7b0ad2a24582438fe6bd3061011bec8d3862a0
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -126,13 +126,9 @@ resourceTemplates:
       OIDC_ISSUER_URL: '${SSO_BASE_URL}'
       SLEEP_DURATION_SECONDS: '15'
       MANAGED_TENANTS: 'rhobs,osd,appsre,rhtap'
-      RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-mst-staging
-      OSD_RELOADER_SECRET_NAME: rhobs-osd-tenant
-      APPSRE_RELOADER_SECRET_NAME: observatorium-appsre-staging
-      RHTAP_RELOADER_SECRET_NAME: observatorium-rhtap-staging
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
+      OBSCTL_RELOADER_IMAGE_TAG: '6743d93'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
