@@ -1,0 +1,37 @@
+$schema: /aws/msk-defaults-1.yml
+kafka_version: '3.4.0'
+number_of_broker_nodes: 3
+broker_node_group_info:
+  instance_type: kafka.m5.large
+  client_subnets:
+  - subnet-0ce5305f5c698982c
+  - subnet-0cb2da15b5b5cdc58
+  - subnet-0287b8c7474574e85
+  security_groups:
+  - sg-003ccbf54999bd14c
+  ebs_volume_size: 100
+server_properties: |
+  auto.create.topics.enable=false
+  default.replication.factor=3
+  min.insync.replicas=2
+  num.io.threads=8
+  num.network.threads=5
+  num.partitions=6
+  num.replica.fetchers=2
+  replica.lag.time.max.ms=30000
+  log.retention.ms=259200000
+  socket.receive.buffer.bytes=102400
+  socket.request.max.bytes=104857600
+  socket.send.buffer.bytes=102400
+  unclean.leader.election.enable=true
+  zookeeper.session.timeout.ms=18000
+  allow.everyone.if.no.acl.found=false
+logging_info:
+  broker_logs:
+    cloudwatch_logs:
+      enabled: true
+      retention_in_days: 7
+client_authentication:
+  sasl:
+    iam: false
+    scram: true
