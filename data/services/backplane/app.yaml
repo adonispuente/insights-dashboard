@@ -14,8 +14,8 @@ name: backplane
 description: |
   Incident Management Service - Backplane
 
-architectureDocument: https://TODO
-sopsUrl: https://gitlab.cee.redhat.com/TODO
+architectureDocument: 'https://gitlab.cee.redhat.com/service/backplane-api/-/blob/master/README.md'
+sopsUrl: 'https://gitlab.cee.redhat.com/service/backplane-cli/-/blob/master/README.md'
 grafanaUrls:
 - title: TODOREPLACE
   url: https://TODO
