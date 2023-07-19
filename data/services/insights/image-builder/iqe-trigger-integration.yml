@@ -6,6 +6,10 @@ name: image-builder-iqe-trigger-e2e
 description: image-builder integration testing
 app:
   $ref: /services/image-builder/app.yml
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: osbuild-image-builder-service
 pipelinesProvider:
   $ref: /services/image-builder/pipelines/tekton.image-builder-pipelines.appsrep05ue1.yml
 managedResourceTypes:
@@ -32,7 +36,7 @@ resourceTemplates:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
     ref: 836e7114fa422d02f9b2928aa755ddeb014667e2
     parameters:
-      ENV_FOR_DYNACONF: stage
+      ENV_FOR_DYNACONF: stage_proxy
     promotion:
       auto: true
       subscribe:
