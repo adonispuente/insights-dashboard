@@ -12,7 +12,6 @@ roles:
 - $ref: /teams/sd-sre/roles/sd-sre-nasa-west.yml
 - $ref: /teams/sd-sre/roles/saas-approver.yml
 - $ref: /teams/sd-sre/roles/sre-platform-teamleads.yml
-- $ref: /teams/sd-sre/roles/sd-cicd.yml
 - $ref: /teams/osde2e/roles/dev.yml
 - $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
 
