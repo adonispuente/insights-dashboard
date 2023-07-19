@@ -50,7 +50,7 @@ resourceTemplates:
     ref: master
     parameters:
       REPLICAS: 3
-      IMAGE_TAG: '9.3.8'
+      IMAGE_TAG: '9.5.6'
       DASHBOARD_DISCOVERY_IMAGE_TAG: '1.22.2'
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
@@ -68,7 +68,7 @@ resourceTemplates:
     ref: master
     parameters:
       REPLICAS: 3
-      IMAGE_TAG: '9.3.11'
+      IMAGE_TAG: '9.5.6'
       GF_INSTALL_PLUGINS: "grafana-piechart-panel,yesoreyeram-infinity-datasource,grafana-gitlab-datasource,grafana-sentry-datasource"
 
 # After switch to RH SSO, we don't need the https://grafana.openshift-app-sre.devshift.net URL anymore; redirect it to https://grafana.app-sre.devshift.net
