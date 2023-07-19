@@ -22,9 +22,6 @@ managedResourceTypes:
 # - DynaKube
 # - Job
 
-sharedResources:
-- $ref: /services/app-sre/shared-resources/dynatrace-operator.yaml
-
 openshiftResources:
 - provider: vault-secret
   path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
