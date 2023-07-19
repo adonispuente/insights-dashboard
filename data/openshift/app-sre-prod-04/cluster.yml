@@ -110,6 +110,12 @@ peering:
     manageSecurityGroups: true
     manageRoute53Associations: true
     cidrBlock: 172.16.0.0/12
+  - provider: account-vpc
+    name: app-sre-vpc-01_insights-prod-vpc-01
+    vpc:
+      $ref: /aws/insights-prod/vpcs/vpc-0620a446eff252360.yml
+    manageAccountRoutes: true
+    manageRoutes: true
 automationToken:
   path: app-sre/creds/kube-configs/app-sre-prod-04
   field: token

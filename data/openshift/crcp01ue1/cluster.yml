@@ -90,3 +90,9 @@ peering:
     vpc:
       $ref: /aws/insights-prod/vpcs/vpc-0c2d69ab090d424cf.yml
     manageRoutes: true
+  - provider: account-vpc
+    name: insights-prod-vpc-01_app-sre-vpc-01
+    vpc:
+      $ref: /aws/app-sre/vpcs/app-sre-vpc-01.yml
+    manageAccountRoutes: true
+    manageRoutes: true
