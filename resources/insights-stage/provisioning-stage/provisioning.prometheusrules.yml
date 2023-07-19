@@ -24,13 +24,14 @@ spec:
       annotations:
         message: "One of the provisioning service pods is down"
 
-  - name: provisioning-reservation-success-rate
+  - name: provisioning-aws-reservation-processing-rate
     rules:
-    - alert: ProvisioningReservationSuccessRate
+    - alert: ProvisioningAWSReservationProcessingRateLow
       expr: |
-        sum(rate(provisioning_reservation_count{result="success"}[3h]))
-        /
-        sum(rate(provisioning_reservation_count[3h])) < 0.70
+        (sum(provisioning_reservations_24h_count{result="pending", provider="aws"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="aws"}) > 0.2)
+        and
+        (sum(provisioning_reservations_24h_count{result="pending", provider="aws"} or on() vector(0)) > 5)
       for: 15m
       labels:
         service: insights
@@ -38,9 +39,47 @@ spec:
         app_team: provisioning
         severity: medium
       annotations:
-        message: "Reservations success rate is low"
+        message: "Reservations AWS processing rate is low"
         dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
-        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningAvailabilityAlert.md"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningProcessingRateAlert.md"
+
+  - name: provisioning-azure-reservation-processing-rate
+    rules:
+    - alert: ProvisioningAzureReservationProcessingRateLow
+      expr: |
+        (sum(provisioning_reservations_24h_count{result="pending", provider="azure"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="azure"}) > 0.2)
+        and
+        (sum(provisioning_reservations_24h_count{result="pending", provider="azure"} or on() vector(0)) > 5)
+      for: 15m
+      labels:
+        service: insights
+        env: stage
+        app_team: provisioning
+        severity: medium
+      annotations:
+        message: "Reservations Azure processing rate is low"
+        dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningProcessingRateAlert.md"
+
+  - name: provisioning-gcp-reservation-processing-rate
+    rules:
+    - alert: ProvisioningGCPReservationProcessingRateLow
+      expr: |
+        (sum(provisioning_reservations_24h_count{result="pending", provider="gcp"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="gcp"}) > 0.2)
+        and
+        (sum(provisioning_reservations_24h_count{result="pending", provider="gcp"} or on() vector(0)) > 5)
+      for: 15m
+      labels:
+        service: insights
+        env: stage
+        app_team: provisioning
+        severity: medium
+      annotations:
+        message: "Reservations GCP processing rate is low"
+        dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningProcessingRateAlert.md"
 
   - name: provisioning-http-success-rate
     rules:
