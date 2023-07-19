@@ -4,22 +4,22 @@ $schema: /access/user-1.yml
 
 labels: {}
 
-​
+
 name: Xiangjing Li
 org_username: xiangjingli
 github_username: xiangjingli
 quay_username: xiangjingli
+tag_on_cluster_updates: false
 
-​
+
 roles:
 - $ref: /teams/ocm/roles/dev.yml
-- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
 - $ref: /teams/ocm/roles/sd-a-team-member.yml
 - $ref: /teams/ocm/roles/stage-debugger.yml
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 
-​
+
 public_gpg_key: |
   mQINBGS4FPEBEADbcTIZ2e53uQp8TupguVIITl09tTLWx8pQvbyH90eHSfGneb0bLipqpMDUd2hR
   b5th755ORaQ57pJIgWYzJYlZBeLoQ9bS8RgL0GoHJO5EzlwBMy2bmsI67uOBei/BXNYxfO8AIJ2k
