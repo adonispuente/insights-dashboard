@@ -51,6 +51,7 @@ resourceTemplates:
       - ocm-ams-qe-fvt-basic-e2e-stage-ok
     parameters:
       ENVIRONMENT: staging
+      GATE_NAME: ocm-ams-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: bc5f15f16bbba44683148d781f347a55b0e755d1
@@ -62,3 +63,4 @@ resourceTemplates:
       - ocm-ams-qe-fvt-basic-e2e-prod-ok
     parameters:
       ENVIRONMENT: production
+      GATE_NAME: ocm-ams-prod
