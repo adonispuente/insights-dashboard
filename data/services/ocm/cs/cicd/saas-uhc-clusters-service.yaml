@@ -59,6 +59,7 @@ resourceTemplates:
       - ocm-cs-deployed-int
     parameters:
       ENVIRONMENT: integration
+      GATE_NAME: ocm-cs-int-main
       LOG_LEVEL: info
       DEFAULT_EXPIRATION: 36h
       MAXIMUM_EXPIRATION: 168h
@@ -80,6 +81,7 @@ resourceTemplates:
       - ocm-cs-deployed-stage
     parameters:
       ENVIRONMENT: staging
+      GATE_NAME: ocm-cs-stage-main
       LOG_LEVEL: info
       GATEWAY_URL: unix://localhost/sockets/egress.socket
       DEFAULT_EXPIRATION: 36h
@@ -121,6 +123,7 @@ resourceTemplates:
       - ocm-cs-deployed-prod
     parameters:
       ENVIRONMENT: production
+      GATE_NAME: ocm-cs-prod-main
       LOG_LEVEL: info
       GODEBUG: http2server=0
       FORCE_MIGRATION: ''
