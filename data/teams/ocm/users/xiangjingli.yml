@@ -1,12 +1,15 @@
 ---
 $schema: /access/user-1.yml
 ​
+
 labels: {}
+
 ​
 name: Xiangjing Li
 org_username: xiangjingli
 github_username: xiangjingli
 quay_username: xiangjingli
+
 ​
 roles:
 - $ref: /teams/ocm/roles/dev.yml
@@ -15,6 +18,7 @@ roles:
 - $ref: /teams/ocm/roles/stage-debugger.yml
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
 ​
 public_gpg_key: |
   mQINBGS4FPEBEADbcTIZ2e53uQp8TupguVIITl09tTLWx8pQvbyH90eHSfGneb0bLipqpMDUd2hR
