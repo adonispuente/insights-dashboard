@@ -37,6 +37,8 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage-testing.yml
     ref: 9a2361155c6e23e35f0897b7b2a928c59e8bf765
+    parameters:
+      ENV_FOR_DYNACONF: stage
     promotion:
       auto: true
       subscribe:
@@ -49,3 +51,14 @@ resourceTemplates:
         - parent_saas: provisioning-testing
           target_config_hash: 1f44e7b015c82770
           type: parent_saas_config
+  - namespace:
+      $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
+    ref: a9e30b22780185b62f97ba6a1cff1b2a83504815
+    parameters:
+      ENV_FOR_DYNACONF: prod
+    promotion:
+      auto: true
+      subscribe:
+      - provisioning-prod-post-deploy-tests-success-channel
+      publish:
+      - provisioning-prod-post-deploy-integration-tests-success-channel
