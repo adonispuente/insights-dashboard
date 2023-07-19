@@ -36,6 +36,8 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
     ref: 619c8b5bb0b51204663b52e823afb0ce13bc1786
+    parameters:
+      ENV_FOR_DYNACONF: stage_proxy
     promotion:
       auto: true
       subscribe:
@@ -48,3 +50,14 @@ resourceTemplates:
         - parent_saas: content-sources-testing
           target_config_hash: 24f777412147d3f1
           type: parent_saas_config
+  - namespace:
+      $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
+    ref: 2394feeb1cc3158cece54054d09fca385425a30c
+    parameters:
+      ENV_FOR_DYNACONF: prod
+    promotion:
+      auto: true
+      subscribe:
+      - content-sources-prod-post-deploy-tests-success-channel
+      publish:
+      - content-sources-prod-post-deploy-integration-tests-success-channel
