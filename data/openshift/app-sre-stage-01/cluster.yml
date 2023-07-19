@@ -16,8 +16,7 @@ auth:
 - service: oidc
   name: redhat-app-sre-auth
 observabilityNamespace:
-  $ref: 
-    /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
@@ -135,7 +134,7 @@ peering:
     manageAccountRoutes: true
     manageRoutes: true
   - provider: account-vpc
-    name: app-sre-stage-01_crcs02ue1-vpc-01
+    name: app-sre-stage-vpc-01_insights-stage-vpc-01
     vpc:
       $ref: /aws/insights-stage/vpcs/insights-stage-us-east-1-vpc-01.yml
     manageAccountRoutes: true
