@@ -115,17 +115,9 @@ resourceTemplates:
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: 938fb47176ea4e9d3b1afc4da91fc0796eb2476a
+    ref: 8f8b035522ad0a5a27596ddedc98ec5baa921051
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_IMAGE_TAG: 'f7a5f77'
-      KRUIZE_REPLICA_COUNT: 1
-      KRUIZE_DB_NAME: 'kruize'
-      KRUIZE_CPU_REQUEST: 3
-      KRUIZE_MEMORY_REQUEST: '4Gi'
-      KRUIZE_CPU_LIMIT: 3
-      KRUIZE_MEMORY_LIMIT: '8Gi'
-      MACHINE_POOL_OPTION: memory-optimized
       API_REPLICA_COUNT: 3
       PROCESSOR_REPLICA_COUNT: 1
       RECOMMENDER_REPLICA_COUNT: 1
@@ -148,6 +140,19 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-ros-ocp-backend-gh-build-main
+    parameters:
+      MEMORY_LIMIT: '2Gi'
+      KRUIZE_REPLICA_COUNT: 1
+      KRUIZE_IMAGE_TAG: '190a6cc'
+      KRUIZE_CPU_REQUEST: 3
+      KRUIZE_MEMORY_REQUEST: '4Gi'
+      KRUIZE_CPU_LIMIT: 3
+      KRUIZE_MEMORY_LIMIT: '8Gi'
+      MACHINE_POOL_OPTION: memory-optimized
+      LOG_LEVEL: 'DEBUG'
+  - namespace:
+      $ref: /services/insights/ros/namespaces/ros-prod.yml
+    ref: 8f8b035522ad0a5a27596ddedc98ec5baa921051
     parameters:
       MEMORY_LIMIT: '2Gi'
       KRUIZE_REPLICA_COUNT: 1
