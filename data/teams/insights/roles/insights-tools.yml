@@ -92,7 +92,3 @@ self_service:
   - /insights-ephemeral/hac/hac-frontend-landing.yaml
   - /insights-ephemeral/hac/hac-frontend-environment.yaml
   - /insights-ephemeral/hac/hac-clowd-environment.yaml
-- change_type:
-    $ref: /app-interface/changetype/resource-owner.yml
-  resources:
-  - /terraform/resources/insights/stage/msk-stage-1.yml
