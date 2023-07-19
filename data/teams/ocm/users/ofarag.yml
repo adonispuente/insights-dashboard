@@ -9,16 +9,16 @@ name: Omar Farag
 org_username: ofarag
 github_username: o-farag
 quay_username: ofarag
+tag_on_cluster_updates: false
 
-​
+
 roles:
 - $ref: /teams/ocm/roles/dev.yml
-- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
 - $ref: /teams/ocm/roles/sd-a-team-member.yml
 - $ref: /teams/ocm/roles/stage-debugger.yml
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-​
+
 
 public_gpg_key: |
     mDMEYquIhxYJKwYBBAHaRw8BAQdAYBKF3K7A8KI3eJ857vhx/EP/d9np7AaWFVDfTrWO0LO0HE9t
