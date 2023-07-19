@@ -45,5 +45,5 @@ resourceTemplates:
       - channel: swatch-producer-aws-stage-deploy-success-channel
         data:
         - parent_saas: rhsm-clowder
-          target_config_hash: 968c28bf99fd606f
+          target_config_hash: 7aeaff4a5ceed3bd
           type: parent_saas_config
