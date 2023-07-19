@@ -38,7 +38,7 @@ resourceTemplates:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage-testing.yml
     ref: 9a2361155c6e23e35f0897b7b2a928c59e8bf765
     parameters:
-      ENV_FOR_DYNACONF: stage
+      ENV_FOR_DYNACONF: stage_proxy
     promotion:
       auto: true
       subscribe:
