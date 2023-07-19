@@ -73,6 +73,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-int-green
     parameters:
+      GATE_NAME: ocm-ams-int-canary
       TELEMETER_DEBUG: 'true'
       RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.stage.redhat.com/candlepin
       USE_CANDLEPIN_BASIC_AUTH: 'true'
@@ -98,6 +99,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-stage-green
     parameters:
+      GATE_NAME: ocm-ams-stage-canary
       REPLICAS: 1
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 2.5Gi
@@ -122,6 +124,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: bc5f15f16bbba44683148d781f347a55b0e755d1
     parameters:
+      GATE_NAME: ocm-ams-prod-canary
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
       REPLICAS: 1
@@ -188,6 +191,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-int
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       CLUSTER_REG_RATE_LIMIT: 30000
       ORG_CLUSTER_REG_RATE_LIMIT: 30000
@@ -210,6 +214,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-stage
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       SEGMENT_EMAIL_NAME: 'true'
       REPLICAS: 6
       CPU_LIMIT: '2'
@@ -289,6 +294,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-prod
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       SEGMENT_EMAIL_NAME: 'true'
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi

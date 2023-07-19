@@ -51,6 +51,7 @@ resourceTemplates:
       - ocm-ams-qe-fvt-quotacost-aws-int-ok
     parameters:
       ENVIRONMENT: integration
+      GATE_NAME: ocm-ams-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 5f05498abe15b432334d57efad8bc56e98f2049e
@@ -62,3 +63,4 @@ resourceTemplates:
       - ocm-ams-qe-fvt-quotacost-aws-stage-ok
     parameters:
       ENVIRONMENT: staging
+      GATE_NAME: ocm-ams-stage-main
