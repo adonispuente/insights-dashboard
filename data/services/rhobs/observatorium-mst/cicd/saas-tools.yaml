@@ -63,6 +63,7 @@ parameters:
 
 allowedSecretParameterPaths:
   - app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools
+  - app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools
   - app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools
 
 resourceTemplates:
@@ -120,6 +121,33 @@ resourceTemplates:
         - name: S3_BUCKET_ENDPOINT
           secret:
             path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-loki
+            field: endpoint
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-tools.yml
+      ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
+      parameters:
+        LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
+        LOKI_SIZE: 1x.medium
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-loki
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-loki
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-loki
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-loki
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-loki
             field: endpoint
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools.yml
