@@ -1,12 +1,15 @@
 ---
 $schema: /access/user-1.yml
 ​
+
 labels: {}
 ​
+
 name: Omar Farag
 org_username: ofarag
 github_username: o-farag
 quay_username: ofarag
+
 ​
 roles:
 - $ref: /teams/ocm/roles/dev.yml
@@ -16,6 +19,7 @@ roles:
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 ​
+
 public_gpg_key: |
     mDMEYquIhxYJKwYBBAHaRw8BAQdAYBKF3K7A8KI3eJ857vhx/EP/d9np7AaWFVDfTrWO0LO0HE9t
     YXIgPG9tYXJmYXJhZzc0QGdtYWlsLmNvbT6IlgQTFgoAPgIbAwULCQgHAgIiAgYVCgkICwIEFgID
