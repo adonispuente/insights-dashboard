@@ -1632,6 +1632,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      CRON_SCHEDULE: 0,30 * * * *
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       RBAC_PROXY: ''
       USE_CANDLEPIN_BASIC_AUTH: 'true'
