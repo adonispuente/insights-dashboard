@@ -27,7 +27,7 @@ managed:
   spec:
     # TODO: https://issues.redhat.com/browse/APPSRE-7967
     # This is unset before
-    sleepDurationSecs: "120"
+    sleepDurationSecs: "150"
     resources:
       requests:
         memory: 200Mi

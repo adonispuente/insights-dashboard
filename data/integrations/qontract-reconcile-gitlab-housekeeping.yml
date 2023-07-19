@@ -26,7 +26,7 @@ managed:
   spec:
     # TODO: https://issues.redhat.com/browse/APPSRE-7967
     # sleepDurationSecs: "0"
-    sleepDurationSecs: "60"
+    sleepDurationSecs: "30"
     resources:
       requests:
         memory: 300Mi
