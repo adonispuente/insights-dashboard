@@ -7,6 +7,7 @@ name: Jonathan Marcantonio
 org_username: jmarcant
 github_username: lennysgarage
 quay_username: jmarcant
+tag_on_cluster_updates: false
 
 roles:
 - $ref: /teams/ocm/roles/dev.yml
