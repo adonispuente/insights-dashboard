@@ -21,6 +21,14 @@ access:
     $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
   role: view
 
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /insights-stage/content-sources-stage/content-sources-pulp-db.secret.yaml
+  - /insights-stage/content-sources-stage/content-sources-pulp-in-memory-db.secret.yaml
+  - /insights-stage/content-sources-stage/content-sources-pulp-s3.secret.yaml
+
 glitchtip_roles:
 - organization:
     $ref: /dependencies/glitchtip/organizations/insights.yml
