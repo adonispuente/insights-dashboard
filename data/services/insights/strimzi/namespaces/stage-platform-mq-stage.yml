@@ -144,23 +144,3 @@ externalResources:
         }]
       }
     output_resource_name: strimzi-bucket-read-write
-  - provider: msk
-    identifier: consoledot-stage
-    defaults: /terraform/resources/insights/stage/msk-stage-1.yml
-    output_resource_name: consoledot-stage-msk
-    users:
-    - name: scram-admin-stage
-      secret:
-        path: insights/secrets/insights-stage/msk-credentials/admin
-        field: all
-        version: 1
-    - name: scram-produce-stage
-      secret:
-        path: insights/secrets/insights-stage/msk-credentials/produce
-        field: all
-        version: 1
-    - name: scram-consume-stage
-      secret:
-        path: insights/secrets/insights-stage/msk-credentials/consume
-        field: all
-        version: 1
