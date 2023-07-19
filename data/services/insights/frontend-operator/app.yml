@@ -22,10 +22,8 @@ parentApp:
 escalationPolicy:
   $ref: /teams/insights/escalation-policies/crc-devprod-escalations.yml
 serviceOwners:
-- name: Pete Savage
-  email: psavage@redhat.com
-- name: Adam Drew
-  email: addrew@redhat.com
+- name: Developer Productivity Team
+  email: platform-developerproductivity@redhat.com
 
 dependencies:
 - $ref: /dependencies/github/service.yml
