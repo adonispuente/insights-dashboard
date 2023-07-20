@@ -200,7 +200,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: a6dc31ba5f63b4213d5bf4b9c98eda6d7792cddc
+    ref: f43355ad2357de406c5dcb94922faa9f80a69954
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -247,12 +247,9 @@ resourceTemplates:
       OIDC_ISSUER_URL: '${SSO_BASE_URL}'
       SLEEP_DURATION_SECONDS: '15'
       MANAGED_TENANTS: 'rhobs,hypershift-platform-staging,hypershift-platform'
-      RHOBS_RELOADER_SECRET_NAME: rhobs-tenant-mst-production
-      HYPERSHIFT_PLATFORM_STAGING_RELOADER_SECRET_NAME: rhobs-hypershift-platform-staging-tenant
-      HYPERSHIFT_PLATFORM_RELOADER_SECRET_NAME: rhobs-hypershift-platform-tenant
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: '7b279a1'
+      OBSCTL_RELOADER_IMAGE_TAG: '6743d93'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       OCM_ORGANIZATION_ID:
