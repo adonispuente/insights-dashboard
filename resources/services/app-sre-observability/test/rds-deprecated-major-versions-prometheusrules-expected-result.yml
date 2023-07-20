@@ -20,7 +20,7 @@ spec:
           about upgrading the database.
         runbook: https://gitlab.cee.redhat.com/service/app-interface#rds-major-version-upgrades
       expr: 'last_over_time(aws_resources_exporter_rds_engineversion{dbinstance_identifier=~"rds-instance-id",engine="postgres",
-        engine_version=~"^(10|)\\..*"}[1h])
+        engine_version=~"^(10|11|)\\..*"}[1h])
 
         '
       for: 10m
