@@ -24,7 +24,7 @@ config:
     gh_org: openshift
     gh_repo: ocm-container
     quay_org: app-sre
-    build_deploy_script_path: './build.sh'
+    build_deploy_script_path: 'make build && make tag-n-push'
     jobs:
     - 'gh-build-master':
         display_name: ocm-container build master
