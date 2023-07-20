@@ -119,10 +119,10 @@ spec:
     resources:
       limits:
         cpu: 2
-        memory: 4Gi
+        memory: 8Gi
       requests:
         cpu: 2
-        memory: 4Gi
+        memory: 8Gi
     sharding: {}
   resource.customizations: |
     logging.openshift.io/ClusterLogForwarder:
