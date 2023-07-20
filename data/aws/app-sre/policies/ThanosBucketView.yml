@@ -24,7 +24,11 @@ policy:
         ],
         "Resource": [
           "arn:aws:s3:::observatorium-mst-thanos-production/*",
-          "arn:aws:s3:::observatorium-mst-thanos-production"
+          "arn:aws:s3:::observatorium-mst-thanos-production",
+          "arn:aws:s3:::rhobsp02ue1-mst-thanos-production/*",
+          "arn:aws:s3:::rhobsp02ue1-mst-thanos-production",
+          "arn:aws:s3:::telemeter-thanos-production/*",
+          "arn:aws:s3:::telemeter-thanos-production"
         ]
       }
     ]

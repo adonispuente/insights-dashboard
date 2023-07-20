@@ -24,7 +24,9 @@ policy:
         ],
         "Resource": [
           "arn:aws:s3:::observatorium-mst-thanos-stage/*",
-          "arn:aws:s3:::observatorium-mst-thanos-stage"
+          "arn:aws:s3:::observatorium-mst-thanos-stage",
+          "arn:aws:s3:::telemeter-thanos-stage-v1/*",
+          "arn:aws:s3:::telemeter-thanos-stage-v1"
         ]
       }
     ]
