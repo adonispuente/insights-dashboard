@@ -54,7 +54,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 2a5d5b086f389e64dc933853fe34b2c5bfbd41dd
+    ref: ddf5f1dba569459654ca5d0b3b4638151da62298
     name: rosa-sts-advanced
     promotion:
       auto: true
@@ -67,7 +67,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 2a5d5b086f389e64dc933853fe34b2c5bfbd41dd
+    ref: ddf5f1dba569459654ca5d0b3b4638151da62298
     name: rosa-advanced
     promotion:
       auto: true
@@ -80,7 +80,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 2a5d5b086f389e64dc933853fe34b2c5bfbd41dd
+    ref: ddf5f1dba569459654ca5d0b3b4638151da62298
     name: rosa-sts-upgrade
     promotion:
       auto: true
