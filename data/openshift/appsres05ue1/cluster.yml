@@ -105,3 +105,5 @@ disable:
   integrations:
   # disabling these integrations until we have a token for this cluster
   - openshift-clusterrolebindings
+  - openshift-users
+  - openshift-groups
