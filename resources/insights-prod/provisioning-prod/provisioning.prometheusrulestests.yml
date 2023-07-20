@@ -17,7 +17,7 @@ tests:
       - eval_time: 5m
         alertname: MissingPodServingProvisioningService
         exp_alerts: []
-      - eval_time: 10m
+      - eval_time: 12m
         alertname: MissingPodServingProvisioningService
         exp_alerts:
           - exp_labels:
