@@ -220,6 +220,6 @@ spec:
         hive_clustersync_failing_seconds > 14400
       for: 5m
       labels:
-        service: hive
+        service: srep
         severity: info
         team: srep
