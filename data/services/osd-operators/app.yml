@@ -112,6 +112,9 @@ quayRepos:
   - name: custom-domains-operator
     description: main custom-domains-operator container
     public: true
+  - name: custom-domains-operator-test-harness
+    description: custom-domains-operator osde2e test harness
+    public: true    
   - name: custom-domains-operator-registry
     description: custom-domains-operator-registry for olm catalog
     public: true
@@ -123,6 +126,9 @@ quayRepos:
     public: true
   - name: configure-alertmanager-operator
     description: main configure-alertmanager-operator container
+    public: true
+  - name: configure-alertmanager-operator-test-harness
+    description: configure-alertmanager-operator osde2e test harness
     public: true
   - name: configure-alertmanager-operator-registry
     description: configure-alertmanager-operator-registry for olm catalog
@@ -143,6 +149,9 @@ quayRepos:
     description: splunk forwarder image that is deployed by a daemonset from the splunk
       forwarder operator
     public: true
+  - name: splunk-forwarder-operator-test-harness
+    description: splunk-forwarder-operator osde2e test harness
+    public: true    
   - name: splunk-audit-exporter
     description: For policy-driven filtering and sanitizing of forwarded apiserver
       audit logs for OpenShift Dedicated.
@@ -154,12 +163,18 @@ quayRepos:
   - name: rbac-permissions-operator
     description: main rbac-permissions-operator container
     public: true
+  - name: rbac-permissions-operator-test-harness
+    description: rbac-permissions-operator osde2e test harness
+    public: true
   - name: rbac-permissions-operator-registry
     description: rbac-permissions-operator-registry for olm catalog
     public: true
   - name: cloud-ingress-operator
     description: main cloud-ingress-operator container
     public: true
+  - name: cloud-ingress-operator-test-harness
+    description: cloud-ingress-operator osde2e test harness
+    public: true    
   - name: cloud-ingress-operator-registry
     description: cloud-ingress-operator-registry for olm catalog
     public: true
@@ -223,6 +238,9 @@ quayRepos:
   - name: osd-metrics-exporter
     description: main osd-metrics-exporter container
     public: true
+  - name: osd-metrics-exporter-test-harness
+    description: osd-metrics-exporter osde2e test harness
+    public: true    
   - name: osd-metrics-exporter-registry
     description: osd-metrics-exporter-registry for olm catalog
     public: true
