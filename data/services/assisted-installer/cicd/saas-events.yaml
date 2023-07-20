@@ -199,6 +199,12 @@ resourceTemplates:
       READ_USERNAME_SECRET_KEY: username
       WRITE_USERNAME_SECRET_NAME: msk-write-user
       WRITE_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_USERNAME_SECRET_NAME: msk-mirrormaker
+      MIRRORMAKER_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_TOPIC: "platform.upload.announce"
+      MIRRORMAKER_TOPIC_PARTITIONS: "6"
+      MIRRORMAKER_TOPIC_REPLICATION_FACTOR: "3"
+      MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
   - ref: f7f66aeda33d82d20240d658be0190a325b6c4eb
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
