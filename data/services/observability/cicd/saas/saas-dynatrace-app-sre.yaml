@@ -27,7 +27,18 @@ slack:
   channel: sd-app-sre-info
 
 managedResourceTypes:
+# :see-no-evil:
 - ClusterRole
+- ClusterRoleBinding
+- CustomResourceDefinition
+- Deployment
+- MutatingWebhookConfiguration
+- PodDisruptionBudget
+- Role
+- RoleBinding
+- Service
+- ServiceAccount
+- ValidatingWebhookConfiguration
 
 imagePatterns: []
 
