@@ -15,6 +15,7 @@ spec:
     - alert: MissingPodServingProvisioningService
       expr: |
         absent(up{namespace="provisioning-stage", service="provisioning-backend-api"} == 1) or absent(up{namespace="provisioning-stage", service="provisioning-backend-statuser"} == 1) or absent(up{namespace="provisioning-stage", service="provisioning-backend-worker"} == 1)
+      for: 1m
       labels:
         service: insights
         env: stage
