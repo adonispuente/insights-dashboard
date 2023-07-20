@@ -63,7 +63,7 @@ resourceTemplates:
     image:
       org:
         $ref: /dependencies/quay/cloudservices.yml
-      name: insights-rbac-ui
+      name: rbac-frontend
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
