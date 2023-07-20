@@ -2,16 +2,19 @@
 $schema: /app-sre/saas-file-2.yml
 
 labels:
-  service: app-sre-observability
+  service: osd-operators
+  #service: app-sre-observability
 
 name: saas-dynatrace-app-sre
 description: Dynatrace installation for AppSRE clusters
 
 app:
-  $ref: /services/observability/app.yml
+  $ref: /services/osd-operators/dynatrace/app.yml
+  #$ref: /services/observability/app.yml
 
 pipelinesProvider:
-  $ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml
+  #$ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml
+  $ref: /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
 
 deployResources:
   requests:
@@ -42,13 +45,8 @@ managedResourceTypes:
 
 imagePatterns: []
 
-authentication:
-  image:
-    path: app-sre/quay/app-sre-pull
-    field: all
-
 resourceTemplates:
-- name: dynatrace-stage
+- name: dynatrace-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-operator/dynatrace-operator-app-sre.yaml
   targets:
