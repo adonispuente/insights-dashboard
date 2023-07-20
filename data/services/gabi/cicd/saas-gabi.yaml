@@ -583,7 +583,6 @@ resourceTemplates:
       NAMESPACE: vulnerability-engine-stage
       AWS_RDS_SECRET_NAME: vulnerability-engine-db
       GABI_INSTANCE: gabi-vulnerability
-# Temporarily disable vulnerability prod GABI, https://issues.redhat.com/browse/APPSRE-7437
 #  - namespace:
 #      $ref: /services/insights/vulnerability/namespaces/vulnerability-engine-prod.yml
 #    ref: 8372e1462172b373f9a30edfef4a15608a154e52
