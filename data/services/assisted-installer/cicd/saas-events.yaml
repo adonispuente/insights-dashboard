@@ -164,6 +164,12 @@ resourceTemplates:
       READ_USERNAME_SECRET_KEY: username
       WRITE_USERNAME_SECRET_NAME: msk-write-user
       WRITE_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_USERNAME_SECRET_NAME: msk-mirrormaker
+      MIRRORMAKER_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_TOPIC: "platform.upload.announce"
+      MIRRORMAKER_TOPIC_PARTITIONS: "6"
+      MIRRORMAKER_TOPIC_REPLICATION_FACTOR: "3"
+      MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
       INIT_KAFKA_MEMORY_REQUEST: 2G
       INIT_KAFKA_MEMORY_LIMIT: 3G
   - ref: master
@@ -205,7 +211,7 @@ resourceTemplates:
       MIRRORMAKER_TOPIC_PARTITIONS: "6"
       MIRRORMAKER_TOPIC_REPLICATION_FACTOR: "3"
       MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
-  - ref: f7f66aeda33d82d20240d658be0190a325b6c4eb
+  - ref: dd1435b94692e3bd1b8cc9ff0e52a1f89b205336
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     promotion:
@@ -234,3 +240,9 @@ resourceTemplates:
       READ_USERNAME_SECRET_KEY: username
       WRITE_USERNAME_SECRET_NAME: msk-write-user
       WRITE_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_USERNAME_SECRET_NAME: msk-mirrormaker
+      MIRRORMAKER_USERNAME_SECRET_KEY: username
+      MIRRORMAKER_TOPIC: "platform.upload.announce"
+      MIRRORMAKER_TOPIC_PARTITIONS: "6"
+      MIRRORMAKER_TOPIC_REPLICATION_FACTOR: "3"
+      MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
