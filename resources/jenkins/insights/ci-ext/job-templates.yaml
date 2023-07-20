@@ -203,7 +203,6 @@
     <<: *gh_build_master
     shell: |
         # send a curl request to changelog.stage.devshift.net
-        #!/bin/sh
 
         # desired data from the jenkins job:
         # - app name (as defined here in app-interface)
@@ -221,7 +220,7 @@
         #   - commit author info (name, email, username)
 
         echo 'Building merge info for changelog.stage.devshift.net'
-        merge_info={"tenant": "Insights", "commits": $GIT_COMMIT, "url": $GIT_URL}
+        merge_info={"tenant": "Insights", "app": {app_name}, "project": {name}, "repo": $GIT_URL, "commits": $GIT_COMMIT}
 
         echo 'Sending curl request to changelog.stage.devshift.net'
         curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$merge_info" -H "Content-Type: application/json" -H "Authorization: Bearer ${PLATFORM_CHANGELOG_TOKEN}"
