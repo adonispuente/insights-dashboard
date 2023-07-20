@@ -242,6 +242,9 @@ resourceTemplates:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
+    promotion:
+      publish:
+        - notifications-splunk-stage-deploy-success-channel
 
   # prod
   - namespace:
