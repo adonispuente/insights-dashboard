@@ -10,3 +10,5 @@ quay_username: sbudhwar
 
 roles:
 - $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
