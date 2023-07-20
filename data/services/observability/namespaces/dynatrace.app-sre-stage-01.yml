@@ -10,8 +10,7 @@ cluster:
   $ref: /openshift/app-sre-stage-01/cluster.yml
 
 app:
-  $ref: /services/osd-operators/dynatrace/app.yml
-  # TODO $ref: /services/observability/app.yml
+  $ref: /services/observability/app.yml
 
 environment:
   $ref: /products/app-sre/environments/stage.yml

@@ -1,0 +1,46 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: app-sre-observability
+
+name: saas-dynatrace-app-sre
+description: Dynatrace installation for AppSRE clusters
+
+app:
+  $ref: /services/observability/app.yml
+
+pipelinesProvider:
+  $ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml
+
+deployResources:
+  requests:
+    cpu: "1"
+    memory: 1800Mi
+  limits:
+    cpu: "1"
+    memory: 1800Mi
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: sd-app-sre-info
+
+managedResourceTypes:
+- ClusterRole
+
+imagePatterns: []
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+resourceTemplates:
+- name: dynatrace-stage
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-operator/dynatrace-operator-app-sre.yaml
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
+    ref: 6874d0b04bc9a2e0a100cc8b9fa6fca849eb433f
