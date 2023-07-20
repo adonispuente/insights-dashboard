@@ -26,7 +26,7 @@ tests:
               dbinstance_identifier: quayio-production-py3
             exp_annotations:
               message: "quayio-production database connections is over 7500 for 5 minutes"
-              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m"
+              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m&var-quay_db=quayio-production-py3"
               runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/quay/issues/high-database-connections.md"
       - eval_time: 15m
         alertname: QuayDatabaseConnectionsCritical
@@ -39,7 +39,7 @@ tests:
               dbinstance_identifier: quayio-production-py3
             exp_annotations:
               message: "quayio-production database connections is over 10000 for 2 minutes"
-              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m"
+              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m&var-quay_db=quayio-production-py3"
               runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/quay/issues/high-database-connections.md"
   - interval: 1m
     input_series:
@@ -60,7 +60,7 @@ tests:
               dbinstance_identifier: quayio-production-py3
             exp_annotations:
               message: "quayio-production database read IOPs connections is equals to or more than 95% for 1 hour"
-              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m"
+              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m&var-quay_db=quayio-production-py3"
               runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/quay/issues/high-read-iops.md"
   - interval: 1m
     input_series:
@@ -81,5 +81,5 @@ tests:
               dbinstance_identifier: quayio-production-py3
             exp_annotations:
               message: "quayio-production database write IOPs connections is equals to or more than 95% for 1 hour"
-              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m"
+              dashboard: "https://grafana.app-sre.devshift.net/d/_BkydJaWqprod1234/quay-aws-resources-us-east-1?orgId=1&refresh=1m&var-quay_db=quayio-production-py3"
               runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/quay/issues/high-write-iops.md"
