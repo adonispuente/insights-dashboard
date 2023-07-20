@@ -58,6 +58,7 @@ spec:
 
 # clusterAdmin: true
 
+  provision_shard_id: 7c2626e2-da06-11ea-8f62-8c1645a911be
 network:
   type: OVNKubernetes
   # vpcid: vpc-036cb989c3d8c781c
