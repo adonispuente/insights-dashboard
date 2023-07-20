@@ -20,7 +20,7 @@ spec:
     - alert: TEST-RDSDeprecatedMajorVersionCheck
       # This expression uses a regex that matches any major engine_versions that is deprecated as documented here: https://gitlab.cee.redhat.com/service/app-interface#approved-rds-versions
       expr: |
-        last_over_time(aws_resources_exporter_rds_engineversion{dbinstance_identifier=~"TEST_.+",engine="postgres", engine_version=~"^(10|)\\..*"}[1h])
+        last_over_time(aws_resources_exporter_rds_engineversion{dbinstance_identifier=~"TEST_.+",engine="postgres", engine_version=~"^(10|11|)\\..*"}[1h])
       for: 10m
       labels:
         service: app-sre-observability
