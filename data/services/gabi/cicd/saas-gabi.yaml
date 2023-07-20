@@ -583,19 +583,19 @@ resourceTemplates:
       NAMESPACE: vulnerability-engine-stage
       AWS_RDS_SECRET_NAME: vulnerability-engine-db
       GABI_INSTANCE: gabi-vulnerability
-#  - namespace:
-#      $ref: /services/insights/vulnerability/namespaces/vulnerability-engine-prod.yml
-#    ref: 8372e1462172b373f9a30edfef4a15608a154e52
-#    promotion:
-#      auto: true
-#      subscribe:
-#      - github-gabi-stage-post-deploy-tests-success-channel
-#    parameters:
-#      HOST: gabi-vulnerability-prod.apps.crcp01ue1.o9m8.p1.openshiftapps.com
-#      NAMESPACE: vulnerability-engine-prod
-#      AWS_RDS_SECRET_NAME: vulnerability-engine-db-readonly
-#      GABI_INSTANCE: gabi-vulnerability
-#      SERVER_TIMEOUT: 300s
+  - namespace:
+      $ref: /services/insights/vulnerability/namespaces/vulnerability-engine-prod.yml
+    ref: 8372e1462172b373f9a30edfef4a15608a154e52
+    promotion:
+      auto: true
+      subscribe:
+      - github-gabi-stage-post-deploy-tests-success-channel
+    parameters:
+      HOST: gabi-vulnerability-prod.apps.crcp01ue1.o9m8.p1.openshiftapps.com
+      NAMESPACE: vulnerability-engine-prod
+      AWS_RDS_SECRET_NAME: vulnerability-engine-db-readonly
+      GABI_INSTANCE: gabi-vulnerability
+      SERVER_TIMEOUT: 300s
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: gabi-ocm-account-manager-stage
