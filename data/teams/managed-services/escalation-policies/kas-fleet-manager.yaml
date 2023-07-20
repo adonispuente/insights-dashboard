@@ -26,3 +26,4 @@ channels:
 
   jiraBoard:
     - $ref: /teams/managed-services/jira/mgdstrm.yaml
+

@@ -15,10 +15,3 @@ permissions:
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/managed-services.yml
 
-access:
-- namespace:
-    $ref: /services/managed-connectors/namespaces/managed-connectors-stage.yaml
-  role: view
-- namespace:
-    $ref: /services/managed-connectors/namespaces/managed-connectors-production.yaml
-  role: view

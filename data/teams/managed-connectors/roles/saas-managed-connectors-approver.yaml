@@ -12,10 +12,6 @@ self_service:
   datafiles:
   - $ref: /services/observability/cicd/saas/saas-rhoc-token-refresher.yaml
 - change_type:
-    $ref: /app-interface/changetype/app-owner.yml
-  datafiles:
-  - $ref: /services/managed-connectors/app.yaml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/managed-connectors/roles/dev.yml
