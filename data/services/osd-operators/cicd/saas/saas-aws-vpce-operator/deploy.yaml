@@ -25,7 +25,15 @@ resourceTemplates:
   path: /hack/olm-registry/olm-artifacts-template.yaml
   parameters:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
+    KNOWN_SECTORS: '["canary", "ibm-infra", "main"]'
   targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: main
