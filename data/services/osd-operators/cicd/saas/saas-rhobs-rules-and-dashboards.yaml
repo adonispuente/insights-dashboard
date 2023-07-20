@@ -34,7 +34,7 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 98ddc26bc31429ec9f2a646bbca25f2b796e4233
+    ref: a2330aa8cadb325b6f32c13e8a90f530b2d4d017
 # Targets for below configs are decided based on the RHOBS instance hosting the tenant, in this case:
 # data/services/rhobs/observatorium-mst/cicd/saas-tenants.yaml
 - name: osd-rhobs-rules
@@ -63,4 +63,4 @@ resourceTemplates:
   - name: rhobsp02ue1-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
-    ref: 98ddc26bc31429ec9f2a646bbca25f2b796e4233
+    ref: a2330aa8cadb325b6f32c13e8a90f530b2d4d017
