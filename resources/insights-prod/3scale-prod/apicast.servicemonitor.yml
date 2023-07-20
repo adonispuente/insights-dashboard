@@ -2,7 +2,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: apicast
+  name: gateway
   labels:
     prometheus: app-sre
 spec:
@@ -15,4 +15,4 @@ spec:
     - 3scale-prod
   selector:
     matchLabels:
-      app: apicast
+      app: gateway
