@@ -389,7 +389,7 @@ resourceTemplates:
       MAX_REPLICAS: "1"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 56d41c6425dc204de0f0a15465cf0b2eeb4fce18
+    ref: 1f0d5ef4539c3e42b37bd366bc1e48e446f6e7f3
     parameters:
       MIN_REPLICAS: "1"
       MAX_REPLICAS: "1"
@@ -422,7 +422,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: false
-    ref: 56d41c6425dc204de0f0a15465cf0b2eeb4fce18
+    ref: 1f0d5ef4539c3e42b37bd366bc1e48e446f6e7f3
     parameters:
       JOB_SCHEDULE: "0 */3 * * *"
       OLD_REPORTS_MAX_AGE: '8 days'
