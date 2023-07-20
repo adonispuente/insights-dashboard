@@ -54,7 +54,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: b2a01769ecbdcd887145b9e5f7f52c39cf08feb4
+    ref: aa7db5e52c636cff9f82e3f14791c3a9d88233a9
     name: rosa-hcp-advanced
     promotion:
       auto: true
@@ -67,7 +67,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: b2a01769ecbdcd887145b9e5f7f52c39cf08feb4
+    ref: aa7db5e52c636cff9f82e3f14791c3a9d88233a9
     name: rosa-hcp-private-link-main
     promotion:
       auto: true
@@ -80,7 +80,7 @@ resourceTemplates:
       TEST_PROFILE: rosa-hcp-pl
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: b2a01769ecbdcd887145b9e5f7f52c39cf08feb4
+    ref: aa7db5e52c636cff9f82e3f14791c3a9d88233a9
     name: hcp-e2e-main
     promotion:
       auto: true
@@ -93,7 +93,7 @@ resourceTemplates:
       TEST_PROFILE: hcp-e2e
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: b2a01769ecbdcd887145b9e5f7f52c39cf08feb4
+    ref: aa7db5e52c636cff9f82e3f14791c3a9d88233a9
     name: rosa-hcp-upgrade
     promotion:
       auto: true
