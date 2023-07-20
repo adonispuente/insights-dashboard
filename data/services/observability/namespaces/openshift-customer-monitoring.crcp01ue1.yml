@@ -91,7 +91,7 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/strimzi/strimzi.servicemonitor.yaml
 - provider: resource
-  path: /insights-prod/3scale-prod/apicast.servicemonitor.yml
+  path: /insights-prod/3scale-prod/gateway.servicemonitor.yml
 - provider: resource
   path: /insights-prod/ingress-prod/insights-puptoo.servicemonitor.yml
 - provider: resource

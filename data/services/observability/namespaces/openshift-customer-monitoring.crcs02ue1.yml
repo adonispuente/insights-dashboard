@@ -265,7 +265,7 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/pdf-generator-stage/pdf-generator.servicemonitor.yml
 - provider: resource
-  path: /insights-stage/3scale-stage/apicast.servicemonitor.yml
+  path: /insights-stage/3scale-stage/gateway.servicemonitor.yml
 - provider: resource
   path: /insights-stage/strimzi/kafka-lag-exporter.servicemonitor.yml
 - provider: resource
