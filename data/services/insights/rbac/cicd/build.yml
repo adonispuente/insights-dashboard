@@ -28,3 +28,6 @@ config:
         display_name: rbac-frontend pr-check
     - "insights-gh-build-master":
         display_name: rbac-frontend build-master
+    - "insights-gh-build-master-stable":
+        display_name: rbac-frontend build-master-stable
+        branch: "master-stable"
