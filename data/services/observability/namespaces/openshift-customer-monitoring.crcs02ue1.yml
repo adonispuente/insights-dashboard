@@ -523,6 +523,8 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
   type: resource
+  tests:
+  - /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrulestests.yaml
 
 ### Gabi
 - provider: prometheus-rule
