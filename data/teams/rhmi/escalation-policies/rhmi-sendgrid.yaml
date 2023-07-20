@@ -17,3 +17,6 @@ channels:
 
   jiraBoard:
   - $ref: /teams/rhmi/jira/intly.yaml
+
+  nextEscalationPolicy:
+    $ref: /teams/mt-sre/escalation-policies/general.yaml
