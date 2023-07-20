@@ -175,7 +175,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 9f83d1de246fcdf5bf44d223f50cd25aa0e6e7bc
+    ref: 1ec28f178e05c4a3f64d94f2bb1da8665928050c
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui
