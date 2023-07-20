@@ -56,7 +56,7 @@ tests:
               message: "ccx-upgrades-data-eng service has been down for two minutes <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -78,7 +78,7 @@ tests:
               message: "ccx-upgrades-inference service has been down for two minutes <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -102,7 +102,7 @@ tests:
               message: "ccx-upgrades-data-eng service returns too many 500 responses for endpoint /test <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -126,7 +126,7 @@ tests:
               message: "ccx-upgrades-inference service returns too many 500 responses for endpoint /test <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -151,7 +151,7 @@ tests:
               message: "ccx-upgrades-data-eng service is taking too long to respond for endpoint /test <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -176,7 +176,7 @@ tests:
               message: "ccx-upgrades-inference service is taking too long to respond for endpoint /test <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
 
   - interval: 1m
     input_series:
@@ -200,4 +200,4 @@ tests:
               message: "ccx-upgrades-data-eng service memory usage is too high and will reach the limits. Probably the cache is growing too much <!subteam^S043UGRST2L>"
               dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
               link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
-              rulebook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+              runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
