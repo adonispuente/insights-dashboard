@@ -26,6 +26,10 @@ Due to [APPSRE-7864](https://issues.redhat.com/browse/APPSRE-7864) we must make 
 
 InProgress services are in the process of being onboarded. **@app-sre-ic** should only add the ~onboarding label to these MRs so that they can be reviewed by the **@app-sre-onboarding-ic**.
 
+Per [our contract](https://gitlab.cee.redhat.com/app-sre/contract/-/blob/master/README.md#onboarding-status), TransitionPeriod, OnBoarded, BestEffort MRs will be reviewed by the regular IC, not onboarding IC.
+
+There are a few other responsibilities for OnBoarding IC laid out in [interrupt-catching](../interrupt-catching.md#appsre-engineer-guide-to-onboarding-ic-responsibilities)
+
 ### saas-deploy image_pattern
 
 This change indicates that an additional component will be allowed to be deployed to a production namespace.
