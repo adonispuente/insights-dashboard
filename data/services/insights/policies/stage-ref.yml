@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/policies/namespaces/stage-policies-stage.yml
-    ref: 683774d536a4c7e19fa33f74887766c79f7f021b
+    ref: e3bd12b84033be33f9be5a225ee342d90d54abb2
     parameters:
       ENV_NAME: stage
     promotion:
@@ -45,7 +45,7 @@ resourceTemplates:
       - channel: policies-ui-backend-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: policies-test
-          target_config_hash: 570a5c1d8a3a4c84
+          target_config_hash: 68d818a832cf50e3
           type: parent_saas_config
 - name: policies-engine
   path: /.rhcicd/do-nothing.yaml
