@@ -24,10 +24,13 @@
         - *srep_pagerduty_credentials
         - *app_interface_basic_auth
         - *gitlab_fork_compliance_reconcile_toml
-    <<: *gl_pr_check
     publishers:
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier
     - archive:
         artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
+    <<: *gl_pr_check
 
 - job-template:
     id: 'gl-build-master-osd-aws-privatelink-terraform-rosa'
@@ -43,10 +46,13 @@
         secrets:
         - *srep_privatelink_aws_credentials
         - *srep_pagerduty_credentials
-    <<: *gl_build_master
     publishers:
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier
     - archive:
         artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
+    <<: *gl_build_master
 
 - job-template:
     id: 'gl-pr-check-osd-aws-privatelink-terraform-hypershift'
