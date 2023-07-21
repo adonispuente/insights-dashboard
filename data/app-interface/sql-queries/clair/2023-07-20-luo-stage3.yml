@@ -1,0 +1,29 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: clair-matcher-luo-stage-check3
+namespace:
+  $ref: /services/clair/namespaces/stage.yml
+identifier: clair-matcher-stage
+output: stdout
+queries:
+  - |
+    SELECT
+      distinct uo.uo 
+    FROM
+      enrichment AS e,
+      uo_enrich AS uo
+    WHERE uo.enrich = e.id;
+  - |
+    SELECT id FROM update_operation uo WHERE kind = 'enrichment';
+  - |
+    SELECT
+      id
+    FROM
+      latest_update_operations
+    WHERE
+      updater = 'clair.cvss'
+    AND
+      kind = 'enrichment'
+    LIMIT 1;
+
