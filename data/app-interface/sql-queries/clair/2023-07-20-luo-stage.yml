@@ -1,0 +1,13 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: clair-matcher-luo-stage-check
+namespace:
+  $ref: /services/clair/namespaces/stage.yml
+identifier: clair-matcher-stage
+output: stdout
+queries:
+  - |
+    SELECT id, kind, updater FROM latest_update_operations;
+  - |
+    SELECT count(id) FROM vuln WHERE updater = 'RHEL8-rhel-8-including-unpatched';
