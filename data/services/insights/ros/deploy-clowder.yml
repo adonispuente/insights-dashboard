@@ -148,7 +148,6 @@ resourceTemplates:
       KRUIZE_MEMORY_REQUEST: '4Gi'
       KRUIZE_CPU_LIMIT: 3
       KRUIZE_MEMORY_LIMIT: '8Gi'
-      MACHINE_POOL_OPTION: memory-optimized
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
@@ -161,7 +160,6 @@ resourceTemplates:
       KRUIZE_MEMORY_REQUEST: '4Gi'
       KRUIZE_CPU_LIMIT: 3
       KRUIZE_MEMORY_LIMIT: '8Gi'
-      MACHINE_POOL_OPTION: memory-optimized
       LOG_LEVEL: 'DEBUG'
 
 - name: ros-ocp-dashboards
