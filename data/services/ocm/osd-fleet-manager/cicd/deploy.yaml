@@ -371,9 +371,6 @@ resourceTemplates:
           region: eu-west-1
         sector: perf3
       - predicate:
-          region: eu-central-1
-        sector: incidentrehearsal
-      - predicate:
           label:
             key: sector-override
             value: migrationtesting
@@ -656,18 +653,6 @@ resourceTemplates:
                   effect: NoSchedule
       DEPLOYMENT_NAME: chaos
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
-  - name: osd-fleet-manager-stage-incidentrehearsal
-    namespace:
-      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
-    promotion:
-      auto: true
-      publish:
-      - ocm-osdfm-deployed-stage-incidentrehearsal
-      subscribe:
-      - ocm-osdfm-deployed-stage-canary
-    parameters:
-      DEPLOYMENT_NAME: incidentrehearsal
   # Sector specifically for HCP migration testing/validation
   # See #wg-hcp-migration and https://issues.redhat.com/browse/SDE-2923
   - name: osd-fleet-manager-stage-migrationtesting
