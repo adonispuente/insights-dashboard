@@ -51,6 +51,19 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Pod down for 5 minutes [env=stage, service=notifications-connector-microsoft-teams-service]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-down-prod.html"
+      - alert: notifications-connector-servicenow-down-stage
+        expr: absent(up{service="notifications-connector-servicenow-service", namespace="notifications-stage"}) or up{service="notifications-connector-servicenow-service", namespace="notifications-stage"} == 0
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: stage
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Pod down for 5 minutes [env=stage, service=notifications-connector-servicenow-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-servicenow-down-prod.html"
       - alert: notifications-connector-slack-down-stage
         expr: absent(up{service="notifications-connector-slack-service", namespace="notifications-stage"}) or up{service="notifications-connector-slack-service", namespace="notifications-stage"} == 0
         for: 5m
@@ -63,6 +76,7 @@ spec:
           dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Pod down for 5 minutes [env=stage, service=notifications-connector-slack-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-down-prod.html"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-down-prod.html"
       - alert: notifications-connector-splunk-down-stage
         expr: absent(up{service="notifications-connector-splunk-service", namespace="notifications-stage"}) or up{service="notifications-connector-splunk-service", namespace="notifications-stage"} == 0
@@ -142,6 +156,18 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-microsoft-teams]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-kafka-lag-prod.html"
+      - alert: notifications-connector-servicenow-kafka-lag-stage
+        expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-servicenow"}) > 1000
+        labels:
+          severity: medium
+          service: insights
+          env: stage
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-servicenow]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-servicenow-kafka-lag-prod.html"
       - alert: notifications-connector-slack-kafka-lag-stage
         expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-slack"}) > 1000
         labels:
