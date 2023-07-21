@@ -128,8 +128,6 @@ openshiftResources:
   type: kubernetes.io/dockerconfigjson
   annotations:
     qontract.recycle: "true"
-- provider: resource
-  path: /services/ocm/stage/cloud-resources.configmap.yaml
 
 openshiftServiceAccountTokens:
 # telemeter
