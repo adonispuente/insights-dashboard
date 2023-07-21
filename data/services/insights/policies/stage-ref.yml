@@ -53,7 +53,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/policies/namespaces/stage-policies-stage.yml
-    ref: adf61139c436e841a5b545dffc8e705480be8cf9
+    ref: d32f9ca58a9ef8b50b8de832179b8f50e09a73ab
     parameters:
       ENV_NAME: stage
     promotion:
@@ -64,5 +64,5 @@ resourceTemplates:
       - channel: policies-engine-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: policies-test
-          target_config_hash: fc00abe16cd52940
+          target_config_hash: 2d4cbbae137ecafc
           type: parent_saas_config
