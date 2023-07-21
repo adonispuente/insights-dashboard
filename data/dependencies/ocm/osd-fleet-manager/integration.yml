@@ -96,6 +96,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
+- name: hs-sc-37eb8pu40
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
