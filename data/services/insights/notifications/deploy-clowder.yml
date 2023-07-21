@@ -183,6 +183,30 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
+# notifications-connector-servicenow
+- name: notifications-connector-servicenow
+  path: /.rhcicd/clowdapp-connector-servicenow.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+  # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    # app-sre will not deploy this target
+    disable: true
+    # populated by bonfire
+    ref: internal
+
+  # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
+    ref: ed779e7d17844541414fb14eb998cb000433b3e4
+    parameters:
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
 # notifications-connector-slack
 - name: notifications-connector-slack
   path: /.rhcicd/clowdapp-connector-slack.yaml
