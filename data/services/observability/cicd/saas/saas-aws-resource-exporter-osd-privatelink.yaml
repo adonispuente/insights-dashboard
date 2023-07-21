@@ -58,7 +58,7 @@ resourceTemplates:
   - name: osd-privatelink-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 4db9d83f681ba12ff55bc6d284c782f740f2ae2d
+    ref: 574093582565486c0f64cec1be19192b673b19ac
     parameters:
       NAME: aws-resource-exporter-osd-privatelink-prod
       SECRET_NAME: aws-resource-exporter-osd-privatelink-prod
