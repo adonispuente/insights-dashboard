@@ -39,9 +39,3 @@ config:
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
 
-    # RHCLOUD-27269: Chrome Service Frontends Jenkinsfile POC
-    - "insights-gh-pipeline":
-        display_name: chrome-service pr-check
-        branch: frontends-jenkinsfile-poc
-        status_context: ci.ext.devshift.net PR pipeline
-
