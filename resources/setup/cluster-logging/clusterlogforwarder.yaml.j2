@@ -30,8 +30,6 @@ spec:
   {% endif %}
   {% if RHOBS_TOOLS_LOGGING_NAMESPACES | default(false) %}
   - name: loki-app
-    secret:
-      name: {{ RHOBS_TOOLS_LOKI_SECRET_NAME | default("lokistack-gateway-bearer-token") }}
     type: loki
     url: >-
       {{ RHOBS_TOOLS_LOKI_URL | default("https://observatorium-lokistack-gateway-http.observatorium-tools.svc:8080/api/logs/v1/application") }}
