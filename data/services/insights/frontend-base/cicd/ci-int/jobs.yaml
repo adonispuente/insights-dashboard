@@ -114,7 +114,7 @@ config:
         display_name: insights-chrome pipeline
         branch: frontends-jenkinsfile-poc
         trigger_exclude_path: 'docs/.*\n.*\.adoc'
-        status_context: ci.ext.devshift.net PR pipeline
+        status_context: ci.int.devshift.net PR pipeline
 
 - project:
     name: frontend-configs
