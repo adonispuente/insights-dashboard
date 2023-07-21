@@ -65,7 +65,7 @@ externalResources:
     defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
   - provider: elasticache
-    identifier: compliance-stage-elasticache-rails-cache
+    identifier: compliance-perf-elasticache-rails-cache
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-compliance-1.yml
     output_resource_name: compliance-rails-cache
     overrides:
