@@ -12,3 +12,4 @@ aws_groups:
 user_policies:
 - $ref: /aws/quayio-prod/policies/ManageOwnAccessKeys.yml
 - $ref: /aws/quayio-prod/policies/ManageOwnMFA.yml
+- $ref: /aws/quayio-prod/policies/PerformanceInsights.yml
