@@ -51,7 +51,6 @@ resourceTemplates:
   targets:
   - namespace: # PERF
       $ref: /services/insights/content-sources/namespaces/content-sources-perf.yml
-    delete: true
     ref: main
     upstream:
       instance:
