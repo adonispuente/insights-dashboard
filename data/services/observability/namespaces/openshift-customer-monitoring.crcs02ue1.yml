@@ -131,6 +131,8 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-microsoft-teams.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/notifications-stage/notifications-connector-servicenow.servicemonitor.yml
+- provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-slack.servicemonitor.yml
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-splunk.servicemonitor.yml
