@@ -68,6 +68,8 @@ externalResources:
     identifier: compliance-stage-elasticache-rails-cache
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-compliance-1.yml
     output_resource_name: compliance-rails-cache
+    overrides:
+      apply_immediately: true
   - provider: elasticache
     identifier: compliance-perf-elasticache-clowder
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-compliance-2.yml
