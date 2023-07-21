@@ -40,7 +40,13 @@ managedResourceTypes:
 - ServiceAccount
 - ValidatingWebhookConfiguration
 
-imagePatterns: []
+imagePatterns:
+- quay.io/app-sre/dynatrace-operator
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
 
 resourceTemplates:
 - name: dynatrace-operator
