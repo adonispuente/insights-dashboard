@@ -103,9 +103,6 @@ codeComponents:
 - name: flush-redis
   resource: upstream
   url: https://github.com/app-sre/flush-redis
-- name: update-banner-job
-  resource: upstream
-  url: https://github.com/quay/update-banner-job
 - name: quay-db-jobs
   resource: upstream
   url: https://github.com/quay/quay-db-jobs
