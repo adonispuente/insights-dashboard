@@ -45,6 +45,12 @@ quayRepos:
   - name: frontend-cache-bust
     public: true
     description: Repo for the console frontend cache bust image
+- org:
+    $ref: /dependencies/quay/cloudservices.yml
+  items:
+  - name: frontend-operator-build-base
+    public: true
+    description: Repo for the base image used to build the frontend operator
 
 
 codeComponents:
@@ -57,4 +63,5 @@ codeComponents:
 - name: frontend-cache-bust
   resource: upstream
   url: https://github.com/RedHatInsights/frontend-cache-bust
+
 
