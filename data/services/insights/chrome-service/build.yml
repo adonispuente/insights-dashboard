@@ -42,6 +42,6 @@ config:
     # RHCLOUD-27269: Chrome Service Frontends Jenkinsfile POC
     - "insights-gh-pipeline":
       display_name: chrome-service pr-check
-      branch: frontends-jenkinsfile-poc
+      branch: main
       status_context: ci.ext.devshift.net PR pipeline
 
