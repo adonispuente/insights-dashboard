@@ -38,3 +38,17 @@ config:
         branch: security-compliance
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
+
+- project:
+    name: insights-chrome
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: insights-chrome
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pipeline":
+        display_name: insights-chrome pipeline
+        branch: main
+        trigger_exclude_path: 'docs/.*\n.*\.adoc'
+        status_context: ci.ext.devshift.net PR pipeline
