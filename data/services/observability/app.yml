@@ -104,7 +104,7 @@ quayRepos:
     description: registry.connect.redhat.com/dynatrace/dynatrace-operator
     mirror:
       $ref: /dependencies/image-mirrors/registry.connect.redhat.com/dynatrace/dynatrace-operator.yml
-    public: true
+    public: false
 
 codeComponents:
 - name: app-sre-observability
