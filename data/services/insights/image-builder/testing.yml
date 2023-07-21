@@ -46,6 +46,12 @@ resourceTemplates:
       - image-builder-stage-deploy-success-channel
       publish:
       - image-builder-stage-post-deploy-tests-success-channel
+      promotion_data:
+      - channel: image-builder-stage-deploy-success-channel
+        data:
+        - parent_saas: image-builder
+          target_config_hash: 3e4d89134f996d29
+          type: parent_saas_config
   - namespace:
       $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
     ref: e5b0fccba1459a036d56d6446746ccf37e2f9618
