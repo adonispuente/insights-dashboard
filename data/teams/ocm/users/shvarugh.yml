@@ -1,0 +1,65 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Sherin Varughese
+org_username: shvarugh
+github_username: SherinV
+quay_username: sherinv
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+
+public_gpg_key: |
+  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
+  3iEOziBGucaZoSqQGYGCpmnloZzs/g==
