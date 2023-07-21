@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-stage-testing.yml
-    ref: 00c94bbcb9021e6bc737f91fce7b24c9a8afa8e4
+    ref: e1d40bac2ac5ebd36d12ba51e8ff5e3b75444a68
     promotion:
       auto: true
       subscribe:
