@@ -12,10 +12,10 @@ quotas:
 - name: compute-resources-non-terminating
   resources:
     limits:
-      cpu: "12"
+      cpu: "16"
       memory: 24Gi
     requests:
-      cpu: "6"
+      cpu: "8"
       memory: 12Gi
   scopes:
   - NotTerminating
