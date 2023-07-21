@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  quotas.json: |-
+    {
+      "default":{
+          "quota": 10000,
+          "slidingWindow": 1209600000000000
+      }
+    }
+  # PERF: We'll define in a follow-up commit which accounts to use
+  # # XXXXXXXX = image-builder-YYY (perf)
+  # allow_list.json: |-
+  #   {
+  #     "XXXXXXXX": ["*"]
+  #   }
+metadata:
+  labels:
+    service: image-builder
+  name: image-builder-crc-config-files

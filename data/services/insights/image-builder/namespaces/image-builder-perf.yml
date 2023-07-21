@@ -1,0 +1,99 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: image-builder
+
+# This will be the actual name of the OpenShift project created
+name: image-builder-perf
+description: Image Builder perf
+
+# This references which cluster to create the namespace on. This value is for
+# the stage cluster. The production cluster for console.redhat.com is crcp01ue1
+cluster:
+  $ref: /openshift/insights/cluster-insights-perf.yml
+
+# We point back to our app definition here
+app:
+  $ref: /services/insights/image-builder/app.yml
+
+# The environment injects a whole slew of parameters able to be used in your
+# OpenShift templates for deploying to the cluster, including for example the
+# hostnames of shared platform services, like Kafka
+environment:
+  $ref: /products/insights/environments/perf.yml
+
+# Every namespace must explicitly allow workloads running in other namespaces
+# to make network connections to it.
+networkPoliciesAllow:
+# - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
+# - $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
+- $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
+# - $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
+
+# If true, managedRoles will ensure that users with roles granting permission
+# to this namespace are able to access it.
+managedRoles: true
+
+# For integrity purposes, you must enumerate the OpenShift resource types that
+# you will be creating for use by workloads in this namespace. For now, this
+# is empty. But if we needed to create a ServiceAccount, for example, that would
+# go here.
+managedResourceTypes:
+- ConfigMap
+
+# You can enumerate the common resources available to workloads in this
+# namespace, including Vault secrets, ConfigMaps, and more.
+openshiftResources:
+# To pull images from the Quay image registry, include this secret
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
+# NOTE(mhayden): If you use the Vault UI to revise secrets and make a new
+# version, you won't see the new version number in the web interface. You can
+# check the version after making your change by installing the Vault client
+# and doing the following:
+#   export VAULT_ADDR=https://vault.devshift.net/
+#   vault login -method=oidc
+#   vault kv get insights/secrets/insights-stage/image-builder-stage/composer-secrets/
+- provider: vault-secret
+  path: insights/secrets/insights-stage/image-builder-stage/composer-secrets
+  version: 13
+  annotations:
+    qontract.recycle: "true"
+# ConfigMap
+- provider: resource
+  path: /insights-perf/image-builder-perf/config_files.configmap.yml
+  validate_json: true
+- provider: vault-secret
+  path: app-interface/image-builder/stage/splunk
+  version: 2
+- provider: vault-secret
+  path: insights/secrets/insights-stage/image-builder-stage/floorist-bucket
+  version: 3
+
+# app-interface uses Terraform to manage non-OpenShift resources, like AWS
+# resources
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-perf/account.yml
+  resources:
+  - provider: rds
+    identifier: image-builder-perf
+    defaults: /terraform/resources/insights/perf/rds/postgres12-rds-1.yml
+    overrides:
+      name: imagebuilder
+      allocated_storage: 100
+      engine_version: '12.12'
+      apply_immediately: true
+    enhanced_monitoring: true
+    output_resource_name: image-builder-db
+
+sharedResources:
+- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+- $ref: /services/insights/shared-resources/metrics-export-stage.yml
