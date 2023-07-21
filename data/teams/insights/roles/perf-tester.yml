@@ -92,6 +92,9 @@ access:
 - namespace:
     $ref: /services/insights/provisioning/namespaces/provisioning-perf.yml
   role: edit
+- namespace:
+    $ref: /services/insights/image-builder/namespaces/image-builder-perf.yml
+  role: edit
 
 self_service:
 - change_type:
@@ -127,6 +130,7 @@ self_service:
   - $ref: /services/insights/patchman/deploy-perf.yml
   - $ref: /services/insights/content-sources/deploy-perf.yml
   - $ref: /services/insights/provisioning/deploy-perf.yml
+  - $ref: /services/insights/image-builder/deploy-perf.yml
 - change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:
