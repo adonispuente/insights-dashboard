@@ -103,6 +103,6 @@ Apart from the mentioned regular IC shift, we have a separate rotation called on
 
 onboarding-ic's tasks during shift are:
 1. Watching [#sd-app-sre-onboarding](https://redhat-internal.slack.com/archives/C02CMTM9GG1) channel and answers tenant's questions.
-2. Review all open MRs with the label `onboarding`. 
+2. Review all open MRs with the label `onboarding` or an `InProgress` service status. 
   \* Specifically for SLO MRs, onboarding-ic should also do as much as possible to let the assignee of the onboarding epic know this change had happened and preferably defer it to the assignee to merge the MR. We recommend that 1. assign the MR to the assignee of the onboarding epic ticket( [onboarding Jira board](https://issues.redhat.com/secure/Dashboard.jspa?selectPageId=12341197) is where you can find them) 2. Find the SLO Review ticket under the epic, then comment it in the MR if it wasn't mentioned already. 
   This will greatly reduce turnaround time during SLO MR review and make the onboarding process smoother.
