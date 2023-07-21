@@ -65,6 +65,7 @@ resourceTemplates:
       REPLICAS: 1
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
       APICAST_CPU_LIMIT: 400m
+      IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
     ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
@@ -140,6 +141,7 @@ resourceTemplates:
       REPLICAS: 1
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
       APICAST_CPU_LIMIT: 400m
+      IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
     ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
