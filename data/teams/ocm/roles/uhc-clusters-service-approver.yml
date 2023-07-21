@@ -71,3 +71,4 @@ self_service:
   - /jenkins/uhc/job-templates.yaml
   - /jenkins/uhc/secrets.yaml
   - /services/ocm/aws-sts-policies.configmap.yaml
+  - /services/ocm/cloud-resources.configmap.yaml
