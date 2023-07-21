@@ -357,6 +357,42 @@ spec:
       - availabilityZone: eu-central-1c
         subnetID: subnet-07e1b275801d0bc89
       vpcID: vpc-076810bd22e796343
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0872807a93c8a43cb
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-09bfc86d9b31eb05c
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-0654f42f0d9fb46ed
+      vpcID: vpc-03c5791cc23217dd9
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0b8ffa0c92ed2a7fd
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0acf9a707f1f6cfee
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-023743207dec1aaca
+      vpcID: vpc-0903cdfe3615bbdda
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0118584513a1c04f0
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0e02323f325a2d02a
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-067e0adeadd1dc410
+      vpcID: vpc-0cfc6e380ae549ccd
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0a0e9b2b1ffbd74ce
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0e2fdad264393de5f
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-032d1e14b683a5fc8
+      vpcID: vpc-03f9f22dfbca63161
     - region: eu-north-1
       subnets:
       - availabilityZone: eu-north-1a
