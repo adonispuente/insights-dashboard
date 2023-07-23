@@ -12,6 +12,12 @@ rules: |
   path "insights/data/secrets/insights-prod/fedramp-customer-interest-prod/*" {
     capabilities = ["create", "read", "update"]
   }
+  path "insights/metadata/secrets/insights-prod/fedramp-customer-interest-prod/*" {
+    capabilities = ["list", "read"]
+  }
   path "insights/data/secrets/insights-stage/fedramp-customer-interest-stage/*" {
     capabilities = ["create", "read", "update"]
+  }
+  path "insights/metadata/secrets/insights-stage/fedramp-customer-interest-stage/*" {
+    capabilities = ["list", "read"]
   }
