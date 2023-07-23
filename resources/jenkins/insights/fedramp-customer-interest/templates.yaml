@@ -11,4 +11,5 @@
           - *app_sre_bot_push_token
           - *app_interface_creds
           - *fedramp_customer_interest_stage_s3
+          - *fedramp_customer_interest_production_s3
     <<: *gl_build_master
