@@ -53,7 +53,7 @@ resourceTemplates:
   - name: app-interface-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
-    ref: 34818915475a5bce7a4fbbbba4ce3d3f8e0c8517
+    ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
     parameters:
       identifier: app-interface
       configSecret: app-interface-config
@@ -61,6 +61,7 @@ resourceTemplates:
       tokenSecret: app-interface-token
       org: app-sre
       team: app-interface-unleash
+      admin_roles: app-sre
       host: app-interface.unleash.devshift.net
   # insights
   - name: insights-stage
