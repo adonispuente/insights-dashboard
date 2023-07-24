@@ -67,5 +67,9 @@ config:
     - 'keycloak-interface-build-master':
         display_name: keycloak-interface build main
         branch: main
+    - 'keycloak-interface-build-demo':
+        display_name: keycloak-interface build demo
+        branch: demo
+        build_deploy_script_path: "./build_deploy.sh"
     - 'gl-pr-check':
         display_name: keycloak-interface pr check

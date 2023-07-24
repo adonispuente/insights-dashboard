@@ -10,3 +10,15 @@
         secrets:
         - *kcm_secret
     <<: *gl_build_master
+- job-template:
+    id: 'keycloak-interface-build-demo'
+    name: '{gl_group}-{gl_project}-gl-build-demo'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *kcm_secret_demo
+    <<: *gl_build_master
