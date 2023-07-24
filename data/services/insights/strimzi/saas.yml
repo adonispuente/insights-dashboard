@@ -126,7 +126,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
-    ref: c8d7fc1fd30817c86dc443056c964ce4efbe14b0
+    ref: 69217f8f82beb0c0fe86f0c804e22b8893503b6d
 - name: kafka-schema-registry
   path: /deploys/openshift/schema-registry.yaml
   url: https://github.com/RedHatInsights/platform-mq
