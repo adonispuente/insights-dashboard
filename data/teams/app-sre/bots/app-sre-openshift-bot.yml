@@ -11,3 +11,5 @@ roles:
 # that belong to prom operator, like servicemonitors. Unfortunately it needs
 # both admin AND view
 - $ref: /services/rhobs/telemeter/roles/app-sre-deployment-bot.yml
+# Installation of dynatrace requires admin permissions
+- $ref: /services/observability/roles/dynatrace-admin.yml
