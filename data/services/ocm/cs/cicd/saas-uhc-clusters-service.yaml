@@ -71,7 +71,7 @@ resourceTemplates:
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: ea52820d54fe17045b88acf3cc0db71e9027cd9e
+    ref: 6971db484491f0c09358fc9b2e99cd2d3f5b5c73
     promotion:
       auto: true
       subscribe:
