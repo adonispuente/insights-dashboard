@@ -27,7 +27,6 @@ managedResourceTypes:
 - ClowdApp
 - ClowdJobInvocation
 - Frontend
-- FloorPlan
 
 imagePatterns:
 - quay.io/cloudservices
@@ -46,20 +45,19 @@ resourceTemplates:
   path: /deploy/clowdapp.yaml
   url: https://github.com/RHEnVision/provisioning-backend
   targets:
-  - namespace: # perf api
+  - namespace: # PERF api
       $ref: /services/insights/provisioning/namespaces/provisioning-perf.yml
     ref: main
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RHEnVision-provisioning-backend-gh-build-main
-    promotion:
-      publish:
-      - provisioning-perf-deploy-success-channel
+    # promotion:
+    #   publish:
+    #   - provisioning-perf-deploy-success-channel
     parameters:
       LOGGING_LEVEL: trace
       DATABASE_LOGGING_LEVEL: debug
-      FLOORIST_QUERY_PREFIX: "hms_analytics/provisioning/perf"
       ENV_NAME: perf
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
       APP_NOTIFICATIONS_ENABLED: false
