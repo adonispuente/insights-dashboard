@@ -1,6 +1,8 @@
 #### What:
 <!--- Please include bullet points of the purpose of your code. 
 Those points should be concise and describe what you expect to happen. -->
+%{first_multiline_commit}
+
 *
 
 #### Why:
