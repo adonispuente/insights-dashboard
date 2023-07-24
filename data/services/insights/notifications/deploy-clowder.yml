@@ -216,7 +216,6 @@ resourceTemplates:
     # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
     ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
-      MIN_REPLICAS: 0
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
