@@ -37,13 +37,38 @@ auth:
 - service: oidc
   name: redhat-app-sre-auth
 
+ocm:
+  $ref: /dependencies/ocm/crc/insights.yaml
+
+spec:
+  product: osd
+  id: 1o2dgnfo31uvj0m7usiepr12isqq213j
+  external_id: dcf3639c-9b97-49f9-90b1-1719ec314c9c
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: 4.13.4
+  initial_version: 4.2.9
+  multi_az: false
+  instance_type: m5.2xlarge
+  private: false
+  storage: 1100
+  load_balancers: 4
+
+network:
+  type: OpenShiftSDN
+  vpc: 10.0.0.0/16
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+
+upgradePolicy:
+  workloads:
+  - crc
+  schedule: 0 14 * * 3
+  conditions:
+    soakDays: 0
+
 disable:
   integrations:
-  # this cluster is a CCS cluster and app-sre does not have ocm access,
-  # so app-interface cannot create the OIDC config via OCM for it.
-  - ocm-oidc-idp
-  # These disabled intregrations will be removed with the next MR which will include the OIDC config
-  # that enables the RedHat SSO cluster login with RH usernames
-  - openshift-clusterrolebindings
-  - openshift-users
-  - openshift-rolebindings
+  # This cluster is a CCS cluster and we con't fully support it
+  - ocm-clusters
