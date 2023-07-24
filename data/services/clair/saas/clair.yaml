@@ -86,7 +86,7 @@ resourceTemplates:
       MATCHER_DEPLOYMENT_REPLICAS: "10"
       MATCHER_CPU_LIMITS: "2"
       MATCHER_CPU_REQS: "2"
-      MATCHER_MEM_LIMITS: "2048Mi"
+      MATCHER_MEM_LIMITS: "4Gi"
       MATCHER_MEM_REQS: "2048Mi"
       # notifier params
       NOTIFIER_DEPLOYMENT_REPLICAS: "0"
