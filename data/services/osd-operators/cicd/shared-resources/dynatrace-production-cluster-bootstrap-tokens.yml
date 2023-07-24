@@ -1,0 +1,18 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: dynatrace-production-cluster-bootstrap-tokens
+description: hypershift cluster bootstrap tokens for dynatrace
+
+openshiftResources:
+- provider: vault-secret
+  path: osd-sre/dynatrace/production/hypershift-cluster-bootstrap-ap-southeast-singapore-uva53433
+  version: 1
+- provider: vault-secret
+  path: osd-sre/dynatrace/production/hypershift-cluster-bootstrap-eu-west-ireland-vap62935
+  version: 1
+- provider: vault-secret
+  path: osd-sre/dynatrace/production/hypershift-cluster-bootstrap-us-east-virginia-jgn20300
+  version: 1
