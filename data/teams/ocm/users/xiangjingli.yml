@@ -6,7 +6,7 @@ labels: {}
 
 
 name: Xiangjing Li
-org_username: xiangjingli
+org_username: xiangli
 github_username: xiangjingli
 quay_username: xiangjingli
 tag_on_cluster_updates: false
