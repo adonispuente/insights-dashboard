@@ -260,7 +260,7 @@ resourceTemplates:
       WORKER_OCP_CPU_LIMIT: 200m
       WORKER_OCP_MEMORY_REQUEST: 300Mi
       WORKER_OCP_MEMORY_LIMIT: 600Mi
-      # worker-priority 
+      # worker-priority
       WORKER_PRIORITY_REPLICAS: 3
       WORKER_PRIORITY_CPU_REQUEST: 200m
       WORKER_PRIORITY_CPU_LIMIT: 400m
@@ -306,7 +306,7 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: d30b36c
+      DBM_IMAGE_TAG: f4cfc15
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
