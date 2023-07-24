@@ -40,7 +40,7 @@ resourceTemplates:
     ref: master
     parameters:
       TOKEN_REFRESHER_IMAGE: "quay.io/observatorium/token-refresher"
-      TOKEN_REFRESHER_IMAGE_TAG: master-2022-07-25-45890c4
+      TOKEN_REFRESHER_IMAGE_TAG: master-2023-04-03-2207107
       TOKEN_REFRESHER_SECRET_NAME: "clo-token-refresher"
       REPLICAS: 3
   - namespace:
@@ -48,7 +48,7 @@ resourceTemplates:
     ref: master
     parameters:
       TOKEN_REFRESHER_IMAGE: "quay.io/observatorium/token-refresher"
-      TOKEN_REFRESHER_IMAGE_TAG: master-2022-07-25-45890c4
+      TOKEN_REFRESHER_IMAGE_TAG: master-2023-04-03-2207107
       TOKEN_REFRESHER_SECRET_NAME: "clo-token-refresher"
       REPLICAS: 6
   - namespace:
@@ -56,6 +56,6 @@ resourceTemplates:
     ref: master
     parameters:
       TOKEN_REFRESHER_IMAGE: "quay.io/observatorium/token-refresher"
-      TOKEN_REFRESHER_IMAGE_TAG: master-2022-07-25-45890c4
+      TOKEN_REFRESHER_IMAGE_TAG: master-2023-04-03-2207107
       TOKEN_REFRESHER_SECRET_NAME: "clo-token-refresher"
       REPLICAS: 12
