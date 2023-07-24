@@ -362,6 +362,7 @@ resourceTemplates:
       KAFKA_SUBSCRIPTIONS_PRUNE_PARTITIONS: 24
       OTEL_JAVAAGENT_ENABLED: 'true'
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
+      KAFKA_SEEK_OVERRIDE_END: true
 
 - name: swatch-system-conduit
   path: /swatch-system-conduit/deploy/clowdapp.yaml
