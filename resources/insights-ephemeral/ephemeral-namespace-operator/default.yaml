@@ -111,26 +111,6 @@ spec:
     items:
     - spec:
         hard:
-          limits.cpu: '32'
-          limits.memory: 64Gi
-          requests.cpu: '16'
-          requests.memory: 32Gi
-        scopes:
-        - NotTerminating
-      metadata:
-        name: compute-resources-non-terminating
-    - spec:
-        hard:
-          limits.cpu: '6'
-          limits.memory: 24Gi
-          requests.cpu: '3'
-          requests.memory: 12Gi
-        scopes:
-        - Terminating
-      metadata:
-        name: compute-resources-terminating
-    - spec:
-        hard:
           pods: '200'
       metadata:
         name: pod-count
