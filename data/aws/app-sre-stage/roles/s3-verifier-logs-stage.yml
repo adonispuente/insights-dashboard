@@ -12,3 +12,4 @@ aws_groups:
 user_policies:
 - $ref: /aws/app-sre-stage/policies/VerifierLogAccess.yml
 - $ref: /aws/app-sre-stage/policies/ManageOwnMFA.yml
+- $ref: /aws/app-sre-stage/policies/ManageOwnAccessKeys.yml
