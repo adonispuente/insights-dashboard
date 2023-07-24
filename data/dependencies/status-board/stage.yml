@@ -10,7 +10,7 @@ labels:
   environment: stage
 
 
-globalSelector:
+globalAppSelectors:
   exclude:
     - apps[?@.onboardingStatus!=\"OnBoarded\"]
 
