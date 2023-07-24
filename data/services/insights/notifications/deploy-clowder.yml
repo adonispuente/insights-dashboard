@@ -358,6 +358,7 @@ resourceTemplates:
       SENTRY_ENABLED: true
       SOURCES_ENABLED: false
       NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
+      NOTIFICATIONS_SERVICENOW_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
