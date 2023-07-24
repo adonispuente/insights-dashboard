@@ -97,7 +97,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       CLOUDWATCH_ENABLED: true
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
@@ -143,7 +143,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -177,7 +177,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -214,7 +214,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
-    ref: ed779e7d17844541414fb14eb998cb000433b3e4
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       MIN_REPLICAS: 0
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
@@ -249,7 +249,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -288,7 +288,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -371,7 +371,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       CLOUDWATCH_ENABLED: true
       IT_SERVICE_TO_SERVICE_KEY_STORE: file:/mnt/secrets/clientkeystore.jks
@@ -441,7 +441,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 21e29e7f32461c3ce9374944aef63daf772ee76f
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       CLOUDWATCH_ENABLED: true
       CRONTAB_AGGREGATION_JOB: 0/15 * * * *
