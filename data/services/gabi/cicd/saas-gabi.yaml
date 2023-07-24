@@ -62,7 +62,7 @@ resourceTemplates:
   path: /openshift/gabi.template.yaml
   parameters:
     SPLUNK_INDEX: rh_app_sre
-    OAUTH_PROXY_IMAGE_TAG: 4.10.0
+    OAUTH_PROXY_IMAGE_TAG: 4.14.0
     ENVIRONMENT: production
   targets:
   - namespace:
