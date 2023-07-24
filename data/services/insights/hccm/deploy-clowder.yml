@@ -301,7 +301,7 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 4f939aab79b0b5e88cb33bc19672d825b07934d5
+    ref: 877664f06417f9e77829780460f75d7409356a17
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
@@ -423,7 +423,7 @@ resourceTemplates:
       WORKER_DOWNLOAD_XL_MEMORY_REQUEST: 4Gi
       WORKER_DOWNLOAD_XL_MEMORY_LIMIT: 8Gi
       # worker-ocp
-      WORKER_OCP_REPLICAS: 3  #3
+      WORKER_OCP_REPLICAS: 6  #3
       WORKER_OCP_CPU_REQUEST: 200m
       WORKER_OCP_CPU_LIMIT: 400m
       WORKER_OCP_MEMORY_REQUEST: 400Mi
