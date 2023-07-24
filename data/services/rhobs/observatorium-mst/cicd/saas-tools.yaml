@@ -127,7 +127,7 @@ resourceTemplates:
       ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
       parameters:
         LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
-        LOKI_SIZE: 1x.medium
+        LOKI_SIZE: 1x.small
       secretParameters:
         - name: ACCESS_KEY_ID
           secret:
