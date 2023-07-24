@@ -386,7 +386,6 @@ resourceTemplates:
           - name: us-east-2 # reserved for perf testing
           - name: us-east-1 # reserved for chaos testing
           - name: eu-west-1 # reserved for perf testing (perf3 sector)
-          - name: eu-central-1 # reserved for incident rehearsal
     TELEMETER_SERVER_URL: https://infogw.api.stage.openshift.com
     TERRAFORM_ALLOWED_ACTIONS: none
     TRANSIT_ACCOUNT_ARN: arn:aws:iam::254070712068:user/svc-cluster-aws-vpce-operator
