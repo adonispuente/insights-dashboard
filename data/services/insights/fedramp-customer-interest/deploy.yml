@@ -17,6 +17,7 @@ managedResourceTypes:
   - Deployment
   - Service
   - ServiceAccount
+validateTargetsInApp: true
 resourceTemplates:
   - name: fedramp-customer-interest
     url: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service

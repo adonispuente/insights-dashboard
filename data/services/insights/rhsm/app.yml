@@ -7,7 +7,7 @@ labels:
 
 name: rhsm
 
-description: rhsm app on the Insights Platform
+description: rhsm (Subscription Watch) app on the Insights Platform
 
 architectureDocument: https://docs.engineering.redhat.com/display/ENT/Architecture+Review
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/rhsm/
@@ -16,7 +16,7 @@ grafanaUrls:
   url: https://grafana.app-sre.devshift.net/d/lkPhH-1Zk/subscription-watch?orgId=1
 - title: Subscription Watch SLO
   url: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&var-label=rhsm-subscriptions
-onboardingStatus: TransitionPeriod
+onboardingStatus: OnBoarded
 
 parentApp:
   $ref: /services/insights/app.yml

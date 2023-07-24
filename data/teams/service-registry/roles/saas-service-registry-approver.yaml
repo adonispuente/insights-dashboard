@@ -18,11 +18,6 @@ self_service:
   datafiles:
   - $ref: /services/service-registry/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/service-registry/namespaces/service-registry-stage.yml
-  - $ref: /services/service-registry/namespaces/service-registry-production.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/service-registry/roles/saas-service-registry-approver.yaml

@@ -1,0 +1,16 @@
+---
+$schema: /app-interface/credentials-request-1.yml
+
+labels: {}
+
+name: offeringregistry-app-interface-production-basic-auth
+
+description: |
+  users from Offering Registry can add a CPaaS pipeline to describe that the offering is using a CPaaS pipeline 
+  (i.e https://gitlab.cee.redhat.com/product-security/offering-registry-reports/-/blob/main/ansible-automation-platform/offering.yaml). 
+  We want to add the possibility that users add an app-interface folder and we will retrieve information from the app-interface repo.
+
+user:
+  $ref: /teams/prodsec/users/jperezde.yml
+
+credentials: app-interface-production-cicd-access

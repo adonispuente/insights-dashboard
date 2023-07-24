@@ -11,6 +11,9 @@ permissions: []
 
 access:
 - namespace:
+    $ref: /services/insights/frontend-operator/namespaces/prod.yml
+  role: view
+- namespace:
     $ref: /services/insights/frontend-operator/namespaces/stage.yml
   role: view
 - namespace:
@@ -36,10 +39,6 @@ self_service:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/insights/frontend-operator/app.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/frontend-operator/namespaces/stage.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:

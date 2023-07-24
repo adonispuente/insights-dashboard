@@ -47,6 +47,7 @@ resourceTemplates:
     UMB_TIMEOUT: 5m
     USE_CANDLEPIN_BASIC_AUTH: 'false'
     REPLICAS: '5'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -65,7 +66,7 @@ resourceTemplates:
       USE_CANDLEPIN_BASIC_AUTH: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c7032711682d12b7c48b66a584e0c692b042cd6e
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       auto: true
       subscribe:
@@ -120,7 +121,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local

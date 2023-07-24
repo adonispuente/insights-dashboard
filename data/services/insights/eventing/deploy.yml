@@ -42,7 +42,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
-    ref: 3faa2fb8c58002ce5473166ade7181ece4fb14ed
+    ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
@@ -51,7 +51,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/eventing/namespaces/eventing-prod.yml
-    ref: b8ac168e4a429129822c1daa9ba3ea58ee7743cc
+    ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
 
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
@@ -68,7 +68,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
-    ref: 3faa2fb8c58002ce5473166ade7181ece4fb14ed
+    ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
@@ -77,7 +77,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/eventing/namespaces/eventing-prod.yml
-    ref: b8ac168e4a429129822c1daa9ba3ea58ee7743cc
+    ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
 
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml

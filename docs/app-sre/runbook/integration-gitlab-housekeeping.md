@@ -17,7 +17,7 @@ code [here](https://github.com/app-sre/qontract-reconcile/blob/master/reconcile/
 and `qontract_reconcile_time_to_merge_merge_request_minutes` can tell us a lot of
 information about how large the queue is, and how long it takes to merge MRs.
 
-For instance, the following query would help us figure out what percentage of MRs have
+For instance, the following query in Prometheus would help us figure out what percentage of MRs have
 been merged in <60 minutes:
 
 ```
@@ -36,7 +36,7 @@ for the highest priority MR. If the MR continues to fail, this could result in a
 waiting time. Even if this issue is addressed, there could be other unexpected reasons
 that could cause a lot of waiting on pipelines to finish (Jenkins performance issues).
 
-The query below will show how many times the integration rechecked the status of the
+The Cloudwatch log query below will show how many times the integration rechecked the status of the
 pipeline. A large number of attempts for a single MR might suggest something happening
 with that MR and the build pipelines.
 

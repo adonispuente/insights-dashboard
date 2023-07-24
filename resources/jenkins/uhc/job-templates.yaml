@@ -216,14 +216,14 @@
     name: 'ocm-backend-ci-tests'
     node: '{node}'
     wrappers:
-    - timeout_wrapper:
-        timeout: '{timeout}'
-    - vault-secrets:
-        <<: *vault_defaults
-        secrets:
-        - *ocm_backend_tests
-        - *qe_aws_credentials
-        - *qe_gcp_credentials
+        - timeout_wrapper:
+            timeout: 600
+        - vault-secrets:
+            <<: *vault_defaults
+            secrets:
+            - *ocm_backend_tests
+            - *qe_aws_credentials
+            - *qe_gcp_credentials
     parameters:
     - choice:
         name: OCM_ENV

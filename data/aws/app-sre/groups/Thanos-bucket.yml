@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/app-sre/account.yml
+
+name: Thanos-bucket
+description: S3 view group to access the Thanos store bucket
+
+policies:
+- IAMUserChangePassword

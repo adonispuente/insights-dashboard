@@ -27,14 +27,6 @@ self_service:
   - $ref: /services/quayio/app.yml
   - $ref: /services/clair/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/quayio/namespaces/quays02ue1.yml
-  - $ref: /services/quayio/namespaces/quayp05ue1.yml
-  - $ref: /services/quayio/namespaces/quayp04ue2.yml
-  - $ref: /services/clair/namespaces/stage.yml
-  - $ref: /services/clair/namespaces/production.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/quay/role/saas-quayio-approver.yml

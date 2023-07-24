@@ -26,6 +26,8 @@ managedResourceTypes:
 - Subscription
 - Service
 - XJoinPipeline
+- XJoinIndex
+- XJoinDataSource
 - KafkaUser
 
 imagePatterns:
@@ -58,10 +60,11 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-catalog-master-upstream-RedHatInsights-xjoin-operator-gh-build-master
     parameters:
+      SUBGRAPH_LOG_LEVEL: "debug"
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-stage
       SOURCE_NAMESPACE: xjoin-operator-stage
-      LOG_LEVEL: "info"
+      LOG_LEVEL: "debug"
       VALIDATION_INTERVAL: "1800"
       VALIDATION_ATTEMPTS_THRESHOLD: "2"
       VALIDATION_ATTEMPTS_THRESHOLD_INIT: "60"
@@ -87,14 +90,14 @@ resourceTemplates:
       VALIDATION_LAG_COMPENSATION_SECONDS: "600"
       VALIDATION_ATTEMPTS_THRESHOLD: "2"
       VALIDATION_INTERVAL: "600"
-      VALIDATION_INTERVAL_INIT: "120"
+      VALIDATION_INTERVAL_INIT: "180"
       VALIDATION_ATTEMPTS_THRESHOLD_INIT: "120"
       LOG_LEVEL: "warn"
-      MANAGER_POD_MEM_LIMIT: "24Gi"
+      MANAGER_POD_MEM_LIMIT: "16Gi"
       MANAGER_POD_CPU_LIMIT: "4"
-      MANAGER_POD_MEM_REQUESTS: "12Gi"
+      MANAGER_POD_MEM_REQUESTS: "8Gi"
       MANAGER_POD_CPU_REQUESTS: "2"
-      FULL_VALIDATION_ENABLED: "true"
+      FULL_VALIDATION_ENABLED: "false"
       FULL_VALIDATION_NUM_THREADS: "25"
       FULL_VALIDATION_CHUNK_SIZE: "25"
       SCHEMA_REGISTRY_SECRET_NAME: "service-registry-prod"

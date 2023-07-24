@@ -13,24 +13,6 @@ openshiftResources:
   variables:
     hypershift_cluster_type: management-cluster
     secret_name: osd-privatelink-prod-aws-vpce-operator
-- provider: resource-template
-  type: jinja2
-  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
-  variables:
-    hypershift_cluster_type: management-cluster
-    secret_name: backplanep01ue1-aws-vpce-operator
-- provider: resource-template
-  type: jinja2
-  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
-  variables:
-    hypershift_cluster_type: management-cluster
-    secret_name: backplanep02uw2-aws-vpce-operator
-- provider: resource-template
-  type: jinja2
-  path: /services/osd-operators/aws-vpce-operator-backplane.selectorsyncset.yaml.j2
-  variables:
-    hypershift_cluster_type: management-cluster
-    secret_name: backplanep03ue1-hypershift-aws-vpce-operator
 
 - provider: resource-template
   type: jinja2

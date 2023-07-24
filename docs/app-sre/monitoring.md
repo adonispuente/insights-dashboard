@@ -418,8 +418,34 @@ Once you have the dashboard ConfigMap, follow these instructions:
 
   * Note: [additional information](docs/app-sre/monitoring.md#Addingdashboards)
 
-* Add a `resourceTemplate` entry in the a saas file owned by you to deploy your dashboard in staging, e.g.
+* Add a new saas file to deploy your dashboard in staging, e.g.
   ```yaml
+  ---
+  $schema: /app-sre/saas-file-2.yml
+
+  labels: {}
+
+  name: saas-<your-service>-dashboards
+
+  description: SaaS tracking file for <your-service> dashboards
+
+  app:
+    $ref: /services/<your-service>/app.yml
+
+  pipelinesProvider:
+    $ref: /path/to/pipelines/tekton.appsrep05ue1.yaml
+
+  slack:
+    workspace:
+      $ref: /dependencies/slack/redhat-internal.yml
+    channel: <your-channel>
+
+  managedResourceTypes:
+  - ConfigMap
+
+  imagePatterns: []
+
+  resourceTemplates:
   - name: your-service-dashboards
     url: https://gitlab.cee.redhat.com/service-registry/your-service
     path: /dashboards
@@ -429,7 +455,6 @@ Once you have the dashboard ConfigMap, follow these instructions:
         $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
       ref: master
   ```
-  * Note: remember to add `ConfigMap` to the `managedResourceTypes` section.
   * Note: with this configuration, every time you merge changes in your dashboard it will be deployed in stage. Read [this guide](/docs/app-sre/continuous-delivery-in-app-interface.md) to know more about saas files.
 
 * Once your MR is merged, your dashboard will be deployed to stage and will be accessible in https://grafana.stage.devshift.net. No restart of the Grafana server deployment is needed.

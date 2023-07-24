@@ -11,7 +11,7 @@ app:
   $ref: /services/web-rca/app.yml
 
 pipelinesProvider:
-  $ref: /services/web-rca/pipelines/tekton.web-rca-pipelines.appsrep05ue1.yaml
+  $ref: /teams/sd-ops-dev/pipelines/tekton.sd-ops-dev-pipelines.appsrep05ue1.yaml
 
 deployResources:
   requests:
@@ -32,6 +32,7 @@ managedResourceTypes:
 - ConfigMap
 - ServiceAccount
 - CronJob
+- Task
 
 imagePatterns:
 - quay.io/app-sre/web-rca
@@ -77,6 +78,9 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       SENTRY_PROJECT: 45
       SENTRY_URL: https://glitchtip.devshift.net
       UI_ADDRESS: https://web-rca.devshift.net
+      WEBRCA_ANSIBLE_TAG: 120f25b
+      SLACK_DOMAIN: redhat-internal
+      SLACK_USER: WebRCA
       REPLICAS: 3
 - name: service-template-ui
   path: /templates/service-template.yaml

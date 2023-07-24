@@ -139,7 +139,11 @@ resourceTemplates:
     ref: internal  # populated by bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 42741e06b9404b1efc079c731c54464dedb7868c
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-compliance-frontend-gh-build-master
     parameters:
       ENV_NAME: env-stage
 - name: compliance-dashboards

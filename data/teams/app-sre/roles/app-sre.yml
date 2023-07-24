@@ -62,6 +62,9 @@ access:
 - cluster:
     $ref: /openshift/appsres04ue2/cluster.yml
   group: dedicated-admins
+- cluster:
+    $ref: /openshift/appsres05ue1/cluster.yml
+  group: dedicated-admins
 ## Hive
 - cluster:
     $ref: /openshift/hivep01ue1/cluster.yml
@@ -195,6 +198,9 @@ access:
 - cluster:
     $ref: /openshift/backplanep03ue1/cluster.yml
   group: dedicated-admins
+- cluster:
+    $ref: /openshift/backplanep04uw2/cluster.yml
+  group: dedicated-admins
 ## stonesoup control plane clusters
 - cluster:
     $ref: /openshift/stonesoups01ue1/cluster.yml
@@ -226,6 +232,7 @@ aws_groups:
 - $ref: /aws/hypershift-dns01/groups/AppSRE-admin.yml
 - $ref: /aws/sd-infra-stage-01/groups/App-SRE-admin.yml
 - $ref: /aws/sd-infra-prod-01/groups/App-SRE-admin.yml
+- $ref: /aws/app-sre-rosa-stage-01/groups/App-SRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
@@ -250,6 +257,7 @@ user_policies:
 - $ref: /aws/hypershift-dns01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-stage-01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-prod-01/policies/ManageOwnMFA.yml
+- $ref: /aws/app-sre-rosa-stage-01/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:
@@ -376,7 +384,24 @@ self_service:
     $ref: /app-interface/changetype/resource-owner.yml
   resources:
   - /jenkins/global/defaults.yaml
+  # dashboards
+  - /observability/grafana/grafana-dashboard-appsre-grafana.configmap.yaml
+  - /observability/grafana/grafana-dashboard-openshift-router.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-alb.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-aws-cloudwatch-logs.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-aws-waf.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-cloudflare.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-rds.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-sqs.configmap.yaml
+  - /observability/grafana/grafana-dashboard-appsre-elasticache.configmap.yaml
+  - /observability/grafana/grafana-dashboard-blackbox-exporter.configmap.yaml
 - change_type:
     $ref: /app-interface/changetype/ocm-org-owner.yml
   datafiles:
   - $ref: /dependencies/ocm/production.yml
+- change_type:
+    $ref: /app-interface/changetype/escalation-policy-owner.yml
+  datafiles:
+  - $ref: /teams/app-sre/escalation-policies/general.yaml
+- change_type:
+    $ref: /app-interface/changetype/query-validation-admin.yml

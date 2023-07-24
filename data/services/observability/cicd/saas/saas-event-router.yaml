@@ -60,6 +60,8 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/appsrep05ue1/namespaces/app-sre-event-router.yml
     ref: 8ba847fb577ae5e0aec2d99092a2fcbe60491a29
+    parameters:
+      EVENT_ROUTER_MEMORY_LIMIT: 1Gi
   - namespace:
       $ref: /openshift/appsrep06ue2/namespaces/app-sre-event-router.yml
     ref: 8ba847fb577ae5e0aec2d99092a2fcbe60491a29

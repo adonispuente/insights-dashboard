@@ -84,3 +84,7 @@ rules: |
   path "status-board-refresh/prod/*" {
     capabilities = ["read"]
   }
+
+  path "swat/*" {
+     capabilities = ["read"]
+  }

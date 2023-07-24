@@ -1,5 +1,5 @@
 - job-template:
-    id: 'keycloak-build-master'
+    id: 'keycloak-interface-build-master'
     name: '{gl_group}-{gl_project}-gl-build-master'
     wrappers:
     - timeout_wrapper:
@@ -8,5 +8,17 @@
     - vault-secrets:
         <<: *vault_defaults
         secrets:
-        - *realm_properties
+        - *kcm_secret
+    <<: *gl_build_master
+- job-template:
+    id: 'keycloak-interface-build-demo'
+    name: '{gl_group}-{gl_project}-gl-build-demo'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *kcm_secret_demo
     <<: *gl_build_master

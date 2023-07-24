@@ -1,7 +1,8 @@
 ---
 $schema: /dependencies/glitchtip-team-1.yml
 
-labels: {}
+labels:
+  service: glitchtip
 
 name: ocm-ui
-description: ocm-ui team
+description: ocm-ui team (uhc-portal)

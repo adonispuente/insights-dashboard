@@ -183,7 +183,7 @@ resourceTemplates:
     ref: ed6f1c4e019e7ab67ed61b67683f09220a8a9245
     parameters:
       CLEANUP_DAYS: 7
-      IMAGE_TAG: "0.3.0"
+      IMAGE_TAG: "0.4.0"
       LIMITS: |
         # AMS calls CS to register clusters. The limit provided here must be
         # greater than whatever limit is in front of AMS's API.

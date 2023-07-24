@@ -30,12 +30,12 @@ spec:
   provider: aws
   region: us-east-1
   channel: candidate
-  version: 4.13.4
+  version: 4.13.6
   initial_version: 4.7.0-candidate
   multi_az: false
   autoscale:
     min_replicas: 4
-    max_replicas: 10
+    max_replicas: 12
   instance_type: m5.xlarge
   storage: 600
   load_balancers: 0
@@ -163,4 +163,9 @@ peering:
     name: appsres03ue1_backplanep03ue1
     cluster:
       $ref: /openshift/backplanep03ue1/cluster.yml
+    manageRoutes: true
+  - provider: cluster-vpc-accepter
+    name: appsres03ue1_backplanep04uw2
+    cluster:
+      $ref: /openshift/backplanep04uw2/cluster.yml
     manageRoutes: true

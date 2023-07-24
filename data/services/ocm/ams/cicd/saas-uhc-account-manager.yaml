@@ -60,6 +60,7 @@ resourceTemplates:
     GODEBUG: http2server=0
     PPROF_SERVER_BINDADDRESS: ''
     TELEMETER_URL: ${TELEMETER_BASE_URL}
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -72,6 +73,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-int-green
     parameters:
+      GATE_NAME: ocm-ams-int-canary
       TELEMETER_DEBUG: 'true'
       RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.stage.redhat.com/candlepin
       USE_CANDLEPIN_BASIC_AUTH: 'true'
@@ -89,7 +91,7 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c7032711682d12b7c48b66a584e0c692b042cd6e
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       auto: true
       subscribe:
@@ -97,6 +99,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-stage-green
     parameters:
+      GATE_NAME: ocm-ams-stage-canary
       REPLICAS: 1
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 2.5Gi
@@ -119,8 +122,9 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
+      GATE_NAME: ocm-ams-prod-canary
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
       REPLICAS: 1
@@ -174,6 +178,7 @@ resourceTemplates:
     MANDRILL_TIMEOUT: 60s
     GODEBUG: http2server=0
     PPROF_SERVER_BINDADDRESS: ''
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -186,6 +191,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-int
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       CLUSTER_REG_RATE_LIMIT: 30000
       ORG_CLUSTER_REG_RATE_LIMIT: 30000
@@ -200,7 +206,7 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c7032711682d12b7c48b66a584e0c692b042cd6e
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       auto: true
       subscribe:
@@ -208,6 +214,7 @@ resourceTemplates:
       publish:
       - ocm-ams-deployed-stage
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       SEGMENT_EMAIL_NAME: 'true'
       REPLICAS: 6
       CPU_LIMIT: '2'
@@ -282,11 +289,12 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       publish:
       - ocm-ams-deployed-prod
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       SEGMENT_EMAIL_NAME: 'true'
       CPU_LIMIT: '2'
       MEMORY_LIMIT: 4Gi
@@ -321,4 +329,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80

@@ -12,10 +12,12 @@ description: |
 architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/glitchtip/architecture/architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/glitchtip/sops
 grafanaUrls:
+- title: Glitchtip Dashboard
+  url: https://grafana.app-sre.devshift.net/goto/HjeNm9CVz?orgId=1
+- title: Glitchtip Project Statistics
+  url: https://grafana.app-sre.devshift.net/goto/gcuVm9CVk?orgId=1
 - title: Glitchtip SLO
   url: https://grafana.app-sre.devshift.net/goto/eoXSTd14z?orgId=1
-- title: Glitchtip Dashboard
-  url: https://grafana.app-sre.devshift.net/goto/i3YNTdJ4z?orgId=1
 onboardingStatus: OnBoarded
 
 escalationPolicy:

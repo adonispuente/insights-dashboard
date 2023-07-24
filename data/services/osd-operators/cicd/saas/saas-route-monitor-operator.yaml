@@ -23,6 +23,7 @@ managedResourceTypes:
 
 imagePatterns:
 - quay.io/app-sre/route-monitor-operator-registry
+- quay.io/app-sre/route-monitor-operator-hs-package
 
 use_channel_in_image_tag: true
 
@@ -56,25 +57,25 @@ resourceTemplates:
       name: openshift-route-monitor-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: ae888861d77ebf7db103e2b6a4d664f670d532c0
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
@@ -82,3 +83,59 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: openshift-route-monitor-operator-gh-build-master
+- name: route-monitor-operator-hs-package
+  url: https://github.com/openshift/route-monitor-operator
+  path: /hack/hypershift-package/hypershift-artifacts-template.yaml
+  parameters:
+    PACKAGE_IMAGE: quay.io/app-sre/route-monitor-operator-hs-package
+  targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: master
+    parameters:
+      PACKAGE_TAG: latest
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: master
+    parameters:
+      PACKAGE_TAG: latest
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: master
+    parameters:
+      PACKAGE_TAG: latest
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
+    ref: a900bc23843ee24bf536e1b2b7a2ce069d7eba36
+    parameters:
+      PACKAGE_TAG: v0.1.504-24588c8

@@ -382,31 +382,6 @@ spec:
           service: assisted-installer
         record: assisted_installer_cpu_usage:stddev1w
 
-      - alert: "Assisted Installer - Anomaly detected: Incoming http requests z-score outside normal range"
-        annotations:
-          message: Assisted Installer Incoming http requests z-score is {{ $value }} <!subteam^S01TBNAAPRU>
-          redhat_cloud_url: "https://console-openshift-console.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/k8s/ns/assisted-installer-production/pods"
-          runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#anomaly-detected"
-        # return z-score value unless z-score value falls within -3 / +3 range
-        expr: |
-          (
-            (assisted_installer_http_requests:rate10m - assisted_installer_http_requests:rate1w)
-            /
-            assisted_installer_http_requests:stddev1w
-          )
-          unless (
-            (
-              (assisted_installer_http_requests:rate10m - assisted_installer_http_requests:rate1w)
-              /
-              assisted_installer_http_requests:stddev1w
-            )
-            < 3 > -3
-          )
-        for: 10m
-        labels:
-          severity: warning
-          service: assisted-installer
-
       - alert: "Assisted Installer - Anomaly detected: CPU usage z-score outside normal range"
         annotations:
           message: Assisted Installer Incoming CPU usage z-score is {{ $value }} <!subteam^S01TBNAAPRU>
@@ -451,6 +426,18 @@ spec:
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#persistent-volume-claim-high-usage"
         expr: |
           100 * kubelet_volume_stats_used_bytes{namespace=~"assisted-installer.*"} / (kubelet_volume_stats_used_bytes{namespace=~"assisted-installer.*"} + kubelet_volume_stats_available_bytes{namespace=~"assisted-installer.*"}) > 80
+        for: 10m
+        labels:
+          severity: warning
+          service: assisted-installer
+
+      - alert: "Assisted Installer - RDS disk usage too high"
+        annotations:
+          message: Assisted Installer RDS instance {{ $labels.dbinstance_identifier }} free disk space less than 30% ({{ $value | printf "%.2f" }}%) <!subteam^S01T3MZGJ9M>
+          runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#RDS-free-disk-space-running-low"
+          dashboard: "https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1"
+        expr: |
+          100 * sum(aws_rds_free_storage_space_sum{dbinstance_identifier="assisted-installer"}) by (dbinstance_identifier) /  sum (aws_resources_exporter_rds_allocatedstorage) by (dbinstance_identifier) < 30
         for: 10m
         labels:
           severity: warning

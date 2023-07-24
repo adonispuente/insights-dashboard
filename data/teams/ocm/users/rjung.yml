@@ -1,0 +1,71 @@
+---
+$schema: /access/user-1.yml
+
+
+labels: {}
+
+
+name: Roke Jung
+org_username: rjung
+github_username: rokej
+quay_username: rokejungrh
+tag_on_cluster_updates: false
+
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+
+public_gpg_key: |
+  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
+  SmRffrtSp98=

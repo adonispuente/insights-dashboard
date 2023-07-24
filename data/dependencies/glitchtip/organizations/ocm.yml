@@ -1,9 +1,10 @@
 ---
 $schema: /dependencies/glitchtip-organization-1.yml
 
-labels: {}
+labels:
+  service: glitchtip
 
 name: ocm
-description: ocm
+description: ocm (uhc-portal)
 instance:
   $ref: /dependencies/glitchtip/glitchtip-production.yml

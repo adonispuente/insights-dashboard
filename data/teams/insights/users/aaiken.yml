@@ -23,6 +23,8 @@ roles:
 - $ref: /teams/insights/roles/platform-feedback.yml
 - $ref: /teams/insights/roles/backoffice-proxy.yml
 - $ref: /teams/insights/roles/sources.yml
+#QE roles
+- $ref: /teams/insights/roles/insights-qe.yml
 
 public_gpg_key: |
   mQINBGJCEK0BEACkEZ6RNeuM6rpx/IVP63jopk2XoJB+wlGq6BeDldR5aSPzyPUp

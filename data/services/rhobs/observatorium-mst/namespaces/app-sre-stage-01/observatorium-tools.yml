@@ -17,6 +17,10 @@ environment:
 
 networkPoliciesAllow:
   - $ref: /openshift/app-sre-stage-01/namespaces/openshift-logging.yaml
+  - $ref: /services/rhobs/observatorium/namespaces/observatorium-stage.yml
+  - $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
+  - $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
+  - $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
 
 clusterAdmin: true
 
@@ -61,5 +65,13 @@ externalResources:
     resources:
       - provider: s3
         identifier: app-sre-stage-01-observatorium-loki
-        defaults: /terraform/resources/telemeter/s3-private-1.yml
+        defaults: /terraform/resources/s3-all-expires-7-days.yml
         output_resource_name: observatorium-loki
+      - provider: s3
+        identifier: app-sre-stage-01-observatorium-parca
+        defaults: /terraform/resources/s3-all-expires-7-days.yml
+        output_resource_name: observatorium-parca
+      - provider: s3
+        identifier: app-sre-stage-01-observatorium-tempo
+        defaults: /terraform/resources/s3-all-expires-7-days.yml
+        output_resource_name: observatorium-tempo

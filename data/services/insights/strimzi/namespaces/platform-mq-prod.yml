@@ -3,6 +3,7 @@ $schema: /openshift/namespace-1.yml
 
 labels:
   service: strimzi
+  deployment_validation_operator_minimum_three_replicas: skip
 
 name: platform-mq-prod
 description: Insights platform-mq-prod

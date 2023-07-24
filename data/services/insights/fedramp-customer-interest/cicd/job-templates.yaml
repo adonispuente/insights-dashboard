@@ -1,0 +1,19 @@
+---
+$schema: /dependencies/jenkins-config-1.yml
+
+labels:
+  service: insights
+
+name: ci-int-insights-fedramp-customer-interest-job-templates
+
+description: FedRAMP Customer Interest Jenkins job templates
+
+app:
+  $ref: /services/insights/fedramp-customer-interest/app.yml
+
+instance:
+  $ref: /dependencies/ci-int/ci-int.yml
+
+type: job-templates
+
+config_path: /jenkins/insights/fedramp-customer-interest/templates.yaml

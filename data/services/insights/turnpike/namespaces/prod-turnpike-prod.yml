@@ -51,7 +51,7 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/insights-prod/turnpike-prod/saml-signing
-  version: 3
+  version: 4
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret

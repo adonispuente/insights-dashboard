@@ -1,0 +1,105 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: provisioning
+
+name: provisioning-perf
+description: Provisioning on the Perf cluster under app-interface management
+
+cluster:
+  $ref: /openshift/insights/cluster-insights-perf.yml
+
+app:
+  $ref: /services/insights/provisioning/app.yml
+
+environment:
+  $ref: /products/insights/environments/perf.yml
+
+#networkPoliciesAllow: []
+# - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
+# - $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
+# - $ref: /services/insights/sources/namespaces/stage-sources-stage.yml
+# - $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
+
+managedRoles: true
+
+managedResourceTypes:
+- Secret
+
+managedExternalResources: true
+
+openshiftResources:
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-common/iqe-vault.secret.yaml
+- provider: vault-secret
+  name: provisioning-azure-acc
+  path: app-interface/provisioning/stage/azure-acc
+  version: 3
+- provider: vault-secret
+  path: app-interface/provisioning/stage/gcp-account
+  name: provisioning-gcp-acc
+  version: 1
+- provider: vault-secret
+  path: app-interface/provisioning/stage/floorist-bucket
+  version: 1
+- provider: vault-secret
+  name: provisioning-sentry
+  path: app-interface/provisioning/stage/glitchtip-dsn
+  version: 1
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-perf/account.yml
+  resources:
+  - provider: rds
+    identifier: provisioning-perf
+    defaults: /terraform/resources/insights/perf/rds/postgres13-rds-1.yml
+    overrides:
+      name: provisioning_backend
+      apply_immediately: true
+      allocated_storage: 100
+    parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-provisioning-perf.yml
+    enhanced_monitoring: true
+    output_resource_name: provisioning-db
+    annotations:
+      clowder/database: provisioning-backend
+
+    # This service account is supposed to assume Customer provided roles
+    # We do not define any naming pattern for the Customer roles.
+    # We could try to impose it in the documentation and see if customers follow
+    # and then use exact role name to scope down perms of this account.
+  - provider: aws-iam-service-account
+    identifier: provisioning-serviceaccount-perf
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [{
+          "Action": [
+            "sts:AssumeRole"
+          ],
+          "Effect": "Allow",
+          "Resource": "arn:aws:iam::*:role/*"
+        }]
+      }
+    output_resource_name: provisioning-aws-acc
+  - provider: elasticache
+    identifier: provisioning-elasticache-perf
+    defaults: /terraform/resources/insights/perf/elasticache/elasticache-provisioning-1.yml
+    output_resource_name: in-memory-db
+  - provider: cloudwatch
+    identifier: provisioning-cloudwatch-perf
+    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-2.yml
+    output_resource_name: cloudwatch
+  - provider: sqs
+    identifier: provisioning-job-queue-perf
+    specs:
+    - defaults: /terraform/resources/insights/perf/sqs/provisioning-job-queue-sqs-perf.yml
+      queues:
+      - key: provisioning_job_queue_perf
+        value: provisioning-job-queue-perf
+
+glitchtipProjects:
+- $ref: /dependencies/glitchtip/projects/glitchtip-production/hcc-provisioning-stage.yml

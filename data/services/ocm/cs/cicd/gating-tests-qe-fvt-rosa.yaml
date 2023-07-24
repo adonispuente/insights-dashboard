@@ -41,8 +41,8 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 4a1fba20b36ad058aa8ec35667e7f10517d9b371
-    name: rosa-advanced
+    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    name: rosa-sts-advanced
     promotion:
       auto: true
       subscribe:
@@ -54,8 +54,8 @@ resourceTemplates:
       TEST_PROFILE: rosa-sts-ad
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 4a1fba20b36ad058aa8ec35667e7f10517d9b371
-    name: rosa-advanced
+    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    name: rosa-sts-advanced
     promotion:
       auto: true
       subscribe:
@@ -65,3 +65,29 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-sts-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    name: rosa-advanced
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-rosa-ad-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: rosa-ad
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    name: rosa-sts-upgrade
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-cs-deployed-stage
+      publish:
+      - ocm-cs-qe-fvt-rosa-sts-upgrade-stage-ok
+    parameters:
+      ENVIRONMENT: staging
+      TEST_PROFILE: rosa-sts-upgrade

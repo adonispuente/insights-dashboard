@@ -1,0 +1,59 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Philip Wu
+org_username: phwu
+github_username: philipwu08
+quay_username: phwu
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  I5C8PZbAsPCN6r0SGzDFo7mC7Rgu/TyR

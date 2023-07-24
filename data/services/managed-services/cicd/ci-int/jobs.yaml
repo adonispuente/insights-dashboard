@@ -456,17 +456,6 @@ config:
             branch: main
 
   - project:
-      name: debezium-mcs
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: debezium-mcs
-      jobs:
-        - 'gl-build-master-managed-services':
-            display_name: debezium-mcs build
-            build_deploy_script_path: './build_deploy.sh'
-            branch: main
-  - project:
       name: mk-client-examples
       label: managed-services
       node: managed-services
@@ -543,20 +532,6 @@ config:
             branch: master
 
   - project:
-      name: cos-ui-midstream
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: cos-ui
-      jobs:
-        - 'gl-pr-check':
-            display_name: cos-ui pr-check
-            concurrent_build: true
-        - 'gl-build-master-managed-services':
-            branch: mk-release
-            display_name: cos-ui build-mk-release
-
-  - project:
       name: zookeeper
       label: managed-services
       node: managed-services
@@ -566,20 +541,6 @@ config:
         - 'gl-pr-check':
             display_name: zookeeper pr-check
             pr_check_script_path: './cicd/pr_check.sh'
-
-  - project:
-      name: debezium-ui-midstream
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: cos-debezium-ui
-      jobs:
-        - 'gl-pr-check':
-            display_name: cos-debezium-ui pr-check
-            concurrent_build: true
-        - 'gl-build-master-managed-services':
-            branch: mk-release
-            display_name: cos-debezium-ui build-mk-release
 
   - project:
       name: rhosak-ui-midstream

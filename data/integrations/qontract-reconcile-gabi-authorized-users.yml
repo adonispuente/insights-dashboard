@@ -20,7 +20,7 @@ managed:
         memory: 800Mi
         cpu: 200m
       limits:
-        memory: 1000Mi
+        memory: 2Gi
         cpu: 1200m
     logs:
       slack: true
@@ -32,7 +32,7 @@ managed:
         memory: 800Mi
         cpu: 200m
       limits:
-        memory: 1000Mi
+        memory: 2Gi
         cpu: 1200m
     logs:
       slack: true

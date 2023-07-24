@@ -91,6 +91,7 @@ resourceTemplates:
       CPU_LIMIT: 1
       MEMORY_REQUEST: 600Mi
       MEMORY_LIMIT: 600Mi
+      PROM_URL : http://swatch-metering-prometheus-mock-service.rhsm-perf.svc.cluster.local:9090/api/v1/
       METRICS_WORKER_HAWTIO_BASE_PATH: /app/rhsm-metrics/hawtio
       USER_HOST: user.stage.api.redhat.com
       INVENTORY_SECRET_KEY_NAME: host-inventory-db-readonly

@@ -42,7 +42,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: c7032711682d12b7c48b66a584e0c692b042cd6e
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       auto: true
       subscribe:
@@ -51,9 +51,10 @@ resourceTemplates:
       - ocm-ams-qe-fvt-quotacost-aws-int-ok
     parameters:
       ENVIRONMENT: integration
+      GATE_NAME: ocm-ams-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c7032711682d12b7c48b66a584e0c692b042cd6e
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     promotion:
       auto: true
       subscribe:
@@ -62,3 +63,4 @@ resourceTemplates:
       - ocm-ams-qe-fvt-quotacost-aws-stage-ok
     parameters:
       ENVIRONMENT: staging
+      GATE_NAME: ocm-ams-stage-main

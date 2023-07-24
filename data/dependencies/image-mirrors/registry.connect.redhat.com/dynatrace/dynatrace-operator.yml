@@ -1,0 +1,9 @@
+---
+$schema: /dependencies/container-image-mirror-1.yml
+
+url: registry.connect.redhat.com/dynatrace/dynatrace-operator
+
+# TODO: are there more dedicated non ci-int credentials for this?
+pullCredentials:
+  path: app-sre/ci-int/redhat-registry-io-pull
+  field: all

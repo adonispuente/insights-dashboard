@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       ENV_NAME: stage
     promotion:
@@ -46,7 +46,49 @@ resourceTemplates:
       - channel: notifications-backend-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: 1c761daf6596e29c
+          target_config_hash: 7fd14c67f36bec3f
+          type: parent_saas_config
+- name: notifications-connector-servicenow
+  path: /.rhcicd/stage-servicenow-post-deployment-tests.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
+    parameters:
+      ENV_NAME: stage
+    promotion:
+      auto: true
+      subscribe:
+      - notifications-servicenow-stage-deploy-success-channel
+      publish:
+      - notifications-servicenow-stage-post-deploy-tests-success-channel
+      promotion_data:
+      - channel: notifications-servicenow-stage-deploy-success-channel
+        data:
+        - parent_saas: notifications-clowder
+          target_config_hash: 680519172553e6d3
+          type: parent_saas_config
+- name: notifications-connector-splunk
+  path: /.rhcicd/stage-splunk-post-deployment-tests.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
+    parameters:
+      ENV_NAME: stage
+    promotion:
+      auto: true
+      subscribe:
+      - notifications-splunk-stage-deploy-success-channel
+      publish:
+      - notifications-splunk-stage-post-deploy-tests-success-channel
+      promotion_data:
+      - channel: notifications-splunk-stage-deploy-success-channel
+        data:
+        - parent_saas: notifications-clowder
+          target_config_hash: 4a6d9bc807b68b23
           type: parent_saas_config
 - name: notifications-engine
   path: /.rhcicd/stage-engine-post-deployment-tests.yaml
@@ -54,7 +96,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: f9a1bfcd62bd3f23f41d721992f35966711c389a
+    ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
       ENV_NAME: stage
     promotion:
@@ -67,5 +109,5 @@ resourceTemplates:
       - channel: notifications-engine-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: 42397ba8e885f823
+          target_config_hash: c79fc45588eef187
           type: parent_saas_config

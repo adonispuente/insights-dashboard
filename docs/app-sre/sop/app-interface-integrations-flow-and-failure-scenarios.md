@@ -128,3 +128,12 @@ this was due to a code change causing QR to create a ton of MRs, overloading Git
 ### Cloudflare integrations
 
 All documentation related to Cloudflare integrations can be found in the [Cloudflare runbook](/docs/app-sre/runbook/cloudflare.md#troubleshooting).
+
+
+### CPU Throttled
+
+If an integration is CPU throttled it might fail with random erros, i.e. TLS handshake timeout, connection reset by peer, etc.
+
+To mitigate this issue, increase the CPU limit for the integration.
+
+The limit can be found in the corresponding integrations schema file.

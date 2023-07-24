@@ -59,15 +59,17 @@ externalResources:
     enhanced_monitoring: true
     output_resource_name: compliance-db
     output_resource_db_name: postgres
-    parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-compliance-perf.yml
+    parameter_group: /terraform/resources/insights/perf/rds/postgres15-parameter-group-compliance-perf.yml
   - provider: cloudwatch
     identifier: compliance-perf
     defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
   - provider: elasticache
-    identifier: compliance-stage-elasticache-rails-cache
+    identifier: compliance-perf-elasticache-rails-cache
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-compliance-1.yml
     output_resource_name: compliance-rails-cache
+    overrides:
+      apply_immediately: true
   - provider: elasticache
     identifier: compliance-perf-elasticache-clowder
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-compliance-2.yml

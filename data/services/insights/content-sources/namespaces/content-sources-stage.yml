@@ -25,6 +25,7 @@ managedRoles: true
 
 managedResourceTypes:
 - Secret
+- OperatorGroup
 
 openshiftResources:
 - provider: vault-secret
@@ -41,6 +42,18 @@ openshiftResources:
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-common/iqe-vault.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-operator-group.yml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-in-memory-db.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-s3.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/content-sources-stage/content-sources-pulp-db.secret.yaml
 
 sharedResources:
   - $ref: /services/insights/shared-resources/metrics-export-stage.yml

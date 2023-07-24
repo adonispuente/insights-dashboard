@@ -18,9 +18,11 @@ blockedVersions:
 - ^.*-ec\..*$
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
-# TODO
-# For now, block 4.12 and 4.13 upgrades until we are ready for sure
-- ^4\.12\..*$
+# Block upgrades until 4.12.23 for OCPBUGS-15424
+- ^4\.12\.[0-9]$
+- ^4\.12\.1[0-9]$
+- ^4\.12\.2[0-2]$
+# For now, block 4.13 upgrades until we are ready for sure
 - ^4\.13\..*$
 upgradePolicyAllowedWorkloads:
 - service-cluster

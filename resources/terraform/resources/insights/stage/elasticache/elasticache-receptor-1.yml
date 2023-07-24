@@ -3,11 +3,13 @@ replication_group_description: insights receptor elasticache replication group
 number_cache_clusters: 2
 node_type: cache.t2.small
 automatic_failover_enabled: true
+multi_az_enabled: true
 auto_minor_version_upgrade: false
 engine: redis
 at_rest_encryption_enabled: true
 transit_encryption_enabled: false
-engine_version: 5.0.5
+engine_version: 5.0.6
+apply_immediately: true
 parameter_group_name: default.redis5.0
 port: 6379
 security_group_ids: ['sg-043df7643040be950']

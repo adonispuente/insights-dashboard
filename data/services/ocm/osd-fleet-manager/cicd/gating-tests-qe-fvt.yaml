@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     name: integration-canary
     promotion:
       auto: true
@@ -57,7 +57,7 @@ resourceTemplates:
       RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     name: integration-main
     promotion:
       auto: true
@@ -74,7 +74,7 @@ resourceTemplates:
       RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:

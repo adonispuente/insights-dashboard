@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Elliott Baron
+org_username: ebaron
+github_username: ebaron
+quay_username: ebaron
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-engineers.yml

@@ -5,5 +5,10 @@
       selfServiceRoles {
         name
       }
+      parentApp {
+        selfServiceRoles {
+          name
+        }
+      }
     }
 }

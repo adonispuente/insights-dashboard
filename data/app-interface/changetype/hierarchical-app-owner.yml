@@ -1,0 +1,24 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: hierarchical-app-owner
+description: |
+  Grants app-owner permissions on an app hierarchy.
+
+priority: low
+
+contextType: datafile
+contextSchema: /app-sre/app-1.yml
+
+inherit:
+- $ref: /app-interface/changetype/app-owner.yml
+
+changes:
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/hierarchical-app-owner.yml
+  changeSchema: /app-sre/app-1.yml
+  context:
+    selector: parentApp.'$ref'

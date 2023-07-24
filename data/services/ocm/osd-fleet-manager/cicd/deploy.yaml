@@ -100,8 +100,8 @@ resourceTemplates:
     EXTERNAL_DNS_DOMAIN_FILTER: i3.devshift.org
     HCP_TELEMETER_URL: https://infogw.api.integration.openshift.com/metrics/v1/receive
     HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-          # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+          # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
           apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
           aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
           cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -170,7 +170,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-qetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:
@@ -223,7 +223,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-dynatrace
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:
@@ -233,7 +233,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:
@@ -246,7 +246,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-upgradetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:
@@ -322,8 +322,8 @@ resourceTemplates:
     EXTERNAL_DNS_DOMAIN_FILTER: s3.devshift.org
     HCP_TELEMETER_URL: https://infogw.api.stage.openshift.com/metrics/v1/receive
     HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-          # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+          # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+          hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
           apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
           aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
           cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -371,9 +371,6 @@ resourceTemplates:
           region: eu-west-1
         sector: perf3
       - predicate:
-          region: eu-central-1
-        sector: incidentrehearsal
-      - predicate:
           label:
             key: sector-override
             value: migrationtesting
@@ -389,7 +386,6 @@ resourceTemplates:
           - name: us-east-2 # reserved for perf testing
           - name: us-east-1 # reserved for chaos testing
           - name: eu-west-1 # reserved for perf testing (perf3 sector)
-          - name: eu-central-1 # reserved for incident rehearsal
     TELEMETER_SERVER_URL: https://infogw.api.stage.openshift.com
     TERRAFORM_ALLOWED_ACTIONS: none
     TRANSIT_ACCOUNT_ARN: arn:aws:iam::254070712068:user/svc-cluster-aws-vpce-operator
@@ -398,7 +394,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       subscribe:
@@ -410,7 +406,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       publish:
@@ -472,7 +468,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       publish:
@@ -536,7 +532,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       publish:
@@ -598,7 +594,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       publish:
@@ -656,24 +652,12 @@ resourceTemplates:
                   effect: NoSchedule
       DEPLOYMENT_NAME: chaos
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
-  - name: osd-fleet-manager-stage-incidentrehearsal
-    namespace:
-      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
-    promotion:
-      auto: true
-      publish:
-      - ocm-osdfm-deployed-stage-incidentrehearsal
-      subscribe:
-      - ocm-osdfm-deployed-stage-canary
-    parameters:
-      DEPLOYMENT_NAME: incidentrehearsal
   # Sector specifically for HCP migration testing/validation
   # See #wg-hcp-migration and https://issues.redhat.com/browse/SDE-2923
   - name: osd-fleet-manager-stage-migrationtesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 8754e56ad3dcaf8bd4d5e21a8267f39c12a78221
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
       auto: true
       publish:
@@ -685,8 +669,11 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: c676db5c9b498696ca93ef7a18c89b3b1e557671
     promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
       publish:
       - ocm-osdfm-deployed-stage-main
     parameters:

@@ -63,6 +63,15 @@ codeComponents:
 - name: uhc-clusters-service
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/uhc-clusters-service
+  gitlabSync: # FedRAMP Sync
+    sourceProject:
+      name: uhc-clusters-service
+      group: service
+      branch: master
+    destinationProject:
+      name: uhc-clusters-service
+      group: service
+      branch: master
 - name: uhc-clusters-cleaner
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/uhc-clusters-cleaner

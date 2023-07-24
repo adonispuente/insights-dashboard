@@ -133,23 +133,23 @@ spec:
             route: registry-quarkus-redhat
           record: haproxy_backend_http_responses_total:burnrate6h
     # generated from https://promtools.dev/alerts/latency
-    - name: SLOs-http_request_duration_seconds
+    - name: SLOs-http_server_requests_seconds_bucket
       rules:
         - alert: LatencyBudgetBurn
           annotations:
-            message: 'High requests latency budget burn for endpoint=registry-quarkus,namespace=registry-quarkus-redhat-production,latency=1 (current value: {{ $value }})'
+            message: 'High requests latency budget burn for service=registry-quarkus,namespace=registry-quarkus-redhat-production,latency=1 (current value: {{ $value }})'
             runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/quarkus/registry/sops#quarkus-registry-high-latency"
           expr: |
             (
-              latencytarget:http_request_duration_seconds:rate1h{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (14.4*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate1h{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (14.4*0.1)
               and
-              latencytarget:http_request_duration_seconds:rate5m{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (14.4*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate5m{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (14.4*0.1)
             )
             or
             (
-              latencytarget:http_request_duration_seconds:rate6h{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (6*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate6h{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (6*0.1)
               and
-              latencytarget:http_request_duration_seconds:rate30m{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (6*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate30m{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (6*0.1)
             )
           labels:
             service: registry-quarkus
@@ -158,19 +158,19 @@ spec:
             severity: critical
         - alert: LatencyBudgetBurn
           annotations:
-            message: 'High requests latency budget burn for endpoint=registry-quarkus,namespace=registry-quarkus-redhat-production,latency=1 (current value: {{ $value }})'
+            message: 'High requests latency budget burn for service=registry-quarkus,namespace=registry-quarkus-redhat-production,latency=1 (current value: {{ $value }})'
             runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/quarkus/registry/sops#registry-quarkus-redhat-high-latency"
           expr: |
             (
-              latencytarget:http_request_duration_seconds:rate1d{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (3*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate1d{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (3*0.1)
               and
-              latencytarget:http_request_duration_seconds:rate2h{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (3*0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate2h{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (3*0.1)
             )
             or
             (
-              latencytarget:http_request_duration_seconds:rate3d{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate3d{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (0.1)
               and
-              latencytarget:http_request_duration_seconds:rate6h{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (0.1)
+              latencytarget:http_server_requests_seconds_bucket:rate6h{service="registry-quarkus",namespace="registry-quarkus-redhat-production",latency="1"} > (0.1)
             )
           labels:
             service: registry-quarkus
@@ -179,81 +179,81 @@ spec:
             severity: high
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[5m]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[5m]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[5m]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[5m]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate5m
+          record: latencytarget:http_server_requests_seconds_bucket:rate5m
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[30m]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[30m]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[30m]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[30m]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate30m
+          record: latencytarget:http_server_requests_seconds_bucket:rate30m
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[1h]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[1h]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[1h]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[1h]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate1h
+          record: latencytarget:http_server_requests_seconds_bucket:rate1h
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[2h]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[2h]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[2h]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[2h]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate2h
+          record: latencytarget:http_server_requests_seconds_bucket:rate2h
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[6h]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[6h]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[6h]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[6h]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate6h
+          record: latencytarget:http_server_requests_seconds_bucket:rate6h
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[1d]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[1d]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[1d]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[1d]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate1d
+          record: latencytarget:http_server_requests_seconds_bucket:rate1d
         - expr: |
             1 - (
-              sum(rate(http_request_duration_seconds_bucket{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1",code=~"2.."}[3d]))
+              sum(rate(http_server_requests_seconds_bucket{service="registry-quarkus",namespace="registry-quarkus-redhat-production",le="1.0",status=~"2.."}[3d]))
               /
-              sum(rate(http_request_duration_seconds_count{endpoint="registry-quarkus",namespace="registry-quarkus-redhat-production"}[3d]))
+              sum(rate(http_server_requests_seconds_count{service="registry-quarkus",namespace="registry-quarkus-redhat-production"}[3d]))
             )
           labels:
             service: registry-quarkus
             latency: "1"
             namespace: registry-quarkus-redhat-production
-          record: latencytarget:http_request_duration_seconds:rate3d
+          record: latencytarget:http_server_requests_seconds_bucket:rate3d
 
 
     - name: registry-quarkus-redhat_alerts
@@ -290,7 +290,7 @@ spec:
         - alert: Quarkus Registry - Memory usage is above 90%
           annotations:
             message: Quarkus Registry Pod {{ $labels.pod }} on namespace {{ $labels.namespace }} usages is above 90%({{ $value }})
-          expr: sum(container_memory_working_set_bytes{namespace="registry-quarkus-redhat-production", container="registry-quarkus-redhat"}) by (pod, namespace) / sum(kube_pod_container_resource_limits{namespace="registry-quarkus-redhat-production", container="registry-quarkus-redhat", resource="memory"}) BY (pod, namespace) * 100 > 90
+          expr: sum(container_memory_working_set_bytes{namespace="registry-quarkus-redhat-production", container="quarkus-registry-app"}) by (pod, namespace) / sum(kube_pod_container_resource_limits{namespace="registry-quarkus-redhat-production", container="quarkus-registry-app", resource="memory"}) BY (pod, namespace) * 100 > 90
           for: 1m
           labels:
             severity: warning
@@ -298,7 +298,7 @@ spec:
         - alert: Quarkus Registry - Memory usage is above 80%
           annotations:
             message: Quarkus Registry Pod {{ $labels.pod }} on namespace {{ $labels.namespace }} usages is above 80%({{ $value }})
-          expr: sum(container_memory_working_set_bytes{namespace="registry-quarkus-redhat-production", container="registry-quarkus-redhat"}) by (pod, namespace) / sum(kube_pod_container_resource_limits{namespace="registry-quarkus-redhat-production", container="registry-quarkus-redhat", resource="memory"}) BY (pod, namespace) * 100 > 80
+          expr: sum(container_memory_working_set_bytes{namespace="registry-quarkus-redhat-production", container="quarkus-registry-app"}) by (pod, namespace) / sum(kube_pod_container_resource_limits{namespace="registry-quarkus-redhat-production", container="quarkus-registry-app", resource="memory"}) BY (pod, namespace) * 100 > 80
           for: 1m
           labels:
             severity: info

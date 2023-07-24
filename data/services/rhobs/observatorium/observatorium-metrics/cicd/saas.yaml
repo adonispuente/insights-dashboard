@@ -139,7 +139,7 @@ resourceTemplates:
       SERVICE_ACCOUNT_NAME: observatorium-metrics
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-metrics-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
@@ -225,7 +225,7 @@ resourceTemplates:
       - observatorium-metrics-stage-deploy-success-channel
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-production.yml
-    ref: cac4733113cb7f8da6de20bc1e17bed071f0f891
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-metrics-production
       OBSERVATORIUM_NAMESPACE: observatorium-production
@@ -305,7 +305,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: f53e47d938134857b03c11a1f28989a797cd7c65
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-metrics-stage
       THANOS_CONFIG_SECRET: thanos-objectstorage
@@ -324,7 +324,7 @@ resourceTemplates:
       SERVICE_ACCOUNT_NAME: observatorium-metrics
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-production.yml
-    ref: f53e47d938134857b03c11a1f28989a797cd7c65
+    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
     parameters:
       NAMESPACE: observatorium-metrics-production
       THANOS_CONFIG_SECRET: thanos-objectstorage
@@ -341,24 +341,4 @@ resourceTemplates:
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       JAEGER_COLLECTOR_NAMESPACE: observatorium-production
       SERVICE_ACCOUNT_NAME: observatorium-metrics
-- name: rhobs-thanos-receive-migration-template
-  path: /resources/services/receiver-migration-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-    - namespace:
-        $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-production.yml
-      ref: 9a05873e125cbe1f1829e9cc244c25f5fa4653a6
-      delete: true
-      parameters:
-        NAMESPACE: observatorium-metrics-production
-        PRIMARY_UPSTREAM_HOST: 'observatorium-thanos-receive-router.observatorium-metrics-production.svc.cluster.local'
-        MIRROR_HOST: 'observatorium-thanos-receive.observatorium-metrics-production.svc.cluster.local'
-        RECEIVER_KETAMA_REPLICAS: '0'
-        RECEIVER_KETAMA_CPU_REQUEST: '6'
-        RECEIVER_KETAMA_CPU_LIMIT: '6'
-        RECEIVER_KETAMA_MEMORY_REQUEST: '50Gi'
-        RECEIVER_KETAMA_MEMORY_LIMIT: '50Gi'
-        THANOS_CONFIG_SECRET: thanos-objectstorage
-        THANOS_S3_SECRET: telemeter-thanos-production-s3
-        RECEIVER_SERVICE_ACCOUNT: observatorium-metrics
-        RECEIVER_REPLICATION_FACTOR: 1
+

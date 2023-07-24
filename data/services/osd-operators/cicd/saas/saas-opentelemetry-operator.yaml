@@ -24,20 +24,37 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-- name: opentelemetry-operator-integration
+- name: opentelemetry-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/opentelemetry-operator/template.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
-- name: opentelemetry-collector-integration-hs-management-clusters
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+- name: opentelemetry-collector-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/opentelemetry-collector/template.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
+    parameters:
+      ENVIRONMENT: integration
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
-    ENVIRONMENT: integration

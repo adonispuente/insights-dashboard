@@ -14,7 +14,7 @@ spec:
   - name: prometheus-app-sre.rules
     rules:
     {{%- for cluster in query('/queries/cluster-namespace-onboarding-status.graphql', name=resource.namespace.cluster.name) %}}
-    {{%- for namespace in cluster.namespaces %}}
+    {{%- for namespace in cluster.namespaces | sort(attribute='name') %}}
     {{% set labels = namespace.app.labels | json_to_dict %}}
     - alert: PrometheusTargetFlapping
       labels:

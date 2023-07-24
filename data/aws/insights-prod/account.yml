@@ -1326,6 +1326,10 @@ deletionApprovals:
 - type: aws_iam_user_policy_attachment
   name: hccm-hcs-s3-read-prod
   expiration: '2023-05-28'
+# related to APPSRE-7437
+- type: aws_db_instance
+  name: vulnerability-engine-readonly
+  expiration: '2023-07-31'
 
 resetPasswords:
   - user:

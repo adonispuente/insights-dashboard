@@ -29,6 +29,7 @@ authentication:
   image:
     path: app-sre/quay/app-sre-pull
     field: all
+validateTargetsInApp: true
 resourceTemplates:
 - name: account-reconciler-job
   url: https://gitlab.cee.redhat.com/service/uhc-account-manager
@@ -55,6 +56,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -116,7 +118,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       WORKER_COUNT: '2'
@@ -164,6 +166,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -226,7 +229,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 36 17 * * *
@@ -275,6 +278,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -335,7 +339,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 26 */2 * * *
@@ -384,6 +388,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -444,7 +449,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 21 */5 * * *
@@ -492,6 +497,7 @@ resourceTemplates:
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     MAX_DELETE_CLUSTERS: '1'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -552,7 +558,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -598,6 +604,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -658,7 +665,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 3-59/30 * * * *
@@ -706,6 +713,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -716,7 +724,7 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-int-main
-      CRON_SCHEDULE: '*/10 * * * *'
+      CRON_SCHEDULE: '0 */4 * * *'
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -730,7 +738,7 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
-      CRON_SCHEDULE: '*/10 * * * *'
+      CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -745,7 +753,7 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
-      CRON_SCHEDULE: '*/10 * * * *'
+      CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -760,7 +768,7 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
-      CRON_SCHEDULE: '*/10 * * * *'
+      CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -771,7 +779,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
@@ -817,6 +825,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -878,7 +887,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 11 * * * *
@@ -924,6 +933,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -984,7 +994,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 31 11 * * *
@@ -1032,6 +1042,7 @@ resourceTemplates:
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     CLIENT_CARDINALITY: '500'
     WORKER_COUNT: '3'
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1095,7 +1106,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 16 * * * *
@@ -1142,6 +1153,7 @@ resourceTemplates:
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
     TELEMETER_URL: ${TELEMETER_BASE_URL}
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1203,7 +1215,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
@@ -1251,6 +1263,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1312,7 +1325,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1357,6 +1370,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1419,7 +1433,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 46 * * * *
@@ -1467,6 +1481,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1527,7 +1542,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1572,6 +1587,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1632,7 +1648,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1681,6 +1697,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1691,6 +1708,7 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-int-main
+      CRON_SCHEDULE: 0,30 * * * *
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       RBAC_PROXY: ''
       USE_CANDLEPIN_BASIC_AUTH: 'true'
@@ -1750,7 +1768,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
@@ -1797,6 +1815,7 @@ resourceTemplates:
     SENTRY_PROJECT: '12'
     MOA_SKU: SER0579
     RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
@@ -1854,7 +1873,106 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 9a31dcee1a457e11dd855dffaa2588c730de1556
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
+    parameters:
+      JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
+      RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
+      RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
+      RHIT_BASE_REGISTRY_URL: https://container-registry-authorizer.api.redhat.com/v1/
+      RHIT_BASE_REGNUM_URL: https://subscription.api.redhat.com/svcrest/regnum/v5/
+      RHIT_BASE_EXPORT_COMPLIANCE_URL: https://export-compliance.api.redhat.com/v1/
+      RHIT_BASE_TERMS_URL: https://terms.api.redhat.com/svcrest/terms/
+      RHIT_BASE_TNC_URL: https://www.redhat.com/wapps/tnc
+      RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.redhat.com/candlepin
+      SENTRY_URL: glitchtip.devshift.net
+      ENABLE_CERTIFICATE_MOCK: 'false'
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_for_vault_secret_21
+      UNLEASH_URL: https://ocm.unleash.devshift.net/api
+      QUAY_REGISTRY_TEAM_NAME: installers
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local
+      SENTRY_PROJECT: '50'
+      MOA_SKU: MW01369
+
+- name: certificates-expiration-notifier-reconciler-job
+  url: https://gitlab.cee.redhat.com/service/uhc-account-manager
+  path: /templates/cronjob-template.yml
+  parameters:
+    JOB_NAME: ocm-ams-certificates-expiration-notifier-reconciler
+    AMS_RUN_JOB_CMD: certificates-expiration-notifier-reconciler
+    CRON_SCHEDULE: 30 16 * * *
+    JOB_ACTIVE_DEADLINE_SECONDS: 600
+    SUSPEND_JOB: 'false'
+    IMAGE_REGISTRY: quay.io
+    IMAGE_REPOSITORY: app-sre/uhc-account-manager
+    UHC_BASE_URL: ${OCM_BASE_URL}
+    UHC_TOKEN_URL: ${SSO_BASE_URL}/protocol/openid-connect/token
+    QUAY_REGISTRY_ORG_NAME: openshift-release-dev
+    AUTOMATIC_BAN: 'false'
+    ENABLE_SENTRY: 'true'
+    RHIT_TIMEOUT: 30s
+    GODEBUG: http2server=0
+    DB_MAX_OPEN_CONNS: 250
+    MANDRILL_TIMEOUT: 60s
+    RHIT_BASE_CANDLEPIN_URL: https://admin.rhsm.stage.redhat.com/candlepin
+    USE_CANDLEPIN_BASIC_AUTH: 'false'
+    SENTRY_PROJECT: '12'
+    MOA_SKU: SER0579
+    RHM_SKU_LIST_FILE: /configs/subscription-skus/rhm-skus-enhanced.yaml
+    ULOG_V: info
+  targets:
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-integration.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-uhc-account-manager-gl-build-master
+    parameters:
+      USE_CANDLEPIN_BASIC_AUTH: 'true'
+      SENTRY_URL: glitchtip.devshift.net
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-uhc-account-manager-gl-build-master
+    parameters:
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
+      SENTRY_URL: glitchtip.devshift.net
+      UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-uhc-account-manager-gl-build-master
+    parameters:
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
+      SENTRY_URL: glitchtip.devshift.net
+      UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage-sso-test.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-uhc-account-manager-gl-build-master
+    parameters:
+      METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
+      RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
+      UHC_TOKEN_URL: ${SSO_BASE_URL}/protocol/openid-connect/token
+      SENTRY_URL: glitchtip.devshift.net
+      UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-production.yml
+    ref: 77845b45ec73ad2a6eb7d98c4b5db1e2dde31d80
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json

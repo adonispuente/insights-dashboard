@@ -25,6 +25,9 @@ subjects:
     name: philipgough
   - apiGroup: rbac.authorization.k8s.io
     kind: User
+    name: pgough
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
     name: periklis
   - apiGroup: rbac.authorization.k8s.io
     kind: User

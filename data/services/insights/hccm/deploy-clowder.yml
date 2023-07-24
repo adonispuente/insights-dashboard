@@ -173,6 +173,7 @@ resourceTemplates:
       ROS_OCP_API: ros-ocp-backend-api.ros-stage.svc.cluster.local
       S3_BUCKET_NAME: hccm-stage-s3
       S3_ROS_BUCKET_NAME: hccm-ros-stage-s3
+      S3_SUBS_BUCKET_NAME: hccm-subs-stage-s3
       KOKU_SENTRY_ENV: stage
       ENABLE_API_SENTRY: True
       ENABLE_CELERY_SENTRY: True
@@ -187,8 +188,9 @@ resourceTemplates:
       UPDATE_TIMEOUT: 14400
       RETAIN_NUM_MONTHS: 4
       VACUUM_DATA_DAY_OF_WEEK: 0
-      REPORT_DOWNLOAD_SCHEDULE: "0 0,6,12,18 * * *" # Every 6 hours
-      POLLING_TIMER: 43200 # 12 hours
+      REPORT_DOWNLOAD_SCHEDULE: "0 0,5,15,22 * * *" # 4 times a day avoiding QE test runs
+      POLLING_TIMER: 72000 # 20 hours
+      POLLING_BATCH_SIZE: 25 # Polling provider count
       PARQUET_PROCESSING_BATCH_SIZE: "500000"
       TRINO_HOST: trino-coordinator
       RBAC_CACHE_TIMEOUT: 1
@@ -196,20 +198,26 @@ resourceTemplates:
       # Deployment specific variables:
       # koku-api
       KOKU_REPLICAS: 3
-      KOKU_CPU_REQUEST: 100m
-      KOKU_CPU_LIMIT: 1
+      KOKU_CPU_REQUEST: 300m
+      KOKU_CPU_LIMIT: 600m
       KOKU_MEMORY_REQUEST: 768Mi
       KOKU_MEMORY_LIMIT: 1536Mi
+      # clowder-api nginx
+      NGINX_REPLICAS: 2
+      NGINX_CPU_REQUEST: 100m
+      NGINX_CPU_LIMIT: 200m
+      NGINX_MEMORY_REQUEST: 100Mi
+      NGINX_MEMORY_LIMIT: 200Mi
       # listener
       LISTENER_REPLICAS: 3
       LISTENER_CPU_REQUEST: 200m
-      LISTENER_CPU_LIMIT: 500m
-      LISTENER_MEMORY_REQUEST: 512Mi
-      LISTENER_MEMORY_LIMIT: 1Gi
+      LISTENER_CPU_LIMIT: 400m
+      LISTENER_MEMORY_REQUEST: 300Mi
+      LISTENER_MEMORY_LIMIT: 600Mi
       # masu
       MASU_REPLICAS: 1
-      MASU_MEMORY_REQUEST: 512Mi
-      MASU_MEMORY_LIMIT: 1Gi
+      MASU_MEMORY_REQUEST: 600Mi
+      MASU_MEMORY_LIMIT: 800Mi
       # scheduler
       SCHEDULER_REPLICAS: 1
       SCHEDULER_MEMORY_REQUEST: 256Mi
@@ -232,30 +240,30 @@ resourceTemplates:
       WORKER_CELERY_REPLICAS: 3
       WORKER_CELERY_CPU_REQUEST: 50m
       WORKER_CELERY_CPU_LIMIT: 250m
-      WORKER_CELERY_MEMORY_REQUEST: 512Mi
-      WORKER_CELERY_MEMORY_LIMIT: 1Gi
+      WORKER_CELERY_MEMORY_REQUEST: 300Mi
+      WORKER_CELERY_MEMORY_LIMIT: 600Mi
       # worker-cost-model
       WORKER_COST_MODEL_REPLICAS: 3
       WORKER_COST_MODEL_CPU_REQUEST: 50m
       WORKER_COST_MODEL_CPU_LIMIT: 200m
-      WORKER_COST_MODEL_MEMORY_REQUEST: 400Mi
+      WORKER_COST_MODEL_MEMORY_REQUEST: 300Mi
       WORKER_COST_MODEL_MEMORY_LIMIT: 600Mi
       # worker-download
       WORKER_DOWNLOAD_REPLICAS: 3
-      WORKER_DOWNLOAD_CPU_REQUEST: 500m
-      WORKER_DOWNLOAD_CPU_LIMIT: 1
-      WORKER_DOWNLOAD_MEMORY_REQUEST: 5Gi
-      WORKER_DOWNLOAD_MEMORY_LIMIT: 8Gi
+      WORKER_DOWNLOAD_CPU_REQUEST: 300m
+      WORKER_DOWNLOAD_CPU_LIMIT: 600m
+      WORKER_DOWNLOAD_MEMORY_REQUEST: 2Gi
+      WORKER_DOWNLOAD_MEMORY_LIMIT: 4Gi
       # worker-ocp
       WORKER_OCP_REPLICAS: 3
       WORKER_OCP_CPU_REQUEST: 75m
       WORKER_OCP_CPU_LIMIT: 200m
-      WORKER_OCP_MEMORY_REQUEST: 600Mi
+      WORKER_OCP_MEMORY_REQUEST: 300Mi
       WORKER_OCP_MEMORY_LIMIT: 600Mi
       # worker-priority
       WORKER_PRIORITY_REPLICAS: 3
-      WORKER_PRIORITY_CPU_REQUEST: 75m
-      WORKER_PRIORITY_CPU_LIMIT: 500m
+      WORKER_PRIORITY_CPU_REQUEST: 200m
+      WORKER_PRIORITY_CPU_LIMIT: 400m
       WORKER_PRIORITY_MEMORY_REQUEST: 1Gi
       WORKER_PRIORITY_MEMORY_LIMIT: 2Gi
       # worker-refresh
@@ -270,6 +278,18 @@ resourceTemplates:
       WORKER_SUMMARY_CPU_LIMIT: 200m
       WORKER_SUMMARY_MEMORY_REQUEST: 650Mi
       WORKER_SUMMARY_MEMORY_LIMIT: 800Mi
+      # worker-cost-model-xl
+      WORKER_COST_MODEL_XL_REPLICAS: 0
+      # worker-download-xl
+      WORKER_DOWNLOAD_XL_REPLICAS: 0
+      # worker-ocp-xl
+      WORKER_OCP_XL_REPLICAS: 0
+      # worker-priority-xl
+      WORKER_PRIORITY_XL_REPLICAS: 0
+      # worker-refresh-xl
+      WORKER_REFRESH_XL_REPLICAS: 0
+      # worker-summary-xl
+      WORKER_SUMMARY_XL_REPLICAS: 0
       # worker-hcs
       WORKER_HCS_REPLICAS: 3
       WORKER_HCS_CPU_REQUEST: 75m
@@ -281,12 +301,12 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 84c0b55150294d60aa06a7d09ad7aa8b04e65be9
+    ref: dee8aa899cfac51edb418cd2a8e8c1bff0ec92c1
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: 1f1e77c
+      DBM_IMAGE_TAG: f4cfc15
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -301,6 +321,7 @@ resourceTemplates:
       ROS_OCP_API: ros-ocp-backend-api.ros-prod.svc.cluster.local
       S3_BUCKET_NAME: hccm-prod-s3
       S3_ROS_BUCKET_NAME: hccm-ros-prod-s3
+      S3_SUBS_BUCKET_NAME: hccm-subs-prod-s3
       KOKU_SENTRY_ENV: prod
       ENABLE_API_SENTRY: True
       ENABLE_CELERY_SENTRY: True
@@ -321,14 +342,12 @@ resourceTemplates:
       UPDATE_TIMEOUT: 14400
       VACUUM_DATA_DAY_OF_WEEK: 0
 
-      TENANT_MULTIPROCESSING_MAX_PROCESSES: "4"
+      TENANT_MULTIPROCESSING_MAX_PROCESSES: "6"
       TENANT_MULTIPROCESSING_CHUNKS: "1"
 
-      # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 8 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 10 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 14 * * *"
+      REPORT_DOWNLOAD_SCHEDULE: "0 * * * *" # Every hour
+      POLLING_TIMER: 82800 # 23Hrs between same provider polling
+      POLLING_BATCH_SIZE: 27
 
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False
@@ -340,10 +359,16 @@ resourceTemplates:
       KOKU_CPU_LIMIT: 1
       KOKU_MEMORY_REQUEST: 2Gi
       KOKU_MEMORY_LIMIT: 4Gi
+      # clowder-api nginx
+      NGINX_REPLICAS: 3
+      NGINX_CPU_REQUEST: 150m
+      NGINX_CPU_LIMIT: 300m
+      NGINX_MEMORY_REQUEST: 200Mi
+      NGINX_MEMORY_LIMIT: 400Mi
       # listener
-      LISTENER_REPLICAS: 6  # 6
+      LISTENER_REPLICAS: 5  #5
       LISTENER_CPU_REQUEST: 200m
-      LISTENER_CPU_LIMIT: 1
+      LISTENER_CPU_LIMIT: 500m
       LISTENER_MEMORY_REQUEST: 1Gi
       LISTENER_MEMORY_LIMIT: 2Gi
       # masu
@@ -351,7 +376,7 @@ resourceTemplates:
       MASU_MEMORY_REQUEST: 512Mi
       MASU_MEMORY_LIMIT: 1Gi
       # scheduler
-      SCHEDULER_REPLICAS: 1  # 1
+      SCHEDULER_REPLICAS: 1  #1
       SCHEDULER_MEMORY_REQUEST: 256Mi
       SCHEDULER_MEMORY_LIMIT: 512Mi
       # sources-client
@@ -359,57 +384,93 @@ resourceTemplates:
       SOURCES_CLIENT_CPU_REQUEST: 250m
       SOURCES_CLIENT_CPU_LIMIT: 500m
       SOURCES_CLIENT_MEMORY_REQUEST: 256Mi
-      SOURCES_CLIENT_MEMORY_LIMIT: 1Gi
+      SOURCES_CLIENT_MEMORY_LIMIT: 512Mi
       # sources-listener
       SOURCES_LISTENER_REPLICAS: 1
       SOURCES_LISTENER_CPU_REQUEST: 250m
       SOURCES_LISTENER_CPU_LIMIT: 500m
       SOURCES_LISTENER_MEMORY_REQUEST: 256Mi
-      SOURCES_LISTENER_MEMORY_LIMIT: 1Gi
+      SOURCES_LISTENER_MEMORY_LIMIT: 512Mi
       # workers global
       WORKER_PROC_ALIVE_TIMEOUT: 9
       # worker-celery
       WORKER_CELERY_REPLICAS: 3
       WORKER_CELERY_CPU_REQUEST: 200m
       WORKER_CELERY_CPU_LIMIT: 1
-      WORKER_CELERY_MEMORY_REQUEST: 1Gi
-      WORKER_CELERY_MEMORY_LIMIT: 2Gi
+      WORKER_CELERY_MEMORY_REQUEST: 512Mi
+      WORKER_CELERY_MEMORY_LIMIT: 1Gi
       # worker-cost-model
-      WORKER_COST_MODEL_REPLICAS: 3
+      WORKER_COST_MODEL_REPLICAS: 2 #2
       WORKER_COST_MODEL_CPU_REQUEST: 100m
       WORKER_COST_MODEL_CPU_LIMIT: 300m
-      WORKER_COST_MODEL_MEMORY_REQUEST: 512Mi
-      WORKER_COST_MODEL_MEMORY_LIMIT: 1Gi
+      WORKER_COST_MODEL_MEMORY_REQUEST: 400Mi
+      WORKER_COST_MODEL_MEMORY_LIMIT: 800Mi
+      # worker-cost-model_xl
+      WORKER_COST_MODEL_XL_REPLICAS: 2 #2
+      WORKER_COST_MODEL_XL_CPU_REQUEST: 100m
+      WORKER_COST_MODEL_XL_CPU_LIMIT: 300m
+      WORKER_COST_MODEL_XL_MEMORY_REQUEST: 512Mi
+      WORKER_COST_MODEL_XL_MEMORY_LIMIT: 1Gi
       # worker-download
-      WORKER_DOWNLOAD_REPLICAS: 6  # 6
+      WORKER_DOWNLOAD_REPLICAS: 3  #3
       WORKER_DOWNLOAD_CPU_REQUEST: 700m
       WORKER_DOWNLOAD_CPU_LIMIT: 1500m
-      WORKER_DOWNLOAD_MEMORY_REQUEST: 5Gi
+      WORKER_DOWNLOAD_MEMORY_REQUEST: 4Gi
       WORKER_DOWNLOAD_MEMORY_LIMIT: 8Gi
+      # worker-download_xl
+      WORKER_DOWNLOAD_XL_REPLICAS: 3  #3
+      WORKER_DOWNLOAD_XL_CPU_REQUEST: 700m
+      WORKER_DOWNLOAD_XL_CPU_LIMIT: 1500m
+      WORKER_DOWNLOAD_XL_MEMORY_REQUEST: 4Gi
+      WORKER_DOWNLOAD_XL_MEMORY_LIMIT: 8Gi
       # worker-ocp
-      WORKER_OCP_REPLICAS: 7  # 7
-      WORKER_OCP_CPU_REQUEST: 300m
-      WORKER_OCP_CPU_LIMIT: 500m
-      WORKER_OCP_MEMORY_REQUEST: 1Gi
-      WORKER_OCP_MEMORY_LIMIT: 2Gi
+      WORKER_OCP_REPLICAS: 3  #3
+      WORKER_OCP_CPU_REQUEST: 200m
+      WORKER_OCP_CPU_LIMIT: 400m
+      WORKER_OCP_MEMORY_REQUEST: 400Mi
+      WORKER_OCP_MEMORY_LIMIT: 800Mi
+      # worker-ocp_xl
+      WORKER_OCP_XL_REPLICAS: 3  #3
+      WORKER_OCP_XL_CPU_REQUEST: 250m
+      WORKER_OCP_XL_CPU_LIMIT: 500m
+      WORKER_OCP_XL_MEMORY_REQUEST: 512Mi
+      WORKER_OCP_XL_MEMORY_LIMIT: 1Gi
       # worker-priority
-      WORKER_PRIORITY_REPLICAS: 1  # 3
+      WORKER_PRIORITY_REPLICAS: 1  #1
       WORKER_PRIORITY_CPU_REQUEST: 500m
       WORKER_PRIORITY_CPU_LIMIT: 1
-      WORKER_PRIORITY_MEMORY_REQUEST: 3Gi
-      WORKER_PRIORITY_MEMORY_LIMIT: 5Gi
+      WORKER_PRIORITY_MEMORY_REQUEST: 2Gi
+      WORKER_PRIORITY_MEMORY_LIMIT: 4Gi
+      # worker-priority_xl
+      WORKER_PRIORITY_XL_REPLICAS: 1  #1
+      WORKER_PRIORITY_XL_CPU_REQUEST: 500m
+      WORKER_PRIORITY_XL_CPU_LIMIT: 1
+      WORKER_PRIORITY_XL_MEMORY_REQUEST: 3Gi
+      WORKER_PRIORITY_XL_MEMORY_LIMIT: 6Gi
       # worker-refresh
-      WORKER_REFRESH_REPLICAS: 3  # 3
+      WORKER_REFRESH_REPLICAS: 2  #2
       WORKER_REFRESH_CPU_REQUEST: 100m
       WORKER_REFRESH_CPU_LIMIT: 200m
       WORKER_REFRESH_MEMORY_REQUEST: 300Mi
       WORKER_REFRESH_MEMORY_LIMIT: 600Mi
+      # worker-refresh_xl
+      WORKER_REFRESH_XL_REPLICAS: 2  #2
+      WORKER_REFRESH_XL_CPU_REQUEST: 100m
+      WORKER_REFRESH_XL_CPU_LIMIT: 200m
+      WORKER_REFRESH_XL_MEMORY_REQUEST: 300Mi
+      WORKER_REFRESH_XL_MEMORY_LIMIT: 600Mi
       # worker-summary
-      WORKER_SUMMARY_REPLICAS: 10  # 6
+      WORKER_SUMMARY_REPLICAS: 3  #3
       WORKER_SUMMARY_CPU_REQUEST: 100m
       WORKER_SUMMARY_CPU_LIMIT: 200m
-      WORKER_SUMMARY_MEMORY_REQUEST: 512Mi
-      WORKER_SUMMARY_MEMORY_LIMIT: 2Gi
+      WORKER_SUMMARY_MEMORY_REQUEST: 400Mi
+      WORKER_SUMMARY_MEMORY_LIMIT: 800Mi
+      # worker-summary_xl
+      WORKER_SUMMARY_XL_REPLICAS: 3  #3
+      WORKER_SUMMARY_XL_CPU_REQUEST: 100m
+      WORKER_SUMMARY_XL_CPU_LIMIT: 200m
+      WORKER_SUMMARY_XL_MEMORY_REQUEST: 512Mi
+      WORKER_SUMMARY_XL_MEMORY_LIMIT: 1Gi
       # worker-hcs
       WORKER_HCS_REPLICAS: 3
       WORKER_HCS_CPU_REQUEST: 100m
@@ -440,9 +501,9 @@ resourceTemplates:
       S3_BUCKET_NAME: hccm-stage-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      MEMORY_REQUEST: 6Gi
-      MEMORY_LIMIT: 16Gi
-      MAX_HEAP_SIZE: 14G
+      MEMORY_REQUEST: 3Gi
+      MEMORY_LIMIT: 5Gi
+      MAX_HEAP_SIZE: 3G
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
     ref: ab1350614a39ae246c77fedd1bc97c56da3e4347
@@ -452,9 +513,9 @@ resourceTemplates:
       S3_BUCKET_NAME: hccm-prod-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      MEMORY_REQUEST: 18Gi
-      MEMORY_LIMIT: 20Gi
-      MAX_HEAP_SIZE: 18G
+      MEMORY_REQUEST: 6Gi
+      MEMORY_LIMIT: 10Gi
+      MAX_HEAP_SIZE: 6G
 
 - name: presto
   # repo deploy file: https://github.com/RedHatInsights/ubi-trino/blob/main/deploy/clowdapp.yaml
@@ -707,7 +768,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: a581d7147c75e07f79ada8a2f4eb2f4fc41a2831
+    ref: a6322a64969b23e4c5c1383684c55a8ac5b55dc3
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
@@ -725,14 +786,14 @@ resourceTemplates:
     # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: ad0b22b07a9c5b2357feeb90d02e5e84fc9b08a1
+    ref: 7a93bdcd06dcfdccdcfd3a103d4a91cd90fb5637
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 60cff010871b3a24b9d3eade6aae6f7144fb7179
+    ref: 66e37c1c182f33906e374a83d7cb95c4a0b06a7a
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hccm-frontend"

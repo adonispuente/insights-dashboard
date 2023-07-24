@@ -67,6 +67,9 @@ awsInfrastructureManagementAccounts:
     $ref: /aws/insights-prod/account.yml
   accessLevel: network-mgmt
   default: true
+- account:
+    $ref: /aws/app-sre/account.yml
+  accessLevel: network-mgmt
 awsInfrastructureAccess:
 - awsGroup:
     $ref: /aws/insights-prod/groups/App-SRE-admin.yml
@@ -86,4 +89,10 @@ peering:
     name: insights-prod-02
     vpc:
       $ref: /aws/insights-prod/vpcs/vpc-0c2d69ab090d424cf.yml
+    manageRoutes: true
+  - provider: account-vpc
+    name: insights-prod-vpc-01_app-sre-vpc-01
+    vpc:
+      $ref: /aws/app-sre/vpcs/app-sre-vpc-01.yml
+    manageAccountRoutes: true
     manageRoutes: true

@@ -52,7 +52,7 @@ resourceTemplates:
       QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "update_me_when_secret_changes_2023-05-17-1"
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 85a5473e8d72ca10af531af04eeab604088d7d90
+    ref: 750decb37b8b39192ea978e2a294f65c5f6df935
     parameters:
       QUAY_SEVICE_TOOL_CONFIG_SECRET: "quay-service-tool-config"
       IMAGE: "quay.io/app-sre/quay-service-tool"
@@ -130,6 +130,7 @@ resourceTemplates:
       DB_HOST_SECRET: "quayio-stage-57-py3-rds"
       DB_CREDS_SECRET: "quayio-stage-57-py3-rds"
       EXECUTION_TYPE: "SCHEMA_VALIDATION"
+    delete: true # deleting from the namespace - will remove in followup MR.
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
     ref: 8e736d1127f22e521161b18d47a3457f6c05ad55

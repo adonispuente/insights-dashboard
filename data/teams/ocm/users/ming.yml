@@ -1,0 +1,59 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Mike Ng
+org_username: ming
+github_username: mikeshng
+quay_username: ming
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  wcn+7B9x4Rb4QN8nXED37TOtDiu9Jg==

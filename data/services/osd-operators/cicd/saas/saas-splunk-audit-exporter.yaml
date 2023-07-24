@@ -24,7 +24,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/splunk-audit-exporter
   path: /hack/deploy/hypershift/policy.yaml
   parameters:
-    IMAGE_TAG: 0.1.145-b377c74
+    IMAGE_TAG: 0.1.147-e2e769a
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
@@ -38,7 +38,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: b377c74dff9eedd8f511959851ccfec4b379635c
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     promotion:
       auto: true
       publish:
@@ -47,7 +47,7 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: b377c74dff9eedd8f511959851ccfec4b379635c
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     promotion:
       auto: true
       publish:
@@ -56,39 +56,39 @@ resourceTemplates:
       - hypershift-splunk-audit-exporter-deployment-hivei01ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 23813dfb6a9fa9df6e52fe156ce0833236f183b1
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
     parameters:
-      IMAGE_TAG: 0.1.143-23813df
+      IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master

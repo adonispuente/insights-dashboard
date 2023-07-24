@@ -34,7 +34,7 @@ spec:
   provider: aws
   region: us-west-2
   channel: candidate
-  version: 4.13.0
+  version: 4.13.4
   initial_version: 4.13.0
   multi_az: true
   nodes: 9
@@ -136,4 +136,5 @@ disable:
   - slack-usergroups
 managedClusterRoles: true
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml

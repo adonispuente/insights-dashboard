@@ -11,7 +11,7 @@ description: |
  The FedRAMP customer interest service translates customer interest in FedRAMP to ServiceNow incidents
 
 architectureDocument: https://gitlab.cee.redhat.com/service/fedramp-customer-interest-service/-/blob/main/docs/architecture.md
-sopsUrl: https://TODO
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/fedramp-customer-interest/app-sops/README.md
 grafanaUrls:
 - title: https://TODO
   url: https://TODO
@@ -32,6 +32,7 @@ dependencies:
 - $ref: /dependencies/quay/service.yml
 - $ref: /dependencies/gitlab/service.yml
 - $ref: /dependencies/openshift/service.yml
+- $ref: /dependencies/aws/service.yml
 
 quayRepos:
 - org:

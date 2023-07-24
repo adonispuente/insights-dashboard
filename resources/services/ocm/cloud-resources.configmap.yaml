@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-resources-config
+data:
+  config.yaml: |
+    instance_types:
+    - id: m5ad.xlarge
+      name: m5ad.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: storage_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highstorage-4-5ad
+      enabled: true
+    cloud_regions:
+    - id: us-west-1
+      cloud_provider_id: aws
+      display_name: US West 1
+      enabled: true
+      supports_multi_az: true
+      ccs_only: false
+      govcloud: false

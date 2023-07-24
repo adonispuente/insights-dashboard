@@ -247,3 +247,6 @@ managedUsergroups:
 - appeng-keycloak-ic
 - rhtap-alerts-group
 - rhobs-rules-and-dashboards
+- dynatrace-rules-and-dashboards
+- managed-scripts
+- aro-codeowners

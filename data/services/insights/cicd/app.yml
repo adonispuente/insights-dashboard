@@ -117,6 +117,9 @@ quayRepos:
   - name: s3-data-sync
     public: true
     description: Repo for the s3-data-sync
+  - name: build-cache
+    public: false
+    description: Repo for the common podman-build cache
 
 dependencies:
 - $ref: /dependencies/github/service.yml

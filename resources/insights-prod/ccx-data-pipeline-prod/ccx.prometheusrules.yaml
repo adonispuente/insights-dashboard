@@ -122,6 +122,7 @@ spec:
           message: "ccx-upgrades-data-eng service has been down for two minutes <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXUpgradesInferenceDown
         expr: sum(up{service="ccx-upgrades-inference-svc"}) == 0
         for: 2m
@@ -134,6 +135,7 @@ spec:
           message: "ccx-upgrades-inference service has been down for two minutes <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXUpgradesDataEng500
         expr: increase(http_requests_total{service="ccx-upgrades-data-eng-svc", status="5xx"}[1m]) > 0
         for: 2m
@@ -146,6 +148,7 @@ spec:
           message: "ccx-upgrades-data-eng service returns too many 500 responses for endpoint {{ $labels.handler }} <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXUpgradesInference500
         expr: increase(http_requests_total{service="ccx-upgrades-inference-svc", status="5xx"}[1m]) > 0
         for: 2m
@@ -158,6 +161,7 @@ spec:
           message: "ccx-upgrades-inference service returns too many 500 responses for endpoint {{ $labels.handler }} <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXUpgradesDataEngTooSlow
         # TODO: Decrease this threashold once we are using production RHOBS, which is faster than stage RHOBS
         expr: avg by(handler)(rate(http_request_duration_seconds_sum{service="ccx-upgrades-data-eng-svc"}[5m]) / rate(http_request_duration_seconds_count{service="ccx-upgrades-data-eng-svc"}[5m])) > 5
@@ -171,6 +175,7 @@ spec:
           message: "ccx-upgrades-data-eng service is taking too long to respond for endpoint {{ $labels.handler }} <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXUpgradesInferenceTooSlow
         expr: avg by(handler)(rate(http_request_duration_seconds_sum{service="ccx-upgrades-inference-svc"}[5m]) / rate(http_request_duration_seconds_count{service="ccx-upgrades-inference-svc"}[5m])) > 2
         for: 2m
@@ -183,6 +188,7 @@ spec:
           message: "ccx-upgrades-inference service is taking too long to respond for endpoint {{ $labels.handler }} <!subteam^S043UGRST2L>"
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
       - alert: CCXNotificationDBLowStorageSpace
         expr: aws_rds_free_storage_space_average{container="cloudwatch-exporter", dbinstance_identifier="ccx-notification-prod", namespace="app-sre-observability-production"} offset 10m < (40 * 1024^3)
         for: 30m
@@ -196,3 +202,16 @@ spec:
           message: "The current free storage space of DB instance {{ $labels.dbinstance_identifier }} is less than 20%."
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/blob/master/docs/aws/aws-rds-resources.md#rdsstoragelow"
           dashboard: "https://grafana.app-sre.devshift.net/d/AWSRDSdbi/aws-rds?orgId=1&var-datasource=AWS%20insights-prod&var-region=default&var-dbinstanceidentifier=ccx-notification-prod&from=now-7d&to=now"
+      - alert: CCXUpgradesDataEngCacheFull
+        expr: max (container_memory_working_set_bytes{container="ccx-upgrades-data-eng-instance"}) / min(kube_pod_container_resource_limits{resource="memory", container="ccx-upgrades-data-eng-instance"}) > 0.8
+        for: 2m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: ccx-data-pipeline
+        annotations:
+          message: "ccx-upgrades-data-eng service memory usage is too high and will reach the limits. Probably the cache is growing too much <!subteam^S043UGRST2L>"
+          dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
+          runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"

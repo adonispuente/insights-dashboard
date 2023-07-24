@@ -8,6 +8,9 @@ permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-swat.yml
 - $ref: /dependencies/gitlab/permissions/appeng-keycloak-member.yml
 
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/swat-vault-admin.yml
+
 self_service:
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml

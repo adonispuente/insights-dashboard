@@ -6,7 +6,6 @@ metadata:
   namespace: openshift-logging
 spec:
   collection:
-    logs:
-      fluentd: {}
-      type: fluentd
+    fluentd: {}
+    type: fluentd
   managementState: Managed

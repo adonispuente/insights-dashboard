@@ -1,0 +1,93 @@
+# Design doc: Status Board Adoption
+
+## Author/date
+
+
+Jan-Hendrik Boll / July 2023
+
+
+## Tracking JIRA
+
+https://issues.redhat.com/browse/APPSRE-5558
+
+
+## Problem Statement
+
+Publishing data from App-Interface in Status Board enables us to start using Web RCA during our incidents. This is because the application list from Status Board is used to populate the drop-down list that is available in web-rca.
+
+We would want to have every product/application listed in App-Interface in Status Board. More details on status-board can be found here:
+
+* [RFE](https://docs.google.com/document/d/1JmVVEGsPgpuwWkF1HKMNMMpLI-1uzlRzuU1_-OmpKuY/edit?pli=1#heading=h.j5gzm6wgeded)
+* [Repository](https://gitlab.cee.redhat.com/service/status-board)
+
+## Goals
+
+* Publish Products and Applications from App-Interface to Status Board
+
+## Non-objectives
+
+* Adding services to Status Board
+* This is not to be confused with status.redhat.com or status.quay.io, there is no connection between the Status Board and the Atlassian Status page.
+
+## Proposal
+
+### Status board objects
+
+Luckily we already have a hierarchy for products and applications, that we can use to create the necessary objects in Status Board. Based on this [discussion](https://redhat-internal.slack.com/archives/C03M8A471V1/p1688388520514439), there is no convention or global list to align with. We can create the names as they make sense for us.
+
+According to our data some examples for status-board objects would be:
+
+* insights/quickstarts-prod
+* insights/patchman
+* App-SRE/cert-manager
+* ocm/cs
+
+### Product/Application Exporter
+
+Create an integration, that creates the necessary ocm objects using the [status board api](https://api.openshift.com/?urls.primaryName=Status%20Board%20service).
+
+
+```
+---
+$schema: /dependencies/status-board-1.yml
+
+labels: {}
+
+name: AppSRE status-board production
+
+ocm:
+  $ref: data/dependencies/ocm/environments/production.yml
+
+additionalOwners:
+  $ref: /teams/app-sre/roles/app-sre.yml
+
+globalAppSelector:
+  exclude:
+    - 'apps[?@.onboardingStatus=="OnBoarded"]'
+
+products:
+    - productEnvironment:
+        $ref: /products/app-sre/environments/production.yml
+    - productEnvironment:
+        $ref: /products/app-interface/environments/production-int.yml
+      appSelector:
+        exclude:
+          - 'apps[?@.name!="FooBar"]'
+    ...
+```
+
+Schema explanation:
+
+* `products`: List of the products/productEnvironments that will be published to Status Board.
+* `appSelector`/`globalAppSelector`: All apps, that are associated to the listed Product Environments will be considered for export. Use the selector fields to exclude certain apps. In the beginning, this will only be an exclude list. This is useful for example to exclude apps that are not yet onboarded. If global and product specific selectors are configured, they are all considered during filtering.
+* `additionalOwners`: Reference of additional owners that will be added to the created products/applications. The users associated to that role will be added to the products/applications. Usually only the service account, that created the product will be it's owner. By adding, i.e. us App-SRE we can make sure we do not loose ownership over products/applications. Note: Non owners will still be apble to create incidents for the products/applications in Web-RCA.
+
+## Alternatives considered
+
+* Creating a static reference from Status Board schema to corresponding apps
+* Adding a new field to the App schema in app-interface, cause this would require changes when adding new apps
+
+
+## Milestones
+* Implement integration
+* Onboard services

@@ -18,10 +18,38 @@ environment:
 networkPoliciesAllow:
   - $ref: /openshift/rhobsp02ue1/namespaces/openshift-logging.yaml
 
+clusterAdmin: true
+
 managedRoles: true
 
 managedResourceTypes:
-  - Secret
+  - ClusterRole.rbac.authorization.k8s.io
+  - ClusterRoleBinding.rbac.authorization.k8s.io
+
+managedResourceNames:
+  - resource: ClusterRole.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-application-logs-reader
+      - logging-application-external-logs-reader
+  - resource: ClusterRoleBinding.rbac.authorization.k8s.io
+    resourceNames:
+      - logging-users-application-logs-reader
+      - logging-application-external-logs-reader
+
+openshiftResources:
+  - provider: resource
+    path: /rhobs/logs/loki-logs-reader-cluster-role.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-reader-cluster-role-binding.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-external-reader-cluster-role.yaml
+  - provider: resource
+    path: /rhobs/logs/loki-logs-external-reader-cluster-role-binding.yaml
+
+openshiftServiceAccountTokens:
+  - namespace:
+      $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools.yml
+    serviceAccountName: rhobs-loki-logs-reader
 
 managedExternalResources: true
 
@@ -32,6 +60,9 @@ externalResources:
     resources:
       - provider: s3
         identifier: rhobsp02ue1-observatorium-loki
-        defaults: /terraform/resources/telemeter/s3-private-1.yml
+        defaults: /terraform/resources/s3-private-expires-30-days.yml
         output_resource_name: observatorium-loki
-
+      - provider: s3
+        identifier: rhobsp02ue1-observatorium-parca
+        defaults: /terraform/resources/s3-private-expires-14-days.yml
+        output_resource_name: observatorium-parca

@@ -1,0 +1,8 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: aro-codeowners
+
+permissions:
+- $ref: /teams/sd-sre/permissions/aro-codeowners-coreos-slack.yml

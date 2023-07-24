@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Andrew Slice
+org_username: aslice
+github_username: aslicerh
+quay_username: aslice
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-engineers.yml

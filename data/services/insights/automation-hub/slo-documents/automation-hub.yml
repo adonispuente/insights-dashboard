@@ -21,7 +21,7 @@ slos:
   SLOTargetUnit: percent_0_1
   SLOParameters:
     window: 28d
-  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub/SLO.md
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub/Automation-Hub-slo-availability.md
   expr: sum(rate(api_3scale_gateway_api_status{exported_service="automation-hub", status!="5xx"}[{{window}}])) / sum(rate(api_3scale_gateway_api_status{exported_service="automation-hub"}[{{window}}]))
   prometheusRules: /insights-prod/automation-hub-prod/automation-hub.prometheusrules.yaml
 - name: automation-hub latency
@@ -32,6 +32,6 @@ slos:
   SLOTargetUnit: percent_0_1
   SLOParameters:
     window: 28d
-  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub/SLO.md
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub/Automation-Hub-slo-latency.md
   expr: sum(rate(api_3scale_gateway_api_time_bucket{le="2000.0", exported_service="automation-hub"}[{{window}}])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="automation-hub"}[{{window}}]))
   prometheusRules: /insights-prod/automation-hub-prod/automation-hub.prometheusrules.yaml

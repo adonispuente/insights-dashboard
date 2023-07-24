@@ -1,0 +1,44 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: query-validation-admin
+description: |
+  Allows updates on query-validation and attached templates and queries.
+
+priority: low
+
+contextType: datafile
+contextSchema: /app-interface/query-validation-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - $
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: queries[*].path
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: queries[*].path
+    when: added
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: resources[*].path
+- provider: change-type
+  changeTypes:
+  - $ref: /app-interface/changetype/resource-owner.yml
+  context:
+    where: backrefs
+    selector: resources[*].path
+    when: added

@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Madhusudan Upadhyay
+org_username: maupadhy
+github_username: madhusudanupadhyay
+quay_username: maupadhy
+
+roles:
+- $ref: /teams/sd-sre/roles/sre.yml
+- $ref: /teams/sd-sre/roles/sd-sre-apac-west.yml

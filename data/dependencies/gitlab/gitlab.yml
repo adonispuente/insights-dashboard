@@ -55,6 +55,7 @@ projectRequests:
   - keycloak
   - keycloak-user-service
   - keycloak-config-manager
+  - saas-configure-goalert-operator-bundle  
 
 token:
   path: app-sre/ci-int/gitlab-token

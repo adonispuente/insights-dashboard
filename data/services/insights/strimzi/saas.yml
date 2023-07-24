@@ -70,14 +70,14 @@ resourceTemplates:
     ref: 886340ec51f9bd583bcd5d0503d1069562b8d809
     parameters:
       BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_HOST}:9093
-      KAFKA_CONNECT_VERSION: 3.1.0
+      KAFKA_CONNECT_VERSION: 3.2.3
   - namespace:
       $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
     ref: master
     parameters:
       KAFKA_CONNECT_IMAGE: quay.io/cloudservices/kafka-connect
-      BOOTSTRAP_CONFIG_PROVIDER: ${KAFKA_BOOTSTRAP_HOST}9093
-      KAFKA_CONNECT_VERSION: 3.1.0
+      BOOTSTRAP_CONFIG_PROVIDER: ${KAFKA_BOOTSTRAP_HOST}:9093
+      KAFKA_CONNECT_VERSION: 3.2.3
 - name: strimzi
   path: /deploys/openshift/amq-streams.yaml
   url: https://github.com/RedHatInsights/platform-mq
@@ -96,7 +96,7 @@ resourceTemplates:
       KAFKA_HEAP_OPTS_XMS: 6g
       KAFKA_HEAP_OPTS_XMX: 6g
       KAFKA_VOL_SIZE: 450Gi
-      KAFKA_VERSION: 3.1.0
+      KAFKA_VERSION: 3.2.3
       ZOOKEEPER_NUM_REPLICAS: 3
   - namespace:
       $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
@@ -110,7 +110,7 @@ resourceTemplates:
       KAFKA_HEAP_OPTS_XMS: 6g
       KAFKA_HEAP_OPTS_XMX: 6g
       KAFKA_VOL_SIZE: 1100Gi
-      KAFKA_VERSION: 3.1.0
+      KAFKA_VERSION: 3.2.3
       READY_DELAY: 600
       READY_TIMEOUT: 60
       READY_THRESHOLD: 5
@@ -126,7 +126,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
-    ref: c8d7fc1fd30817c86dc443056c964ce4efbe14b0
+    ref: 69217f8f82beb0c0fe86f0c804e22b8893503b6d
 - name: kafka-schema-registry
   path: /deploys/openshift/schema-registry.yaml
   url: https://github.com/RedHatInsights/platform-mq
@@ -186,20 +186,3 @@ resourceTemplates:
     ref: 19cc070a9a1e29f814b6b1bfa76f3b702b5c5303
     parameters:
       APPSRE_ENV: prod
-- name: kafka-mirrormaker2
-  path: /deploys/openshift/kafka-mirrormaker2.yaml
-  url: https://github.com/RedHatInsights/platform-mq
-  targets:
-  - namespace:
-      $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
-    ref: master
-    parameters:
-      TGT_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
-      BOOTSTRAP_CONFIG_PROVIDER: consoledot-ccov-b--cor-brq-vvua.bf2.kafka.rhcloud.com:443
-      AUTH_CONFIG_PROVIDER_ID: srvc-acct-6401d82b-9830-4ad5-a9a8-b9dc6479c4fe
-      MANAGED_KAFKA_AUTH_ENDPOINT: https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
-      AUTH_SECRET_NAME: mk-oauth-secret
-      TGT_CLUSTER_ALIAS: platform-mq-stage
-      SRC_CLUSTER_ALIAS: consoledot-test-stage
-      KAFKA_MM2_VERSION: 3.1.0
-      MM2_REPLICA_COUNT: 1

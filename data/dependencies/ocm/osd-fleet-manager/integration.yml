@@ -86,7 +86,7 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
-- name: hs-sc-db21hfjpg
+- name: hs-sc-37eb8pu40
   upgradePolicy:
     workloads:
     - service-cluster
@@ -96,7 +96,7 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
-- name: hs-mc-db21hg03g
+- name: hs-mc-edloetb30
   upgradePolicy:
     workloads:
     - management-cluster
@@ -106,32 +106,12 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
-- name: hs-sc-a9b88qolg
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
-- name: hs-sc-4ckuet1r0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 recommendedVersions:
 - workload: service-cluster
   channel: stable
-  recommendedVersion: 4.12.12
-  initialVersion: openshift-v4.12.12
+  recommendedVersion: 4.12.24
+  initialVersion: openshift-v4.12.24
 - workload: management-cluster
   channel: stable
-  recommendedVersion: 4.12.18
-  initialVersion: openshift-v4.12.18
+  recommendedVersion: 4.12.24
+  initialVersion: openshift-v4.12.24

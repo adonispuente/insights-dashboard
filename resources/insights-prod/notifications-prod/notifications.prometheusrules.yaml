@@ -51,6 +51,19 @@ spec:
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
           message: "Pod down for 5 minutes [env=prod, service=notifications-connector-microsoft-teams-service]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-down-prod.html"
+      - alert: notifications-connector-servicenow-down-prod
+        expr: absent(up{service="notifications-connector-servicenow-service", namespace="notifications-prod"}) or up{service="notifications-connector-servicenow-service", namespace="notifications-prod"} == 0
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcp01ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
+          message: "Pod down for 5 minutes [env=prod, service=notifications-connector-servicenow-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-servicenow-down-prod.html"
       - alert: notifications-connector-slack-down-prod
         expr: absent(up{service="notifications-connector-slack-service", namespace="notifications-prod"}) or up{service="notifications-connector-slack-service", namespace="notifications-prod"} == 0
         for: 5m
@@ -64,6 +77,19 @@ spec:
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
           message: "Pod down for 5 minutes [env=prod, service=notifications-connector-slack-service]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-down-prod.html"
+      - alert: notifications-connector-splunk-down-prod
+        expr: absent(up{service="notifications-connector-splunk-service", namespace="notifications-prod"}) or up{service="notifications-connector-splunk-service", namespace="notifications-prod"} == 0
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcp01ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
+          message: "Pod down for 5 minutes [env=prod, service=notifications-connector-splunk-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-splunk-down-prod.html"
       - alert: NotificationsEngineDownProd
         expr: absent(up{service="notifications-engine-service", namespace="notifications-prod"}) or up{service="notifications-engine-service", namespace="notifications-prod"} == 0
         for: 5m
@@ -141,6 +167,18 @@ spec:
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
           message: "Kafka lag detected [env=prod, topic=platform.notifications.tocamel, group=notifications-connector-microsoft-teams]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-microsoft-teams-kafka-lag-prod.html"
+      - alert: notifications-connector-servicenow-kafka-lag-prod
+        expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-servicenow"}) > 1000
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcp01ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
+          message: "Kafka lag detected [env=prod, topic=platform.notifications.tocamel, group=notifications-connector-servicenow]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-servicenow-kafka-lag-prod.html"
       - alert: notifications-connector-slack-kafka-lag-prod
         expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-slack"}) > 1000
         labels:
@@ -153,6 +191,18 @@ spec:
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
           message: "Kafka lag detected [env=prod, topic=platform.notifications.tocamel, group=notifications-connector-slack]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-slack-kafka-lag-prod.html"
+      - alert: notifications-connector-splunk-kafka-lag-prod
+        expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-splunk"}) > 1000
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcp01ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/notifications-prod/deployments"
+          message: "Kafka lag detected [env=prod, topic=platform.notifications.tocamel, group=notifications-connector-splunk]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-splunk-kafka-lag-prod.html"
       - alert: NotificationsEngineIngressTopicKafkaLagProd
         expr: sum(kafka_consumergroup_group_lag{topic="platform.notifications.ingress", group="integrations"}) > 1000
         labels:

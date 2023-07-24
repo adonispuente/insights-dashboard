@@ -52,26 +52,14 @@ quayRepos:
   - name: syslog-cloudwatch-bridge
     description: syslog-cloudwatch-bridge container
     public: true
-  - name: apostille-server
-    description: main container for apostille server service
-    public: true
-  - name: apostille-signer
-    description: main container for apostille signer service
-    public: true
   - name: flush-redis
     description: main container for quay flush-redis
-    public: true
-  - name: quayio-update-banner-job
-    description: Update banner on quay.io
     public: true
   - name: quay-db-jobs
     description: Various DB jobs for quay.io
     public: false
   - name: quay-service-tool
     description: a tool for self-servicing quay.io
-    public: true
-  - name: quayio-update-py2-db
-    description: Update py2 DB on quay.io
     public: true
   - name: quayio-update-ro-keys-job
     description: Update RO keys in quay.io DB
@@ -115,9 +103,6 @@ codeComponents:
 - name: flush-redis
   resource: upstream
   url: https://github.com/app-sre/flush-redis
-- name: update-banner-job
-  resource: upstream
-  url: https://github.com/quay/update-banner-job
 - name: quay-db-jobs
   resource: upstream
   url: https://github.com/quay/quay-db-jobs

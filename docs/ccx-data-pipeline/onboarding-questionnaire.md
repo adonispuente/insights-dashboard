@@ -403,12 +403,10 @@ aws S3, Ceph, Ingress, Kafka, Postgres
 * <https://quay.io/repository/cloudservices/ccx-data-pipeline>
 * <https://quay.io/repository/cloudservices/ccx-smart-proxy>
 * <https://quay.io/repository/cloudservices/io-gathering-conditions-service>
-* <https://quay.io/repository/cloudservices/io-gathering-conditions>
 * <https://quay.io/repository/cloudservices/ccx-insights-content-service>
 * <https://quay.io/repository/cloudservices/ccx-sha-extractor>
 * <https://quay.io/repository/cloudservices/insights-results-aggregator-cleaner>
 * <https://quay.io/repository/cloudservices/ccx-kafka-monitor>
-* <https://quay.io/repository/cloudservices/io-gathering-conditions>
 
 ### Routes
 

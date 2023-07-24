@@ -28,11 +28,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/system-baseline/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/system-baseline/namespaces/stage-system-baseline-stage.yml
-  - $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/system-baseline.yml

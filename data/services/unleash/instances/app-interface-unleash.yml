@@ -50,6 +50,10 @@ featureToggles:
   enabled: true
 - name: gitlab-pr-submitter
   enabled: true
+- name: glitchtip
+  enabled: true
+- name: glitchtip-project-dsn
+  enabled: true
 - name: jenkins-job-builder
   enabled: true
 - name: jenkins-plugins
@@ -69,6 +73,10 @@ featureToggles:
 - name: ocm-clusters
   enabled: true
 - name: ocm-groups
+  enabled: true
+- name: ocm-oidc-idp
+  enabled: true
+- name: ocm-oidc-idp-standalone
   enabled: true
 - name: openshift-clusterrolebindings
   enabled: true
@@ -109,11 +117,17 @@ featureToggles:
   enabled: true
 - name: requests-sender
   enabled: true
+- name: rhidp-sso-client
+  enabled: true
+- name: rhidp-sso-client-standalone
+  enabled: true
 - name: saas-file-validator
   enabled: true
 - name: sentry-config
   enabled: true
 - name: service-dependencies
+  enabled: true
+- name: skupper-network
   enabled: true
 - name: slack-usergroups
   enabled: true

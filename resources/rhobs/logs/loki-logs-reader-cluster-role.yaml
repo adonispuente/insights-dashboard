@@ -12,4 +12,6 @@ rules:
       - application
     verbs:
       - get
+      - list
+      - watch
 

@@ -1664,11 +1664,12 @@ For more information about the versions that RDS supports:
 
 | Version | Minimum minor version | Notes                                                                                                                                                                                                      |
 |---------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 15      | \>= 15.2              | Documented as a minimum required version from AWS                                                  |
 | 14      | \>= 14.3              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 13      | \>= 13.7              | Announced as the minimum required version by email from AWS                                                                                                                                                |
 | 12      | \>= 12.11             | Announced as the minimum required version by email from AWS                                                                                                                                                |
-| 11      | \>= 11.16             | Announced as the minimum required version by email from AWS                                                                                                                                                |
-| ~~10~~  |                       | **End of life, do not use.**                                                                                   |
+| ~~11~~      |              | **End of life, do not use.**                                                                                                                                                |
+
 
 ###### MySQL
 
@@ -2248,13 +2249,17 @@ In order to add an MSK cluster, you need to add it to the `externalResources` se
   - If `output_resource_name` is not defined, the name of the secret will be `<identifier>-<provider>`.
 - `annotations`: additional annotations to add to the output resource
 - `users`: list of users to create in the MSK cluster
-  - `name`: name of the user
-  - `secret`: SASL user credentials store in Vault - Only required if SASL/SCRAM is enabled
+  - `name`: identifier
+  - `secret`: SASL user credentials stored in Vault - Only required if SASL/SCRAM is enabled
     - `path`: vault path
     - `field`: `all`
     - `version`: (optional) for vault kv2
 
-Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated and a Kubernetes Secret will be created in the same namespace with all relevant details.
+The secrets for the users must be created beforehand in Vault; otherwise you can't merge the MR. The secret must an object with the following fields:
+- `username`: username of the user
+- `password`: password of the user
+
+Once the changes are merged, the MSK cluster will be created (takes around 30 minutes) or updated, and a Kubernetes Secret will be created in the same namespace with all relevant details.
 
 The Secret will contain the following fields:
 - `zookeeper_connect_string` - A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.

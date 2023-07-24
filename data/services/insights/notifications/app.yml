@@ -65,7 +65,7 @@ quayRepos:
   - name: notifications-connector-microsoft-teams
     public: true
     description: Notifications connector to Microsoft Teams
-  - name: notifications-connector-service-now
+  - name: notifications-connector-servicenow
     public: true
     description: Notifications connector to ServiceNow
   - name: notifications-connector-slack

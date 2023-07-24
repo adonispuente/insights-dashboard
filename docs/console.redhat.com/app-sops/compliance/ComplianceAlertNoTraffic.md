@@ -1,5 +1,5 @@
 # Compliance alert no traffic
-Severity: Pagerduty
+Severity: info
 
 ## Incident Response Plan
  [Incident Response Doc](https://docs.google.com/document/d/1AyEQnL4B11w7zXwum8Boty2IipMIxoFw1ri1UZB6xJE) for console.redhat.com

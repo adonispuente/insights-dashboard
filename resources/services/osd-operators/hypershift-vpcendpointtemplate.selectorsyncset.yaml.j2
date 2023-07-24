@@ -9,6 +9,15 @@ spec:
     matchLabels:
       ext-hypershift.openshift.io/cluster-type: {{ hypershift_cluster_type }}
   resourceApplyMode: Sync
+  secretMappings:
+  {%- for vpc in vpcs %}
+  - sourceRef:
+      name: "{{ vpc.secret_name }}"
+      namespace: aws-vpce-operator
+    targetRef:
+      name: "{{ vpc.secret_name }}"
+      namespace: openshift-aws-vpce-operator
+  {%- endfor %}
   resources:
   - apiVersion: avo.openshift.io/v1alpha2
     kind: VpcEndpointTemplate

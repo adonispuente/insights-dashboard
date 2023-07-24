@@ -64,9 +64,10 @@ resourceTemplates:
       PROVISIONING_CHECK_PATH: /api/provisioning/v1/availability_status/sources
       LOG_LEVEL: DEBUG
       RBAC_PORT: "8080"
+      SOURCE_TYPE_SKIP_LIST: "rh-marketplace"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: 885fe8aa490063d3699ffa2144ba77bf7f7d6f8a
+    ref: f9cf7d828d321c8c122ad2e946f3a3e91083c7d3
     parameters:
       SOURCES_ENV: prod
       KOKU_SOURCES_API_HOST: koku-clowder-sources-client.hccm-prod.svc.cluster.local
@@ -77,7 +78,7 @@ resourceTemplates:
       PROVISIONING_CHECK_PATH: /api/provisioning/v1/availability_status/sources
       LOG_LEVEL: DEBUG
       RBAC_PORT: "8080"
-      SOURCE_TYPE_SKIP_LIST: "ibm"
+      SOURCE_TYPE_SKIP_LIST: "ibm,rh-marketplace"
 - name: sources-monitor-go
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/sources-monitor-go
@@ -174,7 +175,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 9f83d1de246fcdf5bf44d223f50cd25aa0e6e7bc
+    ref: 1ec28f178e05c4a3f64d94f2bb1da8665928050c
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui

@@ -196,6 +196,7 @@ alertingServices:
 - skupper-network-monitoring
 - rhsm-system-profile-bridge
 - rhidp
+- fedramp-customer-interest
 
 endpointMonitoringBlackboxExporterModules:
 - http_2xx

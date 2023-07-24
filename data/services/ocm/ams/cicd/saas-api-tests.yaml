@@ -45,7 +45,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/ocm/namespaces/uhc-integration.yml
-        ref: 80118b1accd62435d30635f194c21ed503a96e30
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-apitests-deployed-int
@@ -62,7 +62,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/ocm/namespaces/uhc-integration.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-gatewatch-deployed-int
@@ -70,7 +70,7 @@ resourceTemplates:
           NAMESPACE: uhc-integration
       - namespace:
           $ref: /services/ocm/namespaces/uhc-stage.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-gatewatch-deployed-stage
@@ -78,7 +78,7 @@ resourceTemplates:
           NAMESPACE: uhc-stage
       - namespace:
           $ref: /services/ocm/namespaces/uhc-production.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-gatewatch-deployed-prod
@@ -86,7 +86,7 @@ resourceTemplates:
           NAMESPACE: uhc-production
       - namespace:
           $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-osdfm-gatewatch-deployed-int
@@ -99,7 +99,7 @@ resourceTemplates:
           SECRET_MOUNT: /secrets/service
       - namespace:
           $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-osdfm-gatewatch-deployed-stage
@@ -112,7 +112,7 @@ resourceTemplates:
           SECRET_MOUNT: /secrets/service
       - namespace:
           $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-        ref: faabe9c54c2fe49d27d23770995d01d7a460f21a
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
         promotion:
           publish:
             - ocm-osdfm-gatewatch-deployed-prod

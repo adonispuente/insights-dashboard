@@ -29,11 +29,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/uhc-auth-proxy/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/uhc-auth-proxy/namespaces/stage-uhc-auth-proxy-stage.yml
-  - $ref: /services/insights/uhc-auth-proxy/namespaces/uhc-auth-proxy-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/uhc-auth-proxy.yml

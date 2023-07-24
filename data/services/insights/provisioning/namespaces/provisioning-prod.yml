@@ -37,6 +37,10 @@ openshiftResources:
   name: provisioning-azure-acc
   path: app-interface/provisioning/production/azure-acc
   version: 2
+- provider: vault-secret
+  path: app-interface/provisioning/production/gcp-account
+  name: provisioning-gcp-acc
+  version: 1
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-common/iqe-vault.secret.yaml
@@ -89,7 +93,7 @@ externalResources:
     output_resource_name: in-memory-db
   - provider: cloudwatch
     identifier: provisioning-cloudwatch-prod
-    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-2.yml
+    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
     es_identifier: kibana-elasticsearch
 

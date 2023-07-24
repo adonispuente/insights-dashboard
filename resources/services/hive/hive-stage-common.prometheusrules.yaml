@@ -211,3 +211,15 @@ spec:
       labels:
         severity: critical
         service: srep
+    - alert: HiveClusterSyncFailureSRE - stage - {{{shard_name}}}
+      annotations:
+        message: "the ClusterSync for {{ $labels.namespaced_name }} has been in Failure state for more than 4 hours."
+        runbook: "https://github.com/openshift/ops-sop/blob/master/v4/alerts/HiveClusterSyncFailureSRE.md"
+        dashboard: "https://grafana.app-sre.devshift.net/d/hivemetrics/hive-metrics?orgId=1&var-datasource={{{grafana_datasource}}}&var-instance=hive-controllers-{{{shard_name}}}"
+      expr: |
+        hive_clustersync_failing_seconds > 14400
+      for: 5m
+      labels:
+        service: srep
+        severity: info
+        team: srep

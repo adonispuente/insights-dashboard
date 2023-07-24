@@ -3,6 +3,10 @@ kind: HiveConfig
 metadata:
   name: hive
 spec:
+  metricsConfig:
+    metricsWithDuration:
+      - duration: 1h
+        name: currentClusterSyncFailing
   additionalCertificateAuthoritiesSecretRef:
   - name: letsencrypt-ca
   backup:

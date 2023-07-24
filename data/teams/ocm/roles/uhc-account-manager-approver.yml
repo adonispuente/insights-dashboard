@@ -11,7 +11,6 @@ self_service:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/ocm/ams/cicd/saas-uhc-account-manager.yaml
-  - $ref: /services/ocm/ams/cicd/saas-ocm-ams-jobs.yaml
   - $ref: /services/ocm/ams/cicd/saas-api-tests.yaml
   - $ref: /services/ocm/ams/cicd/saas-ocm-ams-umb-consumer.yaml
 - change_type:
@@ -20,8 +19,10 @@ self_service:
   - $ref: /services/ocm/ams/cicd/gating-tests.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-basic.yaml
+  - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-basic-e2e.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-aws.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-gcp.yaml
+  - $ref: /services/ocm/ams/cicd/saas-ocm-ams-jobs.yaml
 
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml

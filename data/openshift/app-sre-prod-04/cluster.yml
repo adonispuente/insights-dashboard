@@ -30,7 +30,7 @@ spec:
   provider: aws
   region: us-east-1
   channel: fast
-  version: 4.13.2
+  version: 4.13.4
   initial_version: 4.3.18
   multi_az: true
   nodes: 9
@@ -110,6 +110,12 @@ peering:
     manageSecurityGroups: true
     manageRoute53Associations: true
     cidrBlock: 172.16.0.0/12
+  - provider: account-vpc
+    name: app-sre-vpc-01_insights-prod-vpc-01
+    vpc:
+      $ref: /aws/insights-prod/vpcs/vpc-0620a446eff252360.yml
+    manageAccountRoutes: true
+    manageRoutes: true
 automationToken:
   path: app-sre/creds/kube-configs/app-sre-prod-04
   field: token
@@ -128,6 +134,9 @@ awsInfrastructureManagementAccounts:
   accessLevel: network-mgmt
 - account:
     $ref: /aws/svc-transit-prod/account.yml
+  accessLevel: network-mgmt
+- account:
+    $ref: /aws/insights-prod/account.yml
   accessLevel: network-mgmt
 awsInfrastructureAccess:
 - awsGroup:

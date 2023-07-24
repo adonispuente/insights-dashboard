@@ -24,6 +24,12 @@
         - *srep_pagerduty_credentials
         - *app_interface_basic_auth
         - *gitlab_fork_compliance_reconcile_toml
+    publishers:
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier
+    - archive:
+        artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
     <<: *gl_pr_check
 
 - job-template:
@@ -40,6 +46,12 @@
         secrets:
         - *srep_privatelink_aws_credentials
         - *srep_pagerduty_credentials
+    publishers:
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier
+    - archive:
+        artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
     <<: *gl_build_master
 
 - job-template:

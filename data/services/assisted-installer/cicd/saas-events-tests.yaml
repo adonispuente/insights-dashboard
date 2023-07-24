@@ -26,7 +26,7 @@ resourceTemplates:
   path: /openshift/template-autopromotion.yaml
   provider: openshift-template
   targets:
-  - ref: 252f00be107541f60e05604f4ae56012e6796e83
+  - ref: 36d31553b2416ce6c2df50ebd34704aef741abb2
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
     parameters:
@@ -44,7 +44,7 @@ resourceTemplates:
         - parent_saas: assisted-installer-events
           target_config_hash: d1d1cc0ba70391e0
           type: parent_saas_config
-  - ref: 252f00be107541f60e05604f4ae56012e6796e83
+  - ref: 36d31553b2416ce6c2df50ebd34704aef741abb2
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     parameters:
@@ -60,5 +60,5 @@ resourceTemplates:
       - channel: assisted-events-scraper-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer-events
-          target_config_hash: 5bbdf017c457c167
+          target_config_hash: fe8edab2a0531bda
           type: parent_saas_config

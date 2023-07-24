@@ -17,8 +17,6 @@ blockedVersions:
 - ^.*-ec\..*$
 - ^.*-fc\..*$
 - ^4\.11\.0-rc\.[0-5]$
-# block all upgrades for IBM LakeHouse GA
-- ^.*$
 
 upgradePolicyAllowedWorkloads:
 - appsre
@@ -47,8 +45,8 @@ upgradePolicyAllowedMutexes:
 recommendedVersions:
 - workload: crc
   channel: candidate
-  recommendedVersion: 4.13.1
-  initialVersion: openshift-v4.13.1-candidate
+  recommendedVersion: 4.13.2
+  initialVersion: openshift-v4.13.2-candidate
 inheritVersionData:
 - $ref: /dependencies/ocm/crc/insights.yaml
 upgradePolicyClusters:

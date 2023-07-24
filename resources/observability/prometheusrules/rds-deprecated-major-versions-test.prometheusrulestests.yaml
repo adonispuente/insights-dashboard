@@ -12,8 +12,10 @@ tests:
   # Deprecated major RDS versions - PostgreSQL
   - series: aws_resources_exporter_rds_engineversion{dbinstance_identifier="TEST_deprecated_10_7", engine="postgres", engine_version="10.7"}
     values: 1x120
+  - series: aws_resources_exporter_rds_engineversion{dbinstance_identifier="TEST_deprecated_11_1", engine="postgres", engine_version="11.1"}
+    values: 1x120
   # Valid major RDS versions - PostgreSQL
-  - series: aws_resources_exporter_rds_engineversion{dbinstance_identifier="TEST_valid_11_1", engine="postgres", engine_version="11.1"}
+  - series: aws_resources_exporter_rds_engineversion{dbinstance_identifier="TEST_valid_12_11", engine="postgres", engine_version="12.11"}
     values: 1x120
   # Metric data for tests related to missing metrics (ex. AWS API is throttled, so there are gaps in metrics)
   - series: aws_resources_exporter_rds_engineversion{dbinstance_identifier="TEST_missing_metrics_greater_than_hour", engine="postgres", engine_version="10.7"}
@@ -30,6 +32,13 @@ tests:
           severity: info
           engine: postgres
           engine_version: 10.7
+          service: app-sre-observability
+        exp_annotations: {}
+      - exp_labels:
+          dbinstance_identifier: TEST_deprecated_11_1
+          severity: info
+          engine: postgres
+          engine_version: 11.1
           service: app-sre-observability
         exp_annotations: {}
       - exp_labels:

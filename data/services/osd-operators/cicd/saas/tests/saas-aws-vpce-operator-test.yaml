@@ -31,45 +31,12 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
-    promotion:
-      auto: true
-      subscribe:
-      - aws-vpce-operator-sss-deployed-success-channel-hivei01ue1
-      publish:
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hivei01ue1
-      promotion_data:
-      - channel: aws-vpce-operator-sss-deployed-success-channel-hivei01ue1
-        data:
-        - parent_saas: saas-avo
-          target_config_hash: 96dc2a8534485753
-          type: parent_saas_config
+    delete: true
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
-    promotion:
-      auto: true
-      subscribe:
-      - aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
-      publish:
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hive-stage-01
-      promotion_data:
-      - channel: aws-vpce-operator-sss-deployed-success-channel-hive-stage-01
-        data:
-        - parent_saas: saas-avo
-          target_config_hash: 3121671da8f6c7a6
-          type: parent_saas_config
+    delete: true
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
     ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
-    promotion:
-      auto: true
-      subscribe:
-      - aws-vpce-operator-sss-deployed-success-channel-hives02ue1
-      publish:
-      - aws-vpce-operator-avo-acceptance-test-success-channel-hives02ue1
-      promotion_data:
-      - channel: aws-vpce-operator-sss-deployed-success-channel-hives02ue1
-        data:
-        - parent_saas: saas-avo
-          target_config_hash: 336ed72c02e3db16
-          type: parent_saas_config
+    delete: true

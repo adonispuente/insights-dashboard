@@ -73,4 +73,4 @@ resourceTemplates:
       IMAGE_GATE_AUTH_DISABLE: "true"
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-    ref: 447bb7293182dd3fb2e084d7dfb70a4d198911f2
+    ref: dc3452748211c36547182aeee54ccb15fe346a49

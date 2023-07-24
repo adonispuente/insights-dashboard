@@ -1,0 +1,21 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: dynatrace-rules-and-dashboards-slack
+description: Dynatrace alerts and dashboards reviewers (managed by app-interface)
+
+service: slack-usergroup
+handle: dynatrace-rules-and-dashboards
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+ownersFromRepos:
+  - https://gitlab.cee.redhat.com/service/dynatrace-config:main
+
+channels:
+- sd-sre-dynatrace
+- sre-operators
+- sd-sre-platform

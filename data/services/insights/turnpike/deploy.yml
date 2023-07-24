@@ -330,6 +330,16 @@ resourceTemplates:
           origin: http://xjoin-search-api.xjoin-stage.svc.cluster.local:9000/
           auth:
             saml: "'crc-xjoin-team' in user['Role']"
+        - name: xjoin-apicurio
+          route: /api/xjoin/apicurio
+          origin: http://xjoin-apicurio-service.xjoin-stage.svc.cluster.local:10000/apis/
+          auth:
+            saml: "'crc-xjoin-team' in user['Role']"
+        - name: xjoin-api-gateway
+          route: /api/xjoin/gateway
+          origin: http://xjoin-api-gateway-api.xjoin-stage.svc.cluster.local:10000/graphql
+          auth:
+            saml: "'crc-xjoin-team' in user['Role']"
         - name: ingress
           route: /api/ingress/v1/
           origin: http://ingress-service.ingress-stage.svc.cluster.local:8000/api/ingress/v1/

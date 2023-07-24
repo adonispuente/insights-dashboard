@@ -8,7 +8,7 @@ spec:
   endpoints:
   - interval: 30s
     path: /metrics
-    port: composer-api
+    port: prometheus
     scheme: http
   namespaceSelector:
     matchNames:
@@ -16,4 +16,3 @@ spec:
   selector:
     matchLabels:
       app: composer
-      port: composer-api

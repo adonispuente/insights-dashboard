@@ -1,0 +1,25 @@
+---
+$schema: /cloudflare/dns-zone-1.yml
+labels: {}
+identifier: devshift-org
+zone: devshift.org
+type: full
+plan: enterprise
+account:
+  $ref: /cloudflare/sd-sre/account.yml
+records:
+- name: 'oidc.i1.devshift.org '
+  identifier: cname-oidc-i1-devshift-org
+  type: CNAME
+  ttl: 1800
+  value: d1b0cha94ris3q.cloudfront.net
+  proxied: false
+  priority: 0
+- name: 'oidc.s1.devshift.org '
+  identifier: cname-oidc-s1-devshift-org
+  type: CNAME
+  ttl: 1800
+  value: d3gt1gce2zmg3d.cloudfront.net
+  proxied: false
+  priority: 0
+

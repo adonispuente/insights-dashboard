@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
-    ref: 1308dfcac1cbfb5b98d5c42f027c879852365083
+    ref: ac878233553ddc97a36159fefd5b507b0ca61b9a
     promotion:
       auto: true
       subscribe:
@@ -44,5 +44,5 @@ resourceTemplates:
       - channel: advisor-stage-deploy-success-channel
         data:
         - parent_saas: advisor
-          target_config_hash: ad3449be48f078d5
+          target_config_hash: 17401c14a435d370
           type: parent_saas_config

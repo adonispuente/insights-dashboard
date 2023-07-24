@@ -322,6 +322,14 @@ externalResources:
       alternate_names:
       - '*.quay.redhat.io'
       - 'quay.io'
+  - provider: acm
+    identifier: wildcard-quayio-1
+    domain:
+      domain_name: '*.quay.io'
+      alternate_names:
+      - 'quay.io'
+      - '*.quay.redhat.io'
+      - '*.q1w2.quay.rhcloud.com'
   - provider: alb
     identifier: quayio-production-alb01
     output_resource_name: quayio-production-alb
@@ -369,6 +377,59 @@ externalResources:
       default: true
       openshift_service: quay-py3-recovery-load-balancer-service
     rules: []
+  ##########################
+  # BEGIN: quayio-ocm-quay #
+  ##########################
+  - provider: alb
+    identifier: quayio-ocm-quay
+    idle_timeout: 3600
+    ip_address_type: dualstack
+    vpc:
+      $ref: /aws/quayio-prod/vpcs/QuayVPC.yml
+    certificate_arn: arn:aws:acm:us-east-1:206170669542:certificate/940d5156-efe4-4fb0-8466-94af41dffcfc
+    ingress_cidr_blocks: ["0.0.0.0/0"]
+    targets:
+    - name: quayio-production-py2
+      default: false
+      openshift_service: quay-load-balancer-service
+    - name: quayio-production-py3
+      default: true
+      openshift_service: quay-py3-load-balancer-service
+    rules:
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.q1w2.quay.rhcloud.com'
+      - type: path-pattern
+        path_pattern:
+        - '/v2'
+        - '/v2/'
+        - '/v2/auth*'
+        - '/v2/openshift-release-dev/*'
+      action:
+        type: forward
+        forward:
+          target_group:
+          - target: quayio-production-py3
+            weight: 100
+          # Second target needed due to a bug in the terraform provider. Set with weight of 0 to avoid traffic being sent to it.
+          # https://github.com/app-sre/qontract-schemas/blob/14a4747aa72ec931a4e9a025a4e3ea487ce82f60/schemas/aws/terraform-resource-2.yml#L1141
+          - target: quayio-production-py2
+            weight: 0
+    - condition:
+      - type: host-header
+        host_header:
+        - 'pull.q1w2.quay.rhcloud.com'
+      action:
+        type: fixed-response
+        fixed_response:
+          status_code: 401
+          content_type: application/json
+          message_body: '{"errors":[{"code":"UNAUTHORIZED","detail":{},"message":"access to the requested resource is not authorized"}]}'
+  ####################################
+  # END: quayio-stage-ocm-quay stage #
+  ####################################
+
 - provider: cloudflare
   provisioner:
     $ref: /cloudflare/quay-prod/account.yml

@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Jakub Drobena
+org_username: jdrobena
+github_username: Jakub007d
+quay_username: jdrobena
+
+roles:
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/insights-qe.yml

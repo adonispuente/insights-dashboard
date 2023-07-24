@@ -1,0 +1,35 @@
+---
+$schema: /aws/policy-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/app-sre/account.yml
+
+name: VerifierLogsAccess
+description: |
+    Allows access to the Thanos store s3 bucket.
+
+policy:
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "AllowThanosStoreView",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:GetBucketLocation",
+          "s3:ListBucket"
+        ],
+        "Resource": [
+          "arn:aws:s3:::observatorium-mst-thanos-production/*",
+          "arn:aws:s3:::observatorium-mst-thanos-production",
+          "arn:aws:s3:::rhobsp02ue1-mst-thanos-production/*",
+          "arn:aws:s3:::rhobsp02ue1-mst-thanos-production",
+          "arn:aws:s3:::telemeter-thanos-production/*",
+          "arn:aws:s3:::telemeter-thanos-production"
+        ]
+      }
+    ]
+  }

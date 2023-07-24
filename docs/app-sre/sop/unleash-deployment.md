@@ -3,14 +3,17 @@
 - [Tenant Request](#tenant-request)
 - [Architecture](#architecture)
 - [Naming Conventions](#naming-conventions)
-- [Github Configuration](#github-configuration)
-- [Github Org/Team](#github-orgteam)
+- [Red Hat SSO](#red-hat-sso)
 - [Namespace](#namespace)
 - [Configuration Secret](#configuration-secret)
 - [Client Access Token Secret](#client-access-token-secret)
 - [Database](#database)
 - [Deployment](#deployment)
 - [Examples](#examples)
+  - [Jira ticket requesting Unleash instances:](#jira-ticket-requesting-unleash-instances)
+  - [Message to requester after deployment:](#message-to-requester-after-deployment)
+  - [Full featured Unleash instances](#full-featured-unleash-instances)
+  - [Example SSO SNOW ticket](#example-sso-snow-ticket)
 
 ## Tenant Request
 Tenants will request an instance of Unleash following the
@@ -24,20 +27,32 @@ Interface.
 Unleash is deployed as a regular Service/Deployment to the `unleash` Namespace
 in the OpenShift Cluster. It consumes three Secrets:
 
-* [Configuration Secret](#configuration-secret)
-* [Database Access Secret](#database)
-* [Client Access Token Secret](#client-access-token-secret)
+- [Tenant Request](#tenant-request)
+- [Architecture](#architecture)
+- [Naming Conventions](#naming-conventions)
+- [Red Hat SSO](#red-hat-sso)
+- [Namespace](#namespace)
+- [Configuration Secret](#configuration-secret)
+- [Client Access Token Secret](#client-access-token-secret)
+- [Database](#database)
+- [Deployment](#deployment)
+- [Examples](#examples)
+  - [Jira ticket requesting Unleash instances:](#jira-ticket-requesting-unleash-instances)
+  - [Message to requester after deployment:](#message-to-requester-after-deployment)
+  - [Full featured Unleash instances](#full-featured-unleash-instances)
+  - [Example SSO SNOW ticket](#example-sso-snow-ticket)
 
 ![](images/arch.png)
 
-Clients can access Unleash using the Web UI, that authenticates users against
-Github (validating the Organization and the Team) or via client API, using the
-[Client Access Token Secret](#client-access-token-secret).
+Clients can access Unleash using the Web UI (protected by [Red Hat SSO](#red-hat-sso)),
+or via client API, using the [Client Access Token Secret](#client-access-token-secret).
+
+
 
 ## Naming Conventions
 
-Considering that the Unleash instance created in the `unleash` Namespace and
-will be consumed by a given application, the naming convention used throughout
+Considering that the Unleash instance will be created in the `unleash` Namespace and
+consumed by a given application, the naming convention used throughout
 this document will always relate the Unleash instance to the application. Some
 examples:
 
@@ -55,50 +70,37 @@ Similarly, the URL for the Unleash instance will be:
 https://<application-name>.unleash.devshift.net
 ```
 
-## Github Configuration
+## Red Hat SSO
 
-Login to Github and create a new Github OAuth application
-under the app-sre organization [here](https://github.com/organizations/app-sre/settings/applications), filling the
-details of the new Unleash application. Example:
+The Web UI authentication is done via Red Hat SSO (auth.redhat.com), and
+the authorization relies on Rover groups.
 
-![](images/gh_newapp.png)
+Unleash supports three types of [user roles](https://docs.getunleash.io/reference/rbac):
+* **Admin**
+* **Editor**
+* **Viewer**
 
-**NOTE:** The `Authorization callback URL` is always the instance URL followed
-by `/api/auth/callback`.
+Request a new SSO client for the Unleash instance via [ServiceNow ticket](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=33995e691b4809587f9bfc8f034bcb2e). Fill in the following details:
+* **Requested for**: Your name
+* **Is this SSO enablement for a vendor?**: No
+* **Please select the Application Name**: App-SRE Auth
+* **Business Owner**: Your name
+* **Authentication initial URL**: `https://<application-name>.unleash.devshift.net`
+* **Technical Point-of-Contact**: Your name
+* **Client ID / Entity ID**: `unleash-<application-name>`
+* **Primary Identifier Key**: Username
+* **User Attributes**: Beside default attributes (name, email, preferred_username), add CN of all user LDAP groups as "roles" attribute
+* **SSO Protocol**: OIDC (OpenID Connect)
+* **What environments are you interested in using for SSO?**: Production
+* **Flow Uses**: Authorization Code
+* **Access Type**: Confidential
+* **Redirect Urls**: `https://<application-name>.unleash.devshift.net/*`
 
-**NOTE:** When doing first login to UI, you (as a service owner) need to 'grant'
-Organization access for new oAuth app
+You may add a comment to the ticket and mention `unleash-app-interface-prod` as a reference implementation. See [SNOW ticket for app-interface-prod](https://redhat.service-now.com/help?id=rh_ticket&is_new_order=true&table=sc_request&sys_id=1a3c4d0b1b3fedd0532233fccd4bcb15) as an example.
 
-![](images/gh_grant.png)
 
-After clicking `Register application`, you will be given the `Client ID`
-and the `Client Secret`. Those values will be placed in the
-[Configuration Secret](#configuration-secret), described ahead.
-
-## Github Org/Team
-
-Users will be given access to the Unleash instance Web UI via Github ORG/TEAM
-membership. To set that using App Interface, create a new
-`<application-name>.yml` file in the `unleash`
-[permissions directory](https://gitlab.cee.redhat.com/service/app-interface/tree/master/data/dependencies/unleash/permissions),
-containing:
-
-```yaml
----
-$schema: /access/permission-1.yml
-
-labels: {}
-
-name: <application-name>-unleash
-description: <application-name> unleash instance access
-
-service: github-org-team
-org: app-sre
-team: <application-name>-unleash
-```
-
-And add that permission to the proper team `role` (tenants are expected to
-inform the team/users in the JIRA ticket).
+After receiving the SSO client, you have to create the
+[Configuration Secret](#configuration-secret) described ahead.
 
 ## Namespace
 
@@ -142,16 +144,12 @@ sections.
 ## Configuration Secret
 
 The Unleash instance expects an OpenShift Secret in the Namespace containing
-with the following data:
+the following data:
 
-- `GH_CLIENT_ID`: The Github client ID, acquired from the OAuth application
-  registration (see the [Github Configuration](#github-configuration) section
-  for details).
-- `GH_CLIENT_SECRET`: The Github client secret, acquired from the OAuth
-  application registration (see the
-  [Github Configuration](#github-configuration) section for details).
-- `GH_CALLBACK_URL`: The Unleash callback page -
-  `https://<unleash-instance-domain>/api/auth/callback`
+- `KC_HOST`: The SSO issuer url - `https://auth.redhat.com/auth`.
+- `KC_REALM`: The used realm - `EmployeeIDP`.
+- `KC_CLIENT_ID`: The SSO client ID from the SNOW ticket (`unleash-<application-name>`).
+- `KC_CLIENT_SECRET`: The SSO client secret provided by the RHIT via SNOW ticket.
 - `ADMIN_ACCESS_TOKEN`: The Bearer token to access the Unleash Admin API
   directly. We recommend using the bash command `uuidgen` to generate the
   token.
@@ -222,7 +220,7 @@ externalResources:
 
 ## Deployment
 
-+To deploy the new instance to the `unleash` Namespace, add this section to the list of `targets` in [saas-unleash](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-unleash.yaml) file:
+To deploy the new instance to the `unleash` Namespace, add this section to the list of `targets` in [saas-unleash](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-unleash.yaml) file:
 
 ```yaml
   - namespace:
@@ -233,10 +231,10 @@ externalResources:
       configSecret: <application-name>-config
       databaseSecret: <application-name>-unleash-rds
       tokenSecret: <application-name>-unleash-token
-      org: <github-org>
-      team: <github-team>
-      read_only_team: <permission-name>
       host: <full_qualified_host_name>
+      admin_roles: <comma separated list of rover group names>
+      editor_roles: <comma separated list of rover group names>
+      viewer_roles: <comma separated list of rover group names>
 ```
 
 That will create the Unleash Deployment, Route, and Service in the Namespace using the
@@ -251,27 +249,28 @@ Parameters:
   [Database](#database) section.
 - `tokenSecret`: The token secret name as defined in the
   [Client Access Token Secret](#client-access-token-secret) section.
-- `org`: The Github Organization that the Web UI users have to be member of in
-  order to access this Unleash instance, as defined in the
-  [Github Org/Team](#github-org/Team) section.
-- `team`: The Github Team that the Web UI users have to be member of in order
-  to access this Unleash instance, as defined in the
-  [Github Org/Team](#github-org/Team) section.
-- `read_only_team`: Optional - Name reference to a `/access/permission-1.yml` object.
-  [Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/dependencies/unleash/permissions/ocm-read-only.yml)
-- `full_qualified_host_name`: The `host` value of the `Route` spec shall be
+- `host`: The full qualified hostname of the `Route` spec shall be
   `<application-name>.unleash.devshift.net`. You have to arrange to get that
   sub-domain created.
-[Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-ocm.yaml).
+- `admin_roles`: A comma-separated list of Rover group names to be used to
+ grant the admin Unleash role.
+  sub-domain created.
+- `editor_roles`: A comma-separated list of Rover group names to be used to
+ grant the editor Unleash role.
+  sub-domain created.
+- `viewer_roles`: A comma-separated list of Rover group names to be used to
+ grant the viewer Unleash role.
+
+[Example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-unleash.yaml).
 
 
 ## Examples
 
-Jira ticket requesting Unleash instances:
+### Jira ticket requesting Unleash instances:
 
 [https://issues.redhat.com/browse/APPSRE-1801](https://issues.redhat.com/browse/APPSRE-1801)
 
-Message to requester after deployment:
+### Message to requester after deployment:
 
 ```
 The <application>'s Unleash instance is ready to be used.
@@ -287,6 +286,10 @@ The Web UI / REST API endpoint is:
 https://<application>.unleash.devshift.net/
 ```
 
-Full featured Unleash instance
+### Full featured Unleash instances
 
-[https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-ocm.yaml](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-ocm.yaml)
+[https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-unleash.yaml](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/unleash/cicd/saas-unleash.yaml)
+
+### Example SSO SNOW ticket
+
+[SNOW ticket for app-interface-prod](https://redhat.service-now.com/help?id=rh_ticket&is_new_order=true&table=sc_request&sys_id=1a3c4d0b1b3fedd0532233fccd4bcb15)

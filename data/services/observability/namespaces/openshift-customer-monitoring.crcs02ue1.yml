@@ -131,7 +131,11 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-microsoft-teams.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/notifications-stage/notifications-connector-servicenow.servicemonitor.yml
+- provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-slack.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/notifications-stage/notifications-connector-splunk.servicemonitor.yml
 - provider: resource
   path: /insights-stage/remediations-stage/remediations.servicemonitor.yml
 - provider: resource
@@ -263,7 +267,7 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/pdf-generator-stage/pdf-generator.servicemonitor.yml
 - provider: resource
-  path: /insights-stage/3scale-stage/apicast.servicemonitor.yml
+  path: /insights-stage/3scale-stage/gateway.servicemonitor.yml
 - provider: resource
   path: /insights-stage/strimzi/kafka-lag-exporter.servicemonitor.yml
 - provider: resource
@@ -505,9 +509,6 @@ openshiftResources:
   variables:
     env: stage
 - provider: prometheus-rule
-  path: /insights-stage/rhosak-stage/rhosak.prometheusrules.yml
-  type: resource
-- provider: prometheus-rule
   path: /insights-stage/content-sources-stage/content-sources-stage.prometheusrules.yml
   type: resource
   tests:
@@ -521,6 +522,11 @@ openshiftResources:
   type: resource
   tests:
   - /insights-stage/rhsm-api-proxy-stage/rhsm-system-profile-bridge.prometheusrulestests.yml
+- provider: prometheus-rule
+  path: /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrules.yaml
+  type: resource
+  tests:
+  - /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrulestests.yaml
 
 ### Gabi
 - provider: prometheus-rule

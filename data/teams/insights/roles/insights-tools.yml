@@ -29,9 +29,12 @@ self_service:
   - $ref: /services/insights/third-party-operators/deploy.yml
   - $ref: /services/insights/strimzi/saas.yml
 - change_type:
-    $ref: /app-interface/changetype/app-owner.yml
+    $ref: /app-interface/changetype/hierarchical-app-owner.yml
   datafiles:
   - $ref: /services/insights/app.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
   - $ref: /services/insights/cicd/app.yml
   - $ref: /services/insights/strimzi/app.yml
   - $ref: /services/insights/ephemeral/app.yml
@@ -42,11 +45,6 @@ self_service:
   - $ref: /services/insights/commit-tracker/app.yml
   - $ref: /services/insights/operational-metrics/app.yml
   - $ref: /services/insights/frontend-base/app.yml
-- change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
-  - $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
@@ -94,3 +92,7 @@ self_service:
   - /insights-ephemeral/hac/hac-frontend-landing.yaml
   - /insights-ephemeral/hac/hac-frontend-environment.yaml
   - /insights-ephemeral/hac/hac-clowd-environment.yaml
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /terraform/resources/insights/stage/msk-stage-1.yml

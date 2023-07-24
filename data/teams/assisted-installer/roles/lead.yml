@@ -24,12 +24,6 @@ self_service:
   datafiles:
   - $ref: /services/assisted-installer/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
-  - $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-  - $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/assisted-installer/roles/ai-cluster-logs.yml

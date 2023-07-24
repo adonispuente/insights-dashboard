@@ -24,14 +24,20 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-- name: dynatrace-operator-integration
+- name: dynatrace-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-operator/template-raw.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
-- name: dynatrace-token-integration-hs-management-clusters
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+- name: dynatrace-token-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/template.yaml
   targets:
@@ -41,7 +47,7 @@ resourceTemplates:
   parameters:
     HYPERSHIFT_CLUSTER_TYPE: management-cluster
     SECRET_NAME: hs-management-clusters
-- name: dynatrace-token-integration-hs-service-clusters
+- name: dynatrace-token-hs-service-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/template.yaml
   targets:
@@ -51,17 +57,117 @@ resourceTemplates:
   parameters:
     HYPERSHIFT_CLUSTER_TYPE: service-cluster
     SECRET_NAME: hs-service-clusters
-- name: dynatrace-dynakube-integration-hs-management-clusters
+- name: dynatrace-dynakube-hs-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-dynakube/template.yaml
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: main
+    parameters:
+      ENVIRONMENT: integration
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: staging
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
-    ENVIRONMENT: integration
     ACTIVEGATE_CPU_REQUEST: 500m
     ACTIVEGATE_MEM_REQUEST: 512Mi
     ACTIVEGATE_CPU_LIMIT: 2000m
     ACTIVEGATE_MEM_LIMIT: 4Gi
+
+- name: dynatrace-cluster-bootstrap-job
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-cluster-bootstrap/template.yaml
+  targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
+
+- name: dynatrace-token-stage
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-token/cluster-bootstrap.yaml
+  targets:
+  - name: dynatrace-token-stage-us-east-virginia-hrm15629
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="cluster-scope")]
+    ref: main
+    parameters:
+      DT_REGION: us-east-virginia
+      DT_TENANT_ID: hrm15629
+      REGIONS:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  - name: dynatrace-token-stage-eu-west-ireland-wmb10400
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*stage.*" & @.name=="cluster-scope")]
+    ref: main
+    parameters:
+      DT_REGION: eu-west-ireland
+      DT_TENANT_ID: wmb10400
+      REGIONS:
+      - eu-west-1
+      - eu-central-1
+- name: dynatrace-token-production
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-token/cluster-bootstrap.yaml
+  targets:
+  - name: dynatrace-token-production-ap-southeast-singapore-uva53433
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    parameters:
+      DT_REGION: ap-southeast-singapore
+      DT_TENANT_ID: uva53433
+      REGIONS:
+      - ap-southeast-3
+  - name: dynatrace-token-production-eu-west-ireland-vap62935
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    parameters:
+      DT_REGION: eu-west-ireland
+      DT_TENANT_ID: vap62935
+      REGIONS:
+      - eu-west-1
+      - eu-central-1
+  - name: dynatrace-token-production-us-east-virginia-jgn20300
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    parameters:
+      DT_REGION: us-east-virginia
+      DT_TENANT_ID: jgn20300
+      REGIONS:
+      - us-east-1
+      - us-east-2
+      - us-west-2

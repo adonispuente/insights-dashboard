@@ -1,0 +1,26 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: openshift-operators-redhat
+description: telemeter-prod-01 openshift-operators-redhat namespace
+
+cluster:
+  $ref: /openshift/telemeter-prod-01/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/production.yml
+
+managedResourceTypes:
+- Subscription.operators.coreos.com
+- OperatorGroup.operators.coreos.com
+
+openshiftResources:
+- provider: resource
+  path: /setup/loki/loki-operator.subscription.yaml
+- provider: resource
+  path: /setup/loki/loki-operator.group.yaml

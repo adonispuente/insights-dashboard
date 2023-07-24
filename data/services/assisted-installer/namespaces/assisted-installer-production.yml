@@ -108,6 +108,30 @@ openshiftResources:
   version: 2
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-admin-user
+  path: app-interface/assisted-installer/msk-credentials/production/admin
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-read-user
+  path: app-interface/assisted-installer/msk-credentials/production/assisted-events-streams
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-write-user
+  path: app-interface/assisted-installer/msk-credentials/production/assisted-service
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: msk-mirrormaker
+  path: app-interface/assisted-installer/msk-credentials/production/mirrormaker
+  version: 1
+  annotations:
+    qontract.recycle: "true"
 
 managedRoles: true
 
@@ -187,3 +211,23 @@ externalResources:
     identifier: ai-production-es
     defaults: /terraform/resources/assisted-installer/elasticsearch-production-1.yml
     output_resource_name: assisted-installer-elasticsearch
+  - provider: msk
+    identifier: assisted-installer-production
+    defaults: /terraform/resources/assisted-installer/msk-production-1.yml
+    output_resource_name: assisted-installer-msk
+    users:
+    - name: scram-assisted-service-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/assisted-service
+        field: all
+        version: 1
+    - name: scram-assisted-events-streams-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/assisted-events-streams
+        field: all
+        version: 1
+    - name: scram-admin-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/admin
+        field: all
+        version: 1

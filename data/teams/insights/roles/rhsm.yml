@@ -33,11 +33,6 @@ self_service:
   datafiles:
   - $ref: /services/insights/rhsm/app.yml
 - change_type:
-    $ref: /app-interface/changetype/namespace-owner.yml
-  datafiles:
-  - $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
-  - $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/rhsm.yml
