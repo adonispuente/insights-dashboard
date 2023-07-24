@@ -45,7 +45,7 @@ resourceTemplates:
   path: /deploy/clowdapp.yaml
   url: https://github.com/RHEnVision/provisioning-backend
   targets:
-  - namespace: # perf api
+  - namespace: # PERF api
       $ref: /services/insights/provisioning/namespaces/provisioning-perf.yml
     ref: main
     upstream:
