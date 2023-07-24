@@ -1,0 +1,21 @@
+$schema: /dependencies/status-board-1.yml
+
+
+name: status-board-stage
+
+ocm:
+  $ref: /dependencies/ocm/environments/stage.yml
+
+labels:
+  environment: stage
+
+
+globalSelector:
+  exclude:
+    - apps[?@.onboardingStatus!=\"OnBoarded\"]
+
+products:
+  - productEnvironment:
+      $ref: /products/status-board/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/web-rca/environments/stage.yml
