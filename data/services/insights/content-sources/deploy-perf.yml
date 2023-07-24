@@ -50,11 +50,7 @@ resourceTemplates:
   targets:
   - namespace: # PERF
       $ref: /services/insights/content-sources/namespaces/content-sources-perf.yml
-    ref: main
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: content-services-content-sources-backend-gh-build-main
+    ref: 2394feeb1cc3158cece54054d09fca385425a30c
     # promotion:
     #   publish:
     #   - content-sources-perf-deploy-success-channel
