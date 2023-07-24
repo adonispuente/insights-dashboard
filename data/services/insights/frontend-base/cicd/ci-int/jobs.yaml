@@ -112,7 +112,7 @@ config:
     # Frontends build deploy POC work
     - "insights-gh-pipeline":
         display_name: insights-chrome pipeline
-        branch: frontends-jenkinsfile-poc
+        branch: "master"
         trigger_exclude_path: 'docs/.*\n.*\.adoc'
         status_context: ci.int.devshift.net PR pipeline
 
