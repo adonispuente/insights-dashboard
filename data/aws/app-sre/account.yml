@@ -63,6 +63,9 @@ resetPasswords:
 - user:
     $ref: /teams/ocm/users/tcreller.yml
   requestId: tcreller-1234
+- user:
+    $ref: /teams/ocm/users/tithakka.yml
+  requestId: tithakka-070723
 deletionApprovals:
 - type: aws_ecr_repository
   name: ocm-envoy
