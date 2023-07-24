@@ -41,5 +41,5 @@ resourceTemplates:
       - channel: github-gabi-stage-deploy-success-channel
         data:
         - parent_saas: saas-gabi
-          target_config_hash: 9d94c0f96e6d80bb
+          target_config_hash: 3104ebe91bb5bf03
           type: parent_saas_config
