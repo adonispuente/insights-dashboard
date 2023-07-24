@@ -12,7 +12,7 @@ labels:
 
 globalAppSelectors:
   exclude:
-    - apps[?@.onboardingStatus!=\"OnBoarded\"]
+    - "apps[?@.onboardingStatus!=\"OnBoarded\"]"
 
 products:
   - productEnvironment:
