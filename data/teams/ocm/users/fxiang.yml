@@ -1,0 +1,32 @@
+---
+$schema: /access/user-1.yml
+
+
+labels: {}
+
+
+name: Feng Xiang
+org_username: fxiang
+github_username: fxiang1
+quay_username: fxiang1
+tag_on_cluster_updates: false
+
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+
+public_gpg_key: |
+  mDMEZLbrcxYJKwYBBAHaRw8BAQdAyocmEPj8C58VGnwo6VYjgmBtQJeKDUuwkohq
+  xCjvePW0JEZlbmcgWGlhbmcgKERldikgPGZ4aWFuZ0ByZWRoYXQuY29tPoiTBBMW
+  CgA7FiEEavInKx/9bXumd02eMpKZ6FcdNgYFAmS263MCGwMFCwkIBwICIgIGFQoJ
+  CAsCBBYCAwECHgcCF4AACgkQMpKZ6FcdNgZreQEAoiLFjhL2Pi6lgBt/4yYDWK98
+  8Zkyut3iMTtw/6gVWpQA/2aI0k/RFTUupJ/mjAqAN2QnZkT4+XAgZxZgNiAsbiYO
+  uDgEZLbrcxIKKwYBBAGXVQEFAQEHQN7MhmNbXuAUUp9CyHQgI9WHNOY4moEf+eyZ
+  kHzTt7w6AwEIB4h4BBgWCgAgFiEEavInKx/9bXumd02eMpKZ6FcdNgYFAmS263MC
+  GwwACgkQMpKZ6FcdNgY0NAEAhnWbpBnOf+fIXfbEkNVlElLEd1I/gKBZXIEJ9rSB
+  PfYBAM6LobNBNlnJ3PRjLHV/jMG7Jbk7kiREXDHd+FUhQLEA

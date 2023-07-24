@@ -1,0 +1,63 @@
+---
+$schema: /access/user-1.yml
+
+
+labels: {}
+
+
+name: Xiangjing Li
+org_username: xiangli
+github_username: xiangjingli
+quay_username: xiangjingli
+tag_on_cluster_updates: false
+
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+
+public_gpg_key: |
+  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
