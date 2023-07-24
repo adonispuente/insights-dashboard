@@ -48,6 +48,27 @@ resourceTemplates:
         - parent_saas: notifications-clowder
           target_config_hash: a6b7ae231f9cc4db
           type: parent_saas_config
+- name: notifications-connector-servicenow
+  path: /.rhcicd/stage-servicenow-post-deployment-tests.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    ref: b5ce9d6fab515c8d996fa3e9d1f568fe0977b921
+    parameters:
+      ENV_NAME: stage
+    promotion:
+      auto: true
+      subscribe:
+      - notifications-servicenow-stage-deploy-success-channel
+      publish:
+      - notifications-servicenow-stage-post-deploy-tests-success-channel
+      promotion_data:
+      - channel: notifications-servicenow-stage-deploy-success-channel
+        data:
+        - parent_saas: notifications-clowder
+          target_config_hash: c8a260953cb468fd
+          type: parent_saas_config
 - name: notifications-connector-splunk
   path: /.rhcicd/stage-splunk-post-deployment-tests.yaml
   url: https://github.com/RedHatInsights/notifications-backend
