@@ -1,0 +1,53 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: pdf-generator
+  platform: insights
+name: pdf-generator-test
+description: pdf-generator post deployment tests
+app:
+  $ref: /services/insights/pdf-generator/app.yml
+pipelinesProvider:
+  $ref: /services/insights/pipelines/tekton.crc-pipelines.appsrep05ue1.yaml
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: aa-cicd-events
+managedResourceTypes:
+- Job
+
+publishJobLogs: true
+imagePatterns:
+- quay.io/cloudservices
+
+authentication:
+  image:
+    path: insights/quay/cloudservices-push
+    field: all
+    version: 3
+resourceTemplates:
+- name: pdf-generator
+  path: /saas-templates/deploy-acceptance.yml
+  url: https://gitlab.cee.redhat.com/automation-analytics/pdf-generator
+  targets:
+  - namespace:
+      $ref: /services/insights/pdf-generator/namespaces/pdf-generator-stage.yml
+    ref: 45413cf13246006eddb2d64bc64537adf9a13343
+    parameters:
+      ENV_NAME: stage
+      GATE_PROMETHEUS_ENDPOINT: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
+      CPU_REQUEST_IQE: 500m
+      CPU_LIMIT_IQE: 1000m
+    promotion:
+      auto: true
+      subscribe:
+      - pdf-generator-stage-deploy-success-channel
+      publish:
+      - pdf-generator-stage-test-success-channel
+      promotion_data:
+      - channel: pdf-generator-stage-deploy-success-channel
+        data:
+        - parent_saas: pdf-generator-clowder
+          target_config_hash: 49434e3bb0a0e1bb
+          type: parent_saas_config
+
