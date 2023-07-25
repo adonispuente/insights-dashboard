@@ -1,0 +1,21 @@
+$schema: /dependencies/status-board-1.yml
+
+
+name: status-board-production
+
+ocm:
+  $ref: /dependencies/ocm/environments/production.yml
+
+labels:
+  environment: production
+
+
+globalAppSelectors:
+  exclude:
+    - "apps[?@.onboardingStatus!=\"OnBoarded\"]"
+
+products:
+  - productEnvironment:
+      $ref: /products/status-board/environments/production.yml
+  - productEnvironment:
+      $ref: /products/web-rca/environments/production.yml
