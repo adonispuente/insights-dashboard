@@ -41,6 +41,11 @@ openshiftResources:
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-common/iqe-vault.secret.yaml
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
 
 sharedResources:
   - $ref: /services/insights/shared-resources/metrics-export-prod.yml
