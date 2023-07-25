@@ -145,6 +145,8 @@ resourceTemplates:
       KOKU_MIGRATIONS_CPU_REQUEST: "200m"
       KOKU_MIGRATIONS_CPU_LIMIT: "500m"
 
+      TAG_ENABLED_LIMIT: -1  # Disable the limit for testing
+
 
   # Staging:
   - namespace:
@@ -195,6 +197,7 @@ resourceTemplates:
       TRINO_HOST: trino-coordinator
       RBAC_CACHE_TIMEOUT: 1
       CACHE_TIMEOUT: 1
+      TAG_ENABLED_LIMIT: -1  # Disable the limit for testing
       # Deployment specific variables:
       # koku-api
       KOKU_REPLICAS: 3
@@ -335,6 +338,7 @@ resourceTemplates:
       TRINO_DATE_STEP: 3  # 5
       AUTO_DATA_INGEST: True
       RETAIN_NUM_MONTHS: 5
+      TAG_ENABLED_LIMIT: -1  # Disable the limit for testing
       # INITIAL_INGEST_OVERRIDE: 'True'
       # INITIAL_INGEST_NUM_MONTHS: 1
       SCHEDULE_CHECK_INTERVAL: 720
@@ -811,3 +815,4 @@ resourceTemplates:
     - namespace:
         $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
       ref: a025da861ebf646c2253f4fcaf10f3d5214d5c16
+
