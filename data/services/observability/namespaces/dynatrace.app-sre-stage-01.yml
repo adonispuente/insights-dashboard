@@ -19,8 +19,7 @@ managedResourceTypes:
 - Secret
 - NetworkPolicy
 - DynaKube
-# TODO: enable
-# - Job
+- Job
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/dynatrace-requirements.yaml
@@ -35,8 +34,7 @@ openshiftResources:
 - provider: resource-template
   type: jinja2
   path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
-# TODO: deploy
-# - provider: resource-template
-#   type: jinja2
-#   path: /setup/dynatrace/log-config-job.yaml.j2
-#   enable_query_support: true
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/log-config-job.yaml.j2
+  enable_query_support: true
