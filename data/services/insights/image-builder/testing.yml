@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
-    ref: 836e7114fa422d02f9b2928aa755ddeb014667e2
+    ref: b068d818ed5b4b68a6c0e3d42061737de366881f
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
