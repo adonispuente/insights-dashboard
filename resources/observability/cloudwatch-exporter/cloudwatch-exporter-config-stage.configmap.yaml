@@ -243,10 +243,10 @@ data:
     #   aws_statistics: [Sum]
 
     # AWS ElastiCache Metrics
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: DatabaseMemoryUsagePercentage
-    #   aws_statistics: [Average, Maximum]
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: DatabaseMemoryUsagePercentage
+      aws_statistics: [Average, Maximum]
     # - aws_namespace: "AWS/ElastiCache"
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
     #   aws_metric_name: BytesUsedForCache
@@ -255,9 +255,9 @@ data:
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
     #   aws_metric_name: EngineCPUUtilization
     #   aws_statistics: [Average, Maximum, Minimum]
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: CurrItems
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: CurrItems
     #   aws_statistics: [Average]
     # - aws_namespace: "AWS/ElastiCache"
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
