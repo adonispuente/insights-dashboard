@@ -54,5 +54,14 @@ managedResourceTypes:
 - ClusterLogForwarder.logging.openshift.io
 
 sharedResources:
-- $ref: /services/app-sre/shared-resources/cluster-logging-operator.yaml
-- $ref: /services/app-sre/shared-resources/cluster-logging-config.yaml
+  - $ref: /services/app-sre/shared-resources/cluster-logging-operator.yaml
+
+openshiftResources:
+  - provider: resource
+    path: /setup/cluster-logging/clusterlogging.yaml
+  - provider: resource-template
+    type: jinja2
+    path: /setup/cluster-logging/clusterlogforwarder.yaml.j2
+    variables:
+      RHOBS_LOGGING: true
+      RHOBS_TOOLS_LOGGING_NAMESPACES: ["observatorium-mst-production", "observatorium-metrics-production", "telemeter-production"]
