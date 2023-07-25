@@ -26,7 +26,7 @@ taskTemplates:
     ubi8_ubi_minimal_image: quay.io/app-sre/ubi8-ubi-minimal
     # replace the above line if quay.io is down
     # ubi8_ubi_minimal_image: pull.q1w2.quay.rhcloud.com/app-sre/ubi8-ubi-minimal
-    ubi8_ubi_minimal_image_tag: 8.4-7
+    ubi8_ubi_minimal_image_tag: 8.8-1014
 - name: push-http-splunk-tekton-pipeline-metadata
   type: onePerNamespace
   path: /tekton/push-http-splunk-tekton-pipeline-metadata.task.yaml
@@ -34,7 +34,7 @@ taskTemplates:
     ubi8_ubi_minimal_image: quay.io/app-sre/ubi8-ubi-minimal
     # replace the above line if quay.io is down
     # ubi8_ubi_minimal_image: pull.q1w2.quay.rhcloud.com/app-sre/ubi8-ubi-minimal
-    ubi8_ubi_minimal_image_tag: 8.4-7
+    ubi8_ubi_minimal_image_tag: 8.8-1014
 - name: push-deploy-event-to-db
   type: onePerNamespace
   path: /tekton/push-deploy-event-to-db.task.yaml
@@ -45,7 +45,7 @@ taskTemplates:
     ubi8_ubi_minimal_image: quay.io/app-sre/ubi8-ubi-minimal
     # replace the above line if quay.io is down
     # ubi8_ubi_minimal_image: pull.q1w2.quay.rhcloud.com/app-sre/ubi8-ubi-minimal
-    ubi8_ubi_minimal_image_tag: 8.4-7
+    ubi8_ubi_minimal_image_tag: 8.8-1014
 
 pipelineTemplates:
   openshiftSaasDeploy:
