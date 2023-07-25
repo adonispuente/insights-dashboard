@@ -553,6 +553,36 @@ resourceTemplates:
           origin: http://swatch-contracts-service.rhsm-prod.svc.cluster.local:8000/api/swatch-contracts/
           auth:
             saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-metrics
+          route: /api/swatch-metrics
+          origin: http://swatch-metrics-service.rhsm-prod.svc.cluster.local:8000/api/swatch-metrics/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-producer-red-hat-marketplace
+          route: /api/swatch-producer-red-hat-marketplace
+          origin: http://swatch-producer-red-hat-marketplace-service.rhsm-prod.svc.cluster.local:8000/api/swatch-producer-red-hat-marketplace/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-subscription-sync
+          route: /api/swatch-subscription-sync
+          origin: http://swatch-subscription-sync-service.rhsm-prod.svc.cluster.local:8000/api/swatch-subscription-sync/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-system-conduit
+          route: /api/swatch-system-conduit
+          origin: http://swatch-system-conduit-service.rhsm-prod.svc.cluster.local:8000/api/swatch-system-conduit/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-tally
+          route: /api/swatch-tally
+          origin: http://swatch-tally-service.rhsm-prod.svc.cluster.local:8000/api/swatch-tally/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+        - name: swatch-producer-aws
+          route: /api/swatch-producer-aws
+          origin: http://swatch-producer-aws-service.rhsm-prod.svc.cluster.local:8000/api/swatch-producer-aws/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
         - name: rbac
           route: /api/rbac
           origin: http://rbac-service.rbac-prod.svc.cluster.local:8000/_private/api
