@@ -54,7 +54,7 @@ products:
   - productEnvironment:
       $ref: /products/rhose/environments/stage.yml
   - productEnvironment:
-      $ref: /products/service-registry/product.yml
+      $ref: /products/service-registry/environments/stage.yml
   - productEnvironment:
       $ref: /products/services-dashboard/environments/stage.yml
   - productEnvironment:
