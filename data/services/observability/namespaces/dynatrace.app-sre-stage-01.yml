@@ -23,6 +23,7 @@ managedResourceTypes:
 # - Job
 
 sharedResources:
+- $ref: /services/app-sre/shared-resources/dynatrace-requirements.yaml
 # Required to pull private mirror. If mirror is public, this can be removed
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
