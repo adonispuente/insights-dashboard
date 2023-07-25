@@ -135,7 +135,7 @@ fields kubernetes.host, message
 This can happen when CPU is throttling, can verify it by checking metrics in prometheus
 
 ```
-sum by (pod)(rate(container_cpu_cfs_throttled_seconds_total{node="$NODE"}[3m])) > 1
+sum by (pod)(rate(container_cpu_cfs_throttled_seconds_total[3m])) > 1
 ```
 
 #### Options for fixing this issue
