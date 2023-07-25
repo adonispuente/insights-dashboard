@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/policies/namespaces/stage-policies-stage.yml
-    ref: a46a6259f57472268e55aeb715f480b44f734d2d
+    ref: fbe595ea0220ab0ca1b51933111a7caa324a981f
     parameters:
       ENV_NAME: stage
     promotion:
