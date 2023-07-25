@@ -112,6 +112,11 @@ codeComponents:
 - name: quayio-aurora-configs
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/quayio-aurora-configs
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: true
 - name: update-py2-db
   resource: upstream
   url: https://github.com/quay/update-py2-db
