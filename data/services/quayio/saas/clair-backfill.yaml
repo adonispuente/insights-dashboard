@@ -85,11 +85,11 @@ resourceTemplates:
   # Just the primary region
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 9d8ff6b1c109fdc285298d32ec2a83069bd90556
+    ref: af97203ec7815f075b2200d6af29d3c3c716e980
     delete: true
     parameters:
       QUAY_ENTRYPOINT: registry
-      QUAY_APP_DEPLOYMENT_REPLICAS: 0
+      QUAY_APP_DEPLOYMENT_REPLICAS: 1
       QUAY_APP_CPU_REQUEST: 6
       QUAY_APP_CPU_LIMIT: 8
       QUAY_APP_MEMORY_REQUEST: 8Gi
