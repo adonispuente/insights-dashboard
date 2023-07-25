@@ -57,4 +57,4 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
-    ref: d284767c0566243eaaced068f4704e84cbe988eb
+    ref: 9ff45b5ae28834c914c7a7455056ea158da1b611
