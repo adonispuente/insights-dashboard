@@ -352,7 +352,7 @@ data:
       aws_dimensions: [Consumer Group, Cluster Name, Topic]
       aws_metric_name: SumOffsetLag
     - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Consumer Group, Topic]
+      aws_dimensions: [Consumer Group, Cluster Name, Topic]
       aws_metric_name: EstimatedMaxTimeLag
     - aws_namespace: "AWS/Kafka"
       aws_dimensions: [Cluster Name, Broker ID]
