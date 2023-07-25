@@ -128,11 +128,6 @@ peering:
 # observabilityNamespace:
 #   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
 
-disable:
-  integrations:
-  - openshift-groups
-  - openshift-users
-  - slack-usergroups
 managedClusterRoles: true
 observabilityNamespace:
   $ref:
