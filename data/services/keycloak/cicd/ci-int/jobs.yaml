@@ -75,5 +75,7 @@ config:
         display_name: keycloak-interface pr check
     - 'gl-pr-check-demo':
         display_name: keycloak-interface pr check demo
+        branch: demo
     - 'gl-pr-check-main':
         display_name: keycloak-interface pr check main
+        branch: main
