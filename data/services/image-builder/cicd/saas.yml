@@ -57,7 +57,7 @@ resourceTemplates:
         ACL_ACCOUNT_ID_TENANTS: "15842261"
     - namespace:
         $ref: /services/image-builder/namespaces/composer-production.yml
-      ref: d7ed3cae6eb8960aa261900768f7cd56d0c74752
+      ref: 89274e538da4755c113e9e66d777c1dfad1f0be1
       parameters:
         PGSSLMODE: "require"
         PGMAXCONNS: "100"
