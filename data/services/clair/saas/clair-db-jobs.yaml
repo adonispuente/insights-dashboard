@@ -75,3 +75,16 @@ resourceTemplates:
       VERSION: "4.7.0"
       CONFIG_NAME: "clair-db-jobs-config"
       IMAGE: "quay.io/app-sre/clair"
+- name: clair-db-jobs-pyupio-delete-prod
+  path: /contrib/openshift/manifests/db-job.yaml
+  url: https://github.com/quay/clair
+  targets:
+  - namespace:
+      $ref: /services/clair/namespaces/production.yml
+    ref: bccabff1a003a37a35b7976eb1ff3e9fce35e97e
+    parameters:
+      JOB_NAME: "delete-pyupio"
+      SUBCOMMAND: "post"
+      VERSION: "4.7.0"
+      CONFIG_NAME: "clair-db-jobs-config"
+      IMAGE: "quay.io/app-sre/clair"
