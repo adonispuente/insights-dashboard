@@ -124,7 +124,7 @@ resourceTemplates:
       AWS_WAIT_TIME: "20"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: ce93818c652d105fa95d34585e6a14b193a91d66
+    ref: 624a8efbed4b18834768ae80fa27e986259274fb
     parameters:
       LOG_LEVEL: INFO
       MEMORY_LIMIT: 150Mi
