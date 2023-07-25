@@ -22,6 +22,10 @@ managedResourceTypes:
 # - DynaKube
 # - Job
 
+sharedResources:
+# Required to pull private mirror. If mirror is public, this can be removed
+- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
 openshiftResources:
 - provider: vault-secret
   path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
