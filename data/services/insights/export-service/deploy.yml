@@ -77,3 +77,15 @@ resourceTemplates:
       MIN_REPLICAS: 3
       EXPORT_SERVICE_BUCKET: export-service-prod-s3
       ENABLE_CLOUDWATCH_LOGGING: "true"
+- name: export-service-dashboards
+  url: https://github.com/RedHatInsights/export-service-go
+  path: /dashboards
+  provider: directory
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+    ref: master
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
+    ref: 883d08abb951f0748eea3242dfe95bf77e9639a8
+
