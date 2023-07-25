@@ -53,6 +53,7 @@ resourceTemplates:
     INTERNAL_GW_PORT_QA: 8891
     INTERNAL_GW_PORT_STAGE: 8892
     INTERNAL_GW_PORT: 8893
+    TRIGGER_DEPLOY: true
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
