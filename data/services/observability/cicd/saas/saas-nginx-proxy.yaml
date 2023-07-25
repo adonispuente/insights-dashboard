@@ -329,3 +329,4 @@ resourceTemplates:
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.backplanep04uw2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.backplanep04uw2.devshift.net
+      CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
