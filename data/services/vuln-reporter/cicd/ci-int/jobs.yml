@@ -53,15 +53,3 @@ config:
         display_name: vuln-reporter publisher build master
         branch: main
         build_deploy_script_path: ./publisher/build_deploy.sh
-- project:
-    name: vuln-reporter-notifier
-    label: vuln-reporter
-    node: app-sre
-    gl_group: app-sre
-    gl_project: vuln-reporter
-    quay_org: app-sre
-    jobs:
-    - gl-build-master-vuln-reporter-notifier:
-        display_name: vuln-reporter notifier build master
-        branch: main
-        build_deploy_script_path: ./notifier/build_deploy.sh
