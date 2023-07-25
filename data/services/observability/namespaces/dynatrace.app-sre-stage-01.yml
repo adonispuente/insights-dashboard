@@ -29,7 +29,7 @@ sharedResources:
 
 openshiftResources:
 - provider: vault-secret
-  path: app-sre/creds/dynatrace/api-tokens-tenant-ddl70254
+  path: app-sre/dynatrace/staging/tenant-hrm15629-aws-us-east-1
   version: 1
   name: dynatrace-tokens
 # TODO: uncomment once we have raw operator via saas file
