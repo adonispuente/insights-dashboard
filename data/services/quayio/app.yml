@@ -109,6 +109,9 @@ codeComponents:
 - name: quay-service-tool
   resource: upstream
   url: https://github.com/quay/quay-service-tool
+- name: quayio-aurora-configs
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/quayio-aurora-configs
 - name: update-py2-db
   resource: upstream
   url: https://github.com/quay/update-py2-db
