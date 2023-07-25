@@ -9,7 +9,7 @@ name: automation-hub
 
 description: Automation Hub provides a portal to search for and access Ansible Content Collections supported by Red Hat and Ansible Partners via the Certified Partner Program.
 
-architectureDocument: https://docs.google.com/document/d/1xoJJnlbZVyPPzupfG7yFnb8ahByo9X06UY6qmKYPhIs/
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub/Automation-Hub-architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/automation-hub
 grafanaUrls:
 - title: Automation Hub
