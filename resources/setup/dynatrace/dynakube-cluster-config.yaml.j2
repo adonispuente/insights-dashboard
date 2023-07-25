@@ -69,4 +69,5 @@ spec:
         memory: {{ ACTIVEGATE_MEM_REQUEST | default("512Mi") }}
       limits:
         cpu: {{ ACTIVEGATE_CPU_LIMIT | default("1000m") }}
-        memory: {{ ACTIVEGATE_MEM_LIMIT | default("1.5Gi") }}
+        # Note: Gi is not supported
+        memory: {{ ACTIVEGATE_MEM_LIMIT | default("1536Mi") }}

@@ -69,4 +69,5 @@ spec:
         memory: "512Mi"
       limits:
         cpu: "1000m"
-        memory: "1.5Gi"
+        # Note: Gi is not supported
+        memory: "1536Mi"
