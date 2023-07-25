@@ -1,6 +1,7 @@
 - job-template:
     id: 'keycloak-interface-build-master'
     name: '{gl_group}-{gl_project}-gl-build-master'
+    branch: main
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -13,6 +14,7 @@
 - job-template:
     id: 'keycloak-interface-build-demo'
     name: '{gl_group}-{gl_project}-gl-build-demo'
+    branch: demo
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -25,6 +27,7 @@
 - job-template:
     id: 'keycloak-interface-pr-check-demo'
     name: '{gl_group}-{gl_project}-gl-pr-check-demo'
+    branch: demo
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
@@ -37,6 +40,7 @@
 - job-template:
     id: 'keycloak-interface-pr-check-main'
     name: '{gl_group}-{gl_project}-gl-pr-check-main'
+    branch: main
     wrappers:
     - timeout_wrapper:
         timeout: '{timeout}'
