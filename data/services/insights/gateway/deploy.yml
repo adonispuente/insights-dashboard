@@ -53,7 +53,6 @@ resourceTemplates:
     INTERNAL_GW_PORT_QA: 8891
     INTERNAL_GW_PORT_STAGE: 8892
     INTERNAL_GW_PORT: 8893
-    TRIGGER_DEPLOY: true
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
@@ -79,6 +78,7 @@ resourceTemplates:
       REPLICAS: 3
       AUTHENTICATE_WITH_ORG_ID: true
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
+      TRIGGER_DEPLOY: true
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
     ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
