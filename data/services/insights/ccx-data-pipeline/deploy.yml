@@ -219,7 +219,7 @@ resourceTemplates:
       name: RedHatInsights-insights-results-aggregator-cleaner-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 7e3ddba2e600576802800c469a7ce811e0675e87
+    ref: ad749bddb634d117cb84e7f7a4609879e30e9958
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
