@@ -19,3 +19,9 @@ managedRoles: true
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+openshiftServiceAccountTokens:
+- namespace:
+    $ref: /openshift/backplanep04uw2/namespaces/app-sre-observability-per-cluster.yml
+  serviceAccountName: grafana
+
