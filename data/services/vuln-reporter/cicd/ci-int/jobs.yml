@@ -6,7 +6,7 @@ labels:
 
 name: ci-int-vuln-reporter-jobs
 
-description: ''
+description: 'jobs for vuln-reporter; consisting of 3 continers: fetcher, reporter, publusher'
 
 app:
   $ref: /services/vuln-reporter/app.yml
@@ -17,6 +17,7 @@ instance:
 type: jobs
 
 config:
+# fetcher
 - project:
     name: vuln-reporter-fetcher
     label: vuln-reporter
@@ -25,10 +26,15 @@ config:
     gl_project: vuln-reporter
     quay_org: app-sre
     jobs:
+    - gl-mr-check-vuln-reporter-fetcher:
+        display_name: pr-check vuln-reporter fetcher
+        branch: main
+        pr_check_script_path: ./fetcher/pr_check.sh
     - gl-build-master-vuln-reporter-fetcher:
         display_name: vuln-reporter fetcher build master
         branch: main
         build_deploy_script_path: ./fetcher/build_deploy.sh
+# reporter
 - project:
     name: vuln-reporter-reporter
     label: vuln-reporter
@@ -37,10 +43,15 @@ config:
     gl_project: vuln-reporter
     quay_org: app-sre
     jobs:
+    - gl-mr-check-vuln-reporter-reporter:
+        display_name: pr-check vuln-reporter reporter
+        branch: main
+        pr_check_script_path: ./reporter/pr_check.sh
     - gl-build-master-vuln-reporter-reporter:
         display_name: vuln-reporter reporter build master
         branch: main
         build_deploy_script_path: ./reporter/build_deploy.sh
+# publisher
 - project:
     name: vuln-reporter-publisher
     label: vuln-reporter
@@ -49,6 +60,10 @@ config:
     gl_project: vuln-reporter
     quay_org: app-sre
     jobs:
+    - gl-mr-check-vuln-reporter-publisher:
+        display_name: pr-check vuln-reporter publisher
+        branch: main
+        pr_check_script_path: ./publisher/pr_check.sh
     - gl-build-master-vuln-reporter-publisher:
         display_name: vuln-reporter publisher build master
         branch: main
