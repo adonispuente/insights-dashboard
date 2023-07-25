@@ -86,7 +86,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
     ref: af97203ec7815f075b2200d6af29d3c3c716e980
-    delete: true
     parameters:
       QUAY_ENTRYPOINT: registry
       QUAY_APP_DEPLOYMENT_REPLICAS: 1
