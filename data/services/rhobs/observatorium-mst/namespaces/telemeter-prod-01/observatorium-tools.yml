@@ -60,7 +60,7 @@ externalResources:
     resources:
       - provider: s3
         identifier: telemeter-prod-01-observatorium-loki
-        defaults: /terraform/resources/telemeter/s3-private-1.yml
+        defaults: /terraform/resources/s3-private-expires-30-days.yml
         output_resource_name: observatorium-loki
       - provider: s3
         identifier: telemeter-prod-01-observatorium-parca
