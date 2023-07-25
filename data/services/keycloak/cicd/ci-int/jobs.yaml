@@ -71,11 +71,9 @@ config:
         display_name: keycloak-interface build demo
         branch: demo
         build_deploy_script_path: "./build_deploy.sh"
-    - 'gl-pr-check':
-        display_name: keycloak-interface pr check
-    - 'gl-pr-check-demo':
+    - 'keycloak-interface-pr-check-demo':
         display_name: keycloak-interface pr check demo
         branch: demo
-    - 'gl-pr-check-main':
+    - 'keycloak-interface-pr-check-main':
         display_name: keycloak-interface pr check main
         branch: main

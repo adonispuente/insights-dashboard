@@ -23,7 +23,7 @@
         - *kcm_secret_demo
     <<: *gl_build_master
 - job-template:
-    id: 'gl-pr-check-demo'
+    id: 'keycloak-interface-pr-check-demo'
     name: '{gl_group}-{gl_project}-gl-pr-check-demo'
     wrappers:
     - timeout_wrapper:
@@ -35,7 +35,7 @@
         - *kcm_secret_demo
     <<: *gl_pr_check
 - job-template:
-    id: 'gl-pr-check-main'
+    id: 'keycloak-interface-pr-check-main'
     name: '{gl_group}-{gl_project}-gl-pr-check-main'
     wrappers:
     - timeout_wrapper:
