@@ -63,6 +63,15 @@ clusterAdminAutomationToken:
 jumpHost:
   $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
 
+upgradePolicy:
+  workloads:
+  - backplane
+  schedule: 0 14 * * 1-4
+  conditions:
+    soakDays: 20
+    mutexes:
+    - backplane
+
 network:
   type: OVNKubernetes
   vpc: 10.170.44.0/22
