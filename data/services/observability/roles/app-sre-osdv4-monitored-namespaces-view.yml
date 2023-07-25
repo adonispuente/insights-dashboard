@@ -22,6 +22,9 @@ access:
   role: view
 # Glitchtip
 - namespace:
+    $ref: /services/glitchtip/namespaces/glitchtip-dev.yml
+  role: view
+- namespace:
     $ref: /services/glitchtip/namespaces/glitchtip-stage.yml
   role: view
 - namespace:
