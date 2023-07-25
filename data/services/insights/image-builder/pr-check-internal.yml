@@ -34,3 +34,4 @@ config:
       - "insights-gh-pr-check":
           branch: main
           display_name: image-builder-frontend pr-check
+          concurrent_build: true
