@@ -57,6 +57,6 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
-    ref: 56e32d774f45e8b9894e65f98353f95e78139775
+    ref: 46de394b6d1de2646480fbd5ff0db4b0bd2e7767
     parameters:
       OPERATOR_IMAGE_PULL_SECRET: quay.io
