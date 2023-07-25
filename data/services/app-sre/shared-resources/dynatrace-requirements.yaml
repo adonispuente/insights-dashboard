@@ -1,0 +1,11 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: dynatrace-requirements
+description: requirements for dynatrace to be deployed
+
+openshiftResources:
+- provider: resource
+  path: /setup/dynatrace/allow-from-hostnetwork.networkpolicy.yaml
