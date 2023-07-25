@@ -23,7 +23,7 @@ ocm:
 managedGroups:
 - dedicated-admins
 
-# managedClusterRoles: true
+managedClusterRoles: true
 
 spec:
   product: rosa
@@ -55,7 +55,9 @@ spec:
 automationToken:
   path: app-sre/creds/kube-configs/backplanep04uw2
   field: token
+
 clusterAdmin: true
+
 clusterAdminAutomationToken:
   path: app-sre/creds/kube-configs/backplanep04uw2-cluster-admin
   field: token
@@ -114,21 +116,7 @@ peering:
     cidrBlock: 172.16.0.0/12
     manageRoutes: true
     manageSecurityGroups: true
-  # access to backplane from OSD bastions
-  # This should not be needed anymore with backplane allowing traffic from Internet
-  # - provider: account-vpc-mesh
-  #   name: backplanep04uw2_osd-bastion-stage
-  #   account:
-  #     $ref: /aws/osd-bastion-stage/account.yml
-  #   tags:
-  #     osd: backplane
-  #   manageRoutes: true
-  #   assumeRole: arn:aws:iam::611491592236:role/network-mgmt-backplanep04uw2
 
-# observabilityNamespace:
-#   $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
-
-managedClusterRoles: true
 observabilityNamespace:
   $ref:
     /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
