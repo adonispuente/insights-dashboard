@@ -28,6 +28,8 @@ openshiftResources:
 - provider: resource
   path: /insights-ephemeral/ephemeral-bot.serviceaccount.yaml
 - provider: resource
+  path: /insights-ephemeral/ephemeral-rhtap-bot.serviceaccount.yaml
+- provider: resource
   path: /insights-ephemeral/aap-qe-bot.serviceaccount.yaml
 - provider: resource
   path: /insights-ephemeral/stonesoup-qe-bot.serviceaccount.yaml
