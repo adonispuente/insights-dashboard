@@ -59,7 +59,7 @@ resourceTemplates:
       RETURN_URL: https://cert.${PLATFORM_HOSTNAME}/api/ingress/v1/upload
   - namespace:
       $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
-    ref: 971ce0a181421939c8a93aaea2f6011b26fe6878
+    ref: 6305e6aa149fd8101994849c12cceb947e9e081d
     parameters:
       LOG_LEVEL: info
       RETURN_URL: https://cert.${PLATFORM_HOSTNAME}/api/ingress/v1/upload
