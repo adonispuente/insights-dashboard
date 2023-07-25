@@ -224,7 +224,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
     ref: master
-    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
@@ -582,7 +581,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
     ref: master
-    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
