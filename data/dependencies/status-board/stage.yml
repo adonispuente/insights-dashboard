@@ -22,40 +22,40 @@ products:
   - productEnvironment:
       $ref: /products/web-rca/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/app-interface/environments/stage-int.yml
+      $ref: /products/app-interface/environments/stage-int.yml
   - productEnvironment:
-      $ref: /data/products/app-interface/environments/stage.yml
+      $ref: /products/app-interface/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/app-sre/environments/stage.yml
+      $ref: /products/app-sre/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/cna/environments/stage.yml
+      $ref: /products/cna/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/codeready-analytics/environments/stage.yml
+      $ref: /products/codeready-analytics/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/control-plane-service/environments/stage.yml
+      $ref: /products/control-plane-service/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/dashdot/environments/stage.yml
+      $ref: /products/dashdot/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/devfile-registry/environments/stage.yml
+      $ref: /products/devfile-registry/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/glitchtip/environments/stage.yml
+      $ref: /products/glitchtip/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/insights/environments/stage.yml
+      $ref: /products/insights/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/openshift.io/environments/stage.yml
+      $ref: /products/openshift.io/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/osdv4/environments/stage.yml
+      $ref: /products/osdv4/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/quarkus/environments/stage-redhat.yml
+      $ref: /products/quarkus/environments/stage-redhat.yml
   - productEnvironment:
-      $ref: /data/products/quarkus/environments/stage.yml
+      $ref: /products/quarkus/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/quay/environments/stage.yml
+      $ref: /products/quay/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/rhose/environments/stage.yml
+      $ref: /products/rhose/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/service-registry/product.yml
+      $ref: /products/service-registry/product.yml
   - productEnvironment:
-      $ref: /data/products/services-dashboard/environments/stage.yml
+      $ref: /products/services-dashboard/environments/stage.yml
   - productEnvironment:
-      $ref: /data/products/stonesoup/environments/stage.yml
+      $ref: /products/stonesoup/environments/stage.yml
