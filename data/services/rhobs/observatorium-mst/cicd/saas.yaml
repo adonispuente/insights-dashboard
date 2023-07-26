@@ -765,6 +765,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
     ref: 871e9441b43ee078476e90d716a7516f973957f7
+    delete: true
     parameters:
       IMAGE_TAG: 'v0.1.0'
       NAMESPACE: observatorium-stage
@@ -777,6 +778,7 @@ resourceTemplates:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
       ref: 871e9441b43ee078476e90d716a7516f973957f7
+      delete: true
       parameters:
         IMAGE_TAG: 'v0.1.0' # This is irrelevant but required for the template
         NAMESPACE: observatorium-production
