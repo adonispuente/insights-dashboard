@@ -31,3 +31,7 @@ openshiftResources:
   path: /setup/network-observability/cluster.flowcollector.yaml
 - provider: resource
   path: /setup/advanced-cluster-security/rhacs-operator.subscription.yaml
+- provider: resource
+  path: /setup/tempo/tempo-operator.subscription.yaml
+- provider: resource
+  path: /setup/otel/otel-operator.subscription.yaml
