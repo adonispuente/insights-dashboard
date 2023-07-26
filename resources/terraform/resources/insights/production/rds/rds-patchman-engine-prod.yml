@@ -19,3 +19,4 @@ monitoring_interval: 30
 max_allocated_storage: 2000
 deletion_protection: true
 allow_major_version_upgrade: true
+enabled_cloudwatch_logs_exports: ["postgresql","upgrade"]
