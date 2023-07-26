@@ -1,0 +1,12 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-07-26-systems-with-null-groups-column
+namespace:
+  $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
+identifier: host-inventory-prod
+output: stdout
+query: |
+  SELECT count(1)
+  FROM hosts
+  WHERE groups IS NULL;
