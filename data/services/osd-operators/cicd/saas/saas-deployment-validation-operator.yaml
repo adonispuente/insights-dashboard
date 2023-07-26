@@ -106,7 +106,7 @@ resourceTemplates:
       - dvo-sss-deployment-success-channel-hivep05ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 1dc26d46a40455effc780cab346399c00526f4cc
+    ref: b64e5ef46a46e414e5716be48efff1db920f1ff4
     promotion:
       auto: true
       subscribe:
