@@ -90,11 +90,10 @@ externalResources:
   ### OCM Stage
   - provider: rds
     identifier: ocm-stage-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
     output_resource_name: ocm-stage-unleash-rds
     overrides:
       allow_major_version_upgrade: true
-      engine_version: '14.6'
       apply_immediately: true
   ### OCM Integration
   - provider: rds
