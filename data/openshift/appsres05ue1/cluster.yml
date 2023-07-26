@@ -65,6 +65,9 @@ network:
 
 internal: true
 
+jumpHost:
+  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
+
 peering:
   connections:
   - provider: account-vpc
@@ -97,6 +100,7 @@ peering:
       service: ci-int
     manageRoutes: true
     cidrBlock: 10.0.0.0/8
+
 
 disable:
   integrations:
