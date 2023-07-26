@@ -1,0 +1,14 @@
+---
+$schema: /access/bot-1.yml
+
+labels:
+  service: insights-ephemeral
+
+name: ephemeral-rhtap-bot
+description: Service account with admin access to ephemeral namespaces used in RHTAP pipelines
+
+openshift_serviceaccount: ephemeral-base/ephemeral-rhtap-bot
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-admins.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
