@@ -216,7 +216,7 @@ externalResources:
     defaults: /terraform/resources/app-sre/production/ci-ext-asg-1.yml
     overrides:
       iam_role_name: ci-instances-read-secrets
-      max_size: 2
+      max_size: 3
       instance_types: ["c5.2xlarge"]
     cloudinit_configs:
       - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
@@ -255,7 +255,7 @@ externalResources:
     defaults: /terraform/resources/app-sre/production/ci-ext-asg-1.yml
     overrides:
       iam_role_name: ci-instances-read-secrets
-      max_size: 3
+      max_size: 4
     cloudinit_configs:
       - content: /terraform/resources/app-sre/production/asg/ci-instances.sh
     image:
