@@ -758,29 +758,4 @@ resourceTemplates:
       LOKI_RULER_PVC_REQUEST: '10Gi'
       RULES_OBJSTORE_S3_SECRET: observatorium-mst-rules-objstore-production-s3
       SERVICE_ACCOUNT_NAME: observatorium-mst
-- name: parca-observatorium-remote-ns-rbac-stage
-  path: /resources/services/parca-observatorium-remote-ns-rbac-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-  - namespace:
-      $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 871e9441b43ee078476e90d716a7516f973957f7
-    delete: true
-    parameters:
-      IMAGE_TAG: 'v0.1.0'
-      NAMESPACE: observatorium-stage
-      REMOTE_NAMESPACE: observatorium-mst-stage
-      SERVICE_ACCOUNT_NAME: observatorium
-- name: parca-observatorium-remote-ns-rbac-prod
-  path: /resources/services/parca-observatorium-remote-ns-rbac-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-    - namespace:
-        $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-      ref: 871e9441b43ee078476e90d716a7516f973957f7
-      delete: true
-      parameters:
-        IMAGE_TAG: 'v0.1.0' # This is irrelevant but required for the template
-        NAMESPACE: observatorium-production
-        REMOTE_NAMESPACE: observatorium-mst-production
-        SERVICE_ACCOUNT_NAME: observatorium
+

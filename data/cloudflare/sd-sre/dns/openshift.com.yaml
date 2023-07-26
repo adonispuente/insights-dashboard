@@ -5631,13 +5631,6 @@ records:
   value: ns-138.awsdns-17.com.
   proxied: false
   priority: 0
-- name: conprof.api.stage.openshift.com
-  identifier: cname-conprof-api-stage-openshift-com
-  type: CNAME
-  ttl: 60
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
 - name: logs.tfahlman39-2.openshift.com
   identifier: cname-logs-tfahlman39-2-openshift-com
   type: CNAME
@@ -7198,13 +7191,6 @@ records:
   type: CNAME
   ttl: 900
   value: hackathon-master-20539923.us-east-1.elb.amazonaws.com.
-  proxied: false
-  priority: 0
-- name: conprof.api.openshift.com
-  identifier: cname-conprof-api-openshift-com
-  type: CNAME
-  ttl: 60
-  value: elb.apps.telemeter-prod.a5j2.p1.openshiftapps.com.
   proxied: false
   priority: 0
 - name: console.jaharrin-test-5.openshift.com
