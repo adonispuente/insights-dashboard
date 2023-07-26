@@ -67,7 +67,7 @@ resourceTemplates:
       SOURCE_TYPE_SKIP_LIST: "rh-marketplace"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: f9cf7d828d321c8c122ad2e946f3a3e91083c7d3
+    ref: 319a22e189750d878d5554e5a746c8ada6b4fe23
     parameters:
       SOURCES_ENV: prod
       KOKU_SOURCES_API_HOST: koku-clowder-sources-client.hccm-prod.svc.cluster.local
