@@ -61,7 +61,10 @@
         add-note-merge-request: true
         add-vote-merge-request: true
         add-ci-message: true
-        allow-all-branches: true
+        allow-all-branches: false
+        branch-filter-type: "NameBasedFilter"
+        include-branches:
+            - '{branch}'
         ci-skip: true
         wip-skip: true
         cancel-pending-builds-on-update: true
@@ -107,7 +110,10 @@
         add-note-merge-request: true
         add-vote-merge-request: true
         add-ci-message: true
-        allow-all-branches: true
+        allow-all-branches: false
+        branch-filter-type: "NameBasedFilter"
+        include-branches:
+            - '{branch}'
         ci-skip: true
         wip-skip: true
         cancel-pending-builds-on-update: true
@@ -116,3 +122,4 @@
         <<: *gitlab_message_defaults
     - gitlab-notifier
     <<: *pr_check_template
+
