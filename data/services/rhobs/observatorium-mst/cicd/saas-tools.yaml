@@ -76,6 +76,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools-production.yml
     ref: 3830f23a4af9f3ce972413c05d2047a95951c001
+    delete: true
     parameters:
       NAMESPACE: observatorium-tools-production
       IMAGE_TAG: '1.22.0'
@@ -92,12 +93,14 @@ resourceTemplates:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/rhobs-testing/observatorium-tools.yml
       ref: cbbcebc396c128ad799a92820adca7373a58be33
+      delete: true
       parameters:
         LOKI_STORAGE_SECRET_NAME: minio-test-loki
         LOKI_SIZE: 1x.extra-small
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
       ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
+      delete: true
       parameters:
         LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
         LOKI_SIZE: 1x.extra-small
@@ -125,6 +128,7 @@ resourceTemplates:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-tools.yml
       ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
+      delete: true
       parameters:
         LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
         LOKI_SIZE: 1x.small
@@ -152,6 +156,7 @@ resourceTemplates:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools.yml
       ref: fa8ef6643a2881d5a81887ceb1536554ceddcdea
+      delete: true
       parameters:
         LOKI_STORAGE_SECRET_NAME: observatorium-loki-s3
         LOKI_SIZE: 1x.extra-small
