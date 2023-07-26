@@ -48,7 +48,7 @@ resourceTemplates:
       tokenSecret: app-interface-stage-token
       org: app-sre
       team: app-interface-unleash
-      admin_roles: app-sre
+      admin_roles: app-sre-passwords
       host: app-interface.unleash.stage.devshift.net
   ### App-Interface Production
   - name: app-interface-production
@@ -62,7 +62,7 @@ resourceTemplates:
       tokenSecret: app-interface-token
       org: app-sre
       team: app-interface-unleash
-      admin_roles: app-sre
+      admin_roles: app-sre-passwords
       host: app-interface.unleash.devshift.net
   ### Insights Stage
   - name: insights-stage
