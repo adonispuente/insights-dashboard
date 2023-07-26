@@ -29,3 +29,4 @@ config:
         branch: main
         display_name: "osde2e parameterized job"
         ci_cmd: './scripts/parameterized-job.sh'
+        slack_channel: "sd-cicd-alerts"
