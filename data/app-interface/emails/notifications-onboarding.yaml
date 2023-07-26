@@ -3,7 +3,7 @@ $schema: /app-interface/app-interface-email-1.yml
 
 labels: {}
 
-name: rhsm-onboarding-20230712
+name: cloudot-notifications-onboarding
 
 subject: CloudDot Notifications is now fully onboarded!
 
