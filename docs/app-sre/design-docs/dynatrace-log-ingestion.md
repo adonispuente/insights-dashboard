@@ -57,12 +57,28 @@ Every DynaKube defines a Dynatrace Host Group. For us a Host Group is simply all
 
 ![](images/dynatrace-log-ingestion/dynatrace-config.png)
 
-### Resources
+### Repository dynatrace-config
 
-All Dynatrace components are resources in app-interface:
+To align work with SREP we use a shared repository [dynatrace-config](https://gitlab.cee.redhat.com/service/dynatrace-config). This repository holds openshift resource definitions and terraform scripts to setup and configure Dynatrace.
 
-- Dynatrace Operator is deployed as a [shared resource](https://gitlab.cee.redhat.com/service/app-interface/-/blob/34e9650e3495e8dae8ea9856341be477012c2739/data/services/app-sre/shared-resources/dynatrace-operator.yaml)
-- All Dynatrace resources are [managed in app-interface](https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/resources/setup/dynatrace)
+Especially important for us is the resource definition of the [Dynatrace Operator](https://gitlab.cee.redhat.com/service/dynatrace-config/-/tree/main/resources/dynatrace-operator). We use a raw definition for stability and security reasons. The operator installed via subscription requires too many permissions (essentially all permissions possible) and is not considered compliant. Further, we wittnessed stuck operator upgrades. Using and controlling raw definitions gives us more control on what is happening and aligns us with the approach SREP is taking for Hypershift clusters.
+
+### Dynatrace Cluster Installation
+
+The above figure describes the installation of Dynatrace into an OSD cluster via app-interface. The procedure includes 2 main steps.
+
+#### Generate Dynatrace API Tokens
+
+We use dynatrace-config to [generate API tokens](https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/terraform/redhat-aws/sd-sre/staging/us-east-virginia/hrm15629/ocm-cluster-app-sre-stage-01.tf) and place them in our vault. Currently these terraform definitions are executed manually on our local machine, as there is no common pipeline yet. This repository is shared with SREP and we are aware of this short-comming. A mechanism to automatically apply terraform will be added in the future. It might actually be a good candidat for our `terraform-repo` approach.
+
+#### App-interface MR
+
+Once the API tokens are in vault, we need to open a MR in app-interface consisting of multiple things. Some things here are described in detail in the [Proposed Schema Changes](#proposed-schema-changes) section.
+
+- [Declare dynatrace environment as dependency](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/73201/diffs#8ca86fe9454c5fe122d89ead6a5d8fc85884c481_0_1).
+- [Configure cluster to use dynatrace environment](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/73201/diffs#b22ed0d098d0d1f3542e7cae11167019854372c1_23_21)
+- [Create Dynatrace namespace with necessary resources under observability app](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/observability/namespaces/dynatrace.app-sre-stage-01.yml)
+- [Create additional saas target to deploy operator to dynatrace namespace](https://gitlab.cee.redhat.com/service/app-interface/-/blob/48ea1d3be1899da7cfb7d8bf87091e6a3bef3b74/data/services/observability/cicd/saas/saas-dynatrace-app-sre.yaml#L58-62)
 
 ### Log Configuration
 
@@ -80,7 +96,7 @@ Dynatrace allows a single log rule to inhibit multiple namespace matchers. I.e.,
 
 We use app-interface's built-in template query mechanism to dynamically collect all the namespaces for a cluster that we would like to log. We build a hash from that logging enabled set of namespaces and apply that as [a suffix to the job name](https://gitlab.cee.redhat.com/service/app-interface/-/blob/d682a17bf8612a2cc8eee0f5354981b6841e4a6b/resources/setup/dynatrace/log-config-job.yaml.j2#L14). I.e., any change in the namespace set will lead to a new job name which makes openshift-resources delete the old job and create a new one to apply latest desired state.
 
-### Schema Changes
+### Proposed Schema Changes
 
 To simplify configuration and self-service we introduce Dynatrace as a new dependency.
 
@@ -116,10 +132,10 @@ Note, that we only support one Dynatrace environment per-cluster as of now. The 
 **data/services/my-service/namespace.yml:**
 ```
 dynatrace:
-  enableLogging: true
+  enableLogging: true  # Optional setting. Defaults to false for backwards-compat.
 ```
 
-Logging is enabled on a per-namespace basis. This part can easily be made self-servicable for tenants.
+Logging is enabled on a per-namespace basis. This part can easily be made self-servicable for tenants. We choose a nested format as this can be easily extended in the future with further potential dynatrace settings while keeping them grouped in the same context.
 
 ## Alternatives Considered
 
