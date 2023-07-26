@@ -83,10 +83,6 @@ externalResources:
     identifier: provisioning-elasticache-perf
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-provisioning-1.yml
     output_resource_name: in-memory-db
-  - provider: cloudwatch
-    identifier: provisioning-cloudwatch-perf
-    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-2.yml
-    output_resource_name: cloudwatch
   - provider: sqs
     identifier: provisioning-job-queue-perf
     specs:
