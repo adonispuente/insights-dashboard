@@ -85,7 +85,8 @@ externalResources:
     defaults: /terraform/resources/unleash/rds-stage-1.yml
     output_resource_name: insights-perf-unleash-rds
     overrides:
-      engine_version: '12.13'
+      allow_major_version_upgrade: true
+      engine_version: '14.5'
       apply_immediately: true
   ### OCM Stage
   - provider: rds
