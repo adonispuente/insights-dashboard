@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Zac Herman
+org_username: zherman
+github_username: zherman0
+quay_username: zherman
+tag_on_cluster_updates: false
+
+roles:
+  - $ref: /teams/ocm/roles/ui-dev.yml
