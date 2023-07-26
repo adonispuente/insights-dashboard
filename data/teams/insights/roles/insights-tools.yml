@@ -3,6 +3,7 @@ $schema: /access/role-1.yml
 
 labels: {}
 name: insights-tools
+description: DevProd engineering members
 
 permissions:
 - $ref: /teams/insights/quay-teams/cloudsre.yml
