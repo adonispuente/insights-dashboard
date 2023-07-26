@@ -564,8 +564,15 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrules.yaml
   type: resource
-  tests: 
+  tests:
   - /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrulestest.yaml
+
+## Glitchtip rules
+- provider: prometheus-rule
+  path: /observability/prometheusrules/glitchtip-aws-resources-prometheusrules.yaml
+  type: resource
+  tests:
+  - /observability/prometheusrules/glitchtip-aws-resources-prometheusrulestests.yaml
 
 
 sharedResources:
