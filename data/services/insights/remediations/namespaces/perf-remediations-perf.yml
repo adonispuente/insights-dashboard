@@ -58,6 +58,10 @@ openshiftResources:
   version: 3
   type: kubernetes.io/dockerconfigjson
   name: quay-cloudservices-pull
+- provider: vault-secret
+  path: insights/secrets/insights-stage/playbook-dispatcher-stage/auth-psk-remediations
+  name: psk-playbook-dispatcher
+  version: 1
 
 managedExternalResources: true
 
@@ -68,8 +72,9 @@ externalResources:
   resources:
   - provider: rds
     identifier: remediations-perf
-    defaults: /terraform/resources/insights/perf/rds/postgres10-rds-remediations-perf.yml
-    parameter_group: /terraform/resources/insights/perf/rds/postgres10-parameter-group-remediations-perf.yml
+    defaults: /terraform/resources/insights/perf/rds/rds-remediations-perf.yml
+    parameter_group: /terraform/resources/insights/perf/rds/postgres14-parameter-group-remediations-perf.yml
+    old_parameter_group: /terraform/resources/insights/perf/rds/postgres10-parameter-group-remediations-perf.yml
     output_resource_name: remediations-db
     enhanced_monitoring: true
   - provider: cloudwatch
