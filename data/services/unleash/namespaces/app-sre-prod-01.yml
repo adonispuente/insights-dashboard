@@ -4,7 +4,8 @@ $schema: /openshift/namespace-1.yml
 labels: {}
 
 name: unleash
-description: namespace for unleash
+
+description: Namespace for unleash
 
 cluster:
   $ref: /openshift/app-sre-prod-01/cluster.yml
@@ -29,19 +30,19 @@ openshiftResources:
 - provider: vault-secret
   path: app-sre/unleash/app-interface-token
   version: 1
-### OCM
-- provider: vault-secret
-  path: app-sre/unleash/ocm-config
-  version: 1
-- provider: vault-secret
-  path: app-sre/unleash/ocm-unleash-token
-  version: 1
 ### Insights
 - provider: vault-secret
   path: app-sre/unleash/insights-config
   version: 1
 - provider: vault-secret
   path: app-sre/unleash/insights-unleash-token
+  version: 1
+### OCM
+- provider: vault-secret
+  path: app-sre/unleash/ocm-config
+  version: 1
+- provider: vault-secret
+  path: app-sre/unleash/ocm-unleash-token
   version: 1
 
 managedExternalResources: true
@@ -51,14 +52,22 @@ externalResources:
   provisioner:
     $ref: /aws/app-sre/account.yml
   resources:
-# App-Interface
+  ### App-Interface
   - provider: rds
     identifier: app-interface-unleash-production
     defaults: /terraform/resources/unleash/rds-app-interface-prod-1.yml
     output_resource_name: app-interface-unleash-rds
     overrides:
       apply_immediately: true
-# OCM
+  ### Insight
+  - provider: rds
+    identifier: insights-unleash
+    defaults: /terraform/resources/unleash/rds-insights-prod-1.yml
+    output_resource_name: insights-unleash-rds
+    overrides:
+      engine_version: '12.13'
+      apply_immediately: true
+  ### OCM
   - provider: rds
     identifier: ocm-unleash
     defaults: /terraform/resources/unleash/rds-ocm-prod-1.yml
@@ -67,11 +76,4 @@ externalResources:
       engine_version: '11.18'
       apply_immediately: false
       maintenance_window: Sun:11:00-Sun:11:30
-# Insight
-  - provider: rds
-    identifier: insights-unleash
-    defaults: /terraform/resources/unleash/rds-insights-prod-1.yml
-    output_resource_name: insights-unleash-rds
-    overrides:
-      engine_version: '12.13'
-      apply_immediately: true
+

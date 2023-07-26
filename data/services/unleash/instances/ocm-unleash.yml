@@ -4,12 +4,13 @@ $schema: /app-sre/unleash-instance-1.yml
 labels: {}
 
 name: ocm-unleash
-description: ocm unleash instance
+
+description: Unleash instance for OCM services
+
 url: https://ocm.unleash.devshift.net
 
 token:
   path: app-sre/unleash/ocm-unleash-token
   field: CLIENT_ACCESS_TOKEN
 
-# not currently used by automation
 featureToggles: []

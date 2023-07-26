@@ -6,7 +6,7 @@ labels:
 
 name: ci-ext-unleash-views
 
-description: ''
+description: Jenkins view for Unleash
 
 app:
   $ref: /services/unleash/app.yml
@@ -19,9 +19,9 @@ type: views
 config:
 - view:
     name: unleash
-    description: 'unleash view'
+    description: Unleash view
     view-type: list
     job-filters:
-        regex-job:
-            regex-name: DESCRIPTION
-            regex: '^\[unleash\].*'
+      regex-job:
+        regex-name: DESCRIPTION
+        regex: '^\[unleash\].*'

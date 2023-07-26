@@ -4,7 +4,9 @@ $schema: /app-sre/unleash-instance-1.yml
 labels: {}
 
 name: app-interface-unleash
-description: app-interface unleash instance (not currently used by automation)
+
+description: Unleash instance for App-Interface services
+
 url: https://app-interface.unleash.devshift.net
 
 token:
@@ -90,7 +92,7 @@ featureToggles:
   enabled: true
 - name: openshift-resourcequotas
   enabled: false
-  reason: can remain disabled for a while (only has a single resource it manages atm)
+  reason: Can remain disabled for a while (only has a single resource it manages at the moment)
 - name: openshift-resources
   enabled: true
 - name: openshift-rolebindings

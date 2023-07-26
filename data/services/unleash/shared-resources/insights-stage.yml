@@ -5,7 +5,8 @@ labels:
   service: unleash
 
 name: insights-stage-unleash-shared-resources
-description: shared resources for insights stage unleash
+
+description: Shared resources for the insights-stage-unleash service
 
 openshiftResources:
 - provider: vault-secret
