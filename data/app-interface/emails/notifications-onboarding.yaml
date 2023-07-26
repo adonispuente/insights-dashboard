@@ -22,11 +22,11 @@ body: |
       on visual app-interface[3]
       notifications sops[4]
 
-  The pager transfer will be completed today[5].
+  The pager transfer will be completed today.
 
   CloudDot Notifications team, from now on, please reach out to @app-sre-ic in the
   #sd-app-sre channel for support. You can change your alerts severity to 'high' or 'critical'
-  following the dev-guidelines documentation[6] for the alerts to reach the AppSRE team.
+  following the dev-guidelines documentation[5] for the alerts to reach the AppSRE team.
 
   Thanks a lot to everyone involved in this effort and welcome on board !
 
@@ -35,5 +35,4 @@ body: |
   [2] https://issues.redhat.com/browse/APPSRE-3817
   [3] https://visual-app-interface.devshift.net/services#/services/insights/notifications/app.yml
   [4] https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/
-  [5] https://issues.redhat.com/browse/APPSRE-4434
-  [6] https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#alert-severities
+  [5] https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#alert-severities
