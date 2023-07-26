@@ -32,7 +32,7 @@ resourceTemplates:
   url: https://github.com/app-sre/unleash
   path: /openshift/unleash.yaml
   targets:
-  # app-interface
+  ### App-Interface Staging
   - name: app-interface-stage
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
@@ -42,7 +42,6 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: app-sre-unleash-gh-build-master
     parameters:
-      REPLICAS: 0
       identifier: app-interface
       configSecret: app-interface-stage-config
       databaseSecret: app-interface-stage-unleash-rds
@@ -51,6 +50,7 @@ resourceTemplates:
       team: app-interface-unleash
       admin_roles: app-sre
       host: app-interface.unleash.stage.devshift.net
+  ### App-Interface Production
   - name: app-interface-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
@@ -64,7 +64,7 @@ resourceTemplates:
       team: app-interface-unleash
       admin_roles: app-sre
       host: app-interface.unleash.devshift.net
-  # insights
+  ### Insights Stage
   - name: insights-stage
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
@@ -78,6 +78,7 @@ resourceTemplates:
       team: insights-stage-unleash
       read_only_team: insights-stage-unleash-read-only
       host: insights-stage.unleash.devshift.net
+  ### Insights Production
   - name: insights-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
@@ -91,6 +92,7 @@ resourceTemplates:
       team: insights-unleash
       read_only_team: insights-unleash-read-only
       host: insights.unleash.devshift.net
+  ### Insights Perf
   - name: insights-perf
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
@@ -104,7 +106,7 @@ resourceTemplates:
       team: insights-perf-unleash
       read_only_team: insights-perf-unleash-read-only
       host: insights-perf.unleash.devshift.net
-  # ocm
+  ### OCM Stage
   - name: ocm-stage
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
@@ -118,6 +120,7 @@ resourceTemplates:
       team: ocm-stage-unleash
       read_only_team: ocm-stage-unleash-read-only
       host: ocm-stage.unleash.devshift.net
+  ### OCM Integration
   - name: ocm-integration
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
@@ -131,6 +134,7 @@ resourceTemplates:
       team: ocm-integration-unleash
       read_only_team: ocm-integration-unleash-read-only
       host: ocm-integration.unleash.devshift.net
+  ### OCM Production
   - name: ocm-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
@@ -144,7 +148,7 @@ resourceTemplates:
       team: ocm-unleash
       read_only_team: ocm-unleash-read-only
       host: ocm.unleash.devshift.net
-  # managed-services
+  ### Managed Services
   - name: managed-services-stage
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
