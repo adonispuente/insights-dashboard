@@ -6,7 +6,7 @@ labels:
 
 name: ci-ext-unleash-jobs
 
-description: ''
+description: Build jobs for Unleash
 
 app:
   $ref: /services/unleash/app.yml

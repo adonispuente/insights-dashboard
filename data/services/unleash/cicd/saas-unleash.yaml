@@ -5,6 +5,7 @@ labels:
   service: unleash
 
 name: saas-unleash
+
 description: SaaS tracking file for Unleash
 
 app:
@@ -64,6 +65,20 @@ resourceTemplates:
       team: app-interface-unleash
       admin_roles: appsre-passwords
       host: app-interface.unleash.devshift.net
+  ### Insights Perf
+  - name: insights-perf
+    namespace:
+      $ref: /services/unleash/namespaces/app-sre-stage-01.yml
+    ref: 06632d48a80f8079f94073971dd6ce523781388d
+    parameters:
+      identifier: insights-perf
+      configSecret: insights-perf-config
+      tokenSecret: insights-perf-unleash-token
+      databaseSecret: insights-perf-unleash-rds
+      org: app-sre
+      team: insights-perf-unleash
+      read_only_team: insights-perf-unleash-read-only
+      host: insights-perf.unleash.devshift.net
   ### Insights Stage
   - name: insights-stage
     namespace:
@@ -92,20 +107,6 @@ resourceTemplates:
       team: insights-unleash
       read_only_team: insights-unleash-read-only
       host: insights.unleash.devshift.net
-  ### Insights Perf
-  - name: insights-perf
-    namespace:
-      $ref: /services/unleash/namespaces/app-sre-stage-01.yml
-    ref: 06632d48a80f8079f94073971dd6ce523781388d
-    parameters:
-      identifier: insights-perf
-      configSecret: insights-perf-config
-      tokenSecret: insights-perf-unleash-token
-      databaseSecret: insights-perf-unleash-rds
-      org: app-sre
-      team: insights-perf-unleash
-      read_only_team: insights-perf-unleash-read-only
-      host: insights-perf.unleash.devshift.net
   ### OCM Stage
   - name: ocm-stage
     namespace:
