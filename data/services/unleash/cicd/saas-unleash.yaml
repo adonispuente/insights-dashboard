@@ -57,7 +57,6 @@ resourceTemplates:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
     ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
     parameters:
-      REPLICAS: 0
       identifier: app-interface
       configSecret: app-interface-config
       databaseSecret: app-interface-unleash-rds
