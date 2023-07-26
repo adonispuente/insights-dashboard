@@ -22,8 +22,8 @@ We need a mechanism to ingest OCM logs with Dynatrace.
 ## Non-Goals
 
 * Dynatrace for non-OSD clusters. We solely focus on the OCM logs use-case which required OSD.
-* API Token management. This is part of separate effort.
-* Dynatrace Environment (Tenant) Management. We assume there is a single Dynatrace Environment for now. Managing multiple environments is part of a different effort.
+* API Token management. This document will describe how we currently manage Dynatrace API Tokens. However, discussions around that procedure are part of a separate effort.
+* We assume there is a single Dynatrace Environment for now. I.e., each cluster sends logs to exactly one Dynatrace Environment. Distributing logs across multiple environments will be part of a different effort, but it is not as straigt forward - see [DI-76](https://issues.redhat.com/browse/DI-76).
 
 ## Dynatrace Introduction
 
@@ -82,7 +82,9 @@ We use app-interface's built-in template query mechanism to dynamically collect 
 
 ### Schema Changes
 
-To simplify configuration we introduce Dynatrace as a new dependency.
+To simplify configuration and self-service we introduce Dynatrace as a new dependency.
+
+Also a [corresponding MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/73201) is open to show-case the proposed schema changes.
 
 **data/dependencies/dynatrace/staging/us-east-1.yml:**
 ```
@@ -109,7 +111,15 @@ dynatrace:
   $ref: /dependencies/dynatrace/staging/us-east-1.yml
 ```
 
-Note, that we only support one Dynatrace environment per-cluster as of now. The ActiveGate component can only speak to a single Dynatrace environment. Multiple ActiveGates require multiple DynaKubes, which results in multiple OneAgent Daemonsets. However, a host can only accomodate a single OneAgent, i.e., we would need to segment our hosts into multiple log groups to achieve a multi Dynakube setup. The issue is tracked in [DI-76](https://issues.redhat.com/browse/DI-76).
+Note, that we only support one Dynatrace environment per-cluster as of now. The ActiveGate component can only speak to a single Dynatrace environment. Multiple ActiveGates require multiple DynaKubes, which results in multiple OneAgent Daemonsets. However, a host currently can only accomodate a single OneAgent in our current Dynatrace setup. In order to support multiple Dynatrace Environments for a single cluster, we need to tackle [DI-76](https://issues.redhat.com/browse/DI-76).
+
+**data/services/my-service/namespace.yml:**
+```
+dynatrace:
+  enableLogging: true
+```
+
+Logging is enabled on a per-namespace basis. This part can easily be made self-servicable for tenants.
 
 ## Alternatives Considered
 
@@ -119,7 +129,7 @@ Note, that we only support one Dynatrace environment per-cluster as of now. The 
 
 ## Milestones
 
-1. `app-sre-stage-01` namespaces are sending logs (github-mirror, glitchtip)
-2. rollout to uhc integration and staging
+1. `app-sre-stage-01` namespaces are sending logs (github-mirror, glitchtip) - already Done
+2. rollout to uhc integration and staging - already Done
 3. rollout to uhc production
 4. make this generally available to our tenants via announcement and documentation
