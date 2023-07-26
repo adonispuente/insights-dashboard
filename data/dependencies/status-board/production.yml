@@ -18,4 +18,40 @@ products:
   - productEnvironment:
       $ref: /products/status-board/environments/production.yml
   - productEnvironment:
+      $ref: /products/acs-fleet-manager/environments/production.yml
+  - productEnvironment:
       $ref: /products/web-rca/environments/production.yml
+  - productEnvironment:
+      $ref: /products/app-interface/environments/production-int.yml
+  - productEnvironment:
+      $ref: /products/app-interface/environments/production.yml
+  - productEnvironment:
+      $ref: /products/app-sre/environments/production.yml
+  - productEnvironment:
+      $ref: /products/cna/environments/prod.yml
+  - productEnvironment:
+      $ref: /products/codeready-analytics/environments/production.yml
+  - productEnvironment:
+      $ref: /products/dashdot/environments/production.yml
+  - productEnvironment:
+      $ref: /products/devfile-registry/environments/production.yml
+  - productEnvironment:
+      $ref: /products/glitchtip/environments/production.yaml
+  - productEnvironment:
+      $ref: /products/insights/environments/production.yml
+  - productEnvironment:
+      $ref: /products/openshift.io/environments/production.yml
+  - productEnvironment:
+      $ref: /products/osdv4/environments/production.yml
+  - productEnvironment:
+      $ref: /products/quarkus/environments/production-redhat.yml
+  - productEnvironment:
+      $ref: /products/quarkus/environments/production.yml
+  - productEnvironment:
+      $ref: /products/quay/environments/production.yml
+  - productEnvironment:
+      $ref: /products/rhose/environments/production.yml
+  - productEnvironment:
+      $ref: /products/service-registry/environments/production.yml
+  - productEnvironment:
+      $ref: /products/stonesoup/environments/production.yml
