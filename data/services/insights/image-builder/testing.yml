@@ -36,6 +36,7 @@ resourceTemplates:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
     ref: cbf859e57b97bef8c795d01cf2c7ecb5947ee9d4
     parameters:
+      DYNACONF_MAIN__use_beta: "false"
       ENV_FOR_DYNACONF: stage_proxy
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
@@ -56,6 +57,7 @@ resourceTemplates:
       $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
     ref: e5b0fccba1459a036d56d6446746ccf37e2f9618
     parameters:
+      DYNACONF_MAIN__use_beta: "false"
       ENV_FOR_DYNACONF: prod
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
