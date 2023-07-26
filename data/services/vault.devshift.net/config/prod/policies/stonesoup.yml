@@ -12,5 +12,5 @@ rules: |
     capabilities = ["list", "read"]
   }
   path "stonesoup/*" {
-    capabilities = ["create", "update", "read", "list"]
+    capabilities = ["create", "read", "update", "delete", "list"]
   }
