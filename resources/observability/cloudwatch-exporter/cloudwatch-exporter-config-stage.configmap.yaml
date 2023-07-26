@@ -251,10 +251,10 @@ data:
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
     #   aws_metric_name: BytesUsedForCache
     #   aws_statistics: [Average]
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: EngineCPUUtilization
-    #   aws_statistics: [Average, Maximum, Minimum]
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: EngineCPUUtilization
+      aws_statistics: [Average, Maximum, Minimum]
     - aws_namespace: "AWS/ElastiCache"
       aws_dimensions: [CacheNodeId, CacheClusterId]
       aws_metric_name: CurrItems
