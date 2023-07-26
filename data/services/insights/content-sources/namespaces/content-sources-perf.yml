@@ -16,10 +16,10 @@ app:
 environment:
   $ref: /products/insights/environments/perf.yml
 
-networkPoliciesAllow:
+networkPoliciesAllow: []
 # - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml
 # - $ref: /services/insights/gateway/namespaces/3scale-prod.yml
-- $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
+# - $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
 
 managedRoles: true
 
