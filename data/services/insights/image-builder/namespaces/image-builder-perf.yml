@@ -25,10 +25,10 @@ environment:
 
 # Every namespace must explicitly allow workloads running in other namespaces
 # to make network connections to it.
-networkPoliciesAllow:
+networkPoliciesAllow: []
 # - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
 # - $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-- $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
+# - $ref: /services/insights/edge/namespaces/perf-edge-perf.yml
 # - $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
 
 # If true, managedRoles will ensure that users with roles granting permission
