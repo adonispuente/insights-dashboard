@@ -98,6 +98,7 @@ resourceTemplates:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
     ref: 06632d48a80f8079f94073971dd6ce523781388d
     parameters:
+      REPLICAS: 0
       identifier: insights-perf
       configSecret: insights-perf-config
       tokenSecret: insights-perf-unleash-token
