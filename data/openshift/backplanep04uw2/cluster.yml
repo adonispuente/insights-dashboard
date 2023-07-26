@@ -34,7 +34,7 @@ spec:
   provider: aws
   region: us-west-2
   channel: candidate
-  version: 4.13.0
+  version: 4.13.4
   initial_version: 4.13.0
   multi_az: true
   nodes: 9
@@ -118,5 +118,5 @@ peering:
     manageSecurityGroups: true
 
 observabilityNamespace:
-  $ref:
+  $ref: 
     /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
