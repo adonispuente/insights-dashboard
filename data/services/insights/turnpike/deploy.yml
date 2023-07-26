@@ -322,7 +322,7 @@ resourceTemplates:
             saml: "'crc-xjoin-team' in user['Role']"
         - name: xjoin-elasticsearch
           route: /api/xjoin/elasticsearch/
-          origin: https://vpc-xjoin-elasticsearch-yesvit2jsbqwqtlnrsdkorfacm.us-east-1.es.amazonaws.com:9000/
+          origin: https://vpc-xjoin-elasticsearch-yesvit2jsbqwqtlnrsdkorfacm.us-east-1.es.amazonaws.com/
           auth:
             saml: "'crc-xjoin-team' in user['Role']"
         - name: xjoin-search
