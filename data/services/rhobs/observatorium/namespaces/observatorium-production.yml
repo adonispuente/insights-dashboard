@@ -42,9 +42,6 @@ openshiftResources:
   path: app-interface/app-sre/telemeter-production/jaeger-proxy
   version: 1
 - provider: vault-secret
-  path: app-interface/app-sre/telemeter-production/conprof-proxy
-  version: 1
-- provider: vault-secret
   path: app-interface/app-sre/telemeter-production/rules-objstore-objectstorage
   version: 1
 - provider: vault-secret
