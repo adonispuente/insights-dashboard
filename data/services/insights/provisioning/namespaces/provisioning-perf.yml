@@ -30,9 +30,6 @@ managedResourceTypes:
 managedExternalResources: true
 
 openshiftResources:
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /insights-common/iqe-vault.secret.yaml
 - provider: vault-secret
   name: provisioning-azure-acc
   path: app-interface/provisioning/stage/azure-acc
@@ -40,9 +37,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/provisioning/stage/gcp-account
   name: provisioning-gcp-acc
-  version: 1
-- provider: vault-secret
-  path: app-interface/provisioning/stage/floorist-bucket
   version: 1
 - provider: vault-secret
   name: provisioning-sentry
