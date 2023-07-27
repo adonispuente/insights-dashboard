@@ -73,6 +73,8 @@ externalResources:
   - provider: rds
     identifier: remediations-perf
     overrides:
+      username: "insights"
+      name: "remediations"
       apply_immediately: true
     defaults: /terraform/resources/insights/perf/rds/rds-remediations-perf.yml
     parameter_group: /terraform/resources/insights/perf/rds/postgres14-parameter-group-remediations-perf.yml
