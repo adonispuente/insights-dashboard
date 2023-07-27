@@ -63,17 +63,17 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: main
+    ref: fd8350f1275eb23ef28e9b04a61c80cc9cf6f907
     parameters:
       ENVIRONMENT: integration
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: main
+    ref: fd8350f1275eb23ef28e9b04a61c80cc9cf6f907
     parameters:
       ENVIRONMENT: staging
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: main
+    ref: fd8350f1275eb23ef28e9b04a61c80cc9cf6f907
     parameters:
       ENVIRONMENT: staging
   parameters:
