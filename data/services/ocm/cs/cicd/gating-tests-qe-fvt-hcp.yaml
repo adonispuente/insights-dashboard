@@ -52,6 +52,7 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: integration
       TEST_PROFILE: rosa-hcp-ad
+      GATE_NAME: ocm-cs-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 73a64732349855048587d40b21169ec8ec0672be
@@ -65,6 +66,7 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-ad
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 73a64732349855048587d40b21169ec8ec0672be
@@ -78,6 +80,7 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-pl
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 73a64732349855048587d40b21169ec8ec0672be
@@ -91,6 +94,7 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: hcp-e2e
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: 73a64732349855048587d40b21169ec8ec0672be
@@ -104,3 +108,4 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-upgrade
+      GATE_NAME: ocm-cs-stage-main
