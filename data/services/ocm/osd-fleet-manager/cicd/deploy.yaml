@@ -936,9 +936,12 @@ resourceTemplates:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
     promotion:
-      auto: true
-      subscribe:
-      - ocm-osdfm-deployed-production-canary
+      # Pause rollout of prod at production-canary to ensure no terraform issues are introduced to prod in
+      # https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/74725 as we saw briefly in stage.
+      # See https://issues.redhat.com/browse/OCM-2905
+      # auto: true
+        # subscribe:
+        # - ocm-osdfm-deployed-production-canary
       publish:
       - ocm-osdfm-deployed-production-ap-southeast-3
     parameters:
