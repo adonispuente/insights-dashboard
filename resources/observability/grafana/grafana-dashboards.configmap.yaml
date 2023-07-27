@@ -113,6 +113,15 @@ data:
                 "type": "file"
             },
             {
+                "folder": "Quarkus",
+                "name": "Quarkus",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/Quarkus"
+                },
+                "orgId": 1,
+                "type": "file"
+            },
+            {
                 "folder": "Clair",
                 "name": "Clair",
                 "options": {
