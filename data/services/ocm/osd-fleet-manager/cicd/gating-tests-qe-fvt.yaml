@@ -51,7 +51,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: canary
       ENVIRONMENT: integration
-      GATE_NAME: ocm-osdfm-qe-gating-test-int
+      GATE_NAME: ocm-osdfm-int-canary
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
@@ -68,7 +68,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: main
       ENVIRONMENT: integration
-      GATE_NAME: ocm-osdfm-qe-gating-test-int
+      GATE_NAME: ocm-osdfm-int-main
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
@@ -84,7 +84,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: main
       ENVIRONMENT: stage
-      GATE_NAME: ocm-osdfm-qe-gating-test-stage
+      GATE_NAME: ocm-osdfm-stage-main
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
@@ -100,7 +100,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: canary
       ENVIRONMENT: production
-      GATE_NAME: ocm-osdfm-qe-gating-test-stage
+      GATE_NAME: ocm-osdfm-prod-canary
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-qe-read
       RHOBS_HO_TENANT: hypershift-platform
