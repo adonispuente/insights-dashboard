@@ -23,8 +23,8 @@ records:
 - { name: _22186536c6e199a251c7319aef30a799.stage, type: CNAME, records: [_c4dd616757b85917fe2bfd7e1a311e83.dnzkjbsjxj.acm-validations.aws.] }
 
 ### Cloudfront cdn
-- { name: cdn01, type: CNAME, records: [d3dwl8hlb9usug.cloudfront.net] }
-- { name: cdn02, type: CNAME, records: [d143q1oyu145nx.cloudfront.net] }
+- { name: cdn01, type: CNAME, records: [djapy51wrigdv.cloudfront.net] }
+- { name: cdn02, type: CNAME, records: [d36hvykeoyt841.cloudfront.net] }
 
 ### OCM Quay stage endpoints
 - { name: cdn01.stage, type: CNAME, records: [dqupkv3s9icsz.cloudfront.net] }
@@ -52,4 +52,4 @@ records:
     weight: 100
   set_identifier: pull-ocmquayrwp01ue1
   records:
-  - ocmrw1.q1w2.quay.rhcloud.com
+  - quayio-ocm-quay-974647045.us-east-1.elb.amazonaws.com
