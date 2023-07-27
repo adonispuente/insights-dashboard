@@ -57,9 +57,6 @@ externalResources:
     identifier: app-interface-unleash-production
     defaults: /terraform/resources/unleash/postgres15-rds-prod-1.yml
     output_resource_name: app-interface-unleash-rds
-    overrides:
-      allow_major_version_upgrade: true
-      apply_immediately: true
   ### Insight
   - provider: rds
     identifier: insights-unleash
