@@ -109,6 +109,10 @@ resourceTemplates:
     QUAY_WORKER_CONNECTION_COUNT_REGISTRY: 80
     SYSLOG_IMAGE: quay.io/app-sre/syslog-cloudwatch-bridge
     SYSLOG_IMAGE_TAG: c19d7d1
+  upstream:
+    instance:
+      $ref: /dependencies/ci-int/ci-int.yml
+    name: quay-quay-gh-build-master
   targets:
   - namespace:
       $ref: /services/quayio/namespaces/quays02ue1.yml
