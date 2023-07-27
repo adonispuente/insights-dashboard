@@ -10,7 +10,7 @@ MQTT message consumer - responsible for subscribing to the MQTT topics and putti
 Kafka message consumer - responsible for consuming the MQTT messages off of the kafka queue and recording the connection state in the database
 API server - responsible for passing messages from internal clients to the connected client via the MQTT broker
 
-<img alt="Architecture diagram" src="https://github.com/RedHatInsights/cloud-connector/blob/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
+<img alt="Architecture diagram" src="https://raw.githubusercontent.com/RedHatInsights/cloud-connector/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
 
 ### MQTT Broker
 
@@ -51,7 +51,7 @@ Cloud-Connector does not have an exposed OpenShift route.
 - Amazon RDS for PostgreSQL - used to persist connection state records
 
 # Service Diagram
-<img alt="Architecture diagram" src="https://github.com/RedHatInsights/cloud-connector/blob/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
+<img alt="Architecture diagram" src="https://raw.githubusercontent.com/RedHatInsights/cloud-connector/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
 
 # Application Success Criteria
 Receptor-Controller maintains bi-directional connections between the console.redhat.com application
@@ -70,7 +70,7 @@ Receptor-Controller is built in such a way that if the redis instance is cleared
 will rebuild the connection mapping state.
 
 # Load Testing
-https://docs.google.com/document/d/1DFyiGX2eSO9W5sEZh4-FSoAUAelwxypgADV5UbEpZig/edit#heading=h.av9emkusr482
+https://docs.google.com/document/d/1IgVypCjKb8aXhYNzS37nDyxz6lBFZTRegSH8paoqznE/edit
 
 # Capacity
 
