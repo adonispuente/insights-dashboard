@@ -9,9 +9,7 @@ prometheusUrl: https://prometheus.hst02ue1.devshift.net
 alertmanagerUrl: https://alertmanager.hst02ue1.devshift.net
 serverUrl: https://api.hst02ue1.niad.p3.openshiftapps.com:443
 elbFQDN: elb.apps.rosa.hst02ue1.niad.p3.openshiftapps.com
-auth:
-- service: oidc
-  name: redhat-app-sre-auth
+auth: []
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedClusterRoles: true
