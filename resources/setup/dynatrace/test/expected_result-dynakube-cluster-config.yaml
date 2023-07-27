@@ -40,6 +40,18 @@ spec:
           key: node-role.kubernetes.io/control-plane
           operator: Exists
       autoUpdate: true
+      oneAgentResources:
+        # These required resources might differ heavily based on log volume. We have to keep an eye on this.
+        # TODO: alert for throttling and OOM of OneAgents
+        requests:
+          # These values were observed in app-sre-stage-01
+          cpu: "200m"
+          memory: "768Mi"
+        limits:
+          # https://github.com/Dynatrace/dynatrace-operator/blob/e81873106c48035f824ec8259e1c46c2d32a150d/assets/samples/classicFullStack.yaml#L95
+          cpu: "300m"
+          # Note: Gi is not supported
+          memory: "1536Mi"
   activeGate:
     capabilities:
       # All available capabilities:
