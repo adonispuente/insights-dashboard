@@ -9,13 +9,13 @@ The following categories will correspond to the SLIs and SLOs below.
 
 ## SLIs
 1. Availability - The proportion of successful requests, as measured from the load balancer metrics. Any HTTP status other than 500–599 is considered successful.
-2. Latency - The proportion of sufficiently fast requests, as measured from the load balancer metrics. "Sufficiently fast” is defined as < 400 ms. 
+2. Latency - The proportion of sufficiently fast requests, as measured from the load balancer metrics. "Sufficiently fast” is defined as < 500 ms. 
 3. Error rate - The percentage of requests that result in an error or failure. Any HTTP status other than 500–599 is considered successful.
 
 ## SLOs
 
 1. Availability `>95% success` (Any HTTP status other than 500–599 is considered successful.)
-2. Latency `90% < 400ms`
+2. Latency `90% < 500ms`
 3. Error rate `> 95% success` (Any HTTP status other than 500–599 is considered successful.)
 
 ## Rationale

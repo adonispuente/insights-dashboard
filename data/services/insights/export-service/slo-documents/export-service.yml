@@ -27,11 +27,11 @@ slos:
 
 - name: Export Service Latency
   SLIType: latency
-  SLISpecification: The proportion of sufficiently fast requests, as measured from the load balancer metrics. "Sufficiently fast” is defined as < 400 ms. 
+  SLISpecification: The proportion of sufficiently fast requests, as measured from the load balancer metrics. "Sufficiently fast” is defined as < 500 ms. 
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/SLO.md
   SLOParameters:
     window: 28d
-  expr: 
+  expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}[24h])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}[24h]))
   SLOTarget: 0.90
   SLOTargetUnit: percent_0_1
   prometheusRules: /insights-prod/export-service-prod/export-service.prometheusrules.yaml
