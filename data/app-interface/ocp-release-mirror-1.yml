@@ -6,7 +6,6 @@ ecrResourcesNamespace:
   $ref: /services/app-interface/namespaces/app-interface-production.yml
 ocpReleaseEcrIdentifier: ocp-release
 ocpArtDevEcrIdentifier: ocp-art-dev
-quayTargetOrgs:
-- $ref: /dependencies/ocm-quay/openshift-release-dev.yml
+quayTargetOrgs: []
 mirrorChannels:
 - stable
