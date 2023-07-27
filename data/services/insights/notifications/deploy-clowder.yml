@@ -289,6 +289,7 @@ resourceTemplates:
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
     ref: c14b3e41ae671689ce199f44b96ce283e03e6a37
     parameters:
+      KAFKA_CLIENT_LOG_LEVEL: INFO
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
