@@ -4,11 +4,11 @@ The Cloud Connector service is designed to receive messages from internal client
 
 # Components
 
-Cloud-Connector consists of 2 main components:
+Cloud-Connector consists of 3 main components:
 
-MQTT message consumer - responsible for subscribing to the MQTT topics and putting the MQTT messages onto the kafka message queue
-Kafka message consumer - responsible for consuming the MQTT messages off of the kafka queue and recording the connection state in the database
-API server - responsible for passing messages from internal clients to the connected client via the MQTT broker
+- MQTT message consumer - responsible for subscribing to the MQTT topics and putting the MQTT messages onto the kafka message queue
+- Kafka message consumer - responsible for consuming the MQTT messages off of the kafka queue and recording the connection state in the database
+- API server - responsible for passing messages from internal clients to the connected client via the MQTT broker
 
 <img alt="Architecture diagram" src="https://raw.githubusercontent.com/RedHatInsights/cloud-connector/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
 
@@ -45,7 +45,7 @@ The API server is only an MQTT publisher.  The API server uses the pod name as t
 Cloud-Connector does not have an exposed OpenShift route.
 
 # Dependencies
-- MQTT broker - currently managed by Akamai.
+- MQTT broker - currently managed by Akamai
 - Kafka - used for communication with other services within the HCC platform
 - 3scale web gateway - used to lookup customer account information based on client-id/certificate subject
 - Amazon RDS for PostgreSQL - used to persist connection state records
@@ -54,20 +54,12 @@ Cloud-Connector does not have an exposed OpenShift route.
 <img alt="Architecture diagram" src="https://raw.githubusercontent.com/RedHatInsights/cloud-connector/1872dabbc6b8a5477a644db2091f66c1e214ca68/design/architecture.png"/>
 
 # Application Success Criteria
-Receptor-Controller maintains bi-directional connections between the console.redhat.com application
-platform and receptor nodes running on customer sites.  Receptor-Controller allows applications internal
-to the console.redhat.com application platform to send messages to receptor nodes on customer sites.
+Cloud-Connector records connection details of customer's hosts that are using RHC to connect to the
+console.redhat.com application platform.  Cloud-Connector allows applications internal
+to the console.redhat.com application platform to send messages to hosts running on customer sites.
 
 # State
-Receptor-Controller maintains open websocket connections to receptor nodes running customer sites.
-These connections can be thought of as state as they can only exist on a single pod.  The connections
-are tied to that pod for their lifetime.
-
-The mapping between the receptor node-id and the pod where the websocket connection lives is state.
-This state exists in Redis.
-
-Receptor-Controller is built in such a way that if the redis instance is cleared, Receptor-Controller
-will rebuild the connection mapping state.
+Cloud-Connector records connections and disconnections of RHC instances running on customer sites.
 
 # Load Testing
 https://docs.google.com/document/d/1IgVypCjKb8aXhYNzS37nDyxz6lBFZTRegSH8paoqznE/edit
