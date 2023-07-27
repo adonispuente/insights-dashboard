@@ -30,6 +30,7 @@ authentication:
   image:
     path: insights/secrets/global/rh-registry-pull
     field: all
+    version: 5
 
 parameters:
   IMAGE: registry.redhat.io/rhscl/redis-32-rhel7
