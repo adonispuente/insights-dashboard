@@ -17,6 +17,8 @@ roles:
 - $ref: /teams/insights/roles/ingress.yml
 - $ref: /teams/insights/roles/ingress-slack.yml
 - $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
 
 public_gpg_key: |
   mQINBGOAWmcBEADT/DizJf2Xm+F0zGf1cHfpAqn3dc41aV2oX9OVooGOKDSYZlYvowI1KvuuD66c
