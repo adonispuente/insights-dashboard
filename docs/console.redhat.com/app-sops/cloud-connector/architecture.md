@@ -60,6 +60,7 @@ to the console.redhat.com application platform to send messages to hosts running
 
 # State
 Cloud-Connector records connections and disconnections of RHC instances running on customer sites.
+This data is recorded in a postgres database (running in AWS).
 
 # Load Testing
 https://docs.google.com/document/d/1IgVypCjKb8aXhYNzS37nDyxz6lBFZTRegSH8paoqznE/edit
