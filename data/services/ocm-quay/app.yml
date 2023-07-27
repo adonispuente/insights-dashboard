@@ -25,16 +25,7 @@ serviceOwners:
 - name: App-SRE Team
   email: sd-app-sre@redhat.com
 
-quayRepos:
-- org:
-    $ref: /dependencies/ocm-quay/openshift-release-dev.yml
-  items:
-  - name: ocp-release
-    description: Mirror of quay.io/openshift-release-dev/ocp-release
-    public: true
-  - name: ocp-v4.0-art-dev
-    description: Mirror of quay.io/openshift-release-dev/ocp-v4.0-art-dev
-    public: false
+quayRepos: []
 
 dependencies:
 - $ref: /dependencies/aws/service.yml
