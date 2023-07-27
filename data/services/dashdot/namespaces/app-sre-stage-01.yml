@@ -44,8 +44,9 @@ externalResources:
     defaults: /terraform/resources/dashdot/rds-stage-1.yml
     output_resource_name: dashdotdb-rds
     overrides:
-      engine_version: '11.16'
+      engine_version: '12.15'
       apply_immediately: true
+      allow_major_version_upgrade: true
 
 managedResourceTypes:
 - NetworkPolicy
