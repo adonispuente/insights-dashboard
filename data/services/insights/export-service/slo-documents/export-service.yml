@@ -10,7 +10,7 @@ app:
   $ref: /services/insights/export-service/app.yml
 
 namespaces:
-- $ref: /services/insights/export-service/namespaces/export-service-prod.yml
+- $ref: /services/insights/export-service/namespaces/prod.yml
 
 slos:
 - name: Export Service Availability
