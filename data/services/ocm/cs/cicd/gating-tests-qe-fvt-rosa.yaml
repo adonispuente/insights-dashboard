@@ -94,3 +94,4 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-sts-upgrade
+      GATE_NAME: ocm-cs-stage-main
