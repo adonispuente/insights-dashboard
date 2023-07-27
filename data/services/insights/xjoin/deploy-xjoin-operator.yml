@@ -79,6 +79,9 @@ resourceTemplates:
       KAFKA_TOPIC_REPLICAS: "3"
       KAFKA_TOPIC_PARTITIONS: "1"
       SCHEMA_REGISTRY_SECRET_NAME: "service-registry-stage"
+      VALIDATION_ATTEMPTS: "10"
+      VALIDATION_ATTEMPT_INTERVAL: "30"
+
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
