@@ -289,9 +289,6 @@ resourceTemplates:
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
     ref: 55be1b6900f29df451a8e300eda4e7a9a16a59e9
     parameters:
-      KAFKA_CLIENT_LOG_LEVEL: INFO
-      KAFKA_MAX_POLL_INTERVAL_MS: 1200000
-      KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
@@ -400,7 +397,7 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: true
-      NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: false
+      NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
       NOTIFICATIONS_SERVICENOW_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
     promotion:
       publish:
