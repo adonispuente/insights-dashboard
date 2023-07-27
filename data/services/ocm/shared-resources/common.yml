@@ -18,7 +18,7 @@ openshiftResources:
   type: extracurlyjinja2
   variables:
     version: '4.12'
-    ref: dc438c51532f4d800c178e871f7b66a1e1a58cda
+    ref: 001b59112f46cba969155bd3e966736633eca200
     keys:
     - openshift_cloud_credential_operator_cloud_credential_operator_iam_ro_creds_policy
     - openshift_cluster_csi_drivers_ebs_cloud_credentials_policy
@@ -47,5 +47,6 @@ openshiftResources:
     - sts_ocm_permission_policy
     - sts_ocm_trust_policy
     - sts_ocm_user_trust_policy
+    - shared_vpc_openshift_ingress_operator_cloud_credentials_policy
     current_key:
       name: 'workaround'
