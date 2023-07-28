@@ -34,8 +34,7 @@ Once you have the IP, you can use your own RedHat user to log in.
 
 Note: steps to access ci.ext Jenkins agents
 
-1. `sshuttle -r ci.ext.ssh.devshift.net 192.168.16.0/20`
-2. `ssh <jenkins-agent-ip>`
+1. `ssh -o ProxyCommand="ssh -W %h:%p <RedHat user>@ci.ext.ssh.devshift.net" <jenkins-agent-ip>`
 
 ## Console access
 
