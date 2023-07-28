@@ -1,3 +1,27 @@
+- base_templates:
+    name: insights-ci-ext-base-templates
+
+    gpg_verify: &gpg_verify
+        shell: |
+            # Load GPG keys from app-interface
+            python3 -m venv .
+            source bin/activate
+            pip3 install graphqlclient
+            curl -LO https://raw.githubusercontent.com/RedHatInsights/gpg-verify/master/import_gpg.py
+            python3 import_gpg.py
+
+            echo '#!/bin/sh
+            exec gpg --no-default-keyring --keyring=$PWD/git.gpg "$@"' > gitgpg
+            chmod +x gitgpg
+            git config gpg.program $PWD/gitgpg
+            git verify-commit $ghprbActualCommit
+
+            if [ $? != 0 ]; then
+                echo "GPG signature either not present or not trusted"
+                exit 1
+            fi
+
+          
 - job-template:
     id: 'insights-platform-changelog-test-build-master'
     name: '{gh_org}-{gh_repo}-test-gh-build-{branch}'
