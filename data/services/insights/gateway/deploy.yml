@@ -56,7 +56,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -68,7 +68,7 @@ resourceTemplates:
       IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -78,7 +78,6 @@ resourceTemplates:
       REPLICAS: 3
       AUTHENTICATE_WITH_ORG_ID: true
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
-      TRIGGER_DEPLOY: true
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
     ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
@@ -95,7 +94,7 @@ resourceTemplates:
       APICAST_MEM_LIMIT: 4Gi
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       DISABLE_BASIC_AUTH: false
       REPLICAS: 1
@@ -121,7 +120,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -131,10 +130,9 @@ resourceTemplates:
       REPLICAS: 3
       AUTHENTICATE_WITH_ORG_ID: true
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
-      TRIGGER_DEPLOY: true
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -160,7 +158,7 @@ resourceTemplates:
       APICAST_MEM_LIMIT: 4Gi
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
-    ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
+    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
     parameters:
       DISABLE_BASIC_AUTH: false
       REPLICAS: 1
