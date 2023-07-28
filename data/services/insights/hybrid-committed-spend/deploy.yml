@@ -76,3 +76,12 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
+
+- name: hybrid-committed-spend-dashboard
+  url: https://github.com/RedHatInsights/hybrid-committed-spend-ui
+  path: /dashboards
+  provider: directory
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+    ref: main
