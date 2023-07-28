@@ -112,7 +112,7 @@ spec:
         (2 < (max without(instance, pod, cluster_type) (max_over_time(hive_cluster_deployment_provision_underway_seconds{job="hive-controllers",reason!~"AWSAPIRateLimitExceeded|AWSEC2QuotaExceeded|AWSVPCLimitExceeded|S3BucketsLimitExceeded|InvalidCredentials|EIPAddressLimitExceeded|NoWorkerNodes|AWSNATGatewayLimitExceeded|InvalidInstallConfigSubnet|PendingVerification|GCPInstanceTypeNotFound|GCPPreconditionFailed|GCPQuotaSSDTotalGBExceeded|GCPComputeQuotaExceeded|GCPServiceAccountQuotaExceeded|InvalidAWSTags|MissingPublicSubnetForZone|PrivateSubnetInMultipleZones|ErrorDeletingIAMRole|AWSSubnetDoesNotExist|AWSInsufficientPermissions|VcpuLimitExceeded|UserInitiatedShutdown|LoadBalancerLimitExceeded|AWSAccessDeniedSLR|ProxyTimeout|ProxyInvalidCABundle|ErrorCreatingNetworkLoadBalancer|NATGatewayFailed"}[12h])) / 3600) < 168) * on() group_left absent(up{job="hive-controllers"} == 1)
       for: 5m
       labels:
-        service: hive-stage-srep
+        service: hive-srep-stage
         severity: critical
         team: srep
     - alert: SelectorSyncsetApplyFailures - stage - {{{shard_name}}}
