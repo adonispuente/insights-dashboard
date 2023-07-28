@@ -247,6 +247,7 @@ managedUsergroups:
 - appeng-keycloak-ic
 - rhtap-alerts-group
 - osd-rhobs-rules-and-dashboards
+- hypershift-platform-rhobs-rules
 - dynatrace-rules-and-dashboards
 - managed-scripts
 - aro-codeowners
