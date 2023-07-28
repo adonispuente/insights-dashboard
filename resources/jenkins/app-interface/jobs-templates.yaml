@@ -70,7 +70,7 @@
 
 - job-template:
     id: 'app-interface-output-run'
-    job_name: 'app-interface-output-run'
+    job_name: '{job_name}'
     name: '{job_name}'
     commands: ''
     wrappers:
@@ -96,7 +96,7 @@
     - string:
         name: COMMANDS
         default: '{commands}'
-    cron_expression: H/10 * * * *
+    cron_expression: '{cron_expression}'
     <<: *gl_timed
 
 - job-template:
