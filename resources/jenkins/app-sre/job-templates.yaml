@@ -177,7 +177,8 @@
         ssh-add app-sre-bot.key
         export REQUESTS_CA_BUNDLE="/etc/pki/tls/cert.pem"
         ansible-playbook -u ${{APP_SRE_BOT_USERNAME}} --key-file app-sre-bot.key playbooks/node-user-housekeeping.yml -v -D
-    <<: *gl_build_master
+    cron_expression: H/5 * * * *
+    <<: *gl_timed
 
 - job-template:
     id: 'jenkins-worker-housekeeping-timed'
