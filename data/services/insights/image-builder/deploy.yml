@@ -34,6 +34,10 @@ managedResourceTypes:
   - ServiceAccount
   - FloorPlan
   - ClowdApp
+  - Secret
+  - OperatorGroup
+  - Pulp
+  - Subscription.operators.coreos.com
 
 # For integrity purposes, we enumerate here what container image registry path
 # patterns we are expecting to exist in our OpenShift template. Usually you
@@ -43,6 +47,7 @@ managedResourceTypes:
 imagePatterns:
   - quay.io/cloudservices
   - quay.io/app-sre/fluentd-hec
+  - quay.io/openshift
 
 # The authentication section is for providing the deploy integrations with the
 # credentials they'd need to validate and perform a deploy.
@@ -119,3 +124,13 @@ resourceTemplates:
         $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       disable: true # do not create an app-sre deploy job for ephemeral namespace
       ref: internal # populated by bonfire
+- name: image-builder-pulp
+  url: https://github.com/pulp/pulp-ostree-clowder-deployment
+  path: /deploy/clowdapp.yaml
+  targets:
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true  # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal
+    parameters:
+      IMAGE_TAG: latest
