@@ -99,7 +99,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/perf-remediations-perf.yml
-    ref:  f41197f570300efb3ad50fe6e306f76390697f80
+    ref:  50169201b1bcbe1ada8c07490ea769f8610b82e5
     parameters:
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
       MIN_REPLICAS: 2
