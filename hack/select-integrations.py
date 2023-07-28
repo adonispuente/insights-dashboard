@@ -79,7 +79,10 @@ def get_modified_schemas(data, modified_files, is_test_data):
     data_path = "test_data/" if is_test_data else "data/"
     schemas = set()
     for modified_file in modified_files:
-        if modified_file.startswith(data_path):
+        # This makes sure only yaml files will be treated as schemas files
+        if modified_file.startswith(data_path) and (
+            modified_file.endswith(".yaml") or modified_file.endswith(".yml")
+        ):
             schemas.add(get_data_schema(data, modified_file))
 
         if modified_file.startswith("resources/"):
