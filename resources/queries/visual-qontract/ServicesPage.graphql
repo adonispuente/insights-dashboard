@@ -108,6 +108,18 @@
             consoleUrl
           }
         }
+        defaults {
+          pipelineTemplates {
+            openshiftSaasDeploy {
+              name
+            }
+          }
+        }
+        pipelineTemplates {
+          openshiftSaasDeploy {
+            name
+          }
+        }
       }
     }
     resourceTemplates {
@@ -120,9 +132,6 @@
         }
       }
     }
-  }
-  app_interface_settings_v1 {
-    saasDeployJobTemplate
   }
   # GET_SERVICES
   apps_v1 {
