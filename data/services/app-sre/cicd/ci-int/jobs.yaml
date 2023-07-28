@@ -56,9 +56,6 @@ config:
         display_name: node-user-housekeeping
     - 'jenkins-worker-housekeeping-timed':
         display_name: jenkins-worker-housekeeping-timed
-    - 'jenkins-worker-housekeeping-update-host':
-        display_name: jenkins-worker-housekeeping-update-host
-        ci_cmd: ./update_host.sh
 
 - project:
     name: clusterimagesets

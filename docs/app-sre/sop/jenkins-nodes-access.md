@@ -11,6 +11,10 @@ app-sre members public keys in [infra](https://gitlab.cee.redhat.com/app-sre/inf
 * ci-int: ssh to `ci.int.devshift.net`
 * ci-ext: ssh to `ci.ext.ssh.devshift.net`
 
+### Workers List
+
+Find a list of all available Jenkins nodes, including their IP addresses, in [the app-interface-output repo](https://gitlab.cee.redhat.com/service/app-interface-output/-/blob/master/ec2-jenkins-workers.md)
+
 ### Workers
 
 Log in to a dynamically created Jenkins node is the last option to debug a problem. Consider first using jenkins [dashboards](/docs/app-sre/jenkins-worker-cicd.md#dashboards) or spinning a new node using the same AMI to debug issues. If that is not enough, you may be able to ssh into the instance to do further debugging.
@@ -27,7 +31,6 @@ where `<instance-id>` is shown in Jenkins UI, e.g. `i-08c2168b1bb67b8eb`
 
 Once you have the IP, you can use your own RedHat user to log in.
 
-As a quick workaround, you can use the [dynamic inventory](https://gitlab.cee.redhat.com/app-sre/infra/-/blob/master/ansible/hosts/aws_ec2_host.json) used by the Housekeeping jobs to find the IP of a host.
 
 Note: steps to access ci.ext Jenkins agents
 

@@ -81,6 +81,7 @@
         - *reconcile_toml
         - *app_interface_state
         - *app_sre_bot_push_token
+        - *qontract-cli-ansible-ec2-inventory
     publishers:
     - git:
         push-merge: false
