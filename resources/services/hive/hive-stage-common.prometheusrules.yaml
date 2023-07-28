@@ -101,7 +101,7 @@ spec:
       labels:
         service: hive
         severity: medium
-    - alert: ClusterProvisioningDelaySREP - stage - {{{shard_name}}}
+    - alert: ClusterProvisioningDelay - stage - {{{shard_name}}}
       annotations:
         message: "cluster {{ $labels.cluster_deployment }} in namespace {{ $labels.exported_namespace }} provisioning taking over 2 hours. Condition/Reason: {{ $labels.condition }} / {{ $labels.reason }}."
         runbook: "https://github.com/openshift/hive-sops/blob/master/sop/ClusterProvisioningDelay.md"
@@ -112,8 +112,8 @@ spec:
         (2 < (max without(instance, pod, cluster_type) (max_over_time(hive_cluster_deployment_provision_underway_seconds{job="hive-controllers",reason!~"AWSAPIRateLimitExceeded|AWSEC2QuotaExceeded|AWSVPCLimitExceeded|S3BucketsLimitExceeded|InvalidCredentials|EIPAddressLimitExceeded|NoWorkerNodes|AWSNATGatewayLimitExceeded|InvalidInstallConfigSubnet|PendingVerification|GCPInstanceTypeNotFound|GCPPreconditionFailed|GCPQuotaSSDTotalGBExceeded|GCPComputeQuotaExceeded|GCPServiceAccountQuotaExceeded|InvalidAWSTags|MissingPublicSubnetForZone|PrivateSubnetInMultipleZones|ErrorDeletingIAMRole|AWSSubnetDoesNotExist|AWSInsufficientPermissions|VcpuLimitExceeded|UserInitiatedShutdown|LoadBalancerLimitExceeded|AWSAccessDeniedSLR|ProxyTimeout|ProxyInvalidCABundle|ErrorCreatingNetworkLoadBalancer|NATGatewayFailed"}[12h])) / 3600) < 168) * on() group_left absent(up{job="hive-controllers"} == 1)
       for: 5m
       labels:
-        service: hive
-        severity: medium
+        service: hive-stage-srep
+        severity: critical
         team: srep
     - alert: SelectorSyncsetApplyFailures - stage - {{{shard_name}}}
       annotations:
