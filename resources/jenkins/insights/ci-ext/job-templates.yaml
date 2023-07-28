@@ -187,53 +187,6 @@
     <<: *gh_build_master
 
 - job-template:
-    id: 'insights-platform-changelog-test-build-master'
-    name: '{gh_org}-{gh_repo}-test-gh-build-{branch}'
-    wrappers:
-    - timeout_wrapper:
-        timeout: '{timeout}'
-    - ansicolor
-    - vault-secrets:
-        <<: *vault_defaults
-        secrets:
-        - *insights_rh_registry_pull_secret
-        - *quay_secret_push
-        - *quay_api_token
-        - *platform_changelog_stage_jenkins_jobs_sa_token
-    <<: *gh_build_master
-    shell: |
-        #!/bin/bash
-        echo "Send a curl request to changelog.stage.devshift.net"
-        #
-        # desired data from the jenkins job:
-        # - app name (as defined here in app-interface)
-        # - "project" name (as defined here in app-interface)
-        # - repo
-        # - branch merged from
-        # - branch merged to (monitored branch, master or main)
-        # - merged by
-        # - PR title and URL
-        # - PR number
-        # - data on each commmit:
-        #   - **commit ref**
-        #   - commit message
-        #   - commit timestamps
-        #   - commit author info (name, email, username)
-
-        echo 'env'
-        echo '---------------------------------------------------------'
-        # printenv
-        echo '---------------------------------------------------------'
-
-        echo 'Building merge info for changelog.stage.devshift.net'
-
-        merge_info='{{"tenant": {label}, "app": {app_name}, "project": {name}, "repo": $GIT_URL, "commits": $GIT_COMMIT}}'
-
-        echo $merge_info
-
-        curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$(merge_info)" -H "Content-Type: application/json" -H 'Authorization: Bearer $PLATFORM_CHANGELOG_TOKEN'
-
-- job-template:
     id: 'insights-gh-build-master-stable'
     name: '{gh_org}-{gh_repo}-gh-build-{branch}-stable'
     slack_channel_notification: 'consoledot-development-fails'
