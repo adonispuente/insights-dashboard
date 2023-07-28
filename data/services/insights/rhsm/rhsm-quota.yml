@@ -16,7 +16,7 @@ quotas:
       memory: 48Gi
     requests:
       cpu: "26"
-      memory: 26Gi
+      memory: 38Gi
   scopes:
   - NotTerminating
 - name: compute-resources-terminating
