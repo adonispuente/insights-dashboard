@@ -46,7 +46,6 @@ externalResources:
     overrides:
       engine_version: '15.3'
       apply_immediately: true
-      allow_major_version_upgrade: true
 
 managedResourceTypes:
 - NetworkPolicy
