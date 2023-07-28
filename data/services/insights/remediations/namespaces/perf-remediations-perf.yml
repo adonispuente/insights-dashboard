@@ -85,3 +85,7 @@ externalResources:
     identifier: remediations-perf
     defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml
     output_resource_name: cloudwatch
+  - provider: elasticache
+    identifier: remediations-elasticache
+    defaults: /terraform/resources/insights/perf/elasticache/elasticache-remediations-1.yml
+    output_resource_name: in-memory-db
