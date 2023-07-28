@@ -74,6 +74,9 @@ config:
     jobs:
     - "insights-gh-build-master":
         display_name: notifications-frontend build-master
+    - "insights-gh-build-master":
+        display_name: notifications-frontend build-master-stable
+        branch: master-stable
     - "insights-gh-pr-check":
         display_name: notifications-frontend pr-check
 - project:
