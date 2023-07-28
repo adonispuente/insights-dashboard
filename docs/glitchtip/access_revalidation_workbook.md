@@ -352,7 +352,6 @@ The `glitchtip-access-reporter` job regularly and automatically updates this pag
 | srbiswas | Srijoni Biswas | managed-services (member) |
 | sreaves | Stephen Reaves | sd-sea (member) |
 | sserafin | Silvia Serafini | ocm (member) |
-| steahan | Steve Teahan | app-sre-stage (owner), app-sre (owner) |
 | stethoma | Stephin Thomas | managed-services (member) |
 | sthirugn | Suresh Thirugnanasambandan | ocm (member) |
 | sthorger | Stian Thorgersen | managed-services (member) |
