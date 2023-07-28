@@ -146,6 +146,7 @@ alertingServices:
 - gabi
 - github-mirror
 - hive
+- hive-srep-stage
 - hive-global-capacity
 - image-builder
 - insights
