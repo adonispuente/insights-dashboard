@@ -3,17 +3,17 @@ $schema: /access/permission-1.yml
 
 labels: {}
 
-name: rhobs-rules-and-dashboards-coreos-slack
-description: SREP rhobs-rules-and-dashboards owners (managed via app-interface)
+name: osd-rhobs-rules-and-dashboards-coreos-slack
+description: SREP osd-rhobs-rules-and-dashboards owners (managed via app-interface)
 
 service: slack-usergroup
-handle: rhobs-rules-and-dashboards
+handle: osd-rhobs-rules-and-dashboards
 
 workspace:
   $ref: /dependencies/slack/redhat-internal.yml
 
 ownersFromRepos:
-  - https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards:main
+  - https://gitlab.cee.redhat.com/service/osd-rhobs-rules-and-dashboards:main
 
 channels:
 - sd-sre-platform
