@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Ricardo Noriega
+org_username: rnoriega
+github_username: oglok
+quay_username: oglok
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
