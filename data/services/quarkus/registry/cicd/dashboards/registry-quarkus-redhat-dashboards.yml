@@ -24,7 +24,7 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-  - name: quarkus-registry-dashboards-stage
+  - name: quarkus-registry-dashboards
     url: https://gitlab.cee.redhat.com/quarkus/registry.quarkus.redhat.com
     path: /dashboards
     provider: directory
@@ -32,3 +32,6 @@ resourceTemplates:
       - namespace:
           $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
         ref: main
+      - namespace:
+          $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
+        ref: c4db78c9659e3c2d51105a68b572ef1d75aae427
