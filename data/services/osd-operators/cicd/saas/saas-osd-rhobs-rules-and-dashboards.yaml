@@ -3,7 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels: {}
 
-name: saas-rhobs-rules-and-dashboards
+name: saas-osd-rhobs-rules-and-dashboards
 description: 'SaaS tracking file for App-interface'
 
 app:
@@ -24,8 +24,8 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-- name: rhobs-dashboards
-  url: https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
+- name: dashboards
+  url: https://gitlab.cee.redhat.com/service/osd-rhobs-rules-and-dashboards
   path: /dashboards
   provider: directory
   targets:
@@ -34,12 +34,12 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 74d584306b3c5895307c5ca47c154bf0dd06b505
+    ref: 69a6e60a2d0f8339348373f1c9700f7ad5bc03e0
 # Targets for below configs are decided based on the RHOBS instance hosting the tenant, in this case:
 # data/services/rhobs/observatorium-mst/cicd/saas-tenants.yaml
-- name: osd-rhobs-rules
-  url: https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
-  path: /rules/osd
+- name: rhobs-rules
+  url: https://gitlab.cee.redhat.com/service/osd-rhobs-rules-and-dashboards
+  path: /rules
   provider: directory
   targets:
   - name: observatorium-mst-stage
@@ -49,18 +49,4 @@ resourceTemplates:
   - name: observatorium-mst-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-    ref: 447d65f40e6f85a0229783bf9ddf3b10af0a413c
-- name: hypershift-platform-rhobs-rules
-  url: https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
-  path: /rules/hypershift-platform/template.yaml
-  targets:
-  - name: rhobsp02ue1-stage
-    namespace:
-      $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
-    ref: main
-    parameters:
-      TENANT: hypershift-platform-staging
-  - name: rhobsp02ue1-production
-    namespace:
-      $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
-    ref: 74d584306b3c5895307c5ca47c154bf0dd06b505
+    ref: 69a6e60a2d0f8339348373f1c9700f7ad5bc03e0

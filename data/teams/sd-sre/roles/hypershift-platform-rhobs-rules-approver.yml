@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: hypershift-platform-rhobs-rules-approver
+description: Approve promotions of hypershift-platform-rhobs-rules
+
+permissions: []
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/osd-operators/cicd/saas/saas-hypershift-platform-rhobs-rules.yaml
