@@ -530,7 +530,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: ac1ea0077af4b32b278b784b800c8be70998fe3d
+    ref: 12acc84d97718987c89c9cb5389111861495a292
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/notifications-frontend
