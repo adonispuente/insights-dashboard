@@ -32,7 +32,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/pdf-generator/namespaces/pdf-generator-stage.yml
-    ref: 912e06882c8827c4e7764f0a6c2aa2a9b8f71799
+    ref: 5c99c802b4314711212197b6976fdc6d4665ac7d
     parameters:
       ENV_NAME: stage
       GATE_PROMETHEUS_ENDPOINT: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
