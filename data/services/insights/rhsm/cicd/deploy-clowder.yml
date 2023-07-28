@@ -187,7 +187,7 @@ resourceTemplates:
     parameters:
       CPU_REQUEST: 200m
       CPU_LIMIT: 1
-      MEMORY_REQUEST: 800Mi
+      MEMORY_REQUEST: 500Mi
       MEMORY_LIMIT: 800Mi
       RH_MARKETPLACE_MANUAL_SUBMISSION_ENABLED: 'true'
       RH_MARKETPLACE_MAX_ATTEMPTS: 2
@@ -310,7 +310,7 @@ resourceTemplates:
       KAFKA_MESSAGE_THREADS: 1
       CPU_REQUEST: 200m
       CPU_LIMIT: 1
-      MEMORY_REQUEST: 1000Mi
+      MEMORY_REQUEST: 800Mi
       MEMORY_LIMIT: 2000Mi
       USER_MAX_ATTEMPTS: 1
       SPRING_ACTIVEMQ_BROKER_URL: ssl://umb.stage.api.redhat.com:61616
@@ -348,7 +348,7 @@ resourceTemplates:
       KAFKA_MESSAGE_THREADS: 1
       CPU_REQUEST: 200m
       CPU_LIMIT: 1
-      MEMORY_REQUEST: 1000Mi
+      MEMORY_REQUEST: 800Mi
       MEMORY_LIMIT: 2000Mi
       DATABASE_MAX_POOL_SIZE: '6'
       REPLICAS: 3
@@ -382,7 +382,7 @@ resourceTemplates:
       - swatch-system-conduit-stage-deploy-success-channel
     parameters:
       CPU_REQUEST: 200m
-      MEMORY_REQUEST: 600Mi
+      MEMORY_REQUEST: 500Mi
       MEMORY_LIMIT: 600Mi
       PINHEAD_URL: https://systems.stage.api.redhat.com/v1
       RHSM_URL: https://api.rhsm.stage.redhat.com/v1
@@ -451,7 +451,7 @@ resourceTemplates:
         REPLICAS: 3
         CPU_REQUEST: 200m
         CPU_LIMIT: 1000m
-        MEMORY_REQUEST: 800Mi
+        MEMORY_REQUEST: 600Mi
         MEMORY_LIMIT: 800Mi
         OTEL_JAVAAGENT_ENABLED: 'true'
         OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
@@ -543,7 +543,7 @@ resourceTemplates:
         USER_HOST: user.stage.api.redhat.com
         CPU_LIMIT: 2
         CPU_REQUEST: 2
-        MEMORY_REQUEST: 1200Mi
+        MEMORY_REQUEST: 800Mi
         MEMORY_LIMIT: 4096Mi
         REPLICAS: 3
         DATABASE_MAX_POOL_SIZE: 6
