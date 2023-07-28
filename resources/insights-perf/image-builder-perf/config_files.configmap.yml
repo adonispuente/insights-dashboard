@@ -9,11 +9,8 @@ data:
       }
     }
   # PERF: We'll define in a follow-up commit which accounts to use
-  # # XXXXXXXX = image-builder-YYY (perf)
-  # allow_list.json: |-
-  #   {
-  #     "XXXXXXXX": ["*"]
-  #   }
+  allow_list.json: |-
+    {}
 metadata:
   labels:
     service: image-builder
