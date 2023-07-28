@@ -1,0 +1,16 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "stonesoup-approle-release-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "stonesoup/production/release/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }
+  path "stonesoup/staging/release/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }
