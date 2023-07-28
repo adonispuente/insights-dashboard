@@ -230,22 +230,22 @@ externalResources:
       {
         "Version": "2012-10-17",
         "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": "ec2:CreateKeyPair",
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": "ec2:DeleteKeyPair",
-                "Resource": "arn:aws:ec2:us-east-1:019044362261:key-pair/quaystage-builder"
-            },
-            {
-                "Effect": "Allow",
-                "Action": "ec2:DescribeKeyPairs",
-                "Resource": "*"
-                }
-            ]
+          {
+              "Effect": "Allow",
+              "Action": "ec2:CreateKeyPair",
+              "Resource": "*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "ec2:DeleteKeyPair",
+              "Resource": "arn:aws:ec2:us-east-1:019044362261:key-pair/quaystage-builder"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "ec2:DescribeKeyPairs",
+              "Resource": "*"
+          }
+        ]
       }
   - provider: rds
     identifier: quayio-stage-57-py3
