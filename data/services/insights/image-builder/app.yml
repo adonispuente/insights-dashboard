@@ -44,6 +44,9 @@ quayRepos:
   - name: image-builder-frontend
     public: true
     description: image-builder frontend on console.redhat.com
+  - name: pulp-ostree-ubi
+    public: true
+    description: pulp ostree
 
 codeComponents:
 - name: image-builder
@@ -52,3 +55,6 @@ codeComponents:
 - name: image-builder-frontend
   resource: upstream
   url: https://github.com/RedHatInsights/image-builder-frontend
+- name: image-builder-pulp
+  resource: upstream
+  url: https://github.com/pulp/pulp-ostree-clowder-deployment
