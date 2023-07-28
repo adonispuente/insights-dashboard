@@ -17,6 +17,9 @@ parameters:
 - name: hot_standby_feedback
   value: 1
   apply_method: immediate
+- name: work_mem
+  value: 16384 # 16MB, default value is 4MB
+  apply_method: immediate
 # Temporarily disabled
 # - name: statement_timeout
 #   value: 3600000
