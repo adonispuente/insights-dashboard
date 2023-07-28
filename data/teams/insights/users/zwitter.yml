@@ -11,7 +11,7 @@ github_username: zwitter1
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/ocm/roles/sentry-access.yml
-- $ref: /teams/insights/roles/platform-experience.yml
 - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
