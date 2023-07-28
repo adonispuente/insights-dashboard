@@ -88,7 +88,7 @@ resourceTemplates:
     PATH_PREFIX: /api
     RBAC_IMPL: impl
     RECEPTOR_IMPL: impl
-    REMEDIATIONS_REPLICAS: 3
+    REMEDIATIONS_REPLICAS: 2
     SOURCES_IMPL: impl
     SSG_IMPL: impl
     SSG_HOST: http://playbooks-ssg:8080
@@ -102,7 +102,7 @@ resourceTemplates:
     ref: master
     parameters:
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
-      MIN_REPLICAS: 3
+      MIN_REPLICAS: 2
       FLOORIST_SUSPEND: 'true'
       FLOORIST_IMAGE_TAG: 8d12513 # 2023-04-18
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
