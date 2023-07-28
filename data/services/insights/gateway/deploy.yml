@@ -78,7 +78,7 @@ resourceTemplates:
       REPLICAS: 3
       AUTHENTICATE_WITH_ORG_ID: true
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
-      TRIGGER_DEPLOY: true
+      TRIGGER_DEPLOY: yes-please
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
     ref: c8b95022f8c31328e4b0c479ba2ac42f350f7a74
