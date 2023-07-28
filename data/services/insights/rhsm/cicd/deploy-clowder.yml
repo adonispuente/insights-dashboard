@@ -310,7 +310,7 @@ resourceTemplates:
       KAFKA_MESSAGE_THREADS: 1
       CPU_REQUEST: 200m
       CPU_LIMIT: 1
-      MEMORY_REQUEST: 2000Mi
+      MEMORY_REQUEST: 1000Mi
       MEMORY_LIMIT: 2000Mi
       USER_MAX_ATTEMPTS: 1
       SPRING_ACTIVEMQ_BROKER_URL: ssl://umb.stage.api.redhat.com:61616
@@ -348,7 +348,7 @@ resourceTemplates:
       KAFKA_MESSAGE_THREADS: 1
       CPU_REQUEST: 200m
       CPU_LIMIT: 1
-      MEMORY_REQUEST: 2000Mi
+      MEMORY_REQUEST: 1000Mi
       MEMORY_LIMIT: 2000Mi
       DATABASE_MAX_POOL_SIZE: '6'
       REPLICAS: 3
