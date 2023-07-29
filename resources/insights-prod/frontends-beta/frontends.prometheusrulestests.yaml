@@ -48,3 +48,64 @@ tests:
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
           message: "Hybrid Committed Spend Alert. Pod restarts occurring more than 5x/1h for the last 30 minutes in prod environment."
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Pod-Restarts-In-Frontends.rst"
+
+  - interval: 1m
+    input_series:
+    - series: caddy_http_request_errors_total{job="hybrid-committed-spend", namespace="frontends-beta"}
+      values:  10 7 8 0 0 0 0 0 0 0 13 12 11 0 0 0 0 0 0 0 9 8 6 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0
+
+    alert_rule_test:
+    - eval_time: 30m
+      alertname: App-Frontend-Response-Errors
+      exp_alerts:
+      - exp_labels:
+          severity: warning
+          service: insights
+          env: prod
+          app_team: hybridcommittedspend
+          namespace: frontends-beta
+        exp_annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
+          message: "Hybrid Committed Spend Alert. Error responses observed; error rate > 10% for 5 minutes."
+          runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Response-Errors-In-Frontends.rst"
+
+  - interval: 1m
+    input_series:
+    # 0m  - 9m    0% too slow, 100% ok
+    # 10m - 19m   1% too slow, 99% ok
+    # 20m - 29m   9% too slow, 91% ok
+    # 30m - 49m   25% too slow, 75% ok  <-- we should see alerts start in here
+    # 50m - 70m   0% too slow, 100% ok  <-- we should see alerts stop in here
+    - series: 'caddy_http_request_duration_seconds_count{job="hybrid-committed-spend", namespace="frontends-beta"}'
+      values: "0+100x6 1000+100x6 2000+100x6 3000+100x16 5000+100x16"
+    - series: 'caddy_http_request_duration_seconds_bucket{le="5.0", job="hybrid-committed-spend", namespace="frontends-beta"}'
+      # these effectively expand to
+      # (0..900)(100%) (999..1890)(99%) (1981..2800)(91%) (2875..4300)(75%) (5400..6300)(100%)
+      values: "0+100x6 999+99x6 1981+91x6 2875+75x16 5400+100x26"
+    alert_rule_test:
+    - eval_time: 5m
+      alertname: App-Frontend-Latency
+      exp_alerts: []
+    - eval_time: 10m
+      alertname: App-Frontend-Latency
+      exp_alerts: []
+    - eval_time: 15m
+      alertname: App-Frontend-Latency
+      exp_alerts: []
+    - eval_time: 46m
+      alertname: App-Frontend-Latency
+      exp_alerts:
+      - exp_annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
+          message: "Hybrid Committed Spend Alert. Slow responses observed; more than 10% of requests with response time > 5 seconds for the last 15 minutes."
+          runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Latency-In-Frontends.rst"
+        exp_labels:
+          severity: medium
+          service: insights
+          app_team: hybridcommittedspend
+          namespace: frontends-beta
+    - eval_time: 69m
+      alertname: App-Frontend-Latency
+      exp_alerts: []

@@ -18,6 +18,8 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: Hybrid Committed Spend Frontend Pod Uptime
   url: https://grafana.app-sre.devshift.net/d/k8s-compute-resources-namespace-pods/kubernetes-compute-resources-namespace-pods
+- title: Hybrid Cloud Console Frontend SLO
+  url: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
 
 onboardingStatus: InProgress
 
