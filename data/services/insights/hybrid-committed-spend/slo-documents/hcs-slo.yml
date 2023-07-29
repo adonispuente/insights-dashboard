@@ -36,4 +36,52 @@ slos:
     window: 28d
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-availability.md
   expr: 100 * avg_over_time(up{namespace="frontends-beta",service="hybrid-committed-spend"}[{{window}}])
+  prometheusRules: /insights-prod/frontends-beta/frontends.prometheusrules.yaml
+
+- name: Hybrid Committed Spend Frontend Error Rate
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
+  SLIType: availability
+  SLISpecification: Error rate of frontend pod
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-error-rate.md
+  expr: 1.00 - (sum(rate(caddy_http_request_errors_total{job="hybrid-committed-spend", namespace="frontends"}[{{window}}])) / sum(rate(caddy_http_requests_total{job="hybrid-committed-spend", namespace="frontends"}[{{window}}]))) OR on() vector(1)
   prometheusRules: /insights-prod/frontends/frontends.prometheusrules.yaml
+
+- name: Hybrid Committed Spend Frontend Beta Error Rate
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
+  SLIType: availability
+  SLISpecification: Error rate of frontend pod
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-error-rate.md
+  expr: 1.00 - (sum(rate(caddy_http_request_errors_total{job="hybrid-committed-spend", namespace="frontends-beta"}[{{window}}])) / sum(rate(caddy_http_requests_total{job="hybrid-committed-spend", namespace="frontends-beta"}[{{window}}]))) OR on() vector(1)
+  prometheusRules: /insights-prod/frontends-beta/frontends.prometheusrules.yaml
+
+- name: Hybrid Committed Spend Frontend Latency
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
+  SLIType: latency
+  SLISpecification: ratio of services request durations under 5 seconds
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-latency.md
+  expr: sum(rate(caddy_http_request_duration_seconds_bucket{le="5.0", namespace="frontends"}[{{window}}])) / sum(rate(caddy_http_request_duration_seconds_count{job="hybrid-committed-spend", namespace="frontends"}[{{window}}]))
+  prometheusRules: /insights-prod/frontends/frontends.prometheusrules.yaml
+
+- name: Hybrid Committed Spend Frontend Beta Latency
+  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
+  SLIType: latency
+  SLISpecification: ratio of services request durations under 5 seconds
+  SLOTarget: 0.90
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/hcs/hcs-slo-latency.md
+  expr: sum(rate(caddy_http_request_duration_seconds_bucket{le="5.0", namespace="frontends-beta"}[{{window}}])) / sum(rate(caddy_http_request_duration_seconds_count{job="hybrid-committed-spend", namespace="frontends-beta"}[{{window}}]))
+  prometheusRules: /insights-prod/frontends-beta/frontends.prometheusrules.yaml
