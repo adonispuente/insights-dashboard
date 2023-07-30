@@ -33,7 +33,7 @@ resourceTemplates:
           ENV_NAME: stage
       - namespace:
           $ref: /services/insights/fedramp-customer-interest/namespaces/production.yml
-        ref: cdb6178cb1a2485f119bda42b631c563aa1c4684
+        ref: 32aa3dfbc04f3be61eda1db6f7d71677e9d8ce29
         parameters:
           ENV_NAME: prod
 imagePatterns:
