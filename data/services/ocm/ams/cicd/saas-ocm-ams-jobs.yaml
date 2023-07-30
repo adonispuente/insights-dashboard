@@ -1218,6 +1218,8 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'true'
+      WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
