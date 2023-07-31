@@ -50,6 +50,9 @@ authentication:
 
 clusterAdmin: true
 
+parameters:
+  OPERATOR_IMAGE_PULL_SECRET: quay.io
+
 resourceTemplates:
 - name: dynatrace-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
@@ -58,5 +61,3 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
     ref: 46de394b6d1de2646480fbd5ff0db4b0bd2e7767
-    parameters:
-      OPERATOR_IMAGE_PULL_SECRET: quay.io
