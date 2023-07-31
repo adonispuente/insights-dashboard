@@ -26,7 +26,7 @@ resourceTemplates:
   path: /openshift/template-autopromotion.yaml
   provider: openshift-template
   targets:
-  - ref: 7ef8dbeabb32d8ce06c663ef80301023da026c0f
+  - ref: 440507cbbd4cccbc6121257b770d7d094699118f
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
     parameters:
