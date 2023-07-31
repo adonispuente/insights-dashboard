@@ -1,0 +1,18 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Common resources for Dynatrace
+
+openshiftResources:
+- provider: resource
+  path: /setup/dynatrace/allow-from-hostnetwork.networkpolicy.yaml
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
+- provider: resource-template
+  type: jinja2
+  path: /setup/dynatrace/log-config-job.yaml.j2
+  enable_query_support: true
