@@ -1,0 +1,41 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Sushanta Das
+org_username: susdas
+github_username: tisutisu
+quay_username: susdas
+slack_username: Sushanta Das
+
+roles:
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+
+# Export with gpg --export your_public_key_id | base64
+public_gpg_key: |
+  mQENBGNx5MIBCADmJeRcX8NzOKfugtJslI65oZYm3ZEXA4vEkwud+U73u3oi+FaI/OzFPdmuN85g
+  4u5V9Q2Y2Sw4ZacoeKVOi6do79ms/zNN9B0zB6wlwLoiSIYu01RnwcPrzKqZeLufV33pXDLhlTjm
+  rtGV8R/UjUFGnImJrRf9rhkYE4QN509Y4aBe6ONmeb0GrcjrTk42OZWOsesvE+M825b26MAJCwDM
+  7rN4FchchTFE1zsMu6fX4cW5GR/A2+yKUZgJYUNB4E5ByNjCN6pOYvedkNsh7qy5P+LzKSORDfYd
+  xmTR8l0m5H7BCTvzUi7FbVRBjynjfKxgsSVpWaLbQIWXBNbGaB3HABEBAAG0QVN1c2hhbnRhIERh
+  cyAoS2V5IGdlbmVyYXRlZCBpbiBsb2FuZXIgbGFwdG9wKSA8c3VzZGFzQHJlZGhhdC5jb20+iQFO
+  BBMBCAA4FiEEFJPdcWnqgH2kX1N7MeOXrtTfLKAFAmNx5MICGwMFCwkIBwIGFQoJCAsCBBYCAwEC
+  HgECF4AACgkQMeOXrtTfLKB9eAgAw5m/qGJ4fnA11aVfkPHsB7QiMa2NYaCYQj0y0XISby9knxfr
+  ZYm83hoZijjaAe8N899N2/o+9TvMPKFr7or45tiugJNF5EmiwscrpIdNIaRNHFKXnlv7lZBWfUnf
+  tt29hQfal5GBBskTVSBoOrrzEQ86mAyC9Pi2L6uvbFyJwfS/tIMiOABAA1SR06Itx4zcD348F4Hq
+  FbKBgs6ypMYDnbdUB/3aDOojsYQfByOnyo5nCOVinIOWAHzyA92Qy/OR+tMKDPq0xswPu2b/rpsM
+  zMwL6JFjvcOr2mq4+dDT8kdYJUwouJdNF5L95jwPmkWUWsDm3shU/bVHz7ksCa+7JLkBDQRjceTC
+  AQgA1UQ3YtMUyjyyjWYhSqMSIogzD+/4tF/i90EadNbgQ4aGsSsydVm3rfo0Q38bjsqweLBZ4c5x
+  xfkuqrusaWM6yZ1gWEWS+ww67x9KUplzqQWsKDI2JuB6ad6JyK+YsKlTnk9RkHA0xLdTHniAcN9Z
+  6nzQqppGUq/Ib2llXlENVnqslqLSbXW+AxwP/rTh/EsKHRvibKI57geyrwF/XrPdCcuFSpVs7MeR
+  LurokQQfXJrCTVwAdq1MwBnthkskZRNLb0VCyHRKwNOQpHHT0WmA2fP90jHLpYGbB3zeuUuSgeEw
+  lGbeO5ijC6KHc0RuK7FCu6Ur52s+naIzF0f5J/lDzwARAQABiQE2BBgBCAAgFiEEFJPdcWnqgH2k
+  X1N7MeOXrtTfLKAFAmNx5MICGwwACgkQMeOXrtTfLKAzzQgApG5fy3t1weif2CmAh9oXvo9mkQFh
+  BV5iB7NHTGq6tBzqj9vrKK/5D1TOebAvvYEefYARXr1zcU8avOVjaYCumvf+oibjOtYe0R7L6v4+
+  koKUlzVmOtPxuikMoHy1HvIlVZ3SOZLxImvPheM3xQLX8eipF2n0csxIkRX+JHR1QZgWGskUV9u7
+  HhtG0K6HqGW9IFEppU3bQftsTFps99QXZ/ZGDBI3F+z9TLz4WQ86Kzhv96a2ImHgwVKFERhUdDG3
+  rk8DxyeJw2STGRbm+ZqxXJY41XMV1h3aQWbA1R3rP6RMaCmtytP3K/MzW0Z8ZNjFG0Zg2BOiqlHu
+  5xKCP8D8qA==
