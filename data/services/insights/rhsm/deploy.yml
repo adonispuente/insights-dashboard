@@ -99,7 +99,7 @@ resourceTemplates:
       ENV_NAME: stage
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: de0769cd064806b790f195b909f98fe8a44d106a
+    ref: 17468da20e127929ea969309349714d8a2f00bd2
     parameters:
       K8S_CLUSTER_NAME: crcp01ue1
       COLLECTOR_NAMESPACE: rhsm-prod
