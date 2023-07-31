@@ -71,14 +71,22 @@ The above figure describes the installation of Dynatrace into an OSD cluster via
 
 We use dynatrace-config to [generate API tokens](https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/terraform/redhat-aws/sd-sre/staging/us-east-virginia/hrm15629/ocm-cluster-app-sre-stage-01.tf) and place them in our vault. Currently these terraform definitions are executed manually on our local machine, as there is no common pipeline yet. This repository is shared with SREP and we are aware of this short-comming. A mechanism to automatically apply terraform will be added in the future. It might actually be a good candidat for our `terraform-repo` approach.
 
+Here is an [example MR](https://gitlab.cee.redhat.com/service/dynatrace-config/-/merge_requests/134/diffs).
+
 #### App-interface MR
 
-Once the API tokens are in vault, we need to open a MR in app-interface consisting of multiple things. Some things here are described in detail in the [Proposed Schema Changes](#proposed-schema-changes) section.
+Once the API tokens are in vault, we need to open 2 MRs in app-interface consisting of multiple things. Some things here are described in detail in the [Proposed Schema Changes](#proposed-schema-changes) section.
 
 - [Declare dynatrace environment as dependency](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/73201/diffs#8ca86fe9454c5fe122d89ead6a5d8fc85884c481_0_1).
 - [Configure cluster to use dynatrace environment](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/73201/diffs#b22ed0d098d0d1f3542e7cae11167019854372c1_23_21)
 - [Create Dynatrace namespace with necessary resources under observability app](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/observability/namespaces/dynatrace.app-sre-stage-01.yml)
 - [Create additional saas target to deploy operator to dynatrace namespace](https://gitlab.cee.redhat.com/service/app-interface/-/blob/48ea1d3be1899da7cfb7d8bf87091e6a3bef3b74/data/services/observability/cicd/saas/saas-dynatrace-app-sre.yaml#L58-62)
+
+The [first MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/75773/diffs) creates the namespace and secrets.
+The [second MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/75788/diffs) creates the saas deployment of the Dynatrace operator and resources.
+We use 2 MRs to avoid race-conditions, i.e., openshift-saas-deploy must not run before the dynatrace namespace is actually created.
+Note, that these MRs will look different once we have the schema changes approved!
+In the future, these installation MRs can be automated with a hack script.
 
 ### Log Configuration
 
