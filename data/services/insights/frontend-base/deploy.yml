@@ -74,7 +74,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 002cb8082b6b41a70424cf56fba06e944e896811
+    ref: 81c26a7089b7d07bb58638d3fe760487717fc68e
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
@@ -235,16 +235,16 @@ resourceTemplates:
   # ephemeral for bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    disable: true  # do not create an app-sre deploy job for ephemeral namespace
-    ref: internal  # populated by bonfire
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
 - name: api-frontend
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/api-frontend
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    disable: true  # do not create an app-sre deploy job for ephemeral namespace
-    ref: internal  # populated by bonfire
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # "fetest" stage deployment. Will be removed in future.
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
@@ -321,7 +321,7 @@ resourceTemplates:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/sed-frontend"
   # Prod Beta Deployment
-  - namespace: 
+  - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
     ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
     parameters:
@@ -399,14 +399,14 @@ resourceTemplates:
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/iam-ui-build
   targets:
-    - namespace:
-        $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-      disable: true  # do not create an app-sre deploy job for ephemeral namespace
-      ref: master  # populated by bonfire
-    - namespace:
-        $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-      disable: true
-      ref: internal
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: master # populated by bonfire
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    disable: true
+    ref: internal
 
 # Service accounts
 - name: service-accounts
