@@ -271,8 +271,8 @@ recommendedVersions:
   initialVersion: openshift-v4.12.26
 - workload: management-cluster
   channel: stable
-  recommendedVersion: 4.12.23
-  initialVersion: openshift-v4.12.23
+  recommendedVersion: 4.12.26
+  initialVersion: openshift-v4.12.26
 - workload: dummy
   channel: stable
   recommendedVersion: 4.12.26
