@@ -1,0 +1,33 @@
+---
+$schema: /dependencies/jenkins-config-1.yml
+
+labels:
+  service: content-sources
+
+name: ci-ext-content-sources-jobs
+description: content-sources ci-ext jobs
+
+app:
+  $ref: /services/insights/content-sources/app.yml
+
+instance:
+  $ref: /dependencies/ci-ext/ci-ext.yml
+
+type: jobs
+
+config:
+- project:
+    name: content-sources-pulp
+    label: insights
+    node: insights
+    gh_org: pulp
+    gh_repo: pulp-clowder-deployments
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-build-master":
+        display_name: content-sources-pulp build-master
+        branch: main
+        slack_channel_notification: team-pulp-services
+    - "insights-gh-pr-check":
+        display_name: content-sources-pulp pr-check
+        branch: main

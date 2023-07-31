@@ -141,7 +141,7 @@ resourceTemplates:
     ref: main
     upstream:
       instance:
-        $ref: /dependencies/ci-int/ci-int.yml
+        $ref: /dependencies/ci-ext/ci-ext.yml
       name: pulp-pulp-clowder-deployments-gh-build-main
     parameters:
       DOMAIN_ENABLED: "true"
