@@ -289,7 +289,7 @@ resourceTemplates:
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 28cd7d2edf46361572a7cd7a21cb7b09b44fd795
+    ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     promotion:
       publish:
       - ocm-ams-deployed-prod
@@ -329,4 +329,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 28cd7d2edf46361572a7cd7a21cb7b09b44fd795
+    ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
