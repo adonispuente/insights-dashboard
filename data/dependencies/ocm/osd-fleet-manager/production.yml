@@ -71,7 +71,7 @@ upgradePolicyDefaults:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     type: jinja2
     variables:
-      schedule: 0 10 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 1
 - name: production-us-east-2
   matchLabels:
@@ -79,7 +79,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 13 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-us-east-1
   matchLabels:
@@ -87,7 +87,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 13 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-us-west-2
   matchLabels:
@@ -95,7 +95,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 13 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-ap-southeast-3
   matchLabels:
@@ -103,7 +103,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 15 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-eu-central-1
   matchLabels:
@@ -111,7 +111,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 15 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-eu-west-1
   matchLabels:
@@ -119,7 +119,7 @@ upgradePolicyDefaults:
   upgradePolicyTemplate:
     path: /ocm/osd-fleet-manager/upgrade-policy.yaml.j2
     variables:
-      schedule: 0 15 * * 1-4
+      schedule: 0 * * * 1-4
       soakDays: 5
 - name: production-ibm-infra
   matchLabels:
@@ -134,7 +134,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 11 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: canary
       soakDays: 1
@@ -145,7 +145,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-west-1
       soakDays: 5
@@ -156,7 +156,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-west-1
       soakDays: 5
@@ -167,7 +167,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-2
       soakDays: 5
@@ -178,7 +178,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-2
       soakDays: 5
@@ -189,7 +189,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 11 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: canary
       soakDays: 5
@@ -200,7 +200,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-west-2
       soakDays: 5
@@ -211,7 +211,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-west-2
       soakDays: 5
@@ -222,7 +222,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-central-1
       soakDays: 5
@@ -233,7 +233,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-central-1
       soakDays: 5
@@ -244,7 +244,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-1
       soakDays: 5
@@ -255,7 +255,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-1
       soakDays: 5
@@ -266,7 +266,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-2
       soakDays: 5
@@ -277,7 +277,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-west-1
       soakDays: 5
@@ -288,7 +288,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-1
       soakDays: 5
@@ -299,7 +299,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-2
       soakDays: 5
@@ -310,7 +310,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-central-1
       soakDays: 5
@@ -321,7 +321,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-west-2
       soakDays: 5
@@ -332,7 +332,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-2
       soakDays: 5
@@ -343,7 +343,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-west-1
       soakDays: 5
@@ -354,7 +354,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-east-1
       soakDays: 5
@@ -365,7 +365,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: eu-central-1
       soakDays: 5
@@ -376,7 +376,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 13 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: us-west-2
       soakDays: 5
@@ -387,7 +387,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: ap-southeast-3
       soakDays: 5
@@ -398,7 +398,7 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 15 * * 1-4
+    schedule: 0 * * * 1-4
     conditions:
       sector: ap-southeast-3
       soakDays: 5
