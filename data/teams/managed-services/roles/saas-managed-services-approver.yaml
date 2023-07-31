@@ -9,8 +9,7 @@ permissions: []
 self_service:
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
-  datafiles:
-  - $ref: /services/managed-services/cicd/saas/saas-kas-fleet-manager.yaml
+  datafiles: []
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
