@@ -1,0 +1,35 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Monitoring and Logging Stack for Dynatrace
+
+cluster:
+  $ref: /openshift/app-sre-prod-04/cluster.yml
+
+app:
+  $ref: /services/observability/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/production.yml
+
+managedResourceTypes:
+- Secret
+# TODO: enable together with saas deployment as it is a dependency
+# - NetworkPolicy
+# - DynaKube
+# - Job
+
+sharedResources:
+# TODO: enable together with saas deployment as it is a dependency
+# - $ref: /services/app-sre/shared-resources/dynatrace.yaml
+# Required to pull private mirror. If mirror is public, this can be removed
+- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+openshiftResources:
+- provider: vault-secret
+  path: app-sre/creds/dynatrace/redhat-aws/operator-api-tokens/production/us-east-virginia/jgn20300
+  version: 1
+  name: dynatrace-tokens

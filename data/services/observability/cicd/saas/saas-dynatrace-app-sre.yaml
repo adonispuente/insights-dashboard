@@ -61,3 +61,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
     ref: 46de394b6d1de2646480fbd5ff0db4b0bd2e7767
+  # TODO: enable once namespace exists to avoid race-condition
+  # - namespace:
+  #     $ref: /services/observability/namespaces/dynatrace.app-sre-prod-04.yml
+  #   ref: 46de394b6d1de2646480fbd5ff0db4b0bd2e7767
