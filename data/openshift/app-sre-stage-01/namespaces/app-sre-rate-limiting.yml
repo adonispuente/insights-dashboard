@@ -19,7 +19,6 @@ networkPoliciesAllow:
 - $ref: /services/ocm/namespaces/uhc-stage.yml
 - $ref: /services/ocm/namespaces/uhc-integration.yml
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-- $ref: /services/managed-services/namespaces/managed-services-stage.yml
 - $ref: /services/service-registry/namespaces/service-registry-stage.yml
 
 sharedResources:

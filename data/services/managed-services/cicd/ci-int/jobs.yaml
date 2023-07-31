@@ -156,63 +156,6 @@ config:
         #    branch: mas-fe-containerization
 
   - project:
-      name: kas-fleet-manager
-      label: kas-fleet-manager
-      node: managed-services
-      gl_group: service
-      gl_project: kas-fleet-manager
-      jobs:
-        - 'gl-pr-check-kas-fleet-manager':
-            display_name: kas-fleet-manager pr-check
-            slack_channel_notification: mk-kas-fleet-manager
-            concurrent_build: true
-        - 'gl-build-main-kas-fleet-manager':
-            display_name: kas-fleet-manager build main
-            slack_channel_notification: mk-kas-fleet-manager
-            branch: main
-        - 'kas-fleet-manager-tests':
-            display_name: KasFleetManager Tests periodic stage
-            timeout: 360
-            disable: true
-            cron_expression: 'H 8 * * 1-5' # ~8am UTC Monday to Friday
-            ci_cmd: './pr_check.sh'
-            slack_channel_notification: mk-kas-fleet-manager
-            branch: main
-
-  - project:
-      name: kas-fleet-manager-perf-tests
-      label: kas-fleet-manager
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: kas-fleet-manager-perf-tests
-      jobs:
-        - 'kas-fleet-manager-perf-test':
-            branch: main
-            display_name: kas-fleet-manager API perf test
-            timeout: 120
-            disable: true
-            slack_channel_notification: mk-kas-fleet-manager
-            cron_expression: 'H 7 * * 2-5' # ~7am UTC Tuesday to Friday
-
-
-  - project:
-      name: kafka-config-update
-      label: kas-fleet-manager
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: kafka-config-update
-      jobs:
-        - 'gl-pr-check-kafka-config-update':
-            display_name: kafka-config-update pr-check
-            pr_check_script_path: './pr_check/pr_check.sh'
-        - 'gl-build-master-kafka-config-update':
-            branch: main
-            display_name: kafka config update
-            build_deploy_script_path: './run.sh'
-            slack_channel_notification: mk-kas-fleet-manager
-            timeout: 300
-
-  - project:
       name: managed-services-kafka-performance-tests
       label: managed-services
       node: managed-services
@@ -356,21 +299,6 @@ config:
             pr_check_script_path: './pr_check.sh'
 
   - project:
-      name: kas-upgrade-configurations
-      label: kas-upgrade-configurations
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: kas-upgrade-configurations
-      jobs:
-        - 'gl-pr-check-kas-upgrade-configurations':
-            display_name: kas-upgrade-configurations pr-check
-            pr_check_script_path: './hack/pr_check.sh'
-        - 'gl-build-main-kas-upgrade-configurations':
-            display_name: kas-upgrade-configurations deploy
-            build_deploy_script_path: './hack/deploy.sh'
-            branch: main
-
-  - project:
       name: mk-token-refresher
       label: managed-services
       node: managed-services
@@ -438,20 +366,6 @@ config:
             pr_check_script_path: './pr_check.sh'
         - 'gl-build-master-managed-services':
             display_name: observability-resources-mk build master
-            build_deploy_script_path: './build_deploy.sh'
-            branch: main
-  - project:
-      name: observability-remote-write-proxy
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: observability-remote-write-proxy
-      jobs:
-        - 'gl-pr-check':
-            display_name: observability-remote-write-proxy pr-check
-            pr_check_script_path: './pr_check.sh'
-        - 'gl-build-master-managed-services':
-            display_name: observability-remote-write-proxy build master
             build_deploy_script_path: './build_deploy.sh'
             branch: main
 

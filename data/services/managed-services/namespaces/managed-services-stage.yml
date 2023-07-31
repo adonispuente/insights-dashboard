@@ -5,6 +5,7 @@ labels: {}
 
 name: managed-services-stage
 description: staging namespace for managed-services
+delete: true
 
 cluster:
   $ref: /openshift/app-sre-stage-01/cluster.yml
@@ -15,105 +16,15 @@ app:
 environment:
   $ref: /products/osdv4/environments/stage.yml
 
-networkPoliciesAllow:
-- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+networkPoliciesAllow: []
 
-managedRoles: true
+managedRoles: false
 
-managedResourceTypes:
-- ServiceAccount
-- ConfigMap
-- NetworkPolicy
+managedResourceTypes: []
 
-openshiftResources:
-- provider: vault-secret
-  path: managed-services/quay-org-accounts/rhoas/robots/rhoas-pull-docker
-  version: 1
-  type: kubernetes.io/dockerconfigjson
-- provider: resource-template
-  path: /services/managed-services/serviceaccount.yaml
-  variables:
-    name: kas-fleet-manager
-- provider: route
-  path: /services/managed-services/stage/kas-fleet-manager.route.yaml
-- provider: route
-  path: /services/managed-services/stage/kas-fleet-manager-observability-rw-proxy.route.yaml
-- provider: vault-secret
-  name: kas-fleet-manager
-  path:  app-interface/managed-service-api/stage/service/credentials
-  version: 46
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-dataplane-certificate
-  path:  app-interface/managed-service-api/stage/service/dataplane-certificate
-  version: 7
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-observatorium-configuration-red-hat-sso
-  path:  app-interface/managed-service-api/stage/service/observatorium
-  version: 11
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-observability-cwl-config
-  path:  app-interface/managed-service-api/stage/service/observability-cwl-config
-  version: 2
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: observability-remote-write-proxy-oidc-config
-  path:  app-interface/managed-service-api/stage/service/observability-remote-write-proxy-oidc-config
-  version: 2
-  annotations:
-    qontract.recycle: "true"
-- provider: resource
-  path: /services/managed-services/stage/kas-fleet-manager-envoy.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-camel-aws.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-camel-misc.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-mongodb.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-mysql.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-postgres.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/observatorium-token-refresher.networkpolicy.yaml
+openshiftResources: []
 
 managedExternalResources: true
 
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/app-sre-stage/account.yml
-  resources:
-  - provider: secrets-manager-service-account
-    identifier: kas-fleet-manager-aws-secret-manager-staging
-    secrets_prefix: kas-fleet-manager
-    output_resource_name: kas-fleet-manager-aws-secret-manager
-- provider: aws
-  provisioner:
-    $ref: /aws/app-sre/account.yml
-  resources:
-  - provider: rds
-    # This should be  prefixed by "kas-fleet-manager" but we held renaming for now to avoid loosing data.
-    # See https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/14437#note_2097734 for more details.
-    identifier: managed-services-api-staging
-    defaults: /terraform/resources/managed-services/staging/rds-2-cloudwatch-enabled.yml
-    parameter_group: /terraform/resources/managed-services/staging/managed-services-stage-rds-parameter-group-pg12.yml
-    output_resource_name: kas-fleet-manager-rds
-    overrides:
-      maintenance_window: tue:12:00-tue:13:00
-      backup_window: 10:00-12:00
-      engine_version: '12.13'
-      apply_immediately: true
-    ca_cert:
-      path: app-interface/global/rds-ca-cert
-      field: us-east-1
-      version: 2
+externalResources: []
 
-glitchtipProjects:
-- $ref: /dependencies/glitchtip/projects/glitchtip-production/managed-services-stage.yml
