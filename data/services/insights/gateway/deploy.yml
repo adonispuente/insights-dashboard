@@ -56,7 +56,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -68,7 +68,7 @@ resourceTemplates:
       IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -120,7 +120,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -132,7 +132,7 @@ resourceTemplates:
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -158,7 +158,7 @@ resourceTemplates:
       APICAST_MEM_LIMIT: 4Gi
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
     parameters:
       DISABLE_BASIC_AUTH: false
       REPLICAS: 1
