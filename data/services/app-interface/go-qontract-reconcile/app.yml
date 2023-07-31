@@ -14,10 +14,10 @@ parentApp:
   $ref: /services/app-interface/app.yml
 
 architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/design-docs/aws-login-profile-encryption.md
-sopsUrl: https://TODO
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/app-interface-integrations-flow-and-failure-scenarios.md
 grafanaUrls:
 - title: TODOREPLACE
-  url: https://TODO
+  url: https://grafana.app-sre.devshift.net/d/Integrations/integrations?orgId=1
 onboardingStatus: InProgress
 
 escalationPolicy:
