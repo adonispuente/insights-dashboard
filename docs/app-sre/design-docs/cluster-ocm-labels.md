@@ -8,7 +8,7 @@ Christian Assing / July 2023
 
 ## Tracking JIRA
 
-[APPSRE-8073 - cluster-ocm-labels](https://issues.redhat.com/browse/APPSRE-8073)
+[APPSRE-8073 - cluster-ocm-subscription-labels](https://issues.redhat.com/browse/APPSRE-8073)
 
 ## Problem Statement
 
@@ -43,7 +43,7 @@ labels:
 
 name: SAMPLE-CLUSTER
 
-ocm-labels:
+ocmSubscriptionLabels:
   sre-capabilities:
     rhidp: true
     user-mgmt:
@@ -88,7 +88,7 @@ with the following output:
 }
 ```
 
-A dedicated `ocm-labels` attribute in the cluster definition allows us to properly validate the labels before syncing them to OCM, e.g., enforce the usage of the `sre-capabilities` label defined in the [service dev guidelines](https://service.pages.redhat.com/dev-guidelines/docs/sre-capabilities/framework/ocm-labels/).
+A dedicated `ocmSubscriptionLabels` attribute in the cluster definition allows us to properly validate the labels before syncing them to OCM, e.g., enforce the usage of the `sre-capabilities` label defined in the [service dev guidelines](https://service.pages.redhat.com/dev-guidelines/docs/sre-capabilities/framework/ocm-labels/).
 
 The sync will be a one-way sync from App-Interface to OCM. To avoid conflicts with other services that might use OCM labels, we will only manage labels that are part of the schemas, e.g., `sre-capabilities`, and leave the rest untouched.
 
