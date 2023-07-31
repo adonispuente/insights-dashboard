@@ -364,7 +364,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
+    ref: d7a3cb5c36e93be0c85f6cc6ae5a06d0596a8f90
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/learning-resources"
