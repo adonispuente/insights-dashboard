@@ -3,7 +3,7 @@ $schema: /openshift/cluster-1.yml
 labels:
   service: app-sre-stage
   # TODO: only used during PoC phase -> move this to schema on cluster level
-  dynatraceEnvironmentUrl: https://ddl70254.live.dynatrace.com
+  dynatraceEnvironmentUrl: https://hrm15629.live.dynatrace.com
 name: app-sre-stage-01
 description: app-sre OSDv4 stage cluster
 consoleUrl: https://console-openshift-console.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
@@ -16,7 +16,8 @@ auth:
 - service: oidc
   name: redhat-app-sre-auth
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
@@ -35,7 +36,7 @@ spec:
   provider: aws
   region: us-east-1
   channel: candidate
-  version: 4.13.5
+  version: 4.13.6
   initial_version: 4.2.7
   multi_az: true
   autoscale:

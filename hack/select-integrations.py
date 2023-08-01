@@ -5,6 +5,7 @@ import re
 import sys
 from subprocess import check_output
 from collections import defaultdict
+from typing import Callable
 import json
 
 import yaml
@@ -79,7 +80,10 @@ def get_modified_schemas(data, modified_files, is_test_data):
     data_path = "test_data/" if is_test_data else "data/"
     schemas = set()
     for modified_file in modified_files:
-        if modified_file.startswith(data_path):
+        # This makes sure only yaml files will be treated as schemas files
+        if modified_file.startswith(data_path) and (
+            modified_file.endswith(".yaml") or modified_file.endswith(".yml")
+        ):
             schemas.add(get_data_schema(data, modified_file))
 
         if modified_file.startswith("resources/"):
@@ -99,31 +103,26 @@ def get_integrations_by_schema(integrations, schema):
 
 
 def print_cmd(
-    pr,
+    integration,
     select_all,
     non_bundled_data_modified,
     int_name,
-    account_names=None,
-    image_ref=None,
     has_integrations_changes=False,
-    exclude_accounts=None,
 ):
     """
     Prints the command to run a integration instance.
 
     Args:
-        pr (int): The pull request number.
+        integration: The integration object
         select_all (bool): A flag indicating whether to run every integration.
         non_bundled_data_modified (bool): A flag indicating whether non-bundled data has been modified.
         int_name (str): The name of the integration to run.
-        account_names (Optional[List[str]]): An optional list of account names to use in terraform-resources integration as --account-name argument.
-        image_ref (Optional[str]): An optional imageRef to use to run an integration on a specific image tag.
         has_integrations_changes (bool): A flag indicating whether there are changes to the integrations definitions.
-        exclude_accounts (Optional[List[str]]): An optional list of accounts to exclude in case of a sharded deployment That only work on terraform-resources.
 
     Returns:
         None
     """
+    pr = integration["pr_check"]
     cmd = ""
     if pr.get("state"):
         cmd += "STATE=true "
@@ -157,45 +156,80 @@ def print_cmd(
         cmd += "run_account_notifier &"
     elif int_name == "git-partition-sync":
         cmd += "run_git_partition_sync_integration &"
+    elif int_name == "terraform-resources":
+        cmd = print_cmd_terraform_resources(integration, cmd)
     else:
-        if image_ref:
-            # only qr integrations support sharding
-            accounts_param = []
-            if account_names:
-                accounts_param = [" --account-name " + ac for ac in account_names]
-            cmd += (
-                f"ALIAS={pr['cmd']}_override_{image_ref} "
-                f"IMAGE={image_ref} "
-                f"run_int {pr['cmd']}{''.join(accounts_param)} &"
-            )
-        elif exclude_accounts:
-            cmd += f"run_int {pr['cmd']}"
-            cmd += (
-                "".join([" --exclude-accounts " + ac for ac in exclude_accounts]) + " &"
-            )
-        else:
-            cmd += f"run_int {pr['cmd']} &"
+        cmd += f"run_int {pr['cmd']} &"
 
     print(cmd)
 
 
-def get_accounts_image_ref_map(overrides):
+def get_shard_spec_overrides_from_int(integration):
     """
-    Returns a map array of accounts for each unique image ref passed in shardSpecOverride
+    Get the shardSpecOverrides configuration from the managed block in the
+    integration spec. At PR time we only care about imageRef (this can be extended with
+    extraArgs in the future.)
+    :param integration: the integration spec
+    """
+    shard_spec_overrides = {}
+
+    namespaces = integration.get("managed")
+    for ns in namespaces:
+        sharding = ns.get("sharding")
+        if sharding and sharding.get("shardSpecOverrides"):
+            for override in sharding.get("shardSpecOverrides"):
+                if not override.get("imageRef"):
+                    continue
+                shard_spec_overrides[override["shard"]["$ref"]] = override
+
+    return shard_spec_overrides.values()
+
+
+def print_cmd_terraform_resources(integration, cmd):
+    """Terraform-resources print_cmd specific function.
+    """
+    pr = integration["pr_check"]
+    shard_spec_overrides = get_shard_spec_overrides_from_int(integration)
+    if not shard_spec_overrides:
+        cmd += f"run_int {pr['cmd']} &"
+    else:
+        overrided_shards = set()
+        image_shards_map = get_image_ref_shards_map(
+            lambda shard: shard["$ref"].split("/")[2],
+            shard_spec_overrides
+        )
+        for image_ref, shards in image_shards_map.items():
+            overrided_shards.update(shards)
+            acc_param = [" --account-name " + ac for ac in shards]
+            shard_cmd = (
+                f"ALIAS={pr['cmd']}_override_{image_ref} "
+                f"IMAGE={image_ref} "
+                f"run_int {pr['cmd']}{''.join(acc_param)} &"
+            )
+            print(f"{cmd}{shard_cmd}")
+
+        # Run the integration excluding the overrided shards
+        if overrided_shards:
+            ex_acc_param = [" --exclude-accounts " + ac for ac in overrided_shards]
+            cmd += f"run_int {pr['cmd']}{''.join(ex_acc_param)} &"
+    return cmd
+
+
+def get_image_ref_shards_map(
+        get_shard_id: Callable[[str], str],
+        shard_spec_overrides: list):
+    """
+    Returns a map array of shards for each unique
+    image ref set shardSpecOverrides
     """
     result = defaultdict(set)
-    for o in overrides:
-        result[o["imageRef"]].add(o["shard"]["$ref"].split("/")[2])
+    shard_id = ""
+    for override in shard_spec_overrides:
+        shard_id = get_shard_id(override["shard"])
+        image_ref = override["imageRef"]
+        result[image_ref].add(shard_id)
+
     return result
-
-
-def get_per_aws_account_overrides(namespaces):
-    for n in namespaces:
-        sharding = n.get("sharding")
-        if sharding and sharding.get("strategy") == "per-aws-account":
-            overrides = sharding.get("shardSpecOverrides")
-            if overrides:
-                yield overrides
 
 
 def print_pr_check_cmds(
@@ -207,7 +241,6 @@ def print_pr_check_cmds(
 ):
     if selected is None:
         selected = []
-
     for int_name, integration in integrations.items():
         pr = integration.get("pr_check")
         if not pr or pr.get("disabled"):
@@ -217,35 +250,12 @@ def print_pr_check_cmds(
         if int_name not in selected and not select_all and not always_run:
             continue
 
-        namespaces = integration.get("managed")
-        if namespaces:
-            aws_accounts = []
-            per_aws_account_overrides = get_per_aws_account_overrides(namespaces)
-
-            for overrides in per_aws_account_overrides:
-                accounts_map = get_accounts_image_ref_map(overrides)
-                for image_ref, account_names in accounts_map.items():
-                    aws_accounts += account_names
-                    print_cmd(
-                        pr,
-                        select_all,
-                        non_bundled_data_modified,
-                        int_name,
-                        image_ref=image_ref,
-                        account_names=account_names,
-                        has_integrations_changes=has_integrations_changes,
-                    )
-            if int_name == "terraform-resources":
-                print_cmd(
-                    pr,
-                    select_all,
-                    non_bundled_data_modified,
-                    int_name,
-                    exclude_accounts=aws_accounts,
-                )
-                continue
-
-        print_cmd(pr, select_all, non_bundled_data_modified, int_name)
+        print_cmd(
+            integration,
+            select_all,
+            non_bundled_data_modified,
+            int_name,
+            has_integrations_changes=has_integrations_changes)
 
 
 def main():

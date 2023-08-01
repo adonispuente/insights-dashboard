@@ -37,9 +37,6 @@ openshiftResources:
     path: rhobs/testing/observatorium-testing/jaeger-proxy
     version: 1
   - provider: vault-secret
-    path: rhobs/testing/observatorium-testing/conprof-proxy
-    version: 1
-  - provider: vault-secret
     path: rhobs/testing/observatorium-testing/rules-objstore-objectstorage
     version: 1
   - provider: vault-secret
@@ -52,8 +49,6 @@ openshiftResources:
   # Routes
   - provider: route
     path: /rhobs/testing/observatorium-testing/observatorium-jaeger-testing.route.yaml
-  - provider: route
-    path: /rhobs/testing/observatorium-testing/observatorium-parca.route.yaml
   - provider: route
     path: /rhobs/testing/observatorium-testing/observatorium-api-testing.route.yaml
   - provider: route

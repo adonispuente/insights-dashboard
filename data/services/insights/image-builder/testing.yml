@@ -34,8 +34,9 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
-    ref: 836e7114fa422d02f9b2928aa755ddeb014667e2
+    ref: f8b483c83d40dfe9ec1b0a6be0e7240a7002830d
     parameters:
+      USE_BETA: "false"
       ENV_FOR_DYNACONF: stage_proxy
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
@@ -50,12 +51,13 @@ resourceTemplates:
       - channel: image-builder-stage-deploy-success-channel
         data:
         - parent_saas: image-builder
-          target_config_hash: 3e4d89134f996d29
+          target_config_hash: 371dcd6d4a10c29e
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
     ref: e5b0fccba1459a036d56d6446746ccf37e2f9618
     parameters:
+      USE_BETA: "false"
       ENV_FOR_DYNACONF: prod
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
@@ -70,5 +72,5 @@ resourceTemplates:
       - channel: image-builder-prod-deploy-success-channel
         data:
         - parent_saas: image-builder
-          target_config_hash: 3db403be77f8c2a0
+          target_config_hash: 82ad428d383a1549
           type: parent_saas_config

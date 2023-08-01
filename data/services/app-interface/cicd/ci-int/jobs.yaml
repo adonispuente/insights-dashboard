@@ -86,7 +86,14 @@ config:
     jobs:
     - 'app-interface-output-run':
         display_name: app-interface-output run
-        commands: 'clusters-network quay-mirrors ocm-aws-infrastructure-access-switch-role-links terraform-users-credentials clusters namespaces version-history cluster-upgrade-policies clusters-aws-account-ids cluster-openshift-resources aws-terraform-resources app-interface-review-queue app-interface-merge-queue app-interface-merge-history app-interface-open-selfserviceable-mr-queue ocm-fleet-upgrade-policies ocm-addon-upgrade-policies change-types'
+        job_name: app-interface-output-run
+        cron_expression: 'H/5 * * * *'
+        commands: 'ocm-aws-infrastructure-access-switch-role-links terraform-users-credentials app-interface-review-queue app-interface-merge-queue app-interface-merge-history app-interface-open-selfserviceable-mr-queue ec2-jenkins-workers'
+    - 'app-interface-output-run':
+        display_name: app-interface-output long run
+        job_name: app-interface-output-long-run
+        cron_expression: 'H * * * *'
+        commands: 'clusters-network quay-mirrors clusters namespaces version-history cluster-upgrade-policies clusters-aws-account-ids cluster-openshift-resources aws-terraform-resources ocm-fleet-upgrade-policies ocm-addon-upgrade-policies change-types selectorsyncset-managed-hypershift-resources selectorsyncset-managed-resources'
 
 - project:
     name: sd-app-sre-alert-report

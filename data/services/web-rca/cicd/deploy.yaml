@@ -71,14 +71,14 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       name: service-web-rca-gl-build-main
   - namespace:
       $ref: /services/web-rca/namespaces/production.yml
-    ref: ce3454d1442fbb4beb722f95d1d7340d1e02aeee
+    ref: 4a9202c1b6b93391c7437a2d6581997be0139637
     parameters:
       DATABASE_SECRET_NAME: web-rca-production-rds
       OCM_BASE_URL: https://api.openshift.com
       SENTRY_PROJECT: 45
       SENTRY_URL: https://glitchtip.devshift.net
       UI_ADDRESS: https://web-rca.devshift.net
-      WEBRCA_ANSIBLE_TAG: 120f25b
+      WEBRCA_ANSIBLE_TAG: cd87ccd
       SLACK_DOMAIN: redhat-internal
       SLACK_USER: WebRCA
       REPLICAS: 3
@@ -101,7 +101,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       name: service-web-rca-ui-gl-build-main
   - namespace:
       $ref: /services/web-rca/namespaces/production.yml
-    ref: 0f3d446347f72b002ee5a623c08acdc586618f2c
+    ref: 01b6ea499ba19d17052a6551547e9cae9533cc47
     parameters:
       OCM_BASE_URL: https://api.openshift.com
       REPLICAS: 3

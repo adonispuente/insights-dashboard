@@ -37,13 +37,13 @@ IT manages Splunk access requests through a ServiceNow portal, ["Access to Monit
 
 If a user lacks read-access to App-SRE Splunk events, one may submit one of these requests for that user to be associated with the following 'CMDB Access Codes': `App-SRE CI-int`, `App-SRE CI-ext`, `App-SRE Tekton pipelines`. (This list may expand in the future if app-sre begins to own additional splunk-indices).
 
-For critical needs or continuing established direct support threads, there is a direct communication channel through Google Chats. The direct link to the chat space is [here](https://mail.google.com/chat/u/0/#chat/space/AAAAvuMOFCY). Alternatively, you can visit [Google Chat](https://mail.google.com/chat/), find the "Rooms" section in the left navigation pane, and click the "+" add icon, and search for the "Splunk" chat room.
+For critical needs or continuing established direct support threads, there is a direct communication channel through Slack in the `#help-itde-monitoring-logging` channel. 
 
 ## Implementation Details
 
 Adding Splunk logging to an existing application is technically straightforward. Events are sent over HTTP to a HTTP Event Collector (HEC) endpoint with a required JSON format and application-specific index. 
 
-Collector endpoint selection depends on the volume of data consumed by that collector and where the submitter lives in relation to the VPN. In practice, `ci-int` and tekton pipelines in private clusters send data to AWS HEC (https://splunk-hec.prod.utility-us-east-2.redhat.com:8088), while `ci-ext` and tekton pipelines in internet facing clusters send data to Public(External) HEC (https://splunk-hec.redhat.com:8088). Currently, app-sre does not have a use case for the high-volume HEC endpoints, which are intended for syslog consumption.
+Collector endpoint selection depends on the volume of data consumed by that collector and where the submitter lives in relation to the VPN. In practice, `ci-int` and tekton pipelines in private clusters send data to AWS HEC (https://splunk-hec.corp.redhat.com:8088), while `ci-ext` and tekton pipelines in internet facing clusters send data to Public(External) HEC (https://splunk-hec.redhat.com:8088). Currently, app-sre does not have a use case for the high-volume HEC endpoints, which are intended for syslog consumption.
 
 Indexes are the core pivot for data flowing into Splunk and must be created through collaboration with Corporate IT before said events will show in Splunk searches.
 

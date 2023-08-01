@@ -104,7 +104,7 @@ resourceTemplates:
       OBSERVATORIUM_API_CPU_LIMIT: 1
       OBSERVATORIUM_API_CPU_REQUEST: 100m
       OBSERVATORIUM_API_IDENTIFIER: observatorium-observatorium-mst-api
-      OBSERVATORIUM_API_IMAGE_TAG: main-2023-04-05-v0.1.2-366-g2761e0f
+      OBSERVATORIUM_API_IMAGE_TAG: main-2023-07-31-2bd304b
       OBSERVATORIUM_API_MEMORY_LIMIT: 4Gi
       OBSERVATORIUM_API_MEMORY_REQUEST: 1Gi
       OBSERVATORIUM_API_REPLICAS: 6
@@ -758,27 +758,4 @@ resourceTemplates:
       LOKI_RULER_PVC_REQUEST: '10Gi'
       RULES_OBJSTORE_S3_SECRET: observatorium-mst-rules-objstore-production-s3
       SERVICE_ACCOUNT_NAME: observatorium-mst
-- name: parca-observatorium-remote-ns-rbac-stage
-  path: /resources/services/parca-observatorium-remote-ns-rbac-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-  - namespace:
-      $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 871e9441b43ee078476e90d716a7516f973957f7
-    parameters:
-      IMAGE_TAG: 'v0.1.0'
-      NAMESPACE: observatorium-stage
-      REMOTE_NAMESPACE: observatorium-mst-stage
-      SERVICE_ACCOUNT_NAME: observatorium
-- name: parca-observatorium-remote-ns-rbac-prod
-  path: /resources/services/parca-observatorium-remote-ns-rbac-template.yaml
-  url: https://github.com/rhobs/configuration
-  targets:
-    - namespace:
-        $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-      ref: 871e9441b43ee078476e90d716a7516f973957f7
-      parameters:
-        IMAGE_TAG: 'v0.1.0' # This is irrelevant but required for the template
-        NAMESPACE: observatorium-production
-        REMOTE_NAMESPACE: observatorium-mst-production
-        SERVICE_ACCOUNT_NAME: observatorium
+

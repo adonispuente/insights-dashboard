@@ -51,7 +51,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: 4b596378c0be5ab042ac78768e41a50a40749b6a
+    ref: c70041d2f5fe25793c760c2d45eed1b4713ec0ec
     parameters:
       NUM_REPLICAS: 3
   - namespace:
@@ -84,7 +84,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: 4b596378c0be5ab042ac78768e41a50a40749b6a
+    ref: c70041d2f5fe25793c760c2d45eed1b4713ec0ec
     parameters:
       NUM_REPLICAS: 3
   - namespace:
@@ -133,7 +133,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: 50169201b1bcbe1ada8c07490ea769f8610b82e5
+    ref: f41197f570300efb3ad50fe6e306f76390697f84
     parameters:
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
       MIN_REPLICAS: 3

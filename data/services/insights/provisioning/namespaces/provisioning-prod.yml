@@ -51,6 +51,11 @@ openshiftResources:
   name: provisioning-sentry
   path: app-interface/provisioning/production/glitchtip-dsn
   version: 1
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
 
 externalResources:
 - provider: aws

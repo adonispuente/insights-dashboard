@@ -30,7 +30,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/glitchtip/namespaces/glitchtip-stage.yml
-    ref: 8dab1cfe659b6d31571799d0a93e30dc46407a79
+    ref: 36db5f5c97b13167c9d785439c39727847f77cc1
     parameters:
       GLITCHTIP_URL: https://glitchtip.stage.devshift.net
     secretParameters:

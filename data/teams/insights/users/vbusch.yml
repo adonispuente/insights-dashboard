@@ -1,0 +1,19 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Vanessa Busch
+org_username: vbusch
+github_username: vbusch
+quay_username: vbusch
+
+roles:
+- $ref: /teams/insights/roles/rhsm.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/swatch-dev-slack.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
+

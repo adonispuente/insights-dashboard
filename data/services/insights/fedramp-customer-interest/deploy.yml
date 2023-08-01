@@ -29,6 +29,13 @@ resourceTemplates:
       - namespace:
           $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
         ref: main
+        parameters:
+          ENV_NAME: stage
+      - namespace:
+          $ref: /services/insights/fedramp-customer-interest/namespaces/production.yml
+        ref: 32aa3dfbc04f3be61eda1db6f7d71677e9d8ce29
+        parameters:
+          ENV_NAME: prod
 imagePatterns:
   - quay.io/cloudservices/fedramp-customer-interest
 authentication:

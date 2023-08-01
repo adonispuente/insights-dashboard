@@ -67,7 +67,7 @@ resourceTemplates:
       SOURCE_TYPE_SKIP_LIST: "rh-marketplace"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: f9cf7d828d321c8c122ad2e946f3a3e91083c7d3
+    ref: 319a22e189750d878d5554e5a746c8ada6b4fe23
     parameters:
       SOURCES_ENV: prod
       KOKU_SOURCES_API_HOST: koku-clowder-sources-client.hccm-prod.svc.cluster.local
@@ -124,7 +124,7 @@ resourceTemplates:
       AWS_WAIT_TIME: "20"
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: ce93818c652d105fa95d34585e6a14b193a91d66
+    ref: 624a8efbed4b18834768ae80fa27e986259274fb
     parameters:
       LOG_LEVEL: INFO
       MEMORY_LIMIT: 150Mi
@@ -175,7 +175,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 1ec28f178e05c4a3f64d94f2bb1da8665928050c
+    ref: 9b3577320ca9db8fbf5325b927e005343a8fd9fc
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui

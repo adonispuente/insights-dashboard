@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     name: rosa-hcp-advanced
     promotion:
       auto: true
@@ -52,9 +52,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: integration
       TEST_PROFILE: rosa-hcp-ad
+      GATE_NAME: ocm-cs-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     name: rosa-hcp-advanced
     promotion:
       auto: true
@@ -65,9 +66,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-ad
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     name: rosa-hcp-private-link-main
     promotion:
       auto: true
@@ -78,9 +80,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-pl
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     name: hcp-e2e-main
     promotion:
       auto: true
@@ -91,9 +94,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: hcp-e2e
+      GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     name: rosa-hcp-upgrade
     promotion:
       auto: true
@@ -104,3 +108,4 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: rosa-hcp-upgrade
+      GATE_NAME: ocm-cs-stage-main

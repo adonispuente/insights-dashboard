@@ -59,6 +59,7 @@ resourceTemplates:
       - ocm-cs-deployed-int
     parameters:
       ENVIRONMENT: integration
+      GATE_NAME: ocm-cs-int-main
       LOG_LEVEL: info
       DEFAULT_EXPIRATION: 36h
       MAXIMUM_EXPIRATION: 168h
@@ -71,7 +72,7 @@ resourceTemplates:
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 1c49464669790f9a5743f3c8de3e21925f17fed9
+    ref: df2d682403c599c81fcfd71ab95cfd1398f18d48
     promotion:
       auto: true
       subscribe:
@@ -80,6 +81,7 @@ resourceTemplates:
       - ocm-cs-deployed-stage
     parameters:
       ENVIRONMENT: staging
+      GATE_NAME: ocm-cs-stage-main
       LOG_LEVEL: info
       GATEWAY_URL: unix://localhost/sockets/egress.socket
       DEFAULT_EXPIRATION: 36h
@@ -115,12 +117,13 @@ resourceTemplates:
       JIRA_PRODUCT: ''
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: d68c083c01bd333b42a7ae715e1f359eb4abe045
+    ref: 1505a3f69e32aeb05c154c925dcd736a91ce2709
     promotion:
       publish:
       - ocm-cs-deployed-prod
     parameters:
       ENVIRONMENT: production
+      GATE_NAME: ocm-cs-prod-main
       LOG_LEVEL: info
       GODEBUG: http2server=0
       FORCE_MIGRATION: ''

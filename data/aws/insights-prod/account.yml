@@ -1365,3 +1365,6 @@ resetPasswords:
   - user:
       $ref: /teams/insights/users/dhorton.yml
     requestId: dhorton-reset-aws-password-06-08-2023
+  - user:
+      $ref: /teams/insights/users/jharting.yml
+    requestId: jharting-reset-aws-password-2023-07-25

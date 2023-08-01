@@ -23,4 +23,4 @@ imagePatterns: []
 
 resourceTemplates: []
 
-deprecated: true # moved to data/services/osd-operators/cicd/saas/saas-rhobs-rules-and-dashboards.yaml
+deprecated: true # moved to data/services/osd-operators/cicd/saas/saas-osd-rhobs-rules-and-dashboards.yaml

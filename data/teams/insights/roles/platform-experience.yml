@@ -41,6 +41,7 @@ self_service:
   - $ref: /services/insights/chrome-service/deploy.yml
   - $ref: /services/insights/notifications/deploy-clowder.yml
   - $ref: /services/insights/sources/deploy-clowder.yml
+  - $ref: /services/insights/rbac/deploy-clowder.yml
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:

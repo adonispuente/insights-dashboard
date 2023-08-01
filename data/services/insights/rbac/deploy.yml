@@ -57,7 +57,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rbac/namespaces/rbac-prod.yml
-    ref: 2cd5ec65edb94e819f690a71a384f50924dff793
+    ref: bb2bd1ab7ab290061c7a44459d3626efd8eb6e0b
 
 - name: rbac-config-yml-prod
   path: /_private/configmaps/prod/rbac-config.yml
@@ -65,7 +65,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rbac/namespaces/rbac-prod.yml
-    ref: 2cd5ec65edb94e819f690a71a384f50924dff793
+    ref: bb2bd1ab7ab290061c7a44459d3626efd8eb6e0b
 
 # OCM Config
 - name: model-access-permissions-yml-ocm

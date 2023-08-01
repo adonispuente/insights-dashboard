@@ -2,6 +2,8 @@
 $schema: /openshift/cluster-1.yml
 labels:
   service: app-sre
+    # TODO: only used during PoC phase -> move this to schema on cluster level
+  dynatraceEnvironmentUrl: https://jgn20300.live.dynatrace.com
 name: app-sre-prod-04
 description: app-sre OSDv4 production cluster
 consoleUrl: https://console-openshift-console.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com

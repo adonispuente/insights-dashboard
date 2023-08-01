@@ -8,13 +8,18 @@ data:
     cloud_providers:
     - name: aws
       regions:
+        - name: ap-south-2
+          version_constraints:
+            min_version: 4.11.0
         - name: ap-southeast-3
+          version_constraints:
+            min_version: 4.11.0
+        - name: ap-southeast-4
+          version_constraints:
+            min_version: 4.11.0
+        - name: eu-central-2
           version_constraints:
             min_version: 4.11.0
         - name: me-central-1
           version_constraints:
             min_version: 4.11.0
-        - name: ap-south-2
-          version_constraints:
-            min_version: 4.11.0
-

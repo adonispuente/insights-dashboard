@@ -16,7 +16,7 @@ app:
 environment:
   $ref: /products/insights/environments/perf.yml
 
-#networkPoliciesAllow: []
+networkPoliciesAllow: []
 # - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
 # - $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
 # - $ref: /services/insights/sources/namespaces/stage-sources-stage.yml
@@ -30,9 +30,6 @@ managedResourceTypes:
 managedExternalResources: true
 
 openshiftResources:
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /insights-common/iqe-vault.secret.yaml
 - provider: vault-secret
   name: provisioning-azure-acc
   path: app-interface/provisioning/stage/azure-acc
@@ -40,9 +37,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/provisioning/stage/gcp-account
   name: provisioning-gcp-acc
-  version: 1
-- provider: vault-secret
-  path: app-interface/provisioning/stage/floorist-bucket
   version: 1
 - provider: vault-secret
   name: provisioning-sentry
@@ -89,10 +83,6 @@ externalResources:
     identifier: provisioning-elasticache-perf
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-provisioning-1.yml
     output_resource_name: in-memory-db
-  - provider: cloudwatch
-    identifier: provisioning-cloudwatch-perf
-    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-2.yml
-    output_resource_name: cloudwatch
   - provider: sqs
     identifier: provisioning-job-queue-perf
     specs:

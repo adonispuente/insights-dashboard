@@ -5,7 +5,8 @@ labels:
   service: unleash
 
 name: insights-perf-unleash-shared-resources
-description: shared resources for insights perf unleash
+
+description: Shared resources for the insights-perf-unleash service
 
 openshiftResources:
 - provider: vault-secret

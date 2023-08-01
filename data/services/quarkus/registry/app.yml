@@ -15,8 +15,8 @@ description: |
 architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/quarkus/registry/architecture/architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/quarkus/registry/sops/README.md
 grafanaUrls:
-- title: TODOREPLACE
-  url: https://TODO
+- title: Red Hat Quarkus Registry Dashboard
+  url: https://grafana.app-sre.devshift.net/d/registry-quarkus-redhat/red-hat-quarkus-registry
 onboardingStatus: InProgress
 
 serviceOwners:

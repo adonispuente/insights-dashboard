@@ -94,7 +94,7 @@ resourceTemplates:
       INGRESS_BLACK_LISTED_ORGIDS: "7759136"
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
-    ref: 99a87b3552e08e3da3932acf1d50429ca13c1a5b
+    ref: 8056907971570e8cac122c04dc8a6f38007aa265
     parameters:
       ENV_NAME: prod
       INGRESS_STAGEBUCKET: insights-ingress-prod
@@ -139,10 +139,10 @@ resourceTemplates:
       PERM_BUCKET: upload-stage
       REJECT_BUCKET: insights-ingress-rejected-stage
       BUCKET_MAP_FILE: /var/config.yaml 
-      MONITORED_SERVICES: openshift,ansible,tower,pinakes
+      MONITORED_SERVICES: openshift,ansible,tower,pinakes,automation-hub
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
-    ref: a3b2b63b357b2a18f3b6ca8bdc0e61b3864774be
+    ref: 7de5b36309f728eeefe15e8a5a6bbfd3ffd5791b
     parameters:
       MIN_REPLICAS: 3
       ENV_NAME: prod

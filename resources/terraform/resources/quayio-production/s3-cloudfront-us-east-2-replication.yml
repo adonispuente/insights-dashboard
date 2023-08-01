@@ -47,7 +47,8 @@ distribution_config:
       restriction_type: "none"
   viewer_certificate:
     # cloudfront_default_certificate: true
-    acm_certificate_arn: "arn:aws:acm:us-east-1:206170669542:certificate/abe999ea-035f-4133-9253-ee3d04f70efb"
+    # cert must be request in us-east-1 region. see docs
+    acm_certificate_arn: "arn:aws:acm:us-east-1:206170669542:certificate/940d5156-efe4-4fb0-8466-94af41dffcfc"
     minimum_protocol_version: TLSv1
     ssl_support_method: sni-only
-  aliases: ["cdn01.quay.io", "cdn01.quay.redhat.io"]
+  aliases: ["cdn01.quay.io", "cdn01.quay.redhat.io", "cdn01.q1w2.quay.rhcloud.com"]

@@ -119,6 +119,9 @@ resetPasswords:
 - user:
     $ref: /teams/advanced-cluster-security/users/lcleroux.yml
   requestId: pwd-reset-lcleroux-07-13-2023
+- user:
+    $ref: /teams/rhobs/users/tmange.yml
+  requestId: 60b38bf4-6c4a-4a77-9210-d4edd0f1bfc5
 deleteKeys:
 # APPSRE-4733
 - AKIA22PYG6QIGRKWXAM2

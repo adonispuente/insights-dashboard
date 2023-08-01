@@ -100,7 +100,7 @@ resourceTemplates:
   # production instance
   - namespace:
       $ref: /services/glitchtip/namespaces/glitchtip-production.yaml
-    ref: 8dab1cfe659b6d31571799d0a93e30dc46407a79
+    ref: 36db5f5c97b13167c9d785439c39727847f77cc1
     parameters:
       GLITCHTIP_DOMAIN: https://glitchtip.devshift.net
     secretParameters:
@@ -203,4 +203,4 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 8dab1cfe659b6d31571799d0a93e30dc46407a79
+    ref: 36db5f5c97b13167c9d785439c39727847f77cc1

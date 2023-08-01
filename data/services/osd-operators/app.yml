@@ -629,9 +629,12 @@ codeComponents:
 - name: ocm-backend-tests
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/ocm-backend-tests
-- name: rhobs-rules-and-dashboards
+- name: osd-rhobs-rules-and-dashboards
   resource: upstream
-  url: https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
+  url: https://gitlab.cee.redhat.com/service/osd-rhobs-rules-and-dashboards
+- name: hypershift-platform-rhobs-rules
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/hypershift-platform-rhobs-rules
 - name: terraform-aws-vpc-private
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/terraform-aws-vpc-private
@@ -707,9 +710,17 @@ codeComponents:
   gitlabHousekeeping:
     enabled: true
     rebase: false
-- name: rhobs-rules-and-dashboards
+- name: osd-rhobs-rules-and-dashboards
   resource: upstream
-  url: https://gitlab.cee.redhat.com/service/rhobs-rules-and-dashboards
+  url: https://gitlab.cee.redhat.com/service/osd-rhobs-rules-and-dashboards
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: false
+- name: hypershift-platform-rhobs-rules
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/hypershift-platform-rhobs-rules
   gitlabRepoOwners:
     enabled: true
   gitlabHousekeeping:

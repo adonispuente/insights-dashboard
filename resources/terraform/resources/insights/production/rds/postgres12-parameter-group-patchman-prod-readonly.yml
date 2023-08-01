@@ -6,13 +6,19 @@ parameters:
   value: none
   apply_method: immediate
 - name: log_min_duration_statement
-  value: -1
+  value: 10000
+  apply_method: immediate
+- name: log_temp_files
+  value: 65536
   apply_method: immediate
 - name: rds.force_ssl
   value: 1
   apply_method: immediate
 - name: hot_standby_feedback
   value: 1
+  apply_method: immediate
+- name: work_mem
+  value: 16384 # 16MB, default value is 4MB
   apply_method: immediate
 # Temporarily disabled
 # - name: statement_timeout

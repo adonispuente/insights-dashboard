@@ -49,3 +49,18 @@ config:
       - "insights-gh-build-master":
           branch: main
           display_name: image-builder-frontend build-main
+- project:
+    name: image-builder-pulp
+    label: insights
+    node: insights
+    gh_org: pulp
+    gh_repo: pulp-ostree-clowder-deployment
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-build-master":
+        display_name: image-builder-pulp build-master
+        branch: main
+        slack_channel_notification: team-pulp-services
+    - "hms-gh-pr-check":
+        display_name: image-builder-pulp pr-check
+        branch: main

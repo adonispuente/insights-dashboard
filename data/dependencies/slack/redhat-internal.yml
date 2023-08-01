@@ -246,7 +246,8 @@ managedUsergroups:
 - package-operator
 - appeng-keycloak-ic
 - rhtap-alerts-group
-- rhobs-rules-and-dashboards
+- osd-rhobs-rules-and-dashboards
+- hypershift-platform-rhobs-rules
 - dynatrace-rules-and-dashboards
 - managed-scripts
 - aro-codeowners

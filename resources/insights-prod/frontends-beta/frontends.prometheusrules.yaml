@@ -38,3 +38,39 @@ spec:
         link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
         message: "Hybrid Committed Spend Alert. Pod restarts occurring more than 5x/1h for the last 30 minutes in prod environment."
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Pod-Restarts-In-Frontends.rst"
+
+    - alert: App-Frontend-Latency
+      # The sum of the rate of requests over 15 minutes within the time bucket with the upper limit of 5000ms
+      # is less than 90% of the sum of the rate of total requests happening over 15 minutes.
+      # This means that we have at least 10% of requests slower than 5000ms for at least 5 minutes
+      expr: |
+          sum(rate(caddy_http_request_duration_seconds_bucket{job="hybrid-committed-spend", le="5.0", namespace="frontends-beta"}[15m]))
+          /
+          sum(rate(caddy_http_request_duration_seconds_count{job="hybrid-committed-spend", namespace="frontends-beta"}[15m])) < 0.9
+      for: 5m
+      labels:
+        # Move to a "high" priority once on-boarding is completed
+        severity: medium
+        service: insights
+        env: prod
+        app_team: hybridcommittedspend
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
+        message: "Hybrid Committed Spend Alert. Slow responses observed; more than 10% of requests with response time > 5 seconds for the last 15 minutes."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Latency-In-Frontends.rst"
+
+    - alert: App-Frontend-Response-Errors
+      expr: |
+        sum(rate(caddy_http_request_errors_total{job="hybrid-committed-spend", namespace="frontends-beta"}[30m])) / sum(rate(caddy_http_requests_total{job="hybrid-committed-spend", namespace="frontends-beta"}[30m])) > .1
+      for: 5m
+      labels:
+        severity: warning
+        service: insights
+        env: prod
+        app_team: hybridcommittedspend
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/frontends-beta/deployments"
+        message: "Hybrid Committed Spend Alert. Error responses observed; error rate > 10% for 5 minutes."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/hcs/App-Response-Errors-In-Frontends.rst"

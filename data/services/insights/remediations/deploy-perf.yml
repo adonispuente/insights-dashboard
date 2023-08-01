@@ -21,10 +21,9 @@ slack:
 
 managedResourceTypes:
 - ClowdApp
+- ConfigMap
 - CronJob
-- Deployment
-- DeploymentConfig
-- Service
+- Job
 
 imagePatterns:
 - quay.io/cloudservices
@@ -34,38 +33,42 @@ authentication:
     path: insights/quay/cloudservices-push
     field: all
     version: 3
-
+  code:
+    path: app-sre/creds/github-app-sre-bot
+    field: openshift-saas-deploy
 resourceTemplates:
 - name: remediations-consumer
   path: /deployment/remediations-consumer-clowdapp.yaml
   url: https://github.com/RedHatInsights/remediations-consumer
   parameters:
+    KAFKA_CONNECTION_TIMEOUT: 10000
     DB_SSL_ENABLED: true
     LOG_CW_ENABLED: true
     LOG_LEVEL: info
-    NUM_REPLICAS: 3
+    CLEANER_SUSPEND: 'false'
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/perf-remediations-perf.yml
-    ref: b225d1496348346692f79f7a4d010b0411af4cbe
+    ref: master
     parameters:
-      NUM_REPLICAS: 1
+      NUM_REPLICAS: 3
       ENV_NAME: perf
 
 - name: remediations-update-consumer
   path: /deployment/remediations-update-consumer-clowdapp.yaml
   url: https://github.com/RedHatInsights/remediations-consumer
   parameters:
+    KAFKA_CONNECTION_TIMEOUT: 10000
     DB_SSL_ENABLED: true
     LOG_CW_ENABLED: true
     LOG_LEVEL: info
-    NUM_REPLICAS: 3
+    KAFKA_CONSUMER_GROUP: remediations-update-consumer
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/perf-remediations-perf.yml
-    ref: b225d1496348346692f79f7a4d010b0411af4cbe
+    ref: master
     parameters:
-      NUM_REPLICAS: 1
+      NUM_REPLICAS: 3
       ENV_NAME: perf
 
 - name: remediations
@@ -81,7 +84,6 @@ resourceTemplates:
     LOG_LEVEL: info
     MAX_REPLICAS: 5
     MIGRATION_COMMAND: npm run db:create; npm run db:migrate
-    MIN_REPLICAS: 2
     PATCHMAN_IMPL: impl
     PATH_PREFIX: /api
     RBAC_IMPL: impl
@@ -97,10 +99,11 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/perf-remediations-perf.yml
-    ref: 6403fa2ed67b1a79fcf4775f7027b1d4acd2abfb
+    ref:  50169201b1bcbe1ada8c07490ea769f8610b82e5
     parameters:
-      MAX_REPLICAS: 1
-      MIN_REPLICAS: 1
-      REMEDIATIONS_REPLICAS: 1
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
-      ENV_NAME: perf
+      MIN_REPLICAS: 2
+      FLOORIST_SUSPEND: 'true'
+      FLOORIST_IMAGE_TAG: 8d12513 # 2023-04-18
+      FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
+      FLOORIST_SCHEDULE: '11 10 * * *'

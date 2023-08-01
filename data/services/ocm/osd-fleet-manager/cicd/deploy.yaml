@@ -165,6 +165,7 @@ resourceTemplates:
       - ocm-osdfm-deployed-int-canary
     parameters:
       DEPLOYMENT_NAME: canary
+      GATE_NAME: ocm-osdfm-int-canary
       PROVISIONING_TIME_WINDOW: '259200'
       TERRAFORM_ALLOWED_ACTIONS: none
   - name: osd-fleet-manager-integration-qetesting
@@ -177,6 +178,7 @@ resourceTemplates:
       - ocm-osdfm-deployed-int-canary
     parameters:
       DEPLOYMENT_NAME: qetesting
+      GATE_NAME: ocm-osdfm-int-canary
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -230,6 +232,7 @@ resourceTemplates:
       - ocm-osdfm-deployed-int-canary
     parameters:
       DEPLOYMENT_NAME: dynatrace
+      GATE_NAME: ocm-osdfm-int-canary
   - name: osd-fleet-manager-integration-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
@@ -243,6 +246,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: main
       ENABLE_GLOBAL_WORKERS: true
+      GATE_NAME: ocm-osdfm-int-canary
   - name: osd-fleet-manager-integration-upgradetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
@@ -255,6 +259,7 @@ resourceTemplates:
       - osd-fleet-manager-integration-upgradetesting
     parameters:
       DEPLOYMENT_NAME: upgradetesting
+      GATE_NAME: ocm-osdfm-int-canary
 - name: osd-fleet-manager-stage
   url: https://gitlab.cee.redhat.com/service/osd-fleet-manager
   path: /templates/named-service-template.yml
@@ -403,6 +408,7 @@ resourceTemplates:
       - ocm-osdfm-deployed-stage-canary
     parameters:
       DEPLOYMENT_NAME: canary
+      GATE_NAME: ocm-osdfm-stage-canary
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
@@ -414,6 +420,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
+      GATE_NAME: ocm-osdfm-stage-canary
       CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
@@ -476,6 +483,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
+      GATE_NAME: ocm-osdfm-stage-canary
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -540,6 +548,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
+      GATE_NAME: ocm-osdfm-stage-canary
       CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
@@ -602,6 +611,7 @@ resourceTemplates:
       subscribe:
       - ocm-osdfm-deployed-stage-canary
     parameters:
+      GATE_NAME: ocm-osdfm-stage-canary
       CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
@@ -666,6 +676,7 @@ resourceTemplates:
       - ocm-osdfm-deployed-stage-canary
     parameters:
       DEPLOYMENT_NAME: migrationtesting
+      GATE_NAME: ocm-osdfm-stage-canary
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
@@ -677,6 +688,7 @@ resourceTemplates:
       publish:
       - ocm-osdfm-deployed-stage-main
     parameters:
+      GATE_NAME: ocm-osdfm-stage-main
       CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
       DEPLOYMENT_NAME: main
       ENABLE_GLOBAL_WORKERS: true
@@ -688,6 +700,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/osd-fleet-manager
   path: /templates/named-service-template.yml
   parameters:
+    GATE_NAME: ocm-osdfm-prod-main
     ACCOUNT_POOL: fm-accountpool
     AWS_BASE_DOMAIN: p3.openshiftapps.com
     CLUSTER_CHANNEL: stable
@@ -802,7 +815,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -867,7 +880,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-east-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -889,7 +902,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-west-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -911,7 +924,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-eu-west-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -934,7 +947,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-ap-southeast-3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -956,7 +969,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-eu-central-1
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -980,9 +993,13 @@ resourceTemplates:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
     promotion:
-      auto: true
-      subscribe:
-      - ocm-osdfm-deployed-production-us-east-1
+      # Pause updates for IBM until we have absolute certainty in other prod sectors that the terraform issues seen
+      # in stage are not present.
+      # See https://issues.redhat.com/browse/OCM-2905
+      # ---
+      # auto: true
+      # subscribe:
+      # - ocm-osdfm-deployed-production-us-east-1
       publish:
       - ocm-osdfm-deployed-production-ibm-infra
     parameters:
@@ -1000,7 +1017,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       publish:
       - ocm-osdfm-deployed-production-canary
@@ -1051,8 +1068,8 @@ resourceTemplates:
                   value: true
                   effect: NoSchedule
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488

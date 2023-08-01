@@ -42,6 +42,7 @@ spec:
   private: true
   disable_user_workload_monitoring: true
   hypershift: false
+  provision_shard_id: 7c2626e2-da06-11ea-8f62-8c1645a911be
   subnet_ids:
   - subnet-0781a156aaf05e896
   - subnet-019dd11fe373d7cb3
@@ -51,14 +52,10 @@ spec:
   - us-east-1b
   - us-east-1c
 
-# This doesn't exist yet
-#automationToken:
-#  path: app-sre/creds/kube-configs/appsres05ue1
-#  field: token
+automationToken:
+  path: app-sre/creds/kube-configs/appsres05ue1
+  field: token
 
-# clusterAdmin: true
-
-  provision_shard_id: 7c2626e2-da06-11ea-8f62-8c1645a911be
 network:
   type: OVNKubernetes
   # vpcid: vpc-036cb989c3d8c781c
@@ -67,6 +64,9 @@ network:
   pod: 10.128.0.0/14
 
 internal: true
+
+jumpHost:
+  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
 
 peering:
   connections:
@@ -100,6 +100,7 @@ peering:
       service: ci-int
     manageRoutes: true
     cidrBlock: 10.0.0.0/8
+
 
 disable:
   integrations:

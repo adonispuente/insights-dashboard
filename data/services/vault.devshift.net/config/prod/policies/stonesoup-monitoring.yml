@@ -1,0 +1,16 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "stonesoup-approle-monitoring-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "stonesoup/production/monitoring/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }
+  path "stonesoup/staging/monitoring/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }

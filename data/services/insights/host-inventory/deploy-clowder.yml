@@ -89,7 +89,7 @@ resourceTemplates:
       GUNICORN_THREADS: 8
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: d1a84d7596d15f1b6a11e03719cadbd4d9604947
+    ref: a87342172df2b7a4d6d07ae05d22894bcdb9540b
     parameters:
       REPLICAS_SVC: 25
       INVENTORY_DB_SSL_MODE: verify-full
@@ -140,6 +140,6 @@ resourceTemplates:
       SYNCHRONIZER_RUN_NUMBER: 26
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: d1a84d7596d15f1b6a11e03719cadbd4d9604947
+    ref: a87342172df2b7a4d6d07ae05d22894bcdb9540b
     parameters:
-      SYNCHRONIZER_RUN_NUMBER: 8
+      SYNCHRONIZER_RUN_NUMBER: 9

@@ -12,7 +12,7 @@ Incident Response Plan
 Impact
 ------
 
--  The Hybrid Committed Spend APP provides customer sepnd burndown related to their HCS contract. If the frontend component is down or absent then no data is available to customers from the UI.
+-  The Hybrid Committed Spend APP provides customer spend burndown related to their HCS contract. If the frontend component is down or absent, then no data is available to customers from the UI.
 
 Summary
 -------

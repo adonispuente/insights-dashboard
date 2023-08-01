@@ -6,8 +6,7 @@ labels:
 
 name: unleash
 
-description: |
-  Feature Toggle As A Service - Powered by Unleash.
+description: Unleash - Feature Toggle as a Service
 
 architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/unleash/architecture/unleash-arch.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/unleash/sop/README.md
@@ -35,7 +34,7 @@ quayRepos:
     $ref: /dependencies/quay/app-sre.yml
   items:
   - name: unleash
-    description: Feature Toggle As A Service
+    description: Unleash
     public: true
 
 codeComponents:
@@ -45,7 +44,7 @@ codeComponents:
 
 endPoints:
 - name: app-int-unleash-production
-  description: unleash production endpoint
+  description: Unleash production endpoint
   url: https://app-interface.unleash.devshift.net
   monitoring:
   - provider:

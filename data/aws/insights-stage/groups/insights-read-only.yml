@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/insights-stage/account.yml
+
+name: insights-read-only-stage
+description: Read-only access to the insights-stage AWS account
+
+policies:
+- ReadOnlyAccess

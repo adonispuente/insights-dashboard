@@ -51,7 +51,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: canary
       ENVIRONMENT: integration
-      GATE_NAME: ocm-osdfm-qe-gating-test-int
+      GATE_NAME: ocm-osdfm-int-canary
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
@@ -68,7 +68,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: main
       ENVIRONMENT: integration
-      GATE_NAME: ocm-osdfm-qe-gating-test-int
+      GATE_NAME: ocm-osdfm-int-main
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
@@ -84,13 +84,13 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: main
       ENVIRONMENT: stage
-      GATE_NAME: ocm-osdfm-qe-gating-test-stage
+      GATE_NAME: ocm-osdfm-stage-main
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-staging-qe-read
       RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
+    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
     promotion:
       auto: true
       subscribe:
@@ -100,7 +100,7 @@ resourceTemplates:
     parameters:
       DEPLOYMENT_NAME: canary
       ENVIRONMENT: production
-      GATE_NAME: ocm-osdfm-qe-gating-test-stage
+      GATE_NAME: ocm-osdfm-prod-canary
       SOAK_TIME: '15'
       RHOBS_HO_OIDC_CLIENT_ID: observatorium-hypershift-platform-qe-read
       RHOBS_HO_TENANT: hypershift-platform

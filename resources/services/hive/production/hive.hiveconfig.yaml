@@ -357,6 +357,42 @@ spec:
       - availabilityZone: eu-central-1c
         subnetID: subnet-07e1b275801d0bc89
       vpcID: vpc-076810bd22e796343
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0872807a93c8a43cb
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-09bfc86d9b31eb05c
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-0654f42f0d9fb46ed
+      vpcID: vpc-03c5791cc23217dd9
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0b8ffa0c92ed2a7fd
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0acf9a707f1f6cfee
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-023743207dec1aaca
+      vpcID: vpc-0903cdfe3615bbdda
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0118584513a1c04f0
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0e02323f325a2d02a
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-067e0adeadd1dc410
+      vpcID: vpc-0cfc6e380ae549ccd
+    - region: eu-central-2
+      subnets:
+      - availabilityZone: eu-central-2a
+        subnetID: subnet-0a0e9b2b1ffbd74ce
+      - availabilityZone: eu-central-2b
+        subnetID: subnet-0e2fdad264393de5f
+      - availabilityZone: eu-central-2c
+        subnetID: subnet-032d1e14b683a5fc8
+      vpcID: vpc-03f9f22dfbca63161
     - region: eu-north-1
       subnets:
       - availabilityZone: eu-north-1a
@@ -915,6 +951,42 @@ spec:
       - availabilityZone: ap-southeast-3c
         subnetID: subnet-072ca84dd270b25f4
       vpcID: vpc-03fb8ad8659017a30
+    - region: ap-southeast-4
+      subnets:
+      - availabilityZone: ap-southeast-4a
+        subnetID: subnet-09d8aadd915b2a08c
+      - availabilityZone: ap-southeast-4b
+        subnetID: subnet-0a39e9a49c9bf0cad
+      - availabilityZone: ap-southeast-4c
+        subnetID: subnet-02433eafe82defc52
+      vpcID: vpc-0594c64734913eeca
+    - region: ap-southeast-4
+      subnets:
+      - availabilityZone: ap-southeast-4a
+        subnetID: subnet-0869f4dd21a07a21b
+      - availabilityZone: ap-southeast-4b
+        subnetID: subnet-097be5c3ecdd260d0
+      - availabilityZone: ap-southeast-4c
+        subnetID: subnet-01ef96c1cde974ea7
+      vpcID: vpc-0dd464d74038f7658
+    - region: ap-southeast-4
+      subnets:
+      - availabilityZone: ap-southeast-4a
+        subnetID: subnet-054946ffef0f4b217
+      - availabilityZone: ap-southeast-4b
+        subnetID: subnet-022c6118b56677dc9
+      - availabilityZone: ap-southeast-4c
+        subnetID: subnet-083f55a327959f1f1
+      vpcID: vpc-050164001e94b8eda
+    - region: ap-southeast-4
+      subnets:
+      - availabilityZone: ap-southeast-4a
+        subnetID: subnet-0c069f681b7f9c3b4
+      - availabilityZone: ap-southeast-4b
+        subnetID: subnet-07f61a4e17abc3c8c
+      - availabilityZone: ap-southeast-4c
+        subnetID: subnet-04a36f77cbb6255ad
+      vpcID: vpc-0a79def2c6efd5480
     - region: ap-northeast-3
       subnets:
       - availabilityZone: ap-northeast-3a

@@ -1,0 +1,61 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Saba Inamdar
+org_username: sainamda
+github_username: Saba7826
+quay_username: sainamda
+
+roles:
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/engine.yml
+- $ref: /teams/insights/roles/ingress.yml
+- $ref: /teams/insights/roles/ingress-slack.yml
+- $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/notifications.yml
+
+public_gpg_key: |
+  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

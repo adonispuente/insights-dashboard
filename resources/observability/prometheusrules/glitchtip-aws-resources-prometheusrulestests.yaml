@@ -1,0 +1,81 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+rule_files:
+  - /observability/prometheusrules/glitchtip-aws-resources-prometheusrules.yaml
+evaluation_interval: 1m
+tests:
+  - interval: 1m
+    input_series:
+      - series: aws_elasticache_database_memory_usage_percentage_average{cache_cluster_id="glitchtip-redis-production-001"}
+        values: 5+0x30 12+0x100
+    alert_rule_test:
+      - eval_time: 60m
+        alertname: GlitchtipRedisMemUsageHigh
+        exp_alerts: []
+      - eval_time: 120m
+        alertname: GlitchtipRedisMemUsageHigh
+        exp_alerts:
+          - exp_labels:
+              service: glitchtip
+              severity: high
+            exp_annotations:
+              message: "Glitchtip Redis memory usage is higher than 10%."
+              dashboard: "https://grafana.app-sre.devshift.net/d/GRUqV30Vk/glitchtip-dashboard?orgId=1"
+              runbook: "https://gitlab.cee.redhat.com/service/app-interface/tree/master/docs/glitchtip/sops/glitchtip-redis.md"
+
+  - interval: 1m
+    input_series:
+      - series: aws_elasticache_database_memory_usage_percentage_average{cache_cluster_id="glitchtip-redis-production-001"}
+        values: 5+0x30 22+0x100
+    alert_rule_test:
+      - eval_time: 60m
+        alertname: GlitchtipRedisMemUsageCritical
+        exp_alerts: []
+      - eval_time: 120m
+        alertname: GlitchtipRedisMemUsageCritical
+        exp_alerts:
+          - exp_labels:
+              service: glitchtip
+              severity: critical
+            exp_annotations:
+              message: "Glitchtip Redis memory usage is higher than 20%."
+              dashboard: "https://grafana.app-sre.devshift.net/d/GRUqV30Vk/glitchtip-dashboard?orgId=1"
+              runbook: "https://gitlab.cee.redhat.com/service/app-interface/tree/master/docs/glitchtip/sops/glitchtip-redis.md"
+
+  - interval: 1m
+    input_series:
+      - series: aws_elasticache_curr_items_average{cache_cluster_id="glitchtip-redis-production-001"}
+        values: 5+0x30 70+0x100
+    alert_rule_test:
+      - eval_time: 60m
+        alertname: GlitchtipRedisItemCountHigh
+        exp_alerts: []
+      - eval_time: 120m
+        alertname: GlitchtipRedisItemCountHigh
+        exp_alerts:
+          - exp_labels:
+              service: glitchtip
+              severity: high
+            exp_annotations:
+              message: "Glitchtip Redis item count is higher than 50."
+              dashboard: "https://grafana.app-sre.devshift.net/d/GRUqV30Vk/glitchtip-dashboard?orgId=1"
+              runbook: "https://gitlab.cee.redhat.com/service/app-interface/tree/master/docs/glitchtip/sops/glitchtip-redis.md"
+
+  - interval: 1m
+    input_series:
+      - series: aws_elasticache_curr_items_average{cache_cluster_id="glitchtip-redis-production-001"}
+        values: 5+0x30 170+0x100
+    alert_rule_test:
+      - eval_time: 60m
+        alertname: GlitchtipRedisItemCountCritical
+        exp_alerts: []
+      - eval_time: 120m
+        alertname: GlitchtipRedisItemCountCritical
+        exp_alerts:
+          - exp_labels:
+              service: glitchtip
+              severity: critical
+            exp_annotations:
+              message: "Glitchtip Redis item count is higher than 100."
+              dashboard: "https://grafana.app-sre.devshift.net/d/GRUqV30Vk/glitchtip-dashboard?orgId=1"
+              runbook: "https://gitlab.cee.redhat.com/service/app-interface/tree/master/docs/glitchtip/sops/glitchtip-redis.md"

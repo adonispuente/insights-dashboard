@@ -1,0 +1,61 @@
+$schema: /dependencies/status-board-1.yml
+
+
+name: status-board-stage
+
+ocm:
+  $ref: /dependencies/ocm/environments/stage.yml
+
+labels:
+  environment: stage
+
+
+globalAppSelectors:
+  exclude:
+    - "apps[?@.onboardingStatus!=\"OnBoarded\"]"
+
+products:
+  - productEnvironment:
+      $ref: /products/status-board/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/acs-fleet-manager/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/web-rca/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/app-interface/environments/stage-int.yml
+  - productEnvironment:
+      $ref: /products/app-interface/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/app-sre/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/cna/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/codeready-analytics/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/control-plane-service/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/dashdot/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/devfile-registry/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/glitchtip/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/insights/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/openshift.io/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/osdv4/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/quarkus/environments/stage-redhat.yml
+  - productEnvironment:
+      $ref: /products/quarkus/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/quay/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/rhose/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/service-registry/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/services-dashboard/environments/stage.yml
+  - productEnvironment:
+      $ref: /products/stonesoup/environments/stage.yml

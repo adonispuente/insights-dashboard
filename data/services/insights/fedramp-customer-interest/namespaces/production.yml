@@ -1,0 +1,54 @@
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: fedramp-customer-interest
+
+name: fedramp-customer-interest-production
+description: production namespace for fedramp-customer-interest service
+cluster:
+  $ref: /openshift/crcp01ue1/cluster.yml
+app:
+  $ref: /services/insights/fedramp-customer-interest/app.yml
+environment:
+  $ref: /products/insights/environments/production.yml
+managedRoles: true
+managedExternalResources: true
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-prod/account.yml
+  resources:
+    - provider: s3
+      identifier: fedramp-customer-interest-rob-production
+      defaults: /terraform/resources/s3-public-read-1.yml
+      output_resource_name: fedramp-customer-interest-rob-s3
+      bucket_policy:
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "PublicRead",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "s3:GetObject",
+              "Resource": "arn:aws:s3:::fedramp-customer-interest-rob-production/*"
+            }
+          ]
+        }
+openshiftResources:
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
+- provider: vault-secret
+  path: insights/secrets/insights-prod/fedramp-customer-interest-prod/servicenow
+  version: 2
+  annotations:
+    qontract.recycle: "true"
+- provider: route
+  path: /insights-prod/fedramp-customer-interest-prod/prod-route.yml
+
+# network policies 
+networkPoliciesAllow:
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml

@@ -1,0 +1,13 @@
+---
+$schema: /aws/group-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/insights-prod/account.yml
+
+name: insights-read-only-prod
+description: Read-only access to the insights-prod AWS account
+
+policies:
+- ReadOnlyAccess

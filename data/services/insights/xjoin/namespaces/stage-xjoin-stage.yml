@@ -127,7 +127,7 @@ externalResources:
     old_parameter_group: /terraform/resources/insights/stage/rds/postgres10-parameter-group-cyndi-stage.yml
     overrides:
       apply_immediately: true
-      engine_version: '12.8'
+      engine_version: '12.15'
   - provider: rds
     identifier: xjoin-apicurio-stage
     defaults: /terraform/resources/insights/stage/rds/rds-xjoin-apicurio-stage.yml

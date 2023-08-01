@@ -4,7 +4,8 @@ $schema: /openshift/namespace-1.yml
 labels: {}
 
 name: unleash
-description: namespace for unleash
+
+description: Namespace for Unleash
 
 cluster:
   $ref: /openshift/app-sre-stage-01/cluster.yml
@@ -33,6 +34,14 @@ openshiftResources:
 - provider: vault-secret
   path: app-sre/unleash/app-interface-stage-token
   version: 1
+### Insights Perf
+- provider: vault-secret
+  path: app-sre/unleash/insights-perf-config
+  version: 1
+### Insights Stage
+- provider: vault-secret
+  path: app-sre/unleash/insights-stage-config
+  version: 1
 ### OCM Stage
 - provider: vault-secret
   path: app-sre/unleash/ocm-stage-config
@@ -47,14 +56,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-sre/unleash/ocm-integration-unleash-token
   version: 1
-### Insights Stage
-- provider: vault-secret
-  path: app-sre/unleash/insights-stage-config
-  version: 1
-### Insights Perf
-- provider: vault-secret
-  path: app-sre/unleash/insights-perf-config
-  version: 1
 
 managedExternalResources: true
 
@@ -64,56 +65,27 @@ externalResources:
     $ref: /aws/app-sre-stage/account.yml
   resources:
   ### App-Interface
-  - provider: sns
-    identifier: unleash-rds-notification
-    defaults: /terraform/resources/unleash/sns-stage-1.yml
-    subscriptions:
-    - protocol: email
-      endpoint: yihuang@redhat.com
   - provider: rds
     identifier: app-interface-unleash-stage
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
-    overrides:
-      apply_immediately: true
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
     output_resource_name: app-interface-stage-unleash-rds
-    event_notifications:
-    - destination: unleash-rds-notification
-      source_type: db-instance
-      event_categories:
-        - availability
-        - deletion
-        - failover
-        - maintenance
-        - backup
-  ### Insights Stage
-  - provider: rds
-    identifier: insights-stage-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
-    output_resource_name: insights-stage-unleash-rds
-    overrides:
-      engine_version: '12.13'
-      apply_immediately: true
   ### Insights Perf
   - provider: rds
     identifier: insights-perf-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
     output_resource_name: insights-perf-unleash-rds
-    overrides:
-      engine_version: '12.13'
-      apply_immediately: true
+  ### Insights Stage
+  - provider: rds
+    identifier: insights-stage-unleash
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
+    output_resource_name: insights-stage-unleash-rds
   ### OCM Stage
   - provider: rds
     identifier: ocm-stage-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
     output_resource_name: ocm-stage-unleash-rds
-    overrides:
-      engine_version: '11.18'
-      apply_immediately: true
   ### OCM Integration
   - provider: rds
     identifier: ocm-integration-unleash
-    defaults: /terraform/resources/unleash/rds-stage-1.yml
+    defaults: /terraform/resources/unleash/postgres15-rds-stage-1.yml
     output_resource_name: ocm-integration-unleash-rds
-    overrides:
-      engine_version: '11.18'
-      apply_immediately: true

@@ -113,6 +113,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/quayio/namespaces/quays02ue1.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: quay-quay-gh-build-master
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
     ref: 3152b1021e70061737c39f18f849c2755b77f08c

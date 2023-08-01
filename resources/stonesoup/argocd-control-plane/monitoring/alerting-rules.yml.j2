@@ -24,6 +24,7 @@ spec:
           Application: {{ $labels.name }}
           Cluster: {{ $labels.dest_server }}
           Health status Degraded.
+          Related SOP: https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/o11y/alert-rule-degradedArgocdApp.md
     - alert: ProgressingArgocdApp
       expr: |
         (count_over_time(argocd_app_info{health_status="Progressing", dest_namespace!~".+-tenant"}[20m]) or vector(0)

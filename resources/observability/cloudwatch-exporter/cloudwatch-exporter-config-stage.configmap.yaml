@@ -243,21 +243,21 @@ data:
     #   aws_statistics: [Sum]
 
     # AWS ElastiCache Metrics
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: DatabaseMemoryUsagePercentage
-    #   aws_statistics: [Average, Maximum]
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: DatabaseMemoryUsagePercentage
+      aws_statistics: [Average, Maximum]
     # - aws_namespace: "AWS/ElastiCache"
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
     #   aws_metric_name: BytesUsedForCache
     #   aws_statistics: [Average]
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: EngineCPUUtilization
-    #   aws_statistics: [Average, Maximum, Minimum]
-    # - aws_namespace: "AWS/ElastiCache"
-    #   aws_dimensions: [CacheNodeId, CacheClusterId]
-    #   aws_metric_name: CurrItems
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: EngineCPUUtilization
+      aws_statistics: [Average, Maximum, Minimum]
+    - aws_namespace: "AWS/ElastiCache"
+      aws_dimensions: [CacheNodeId, CacheClusterId]
+      aws_metric_name: CurrItems
     #   aws_statistics: [Average]
     # - aws_namespace: "AWS/ElastiCache"
     #   aws_dimensions: [CacheNodeId, CacheClusterId]
@@ -352,6 +352,9 @@ data:
       aws_dimensions: [Consumer Group, Cluster Name, Topic]
       aws_metric_name: SumOffsetLag
     - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Consumer Group, Cluster Name, Topic]
+      aws_metric_name: EstimatedMaxTimeLag
+    - aws_namespace: "AWS/Kafka"
       aws_dimensions: [Cluster Name, Broker ID]
       aws_metric_name: MemoryBuffered
     - aws_namespace: "AWS/Kafka"
@@ -371,24 +374,6 @@ data:
       aws_metric_name: MessagesInPerSec
     - aws_namespace: "AWS/Kafka"
       aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkRxDropped
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkRxErrors
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkRxPackets
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkTxDropped
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkTxErrors
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
-      aws_metric_name: NetworkTxPackets
-    - aws_namespace: "AWS/Kafka"
-      aws_dimensions: [Cluster Name, Broker ID]
       aws_metric_name: RequestTime
     - aws_namespace: "AWS/Kafka"
       aws_dimensions: [Cluster Name, Broker ID]
@@ -396,3 +381,24 @@ data:
     - aws_namespace: "AWS/Kafka"
       aws_dimensions: [Cluster Name, Broker ID]
       aws_metric_name: ZooKeeperSessionState
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID, Topic]
+      aws_metric_name: BytesInPerSec
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID, Topic]
+      aws_metric_name: BytesOutPerSec
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name]
+      aws_metric_name: OfflinePartitionsCount
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID]
+      aws_metric_name: UnderReplicatedPartitions
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID]
+      aws_metric_name: UnderMinIsrPartitionCount
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID]
+      aws_metric_name: SwapFree
+    - aws_namespace: "AWS/Kafka"
+      aws_dimensions: [Cluster Name, Broker ID]
+      aws_metric_name: SwapUsed

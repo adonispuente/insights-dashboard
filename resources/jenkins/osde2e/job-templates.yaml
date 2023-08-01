@@ -84,6 +84,12 @@
       publishers:
       - junit:
           results: '**/junit*.xml'
+      - slack:
+          room: '{slack_channel}'
+          notify-start: False
+          notify-success: False
+          notify-failure: True
+          notify-repeated-failure: True
       properties:
       - build-discarder:
           days-to-keep: 30

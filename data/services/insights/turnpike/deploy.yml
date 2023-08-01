@@ -216,6 +216,36 @@ resourceTemplates:
           auth:
             saml: "'subscription-watch-admins' in user['Role']"
             x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
+        - name: swatch-metrics
+          route: /api/swatch-metrics
+          origin: http://swatch-metrics-service.rhsm-stage.svc.cluster.local:8000/api/swatch-metrics/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+            x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
+        - name: swatch-producer-red-hat-marketplace
+          route: /api/swatch-producer-red-hat-marketplace
+          origin: http://swatch-producer-red-hat-marketplace-service.rhsm-stage.svc.cluster.local:8000/api/swatch-producer-red-hat-marketplace/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+            x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
+        - name: swatch-subscription-sync
+          route: /api/swatch-subscription-sync
+          origin: http://swatch-subscription-sync-service.rhsm-stage.svc.cluster.local:8000/api/swatch-subscription-sync/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+            x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
+        - name: swatch-system-conduit
+          route: /api/swatch-system-conduit
+          origin: http://swatch-system-conduit-service.rhsm-stage.svc.cluster.local:8000/api/swatch-system-conduit/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+            x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
+        - name: swatch-tally
+          route: /api/swatch-tally
+          origin: http://swatch-tally-service.rhsm-stage.svc.cluster.local:8000/api/swatch-tally/
+          auth:
+            saml: "'subscription-watch-admins' in user['Role']"
+            x509: "x509['subject_dn'] == '/DC=com/DC=redhat/OU=messaging/OU=serviceusers/UID=msg-swatch-turnpike/L=stage/CN=msg-swatch-turnpike'"
         - name: policies-engine-stage
           route: /api/policies-engine/
           origin: http://policies-engine-service.policies-stage.svc.cluster.local:8000/
@@ -322,7 +352,7 @@ resourceTemplates:
             saml: "'crc-xjoin-team' in user['Role']"
         - name: xjoin-elasticsearch
           route: /api/xjoin/elasticsearch/
-          origin: https://vpc-xjoin-elasticsearch-yesvit2jsbqwqtlnrsdkorfacm.us-east-1.es.amazonaws.com:9000/
+          origin: https://vpc-xjoin-elasticsearch-yesvit2jsbqwqtlnrsdkorfacm.us-east-1.es.amazonaws.com/
           auth:
             saml: "'crc-xjoin-team' in user['Role']"
         - name: xjoin-search

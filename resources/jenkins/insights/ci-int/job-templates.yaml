@@ -401,6 +401,7 @@
 - job-template:
     id: 'insights-gh-pr-check'
     name: '{gh_org}-{gh_repo}-pr-check'
+    concurrent: '{concurrent_build}'
     branch: "master"
     slack_channel_notification: 'consoledot-development-fails'
     wrappers:
