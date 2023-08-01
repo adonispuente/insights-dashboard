@@ -125,6 +125,7 @@ resourceTemplates:
     ref: internal
     parameters:
       IMAGE_TAG: latest
+      DOMAIN_ENABLED: "true"
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
     ref: main
