@@ -38,7 +38,7 @@
         <<: *vault_defaults
         secrets:
         - *kcm_secret_demo
-    <<: *keycloak_interface_pr_check
+    <<: *keycloak_interface_gl_pr_check
 
 - job-template:
     id: 'keycloak-interface-pr-check-main'
@@ -52,4 +52,4 @@
         <<: *vault_defaults
         secrets:
         - *kcm_secret
-    <<: *keycloak_interface_pr_check
+    <<: *keycloak_interface_gl_pr_check

@@ -1,5 +1,7 @@
 - base_templates:
-    keycloak_interface_pr_check: &keycloak_interface_pr_check
+    name: keycloak-interface-base-templates
+
+    keycloak_interface_pr_check: &keycloak_interface_gl_pr_check
       <<: *gl_properties
       scm:
       - git:
