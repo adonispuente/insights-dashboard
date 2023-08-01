@@ -38,42 +38,7 @@
         <<: *vault_defaults
         secrets:
         - *kcm_secret_demo
-    <<: *gl_properties
-    scm:
-    - git:
-        remotes:
-        - 'origin':
-            url: 'git@gitlab.cee.redhat.com:{gl_group}/{gl_project}.git'
-            credentials-id: '{gitlab_ssh_credentials}'
-            refspec: '+refs/heads/*:refs/remotes/origin/* +refs/merge-requests/${{gitlabMergeRequestIid}}/head:refs/remotes/origin/merge-requests/${{gitlabMergeRequestIid}}'
-        branches:
-        - '{branch}'
-        merge:
-            remote: 'origin'
-            branch: '${{gitlabTargetBranch}}'
-    triggers:
-    - gitlab:
-        trigger-push: true
-        trigger-merge-request: true
-        trigger-open-merge-request-push: source
-        note-regex: '(?ms).*^(\[test\]|\/retest|\/lgtm|\/lgtm cancel|\/hold|\/hold cancel)\s*$.*'
-        set-build-description: true
-        add-note-merge-request: true
-        add-vote-merge-request: true
-        add-ci-message: true
-        allow-all-branches: false
-        branch-filter-type: "NameBasedFilter"
-        include-branches:
-            - '{branch}'
-        ci-skip: true
-        wip-skip: true
-        cancel-pending-builds-on-update: true
-    publishers:
-    - gitlab_message:
-        <<: *gitlab_message_defaults
-    - gitlab-notifier
-    <<: *pr_check_template
-
+    <<: *keycloak_interface_gl_pr_check
 
 - job-template:
     id: 'keycloak-interface-pr-check-main'
@@ -87,38 +52,4 @@
         <<: *vault_defaults
         secrets:
         - *kcm_secret
-    <<: *gl_properties
-    scm:
-    - git:
-        remotes:
-        - 'origin':
-            url: 'git@gitlab.cee.redhat.com:{gl_group}/{gl_project}.git'
-            credentials-id: '{gitlab_ssh_credentials}'
-            refspec: '+refs/heads/*:refs/remotes/origin/* +refs/merge-requests/${{gitlabMergeRequestIid}}/head:refs/remotes/origin/merge-requests/${{gitlabMergeRequestIid}}'
-        branches:
-        - '{branch}'
-        merge:
-            remote: 'origin'
-            branch: '${{gitlabTargetBranch}}'
-    triggers:
-    - gitlab:
-        trigger-push: true
-        trigger-merge-request: true
-        trigger-open-merge-request-push: source
-        note-regex: '(?ms).*^(\[test\]|\/retest|\/lgtm|\/lgtm cancel|\/hold|\/hold cancel)\s*$.*'
-        set-build-description: true
-        add-note-merge-request: true
-        add-vote-merge-request: true
-        add-ci-message: true
-        allow-all-branches: false
-        branch-filter-type: "NameBasedFilter"
-        include-branches:
-            - '{branch}'
-        ci-skip: true
-        wip-skip: true
-        cancel-pending-builds-on-update: true
-    publishers:
-    - gitlab_message:
-        <<: *gitlab_message_defaults
-    - gitlab-notifier
-    <<: *pr_check_template
+    <<: *keycloak_interface_gl_pr_check
