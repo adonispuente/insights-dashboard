@@ -64,6 +64,11 @@ resourceTemplates:
   path: /frontend.yml
   url: https://github.com/RedHatInsights/insights-chrome
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
     ref: master
@@ -113,6 +118,11 @@ resourceTemplates:
   path: /frontend.yml
   url: https://github.com/RedHatInsights/landing-page-frontend
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
@@ -151,6 +161,11 @@ resourceTemplates:
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/settings-frontend
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
@@ -189,6 +204,11 @@ resourceTemplates:
   path: /frontend.yml
   url: https://github.com/RedHatInsights/insights-dashboard
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
@@ -289,6 +309,11 @@ resourceTemplates:
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/sed-frontend
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
     ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
@@ -333,6 +358,11 @@ resourceTemplates:
   path: /config/frontend.yml
   url: https://github.com/RedHatInsights/better-platform-docs
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
@@ -361,6 +391,11 @@ resourceTemplates:
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/learning-resources
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
@@ -413,6 +448,11 @@ resourceTemplates:
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/service-accounts
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
@@ -451,6 +491,11 @@ resourceTemplates:
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/subscriptions-dashboard-ui
   targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
