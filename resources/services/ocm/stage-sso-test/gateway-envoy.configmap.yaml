@@ -213,25 +213,6 @@ data:
                       auto_host_rewrite: true
                       timeout: 180s
 
-                  # Route for the `managed-services-api` service:
-                  # TODO Remove this as part of https://issues.redhat.com/browse/MGDSTRM-3465
-                  - name: managed-services-api
-                    match:
-                      prefix: /api/managed-services-api
-                    route:
-                      cluster: managed-services-api
-                      auto_host_rewrite: true
-                      timeout: 30s
-
-                  # Route for the `kafkas_mgmt` service:
-                  - name: kafkas_mgmt
-                    match:
-                      prefix: /api/kafkas_mgmt
-                    route:
-                      cluster: kafkas_mgmt
-                      auto_host_rewrite: true
-                      timeout: 30s
-
                   # The rest of the traffic is sent to the site:
                   - name: site
                     match:
