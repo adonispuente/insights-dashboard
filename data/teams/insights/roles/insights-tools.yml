@@ -59,6 +59,8 @@ self_service:
   - $ref: /teams/insights/roles/aws/prod-platform-team.yml
   - $ref: /teams/insights/roles/aws/stage-app-developers.yml
   - $ref: /teams/insights/roles/aws/stage-platform-team.yml
+  - $ref: /teams/insights/roles/aws/stage-read-only.yml
+  - $ref: /teams/insights/roles/aws/prod-read-only.yml
   - $ref: /teams/insights/roles/blackbox-monitor.yml
   - $ref: /teams/insights/roles/kibana.yml
   - $ref: /teams/insights/roles/prometheus.yml
