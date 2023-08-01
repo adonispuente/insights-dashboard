@@ -212,7 +212,7 @@ resourceTemplates:
   # Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 7bcfa09932e68e739eb4db49466d107bae8e529b
+    ref: fc5af0abf711ff255acacf656b7bd550dd25828d
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
@@ -230,14 +230,14 @@ resourceTemplates:
   # Prod Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 643f2a2556d0d825c3835d08cc44dfb0ce24a79e
+    ref: fc5af0abf711ff255acacf656b7bd550dd25828d
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 22a5fde639021d9b1fe69ddac0fff927d6d6205f
+    ref: da942c411d7f78c2a9620f7e6389f55678e3f388
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
