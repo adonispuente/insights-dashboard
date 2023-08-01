@@ -1,15 +1,11 @@
 ---
 $schema: /app-sre/gabi-instance-1.yml
-
 labels:
   service: gabi
-
 name: gabi-acs-fleet-manager
-
 description: |
- I would like to be able to get db access for stage ACS Fleet Manager RDS
- I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
-
+  I would like to be able to get db access for stage ACS Fleet Manager RDS
+  I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
 signoffManagers:
 - $ref: /teams/advanced-cluster-security/users/syethadk.yml
 - $ref: /teams/advanced-cluster-security/users/aruklets.yml
@@ -17,7 +13,6 @@ signoffManagers:
 - $ref: /teams/lp-sre/users/ahrabovs.yml
 - $ref: /teams/lp-sre/users/akonarde.yml
 - $ref: /teams/lp-sre/users/crarobin.yml
-
 users:
 - $ref: /teams/advanced-cluster-security/users/akurlov.yml
 - $ref: /teams/advanced-cluster-security/users/aruklets.yml
@@ -59,11 +54,9 @@ users:
 - $ref: /teams/lp-sre/users/pcremin.yml
 - $ref: /teams/lp-sre/users/rshelly.yml
 - $ref: /teams/lp-sre/users/sclarkso.yml
-- $ref: /teams/lp-sre/users/sdalavi.yml
 - $ref: /teams/lp-sre/users/vbommana.yml
 - $ref: /teams/lp-sre/users/ves.yml
 - $ref: /teams/lp-sre/users/ykukreja.yml
-
 instances:
 - account: app-sre-stage
   identifier: acs-fleet-manager-stage
@@ -72,7 +65,6 @@ instances:
 - account: app-sre
   identifier: acs-fleet-manager-readonly-replica-production
   namespace:
-    $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
-
-# The maximum expiration date shall not exceed 90 days from the current date.
+    $ref: 
+      /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
 expirationDate: '2023-10-01'
