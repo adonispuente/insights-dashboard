@@ -151,7 +151,6 @@ alertingServices:
 - image-builder
 - insights
 - job-queue
-- kas-fleet-manager
 - obervatorium-logs
 - observability
 - observatorium-api

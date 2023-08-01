@@ -35,5 +35,3 @@ glitchtip_roles:
     $ref: /dependencies/glitchtip/organizations/managed-services.yml
   role: admin
 
-glitchtip_teams:
-- $ref: /dependencies/glitchtip/teams/managed-services.yml

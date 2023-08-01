@@ -26,7 +26,6 @@ to:
     - $ref: "/services/ocm/jqs/app.yml"
     - $ref: "/services/insights/edge/app.yml"
     - $ref: "/services/ocm/cs/app.yml"
-    - $ref: "/services/managed-services/app.yml"
 body: |
   Hello App-Interface service owner,
 

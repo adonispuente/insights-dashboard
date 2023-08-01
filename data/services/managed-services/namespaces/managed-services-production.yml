@@ -5,6 +5,7 @@ labels: {}
 
 name: managed-services-production
 description: production namespace for managed-services
+delete: true
 
 cluster:
   $ref: /openshift/app-sre-prod-04/cluster.yml
@@ -15,98 +16,14 @@ app:
 environment:
   $ref: /products/osdv4/environments/production.yml
 
-networkPoliciesAllow:
-- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
+networkPoliciesAllow: []
 
 managedRoles: true
 
-managedResourceTypes:
-- ServiceAccount
-- ConfigMap
-- NetworkPolicy
+managedResourceTypes: []
 
-openshiftResources:
-- provider: route
-  path: /services/managed-services/production/kas-fleet-manager.route.yaml
-- provider: route
-  path: /services/managed-services/production/kas-fleet-manager-observability-rw-proxy.route.yaml
-- provider: vault-secret
-  path: managed-services/quay-org-accounts/rhoas/robots/rhoas-pull-docker
-  version: 1
-  type: kubernetes.io/dockerconfigjson
-- provider: resource-template
-  path: /services/managed-services/serviceaccount.yaml
-  variables:
-    name: kas-fleet-manager
-- provider: vault-secret
-  name: kas-fleet-manager
-  path:  app-interface/managed-service-api/production/service/credentials
-  version: 34
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-dataplane-certificate
-  path:  app-interface/managed-service-api/production/service/dataplane-certificate
-  version: 6
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-observatorium-configuration-red-hat-sso
-  path:  app-interface/managed-service-api/production/service/observatorium
-  version: 6
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: kas-fleet-manager-observability-cwl-config
-  path:  app-interface/managed-service-api/production/service/observability-cwl-config
-  version: 1
-  annotations:
-    qontract.recycle: "true"
-- provider: vault-secret
-  name: observability-remote-write-proxy-oidc-config
-  path:  app-interface/managed-service-api/production/service/observability-remote-write-proxy-oidc-config
-  version: 1
-  annotations:
-    qontract.recycle: "true"
-- provider: resource
-  path: /services/managed-services/production/kas-fleet-manager-envoy.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-camel-aws.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-camel-misc.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-mongodb.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-mysql.configmap.yaml
-- provider: resource
-  path: /services/managed-services/stage/connector-catalog-debezium-postgres.configmap.yaml
-- provider: resource
-  path: /services/managed-services/production/observatorium-token-refresher.networkpolicy.yaml
+openshiftResources: []
 
 managedExternalResources: true
 
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/app-sre/account.yml
-  resources:
-  - provider: secrets-manager-service-account
-    identifier: kas-fleet-manager-aws-secret-manager-production
-    secrets_prefix: kas-fleet-manager
-    output_resource_name: kas-fleet-manager-aws-secret-manager
-  - provider: rds
-    identifier: kas-fleet-manager-prod
-    defaults: /terraform/resources/managed-services/production/rds-2-cloudwatch-enabled.yml
-    parameter_group: /terraform/resources/managed-services/production/kas-fleet-manager-prod-rds-parameter-group-pg12.yml
-    output_resource_name: kas-fleet-manager-rds
-    overrides:
-      maintenance_window: wed:14:00-wed:15:00
-      backup_window: 12:00-13:00
-      engine_version: '12.13'
-    ca_cert:
-      path: app-interface/global/rds-ca-cert
-      field: us-east-1
-      version: 2
-
-glitchtipProjects:
-- $ref: /dependencies/glitchtip/projects/glitchtip-production/managed-services-prod.yml
+externalResources: []

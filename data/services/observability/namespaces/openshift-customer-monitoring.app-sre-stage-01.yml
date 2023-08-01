@@ -340,74 +340,6 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/observatorium-gubernator-stage.prometheusrules.yaml
   type: resource
-### Kas Fleet Manager
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-cluster-correctness-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-cluster-correctness-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-cluster-latency-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-cluster-latency-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-slos-availability-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-slos-availability-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-slos-kafka-correctness-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-slos-kafka-correctness-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-slos-kafka-latency-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-slos-kafka-latency-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-slos-latency-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-slos-latency-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-cluster-capacity-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-cluster-capacity-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-kafka-version-mismatch-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-kafka-version-mismatch-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-kafkas-stuck-in-suspending-state-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-kafkas-stuck-in-suspending-state-stage.prometheusrulestest.yaml
-- provider: prometheus-rule
-  path: /observability/prometheusrules/kas-fleet-manager-kafkas-stuck-in-resuming-state-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/kas-fleet-manager-kafkas-stuck-in-resuming-state-stage.prometheusrulestest.yaml
-### MK Observability Remote Write Proxy
-- provider: prometheus-rule
-  path: /observability/prometheusrules/mk-observability-rw-proxy-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/mk-observability-rw-proxy-stage.prometheusrulestest.yaml
-### Token refresher
-- provider: prometheus-rule
-  path: /observability/prometheusrules/token-refresher-stage.prometheusrules.yaml
-  type: resource
-  tests:
-  - /observability/prometheusrules/token-refresher.stage.prometheusrulestest.yaml
 ### OSD Fleet Manager Integration
 - provider: prometheus-rule
   type: resource-template-extracurlyjinja2
@@ -1005,33 +937,6 @@ openshiftResources:
     name: rds-exporter-crc-stage
     namespace: app-sre-observability-stage
 
-### Kas Fleet Manager
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-services.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-services-stage
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-services-envoy.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-services-stage
-### MK Token refresher
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/managed-services-token-refresher.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-services-stage
-### MK Observability Remote Write Proxy
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/mk-observability-rw-proxy.servicemonitor.yaml
-  variables:
-    environment: stage
-    namespace: managed-services-stage
 
 ### Assisted-Installer Service
 - provider: prometheus-rule

@@ -14,7 +14,7 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: Kas Fleet Manager Metrics
   url: https://grafana.app-sre.devshift.net/d/z1CmsruDn/kas-fleet-manager-metrics
-onboardingStatus: OnBoarded
+onboardingStatus: OffBoarding
 
 serviceOwners:
 - name: Managed Services CI/CD

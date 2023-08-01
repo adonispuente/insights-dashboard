@@ -15,6 +15,7 @@ description: |
   For help with production and non production incidents, please reach out to the Control Plane team on slack.
 
 channels:
+
   slackUserGroup:
     - $ref: /teams/managed-services/permissions/control-plane-primary-coreos-slack.yml
 

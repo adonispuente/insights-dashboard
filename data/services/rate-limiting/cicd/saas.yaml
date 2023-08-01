@@ -127,15 +127,6 @@ resourceTemplates:
           - path == cluster_logs
           variables:
           - path
-        # Limit KAS Fleet Manager managed service v1 endpoint
-        # to 500 per second (stage)
-        - namespace: stage:kas_fleet_manager
-          max_value: 500
-          seconds: 1
-          conditions:
-          - path == kas_fleet_manager_v1
-          variables:
-          - path
         # Limit SRS Fleet Manager managed service v1 endpoint
         # to 6000 per 10 seconds (stage)
         - namespace: stage:srs_fleet_manager
@@ -223,15 +214,6 @@ resourceTemplates:
           seconds: 60
           conditions:
           - path == cluster_logs
-          variables:
-          - path
-        # Limit KAS Fleet Manager managed service v1 endpoint
-        # to 500 per second (production)
-        - namespace: production:kas_fleet_manager
-          max_value: 500
-          seconds: 1
-          conditions:
-          - path == kas_fleet_manager_v1
           variables:
           - path
         # Limit SRS Fleet Manager managed service v1 endpoint

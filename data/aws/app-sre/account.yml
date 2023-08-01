@@ -3524,5 +3524,31 @@ deletionApprovals:
   name: mas-sso-s3-resource
   expiration: '2023-07-10'
 
+# RHOSAK Control Plane shutdown
+- type: aws_db_instance
+  name: managed-services-api-staging
+  expiration: '2023-08-01'
+- type: aws_db_parameter_group
+  name: managed-services-stage-rds-parameter-group-pg12
+  expiration: '2023-08-01'
+- type: aws_db_instance
+  name: kas-fleet-manager-prod
+  expiration: '2023-08-01'
+- type: aws_db_parameter_group
+  name: kas-fleet-manager-prod-rds-parameter-group-pg12
+  expiration: '2023-08-01'
+- type: aws_iam_access_key
+  name: kas-fleet-manager-aws-secret-manager-production
+  expiration: '2023-08-01'
+- type: aws_iam_policy
+  name: kas-fleet-manager-aws-secret-manager-production
+  expiration: '2023-08-01'
+- type: aws_iam_user_policy_attachment
+  name: kas-fleet-manager-aws-secret-manager-production
+  expiration: '2023-08-01'
+- type: aws_iam_user
+  name: kas-fleet-manager-aws-secret-manager-production
+  expiration: '2023-08-01'
+
 terraformState:
   $ref: /aws/app-sre/state.yml
