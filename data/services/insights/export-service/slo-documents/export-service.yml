@@ -43,7 +43,7 @@ slos:
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/SLO.md
   SLOParameters:
     window: 28d
-  expr: 1.0 - (sum(rate(export_service_http_requests_total{container="export-service-service", path="", code="5.*"}[{{window}}]) or vector(0)) / sum(rate(export_service_http_requests_total{container="export-service-service", path=""}[{{window}}]) or vector(0)))
+  expr: 1.0 - (sum(rate(export_service_http_requests_total{container="export-service-service", path="", code="5.*"}[{{window}}]) or vector(0)) / (sum(rate(export_service_http_requests_total{container="export-service-service", path=""}[{{window}}])) + 0.00001))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: /insights-prod/export-service-prod/export-service.prometheusrules.yaml
