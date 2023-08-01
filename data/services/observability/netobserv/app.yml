@@ -4,6 +4,8 @@ $schema: /app-sre/app-1.yml
 labels:
   service: app-sre-observability
   deployment_validation_operator_no_anti_affinity: skip # not supported in netobserv-plugin
+  deployment_validation_operator_unset_cpu_requirements: skip # not supported in loki
+  deployment_validation_operator_unset_memory_requirements: skip # not supported in loki
 
 name: netobserv
 

@@ -8,7 +8,7 @@ name: saas-loki-for-netobserv
 description: Loki instance for the netobserv operator
 
 app:
-  $ref: /services/observability/app.yml
+  $ref: /services/observability/netobserv/app.yml
 
 pipelinesProvider:
   $ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml

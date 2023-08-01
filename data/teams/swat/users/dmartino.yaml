@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Daniele Martinoli
+org_username: dmartino
+github_username: dmartinol
+quay_username: dmartino
+
+roles:
+  - $ref: /teams/swat/roles/dev.yml
+  - $ref: /teams/swat/roles/appeng-keycloak-slack.yml
+  - $ref: /teams/insights/roles/fedramp-customer-interest.yaml

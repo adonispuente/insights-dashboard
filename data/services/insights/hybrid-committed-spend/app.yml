@@ -21,7 +21,7 @@ grafanaUrls:
 - title: Hybrid Cloud Console Frontend SLO
   url: https://grafana.app-sre.devshift.net/d/slo-dashboard/frontend-slo-dashboard
 
-onboardingStatus: InProgress
+onboardingStatus: TransitionPeriod
 
 parentApp:
   $ref: /services/insights/app.yml

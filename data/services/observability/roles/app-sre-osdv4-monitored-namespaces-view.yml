@@ -130,9 +130,6 @@ access:
     $ref: /services/quarkus/registry/namespaces/registry-quarkus-redhat-stage.yml
   role: view
 - namespace:
-    $ref: /services/managed-services/namespaces/managed-services-stage.yml
-  role: view
-- namespace:
     $ref: /services/devfile-registry/namespaces/devfile-registry-stage.yml
   role: view
 - namespace:
@@ -729,12 +726,6 @@ access:
   role: view
 - namespace:
     $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-  role: view
-- namespace:
-    $ref: /services/managed-services/namespaces/managed-services-stage.yml
-  role: view
-- namespace:
-    $ref: /services/managed-services/namespaces/managed-services-production.yml
   role: view
 - namespace:
     $ref: /services/insights/turnpike/namespaces/stage-turnpike-stage.yml

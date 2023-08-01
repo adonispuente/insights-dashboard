@@ -63,7 +63,7 @@ upgradePolicyClusters:
     schedule: 0 9 * * 1-4
     conditions:
       sector: prod
-      soakDays: 7
+      soakDays: 3
       mutexes:
       - prod-infra
 - name: stone-prd-m01
@@ -73,7 +73,7 @@ upgradePolicyClusters:
     schedule: 0 9 * * 1-4
     conditions:
       sector: prod
-      soakDays: 7
+      soakDays: 3
       mutexes:
       - prod-infra
 - name: stone-prd-rh01
@@ -83,14 +83,14 @@ upgradePolicyClusters:
     schedule: 0 9 * * 1-4
     conditions:
       sector: prod
-      soakDays: 7
+      soakDays: 3
       mutexes:
       - prod-infra
 recommendedVersions:
 - workload: host
   channel: stable
-  recommendedVersion: 4.12.25
-  initialVersion: openshift-v4.12.25
+  recommendedVersion: 4.12.26
+  initialVersion: openshift-v4.12.26
 - workload: member
   channel: stable
   recommendedVersion: 4.12.24
