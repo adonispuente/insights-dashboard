@@ -20,8 +20,8 @@ grafanaUrls:
 onboardingStatus: OnBoarded
 
 serviceOwners:
-- name: SDA team
-  email: sda-devel@redhat.com
+- name: OCM team
+  email: ocm-devel@redhat.com
 
 serviceNotifications:
 - name: Red Hat Outage List
