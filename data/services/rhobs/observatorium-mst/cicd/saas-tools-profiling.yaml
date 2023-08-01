@@ -4,7 +4,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: observatorium
 
-name: saas-observatorium-tools-traces
+name: saas-observatorium-tools-profiling
 description: SaaS tracking file for Observatorium MST profiling tools
 
 app:
