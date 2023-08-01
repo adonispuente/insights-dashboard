@@ -1,0 +1,15 @@
+---
+$schema: /access/oidc-permission-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: stonesoup-oidc-build-vault
+description: stonesoup vault devshift oidc permission for build team
+
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+
+service: vault
+vault_policies:
+- $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-build.yml
