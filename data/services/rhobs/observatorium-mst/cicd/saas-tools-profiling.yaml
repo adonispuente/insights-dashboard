@@ -1,0 +1,146 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: observatorium
+
+name: saas-observatorium-tools-traces
+description: SaaS tracking file for Observatorium MST profiling tools
+
+app:
+  $ref: /services/rhobs/observatorium-mst/app.yml
+
+pipelinesProvider:
+  $ref: /services/rhobs/observatorium/pipelines/observatorium-pipeline.appsrep05ue1.yaml
+
+deployResources:
+  requests:
+    cpu: 800m
+    memory: 1800Mi
+  limits:
+    cpu: 1200m
+    memory: 1800Mi
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: team-monitoring-info
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+managedResourceTypes:
+  - Deployment
+  - Service
+  - ServiceAccount
+  - Route
+  - Secret
+  - ClusterRole.rbac.authorization.k8s.io
+  - ClusterRoleBinding.rbac.authorization.k8s.io
+
+clusterAdmin: true
+
+imagePatterns:
+  - quay.io/observatorium
+  - quay.io/app-sre
+  - quay.io/app-sre/parca
+  - quay.io/openshift/origin-oauth-proxy
+
+parameters:
+  OAUTH_PROXY_IMAGE: quay.io/openshift/origin-oauth-proxy
+  OAUTH_PROXY_IMAGE_TAG: 4.8.0 # Pinning version before 4.9.0 due to https://github.com/openshift/oauth-proxy/issues/229.
+
+resourceTemplates:
+- name: observatorium-meta-monitoring-con-prof
+  path: /resources/services/meta-monitoring/profiling-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
+      ref: 220286cedef14f0ae269e6a253435170545a7e8c
+      delete: true
+      parameters:
+        NAMESPACE: observatorium-tools
+        SD_NAMESPACE_LIST: '["observatorium-tools"]'
+        IMAGE_TAG: v0.18.0
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools/observatorium-parca
+            field: endpoint
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-tools.yml
+      ref: 220286cedef14f0ae269e6a253435170545a7e8c
+      delete: true
+      parameters:
+        NAMESPACE: observatorium-tools
+        SD_NAMESPACE_LIST: '["observatorium-tools"]'
+        IMAGE_TAG: v0.18.0
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-parca
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-parca
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-parca
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-parca
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools/observatorium-parca
+            field: endpoint
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools.yml
+      ref: 220286cedef14f0ae269e6a253435170545a7e8c
+      delete: true
+      parameters:
+        NAMESPACE: observatorium-tools
+        SD_NAMESPACE_LIST: '["observatorium-tools"]'
+        IMAGE_TAG: v0.18.0
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools/observatorium-parca
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools/observatorium-parca
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools/observatorium-parca
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools/observatorium-parca
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools/observatorium-parca
+            field: endpoint
