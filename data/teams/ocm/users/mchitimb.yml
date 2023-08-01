@@ -1,0 +1,67 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Manyanda Chitimbo
+org_username: mchitimb
+github_username: machi1990
+quay_username: mchitimb
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  +xhOL/tsS0FwIrkd69E31hYhVr0=
