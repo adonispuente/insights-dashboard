@@ -46,7 +46,6 @@ imagePatterns:
   - quay.io/app-sre/parca
   - quay.io/openshift/origin-oauth-proxy
 
-
 resourceTemplates:
 - name: observatorium-meta-monitoring-con-prof
   path: /resources/services/meta-monitoring/profiling-template.yaml
