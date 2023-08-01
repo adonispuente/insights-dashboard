@@ -66,6 +66,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -78,6 +79,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: 59 15 * * 2
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -92,6 +94,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -105,6 +108,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -116,6 +120,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       WORKER_COUNT: '2'
       CRON_SCHEDULE: 36 17 * * 3
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -171,6 +176,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -183,6 +189,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: 30 17 * * *
       SUSPEND_JOB: 'true'
       AUTOMATIC_BAN: 'false'
@@ -198,6 +205,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -211,6 +219,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -222,6 +231,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 36 17 * * *
       SUSPEND_JOB: 'true'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -278,6 +288,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -290,6 +301,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -303,6 +315,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -316,6 +329,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -327,6 +341,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 26 */2 * * *
       SUSPEND_JOB: 'false'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -383,6 +398,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -395,6 +411,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -408,6 +425,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -421,6 +439,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -432,6 +451,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 21 */5 * * *
       SUSPEND_JOB: 'false'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -487,6 +507,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -499,6 +520,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -512,6 +534,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -525,6 +548,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -536,6 +560,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
@@ -589,6 +614,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -601,6 +627,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -614,6 +641,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -627,6 +655,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -638,6 +667,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 3-59/30 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -693,6 +723,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       CRON_SCHEDULE: '0 */4 * * *'
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
@@ -706,6 +737,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -720,6 +752,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -734,6 +767,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: '0 */4 * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -747,6 +781,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -800,6 +835,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -812,6 +848,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: 0,30 * * * *
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -826,6 +863,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -839,6 +877,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -850,6 +889,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 11 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -903,6 +943,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -915,6 +956,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -928,6 +970,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -941,6 +984,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -952,6 +996,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 31 11 * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1007,6 +1052,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       SUSPEND_JOB: 'true'
@@ -1020,6 +1066,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1033,6 +1080,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SUSPEND_JOB: 'true'
@@ -1047,6 +1095,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1059,6 +1108,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 16 * * * *
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1113,6 +1163,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -1125,6 +1176,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: '*/5 * * * *'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -1139,6 +1191,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1152,6 +1205,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1163,6 +1217,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
       WORKER_COUNT: '16'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1218,6 +1273,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'true'
       WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       USE_CANDLEPIN_BASIC_AUTH: 'true'
@@ -1232,6 +1288,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1245,6 +1302,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       SUSPEND_JOB: 'true'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -1259,6 +1317,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1270,6 +1329,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
@@ -1322,6 +1382,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -1334,6 +1395,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CLIENT_CARDINALITY: 5
       POOL_HIGH_WATER_MARK: 10
       AUTOMATIC_BAN: 'false'
@@ -1349,6 +1411,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1362,6 +1425,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1373,6 +1437,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 46 * * * *
       CLIENT_CARDINALITY: 100
       POOL_HIGH_WATER_MARK: 3000
@@ -1428,6 +1493,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -1440,6 +1506,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1453,6 +1520,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1466,6 +1534,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1477,6 +1546,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
@@ -1529,6 +1599,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -1541,6 +1612,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1554,6 +1626,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1567,6 +1640,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1578,6 +1652,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
@@ -1634,6 +1709,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       CRON_SCHEDULE: 0,30 * * * *
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       RBAC_PROXY: ''
@@ -1650,6 +1726,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       CRON_SCHEDULE: 0,30 * * * *
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -1665,6 +1742,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       RBAC_PROXY: ''
       AUTOMATIC_BAN: 'false'
@@ -1680,6 +1758,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       RBAC_PROXY: ''
       AUTOMATIC_BAN: 'false'
@@ -1693,6 +1772,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1747,6 +1827,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-int-main
       USE_CANDLEPIN_BASIC_AUTH: 'true'
       SENTRY_URL: glitchtip.devshift.net
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
@@ -1759,6 +1840,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
       UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
@@ -1771,6 +1853,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
       UNLEASH_URL: https://ocm-stage.unleash.devshift.net/api
@@ -1783,6 +1866,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-account-manager-gl-build-master
     parameters:
+      GATE_NAME: ocm-ams-stage-main
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
       UHC_TOKEN_URL: ${SSO_BASE_URL}/protocol/openid-connect/token
@@ -1892,6 +1976,7 @@ resourceTemplates:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: a1f75674d32ba7a4c13a1c1de37083abfe4cb21e
     parameters:
+      GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
