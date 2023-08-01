@@ -46,6 +46,9 @@ imagePatterns:
   - quay.io/app-sre/parca
   - quay.io/openshift/origin-oauth-proxy
 
+allowedSecretParameterPaths:
+  - app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools
+
 resourceTemplates:
 - name: observatorium-meta-monitoring-con-prof
   path: /resources/services/meta-monitoring/profiling-template.yaml
