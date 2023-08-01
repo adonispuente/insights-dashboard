@@ -993,13 +993,9 @@ resourceTemplates:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
     ref: 092f90774c5ca37f273864fed2e4ba6a0a6f6514
     promotion:
-      # Pause updates for IBM until we have absolute certainty in other prod sectors that the terraform issues seen
-      # in stage are not present.
-      # See https://issues.redhat.com/browse/OCM-2905
-      # ---
-      # auto: true
-      # subscribe:
-      # - ocm-osdfm-deployed-production-us-east-1
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-production-us-east-1
       publish:
       - ocm-osdfm-deployed-production-ibm-infra
     parameters:
