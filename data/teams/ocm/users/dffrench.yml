@@ -7,11 +7,27 @@ name: David Ffrench
 org_username: dffrench
 github_username: davidffrench
 quay_username: davidffrench
+tag_on_cluster_updates: false
 
 roles:
+- $ref: /teams/ocm/roles/role-membership-approver.yml
+- $ref: /teams/ocm/roles/vault-access.yml
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
+- $ref: /teams/ocm/roles/ocm-stage-unleash-admin.yml
+- $ref: /teams/ocm/roles/ocm-unleash-admin.yml
+- $ref: /teams/ocm/roles/uhc-clusters-service-approver.yml
+- $ref: /teams/ocm/roles/uhc-clusters-service-cleaner-approver.yml
+- $ref: /teams/ocm/roles/uhc-gateway-approver.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
+
+# TODO remove the managed-services specific roles once
+# RHOSAK project is fully sunset
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/managed-services/roles/saas-managed-services-approver.yaml
-- $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/telemeter/roles/consumer.yml
 - $ref: /teams/managed-services/roles/control-plane-full.yaml
 - $ref: /teams/managed-services/roles/prod-credentials-full.yml
