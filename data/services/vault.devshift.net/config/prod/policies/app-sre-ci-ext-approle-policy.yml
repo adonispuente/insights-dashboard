@@ -44,6 +44,10 @@ rules: |
     capabilities = ["read"]
   }
 
+  path "app-sre/integrations-output/openshift-serviceaccount-tokens/*" {
+    capabilities = ["read"]
+  }
+  
   path "app-sre/creds/terraform/app-sre/config" {
     capabilities = ["read"]
   }
