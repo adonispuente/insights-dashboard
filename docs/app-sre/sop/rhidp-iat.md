@@ -25,9 +25,10 @@ The recreation (refresh) of the IAT is currently a manual process and is targete
 1. In order to get a new IAT (prod or stage), open a [general SNOW ticket](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=630e51c22bb23c004c71dc0e59da15bb&appID=184bedcf1b949894477e43fccd4bcba1) and request one.
 1. Use this template to create the ticket:
     ```
-    Hi,
+    ATTN: Identity & Access Management (IT-IAM)
+    Per: https://source.redhat.com/groups/public/identity-access-management/it_iam_internal_sso_int_idp_wiki/how_to_create_an_initial_access_token_for_dynamic_client_registration
 
-    This ticket is for the ITIAM team.
+    Hi,
 
     We (AppSRE) need a new Initial Access Token (IAT) for our Red Hat SSO IDP integration. The current one expires on <DATE>.
 
