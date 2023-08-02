@@ -75,11 +75,11 @@ resourceTemplates:
       TARGET_NAMESPACE: "clowder-system"
   - namespace:
       $ref: /services/insights/clowder/namespaces/crcd01ue1.yml
-    ref: master 
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: RedHatInsights-clowder-gh-build-master
+    ref: aa382083ca821cfed74c143755f2f359cae5b61f 
+      #    upstream:
+      #      instance:
+      #        $ref: /dependencies/ci-ext/ci-ext.yml
+      #      name: RedHatInsights-clowder-gh-build-master
     parameters:
       WATCH_STRIMZI_RESOURCES: "true"
       CREATE_SERVICE_MONITORS: "true"
