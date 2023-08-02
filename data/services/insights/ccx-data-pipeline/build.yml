@@ -207,6 +207,9 @@ config:
     - "insights-gl-build-master":
         display_name: ccx-upgrades-inference build-master
         branch: main
+    - "insights-gl-pr-check":
+        display_name: ccx-upgrades-inference pr-check
+        concurrent_build: true
 
 - project:
     name: ccx-upgrades-data-eng
