@@ -71,6 +71,10 @@ resourceTemplates:
       ENV_NAME: prod
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
       REPLICAS: 3
+    promotion:
+      auto: true
+      subscribe:
+      - pdf-generator-stage-test-success-channel
 
 - name: pdf-generator-dashboards
   url: https://gitlab.cee.redhat.com/automation-analytics/pdf-generator
