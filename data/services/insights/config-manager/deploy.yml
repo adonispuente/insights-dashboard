@@ -80,12 +80,53 @@ resourceTemplates:
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/sed-frontend
   targets:
+  # ephemeral envs (bonfire)
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
   - namespace:
+    delete: true # deleting from the namespace - will remove in followup MR.
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
     ref: 86f7483cc14b9b68d3ccc5979c7711996384544f
     parameters:
-      ENV_NAME: env-stage
+       ENV_NAME: "env-stage"
+  # fe perf env
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-perf.yml
+    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
+    parameters:
+      ENV_NAME: "env-perf"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: master
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: sed-frontend
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
+  # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 33d44e805a3fbac18a9082ecfc48862fbf0a2333
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/sed-frontend"
