@@ -169,7 +169,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 5c87f48d22b6f61d6c976f73b9a5f0f1290fec8e
+    ref: ff0b3f044800f3d2537b9838e41f9cd5ac4e4b11
     delete: false
     parameters:
       MIN_REPLICAS: "3"
@@ -178,7 +178,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
       AMS_API_URL: https://api.openshift.com
       DEBUG: false
-      LOGGING_TO_CLOUD_WATCH_ENABLED: "false"
+      LOGGING_TO_CLOUD_WATCH_ENABLED: "true"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
