@@ -93,7 +93,7 @@ resourceTemplates:
       - content-sources-stage-deploy-success-channel
   - namespace: # PRODUCTION
       $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
-    ref: 2394feeb1cc3158cece54054d09fca385425a30c
+    ref: 50d00eb6c33bc7811470d160903d2f1c1933ebb4
     promotion:
       publish:
       - content-sources-prod-deploy-success-channel
