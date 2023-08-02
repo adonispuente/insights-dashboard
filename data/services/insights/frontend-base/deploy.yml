@@ -490,6 +490,7 @@ resourceTemplates:
 - name: subscriptions-dashboard-ui
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/subscriptions-dashboard-ui
+  deprecated: true
   targets:
   # ephemeral for bonfire
   - namespace:
