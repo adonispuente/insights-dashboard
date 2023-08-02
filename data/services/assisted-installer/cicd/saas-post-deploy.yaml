@@ -61,5 +61,5 @@ resourceTemplates:
       - channel: assisted-installer-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer
-          target_config_hash: 7a6bc3117216affa
+          target_config_hash: 670299f6c3fdf744
           type: parent_saas_config
