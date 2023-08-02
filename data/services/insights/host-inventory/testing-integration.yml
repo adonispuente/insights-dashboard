@@ -42,3 +42,6 @@ resourceTemplates:
       - host-inventory-stage-post-deploy-success-channel
       publish:
       - host-inventory-stage-post-deploy-integration-tests-success-channel
+    parameters:
+      ENV_FOR_DYNACONF: stage_proxy
+      IQE_MARKER_EXPRESSION: <TBD>
