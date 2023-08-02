@@ -56,8 +56,7 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-tools.yml
-      ref: 220286cedef14f0ae269e6a253435170545a7e8c
-      delete: true
+      ref: 469a13448443e436c082697d416202a490cdb8d5
       parameters:
         NAMESPACE: observatorium-tools
         SD_NAMESPACE_LIST: '["observatorium-mst-stage"]'
