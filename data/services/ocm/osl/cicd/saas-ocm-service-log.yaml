@@ -304,7 +304,7 @@ resourceTemplates:
           email_parameters:
             mandrill_template_name: "generic-sre-notification-template"
             subject: "*|LOG_SUMMARY|*"
-            bcc_address: "sda-devel+delete@redhat.com"
+            bcc_address: "ocm-devel+delete@redhat.com"
       - name: "Hypershift failed clusters deletion"
         criteria: "Summary = '[Action Needed] Cluster failed to delete'"
         owner: "tbrisker@redhat.com"
@@ -331,7 +331,7 @@ resourceTemplates:
           email_parameters:
             mandrill_template_name: "generic-sre-notification-template"
             subject: "*|LOG_SUMMARY|*"
-            bcc_address: "sda-devel+inflight@redhat.com"
+            bcc_address: "ocm-devel+inflight@redhat.com"
         # OSD Trial Related Emails: https://gitlab.cee.redhat.com/service/uhc-account-manager/-/blob/master/pkg/api/osl/types.go
       - name: "OSD Trial Cluster Created"
         criteria: "Summary = 'Trial cluster created'"
@@ -456,7 +456,7 @@ resourceTemplates:
           email_parameters:
             mandrill_template_name: "generic-sre-notification-template"
             subject: "*|LOG_SUMMARY|*"
-            bcc_address: "sda-devel+delete@redhat.com"
+            bcc_address: "ocm-devel+delete@redhat.com"
       - name: "Hypershift failed clusters deletion"
         criteria: "Summary = '[Action Needed] Cluster failed to delete'"
         owner: "tbrisker@redhat.com"
@@ -474,7 +474,7 @@ resourceTemplates:
           email_parameters:
             mandrill_template_name: "generic-sre-notification-template"
             subject: "*|LOG_SUMMARY|*"
-            bcc_address: "sda-devel+inflight@redhat.com"
+            bcc_address: "ocm-devel+inflight@redhat.com"
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: fde4ab80074d5e9fec3cafe83049936c5ad8b7c0

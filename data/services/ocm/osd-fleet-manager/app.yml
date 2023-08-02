@@ -21,9 +21,8 @@ grafanaUrls:
 onboardingStatus: InProgress
 
 serviceOwners:
-- name: SDA team
-  email: sda-devel@redhat.com
-# TODO ACM team is going to own this
+- name: OCM team
+  email: ocm-devel@redhat.com
 
 escalationPolicy:
   $ref: /teams/ocm/escalation-policies/sda.yaml

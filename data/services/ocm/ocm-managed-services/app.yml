@@ -21,7 +21,7 @@ onboardingStatus: InProgress
 
 serviceOwners:
 - name: SDA team
-  email: sda-devel@redhat.com
+  email: ocm-devel@redhat.com
 
 serviceNotifications:
 - name: Red Hat Outage List

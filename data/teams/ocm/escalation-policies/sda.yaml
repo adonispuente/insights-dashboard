@@ -6,14 +6,14 @@ labels:
 
 name: SDA
 
-description: SD service development A escalation policy (OCM team)
+description: OCM Cluster Management escalation policy
 
 channels:
   slackUserGroup:
   - $ref: /teams/ocm/permissions/sd-a-team-coreos-slack.yml
 
   email: 
-  - sda-devel@redhat.com
+  - ocm-devel@redhat.com
 
   jiraBoard:
   - $ref: /teams/ocm/jira/ocm.yaml
