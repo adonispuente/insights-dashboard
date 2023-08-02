@@ -119,31 +119,7 @@ resourceTemplates:
       name: quay-quay-gh-build-master
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 3152b1021e70061737c39f18f849c2755b77f08c
-
-- name: quayio-update-py2-db
-  path: /openshift.yml
-  url: https://github.com/quay/update-py2-db
-  targets:
-  - namespace:
-      $ref: /services/quayio/namespaces/quays02ue1.yml
-    ref: 8e736d1127f22e521161b18d47a3457f6c05ad55
-    parameters:
-      IMAGE: "quay.io/app-sre/quayio-update-py2-db"
-      JOB_NAME: "2021-11-15-run-validation-py3-1" # provide_a_unique_job_name_to_trigger_job
-      DB_HOST_SECRET: "quayio-stage-57-py3-rds"
-      DB_CREDS_SECRET: "quayio-stage-57-py3-rds"
-      EXECUTION_TYPE: "SCHEMA_VALIDATION"
-    delete: true # deleting from the namespace - will remove in followup MR.
-  - namespace:
-      $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 8e736d1127f22e521161b18d47a3457f6c05ad55
-    parameters:
-      IMAGE: "quay.io/app-sre/quayio-update-py2-db"
-      JOB_NAME: "2021-11-15-run-validation-py3-1" # provide_a_unique_job_name_to_trigger_job
-      DB_HOST_SECRET: "quayio-production-py3-rds"
-      DB_CREDS_SECRET: "quay-db-config-secret"
-      EXECUTION_TYPE: "SCHEMA_VALIDATION"
+    ref: af97203ec7815f075b2200d6af29d3c3c716e980
 
 - name: quayio-update-ro-keys-job
   path: /openshift.yml
