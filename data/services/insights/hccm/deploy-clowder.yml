@@ -756,7 +756,7 @@ resourceTemplates:
       MEMORY_LIMIT: 14Gi
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: 25785002f4fe52d550522bfff5fb0b8216ed8c65
+    ref: d43b90d5d6e6d5d0705e30b7448f7442fb8e422f
     parameters:
       S3_BUCKET_NAME: hccm-prod-s3
       POPULATE_SCHEDULE: "0 14 * * 1,4"
