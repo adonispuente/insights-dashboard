@@ -66,6 +66,9 @@ quayRepos:
   - name: frontend-build-history
     public: true
     description: Quay repo for frontend build history and cumulative builds
+  - name: frontend-starter-app
+    public: true
+    description: Quay repo for frontend starter app
   - name: cloud-services-config
     public: true
     description: Quay repo for the cloud services config builds
@@ -109,6 +112,9 @@ codeComponents:
 - name: learning-resources
   resource: upstream
   url: https://github.com/RedHatInsights/learning-resources
+- name: frontend-starter-app
+  resource: upstream
+  url: https://github.com/RedHatInsights/frontend-starter-app
 - name: settings-frontend
   resource: upstream
   url: https://github.com/RedHatInsights/settings-frontend

@@ -56,6 +56,22 @@ config:
         display_name: api-frontend-build build-prod-stable
         branch: "prod-stable"
 - project:
+    name: frontend-starter-app
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: frontend-starter-app
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pr-check":
+        display_name: frontend-starter-app pr-check
+    - "insights-gh-build-master":
+        display_name: frontend-starter-app-build build-master
+        branch: "master"
+    - "insights-gh-build-master":
+        display_name: frontend-starter-app-build build-master-stable
+        branch: "master-stable"
+- project:
     name: learning-resources
     label: insights
     node: insights
