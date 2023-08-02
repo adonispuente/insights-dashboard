@@ -47,7 +47,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: f4693b04345369de9dcc1a7477bc29fe7782d829
+    ref: 80447090eca58ac4933cec512a8782db10204c27
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
@@ -65,14 +65,14 @@ resourceTemplates:
     # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 453580dedf1a799f2c3be7098523b4c5aa2bbb3d
+    ref: 5476ccb491b34f6f3bb2034911747429a5d9e0f0
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 686a8dfd747fda37e547df75940a77e8b87e3260
+    ref: 3140ca52a20c08573ef0aeee9ecc79981253979c
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
