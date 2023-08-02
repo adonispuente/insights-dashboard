@@ -7,7 +7,6 @@ labels:
 
 name: consoledot-frontend-base
 description: containerized frontends for chrome, landing, dashboard, and api-docs
-deprecated: true
 
 app:
   $ref: /services/insights/ephemeral/app.yml
