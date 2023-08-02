@@ -7,12 +7,20 @@ name: Vincent Manley
 org_username: vmanley
 github_username: vmanley
 quay_username: vmanley
+tag_on_cluster_updates: false
 
 roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+# TODO managed-services specific roles below to be removed when 
+# RHOSAK project is closed
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/managed-services/roles/control-plane-full.yaml
 - $ref: /teams/managed-services/roles/managed-application-services.yml
-- $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/managed-services/roles/saas-managed-services-approver.yaml
 
 public_gpg_key: |
