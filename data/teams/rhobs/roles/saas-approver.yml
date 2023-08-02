@@ -25,6 +25,7 @@ self_service:
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-tenants.yaml
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-tools-logs.yaml
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-tools-traces.yaml
+  - $ref: /services/rhobs/observatorium-mst/cicd/saas-tools-profiling.yaml
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-post-deploy-test.yaml
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
