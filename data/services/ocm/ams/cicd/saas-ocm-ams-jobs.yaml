@@ -686,7 +686,7 @@ resourceTemplates:
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-production.svc.cluster.local
       SENTRY_PROJECT: '50'
       MOA_SKU: MW01369
-      ENABLE_SUBSCRIPTION_FEATURE_RULE_SKUS: 'false'
+      ENABLE_SUBSCRIPTION_FEATURE_RULE_SKUS: 'true'
 
 - name: rh-marketplace-quota-reconciler-job
   url: https://gitlab.cee.redhat.com/service/uhc-account-manager
