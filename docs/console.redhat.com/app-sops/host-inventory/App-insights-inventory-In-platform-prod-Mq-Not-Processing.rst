@@ -46,6 +46,9 @@ Steps
     -  If there was a Prod deploy recently which may be causing the issue, a deployment rollback should be safe and get things running again until the team can be pinged. To do this, create an MR in app-interface that reverts the most recent MR updating host-inventory's [deployment file](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/insights/host-inventory/deploy-clowder.yml).
     -  If you see any AWS-related connectivity issues, see if any password was changed in the configuration recently. If it was caused by config, revert that change; otherwise, reach out to AppSRE to see why the values aren't being set correctly.
 -  In the event that a pod is not operating correctly, you can safely delete it, and the replica controller will create a new one.
+-  Check the metrics for the host-inventory-prod database [in AWS](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#database:id=host-inventory-prod;is-cluster=false); if something is using up too many resources (e.g. DB load, CPU, etc), then there may be a pod that started behaving abnormally.
+    -  If a Job or CronJob has been running for a very long time (> 1 day), force-stopping it may resolve the resource utilization issue.
+    -  Force-stopping the pods for any other currently-running Jobs or CronJobs may resolve the issue; future runs should be able to pick up the slack from any unfinished processing.
 
 Escalations
 -----------
