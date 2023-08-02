@@ -337,6 +337,42 @@ resourceTemplates:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/better-platform-docs"
 
+# Frontend starter app
+- name: frontend-starter-app
+  path: /deploy/frontend.yaml
+  url: https://github.com/RedHatInsights/frontend-starter-app
+  targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: 00077dbf8972011e9a2a30fdec74b5415269175a
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/frontend-starter-app"
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: master
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: frontend-starter-app
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/frontend-starter-app"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 6eb4fcbf3750277c593edd8793d67f3051e26009
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/frontend-starter-app"
+
 # Learning Resources
 - name: learning-resources
   path: /deploy/frontend.yml
