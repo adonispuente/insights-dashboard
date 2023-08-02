@@ -116,16 +116,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
-- name: hs-sc-6u79rk90g
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 - name: hs-mc-j86o89040
   upgradePolicy:
     workloads:
