@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-prod-http
+    haproxy.router.openshift.io/timeout: 120s
+  labels:
+    service: content-sources-pulp
+  name: content-sources-pulp-route
+spec:
+  host: content-sources-pulp.stage.devshift.net
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: cs-pulp-web-svc
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

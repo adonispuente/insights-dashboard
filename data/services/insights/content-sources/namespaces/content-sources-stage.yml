@@ -54,6 +54,8 @@ openshiftResources:
 - provider: resource-template
   type: extracurlyjinja2
   path: /insights-stage/content-sources-stage/content-sources-pulp-db.secret.yaml
+- provider: route
+  path: /insights-stage/content-sources-stage/content-sources-pulp.route.yaml
 
 sharedResources:
   - $ref: /services/insights/shared-resources/metrics-export-stage.yml
