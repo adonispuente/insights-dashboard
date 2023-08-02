@@ -533,6 +533,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-insights-content-template-renderer-gh-build-master
     parameters:
       LOG_LEVEL: INFO
   - namespace:
@@ -556,6 +560,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: ccx-ccx-upgrades-inference-gl-build-main
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 225fbb61746692d441e87eb0eb0e6259a94d9c63
@@ -573,6 +581,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: ccx-ccx-upgrades-data-eng-gl-build-main
     parameters:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
@@ -603,6 +615,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-insights-results-aggregator-gh-build-master
     parameters:
       REDIS_STORAGE: "2Gi"
   - namespace:
