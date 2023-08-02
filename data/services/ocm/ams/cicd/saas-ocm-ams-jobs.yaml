@@ -1289,6 +1289,8 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
+      WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'false'
+      WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       SENTRY_URL: glitchtip.devshift.net
@@ -1303,6 +1305,8 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
+      WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'false'
+      WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       SUSPEND_JOB: 'true'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
@@ -1318,6 +1322,8 @@ resourceTemplates:
       name: service-uhc-account-manager-gl-build-master
     parameters:
       GATE_NAME: ocm-ams-stage-main
+      WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'false'
+      WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       AUTOMATIC_BAN: 'false'
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-stage.svc.cluster.local
       RHIT_BASE_TNC_URL: https://www.stage.redhat.com/wapps/tnc
@@ -1330,6 +1336,8 @@ resourceTemplates:
     ref: 5148089e9c083efebfc200f23343b0c3f32de483
     parameters:
       GATE_NAME: ocm-ams-prod-main
+      WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'false'
+      WAREHOUSE_HANDLE_DELETED_OCP_CLUSTERS: 'false'
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
       RHIT_BASE_SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5/
