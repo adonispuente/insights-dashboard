@@ -45,8 +45,8 @@ upgradePolicyAllowedMutexes:
 recommendedVersions:
 - workload: crc
   channel: candidate
-  recommendedVersion: 4.13.2
-  initialVersion: openshift-v4.13.2-candidate
+  recommendedVersion: 4.13.6
+  initialVersion: openshift-v4.13.6-candidate
 inheritVersionData:
 - $ref: /dependencies/ocm/crc/insights.yaml
 upgradePolicyClusters:
