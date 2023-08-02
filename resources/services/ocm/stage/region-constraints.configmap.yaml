@@ -20,6 +20,9 @@ data:
         - name: eu-central-2
           version_constraints:
             min_version: 4.11.0
+        - name: eu-south-2
+          version_constraints:
+            min_version: 4.11.0
         - name: me-central-1
           version_constraints:
             min_version: 4.11.0
