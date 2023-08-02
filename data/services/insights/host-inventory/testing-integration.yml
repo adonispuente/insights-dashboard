@@ -42,9 +42,3 @@ resourceTemplates:
       - host-inventory-stage-post-deploy-success-channel
       publish:
       - host-inventory-stage-post-deploy-integration-tests-success-channel
-      promotion_data:
-      - channel: host-inventory-stage-post-deploy-success-channel
-        data:
-        - parent_saas: host-inventory
-          target_config_hash: <TBD>
-          type: parent_saas_config
