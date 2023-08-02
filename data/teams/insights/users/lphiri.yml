@@ -11,6 +11,8 @@ github_username: lphiri
 roles:
 - $ref: /teams/insights/roles/aws/stage-app-developers.yml
 - $ref: /teams/insights/roles/aws/prod-app-developers.yml
+- $ref: /teams/insights/roles/aws/stage-read-only.yml
+- $ref: /teams/insights/roles/aws/prod-read-only.yml
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/compliance.yml
 - $ref: /teams/insights/roles/rbac.yml
