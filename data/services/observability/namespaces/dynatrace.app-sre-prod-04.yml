@@ -17,14 +17,12 @@ environment:
 
 managedResourceTypes:
 - Secret
-# TODO: enable together with saas deployment as it is a dependency
-# - NetworkPolicy
-# - DynaKube
-# - Job
+- NetworkPolicy
+- DynaKube
+- Job
 
 sharedResources:
-# TODO: enable together with saas deployment as it is a dependency
-# - $ref: /services/app-sre/shared-resources/dynatrace.yaml
+- $ref: /services/app-sre/shared-resources/dynatrace.yaml
 # Required to pull private mirror. If mirror is public, this can be removed
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
