@@ -48,6 +48,8 @@ imagePatterns:
 
 allowedSecretParameterPaths:
   - app-sre/integrations-output/terraform-resources/app-sre-stage-01/observatorium-tools
+  - app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-tools
+  - app-sre/integrations-output/terraform-resources/rhobsp02ue1/observatorium-tools
 
 resourceTemplates:
 - name: observatorium-meta-monitoring-con-prof
