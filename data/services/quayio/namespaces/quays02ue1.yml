@@ -224,29 +224,6 @@ externalResources:
       - '*.stage.quay.redhat.io'
       - 'stage.q1w2.quay.rhcloud.com'
       - '*.stage.q1w2.quay.rhcloud.com'
-  - provider: aws-iam-service-account
-    identifier: keypair-creation-quays02ue1
-    user_policy:
-      {
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Effect": "Allow",
-            "Action": "ec2:CreateKeyPair",
-            "Resource": "*"
-          },
-          {
-            "Effect": "Allow",
-            "Action": "ec2:DeleteKeyPair",
-            "Resource": "arn:aws:ec2:us-east-1:019044362261:key-pair/quaystage-builder"
-          },
-          {
-            "Effect": "Allow",
-            "Action": "ec2:DescribeKeyPairs",
-            "Resource": "*"
-          }
-        ]
-      }
   - provider: rds
     identifier: quayio-stage-57-py3
     availability_zone: us-east-1a
