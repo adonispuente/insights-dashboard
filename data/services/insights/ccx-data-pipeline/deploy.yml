@@ -533,6 +533,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-insights-content-template-renderer-gh-build-master
     parameters:
       LOG_LEVEL: INFO
   - namespace:
