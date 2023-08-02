@@ -52,7 +52,7 @@ resourceTemplates:
       $ref: /services/insights/pdf-generator/namespaces/pdf-generator-stage.yml
     ref: main
     parameters:
-      ENV_NAME: stage 
+      ENV_NAME: stage
       REPLICAS: 1
       API_PREFIX: /api/featureflags/v0
       LOG_LEVEL: debug
@@ -66,7 +66,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/pdf-generator/namespaces/pdf-generator-prod.yml
-    ref: b2e3e4f18727ed8163a7b3cc6a984dcaedf1a96a
+    ref: be5db8c5bc6d3effbd6d4dfd5656b3e58305c318
     parameters:
       ENV_NAME: prod
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
