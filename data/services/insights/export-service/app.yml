@@ -15,7 +15,7 @@ architectureDocument: https://docs.google.com/document/d/1YU7RC-ij-LaGW4HG1M6kVD
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service
 grafanaUrls:
 - title: export-service
-  url: https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus
+  url: https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus
 onboardingStatus: InProgress
 
 parentApp:
