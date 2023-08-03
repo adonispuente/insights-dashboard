@@ -12,8 +12,6 @@
   - [Create Elasticache Instance](#create-elasticache-instance)
   - [Create a configuration file](#create-a-configuration-file)
     - [Deploy the configuration file to the cluster](#deploy-the-configuration-file-to-the-cluster)
-  - [Configure syslog-cloudwatch-bridge](#configure-syslog-cloudwatch-bridge)
-    - [Create an IAM User](#create-an-iam-user)
   - [Add Network Policy](#add-network-policy)
   - [Create CloudWatch Log Group](#create-cloudwatch-log-group)
   - [Deploy via saasfile](#deploy-via-saasfile)
@@ -72,7 +70,7 @@ Quay uses cloudfront to serve content from S3 when the request is from outside A
   account: <aws_account>
   identifier: <unqiue_identier>
   storage_class: intelligent_tiering
-  defaults: /terraform/resources/ocm-quay/s3-cloudfront-us-east-1.yml
+  defaults: /terraform/resources/quayio-production/s3-cloudfront-us-east-1.yml
   output_resource_name: <output_name>
 ```
 
@@ -102,8 +100,8 @@ Quay uses redis for some locking and for build queue management.  Create an elas
 - provider: elasticache
   account: <aws_account>
   identifier: <unique_identifier>
-  defaults: /terraform/resources/ocm-quay/elasticache-1.yml
-  parameter_group: /terraform/resources/ocm-quay/elasticache-parameter-group-1.yml
+  defaults: /terraform/resources/quayio-production/elasticache-1.yml
+  parameter_group: /terraform/resources/quayio-production/elasticache-parameter-group-1.yml
   output_resource_name: <ouput_name>
 ```
 
@@ -112,48 +110,6 @@ The [defaults](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master
 ## Create a configuration file
 
 ### Deploy the configuration file to the cluster
-
-## Configure syslog-cloudwatch-bridge
-
-The `syslog-cloudwatch-bridge` is used to push logs from the quay pods into cloudwatch.
-
-### Create an IAM User
-
-A new IAM user with a correct IAM policy is needed in order to access and write to CloudWatch.  Create an IAM user with this policy by editing the namespace file and adding the following:
-
-```yaml
-- provider: aws-iam-service-account
-  account: ocm-quay
-  identifier: syslog-cloudwatch-bridge
-  variables:
-    aws_region: us-east-1
-  user_policy:
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents"
-                ],
-                "Resource": [
-                    "arn:aws:logs:*:*:*"
-                ]
-            }
-        ]
-    }
-```
-
-Once the IAM user it created, apply a secret on the cluster for the syslog-cloudwatch-bridge to use with the information from the IAM user creation:
-
-```yaml
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /ocm-quay/ocm-quay-syslog-cloudwatch-bridge-secret.yaml
-```
-
-This will convert the output from the app-interface integrations into a format that the syslog-cloudwatch-bridge can use, like [this](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/ocm-quay/ocm-quay-syslog-cloudwatch-bridge-secret.yaml).
 
 ## Add Network Policy
 

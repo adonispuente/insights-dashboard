@@ -103,27 +103,6 @@ openshiftResources:
   variables:
     environment: production
     rds_delay_seconds: 120
-- provider: resource-template
-  type: jinja2
-  path: /observability/cloudwatch-exporter/cloudwatch-exporter-config-ocm-quay.configmap.yaml
-  variables:
-    environment: production
-    region: us-east-1
-    rds_delay_seconds: 120
-- provider: resource-template
-  type: jinja2
-  path: /observability/cloudwatch-exporter/cloudwatch-exporter-config-ocm-quay.configmap.yaml
-  variables:
-    environment: production
-    region: us-west-2
-    rds_delay_seconds: 120
-- provider: resource-template
-  type: jinja2
-  path: /observability/cloudwatch-exporter/cloudwatch-exporter-config-ocm-quay.configmap.yaml
-  variables:
-    environment: production
-    region: eu-west-1
-    rds_delay_seconds: 120
 ### Insights CloudWatch Exporter
 - provider: resource-template
   type: jinja2
@@ -215,17 +194,6 @@ openshiftResources:
     vpc: false
     route53: false
     ec2: false
-### account: ocm-quay
-- provider: resource-template
-  path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
-  enable_query_support: true
-  variables:
-    name: aws-resource-exporter-ocm-quay
-    account_name: ocm-quay
-    rds: true
-    vpc: false
-    route53: false
-    ec2: false
 ### account: osd-privatelink-prod
 - provider: resource-template
   path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
@@ -268,20 +236,6 @@ externalResources:
     - AmazonInspectorReadOnlyAccess
     - CloudWatchReadOnlyAccess
     output_resource_name: aws-cloudwatch-exporter-osio
-- provider: aws
-  provisioner:
-    $ref: /aws/ocm-quay/account.yml
-  resources:
-  - provider: aws-iam-service-account
-    identifier: aws-cloudwatch-exporter-ocm-quay-prod-01
-    policies:
-    - CloudWatchReadOnlyAccess
-    output_resource_name: aws-cloudwatch-exporter-ocm-quay
-  - provider: aws-iam-service-account
-    identifier: aws-resource-exporter-ocm-quay-prod-01
-    policies:
-    - AmazonRDSReadOnlyAccess
-    output_resource_name: aws-resource-exporter-ocm-quay
 - provider: aws
   provisioner:
     $ref: /aws/app-sre/account.yml

@@ -63,7 +63,6 @@ skip_aws_accounts: []
   # - $ref: /aws/insights-prod/account.yml
   # - $ref: /aws/insights-stage/account.yml
   # - $ref: /aws/mt-sre-test/account.yml
-  # - $ref: /aws/ocm-quay/account.yml
   # - $ref: /aws/osd-bastion-int/account.yml
   # - $ref: /aws/osd-bastion-prod/account.yml
   # - $ref: /aws/osd-bastion-stage/account.yml

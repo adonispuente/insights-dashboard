@@ -36,8 +36,6 @@ openshiftResources:
       slug: quayp05ue1.d9j8.p1
     - name: clairp01ue1
       slug: clairp01ue1.qtmm.p1
-    - name: ocmquayrwp01ue1
-      slug: ocmquayrwp01ue1.zr1f.p2
     - name: telemeter-prod-01
       slug: telemeter-prod.a5j2.p1
     - name: rhobsp02ue1

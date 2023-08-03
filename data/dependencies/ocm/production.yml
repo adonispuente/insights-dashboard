@@ -28,7 +28,6 @@ upgradePolicyAllowedWorkloads:
 - hypershift
 - kcp
 - ocm
-- ocm-quay
 - quay
 - telemeter
 - example

@@ -31,9 +31,6 @@ rules: |
   path "app-sre/quay/*" {
       capabilities = ["read"]
     }
-  path "app-sre/ocm-quay/*" {
-      capabilities = ["read"]
-    }
   path "app-sre/unleash/*" {
       capabilities = ["read"]
     }

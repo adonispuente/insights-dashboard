@@ -137,7 +137,7 @@ $schema: /aws/account-1.yml
 
 labels: {}
 
-name: ocm-quay
+name: some-account
 description: App SRE AWS account for terraform integration development
 consoleUrl: https://719609279530.signin.aws.amazon.com/console
 uid: '719609279530'
@@ -152,10 +152,10 @@ terraformUsername: terraform
 
 accountOwners:
 - name: App-SRE Team
-  email: sd-app-sre+ocm-quay@redhat.com
+  email: sd-app-sre+some-account@redhat.com
 
 automationToken:
-  path: app-sre/creds/terraform/ocm-quay/config
+  path: app-sre/creds/terraform/some-account/config
   field: all
 
 premiumSupport: true
