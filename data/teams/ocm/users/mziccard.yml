@@ -1,0 +1,67 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Massimiliano Ziccardi
+org_username: mziccard
+github_username: ziccardi
+quay_username: ziccardi
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  l8veUmvnZR0jOg==
