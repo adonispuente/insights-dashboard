@@ -61,7 +61,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/unleash-proxy/namespaces/unleash-proxy-prod.yml
-    ref: 33374fefe0e7cd2227f3e0f7b97679a9d99027b0
+    ref: fe41ebb47b58ea19d1a20864e6ceec4bfe7c7490
     parameters:
       ENV_NAME: prod
       API_PREFIX: /api/featureflags/v0
