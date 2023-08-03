@@ -1,0 +1,35 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: app-sre-observability
+
+name: saas-netobserv
+description: netobserv
+
+app:
+  $ref: /services/observability/netobserv/app.yml
+
+pipelinesProvider:
+  $ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: sd-app-sre-info
+
+managedResourceTypes:
+- NetworkPolicy
+- FlowCollector
+
+imagePatterns: []
+
+resourceTemplates:
+- name: netobserv
+  path: /openshift/netobserv.template.yaml
+  url: https://gitlab.cee.redhat.com/service/app-sre-observability
+  targets:
+  - name: appsres03ue1-netobserv
+    namespace:
+      $ref: /services/observability/namespaces/netobserv.appsres03ue1.yml
+    ref: 6be4942812d645dd51aab0ab87c0049e486dfc8a
