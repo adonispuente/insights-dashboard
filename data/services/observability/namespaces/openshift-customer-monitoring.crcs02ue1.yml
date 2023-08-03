@@ -157,6 +157,10 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/frontends/hybrid-committed-spend.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/frontends-beta/cost-management.servicemonitor.yml
+- provider: resource
+  path: /insights-stage/frontends/cost-management.servicemonitor.yml
+- provider: resource
   path: /insights-stage/engine-stage/insights-engine.servicemonitor.yml
 - provider: resource
   path: /insights-stage/system-baseline-stage/system-baseline-backend.servicemonitor.yml
