@@ -34,15 +34,15 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/app-sre-observability
   parameters:
     IMAGE_GATE_TAG: 49a928c
+    IMAGE_TAG: 7e2356af3ae8526235c9c4ebaf0420c9fd64b673
   targets:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage.yml
     ref: master
     parameters:
       LOG_LEVEL: debug
-      IMAGE_TAG: 7e2356af3ae8526235c9c4ebaf0420c9fd64b673 
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
     ref: 0321d63eb6fc5aea64b2d8475a61b91f5d4b10e3
-    parameters:
-      IMAGE_TAG: 1.2
+    # parameters:
+    #   IMAGE_TAG: 1.2
