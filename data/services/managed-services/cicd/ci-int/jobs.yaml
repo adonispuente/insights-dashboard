@@ -17,35 +17,6 @@ instance:
 type: jobs
 
 config:
-  - project:
-      name: mk-strimzi-operator-midstream
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: strimzi-operator
-      quay_org: app-sre
-      jobs:
-        - 'managed-services-security-scan':
-            display_name: mk-strimzi-operator security-scan
-            branch: mk-master
-            ci_cmd: 'make scan_project'
-            slack_channel_notification: mk-ci-cd
-            cron_expression: 'H 6 * * *'
-
-  - project:
-      name: mk-apache-kafka-midstream
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: apache-kafka
-      quay_org: app-sre
-      jobs:
-        - 'managed-services-security-scan':
-            display_name: mk-apache-kafka security-scan
-            branch: mk-release
-            ci_cmd: 'make scan_project'
-            slack_channel_notification: mk-ci-cd
-            cron_expression: 'H 6 * * *'
 
   - project:
       name: mk-kafka-ui-midstream
@@ -383,52 +354,6 @@ config:
             display_name: mk-client-examples build mk-release-0.23.x
             build_deploy_script_path: './build_deploy.sh'
             branch: mk-release-0.23.x
-  - project:
-      name: kas-abnormal-workloads
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: kas-abnormal-workloads
-      quay_org: app-sre
-      jobs:
-        - 'gl-pr-check':
-            display_name: kas-abnormal-workloads pr-check
-            pr_check_script_path: './pipeline/pr_check.sh'
-        - 'gl-build-master-managed-services':
-            display_name: kas-abnormal-workloads build mk-main
-            build_deploy_script_path: './pipeline/build.sh'
-            branch: mk-main
-        - 'managed-kafka-client-workloads':
-            display_name: kas-abnormal-workloads deploy
-            default_branch: mk-main
-            timeout: 3600
-            env: stage
-  - project:
-      name: mk-strimzi-drain-cleaner
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: strimzi-drain-cleaner
-      jobs:
-        - 'gl-pr-check':
-            display_name: mk-strimzi-drain-cleaner pr-check
-            pr_check_script_path: './cicd/pr_check.sh'
-        - 'managed-services-gl-build-test-branch':
-            display_name: mk-strimzi-drain-cleaner build mk-main
-            branch: mk-main
-            build_deploy_script_path: './cicd/build.sh'
-            archive_artifacts: 'target/surefire-reports/**'
-            junit_results: 'target/surefire-reports/*.xml'
-            cleanup_script: './cicd/build.sh cleanup'
-            release: false
-        - 'managed-services-gl-build-test-branch':
-            display_name: mk-strimzi-drain-cleaner build mk-release-0.2
-            branch: mk-release-0.2
-            build_deploy_script_path: './cicd/build.sh'
-            archive_artifacts: 'target/surefire-reports/**'
-            junit_results: 'target/surefire-reports/*.xml'
-            cleanup_script: './cicd/build.sh cleanup'
-            release: true
 
   - project:
       name: mk-must-gather
@@ -444,17 +369,6 @@ config:
             display_name: mk-must-gather build master
             build_deploy_script_path: './ci/build_deploy.sh'
             branch: master
-
-  - project:
-      name: zookeeper
-      label: managed-services
-      node: managed-services
-      gl_group: mk-ci-cd
-      gl_project: zookeeper
-      jobs:
-        - 'gl-pr-check':
-            display_name: zookeeper pr-check
-            pr_check_script_path: './cicd/pr_check.sh'
 
   - project:
       name: rhosak-ui-midstream
