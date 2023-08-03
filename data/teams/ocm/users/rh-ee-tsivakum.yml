@@ -1,0 +1,27 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Thirumla Devi Sivakumar
+org_username: tsivakum
+github_username: ThirumlaDevi
+quay_username: rh-ee-tsivakum
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  mDMEZMvL2BYJKwYBBAHaRw8BAQdABd0aJoI93UGWBuazqcBXeBWsh1UAvlzFMAi0aXLXIqG0HnRz
+  aXZha3VtIDx0c2l2YWt1bUByZWRoYXQuY29tPoiZBBMWCgBBFiEEMk2Q+4M5VGll+z4SwYADxzdK
+  eRcFAmTLy9gCGwMFCQPCZwAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQwYADxzdKeReH
+  wgEAt3Z65ZZ69AlncyPiegjKGgclv440bG8x4KLSGvaVROsBAN4Cj2twJLGF+NHJFh6R3C1cwvV8
+  dD+bbscxlbEyN5oKuDgEZMvL2BIKKwYBBAGXVQEFAQEHQARU8EKAZsszsI6XH5WW9Fp99vcG591+
+  BeoXIRT3eXRBAwEIB4h+BBgWCgAmFiEEMk2Q+4M5VGll+z4SwYADxzdKeRcFAmTLy9gCGwwFCQPC
+  ZwAACgkQwYADxzdKeReDQQD/aX4ONYDU5U6rT41tEbaFE0qvLyUd9P8lpScQHs5OrVwA/1xzY1gJ
+  QdVZwjrf1sjjqjB/1uzHh3cmpfnPIK5Ewp8K
