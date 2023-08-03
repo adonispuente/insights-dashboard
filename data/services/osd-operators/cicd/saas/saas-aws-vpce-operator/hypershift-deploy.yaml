@@ -21,7 +21,7 @@ imagePatterns:
 
 use_channel_in_image_tag: true
 resourceTemplates:
-- name: aws-vpce-operator-integration
+- name: aws-vpce-operator-integration-sectors
   url: https://github.com/openshift/aws-vpce-operator
   path: /hack/olm-registry/olm-artifacts-hypershift-template.yaml
   parameters:
@@ -81,3 +81,6 @@ resourceTemplates:
     parameters:
       REGION: us-east-1
       SECTOR_NAME: main
+    promotion:
+      publish:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
