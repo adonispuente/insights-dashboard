@@ -18,6 +18,7 @@ environment:
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobsp02ue1.yml
 - $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools-production.yml
+- $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-tools.yml
 
 managedRoles: true
 
