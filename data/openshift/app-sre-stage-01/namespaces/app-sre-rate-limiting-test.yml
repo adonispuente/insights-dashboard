@@ -29,5 +29,5 @@ managedResourceTypes: []
 
 openshiftResources:
 - provider: resource
-  path: /services/rate-limiting/envoy/envoy-configmap.yml
+  path: /services/rate-limiting/envoy/envoy-configmap.yaml
 
