@@ -23,6 +23,8 @@ networkPoliciesAllow:
 # To allow jaeger-agents in observatorium-mst-production namespace to
 # write spans into jaeger-collector in observatorium-production namespace.
 - $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
+- $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-tools.yml
+
 
 grafanaUrl: https://grafana.app-sre.devshift.net/dashboards/f/xIQ-GuaGk/observatorium
 
