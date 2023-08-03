@@ -15,11 +15,11 @@ pipelinesProvider:
 
 deployResources:
   requests:
-    cpu: "1"
-    memory: 1800Mi
+    cpu: 300m
+    memory: 1Gi
   limits:
-    cpu: "1"
-    memory: 1800Mi
+    cpu: 1200m
+    memory: 2Gi
 
 slack:
   workspace:
