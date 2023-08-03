@@ -59,9 +59,6 @@ access:
     $ref: /openshift/clairp01ue1/cluster.yml
   group: dedicated-readers
 - cluster:
-    $ref: /openshift/ocmquayrwp01ue1/cluster.yml
-  group: dedicated-readers
-- cluster:
     $ref: /openshift/telemeter-prod-01/cluster.yml
   group: dedicated-readers
 - cluster:

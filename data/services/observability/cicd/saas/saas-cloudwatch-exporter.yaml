@@ -113,27 +113,3 @@ resourceTemplates:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter-crc
       AWS_SECRET_NAME: aws-cloudwatch-exporter-crc
       CLOUDWATCH_EXPORTER_CONFIGMAP: cloudwatch-exporter-config-crc
-  - name: ocm-quay-us-east-1
-    namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
-    parameters:
-      CLOUDWATCH_EXPORTER: cloudwatch-exporter-ocm-quay-us-east-1
-      AWS_SECRET_NAME: aws-cloudwatch-exporter-ocm-quay
-      CLOUDWATCH_EXPORTER_CONFIGMAP: cloudwatch-exporter-config-ocm-quay-us-east-1
-  - name: ocm-quay-eu-west-1
-    namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
-    parameters:
-      CLOUDWATCH_EXPORTER: cloudwatch-exporter-ocm-quay-eu-west-1
-      AWS_SECRET_NAME: aws-cloudwatch-exporter-ocm-quay
-      CLOUDWATCH_EXPORTER_CONFIGMAP: cloudwatch-exporter-config-ocm-quay-eu-west-1
-  - name: ocm-quay-us-west-2
-    namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
-    parameters:
-      CLOUDWATCH_EXPORTER: cloudwatch-exporter-ocm-quay-us-west-2
-      AWS_SECRET_NAME: aws-cloudwatch-exporter-ocm-quay
-      CLOUDWATCH_EXPORTER_CONFIGMAP: cloudwatch-exporter-config-ocm-quay-us-west-2

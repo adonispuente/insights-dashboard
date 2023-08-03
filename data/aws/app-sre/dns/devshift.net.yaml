@@ -172,10 +172,6 @@ records:
 - {name: prometheus.clairp01ue1, type: CNAME, _target_cluster: {$ref: /openshift/clairp01ue1/cluster.yml}}
 - {name: alertmanager.clairp01ue1, type: CNAME, _target_cluster: {$ref: /openshift/clairp01ue1/cluster.yml}}
 
-### OCM Quay
-- {name: prometheus.ocmquayrwp01ue1, type: CNAME, _target_cluster: {$ref: /openshift/ocmquayrwp01ue1/cluster.yml}}
-- {name: alertmanager.ocmquayrwp01ue1, type: CNAME, _target_cluster: {$ref: /openshift/ocmquayrwp01ue1/cluster.yml}}
-
 ### Hive
 - {name: prometheus.hivep01ue1, type: CNAME, _target_cluster: {$ref: /openshift/hivep01ue1/cluster.yml}}
 - {name: alertmanager.hivep01ue1, type: CNAME, _target_cluster: {$ref: /openshift/hivep01ue1/cluster.yml}}

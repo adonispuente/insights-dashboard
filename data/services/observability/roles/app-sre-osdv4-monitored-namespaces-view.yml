@@ -430,11 +430,6 @@ access:
     $ref: /services/osd-operators/namespaces/hivep07ue2/splunk-forwarder-operator.yml
   role: view
 
-# ocm-quay
-- namespace:
-    $ref: /services/ocm-quay/namespaces/ocmquayrwp01ue1.yml
-  role: view
-
 # quayio
 ## quay
 - namespace:

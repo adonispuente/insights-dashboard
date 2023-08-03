@@ -139,10 +139,6 @@ access:
 - cluster:
     $ref: /openshift/clairp01ue1/cluster.yml
   group: dedicated-admins
-# ocm quay
-- cluster:
-    $ref: /openshift/ocmquayrwp01ue1/cluster.yml
-  group: dedicated-admins
 
 - cluster:
     $ref: /openshift/telemeter-prod-01/cluster.yml
@@ -218,7 +214,6 @@ aws_groups:
 - $ref: /aws/quayio-prod/groups/App-SRE-admin.yml
 - $ref: /aws/insights-stage/groups/App-SRE-admin.yml
 - $ref: /aws/insights-prod/groups/App-SRE-admin.yml
-- $ref: /aws/ocm-quay/groups/App-SRE-admin.yml
 - $ref: /aws/image-builder-stage/groups/App-SRE-admin.yml
 - $ref: /aws/image-builder-prod/groups/App-SRE-admin.yml
 - $ref: /aws/app-sre-logs/groups/App-SRE-admin.yml
@@ -243,7 +238,6 @@ user_policies:
 - $ref: /aws/quayio-prod/policies/ManageOwnMFA.yml
 - $ref: /aws/insights-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/insights-prod/policies/ManageOwnMFA.yml
-- $ref: /aws/ocm-quay/policies/ManageOwnMFA.yml
 - $ref: /aws/image-builder-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/image-builder-prod/policies/ManageOwnMFA.yml
 - $ref: /aws/app-sre-logs/policies/ManageOwnMFA.yml
@@ -306,7 +300,6 @@ self_service:
   - $ref: /services/skupper-network-monitoring/app.yml
   - $ref: /services/rate-limiting/app.yml
   - $ref: /services/app-sre/app.yml
-  - $ref: /services/ocm-quay/app.yml
   - $ref: /services/dashdot/app.yml
   - $ref: /services/vault.devshift.net/app.yml
   - $ref: /services/app-sre/cert-manager/app.yml
@@ -357,8 +350,6 @@ self_service:
   - $ref: /services/vault.devshift.net/cicd/saas-ci-ext.yaml
   - $ref: /services/vault.devshift.net/cicd/saas-dev.yaml
   - $ref: /services/rate-limiting/cicd/saas.yaml
-  - $ref: /services/ocm-quay/cicd/saas/ocm-quay.yaml
-  - $ref: /services/ocm-quay/cicd/saas/opensearch-dashboards-proxy.yaml
   - $ref: /services/gabi/cicd/saas-gabi.yaml
   - $ref: /services/gabi/cicd/saas-post-deploy-tests.yaml
   - $ref: /services/observability/cicd/saas/saas-odfms-token-refresher.yaml

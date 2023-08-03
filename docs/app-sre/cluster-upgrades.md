@@ -383,16 +383,6 @@ OCM and Quay production clusters share a mutex `ocm-quay-critical` which avoids 
 * quayp04ue2
 * quayp05ue1
 
-### OCM-Quay
-
-The first clusters to be upgraded are the read-only ocm-quay clusters.
-
-The first one is upgraded with every new version. The second after the version has soaked for a day, the third after 2 days.
-
-Once a version has soaked for 7 days, the read-write cluster will be upgraded.
-
-All ocmquay production clusters (read-only and read-write) share a mutex `ocmquay-production` to avoid any simultaneous cluster upgrade.
-
 ### Telemeter
 
 The first cluster with telemeter workload is app-sre-stage-01 which also host other workloads (See [AppSRE](#appsre)). This cluster will be upgraded on every new version in the candidate channel.

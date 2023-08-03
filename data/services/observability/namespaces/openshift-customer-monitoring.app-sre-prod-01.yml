@@ -154,7 +154,6 @@ openshiftResources:
     - aws-resource-exporter
     - aws-resource-exporter-crc
     - aws-resource-exporter-quay
-    - aws-resource-exporter-ocm-quay
     - aws-resource-exporter-osio
     - aws-resource-exporter-osd-privatelink-prod
 
@@ -177,7 +176,6 @@ openshiftResources:
     accounts_with_cloudwatch_exporter:
     - app-sre
     - quayio-prod
-    - ocm-quay
     - osio
     - insights-prod
     cloudwatch_exporter_instances:
@@ -186,9 +184,6 @@ openshiftResources:
     - cloudwatch-exporter-osio
     - cloudwatch-exporter-quay
     - cloudwatch-exporter-crc
-    - cloudwatch-exporter-ocm-quay-us-east-1
-    - cloudwatch-exporter-ocm-quay-eu-west-1
-    - cloudwatch-exporter-ocm-quay-us-west-2
 ### SignalFX Prometheus Exporter
 - provider: prometheus-rule
   path: /observability/prometheusrules/signalfx-prometheus-exporter.prometheusrules.yaml
@@ -281,24 +276,6 @@ openshiftResources:
   path: /observability/servicemonitors/cloudwatch-exporter.servicemonitor.yaml
   variables:
     namespace: app-sre-observability-production
-    name: cloudwatch-exporter-ocm-quay-us-east-1
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/cloudwatch-exporter.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-production
-    name: cloudwatch-exporter-ocm-quay-eu-west-1
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/cloudwatch-exporter.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-production
-    name: cloudwatch-exporter-ocm-quay-us-west-2
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/cloudwatch-exporter.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-production
     name: cloudwatch-exporter-crc
 - provider: resource-template
   type: jinja2
@@ -323,12 +300,6 @@ openshiftResources:
   variables:
     namespace: app-sre-observability-production
     name: aws-resource-exporter-crc
-- provider: resource-template
-  type: jinja2
-  path: /observability/servicemonitors/aws-resource-exporter.servicemonitor.yaml
-  variables:
-    namespace: app-sre-observability-production
-    name: aws-resource-exporter-ocm-quay
 - provider: resource-template
   type: jinja2
   path: /observability/servicemonitors/aws-resource-exporter.servicemonitor.yaml
@@ -437,7 +408,6 @@ openshiftResources:
     accounts_with_aws_resource_exporter:
     - app-sre
     - insights-prod
-    - ocm-quay
     - osio
     - quayio-prod
 - provider: prometheus-rule
@@ -448,7 +418,6 @@ openshiftResources:
     accounts_with_aws_resource_exporter:
     - app-sre
     - insights-prod
-    - ocm-quay
     - osio
     - quayio-prod
 
@@ -464,7 +433,6 @@ openshiftResources:
     - quayio-stage
     - app-sre
     - insights-prod
-    - ocm-quay
     - osio
     - quayio-prod
   tests:

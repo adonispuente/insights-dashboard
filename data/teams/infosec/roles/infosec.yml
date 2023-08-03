@@ -17,7 +17,6 @@ aws_groups:
 - $ref: /aws/quayio-prod/groups/InfoSec.yml
 - $ref: /aws/insights-stage/groups/InfoSec.yml
 - $ref: /aws/insights-prod/groups/InfoSec.yml
-- $ref: /aws/ocm-quay/groups/InfoSec.yml
 - $ref: /aws/image-builder-stage/groups/InfoSec.yml
 - $ref: /aws/image-builder-prod/groups/InfoSec.yml
 - $ref: /aws/app-sre-logs/groups/InfoSec.yml
@@ -36,7 +35,6 @@ user_policies:
 - $ref: /aws/quayio-prod/policies/ManageOwnMFA.yml
 - $ref: /aws/insights-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/insights-prod/policies/ManageOwnMFA.yml
-- $ref: /aws/ocm-quay/policies/ManageOwnMFA.yml
 - $ref: /aws/image-builder-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/image-builder-prod/policies/ManageOwnMFA.yml
 - $ref: /aws/app-sre-logs/policies/ManageOwnMFA.yml

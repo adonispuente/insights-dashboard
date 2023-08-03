@@ -72,9 +72,6 @@ access:
     $ref: /openshift/clairp01ue1/cluster.yml
   clusterRole: cluster-monitoring-view
 - cluster:
-    $ref: /openshift/ocmquayrwp01ue1/cluster.yml
-  clusterRole: cluster-monitoring-view
-- cluster:
     $ref: /openshift/crcs02ue1/cluster.yml
   clusterRole: cluster-monitoring-view
 - cluster:

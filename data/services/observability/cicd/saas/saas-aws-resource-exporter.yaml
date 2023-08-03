@@ -99,14 +99,6 @@ resourceTemplates:
       NAME: aws-resource-exporter-crc
       SECRET_NAME: aws-resource-exporter-crc
       CONFIGMAP_NAME: aws-resource-exporter-crc
-  - name: ocm-quay
-    namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 574093582565486c0f64cec1be19192b673b19ac
-    parameters:
-      NAME: aws-resource-exporter-ocm-quay
-      SECRET_NAME: aws-resource-exporter-ocm-quay
-      CONFIGMAP_NAME: aws-resource-exporter-ocm-quay
   # - name: app-sre-stage-01-cluster-scraper
   #   namespace:
   #     $ref: /services/observability/namespaces/app-sre-observability-stage.yml
