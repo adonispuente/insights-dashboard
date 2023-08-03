@@ -65,3 +65,5 @@ resourceTemplates:
     namespace:
       $ref: /services/observability/namespaces/netobserv.appsres03ue1.yml
     ref: 6be4942812d645dd51aab0ab87c0049e486dfc8a
+    parameters:
+      LOKI_STACK_SIZE: 1x.extra-small
