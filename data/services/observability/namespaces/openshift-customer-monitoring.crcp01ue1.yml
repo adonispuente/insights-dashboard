@@ -302,6 +302,10 @@ openshiftResources:
   path: /insights-prod/frontends-beta/hybrid-committed-spend.servicemonitor.yml
 - provider: resource
   path: /insights-prod/frontends/hybrid-committed-spend.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/frontends-beta/cost-management.servicemonitor.yml
+- provider: resource
+  path: /insights-prod/frontends/cost-management.servicemonitor.yml
 
 # unleash-proxy
 - provider: resource
