@@ -3319,6 +3319,10 @@ Once a `gitlabSync` is merged, the source project/branch will be monitored for a
   * This can be adjusted by navigating to: `Settings > Repository > Protected branches` in the destination project
 
 
+### Prometheus rules for cluster appsrep05ue1
+
+Please note that we currently don't scrape all the kube* metrics in this clusters. All available kube* metrics are listed [here](https://gitlab.cee.redhat.com/service/app-interface/-/blame/832f65f171da20c378f0ba156d05f1a5d43d8d45/resources/observability/prometheus/prometheus-app-sre-additional-scrapeconfig-internal.secret.yaml#L214-267). If you need a new metric, please reach out to App SREs in #sd-app-sre.
+
 ### Write and run Prometheus rules tests
 
 Please follow [this guide](/docs/app-sre/prometheus-rules-tests-in-app-interface.md) to know to do it.
