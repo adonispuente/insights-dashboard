@@ -31,6 +31,7 @@ openshiftResources:
   version: 1
 ### Prometheus additional scrape config
 ### Defines any additional jobs that don't fit into the servicemonitor model
+### We currently don't scrape all kube* metrics off this cluster's Prometheus federation endpoint
 - provider: resource-template
   type: extracurlyjinja2
   path: /observability/prometheus/prometheus-app-sre-additional-scrapeconfig-internal.secret.yaml
