@@ -159,13 +159,13 @@ resourceTemplates:
       BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert" 
   - namespace:
       $ref: /services/backplane/namespaces/backplane-int-hivei01ue1.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
       ENABLE_TEST_SCRIPT_API: "true"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-int-backplanei01ue1.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
       ENABLE_TEST_SCRIPT_API: "true"
