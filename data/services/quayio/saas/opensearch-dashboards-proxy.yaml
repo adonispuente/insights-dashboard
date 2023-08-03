@@ -29,8 +29,8 @@ managedResourceTypes:
 - ServiceAccount
 
 imagePatterns:
-- quay.io/app-sre
-- quay.io/openshift
+- quay.io/app-sre/nginx
+- quay.io/openshift/origin-oauth-proxy
 
 authentication:
   image:
@@ -60,7 +60,7 @@ resourceTemplates:
         field: endpoint
   - namespace:
       $ref: /services/quayio/namespaces/opensearch-dashboards.quayp05ue1.yaml
-    ref: main
+    ref: 38818327f9a83a7808be1cbc9491e39441722be2
     parameters:
       HOST: opensearch-dashboards.apps.quayp05ue1.d9j8.p1.openshiftapps.com
     secretParameters:
@@ -70,7 +70,7 @@ resourceTemplates:
         field: endpoint
   - namespace:
       $ref: /services/quayio/namespaces/opensearch-dashboards.quayp04ue2.yaml
-    ref: main
+    ref: 38818327f9a83a7808be1cbc9491e39441722be2
     parameters:
       HOST: opensearch-dashboards.apps.quayp04ue2.k9x1.p1.openshiftapps.com
     secretParameters:
