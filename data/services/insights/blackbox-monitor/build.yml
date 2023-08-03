@@ -24,5 +24,7 @@ config:
     gl_project: blackbox-monitor
     quay_org: cloudservices
     jobs:
+    - "insights-gl-pr-check":
+        display_name: blackbox-monitor pr-check
     - "insights-gl-build-master":
         display_name: blackbox-monitor build-master
