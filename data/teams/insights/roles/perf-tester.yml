@@ -95,6 +95,9 @@ access:
 - namespace:
     $ref: /services/insights/image-builder/namespaces/image-builder-perf.yml
   role: edit
+- namespace:
+    $ref: /services/insights/ros/namespaces/perf-ros-perf.yml
+  role: edit
 
 self_service:
 - change_type:
@@ -131,6 +134,7 @@ self_service:
   - $ref: /services/insights/content-sources/deploy-perf.yml
   - $ref: /services/insights/provisioning/deploy-perf.yml
   - $ref: /services/insights/image-builder/deploy-perf.yml
+  - $ref: /services/insights/ros/deploy-perf.yml
 - change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:
@@ -153,6 +157,7 @@ self_service:
   - /terraform/resources/insights/perf/elasticache/elasticache-compliance-2.yml
   - /terraform/resources/insights/perf/elasticache/elasticache-content-sources-1.yml
   - /terraform/resources/insights/perf/elasticache/elasticache-provisioning-1.yml
+  - /terraform/resources/insights/perf/elasticache/elasticache-ros-1.yml
   - /terraform/resources/insights/perf/elasticsearch/xjoin.yml
   - /terraform/resources/insights/perf/rds/postgres10-parameter-group-host-inventory-perf-read-replica.yml
   - /terraform/resources/insights/perf/rds/postgres10-rds-1.yml
@@ -187,6 +192,10 @@ self_service:
   - /terraform/resources/insights/perf/rds/postgres12-rds-rhsm-perf.yml
   - /terraform/resources/insights/perf/rds/postgres13-parameter-group-content-sources-perf.yml
   - /terraform/resources/insights/perf/rds/postgres13-parameter-group-provisioning-perf.yml
+  - /terraform/resources/insights/perf/rds/postgres13-parameter-group-kruize-perf.yml
+  - /terraform/resources/insights/perf/rds/postgres13-parameter-group-ros-perf.yml
+  - /terraform/resources/insights/perf/rds/postgres13-rds-kruize-perf.yml
+  - /terraform/resources/insights/perf/rds/postgres13-rds-ros-ocp-perf.yml
   - /terraform/resources/insights/perf/s3/s3-gdpr-14.yml
   - /terraform/resources/insights/perf/sqs-insights-sideload-perf.yml
 - change_type:
