@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-      ref: c8f188ffb521d0d3ccb713a3f99c91fd669865e0
+      ref: 30ca30fd4fadb6b725d7bd8dddd3cb4a2d9f29b8
       parameters:
         SECRET_NAME: observatorium-observatorium-mst-api
         TENANTS:
@@ -62,16 +62,6 @@ resourceTemplates:
                 - endpoint: /api/metrics/v1/.+/api/v1/receive
                   limit: 10000
                   window: 30s
-            - id: 63e320cd-622a-4d05-9585-ffd48342633e
-              name: managedkafka
-              oidc:
-                clientID: ${CLIENT_ID}
-                clientSecret: ${CLIENT_SECRET}
-                issuerURL: https://sso.redhat.com/auth/realms/redhat-external
-                redirectURL: https://observatorium-mst.api.stage.openshift.com/oidc/managedkafka/callback
-                usernameClaim: preferred_username
-              opa:
-                url: http://127.0.0.1:8082/v1/data/observatorium/allow
             - id: 1b9b6e43-9128-4bbf-bfff-3c120bbe6f11
               name: rhacs
               oidc:

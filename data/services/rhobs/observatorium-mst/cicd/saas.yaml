@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: f43355ad2357de406c5dcb94922faa9f80a69954
+    ref: 30ca30fd4fadb6b725d7bd8dddd3cb4a2d9f29b8
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -132,7 +132,6 @@ resourceTemplates:
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
-      MANAGEDKAFKA_ORGANIZATION_ID: 1h0UApMaFwzvGLGlfuzUpITFFQ0
       OSD_ORGANIZATION_ID: 1lneg5EWJaGAK3d7RZpAJM9WujU
       SD_OPS_ORGANIZATION_ID: 27NgQLG2sVFHQmF4SWVsykA97Ef
     promotion:
