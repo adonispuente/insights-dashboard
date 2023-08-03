@@ -11,3 +11,4 @@ github_username: victoria-dos
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/platform-experience.yml
+- $ref: /teams/insights/roles/platform-experience-services.yml

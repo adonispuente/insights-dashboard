@@ -14,3 +14,4 @@ roles:
 - $ref: /teams/insights/roles/platform-experience.yml
 - $ref: /teams/insights/roles/frontend-admins.yml
 - $ref: /teams/insights/roles/crcd-dev-jenkins-editors.yml
+- $ref: /teams/insights/roles/platform-experience-services.yml

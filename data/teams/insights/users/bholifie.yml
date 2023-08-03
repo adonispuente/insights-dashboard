@@ -28,6 +28,7 @@ roles:
 - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
+- $ref: /teams/insights/roles/platform-experience-services.yml
 
 public_gpg_key: |
   mQINBF9rlMABEADlHUSALwx8v0EyFDwUMQcI0qAox78q2Q6Aklmpob7YxJ5yHuS/0cCys1qMVNqy
