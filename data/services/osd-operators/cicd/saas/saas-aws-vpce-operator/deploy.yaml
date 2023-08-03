@@ -35,9 +35,8 @@ resourceTemplates:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: main
     promotion:
-      # TODO: uncomment once channel created
-      #subscribe:
-      #  - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
+      subscribe:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration
   - namespace:
