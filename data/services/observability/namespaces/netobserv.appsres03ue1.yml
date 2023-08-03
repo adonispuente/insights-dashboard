@@ -1,0 +1,36 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: netobserv
+description: netobserv resources
+
+cluster:
+  $ref: /openshift/appsres03ue1/cluster.yml
+
+app:
+  $ref: /services/observability/netobserv/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-stage/account.yml
+  resources:
+    - provider: s3
+      identifier: netobserv-appsres03ue1
+      defaults: /terraform/resources/s3-private-expires-14-days.yml
+      output_resource_name: loki-s3
+      output_format:
+        provider: generic-secret
+        data:
+          access_key_id: "{{ aws_access_key_id }}"
+          region: "{{ aws_region }}"
+          access_key_secret: "{{ aws_secret_access_key }}"
+          bucketnames: "{{ bucket }}"
+          endpoint: "{{ endpoint }}"
