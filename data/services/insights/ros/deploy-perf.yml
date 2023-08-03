@@ -5,7 +5,7 @@ labels:
   service: ros
   platform: insights
 
-name: ros-clowder
+name: ros-perf
 description: ros app deployed via clowder
 
 app:
