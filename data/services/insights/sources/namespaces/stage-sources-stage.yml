@@ -29,6 +29,7 @@ networkPoliciesAllow:
 - $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
 - $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
 - $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+- $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
 
 managedRoles: true
 
