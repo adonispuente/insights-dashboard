@@ -55,6 +55,9 @@ resourceTemplates:
       REGION: us-east-2
       SECTOR_NAME: main
     promotion:
+      auto: true
+      subscribe:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-west-2
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-2
   - name: aws-vpce-operator-integration-eu-central-1
@@ -68,6 +71,9 @@ resourceTemplates:
       REGION: eu-central-1
       SECTOR_NAME: main
     promotion:
+      auto: true
+      subscribe:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-2
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-eu-central-1
   - name: aws-vpce-operator-integration-us-east-1
@@ -82,5 +88,8 @@ resourceTemplates:
       REGION: us-east-1
       SECTOR_NAME: main
     promotion:
+      auto: true
+      subscribe:
+        - aws-vpce-operator-sss-deployed-success-channel-integration-eu-central-1
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
