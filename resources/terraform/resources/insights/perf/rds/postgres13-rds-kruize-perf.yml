@@ -12,7 +12,6 @@ storage_type: gp2
 multi_az: false
 db_subnet_group_name: 'insights-perf-rds-subnet-group'
 engine_version: "13.9"
-apply_immediately: true
 maintenance_window: Sun:05:00-Sun:07:00
 backup_window: 03:00-04:00
 vpc_security_group_ids: ['sg-0b664c00ac2d59db2']

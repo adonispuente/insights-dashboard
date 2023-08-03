@@ -51,6 +51,8 @@ externalResources:
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-ros-perf.yml
     output_resource_name: rosocp-perf
     enhanced_monitoring: true
+    overrides:
+      apply_immediately: true
   - provider: rds
     identifier: kruize-perf
     annotations:
@@ -59,6 +61,8 @@ externalResources:
     parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-kruize-perf.yml
     output_resource_name: kruize-perf
     enhanced_monitoring: true
+    overrides:
+      apply_immediately: true
   - provider: cloudwatch
     identifier: engine-perf
     defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-1.yml
