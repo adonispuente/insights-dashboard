@@ -27,7 +27,6 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: hybrid-committed-spend-frontend pr-check
-        branch: main
     - "insights-gh-build-master":
         display_name: hybrid-committed-spend-frontend build-main
         branch: main
