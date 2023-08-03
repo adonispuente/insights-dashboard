@@ -436,6 +436,9 @@
     - string:
         name: VAULT_PATH_QUAY_TOKEN
         default: 'insights-cicd/quay/{quay_org}'
+    - string:
+        name: VAULT_PATH_CHROME_CYPRESS
+        default: 'insights-cicd/chrome'
     script-path: 'Jenkinsfile'
     scm:
     - github:
