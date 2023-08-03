@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-config-v2-f83319e0
+  name: log-config-v3-f83319e0
   namespace: dynatrace
 spec:
   backoffLimit: 8
@@ -45,14 +45,14 @@ spec:
               CLUSTER_NAME="test-cluster"
               RULE_NAME="log-cluster-namespaces"
 
-              hostGroupData=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/entities?entitySelector=type(\"HOST_GROUP\"),entityName(\"$CLUSTER_NAME\")&fields=properties")
+              hostGroupData=$(curl -s --fail-with-body -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/entities?entitySelector=type(\"HOST_GROUP\"),entityName(\"$CLUSTER_NAME\")&fields=properties")
               totalCount=$(echo "$hostGroupData" | jq -r '.totalCount')
               if [ "$totalCount" -ne 1 ]; then
                 echo "[ERROR] $DT_API_URL returned $totalCount occurrences of cluster $CLUSTER_NAME amongst Dynatrace HOST_GROUPS. If 0, then maybe DT stack isnt ready yet -> retry."
                 exit 1
               fi
               hostGroupId=$(echo $hostGroupData | jq -r '.entities[0].entityId')
-              ruleObjectId=$(curl -s -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/settings/objects?schemaIds=builtin:logmonitoring.log-storage-settings&scopes=$hostGroupId" | jq -r '.items[] | select(.value."config-item-title" == "'$RULE_NAME'") | .objectId')
+              ruleObjectId=$(curl -s --fail-with-body -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/settings/objects?schemaIds=builtin:logmonitoring.log-storage-settings&scopes=$hostGroupId" | jq -r '.items[] | select(.value."config-item-title" == "'$RULE_NAME'") | .objectId')
 
               namespaces_json="["
               delimiter=""
@@ -86,9 +86,9 @@ spec:
               if [[ -n "$ruleObjectId" ]]; then
                 echo "There already exists a logging rule for cluster $CLUSTER_NAME. Lets adjust the existing one!"
                 # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/objects/put-object
-                curl -s -X PUT -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "$payload" "$DT_API_URL/settings/objects/$ruleObjectId"
+                curl -s --fail-with-body -X PUT -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "$payload" "$DT_API_URL/settings/objects/$ruleObjectId"
               else
                 echo "No logging rule for cluster $CLUSTER_NAME yet. Lets create a new one!"
                 # https://www.dynatrace.com/support/help/dynatrace-api/environment-api/settings/objects/post-object
-                curl -s -X POST -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "[$payload]" "$DT_API_URL/settings/objects"
+                curl -s --fail-with-body -X POST -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" -d "[$payload]" "$DT_API_URL/settings/objects"
               fi
