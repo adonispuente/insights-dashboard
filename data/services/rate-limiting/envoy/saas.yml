@@ -29,7 +29,7 @@ managedResourceTypes:
 - ConfigMap
 
 imagePatterns:
-- envoyproxy/envoy
+- quay.io/app-sre/envoyproxy
 
 resourceTemplates:
 - name: envoy
