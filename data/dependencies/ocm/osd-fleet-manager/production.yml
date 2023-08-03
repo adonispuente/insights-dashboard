@@ -277,134 +277,122 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: eu-west-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - eu-west-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-sc-gn7oe54g0
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-east-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-east-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-sc-i7q8ep4k0
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-east-2
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-east-2
-      - fleet-wide
+      - ibm-infra
 - name: hs-sc-ppoa5lsbg
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: eu-central-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - eu-central-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-sc-ojqh1ucjg
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-west-2
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-west-2
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-i7q8ephv0
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-east-2
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-east-2
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-g6dtudfmg
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: eu-west-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - eu-west-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-gn7oe5qu0
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-east-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-east-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-ppoa5mj5g
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: eu-central-1
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - eu-central-1
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-ojqh1v3ag
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: us-west-2
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - us-west-2
-      - fleet-wide
+      - ibm-infra
 - name: hs-sc-7iiovl4q0
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: ap-southeast-3
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - ap-southeast-3
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-7iiovlik0
   upgradePolicy:
     workloads:
     - management-cluster
-    schedule: 0 * * * 1-4
+    schedule: 0 13 * * 1-4
     conditions:
-      sector: ap-southeast-3
-      soakDays: 5
+      sector: ibm-infra
+      soakDays: 0
       mutexes:
-      - ap-southeast-3
-      - fleet-wide
+      - ibm-infra
 - name: hs-mc-bdstv4r4g
   upgradePolicy:
     workloads:
