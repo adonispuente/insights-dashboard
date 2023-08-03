@@ -1,0 +1,16 @@
+---
+$schema: /dependencies/glitchtip-project-1.yml
+
+labels: {}
+
+name: ocm-uhc-portal
+description: Project for OCM UHC-Portal
+
+app:
+  $ref: /services/ocm/app.yml
+
+platform: javascript
+teams:
+  - $ref: /dependencies/glitchtip/teams/ocm.yml
+organization:
+  $ref: /dependencies/glitchtip/organizations/ocm.yml

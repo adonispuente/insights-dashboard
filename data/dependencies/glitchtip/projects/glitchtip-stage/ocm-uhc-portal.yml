@@ -1,0 +1,16 @@
+---
+$schema: /dependencies/glitchtip-project-1.yml
+
+labels: {}
+
+name: ocm-uhc-portal-stage
+description: Project for OCM UHC-Portal Stage Environment
+
+app:
+  $ref: /services/ocm/app.yml
+
+platform: javascript
+teams:
+  - $ref: /dependencies/glitchtip/teams/ocm.yml
+organization:
+  $ref: /dependencies/glitchtip/organizations/ocm.yml
