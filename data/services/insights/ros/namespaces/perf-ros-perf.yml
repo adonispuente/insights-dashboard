@@ -1,0 +1,69 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: ros
+
+name: ros-perf
+description: Insights ros-perf on the Stage cluster under e2e-deploy/ocdeployer management
+
+cluster:
+  $ref: /openshift/insights/cluster-insights-perf.yml
+
+app:
+  $ref: /services/insights/ros/app.yml
+
+environment:
+  $ref: /products/insights/environments/perf.yml
+
+networkPoliciesAllow: []
+
+managedRoles: true
+
+managedResourceTypes: []
+
+openshiftResources:
+- provider: vault-secret
+  path: insights/secrets/global/rh-registry-pull
+  version: 2
+  type: kubernetes.io/dockerconfigjson
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
+- provider: vault-secret
+  path: insights/secrets/perf/ros-perf/hccm-ros-s3
+  version: 1
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-perf/account.yml
+  resources:
+  - provider: rds
+    identifier: rosocp-perf
+    annotations:
+      clowder/database: ros-ocp-backend
+    defaults: /terraform/resources/insights/perf/rds/postgres13-rds-ros-ocp-perf.yml
+    parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-ros-perf.yml
+    output_resource_name: rosocp-perf
+    enhanced_monitoring: true
+  - provider: rds
+    identifier: kruize-perf
+    annotations:
+      clowder/database: kruize
+    defaults: /terraform/resources/insights/perf/rds/postgres13-rds-kruize-perf.yml
+    parameter_group: /terraform/resources/insights/perf/rds/postgres13-parameter-group-kruize-perf.yml
+    output_resource_name: kruize-perf
+    enhanced_monitoring: true
+  - provider: cloudwatch
+    identifier: engine-perf
+    defaults: /terraform/resources/insights/perf/cloudwatch/cloudwatch-1.yml
+    output_resource_name: cloudwatch
+  - provider: elasticache
+    identifier: ros-redis-clowder
+    defaults: /terraform/resources/insights/perf/elasticache/elasticache-ros-1.yml
+    output_resource_name: in-memory-db
