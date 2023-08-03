@@ -618,6 +618,9 @@
     - string:
         name: VAULT_PATH_APP_INTERFACE_CREDS
         default: 'app-sre/creds/app-interface/production/basic-auth'
+    - string:
+        name: VAULT_PATH_CHROME_CYPRESS
+        default: 'insights-cicd/chrome'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'Jenkinsfile'
