@@ -1,7 +1,9 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels: {}
+labels:
+  # TODO: remove after https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/71658
+  enableDynatraceLogging: ""
 
 name: uhc-production
 description: production namespace for uhc
