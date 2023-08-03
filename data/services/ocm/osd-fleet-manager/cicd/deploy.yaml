@@ -824,8 +824,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-east-2
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -889,8 +889,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-east-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -911,8 +911,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-us-west-2
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -933,8 +933,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-eu-west-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -956,8 +956,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-ap-southeast-3
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
@@ -978,8 +978,8 @@ resourceTemplates:
       - ocm-osdfm-deployed-production-eu-central-1
     parameters:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # openshift/hypershift.git branch release-4.13 commit 7b6e5a22af222f82ee93877c165a5e02f503fa4e / tag v0.1.8
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:eefdbf641ef25e7e83263a6a61446a358d7948cce2ea4302a65656bb5c897d64
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
             apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
             cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
