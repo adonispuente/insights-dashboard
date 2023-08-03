@@ -27,23 +27,19 @@ resourceTemplates:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
     KNOWN_SECTORS: '["canary", "ibm-infra", "main"]'
   targets:
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: main
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-aws-vpce-operator-gh-build-main
-  - namespace:
-      $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
+  - name: aws-vpce-operator-integration
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+          - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: main
     promotion:
+      # TODO: uncomment once channel created
+      #subscribe:
+      #  - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
       publish:
-      - aws-vpce-operator-sss-deployed-success-channel-ssotest01ue1
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-aws-vpce-operator-gh-build-main
+        - aws-vpce-operator-sss-deployed-success-channel-integration
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: main
