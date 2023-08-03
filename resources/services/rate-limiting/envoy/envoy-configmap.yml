@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-envoy
+  name: envoy-config
 data:
   main.yaml: |
     # The administration endpoint uses a Unix socket instead of TCP in order
