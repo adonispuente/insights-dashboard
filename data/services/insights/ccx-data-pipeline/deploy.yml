@@ -347,7 +347,7 @@ resourceTemplates:
       - insights-aggregator-exporter-stage-ready-channel
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: d17b21eea671df81af0995f2d39b5af082a6e680
+    ref: 0370b83392efb588e3097262dd716339cf824684
     parameters:
       ENABLE_ORG_ID_FILTERING: "true" # used for testing with prod data
       ORGANIZATION_IDS_CSV_FILE: "/db-exporter-organization-ids/db_exporter_organization_ids.csv"
@@ -505,7 +505,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: true
-    ref: e4400d0ff3474194db2c0862fef482de07a8be65
+    ref: 0370b83392efb588e3097262dd716339cf824684
     parameters:
       OUTPUT: "S3"
       MEMORY_REQUEST: 5Gi
