@@ -315,7 +315,7 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: fd63a75
+      DBM_IMAGE_TAG: ed61da9
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
