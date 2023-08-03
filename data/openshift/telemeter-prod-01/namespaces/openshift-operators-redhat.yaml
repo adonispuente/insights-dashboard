@@ -23,4 +23,4 @@ openshiftResources:
 - provider: resource
   path: /setup/loki/loki-operator.subscription.yaml
 - provider: resource
-  path: /setup/loki/loki-operator.group.yaml
+  path: /setup/loki/loki-operator-group.operatorgroup.yaml
