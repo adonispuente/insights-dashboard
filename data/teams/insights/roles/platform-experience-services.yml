@@ -1,0 +1,52 @@
+---
+
+$schema: /access/role-1.yml
+
+labels: {}
+name: platform-experience-services
+
+permissions:
+# slack
+- $ref: /teams/insights/permissions/crc-experience-services-team-coreos-slack.yml
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/insights/platform-experience.yml
+
+access:
+- namespace:
+    $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-stage.yml
+  role: view
+- namespace:
+    $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
+  role: view
+- namespace:
+    $ref: /services/insights/quickstarts/namespaces/quickstarts-stage.yml
+  role: view
+- namespace:
+    $ref: /services/insights/quickstarts/namespaces/quickstarts-prod.yml
+  role: view
+- namespace:
+    $ref: /services/insights/chrome-service/namespaces/chrome-service-stage.yml
+  role: view
+- namespace:
+    $ref: /services/insights/chrome-service/namespaces/chrome-service-prod.yml
+  role: view
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/insights/quickstarts/deploy.yml
+  - $ref: /services/insights/crc-pdf-generator/deploy.yml
+  - $ref: /services/insights/chrome-service/deploy.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/insights/quickstarts/app.yml
+  - $ref: /services/insights/crc-pdf-generator/app.yml
+  - $ref: /services/insights/chrome-service/app.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/insights/roles/platform-experience-services.yml
+  - $ref: /teams/insights/roles/platform-experience-slack-only.yml
