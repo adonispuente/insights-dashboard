@@ -118,7 +118,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       WORKER_COUNT: '2'
@@ -229,7 +229,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 36 17 * * *
@@ -339,7 +339,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 26 */2 * * *
@@ -449,7 +449,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 21 */5 * * *
@@ -558,7 +558,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -665,7 +665,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 3-59/30 * * * *
@@ -779,7 +779,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
@@ -887,7 +887,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 11 * * * *
@@ -994,7 +994,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 31 11 * * *
@@ -1106,7 +1106,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 16 * * * *
@@ -1215,7 +1215,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: '*/5 * * * *'
@@ -1333,7 +1333,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       WAREHOUSE_RUN_DELETED_OCP_CLUSTERS: 'false'
@@ -1443,7 +1443,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       CRON_SCHEDULE: 46 * * * *
@@ -1552,7 +1552,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1658,7 +1658,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
@@ -1778,7 +1778,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       RBAC_BASE_URL: https://mtls.internal.console.redhat.com
@@ -1883,7 +1883,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
       RHIT_BASE_USER_URL: https://user.api.redhat.com/v2/
@@ -1982,7 +1982,7 @@ resourceTemplates:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_1
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5148089e9c083efebfc200f23343b0c3f32de483
+    ref: eada8bf1eb122d0671c1e83f18f66311e2d1d8c8
     parameters:
       GATE_NAME: ocm-ams-prod-main
       JWKS_URL: ${OCM_BASE_URL}/.well-known/jwks.json
