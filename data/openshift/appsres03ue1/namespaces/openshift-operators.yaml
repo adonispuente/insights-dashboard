@@ -22,3 +22,5 @@ openshiftResources:
 - provider: resource-template
   type: jinja2
   path: /tekton/openshift-pipelines-operator-rh.subscription.j2
+- provider: resource
+  path: /setup/network-observability/netobserv-operator.stable.subscription.yaml
