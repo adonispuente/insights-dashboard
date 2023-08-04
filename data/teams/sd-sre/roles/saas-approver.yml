@@ -11,8 +11,6 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
-  - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/deploy.yaml
-  - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/hypershift-deploy.yaml
   - $ref: /services/osd-operators/cicd/saas/tests/saas-aws-vpce-operator-test.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-must-gather-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/clusterimagesets/integration.yaml
@@ -49,6 +47,11 @@ self_service:
   - $ref: /services/configuration-anomaly-detection/cicd/saas-configuration-anomaly-detection-db.yaml
   - $ref: /services/observability/cicd/saas/saas-aws-resource-exporter-osd-privatelink.yaml
   - $ref: /services/observability/cicd/saas/saas-hypershift-token-refresher.yaml
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service-validate-targets-in-app.yml
+  datafiles:
+  - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/deploy.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/hypershift-deploy.yaml
 - change_type:
     $ref: /app-interface/changetype/aws-privatelink-region-enabler.yml
   datafiles:
