@@ -519,7 +519,7 @@ openshiftResources:
   - /insights-stage/content-sources-stage/content-sources-stage.prometheusrulestest.yml
 - provider: resource
   path: /insights-stage/platform-changelog-stage/platform-changelog-go.servicemonitor.yml
-- provider: resource
+- provider: prometheus-rule
   path: /insights-stage/export-service-stage/export-service.servicemonitor.yml
   type: resource
   tests:
