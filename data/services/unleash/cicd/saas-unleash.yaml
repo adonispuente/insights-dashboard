@@ -55,7 +55,7 @@ resourceTemplates:
   - name: app-interface-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
-    ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
+    ref: 12906503039251bc922bc04394c59ed8eaafa7ad
     parameters:
       identifier: app-interface
       configSecret: app-interface-config
