@@ -56,7 +56,7 @@ upgradePolicy:
 machinePools:
 - id: workers
   instance_type: m5.2xlarge
-  replicas: 3
+  replicas: 5
 network:
   type: OpenShiftSDN
   vpc: 10.29.80.0/22
