@@ -430,3 +430,9 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/backplanep04uw2/cluster.yml
+
+# Content Sources Pulp
+- name: content-sources-pulp.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/crcs02ue1/cluster.yml
