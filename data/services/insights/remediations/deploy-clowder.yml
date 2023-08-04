@@ -25,7 +25,7 @@ managedResourceTypes:
 - CronJob
 - Job
 - Frontend
-- FLoorPlan
+- FloorPlan
 
 imagePatterns:
 - quay.io/cloudservices
