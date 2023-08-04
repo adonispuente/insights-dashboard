@@ -15,9 +15,6 @@ managed:
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
   spec:
-    concurrencyPolicy: Replace
-    cron: '0 8 * * *'
-    enablePushgateway: true
     resources:
       requests:
         memory: 500Mi
@@ -28,9 +25,6 @@ managed:
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
-    concurrencyPolicy: Replace
-    cron: '0 10 * * *'
-    enablePushgateway: true
     resources:
       requests:
         memory: 500Mi
