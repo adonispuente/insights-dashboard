@@ -991,7 +991,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-ibm-infra
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 2d577a5aee7f0bbe9976ce46074f75dde97433f4
+    ref: ad92bf517ad44a97e6a4134268d31ed7a35c9b16
     promotion:
       auto: true
       subscribe:
