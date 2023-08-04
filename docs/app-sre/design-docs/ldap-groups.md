@@ -34,7 +34,7 @@ ITIAM provides an HTTP API to create and manage LDAP groups. The API is document
 
 The authentication is done via OIDC with special service accounts, and the authorization is based on group name prefixes.
 
-The proposed prefix is `app-interface-`.
+The proposed prefix is `ai-`.
 
 
 ### Schema extension
