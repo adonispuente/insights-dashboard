@@ -80,7 +80,7 @@ resourceTemplates:
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
-    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
+    ref: a990450c16ed4fba816c8f0c00f83d14bf58c4f4
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -144,7 +144,7 @@ resourceTemplates:
       IMAGE_TAG: insights-dev
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
-    ref: be148df374b3fbb3d9953e4d3c3741eeace5e60f
+    ref: a990450c16ed4fba816c8f0c00f83d14bf58c4f4
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
