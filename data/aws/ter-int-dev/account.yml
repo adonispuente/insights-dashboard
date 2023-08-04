@@ -25,11 +25,6 @@ automationToken:
 
 premiumSupport: true
 
-cleanup:
-- provider: cloudwatch
-  regex: 'test-2'
-  retention_in_days: 365
-
 disable:
   integrations:
   - terraform-resources
