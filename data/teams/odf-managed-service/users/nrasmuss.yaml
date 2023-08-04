@@ -5,7 +5,7 @@ labels: {}
 
 name: Neil Rasmussen
 org_username: nrasmuss
-github_username: nrasmuss
+github_username: rasmussen-neil
 
 roles:
 - $ref: /teams/odf-managed-service/roles/odf-sre.yml
