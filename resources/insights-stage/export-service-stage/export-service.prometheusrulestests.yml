@@ -9,7 +9,7 @@ metadata:
     role: alert-rules
 spec:
   groups:
-  - name: export-service-prod
+  - name: export-service-stage
     rules:
 
     - alert: ExportServiceAvailability
@@ -17,33 +17,33 @@ spec:
       labels:
         severity: high
         service: insights
-        env: prod
+        env: stage
         app_team: data-pipeline
       annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&viewPanel=12&var-datasource=crcs02ue1-prometheus"
         link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
-        message: "Export Service Alert. Availability < 95% in prod environment."
+        message: "Export Service Alert. Availability < 95% in stage environment."
 
     - alert: ExportServiceLatency
       expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}[5m])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}[5m])) < .9
       labels:
         severity: high
         service: insights
-        env: prod
+        env: stage
         app_team: data-pipeline
       annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus&editPanel=14"
         link_url:  "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
-        message: "Export Service Alert. More than 10% of requests with Latency > 400ms in prod environment."
+        message: "Export Service Alert. More than 10% of requests with Latency > 400ms in stage environment."
 
     - alert: ExportServiceErrorRate
       expr: (sum(rate(export_service_http_requests_total{container="export-service-service", path="", code="5.*"}[5m]) or vector(0)) / (sum(rate(export_service_http_requests_total{container="export-service-service", path=""}[5m])) + 0.00001)) > 0.05
       labels:
         severity: high
         service: insights
-        env: prod
+        env: stage
         app_team: data-pipeline
       annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus&viewPanel=18"
         link_url:  "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
-        message: "Export Service Alert. Error rate > 5% in prod environment."
+        message: "Export Service Alert. Error rate > 5% in stage environment."
