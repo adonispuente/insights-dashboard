@@ -28,6 +28,10 @@ resourceTemplates:
   parameters:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
   targets:
+    # integration sector progression order:
+    # * us-east-1-canary
+    # * ap-northeast-1-main
+    # * us-west-2-main
   - name: aws-vpce-operator-integration-us-east-1-canary
     delete: true
     provider: dynamic
@@ -52,23 +56,63 @@ resourceTemplates:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: main
     parameters:
       REGION: ap-northeast-1
       SECTOR_NAME: main
     promotion:
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-ap-northeast-1-main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: openshift-aws-vpce-operator-gh-build-main
   - name: aws-vpce-operator-integration-us-west-2-main
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
         include:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: a3f1b6a37b63a247188cb28840c188f76d141939
+    ref: main
     parameters:
       REGION: us-west-2
       SECTOR_NAME: main
     promotion:
       publish:
         - aws-vpce-operator-sss-deployed-success-channel-integration-us-west-2-main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: openshift-aws-vpce-operator-gh-build-main
+
+  # stage sector progression order:
+  # * eu-central-1-main
+  # * us-west-2-main
+  - name: aws-vpce-operator-stage-eu-central-1-main
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+          - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="stage")]
+    ref: main
+    parameters:
+      REGION: eu-central-1
+      SECTOR_NAME: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: openshift-aws-vpce-operator-gh-build-main
+  - name: aws-vpce-operator-stage-us-west-2-main
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+          - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="stage")]
+    ref: main
+    parameters:
+      REGION: us-west-2
+      SECTOR_NAME: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: openshift-aws-vpce-operator-gh-build-main
