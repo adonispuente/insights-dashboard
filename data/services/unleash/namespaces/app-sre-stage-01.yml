@@ -33,7 +33,7 @@ openshiftResources:
   version: 1
 - provider: vault-secret
   path: app-sre/unleash/app-interface-stage-token
-  version: 1
+  version: 2
 ### Insights Perf
 - provider: vault-secret
   path: app-sre/unleash/insights-perf-config
