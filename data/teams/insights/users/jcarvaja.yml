@@ -1,0 +1,19 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Jose Carvajal Hilario
+org_username: jcarvaja
+github_username: Sgitario
+quay_username: jcarvaja
+
+roles:
+- $ref: /teams/insights/roles/rhsm.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/swatch-dev-slack.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
+
