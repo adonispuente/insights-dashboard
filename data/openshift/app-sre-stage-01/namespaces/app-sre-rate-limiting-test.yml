@@ -25,7 +25,8 @@ sharedResources:
 
 managedRoles: true
 
-managedResourceTypes: []
+managedResourceTypes:
+- ConfigMap
 
 openshiftResources:
 - provider: resource
