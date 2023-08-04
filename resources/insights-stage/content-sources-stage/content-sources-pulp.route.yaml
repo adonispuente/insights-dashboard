@@ -11,10 +11,10 @@ metadata:
 spec:
   host: content-sources-pulp.stage.devshift.net
   port:
-    targetPort: 8080
+    targetPort: 24816
   to:
     kind: Service
-    name: cs-pulp-web-svc
+    name: cs-pulp-content-svc
     weight: 100
   tls:
     termination: edge
