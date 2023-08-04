@@ -19,6 +19,7 @@ imagePatterns:
 - quay.io/app-sre/aws-vpce-operator-registry
 
 use_channel_in_image_tag: true
+validateTargetsInApp: true
 resourceTemplates:
 - name: aws-vpce-operator
   url: https://github.com/openshift/aws-vpce-operator
