@@ -53,6 +53,10 @@ upgradePolicy:
     mutexes:
     # shared by all clusters on the candidate channel and having 0 soak days
     - candidate-0
+machinePools:
+- id: workers
+  instance_type: m5.2xlarge
+  replicas: 3
 network:
   type: OpenShiftSDN
   vpc: 10.29.80.0/22
