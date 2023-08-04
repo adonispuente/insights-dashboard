@@ -25,6 +25,10 @@ sharedResources:
 
 managedRoles: true
 
-managedResourceTypes: []
+managedResourceTypes:
+- ConfigMap
 
-openshiftResources: []
+openshiftResources:
+- provider: resource
+  path: /app-sre-stage/app-sre-rate-limiting-test/envoy.configmap.yml
+
