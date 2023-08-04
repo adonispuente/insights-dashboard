@@ -32,16 +32,27 @@
         #   - commit timestamps
         #   - commit author info (name, email, username)
 
-        echo 'env'
+        echo 'Environment variables:'
         echo '---------------------------------------------------------'
-        # printenv
+        printenv
+        echo '---------------------------------------------------------'
+
+        echo 'Git commit info:'
+        echo $GIT_COMMIT
+
         echo '---------------------------------------------------------'
 
         echo 'Building merge info for changelog.stage.devshift.net'
 
-        merge_info='{{"tenant": "{label}", "app": "{app_name}", "project": "{name}", "repo": $GIT_URL, "commits": $GIT_COMMIT}}'
+        merge_info='{{"tenant": "{label}", "app": "{app_name}", "project": "{name}", "repo": "{GIT_URL}", "commits": "{GIT_COMMIT}}"}'
 
         echo $merge_info
 
+        echo '---------------------------------------------------------'
+        echo 'Sending to changelog.stage.devshift.net'
+
         curl -X POST https://changelog.stage.devshift.net/api/v1/github -s --data "$merge_info" -H "Content-Type: application/json" -H 'Authorization: Bearer $PLATFORM_CHANGELOG_TOKEN'
+
+        echo '---------------------------------------------------------'
+        echo 'Done'
     <<: *gh_build_master
