@@ -1,0 +1,41 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Robert Cerven
+org_username: rcerven
+github_username: rcerven
+quay_username: rcerven
+slack_username: rcerven
+
+roles:
+- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+
+# Export with gpg --export your_public_key_id | base64
+public_gpg_key: |
+  mQENBFyY12MBCADrkrrudyr1pSJNRltUDtlQn5Sy/ykBX0Go6AikpGByqhUAgWu9RK8pVfTFQbyn
+  9c43uEeZEoIU6g7hKc/vxmIvAU9bMXRp6prr6fGQrkzrVbYwZeL0zglGF7KGa4mjSaqYj2Xo7GtG
+  E5OzvTU5BpWtRYXDQIweQuSz5xiCQ+0JSzlMrOXAdZ5j4kIuypV2TwSHbYOqC5w7+KLUjfk7bBqT
+  qp0ujXo7IQxtLr+W8ptVAwFwue6tCf3rO0y6bsbbXSh9smM8Y4uQiRVcHheRSVQUggZAd4ecUzT8
+  eoDzM6nCkRnQ4b9usYqq4qi2Smh+7sBbwjpeGEZkgZxy+AfCzn5TABEBAAG0IlJvYmVydCBDZXJ2
+  ZW4gPHJjZXJ2ZW5AcmVkaGF0LmNvbT6JAU4EEwEIADgWIQSqkbrpSs50Vwiv1C7BD1jQF7CDXQUC
+  XJjXYwIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRDBD1jQF7CDXbEiB/9ZFeWJtWT8x8HU
+  V+K0HCvup67g2EYlowyVT8S6jJ56xUyLGVdHKxleN3feSYxspul+Z+c9j1x0qILgDB+IKZGXXKqm
+  KpADf5D7J8dbHANJ+PsT9BHxO5+sGbpXH6Ccb4pK5Rubi5FBz/m6d3z7PWNgaEsdThNqddjET11q
+  D4iiHsyiNjKCELrd/kdPVzk96XZVuFnV8vMr+A+2HVIAKHaQ56l+zie5GNDW3lhBgLUy0hd6LM0I
+  pShhzmieM5AGOZr3zpewg0/VLgdtWjpyVb1NGM5z2vRHpMm3TqL1CBu+Anq7ku1xsiOk1/6fR+KE
+  xIhav0ClCEELrOIZEIO3BgeRuQENBFyY12MBCAC8jVkMm7rmCql0SoVJph5nKdDUxh+WBXvVWTEJ
+  okgBqu4pWgpU1z8z6cUf1mKQJtZZP2oJIw7UOSAQwYndkIrDKj5CKK/+qMxPRWGP4hg6MTxIMpnf
+  RJA+2x4afq0hSt9IVnfeEdKXCoi/+ziR4LoWvG1XZfV774bkC8N05vcgejZirsUucWo0Po9ZI1XU
+  CF4FBqUu6egiVKcrU+ZLqjSBKCG99By+aMZ73YCUFXdHaJpyPIHOuFw+I9SOwFbMXMVZBe7egADm
+  l4l2fcSsnf1DhcFNgyyra5WsCTqlb1xsW6fn4l0Aokn2+0WEuGIB24/BNsD/dfMZQ9fCTNvD1cLR
+  ABEBAAGJATYEGAEIACAWIQSqkbrpSs50Vwiv1C7BD1jQF7CDXQUCXJjXYwIbDAAKCRDBD1jQF7CD
+  Xf2hB/0aYlCX2r0EuLaHGYBnFi4GS9zdGd62rrPmal+TT7ROi3we/izoBMx5Pb9OXuoSpnbyWhNY
+  F2Lyqm3uuEisq26TRRSon5xNVJaQQcaon6Rid0ZlhCtop32Jk1Nv+kR/lt/v46iADbby6WGtUtVb
+  UWh0pnecBQloYJrWCc9bT10KVmxg3Mz4ht6sys1H9puhLquMjER2mFE98NZRnUqORWw4W5aKF9f3
+  oArWRobyhbm7OscyGNXIHu5X6EaLmnguFDoyBRbDybSPTtalonW9qtlMGg/TLuffkvGv7nE/RtHz
+  nmUv3Yn5d2ktBJaYSzbe19zZLTDVE20NCj50+pNmAYth
