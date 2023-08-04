@@ -2728,6 +2728,17 @@ sharing:
 
 This will cause all AMIs that match the regex expression to be shared from the source account to the destination account. AMI tags will also be copied to the shared AMI for traceability.
 
+#### Cleanup Cloudwatch log groups in AWS accounts
+
+In order to set a retention period for a cloudwatch log group, you can set a `cleanup` section within the source AWS account file:
+```yaml
+cleanup:
+- provider: cloudwatch
+  regex: '*log-group-regex*'
+  retention_in_days: 90
+```
+You can find the valid `retention_in_days` values within the [schemas file](https://github.com/app-sre/qontract-schemas/tree/mainschemas/aws/cleanup-option-1.yml) for the log retention integration. These values reflect the allowed rentention value [AWS accepts](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax).
+
 ### Manage Slack User groups via App-Interface
 
 Slack User groups can be self-serviced via App-Interface.

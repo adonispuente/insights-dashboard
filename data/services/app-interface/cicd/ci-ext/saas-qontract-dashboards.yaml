@@ -34,4 +34,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: f1c46b8d6e4055c5130edcda59df003e75dc94f6
+    ref: f1d31f64a36e36a4ed3796c1fce00af0bf30fd8d
