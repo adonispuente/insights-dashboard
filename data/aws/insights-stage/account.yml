@@ -630,6 +630,12 @@ deletionApprovals:
 - type: aws_elasticache_replication_group
   name: vmaas-redis
   expiration: "2023-06-16"
+- type: aws_sns_topic
+  name: cost-stage-rds-notification
+  expiration: '2023-08-14'
+- type: aws_db_event_subscription
+  name: 'cost-stage-rds-notification_email_aws_sns_topic_subscription'
+  expiration: '2023-08-14'
 
 # Related to task: APPSRE-7647
 - type: aws_db_instance

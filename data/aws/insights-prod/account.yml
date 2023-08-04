@@ -1330,6 +1330,12 @@ deletionApprovals:
 - type: aws_db_instance
   name: vulnerability-engine-readonly
   expiration: '2023-07-31'
+- type: aws_sns_topic
+  name: cost-prod-rds-notification
+  expiration: '2023-08-14'
+- type: aws_db_event_subscription
+  name: 'cost-prod-rds-notification_db-instance_aws_db_event_subscription'
+  expiration: '2023-08-14'
 
 resetPasswords:
   - user:
