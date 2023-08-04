@@ -28,7 +28,8 @@ resourceTemplates:
   parameters:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
   targets:
-  - name: aws-vpce-operator-integration-us-west-2
+  - name: aws-vpce-operator-integration-us-east-1-canary
+    delete: true
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
@@ -36,16 +37,16 @@ resourceTemplates:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: main
     parameters:
-      REGION: us-west-2
-      SECTOR_NAME: main
+      REGION: us-east-1
+      SECTOR_NAME: canary
     promotion:
       publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration-us-west-2
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1-canary
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: openshift-aws-vpce-operator-gh-build-main
-  - name: aws-vpce-operator-integration-us-east-2
+  - name: aws-vpce-operator-integration-ap-northeast-1-main
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
@@ -53,26 +54,12 @@ resourceTemplates:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: 455b3c18ca33b949492b6adc9db61213a0229cee
     parameters:
-      REGION: us-east-2
+      REGION: ap-northeast-1
       SECTOR_NAME: main
     promotion:
       publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-2
-  - name: aws-vpce-operator-integration-eu-central-1
-    provider: dynamic
-    namespaceSelector:
-      jsonPathSelectors:
-        include:
-          - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
-    parameters:
-      REGION: eu-central-1
-      SECTOR_NAME: main
-    promotion:
-      publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration-eu-central-1
-  - name: aws-vpce-operator-integration-us-east-1
-    delete: true
+        - aws-vpce-operator-sss-deployed-success-channel-integration-ap-northeast-1-main
+  - name: aws-vpce-operator-integration-us-west-2-main
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
@@ -80,8 +67,8 @@ resourceTemplates:
           - namespace[?(@.cluster.name=~"hive.*" & @.name=="cluster-scope" & @.environment.labels.type=="integration")]
     ref: a3f1b6a37b63a247188cb28840c188f76d141939
     parameters:
-      REGION: us-east-1
+      REGION: us-west-2
       SECTOR_NAME: main
     promotion:
       publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
+        - aws-vpce-operator-sss-deployed-success-channel-integration-us-west-2-main

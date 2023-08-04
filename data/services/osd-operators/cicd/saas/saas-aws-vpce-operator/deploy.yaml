@@ -28,7 +28,7 @@ resourceTemplates:
     REGISTRY_IMG: quay.io/app-sre/aws-vpce-operator-registry
     KNOWN_SECTORS: '["canary", "ibm-infra", "main"]'
   targets:
-  - name: aws-vpce-operator-integration
+  - name: aws-vpce-operator-integration-all
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
@@ -38,9 +38,9 @@ resourceTemplates:
     promotion:
       # TODO: uncomment once channel created
       #subscribe:
-      #  - aws-vpce-operator-sss-deployed-success-channel-integration-us-east-1
+      #  - aws-vpce-operator-sss-deployed-success-channel-integration-us-west-2-main
       publish:
-        - aws-vpce-operator-sss-deployed-success-channel-integration
+        - aws-vpce-operator-sss-deployed-success-channel-integration-all
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: main
