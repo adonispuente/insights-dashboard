@@ -8,9 +8,9 @@ name: "stonesoup-approle-build-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/build/*" {
+  path "production/build/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/build/*" {
+  path "staging/build/*" {
     capabilities = ["create", "update", "read", "list"]
   }
