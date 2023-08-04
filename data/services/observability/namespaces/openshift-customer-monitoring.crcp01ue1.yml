@@ -562,6 +562,8 @@ openshiftResources:
 - provider: prometheus-rule
   path: /insights-prod/export-service-prod/export-service.prometheusrules.yml
   type: resource
+  tests:
+  - /insights-prod/export-service-prod/export-service.prometheusrulestests.yml
 
 ### Gabi
 - provider: prometheus-rule

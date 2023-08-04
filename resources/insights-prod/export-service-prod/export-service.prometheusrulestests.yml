@@ -1,0 +1,75 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+rule_files:
+- /insights-prod/export-service-prod/export-service-prometheusrules.yml
+
+evaluation_interval: 5m
+
+tests:
+
+# ExportServiceAvailability
+- interval: 1m
+  input_series:
+  - series: api_3scale_gateway_api_status{status="5xx",exported_service="export"}
+    values: 0+0x4 10+10x9 100+0x4
+  - series: api_3scale_gateway_api_status{exported_service="export"}
+    values: 20+20x4 120+20x9 320+20x4
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceAvailability
+    exp_alerts:
+    - exp_labels:
+        severity: high
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&viewPanel=12&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-prod/deployments"
+        message: "Export Service Alert. Availability < 95% in prod environment."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/App-export-service-In-export-service-prod-availability.rst"
+
+# ExportServiceLatency
+- interval: 1m
+  input_series:
+  - series: api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}
+    values: 0+0x5 1+1x5
+  - series: api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}
+    values: 0+1x10
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceLatency
+    exp_alerts:
+    - exp_labels:
+        severity: high
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&editPanel=14"
+        link_url:  "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-prod/deployments"
+        message: "Export Service Alert. More than 10% of requests with Latency > 500ms in prod environment."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/App-export-service-In-export-service-prod-latency.rst"
+
+# ExportServiceErrorRate
+- interval: 1m
+  input_series:
+  - series: export_service_http_requests_total{container="export-service-service", path="", code="5.*"}
+    values: 0+0x4 10+10x9 100+0x4
+  - series: export_service_http_requests_total{container="export-service-service", path=""}
+    values: 20+20x4 120+20x9 320+20x4
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceErrorRate
+    exp_alerts:
+    - exp_labels:
+        severity: high
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcp01ue1-prometheus&viewPanel=18"
+        link_url:  "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-prod/deployments"
+        message: "Export Service Alert. Error rate > 5% in prod environment."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/App-export-service-In-export-service-prod-error-rate.rst"
