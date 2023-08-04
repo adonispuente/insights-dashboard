@@ -1,0 +1,19 @@
+---
+$schema: /access/user-1.yml
+
+labels: 
+  platform: insights
+
+name: Pravin Satpute
+org_username: psatpute
+github_username: pravins
+quay_username: psatpute
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/insights/roles/perf-tester.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/insights-view-all-namespaces.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
+
