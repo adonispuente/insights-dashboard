@@ -1,0 +1,11 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Yu Sun
+org_username: yus
+github_username: yus
+
+roles:
+- $ref: /teams/odf-managed-service/roles/odf-sre.yml
