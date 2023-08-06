@@ -75,6 +75,7 @@ externalResources:
     overrides:
       username: "insights"
       name: "edge"
+      engine_version: "12.14"
     parameter_group: /terraform/resources/insights/production/rds/postgres12-parameter-group-edge-prod.yml
     output_resource_name: edge-db
     enhanced_monitoring: true
@@ -86,6 +87,7 @@ externalResources:
     overrides:
       username: "insights"
       name: "edge"
+      engine_version: "12.14"
     parameter_group: /terraform/resources/insights/production/rds/postgres12-parameter-group-edge-prod.yml
     output_resource_name: edge-readonly-db
   - provider: cloudwatch
