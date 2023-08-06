@@ -62,7 +62,7 @@ externalResources:
     defaults: /terraform/resources/insights/stage/rds/postgres13-rds-1.yml
     overrides:
       name: provisioning_backend
-      apply_immediately: true
+      engine_version: "13.10"
     parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-quickstarts-stage.yml
     enhanced_monitoring: true
     output_resource_name: provisioning-db
