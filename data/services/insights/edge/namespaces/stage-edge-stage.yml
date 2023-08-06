@@ -76,7 +76,7 @@ externalResources:
       username: "insights"
       name: "edge"
       allocated_storage: 50
-      apply_immediately: true
+      engine_version: "12.14"
     parameter_group: /terraform/resources/insights/stage/rds/postgres12-parameter-group-edge-stage.yml
     output_resource_name: edge-db
     enhanced_monitoring: true
