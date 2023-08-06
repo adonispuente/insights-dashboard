@@ -8,9 +8,21 @@ name: "stonesoup-approle-build-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "production/build/*" {
+  path "stonesoup/metadata/production/build/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/build/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/build/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/build/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/build/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "staging/build/*" {
+  path "stonesoup/data/staging/build/*" {
     capabilities = ["create", "update", "read", "list"]
   }
