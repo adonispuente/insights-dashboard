@@ -70,6 +70,7 @@ externalResources:
     overrides:
       username: "insights"
       name: "edge"
+      engine_version: "12.14"
     parameter_group: /terraform/resources/insights/perf/rds/postgres12-parameter-group-edge-perf.yml
     output_resource_name: edge-db
     enhanced_monitoring: true
