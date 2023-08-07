@@ -1,0 +1,19 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: idmsvc-team-slack
+
+description: Identity Management service team slack group.
+
+service: slack-usergroup
+
+handle: hmsidm-team
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+  - team-hmsidm
+  - team-hmsidm-bot

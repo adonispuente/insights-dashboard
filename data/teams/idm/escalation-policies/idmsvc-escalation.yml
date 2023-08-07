@@ -1,0 +1,25 @@
+---
+$schema: /app-sre/escalation-policy-1.yml
+
+labels: {}
+
+name: idmsvc-escalation
+
+description: |
+  The escalation policy for identity management app.
+
+  Currently no pagerduty is in place, so response times are not guaranteed.
+
+channels:
+  slackUserGroup:
+  - $ref: /teams/idm/permissions/idmsvc-team-slack.yml
+
+  email:
+    - cheimes@redhat.com
+    - ftweedal@redhat.com
+    - avisiedo@redhat.com
+
+  jiraBoard:
+  # component 'Identity Management'
+  - $ref: /teams/insights/jira/hms.yaml
+

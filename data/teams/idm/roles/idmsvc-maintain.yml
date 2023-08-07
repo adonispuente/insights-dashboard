@@ -1,0 +1,41 @@
+---
+$schema: /access/role-1.yml
+
+labels:
+  platform: insights
+  service: idmsvc
+
+name: idmsvc-maintain
+
+permissions:
+- $ref: /teams/idm/permissions/idmsvc-team-slack.yml
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/insights/idmsvc.yml
+
+# access:
+# - namespace:
+#     $ref: /services/insights/idmsvc/namespaces/idmsvc-stage.yml
+#   role: view
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/saas-file-self-service.yml
+  datafiles:
+  - $ref: /services/insights/idmsvc/deploy.yml
+  #- $ref: /services/insights/idmsvc/testing.yml
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/insights/idmsvc/app.yml
+# - change_type:
+#     $ref: /app-interface/changetype/namespace-owner.yml
+#   datafiles:
+#   - $ref: /services/insights/idmsvc/namespaces/idmsvc-stage.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/idm/roles/idmsvc-maintain.yml
+
+
+# TODO glitchtip roles
