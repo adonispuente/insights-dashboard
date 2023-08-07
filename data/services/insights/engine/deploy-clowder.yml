@@ -52,7 +52,7 @@ resourceTemplates:
       ENV_NAME: stage
   - namespace:
       $ref: /services/insights/engine/namespaces/engine-prod.yml
-    ref: 5c7340aba2ccb0f38ece75efa83206d161fca0ac
+    ref: 387ff03ab17c70c6b6c62fb2e39a8ddae274c245
     parameters:
       MIN_REPLICAS: "64"
       MEMORY_LIMIT: 2Gi
