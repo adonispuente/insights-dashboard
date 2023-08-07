@@ -11,3 +11,4 @@ description: Read-only access to the insights-stage AWS account
 
 policies:
 - ReadOnlyAccess
+- IAMUserChangePassword
