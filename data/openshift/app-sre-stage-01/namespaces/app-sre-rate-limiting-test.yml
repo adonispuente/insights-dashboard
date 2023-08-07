@@ -27,8 +27,12 @@ managedRoles: true
 
 managedResourceTypes:
 - ConfigMap
+- ServiceAccount
 
 openshiftResources:
 - provider: resource
   path: /app-sre-stage/app-sre-rate-limiting-test/envoy.configmap.yml
-
+- provider: resource-template
+  path: /services/common/serviceaccount.yaml
+  variables:
+    name: app-sre-rate-limiting
