@@ -1,0 +1,28 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Martin Necas
+org_username: mnecas
+github_username: mnecas
+quay_username: mnecas0
+
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  mDMEZNC4UhYJKwYBBAHaRw8BAQdAuVKDaHryIqTTUzUew6tzMD6qzhBgZrF3uFS3fR3qy0O0IE1h
+  cnRpbiBOZWNhcyA8bW5lY2FzQHJlZGhhdC5jb20+iJMEExYKADsWIQSONcOL3pXDD6DEFteWIJzS
+  xp5xhAUCZNC4UgIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCRCWIJzSxp5xhDqPAP4l
+  C7VxcNo9AxXpWYBPACOLF1aXBOXE1pBvjAnfv0WInwD6Arzatf2hwWCiYW16mruRRYcLfBa3tdM7
+  SysA0GQHOg64OARk0LhSEgorBgEEAZdVAQUBAQdACbNwY124mZUhirwdnM1uM76XX3bcaOeMVdcg
+  bXs9V0wDAQgHiHgEGBYKACAWIQSONcOL3pXDD6DEFteWIJzSxp5xhAUCZNC4UgIbDAAKCRCWIJzS
+  xp5xhEnVAP9sa01nkfpF6RLD4ou23DPweA73XzlLRUxz+rMUZCgvFwEAkNHUwl98JSnBteKJWFn3
+  KNs76IgLwVynwxbXP69aFwU=
