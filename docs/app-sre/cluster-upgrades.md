@@ -100,6 +100,7 @@ upgradePolicy:
     # OCM upgrade sector to which the cluster belongs
     sector: sector-1
     # blocked version patterns for the cluster
+    # note: there is a similar section on the OCM organization and both are used in conjunction
     blockedVersions:
     - ^4\.13\..*$
 ```
@@ -112,7 +113,7 @@ Each cluster with an `upgradePolicy` is checked for the following conditions on 
 * The version has been soaking in other clusters with the same workloads (more than `soakDays`). See the section [Defining soak days](#defining-soak-days) for more details.
 * All the configured `mutexes` can be acquired. Said differently, there is no ongoing cluster upgrades with any of these `mutexes`, so mutexes are the enabler for on-cluster-at-a-time semantics. See the section [Defining mutexes](#defining-mutexes) for more details.
 * An upgrade can be applied on a cluster only if all clusters from previous sectors already run at least that version. See the section [Defining sectors](#defining-sectors) for more details.
-* Only versions are considered for upgrades that do not match the blocked version patterns.
+* Only versions non-blocked versions are considered for upgrades. This includes the ones specified directly on the cluster and the ones specified on the OCM organization of the cluster (see [Block cluster upgrades](#block-cluster-upgrades) for more details on this)
 
 The versions to upgrade to are iterated over in reverse order, so it is assumed that the latest/highest version that meets the conditions is chosen.
 
