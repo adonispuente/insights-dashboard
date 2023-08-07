@@ -69,14 +69,14 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-ros-backend-gh-build-main
     parameters:
-      DAYS_UNTIL_STALE: '46'
+      DAYS_UNTIL_STALE: '45'
       API_REPLICA_COUNT: '1'
       PROCESSOR_REPLICA_COUNT: '1'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
     ref: 5620c9182b8e0c3c494f2dbec88f839ef733ed1e
     parameters:
-      DAYS_UNTIL_STALE: '45'
+      DAYS_UNTIL_STALE: '46'
       API_REPLICA_COUNT: '1'
       PROCESSOR_REPLICA_COUNT: '1'
   - namespace:
