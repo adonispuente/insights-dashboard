@@ -82,3 +82,6 @@ resetPasswords:
 - user:
     $ref: /teams/app-sre/users/goberlec.yml
   requestId: 5-more-coffee-for-peak-performance
+- user:
+    $ref: /teams/app-sre/users/kfischer.yml
+  requestId: e2b4954e-350a-11ee-80ff-bbb4a326612e
