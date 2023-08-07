@@ -37,7 +37,7 @@ spec:
     min_replicas: 18
     max_replicas: 45
   instance_type: m5.xlarge
-  storage: 600
+  storage: 1100
   load_balancers: 0
   private: true
   id: 1kk1b4q1osjiklo0tl6lk1cgfsl2ln57
