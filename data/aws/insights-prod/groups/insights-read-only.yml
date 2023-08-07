@@ -11,3 +11,4 @@ description: Read-only access to the insights-prod AWS account
 
 policies:
 - ReadOnlyAccess
+- IAMUserChangePassword
