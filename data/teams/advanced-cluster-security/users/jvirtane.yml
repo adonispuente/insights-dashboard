@@ -1,0 +1,41 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Jouko Virtanen
+org_username: jvirtane
+github_username: JoukoVirtanen
+
+roles:
+  - $ref: /teams/advanced-cluster-security/roles/acs.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  mQENBGS8EN8BCACWHFSdOLvHV/Q16X1TuMr46LBN7SQycVXkjb8KXLCGb6UUs6ca
+  lDdFv33JS0qXdO8T4XeUA4ipQvxNCf3zgkZ4ZBmRK4w7lO0tuK1ojYY6FqS6qe+d
+  8HAKiWluQ7/5FK2BW0tzDaXsAPaTAptNACP0RoCxkzzdH9WAacW4YqaDxxbQfPI/
+  BKnabDbtDyxrN5594GnaQYhG/bYyA6QiQH9uouwAfmBvKwI+zu23KsxnIvajle8+
+  GkPCQS+p9FormgP/qMkVvHmWQ//3nlU0OYA/cgHkpzJ0PUAmPeWs3shY4kKaAlHL
+  ZIChLr59oFEwr48AI3WjtsGO7/W3wrvrdqfVABEBAAG0JEpvdWtvIFZpcnRhbmVu
+  IDxqdmlydGFuZUByZWRoYXQuY29tPokBVAQTAQgAPhYhBC88YcgfUin4iZAC8l25
+  CggxQqajBQJkvBDfAhsDBQkDwmcABQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJ
+  EF25CggxQqajWwUH/1htXEEk93HkAFEvQ6v8ChHwr/DzHoylRqq5d0EWOiHVTEJ4
+  +1/nHwdU9UfuB70fPRLB30hsJqGGcep7++M2tYGKH7A0uUQPmLxciZQAE0sX1b9e
+  rh4XGjrZSjD8qO2RUcOdXBJMf+o6pxnenRoA7CTNJstsXrk6XVyzGI4CGHLa4qAz
+  pIE54lVp0nCu85gJQjgDYjJ/B/DvTNR8Cn9BRaOPLxXOmsDsP5pdM7z+h17vOCj0
+  NZ+BSmZYA9ByMnsNVvMeI5v9hIqqRcNq3snxrVWWbwAiV/5uLAXQXVKLDtPF/SpE
+  mdMKl3VwWcqsPqlsQQR+2nEesdhwPm6tJ9iIvsS5AQ0EZLwQ3wEIALj2alk+LWfW
+  Y0jNxZ7lwuwwQM9RowH58lgJ+T5T5EyFWEYU1qoEdVhhZpIXfJGYyZIxr49MIFMK
+  dllQF9yUD1Yk9Uz52Zp1/aG4T3/0Nbw+Bq9UXv3qHizFmNh9rjJURjGJjAV0mzB0
+  CpCLIQgyUDT/4Pq7uTZpHaBzycP2r2NStclAIq2W/jrmNjyj8gXM4kKHIY/LuYja
+  +ZgtYXwvcpQjYdUJSNfctdPOX81+w+U35r5Jd0OWmZxA4PE2Wo0ARKgbVbstL7b/
+  sE88qOQccK+zomfueTNhUyyD6SXn96Jkmzs9uWmImbJteJHiH6JXxpEvNqnjzLJK
+  aF8kJY8/eIMAEQEAAYkBPAQYAQgAJhYhBC88YcgfUin4iZAC8l25CggxQqajBQJk
+  vBDfAhsMBQkDwmcAAAoJEF25CggxQqajy6oH/jbD37F79pdEcnslrEEC1pqsKz5I
+  lVMOcXiwlTdc46K/baAC8BUHEypEGaTHOQx9l9QXXFU7aG/mxZJN/mGc2K+d9xjS
+  YUt3BcD6LBjbJ7sDSxPHAxJOPcxf3k2iIXqAUP7RJr9WZdyYdhXh12CO7qDBaq+7
+  vD9hWWKrjUH6/i05Fwiul4DovmtjvGkFF6a+aBWjRcY7lTKMfg4UAwLNf9D0kq6D
+  Ki1h4Hw0NyU6JvagsofouQHRFG9tQVKgTk52+GmoGfpgmhjEfAk8YSl0UISpnMUs
+  dWl95UkrskcXsZrDpfv+K4UAplFeu1lOcate8i2zS9N3wVotvYwAkxD1he0=
+  =y/6/
