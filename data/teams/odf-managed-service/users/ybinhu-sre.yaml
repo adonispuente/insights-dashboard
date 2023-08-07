@@ -1,0 +1,11 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Yan Bin Hu
+org_username: ybinhu
+github_username: ybinhu
+
+roles:
+- $ref: /teams/odf-managed-service/roles/odf-sre.yml
