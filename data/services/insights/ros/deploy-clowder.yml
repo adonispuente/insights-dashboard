@@ -119,8 +119,8 @@ resourceTemplates:
     parameters:
       MEMORY_LIMIT: '2Gi'
       API_REPLICA_COUNT: 3
-      PROCESSOR_REPLICA_COUNT: 1
-      RECOMMENDER_REPLICA_COUNT: 1
+      PROCESSOR_REPLICA_COUNT: 3
+      RECOMMENDER_REPLICA_COUNT: 3
 
 - name: kruize
   path: /kruize-clowdapp.yaml
