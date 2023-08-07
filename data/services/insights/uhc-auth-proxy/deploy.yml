@@ -50,7 +50,7 @@ resourceTemplates:
       OPENSHIFT_API_TARGET: https://api.stage.openshift.com/api/accounts_mgmt/v1/current_account
   - namespace:
       $ref: /services/insights/uhc-auth-proxy/namespaces/uhc-auth-proxy-prod.yml
-    ref: e08de4f65bd205beb18ca849699cff6dd404b8bf
+    ref: 76bfa683178e1305e7173903afde2508299aeeec
     parameters:
       REPLICAS: 3
   - namespace:
