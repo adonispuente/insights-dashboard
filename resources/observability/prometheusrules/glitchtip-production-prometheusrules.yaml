@@ -80,7 +80,7 @@ spec:
       for: 5m
       labels:
         service: glitchtip
-        severity: critical
+        severity: high
       annotations:
         message: "Glitchtip route {{ $labels.route }} is failing to handle {{$value | humanize}}% of the requests."
         dashboard: "https://grafana.app-sre.devshift.net/d/GRUqV30Vk/glitchtip-dashboard?orgId=1"
