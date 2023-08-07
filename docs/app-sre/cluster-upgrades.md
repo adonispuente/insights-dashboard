@@ -99,6 +99,9 @@ upgradePolicy:
     - mutex-2
     # OCM upgrade sector to which the cluster belongs
     sector: sector-1
+    # blocked version patterns for the cluster
+    blockedVersions:
+    - ^4\.13\..*$
 ```
 
 Each cluster with an `upgradePolicy` is checked for the following conditions on a regular basis. If all of them are met, a cluster upgrade is triggered via OCM.
@@ -109,6 +112,7 @@ Each cluster with an `upgradePolicy` is checked for the following conditions on 
 * The version has been soaking in other clusters with the same workloads (more than `soakDays`). See the section [Defining soak days](#defining-soak-days) for more details.
 * All the configured `mutexes` can be acquired. Said differently, there is no ongoing cluster upgrades with any of these `mutexes`, so mutexes are the enabler for on-cluster-at-a-time semantics. See the section [Defining mutexes](#defining-mutexes) for more details.
 * An upgrade can be applied on a cluster only if all clusters from previous sectors already run at least that version. See the section [Defining sectors](#defining-sectors) for more details.
+* Only versions are considered for upgrades that do not match the blocked version patterns.
 
 The versions to upgrade to are iterated over in reverse order, so it is assumed that the latest/highest version that meets the conditions is chosen.
 
@@ -292,26 +296,42 @@ Information on how long a version has been running in our clusters can be found 
 
 This page can be used to debug why certain upgrades are scheduled or not or to help with providing a signal for pre-release OCP versions.
 
-## Block upgrades to versions
+## Block cluster upgrades
 
-In order to block upgrades to specific versions, follow these steps:
+To disable cluster upgrades, the following approaches are available
 
-1. Disable `ocm-upgrade-scheduler` in [Unleash](https://app-interface.unleash.devshift.net) to prevent any new upgrades from being triggered for AppSRE managed clusters
-2. Disable `ocm-upgrade-scheduler-org` in [Unleash](https://app-interface.unleash.devshift.net) to prevent any new upgrades from being triggered for clusters defined in OCM organization files
-3. Add the version to the `blockedVersions` list in the OCM instance file.
+### Disable integrations
 
-Notes:
+To disable all cluster upgrades, the respective integrations can be disabled in [Unleash](https://app-interface.unleash.devshift.net).
 
-* Regex expressions are supported.
-* These steps will also cause existing upgrades to be cancelled if time allows.
-* All AppSRE clusters are provisioned in the [OCM production instance](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/dependencies/ocm/production.yml#L13).
+* Disable `ocm-upgrade-scheduler` to disable all upgrades for app-interface managed clusteres
+* Disable `ocm-upgrade-scheduler-org` to disable all upgrades for clusters mentioned in OCM org files (`/openshift/openshift-cluster-manager-1.yml`)
+* Disable `advanced-upgrade-scheduler` to disable all upgrades for clusters managed by the AUS capability (OCM labels).
 
-In the following example, all release candidates are being blocked within an OCM organization.
+This is a fast but broad way to disable cluster upgrades.
+
+### Block specific versions
+
+Cluster upgrades can also be blocked selectively on a cluster or per organization by specifying a list of blocked versions in the `blockedVersions` configuration option. It is supported in:
+
+* a cluster file (`/openshift/cluster-1.yml`) under `upgradePolicy.conditions`
+* an OCM organization file under `upgradePolicyClusters[*].upgradePolicy.conditions` for individual clusters
+* an OCM organization file (`/openshift/openshift-cluster-manager-1.yml`) top level to block upgrades for all clusters of that organization
+
+If version blocks are defined on the cluster and on the organization level, both will be taken into consideration to decide if a specific version is a valid upgrade target.
+
+In the following example, all release candidates and engineering candidates are blocked.
 
 ```yaml
 blockedVersions:
 - ^.*-rc\..*$
+- ^.*-ec\..*$
 ```
+
+Notes:
+* This configuration option supports regular expressions.
+* These steps will also cause existing upgrades to be cancelled if time allows (OCM CS does not allow canceling scheduled upgrades after a certain stage).
+* All AppSRE clusters are provisioned in the [OCM production instance](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/dependencies/ocm/production.yml#L13).
 
 ## Support model
 
