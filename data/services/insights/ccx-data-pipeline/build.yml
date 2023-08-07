@@ -222,6 +222,9 @@ config:
     - "insights-gl-build-master":
         display_name: ccx-upgrades-data-eng build-master
         branch: main
+    - "insights-gl-pr-check":
+        display_name: ccx-upgrades-data-eng pr-check
+        concurrent_build: true
 
 - project:
     name: ocp-advisor-frontend
