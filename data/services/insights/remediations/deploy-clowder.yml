@@ -134,15 +134,13 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: f41197f570300efb3ad50fe6e306f76390697f84
+    ref: 52160df0ac65744c91c78b5f931af5572a4812f6
     parameters:
       PLATFORM_HOSTNAME_URL: "cert.${PLATFORM_HOSTNAME}"
       MIN_REPLICAS: 3
       USERS_TEST_ACCOUNT: 'insights-qa'
       FLOORIST_SUSPEND: 'false'
-      FLOORIST_IMAGE_TAG: b57a5a8
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
-      FLOORIST_SCHEDULE: '11 10 * * *'
   - namespace:
       $ref: /services/insights/remediations/namespaces/stage-remediations-stage.yml
     ref: master
