@@ -28,7 +28,7 @@ slos:
     )) / sum(rate(
       cloud_connector_http_status_code_counter{service="cloud-connector-api"}[{{window}}]
     ))
-  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+  prometheusRules: /resources/insights-prod/cloud-connector/cloud-connector.prometheusrules.yml
 
 
 - name: Consumed mqtt messages written to kafka
@@ -46,7 +46,7 @@ slos:
     )) / sum(rate(
       cloud_connector_mqtt_control_message_received_count[{{window}}]
     ))
-  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+  prometheusRules: /resources/insights-prod/cloud-connector/cloud-connector.prometheusrules.yml
 
 
 - name: Kafka lag for the platform.cloud-connector.rhc-message-ingress topic
@@ -59,7 +59,7 @@ slos:
   SLOParameters:
     window: 28d
   expr: max(sum(sum_over_time(kafka_consumergroup_group_lag_seconds{group=~"cloud-connector-rhc-message-consumer"}[28d])) by (topic, partition)/sum(increase(kafka_consumergroup_group_offset{group=~"cloud-connector-rhc-message-consumer"}[28d])) by (topic, partition)) < bool 1
-  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+  prometheusRules: /resources/insights-prod/cloud-connector/cloud-connector.prometheusrules.yml
 
 
 - name: Availability
@@ -73,4 +73,4 @@ slos:
     window: 28d
   expr: |
     avg(avg_over_time(up{container=~"cloud-connector-.*"}[{{window}}]))
-  prometheusRules: /resources/insights-prod/cloud-connector-prod/cloud-connector.prometheusrules.yml
+  prometheusRules: /resources/insights-prod/cloud-connector/cloud-connector.prometheusrules.yml
