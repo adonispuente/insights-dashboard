@@ -47,7 +47,7 @@ spec:
 machinePools:
 - id: workers
   instance_type: m5.2xlarge
-  replicas: 5
+  replicas: 6
 upgradePolicy:
   workloads:
   - appsre
