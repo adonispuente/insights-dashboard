@@ -45,4 +45,6 @@ resourceTemplates:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
     ref: 5d7f63f84877d38eeed6b184b17a00b8f44aa059
     parameters:
+      MEMORY_REQUESTS: 64Mi
+      MEMORY_LIMIT: 128Mi
       PUSHGATEWAY_VOLUME_SIZE: 30Gi
