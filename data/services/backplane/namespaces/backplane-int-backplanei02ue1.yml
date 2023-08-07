@@ -21,9 +21,11 @@ managedResourceTypes:
 - Route
 - Certificate.cert-manager.io
 - Service
+- NetworkPolicy
 
 sharedResources:
 - $ref: /services/backplane/shared-resources/int.yml
+- $ref: /services/backplane/shared-resources/networkpolicy.yml
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
 openshiftResources:
