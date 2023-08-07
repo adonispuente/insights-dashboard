@@ -51,7 +51,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
-    ref: e5b0fccba1459a036d56d6446746ccf37e2f9618
+    ref: f8b483c83d40dfe9ec1b0a6be0e7240a7002830d
     parameters:
       ENV_FOR_DYNACONF: prod
     promotion:
@@ -64,5 +64,5 @@ resourceTemplates:
       - channel: image-builder-prod-deploy-success-channel
         data:
         - parent_saas: image-builder
-          target_config_hash: 82ad428d383a1549
+          target_config_hash: a6c99b818492a3eb
           type: parent_saas_config
