@@ -76,7 +76,7 @@ config:
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
 - project:
-    name: insights-3scale-builder
+    name: insights-3scale
     label: insights
     node: rhel8
     gh_org: RedHatInsights
@@ -85,3 +85,14 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: insights-3scale pr-check
+    - "insights-gh-build-master":
+        display_name: insights-3scale build-master
+        branch: master
+    - "insights-gh-build-master":
+        display_name: insights-3scale build-security-compliance
+        branch: security-compliance
+    - "insights-gh-scheduled-rebuild":
+        display_name: insights-3scale build-security-compliance-weekly
+        branch: security-compliance
+        cron_expression: "H H(0-3) * * 6"
+        ci_cmd: './build_deploy.sh'
