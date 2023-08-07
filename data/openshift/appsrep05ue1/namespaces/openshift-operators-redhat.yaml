@@ -3,8 +3,8 @@ $schema: /openshift/namespace-1.yml
 
 labels: {}
 
-name: openshift-operators
-description: openshift-operators namespace
+name: openshift-operators-redhat
+description: openshift-operators-redhat namespace
 
 cluster:
   $ref: /openshift/appsrep05ue1/cluster.yml
@@ -16,11 +16,11 @@ environment:
   $ref: /products/app-sre/environments/production.yml
 
 managedResourceTypes:
+- OperatorGroup.operators.coreos.com
 - Subscription.operators.coreos.com
 
 openshiftResources:
-- provider: resource-template
-  type: jinja2
-  path: /tekton/openshift-pipelines-operator-rh.subscription.j2
 - provider: resource
-  path: /setup/network-observability/netobserv-operator.stable.subscription.yaml
+  path: /setup/loki/loki-operator-group.operatorgroup.yaml
+- provider: resource
+  path: /setup/loki/loki-operator.subscription.yaml
