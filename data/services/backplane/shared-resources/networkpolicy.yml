@@ -1,0 +1,12 @@
+---
+$schema: /openshift/shared-resources-1.yml
+
+labels: {}
+
+name: backplane-shared-resources-networkpolicy
+description: shared network policy across all env
+
+openshiftResources:
+- provider: resource-template
+  path: /services/backplane/backplane-network-policy.yaml
+

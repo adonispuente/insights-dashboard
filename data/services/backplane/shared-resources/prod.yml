@@ -29,7 +29,7 @@ openshiftResources:
   path: /services/backplane/letsencrypt-backplane-issuer.yaml.j2
   variables:
     vault_path: app-sre/integrations-output/terraform-resources/backplanep01ue1/backplane/backplane-cert-manager-production
-    secret: backplane-cert-manager
+    secret: backplane-cert-manager   
 - provider: resource-template
   path: /services/backplane/api-prod-backplane-openshift-com.route.yaml
   variables:
