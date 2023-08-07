@@ -80,6 +80,7 @@ self_service:
   - /services/backplane/backplane-api-prod-common.prometheusrules-test.yml
   - /services/backplane/backplane-api-prod-common.prometheusrules.yml
   - /services/backplane/letsencrypt-backplane-issuer.yaml.j2
+  - /services/backplane/backplane-network-policy.yaml
 - change_type:
     $ref: /app-interface/changetype/aws-account-owner.yml
   datafiles:
@@ -105,6 +106,7 @@ self_service:
   - $ref: /services/backplane/shared-resources/int.yml
   - $ref: /services/backplane/shared-resources/prod.yml
   - $ref: /services/backplane/shared-resources/stage.yml
+  - $ref: /services/backplane/shared-resources/networkpolicy.yml
 - change_type:
     $ref: /app-interface/changetype/cloudflare-dns-record-owner.yml
   datafiles:
