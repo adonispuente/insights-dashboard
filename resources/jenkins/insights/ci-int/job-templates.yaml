@@ -700,24 +700,31 @@
     # Parameters to set which stages will run
     - string:
         name: BUILD_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: CYPRESS_COMPONENT_TESTS_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: CYPRESS_E2E_TESTS_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: FRONTEND_BUILD_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: IQE_TESTS_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: LINT_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     - string:
         name: UNIT_TESTS_FLAG
+        allowedValues: ['no', 'yes']
         default: 'no'
     pipeline-scm:
       # make parameter to override template name
