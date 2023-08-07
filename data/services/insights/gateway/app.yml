@@ -46,6 +46,9 @@ quayRepos:
   - name: insights-3scale
     public: false
     description: Repo for the gateway Insights app
+  - name: insights-3scale-init
+    public: false
+    description: Repo for the gateway Insights Init Image
   - name: apicast-test-services
     public: false
     description: Test app for the insights 3scale gateway
@@ -55,6 +58,9 @@ quayRepos:
   - name: apicast
     public: false
     description: Temporary apicast image repo for ubi8 migration of 3scale services
+  - name: apicast-base
+    public: false
+    description: Repo for the forked apicast-base image used to build Insights-3Scale
 
 codeComponents:
 - name: apicast-test-services
