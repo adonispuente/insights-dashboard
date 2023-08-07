@@ -92,15 +92,19 @@ tests:
   # ProgressingArgocdApp alert
   - interval: 1m
     input_series:
-      # app was progessing and then Healthy for the last 5 min, should not alert
-      - series: 'argocd_app_info{health_status="Progressing", name="Progressing-Healthy-5min-app", dest_namespace="Progressing-Healthy-5min", dest_server="https://api.foo.openshiftapps.com:6443"}'
-        values: 1x14 _x4
-      - series: 'argocd_app_info{health_status="Healthy", name="Progressing-Healthy-5min-app", dest_namespace="Progressing-Healthy-5min", dest_server="https://api.foo.openshiftapps.com:6443"}'
-        values: _x14 1x4
+      # App was progessing and then healthy for the last 9 min, should not raise an alert
+      - series: 'argocd_app_info{health_status="Progressing", name="Progressing-Healthy-9min-app", dest_namespace="Progressing-Healthy-9min", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x10 _x8
+      - series: 'argocd_app_info{health_status="Healthy", name="Progressing-Healthy-9min-app", dest_namespace="Progressing-Healthy-9min", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: _x10 1x8
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: ProgressingArgocdApp
+        exp_alerts: [] 
 
   - interval: 1m
     input_series:
-      # app is always progressing, should alert
+      # App is always progressing, should raise an alert
       - series: 'argocd_app_info{health_status="Progressing", name="progressing-only-app", dest_namespace="Still-Progressing", dest_server="https://api.foo.openshiftapps.com:6443"}'
         values: 1x19
     alert_rule_test:
@@ -116,7 +120,7 @@ tests:
               env: "{{{ env }}}"
               team: stonesoup
             exp_annotations:
-              message: |
+              message: |-
                 Environment: {{{ env }}}
                 Application: progressing-only-app
                 Cluster: https://api.foo.openshiftapps.com:6443
@@ -124,60 +128,50 @@ tests:
 
   - interval: 1m
     input_series:
-      # app was progessing and then Healthy for the last 3 min, should alert
-      - series: 'argocd_app_info{health_status="Progressing", name="progressing-healthy-3min-app", dest_namespace="Progressing-Healthy-3min", dest_server="https://api.foo.openshiftapps.com:6443"}'
-        values: 1x16 _ _ _
+      # Apps are always healthy, should not raise an alert
+      - series: 'argocd_app_info{health_status="Healthy", name="Healthy-only-app", dest_namespace="Still-Progressing", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x19
+      - series: 'argocd_app_info{health_status="Progressing", name="Healthy-only-app", dest_namespace="Still-Progressing", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: _x19
+      - series: 'argocd_app_info{health_status="Healthy", name="another-Healthy-only-app", dest_namespace="Still-Progressing", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x19
     alert_rule_test:
       - eval_time: 20m
         alertname: ProgressingArgocdApp
-        exp_alerts:
-          - exp_labels:
-              severity: medium
-              dest_server: https://api.foo.openshiftapps.com:6443
-              dest_namespace: Progressing-Healthy-3min
-              health_status: Progressing
-              name: progressing-healthy-3min-app
-              env: "{{{ env }}}"
-              team: stonesoup
-            exp_annotations:
-              message: |
-                Environment: {{{ env }}}
-                Application: progressing-healthy-3min-app
-                Cluster: https://api.foo.openshiftapps.com:6443
-                App progressing for too long.
+        exp_alerts: []
 
   - interval: 1m
     input_series:
-      # the app is switching health states (flapping), alert should be triggered
-      - series: 'argocd_app_info{health_status="Progressing", name="flapping-should-alert-app", dest_namespace="Flapping-Should-Alert", dest_server="https://api.foo.openshiftapps.com:6443"}'
+      # App was progessing and then healthy for the last 4 min, should not raise an alert
+      - series: 'argocd_app_info{health_status="Progressing", name="progressing-healthy-4min-app", dest_namespace="Progressing-Healthy-4min", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: 1x15 _x3
+      - series: 'argocd_app_info{health_status="Healthy", name="progressing-healthy-4min-app", dest_namespace="Progressing-Healthy-4min", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: _x15 1x3
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: ProgressingArgocdApp
+        exp_alerts: []
+
+  - interval: 1m
+    input_series:
+      # the app is switching health states (flapping), should not raise an alert
+      - series: 'argocd_app_info{health_status="Progressing", name="flapping-should-not-alert-app", dest_namespace="Flapping-Should-Not-Alert", dest_server="https://api.foo.openshiftapps.com:6443"}'
         values: '_ 1 _ 1 1 _ 1 1 1 _ _ _ _ 1 _ 1 1 1 1 _'
+      - series: 'argocd_app_info{health_status="Healthy", name="flapping-should-not-alert-app", dest_namespace="Flapping-Should-Not-Alert", dest_server="https://api.foo.openshiftapps.com:6443"}'
+        values: '1 _ 1 _ _ 1 _ _ _ 1 1 1 1 _ 1 _ _ _ _ 1'
     alert_rule_test:
       - eval_time: 20m
         alertname: ProgressingArgocdApp
-        exp_alerts:
-          - exp_labels:
-              severity: medium
-              dest_server: https://api.foo.openshiftapps.com:6443
-              dest_namespace: Flapping-Should-Alert
-              health_status: Progressing
-              name: flapping-should-alert-app
-              env: "{{{ env }}}"
-              team: stonesoup
-            exp_annotations:
-              message: |
-                Environment: {{{ env }}}
-                Application: flapping-should-alert-app
-                Cluster: https://api.foo.openshiftapps.com:6443
-                App progressing for too long.
+        exp_alerts: []
 
   - interval: 1m
     input_series:
-      # app 1: Progressing all of the time, should alert
+      # App 1: Progressing all of the time, should raise an alert
       - series: 'argocd_app_info{health_status="Progressing", name="Progressing_first-app", dest_namespace="Progressing_first", dest_server="https://api.foo.openshiftapps.com:6443"}'
         values: 1x19
       - series: 'argocd_app_info{health_status="Healthy", name="Progressing_first-app", dest_namespace="Progressing_first", dest_server="https://api.foo.openshiftapps.com:6443"}'
         values: _x19
-      # app 2: Progressing for 17 minutes and then healthy for 3 minutes, should alert
+      # App 2: Progressing for 17 minutes and then healthy for 3 minutes, should not raise an alert
       - series: 'argocd_app_info{health_status="Progressing", name="Progressing_second-app", dest_namespace="Progressing_second", dest_server="https://api.foo.openshiftapps.com:6443"}'
         values: 1x16 _ _ _
       - series: 'argocd_app_info{health_status="Healthy", name="Progressing_second-app", dest_namespace="Progressing_second", dest_server="https://api.foo.openshiftapps.com:6443"}'
@@ -195,24 +189,8 @@ tests:
               env: "{{{ env }}}"
               team: stonesoup
             exp_annotations:
-              message: |
+              message: |-
                 Environment: {{{ env }}}
                 Application: Progressing_first-app
                 Cluster: https://api.foo.openshiftapps.com:6443
                 App progressing for too long.
-
-          - exp_labels:
-              severity: medium
-              dest_server: https://api.foo.openshiftapps.com:6443
-              dest_namespace: Progressing_second
-              health_status: Progressing
-              name: Progressing_second-app
-              env: "{{{ env }}}"
-              team: stonesoup
-            exp_annotations:
-              message: |
-                Environment: {{{ env }}}
-                Application: Progressing_second-app
-                Cluster: https://api.foo.openshiftapps.com:6443
-                App progressing for too long.
-
