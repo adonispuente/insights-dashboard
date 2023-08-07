@@ -40,6 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /openshift/app-sre-stage-01/namespaces/app-sre-rate-limiting-test.yml
+    ref: master
     parameters:
       CLEANUP_DAYS: 7
       IMAGE_TAG: "0.4.0"
