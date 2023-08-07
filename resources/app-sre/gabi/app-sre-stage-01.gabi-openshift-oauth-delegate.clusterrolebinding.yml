@@ -52,6 +52,14 @@ subjects:
     name: gabi-assisted-installer
     namespace: assisted-installer-integration
 
+  - kind: ServiceAccount
+    name: gabi-clair-indexer
+    namespace: clair-stage
+
+  - kind: ServiceAccount
+    name: gabi-clair-matcher
+    namespace: clair-stage
+
 roleRef:
   kind: ClusterRole
   name: gabi-openshift-oauth-delegate

@@ -1,0 +1,35 @@
+---
+$schema: /app-sre/gabi-instance-1.yml
+
+labels:
+  service: gabi
+
+name: gabi-clair-indexer
+
+description: |
+ I would like to be able to get db access for Clair indexer DB
+ I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
+
+signoffManagers:
+- $ref: /teams/quay/users/bdettelb.yml
+
+users:
+- $ref: /teams/quay/users/syahmed.yml
+- $ref: /teams/quay/users/sleesinc.yml
+- $ref: /teams/quay/users/jcroslan.yml
+- $ref: /teams/quay/users/doconnor.yml
+- $ref: /teams/quay/users/obulatov.yml
+- $ref: /teams/quay/users/joking.yml
+- $ref: /teams/quay/users/hdonnay.yml
+- $ref: /teams/quay/users/bcaton.yml
+- $ref: /teams/quay/users/bdettelb.yml
+- $ref: /teams/quay/users/sdadi.yml
+
+instances:
+- account: quayio-stage
+  identifier: clair-indexer-stage
+  namespace:
+    $ref: /services/clair/namespaces/stage.yml
+
+# The maximum expiration date shall not exceed 90 days from the current date.
+expirationDate: '2023-11-01'
