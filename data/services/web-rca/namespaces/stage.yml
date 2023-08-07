@@ -32,7 +32,7 @@ managedResourceTypes:
 openshiftResources:
 - provider: vault-secret
   path: app-interface/web-rca/stage/runtime
-  version: 19
+  version: 20
 - provider: vault-secret
   name: web-rca-ansible-secrets
   path: app-interface/web-rca/stage/ansible
