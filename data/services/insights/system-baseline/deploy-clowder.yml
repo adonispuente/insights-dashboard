@@ -25,6 +25,7 @@ managedResourceTypes:
 - ConfigMap
 - CronJob
 - Job
+- FloorPlan
 
 imagePatterns:
 - quay.io/cloudservices
@@ -72,6 +73,4 @@ resourceTemplates:
     parameters:
       SYSTEM_BASELINE_HOST: system-baseline-backend-service.system-baseline-stage.svc.cluster.local
       FLOORIST_SUSPEND: 'false'
-      FLOORIST_IMAGE_TAG: fe12542 # 2022-06-03
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
-      FLOORIST_SCHEDULE: '20 11 * * *'
