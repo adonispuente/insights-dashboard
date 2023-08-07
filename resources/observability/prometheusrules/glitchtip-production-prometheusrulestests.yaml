@@ -131,7 +131,7 @@ tests:
         exp_alerts:
           - exp_labels:
               service: glitchtip
-              severity: critical
+              severity: high
               route: glitchtip-route
             exp_annotations:
               message: "Glitchtip route glitchtip-route is failing to handle 9.091% of the requests."
