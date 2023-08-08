@@ -6,6 +6,7 @@ labels: {}
 name: network-observability
 description: Namespace for netobserv resources like Loki
 
+delete: true
 cluster:
   $ref: /openshift/app-sre-stage-01/cluster.yml
 

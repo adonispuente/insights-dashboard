@@ -30,8 +30,6 @@ openshiftResources:
 - provider: resource
   path: /setup/network-observability/netobserv-operator.subscription.yaml
 - provider: resource
-  path: /setup/network-observability/cluster.flowcollector.yaml
-- provider: resource
   path: /setup/advanced-cluster-security/rhacs-operator.subscription.yaml
 - provider: resource
   path: /setup/tempo/tempo-operator.subscription.yaml
