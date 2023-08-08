@@ -922,11 +922,35 @@ deletionApprovals:
 - type: aws_iam_policy
   name: ocm-service-log
   expiration: '2022-07-30'
+- type: aws_ecr_repository
+  name: ocp-art-dev'
+  expiration: '2023-08-30'
+- type: aws_ecr_repository
+  name: ocp-release'
+  expiration: '2023-08-30'
+- type: aws_iam_access_key
+  name: ocp-art-dev'
+  expiration: '2023-08-30'
+- type: aws_iam_access_key
+  name: ocp-release'
+  expiration: '2023-08-30'
 - type: aws_iam_policy
   name: ocp-art-dev
   expiration: '2023-08-30'
 - type: aws_iam_policy
   name: ocp-release
+  expiration: '2023-08-30'
+- type: aws_iam_user
+  name: ocp-art-dev'
+  expiration: '2023-08-30'
+- type: aws_iam_user
+  name: ocp-release'
+  expiration: '2023-08-30'
+- type: aws_iam_user_policy_attachment
+  name: ocp-art-dev'
+  expiration: '2023-08-30'
+- type: aws_iam_user_policy_attachment
+  name: ocp-release'
   expiration: '2023-08-30'
 - type: aws_iam_policy
   name: osd-metrics-exporter
