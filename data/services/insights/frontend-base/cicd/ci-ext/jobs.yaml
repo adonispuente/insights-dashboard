@@ -88,6 +88,22 @@ config:
         display_name: learning-resources-build build-master-stable
         branch: "master-stable"
 - project:
+    name: seats-admin-ui
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: seats-admin
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pr-check":
+        display_name: seats-admin-ui pr-check
+    - "insights-gh-build-master":
+        display_name: seats-admin-ui-build build-master
+        branch: "main"
+    - "insights-gh-build-master":
+        display_name: seats-admin-ui-build build-master-stable
+        branch: "main-stable"
+- project:
     name: settings-frontend
     label: insights
     node: insights
