@@ -98,7 +98,7 @@ resourceTemplates:
       SOURCES_HOST: sources-api-svc
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: ae351e952a0abfeccb3948a865964ce17244bf66
+    ref: a351a7f860ce7ae82b84fe0d6ff7b8887ff17003
 - name: sources-superkey-worker
   path: /deploy/clowdapp.yaml
   url: https://github.com/RedHatInsights/sources-superkey-worker
