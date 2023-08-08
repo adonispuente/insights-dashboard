@@ -53,7 +53,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: 8bbd98e720e8063ca3bc86b01303af046e636962
+    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
     parameters:
       ENV_FOR_DYNACONF: prod
     promotion:
@@ -66,5 +66,5 @@ resourceTemplates:
       - channel: provisioning-prod-post-deploy-tests-success-channel
         data:
         - parent_saas: provisioning-testing
-          target_config_hash: 59c065ce12774578
+          target_config_hash: c4d898e1199cc2a6
           type: parent_saas_config
