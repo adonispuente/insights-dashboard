@@ -69,7 +69,7 @@ The above figure describes the installation of Dynatrace into an OSD cluster via
 
 #### Generate Dynatrace API Tokens
 
-We use dynatrace-config to [generate API tokens](https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/terraform/redhat-aws/sd-sre/staging/us-east-virginia/hrm15629/ocm-cluster-app-sre-stage-01.tf) and place them in our vault. Currently these terraform definitions are executed manually on our local machine, as there is no common pipeline yet. This repository is shared with SREP and we are aware of this short-comming. A mechanism to automatically apply terraform will be added in the future. It might actually be a good candidat for our `terraform-repo` approach.
+We use dynatrace-config to [generate API tokens](https://gitlab.cee.redhat.com/service/dynatrace-config/-/blob/main/terraform/redhat-aws/sd-sre/staging/us-east-virginia/hrm15629/ocm-cluster-app-sre-stage-01.tf) and place them in our vault. Currently these terraform definitions are executed manually on our local machine, as there is no common pipeline yet. This repository is shared with SREP and we are aware of this short-comming. A mechanism to automatically apply terraform will be added in the future. It might actually be a good candidate for our `terraform-repo` approach.
 
 Here is an [example MR](https://gitlab.cee.redhat.com/service/dynatrace-config/-/merge_requests/134/diffs).
 
@@ -116,13 +116,13 @@ Also a [corresponding MR](https://gitlab.cee.redhat.com/service/app-interface/-/
 $schema: /dependencies/dynatrace-environment-1.yml
 labels: {}
 
-name: dynatrace-staging-us-east-1
+name: dynatrace-staging-us-east-1-ddl70254
 description: Dynatrace Environment for staging us-east-1
 environmentUrl: https://ddl70254.live.dynatrace.com
 
 # This can potentially be extended in the future to provision api tokens to the dynatrace namespace via an integration
 #apiToken:
-#  path: app-interface/app-sre/dynatrace/staging/us-east-1
+#  path: app-interface/app-sre/dynatrace/staging/us-east-1-ddl70254
 #  field: token
 #  version: 1
 ```
@@ -132,7 +132,7 @@ The Dynatrace dependency can be set per-cluster.
 **data/openshift/app-sre-stage-01/cluster.yml:**
 ```
 dynatrace:
-  $ref: /dependencies/dynatrace/staging/us-east-1.yml
+  $ref: /dependencies/dynatrace/staging/us-east-1-ddl70254.yml
 ```
 
 Note, that we only support one Dynatrace environment per-cluster as of now. The ActiveGate component can only speak to a single Dynatrace environment. Multiple ActiveGates require multiple DynaKubes, which results in multiple OneAgent Daemonsets. However, a host currently can only accomodate a single OneAgent in our current Dynatrace setup. In order to support multiple Dynatrace Environments for a single cluster, we need to tackle [DI-76](https://issues.redhat.com/browse/DI-76).
