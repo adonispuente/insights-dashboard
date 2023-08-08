@@ -41,6 +41,7 @@ managedRoles: true
 # go here.
 managedResourceTypes:
 - ConfigMap
+- OperatorGroup
 
 # You can enumerate the common resources available to workloads in this
 # namespace, including Vault secrets, ConfigMaps, and more.
@@ -73,6 +74,9 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-stage/image-builder-stage/floorist-bucket
   version: 3
+# Pulp related resources
+- provider: resource
+  path: /insights-stage/image-builder-stage/image-builder-pulp-operator-group.yml
 
 # app-interface uses Terraform to manage non-OpenShift resources, like AWS
 # resources
@@ -98,6 +102,23 @@ externalResources:
       apply_immediately: true
     enhanced_monitoring: true
     output_resource_name: image-builder-db
+  - provider: rds
+    identifier: image-builder-pulp-stage
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
+    overrides:
+      apply_immediately: true
+      enabled_cloudwatch_logs_exports: ['postgresql', 'upgrade']
+    parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-image-builder-pulp-stage.yml
+    output_resource_name: image-builder-pulp-db
+    enhanced_monitoring: true
+  - provider: elasticache
+    identifier: image-builder-elasticache-stage
+    defaults: /terraform/resources/insights/stage/elasticache/elasticache-image-builder-1.yml
+    output_resource_name: in-memory-db
+  - provider: s3
+    identifier: image-builder-pulp-s3
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: image-builder-pulp-s3
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
