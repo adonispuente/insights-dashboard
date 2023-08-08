@@ -32,6 +32,10 @@ rules: |
     capabilities = ["read"]
   }
 
+  path "app-sre/integrations-output/openshift-serviceaccount-tokens/appsrep05ue1/app-sre-pipeline-utils/platform-changelog-stage-jenkins-jobs-sa-token" {
+    capabilities = ["read"]
+  }
+
   path "app-sre/quay/*" {
     capabilities = ["read"]
   }
