@@ -91,7 +91,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
-    ref: 23d2eac46a9e00d0d78261d73e8497c751be927f
+    ref: 16ab519afccb425322f317767341079f388c1d28
     parameters:
       REDIRECTOR_DESTINATION: https://devfile.io/docs
       REDIRECTOR_TYPE: redirect
