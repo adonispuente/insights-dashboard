@@ -24,7 +24,6 @@ config:
     gl_group: ocm
     gl_project: ocm-addons-service
     quay_org: app-sre
-    backup_ecr_push_creds_account_region: "app-sre/eu-central-1"
     jobs:
     - 'ocm-pr-check':
         display_name: OCM AddOn Service check merge request

@@ -59,7 +59,6 @@
           - *ci_jenkins_token
           - *cpaas_rhosak_token
           - *gitlab_token
-          - *backup_ecr_push_creds
           - *quay_secret_push
           - *app_sre_bot_push_token
           - *app_interface_creds
@@ -80,7 +79,6 @@
           - *ci_jenkins_token
           - *cpaas_rhosak_token
           - *gitlab_token
-          - *backup_ecr_push_creds
           - *quay_secret_push
           - *app_sre_bot_push_token
           - *app_interface_creds
@@ -101,7 +99,6 @@
           - *ci_jenkins_token
           - *cpaas_rhosak_token
           - *gitlab_token
-          - *backup_ecr_push_creds
           - *quay_secret_push
           - *app_sre_bot_push_token
           - *app_interface_creds
@@ -167,7 +164,6 @@
           secrets:
           - *ci_jenkins_token
           - *gitlab_token
-          - *backup_ecr_push_creds
           - *quay_secret_push
           - *app_sre_bot_push_token
           - *app_interface_creds
