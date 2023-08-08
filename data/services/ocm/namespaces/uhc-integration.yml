@@ -214,13 +214,18 @@ externalResources:
         },{
           "Action": [
             "ec2:DescribeRegions",
-            "ec2:DescribeInstanceTypeOfferings",
+            "ec2:DescribeInstanceTypeOfferings"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+        },{
+          "Action": [
             "iam:GetRole",
             "iam:CreateRole",
             "iam:UpdateAssumeRolePolicy"
           ],
           "Effect": "Allow",
-          "Resource": "*"
+          "Resource": "arn:aws:iam::*:role/RH-Technical-Support-Access*"
         }]
       }
     output_resource_name: sts-credentials
