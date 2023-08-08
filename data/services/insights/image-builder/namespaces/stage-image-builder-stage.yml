@@ -42,6 +42,7 @@ managedRoles: true
 managedResourceTypes:
 - ConfigMap
 - OperatorGroup
+- Secret
 
 # You can enumerate the common resources available to workloads in this
 # namespace, including Vault secrets, ConfigMaps, and more.
@@ -77,6 +78,17 @@ openshiftResources:
 # Pulp related resources
 - provider: resource
   path: /insights-stage/image-builder-stage/image-builder-pulp-operator-group.yml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/image-builder-stage/image-builder-pulp-in-memory-db.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/image-builder-stage/image-builder-pulp-s3.secret.yaml
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /insights-stage/image-builder-stage/image-builder-pulp-db.secret.yaml
+- provider: route
+  path: /insights-stage/image-builder-stage/image-builder-pulp.route.yaml
 
 # app-interface uses Terraform to manage non-OpenShift resources, like AWS
 # resources

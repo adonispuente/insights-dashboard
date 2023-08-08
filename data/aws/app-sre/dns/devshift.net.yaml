@@ -433,3 +433,9 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/crcs02ue1/cluster.yml
+
+# Image Builder Pulp
+- name: image-builder-pulp.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/crcs02ue1/cluster.yml
