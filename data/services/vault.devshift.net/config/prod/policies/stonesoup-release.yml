@@ -8,9 +8,21 @@ name: "stonesoup-approle-release-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/release/*" {
+  path "stonesoup/metadata/production/release/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/release/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/release/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/release/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/release/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/release/*" {
+  path "stonesoup/data/staging/release/*" {
     capabilities = ["create", "update", "read", "list"]
   }

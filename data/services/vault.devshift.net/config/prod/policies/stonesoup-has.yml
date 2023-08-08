@@ -8,9 +8,21 @@ name: "stonesoup-approle-has-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/has/*" {
+  path "stonesoup/metadata/production/has/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/has/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/has/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/has/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/has/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/has/*" {
+  path "stonesoup/data/staging/has/*" {
     capabilities = ["create", "update", "read", "list"]
   }

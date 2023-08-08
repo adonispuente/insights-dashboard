@@ -8,9 +8,21 @@ name: "stonesoup-approle-qe-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/qe/*" {
+  path "stonesoup/metadata/production/qe/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/qe/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/qe/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/qe/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/qe/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/qe/*" {
+  path "stonesoup/data/staging/qe/*" {
     capabilities = ["create", "update", "read", "list"]
   }

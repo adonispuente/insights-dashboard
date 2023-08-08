@@ -1,0 +1,16 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: stonesoup-monitoring-vault
+
+permissions: []
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/stonesoup-monitoring.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-monitoring-vault.yml
