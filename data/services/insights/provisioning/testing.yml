@@ -46,7 +46,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: 8bbd98e720e8063ca3bc86b01303af046e636962
+    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
     parameters:
       IQE_ENV: prod
       IQE_MARKER: prod
@@ -60,5 +60,5 @@ resourceTemplates:
       - channel: provisioning-prod-deploy-success-channel
         data:
         - parent_saas: provisioning
-          target_config_hash: 9ec5d165876a11c1
+          target_config_hash: b7e1d4d833b24977
           type: parent_saas_config
