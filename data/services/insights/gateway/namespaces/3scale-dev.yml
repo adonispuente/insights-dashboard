@@ -76,4 +76,9 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/ephemeral/3scale/it-ca-bundle
+  version: 2
+  annotations:
+    qontract.recycle: "true"
 
