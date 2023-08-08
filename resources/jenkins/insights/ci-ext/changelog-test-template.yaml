@@ -45,7 +45,7 @@
 
         echo 'Building merge info for changelog.stage.devshift.net'
 
-        merge_info="{{\"tenant\": \"{label}\", \"app\": \"{app_name}\", \"project\": \"{name}\", "repo": \"$GIT_URL\", \"commits\": \"$GIT_COMMIT\"}}"
+        merge_info="{{\"tenant\": \"{label}\", \"app\": \"{app_name}\", \"project\": \"{name}\", \"repo\": \"$GIT_URL\", \"commits\": \"$GIT_COMMIT\"}}"
 
         echo $merge_info
 
