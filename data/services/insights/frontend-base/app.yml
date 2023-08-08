@@ -75,6 +75,9 @@ quayRepos:
   - name: learning-resources
     public: true
     description: Quay repo for learning-resources
+  - name: seats-admin-ui
+    public: true
+    description: Quay repo for seats ui
   - name: settings-frontend
     public: true
     description: Quay repo for settings-frontend
@@ -115,6 +118,9 @@ codeComponents:
 - name: frontend-starter-app
   resource: upstream
   url: https://github.com/RedHatInsights/frontend-starter-app
+- name: seats-admin-ui
+  resource: upstream
+  url: https://github.com/RedHatInsights/seats-admin
 - name: settings-frontend
   resource: upstream
   url: https://github.com/RedHatInsights/settings-frontend
