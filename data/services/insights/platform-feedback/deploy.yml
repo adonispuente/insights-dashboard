@@ -49,4 +49,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/insights/platform-feedback/namespaces/platform-feedback-prod.yml
-    ref: fe943c0ffb5eebafcb07774f431d0330024024a3
+    ref: 31a153ba339d870e58b7f2b762fc36c6490b7aec
