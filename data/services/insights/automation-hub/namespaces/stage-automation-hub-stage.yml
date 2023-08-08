@@ -80,7 +80,7 @@ externalResources:
     defaults: /terraform/resources/insights/stage/rds/postgres12-rds-1.yml
     overrides:
       engine_version: "12.13"
-      instance_class: db.t3.medium
+      instance_class: db.t3.xlarge
       apply_immediately: true
     parameter_group: /terraform/resources/insights/stage/rds/postgres12-parameter-group-automation-hub-stage.yml
     output_resource_name: automation-hub-db
