@@ -14,6 +14,12 @@ rules: |
   path "app-interface/metadata/content-sources/" {
     capabilities = ["list"]
   }
+  path "app-interface/metadata/content-sources/ephemeral/*" {
+    capabilities = ["list", "read"]
+  }
+  path "app-interface/data/content-sources/ephemeral/*" {
+    capabilities = ["create", "update", "read"]
+  }
   path "app-interface/metadata/content-sources/stage/*" {
     capabilities = ["list", "read"]
   }
