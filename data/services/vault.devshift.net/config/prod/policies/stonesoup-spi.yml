@@ -8,9 +8,21 @@ name: "stonesoup-approle-spi-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/spi/*" {
+  path "stonesoup/metadata/production/spi/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/spi/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/spi/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/spi/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/spi/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/spi/*" {
+  path "stonesoup/data/staging/spi/*" {
     capabilities = ["create", "update", "read", "list"]
   }

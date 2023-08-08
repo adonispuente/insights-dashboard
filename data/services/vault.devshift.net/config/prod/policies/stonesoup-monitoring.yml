@@ -8,9 +8,21 @@ name: "stonesoup-approle-monitoring-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/monitoring/*" {
+  path "stonesoup/metadata/production/monitoring/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/monitoring/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/monitoring/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/monitoring/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/monitoring/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/monitoring/*" {
+  path "stonesoup/data/staging/monitoring/*" {
     capabilities = ["create", "update", "read", "list"]
   }

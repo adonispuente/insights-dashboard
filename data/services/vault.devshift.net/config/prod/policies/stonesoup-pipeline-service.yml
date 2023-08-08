@@ -8,9 +8,21 @@ name: "stonesoup-approle-pipeline-service-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
-  path "stonesoup/production/pipeline-service/*" {
+  path "stonesoup/metadata/production/pipeline-service/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/pipeline-service/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/pipeline-service/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/pipeline-service/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/pipeline-service/*" {
     capabilities = ["create", "update", "read", "list"]
   }
-  path "stonesoup/staging/pipeline-service/*" {
+  path "stonesoup/data/staging/pipeline-service/*" {
     capabilities = ["create", "update", "read", "list"]
   }

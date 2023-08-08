@@ -1,0 +1,16 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: stonesoup-pipeline-service-vault
+
+permissions: []
+
+oidc_permissions:
+- $ref: /dependencies/vault/permissions/oidc/prod/stonesoup-pipeline-service.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-pipeline-service-vault.yml
