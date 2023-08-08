@@ -90,6 +90,12 @@ openshiftResources:
   version: 8
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/3scale-stage/it-ca-bundle
+  version: 2
+  annotations:
+    qontract.recycle: "true"
+
 
 managedExternalResources: true
 
