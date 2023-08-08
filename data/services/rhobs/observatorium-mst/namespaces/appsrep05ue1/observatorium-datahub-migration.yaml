@@ -1,0 +1,19 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+#TODO - pgough/rhobs - delete after https://issues.redhat.com/browse/RHOBS-851
+name: observatorium-datahub-migration
+description: appsrep05ue1 observatorium-datahub-migration namespace for RHOBS Telemeter LTS migration
+
+cluster:
+  $ref: /openshift/appsrep05ue1/cluster.yml
+
+app:
+  $ref: /services/rhobs/observatorium-mst/app.yml
+
+environment:
+  $ref: /products/osdv4/environments/production.yml
+
+managedRoles: true

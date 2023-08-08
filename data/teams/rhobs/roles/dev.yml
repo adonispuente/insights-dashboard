@@ -80,6 +80,11 @@ access:
 - namespace:
     $ref: /openshift/rhobsp02ue1/namespaces/openshift-operators.yaml
   role: view
+# datahub-migration
+#TODO - pgough/rhobs - delete after https://issues.redhat.com/browse/RHOBS-851
+- namespace:
+    $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
+  role: view
 
 
 self_service:
