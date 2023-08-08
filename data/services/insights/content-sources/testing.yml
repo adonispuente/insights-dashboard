@@ -28,7 +28,7 @@ resourceTemplates:
   ## STAGE
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
-    ref: 88025f9e13bdbf4273b194878fde241cf67c7542
+    ref: 8a8c36242b1b365371185c5eced5a4a40a1dfba3
     parameters:
       IQE_MARKER: smoke and api
       IQE_ENV: stage_post_deploy
