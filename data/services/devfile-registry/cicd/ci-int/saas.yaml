@@ -86,12 +86,14 @@ resourceTemplates:
       subscribe:
       - devfile-registry-stage-post-deploy-tests-success-channel
 - name: devfile-io-redirector
-  url: https://github.com/devfile/registry-support
-  path: /deploy/hosted-registry/redirector/redirector.yaml
+  url: https://github.com/app-sre/nginx-redirector
+  path: /openshift-redirector.yml
   targets:
   - namespace:
       $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
     ref: 23d2eac46a9e00d0d78261d73e8497c751be927f
     parameters:
-      REPLICAS: 3
-      IMAGE_TAG: 9786e53
+      REDIRECTOR_DESTINATION: https://devfile.io/docs
+      REDIRECTOR_TYPE: redirect
+      CPU_LIMITS: 100m
+      MEMORY_LIMITS: 100Mi
