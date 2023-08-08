@@ -34,8 +34,8 @@ spec:
   initial_version: 4.7.0-candidate
   multi_az: true
   autoscale:
-    min_replicas: 18
-    max_replicas: 45
+    min_replicas: 9
+    max_replicas: 9
   instance_type: m5.xlarge
   storage: 1100
   load_balancers: 0
