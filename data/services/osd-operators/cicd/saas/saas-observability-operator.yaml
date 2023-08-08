@@ -73,7 +73,7 @@ resourceTemplates:
       name: observability-operator-catalog
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -82,7 +82,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -91,7 +91,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -100,7 +100,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -109,7 +109,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -118,7 +118,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
@@ -127,7 +127,7 @@ resourceTemplates:
       RESOURCE_LIMIT_MEMORY: 1536Mi
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 01ca55a173dac556b01f0c48b0b9c78d051f2de4
+    ref: f4f93097605b85efd0c78235478e1022c9972c89
     parameters:
       CHANNEL: stable
       RESOURCE_REQUEST_CPU: 100m
