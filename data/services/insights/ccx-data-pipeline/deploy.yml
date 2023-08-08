@@ -113,7 +113,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     delete: false
-    ref: 00cb5a036d399713a8f273abd6532259e06cd03d
+    ref: 65997316d31a5e4c25670932dc8604636948442f
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
