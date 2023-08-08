@@ -433,6 +433,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ibm-infra
+- name: hs-sc-s3i4uikn0
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0 13 * * 1-4
+    conditions:
+      sector: ibm-infra
+      soakDays: 0
+      mutexes:
+      - ibm-infra
 recommendedVersions:
 - workload: service-cluster
   channel: stable
