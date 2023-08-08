@@ -924,10 +924,10 @@ deletionApprovals:
   expiration: '2022-07-30'
 - type: aws_iam_policy
   name: ocp-art-dev
-  expiration: '2022-07-30'
+  expiration: '2023-08-30'
 - type: aws_iam_policy
   name: ocp-release
-  expiration: '2022-07-30'
+  expiration: '2023-08-30'
 - type: aws_iam_policy
   name: osd-metrics-exporter
   expiration: '2022-07-30'
