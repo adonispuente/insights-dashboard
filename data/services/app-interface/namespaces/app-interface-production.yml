@@ -104,14 +104,6 @@ externalResources:
     identifier: app-interface-production-cloudwatch
     defaults: /terraform/resources/cloudwatch-1.yml
     output_resource_name: app-interface-cloudwatch
-  - provider: ecr
-    region: us-east-1
-    identifier: ocp-release
-    output_resource_name: ocp-release-ecr
-  - provider: ecr
-    region: us-east-1
-    identifier: ocp-art-dev
-    output_resource_name: ocp-art-dev-ecr
   - provider: s3
     identifier: git-partition-sync
     defaults: /terraform/resources/s3-private-1.yml
