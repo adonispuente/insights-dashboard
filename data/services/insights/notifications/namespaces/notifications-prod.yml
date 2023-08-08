@@ -62,6 +62,9 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-prod/notifications-prod/sources-api-psk
   version: 2
+- provider: vault-secret
+  path: insights/secrets/insights-prod/notifications-prod/export-service-psk
+  version: 2
 
 sharedResources:
 - $ref: /services/insights/shared-resources/metrics-export-prod.yml
