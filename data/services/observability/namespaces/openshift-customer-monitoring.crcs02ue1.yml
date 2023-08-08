@@ -531,12 +531,11 @@ openshiftResources:
   type: resource
   tests:
   - /observability/prometheusrules/insights-fedramp-customer-interest.prometheusrulestests.yaml
-# TODO: @comitche re-enable once file is fixed
-# - provider: prometheus-rule
-#   path: /insights-stage/export-service-stage/export-service.prometheusrules.yml
-#   type: resource
-#   tests:
-#   - /insights-stage/export-service-stage/export-service.prometheusrulestests.yml
+- provider: prometheus-rule
+  path: /insights-stage/export-service-stage/export-service.prometheusrules.yml
+  type: resource
+  tests:
+  - /insights-stage/export-service-stage/export-service.prometheusrulestests.yml
 
 ### Gabi
 - provider: prometheus-rule
