@@ -32,6 +32,10 @@ Specifying all the required technical details of the implementation. There might
 
 ## Proposal
 
+Teams can request an unleash instance for their consumption. We do not add an abstraction on top of unleash to manage i.e. the Feature Flags or Strategies. This is the responsibility of the customer. We do not intend to provide a shared instance. Every unleash instance requested should be used for a single application. It is upon the user to decide how to use it.
+
+### Overview of the Milestone 1 architecture
+
 ![Alt text](images/unleash-capability.png)
 
 Above's diagram shows the proposed architecture for the first iteration of the unleash capability:
