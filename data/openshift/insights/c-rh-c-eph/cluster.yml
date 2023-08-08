@@ -34,8 +34,41 @@ internal: false
 
 managedClusterRoles: true
 
+ocm:
+  $ref: /dependencies/ocm/crc/insights.yaml
+
+spec:
+  product: osd
+  id: 1gs5uojg7hpn2rp9d3fei30lca0ualu1
+  external_id: 46bef55d-077a-4cfd-ad23-ecfa082a304f
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: 4.13.7
+  initial_version: 4.2.9
+  multi_az: false
+  instance_type: m5.2xlarge
+  private: false
+  storage: 1100
+  load_balancers: 4
+
+network:
+  type: OpenShiftSDN
+  vpc: 10.0.0.0/16
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+
+upgradePolicy:
+  workloads:
+  - crc
+  schedule: 0 9 * * 3
+  conditions:
+    soakDays: 0
+
 disable:
   integrations:
+  # This cluster is a CCS cluster and we con't fully support it
+  - ocm-clusters
   - openshift-users
   # - openshift-groups
   # - openshift-resources
