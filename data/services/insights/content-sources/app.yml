@@ -14,10 +14,10 @@ description: |
   Other services, such as Image Builder, will be able to use those sources in their workflows.
 
 architectureDocument: https://github.com/content-services/content-sources-backend/blob/main/docs/architecture.md 
-sopsUrl: https://TODO
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/content-sources
 grafanaUrls:
-- title: Notifications Dashboard
-  url: https://TODO
+- title: Content Sources Dashboard
+  url: https://grafana.app-sre.devshift.net/d/content-sources/content-sources?orgId=1&var-datasource=crcp01ue1-prometheus&from=now-24h&to=now
 onboardingStatus: InProgress
 
 parentApp:
