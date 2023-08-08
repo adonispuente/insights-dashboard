@@ -11,6 +11,14 @@ slack_username: bkundu
 
 roles:
 - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-build-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-external-secrets-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-has-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-monitoring-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-pipeline-service-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-platform-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-qe-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-release-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-spi-vault.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
