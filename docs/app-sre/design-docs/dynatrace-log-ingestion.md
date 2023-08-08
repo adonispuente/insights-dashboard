@@ -155,5 +155,6 @@ Logging is enabled on a per-namespace basis. This part can easily be made self-s
 
 1. `app-sre-stage-01` namespaces are sending logs (github-mirror, glitchtip) - already Done
 2. rollout to uhc integration and staging - already Done
-3. rollout to uhc production
-4. make this generally available to our tenants via announcement and documentation
+3. rollout to uhc production - already Done
+4. make log ingestion self-servicable by applying proposed schema changes
+5. make this generally available to our tenants via announcement and documentation
