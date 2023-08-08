@@ -16,7 +16,8 @@ spec:
       expr: sum(rate(api_3scale_gateway_api_status{status="5xx",exported_service="export"}[28d])) / sum(rate(api_3scale_gateway_api_status{exported_service="export"}[28d])) > 0.05
       for: 5m
       labels:
-        severity: high
+        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+        severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
@@ -30,7 +31,8 @@ spec:
       expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}[24h])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}[24h])) < .9
       for: 5m
       labels:
-        severity: high
+        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+        severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
@@ -44,7 +46,8 @@ spec:
       expr: (sum(rate(export_service_http_requests_total{container="export-service-service", code="5.*"}[5m])) or vector(0) / sum(rate(export_service_http_requests_total{container="export-service-service"}[5m])) or vector(0)) > 0.05
       for: 5m
       labels:
-        severity: high
+        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+        severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
