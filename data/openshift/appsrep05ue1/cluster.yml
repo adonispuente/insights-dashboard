@@ -47,7 +47,9 @@ spec:
 machinePools:
 - id: workers
   instance_type: m5.2xlarge
-  replicas: 6
+  autoscale:
+    min_replicas: 3
+    max_replicas: 21
 upgradePolicy:
   workloads:
   - appsre
