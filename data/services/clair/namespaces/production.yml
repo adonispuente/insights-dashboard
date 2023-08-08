@@ -64,3 +64,18 @@ externalResources:
     defaults: /terraform/resources/quayio-production/clair-notifier-rds-1.yml
     overrides:
       apply_immediately: false
+  - provider: rds
+    identifier: clair-indexer-replica
+    availability_zone: us-east-1a
+    defaults: /terraform/resources/quayio-production/clair-indexer-rds-read-replica.yml
+    replica_source: clair-indexer
+    overrides:
+      apply_immediately: true
+  - provider: rds
+    identifier: clair-matcher-replica
+    availability_zone: us-east-1a
+    defaults: /terraform/resources/quayio-production/clair-matcher-rds-read-replica.yml
+    replica_source: clair-matcher
+    overrides:
+      apply_immediately: true
+
