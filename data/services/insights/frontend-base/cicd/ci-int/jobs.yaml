@@ -111,7 +111,7 @@ config:
 
     # Frontends build deploy POC work
     - "insights-gh-pipeline":
-        display_name: insights-chrome frontend-pipeline
+        display_name: insights-chrome frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
 
 - project:
