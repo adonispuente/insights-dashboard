@@ -48,7 +48,7 @@ Above's diagram shows the proposed architecture for the first iteration of the u
   * Create required SSO clients for the unleash instances and publish a secret for its usage
 * All unleash instances should use a single, shared RDS instance
   * Each unleash instance should get its separate schema in the instance
-  * Create a db-schema-manager integration to manage the schemas
+  * Create a db-schema-manager integration to manage database schemas
 
 
 ## Alternatives considered
