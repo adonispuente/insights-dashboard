@@ -7,7 +7,6 @@
     - vault-secrets:
         <<: *vault_defaults
         secrets:
-        - *backup_ecr_push_creds
         - *app_sre_bot_push_token
         - *app_interface_creds
         - *quay_secret_mtsre_push

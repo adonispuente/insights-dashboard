@@ -24,7 +24,6 @@ config:
       gl_group: service
       gl_project: job-queue-service
       quay_org: app-sre
-      backup_ecr_push_creds_account_region: "app-sre/eu-central-1"
       jobs:
       - 'ocm-pr-check':
             display_name: Job Queue Service check merge request
@@ -38,7 +37,6 @@ config:
       node: sd-service-development-b
       gl_group: service
       gl_project: job-queue-client
-      backup_ecr_push_creds_account_region: "app-sre/eu-central-1"
       jobs:
       - 'ocm-pr-check':
             display_name: Job Queue Client check merge request

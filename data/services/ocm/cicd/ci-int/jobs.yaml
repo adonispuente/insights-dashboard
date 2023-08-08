@@ -117,7 +117,6 @@ config:
     gl_group: service
     gl_project: ocm-addon-test-operator
     quay_org: app-sre
-    backup_ecr_push_creds_account_region: "app-sre/eu-central-1"
     jobs:
     - 'gl-pr-check':
         display_name: OCM Add-On Test Operator check merge request

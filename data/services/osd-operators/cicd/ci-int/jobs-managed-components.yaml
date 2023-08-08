@@ -25,7 +25,6 @@ config:
     gh_repo: managed-cluster-config
     quay_org: app-sre
     build_deploy_script_path: './hack/app_sre_build_deploy.sh'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gh-build-master':
         display_name: managed-cluster-config build master
@@ -38,7 +37,6 @@ config:
     gh_repo: managed-prometheus-exporter-dns
     quay_org: app-sre
     build_deploy_script_path: './hack/app_sre_build_deploy.sh'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gh-build-master':
         display_name: managed-prometheus-exporter-dns build master
@@ -51,7 +49,6 @@ config:
     gh_repo: managed-prometheus-exporter-ebs-iops-reporter
     quay_org: app-sre
     build_deploy_script_path: './hack/app_sre_build_deploy.sh'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gh-build-master':
         display_name: managed-prometheus-exporter-ebs-iops-reporter build master
@@ -64,7 +61,6 @@ config:
     gh_repo: managed-prometheus-exporter-stuck-ebs-vols
     quay_org: app-sre
     build_deploy_script_path: './hack/app_sre_build_deploy.sh'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gh-build-master':
         display_name: managed-prometheus-exporter-stuck-ebs-vols build master

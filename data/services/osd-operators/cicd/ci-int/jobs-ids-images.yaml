@@ -26,7 +26,6 @@ config:
     quay_org: app-sre
     build_deploy_script_path: 'make build-push'
     pr_check_script_path: 'make build'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gl-build-master':
         display_name: ids-images build main

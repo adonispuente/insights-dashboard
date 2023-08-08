@@ -26,7 +26,6 @@ config:
     quay_org: app-sre
     build_deploy_script_path: 'make image push'
     pr_check_script_path: 'make image'
-    backup_ecr_push_creds_account_region: 'app-sre/us-east-1'
     jobs:
     - 'gl-build-master':
         display_name: splunk-audit-exporter build master
