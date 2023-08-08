@@ -3,7 +3,7 @@ $schema: /dependencies/glitchtip-project-1.yml
 
 labels: {}
 
-name: ocm-clusters-service
+name: ocm-clusters-service-production
 description: OCM clusters service production
 
 app:
