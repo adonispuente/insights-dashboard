@@ -20,38 +20,34 @@ config:
     name: idmsvc-backend
     label: insights
     node: rhel8
-    gl_group: "identity-management/idmocp"
-    gl_project: idm-domains-backend
+    gh_org: podengo-project
+    gh_repo: idmsvc-backend
     quay_org: cloudservices
     build_deploy_script_path: "./.rhcicd/build_deploy.sh"
     pr_check_script_path: "./.rhcicd/pr_check.sh"
     jobs:
-    - "insights-gl-build-master-safe-name":
-        safe_name_root: idmsvc_idm-domains-backend
-        display_name: idm-domains-backend build-main
+    - "insights-gh-build-master":
+        display_name: idmsvc-backend build-main
         branch: main
         slack_channel_notification: team-hmsidm-bot
-    - "insights-gl-pr-check-safe-name":
-        safe_name_root: idmsvc_idm-domains-backend
-        display_name: idm-domains-backend pr-check
+    - "insights-gh-pr-check":
+        display_name: idmsvc-backend pr-check
         branch: main
 - project:
     name: idmsvc-frontend
     label: insights
     node: insights
-    gl_group: "identity-management/idmocp"
-    gl_project: idm-domains-frontend
+    gh_org: podengo-project
+    gh_repo: idmsvc-frontend
     quay_org: cloudservices
     white_list_target_branches: main
     build_deploy_script_path: "./.rhcicd/build_deploy.sh"
     pr_check_script_path: "./.rhcicd/pr_check.sh"
     jobs:
-    - "insights-gl-build-master-safe-name":
-        safe_name_root: idmsvc_idm-domains-frontend
-        display_name: id-domains-frontend build-main
+    - "insights-gh-build-master":
+        display_name: idmsvc-frontend build-main
         branch: main
         slack_channel_notification: team-hmsidm-bot
-    - "insights-gl-pr-check-safe-name":
-        safe_name_root: idmsvc_idm-domains-frontend
-        display_name: idm-domains-frontend pr-check
+    - "insights-gh-pr-check":
+        display_name: idmsvc-frontend pr-check
         branch: main
