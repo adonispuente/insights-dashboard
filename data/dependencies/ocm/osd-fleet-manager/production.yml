@@ -463,6 +463,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
+- name: hs-sc-lbanif9f0
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0 * * * 1-4
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
