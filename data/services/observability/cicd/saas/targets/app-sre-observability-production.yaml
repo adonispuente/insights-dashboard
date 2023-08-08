@@ -2,7 +2,7 @@
 $schema: /app-sre/saas-file-target-1.yml
 namespace:
   $ref: /services/observability/namespaces/app-sre-observability-production.yml
-ref: 4dd00492b79884b7e4ee9b2101241c4108358a35
+ref: 037583a7a2cfb7f56724c592b20b71a43c79e6ab
 parameters:
   REPLICAS: 3
 promotion:
