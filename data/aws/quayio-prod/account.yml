@@ -235,6 +235,15 @@ deletionApprovals:
 - type: aws_lb_listener_rule
   name: quayio-production-ocmquay-rule-03
   expiration: '2023-04-22'
+- {type: aws_acm_certificate, name: quayio-production-ocmquay, expiration: '2023-08-09' }
+- {type: aws_lb, name: quayio-production-ocmquay, expiration: '2023-08-09' }
+- {type: aws_lb_listener, name: quayio-production-ocmquay-forward, expiration: '2023-08-09' }
+- {type: aws_lb_listener, name: quayio-production-ocmquay-redirect, expiration: '2023-08-09' }
+- {type: aws_lb_listener_rule, name: quayio-production-ocmquay-rule-01, expiration: '2023-08-09' }
+- {type: aws_lb_listener_rule, name: quayio-production-ocmquay-rule-02, expiration: '2023-08-09' }
+- {type: aws_lb_target_group, name: quayio-production-ocmquay-quayio-production-py2, expiration: '2023-08-09' }
+- {type: aws_lb_target_group, name: quayio-production-ocmquay-quayio-production-py3, expiration: '2023-08-09' }
+- {type: aws_security_group, name: quayio-production-ocmquay, expiration: '2023-08-09' }
 resetPasswords:
 - user:
     $ref: /teams/prodsec/users/tguittet.yml
