@@ -10,7 +10,7 @@ name: idmsvc
 
 description: Directory and Domain services on console.redhat.com
 
-architectureDocument: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-backend/-/blob/main/docs/ARCHITECTURE.md 
+architectureDocument: https://github.com/podengo-project/idmsvc-backend/blob/main/docs/ARCHITECTURE.md
 sopsUrl: https://TODO
 grafanaUrls:
 - title: Notifications Dashboard
@@ -39,7 +39,7 @@ serviceOwners:
   email: mshriver@redhat.com
 
 dependencies:
-- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/github/service.yml
 - $ref: /dependencies/quay/service.yml
 - $ref: /dependencies/openshift/service.yml
 # - $ref: /dependencies/aws/service.yml
@@ -60,8 +60,8 @@ quayRepos:
 codeComponents:
 - name: idmsvc-backend
   resource: upstream
-  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-backend
+  url: https://github.com/podengo-project/idmsvc-backend
 - name: idmsvc-frontend
   resource: upstream
-  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-frontend
+  url: https://github.com/podengo-project/idmsvc-frontend
 

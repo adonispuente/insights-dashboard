@@ -43,7 +43,7 @@ authentication:
 
 resourceTemplates:
 - name: idmsvc-frontend
-  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-frontend
+  url: https://github.com/podengo-project/idmsvc-frontend
   path: /deploy/frontend.yaml
   targets:
   - namespace:
@@ -53,7 +53,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: ephemeral
 - name: idmsvc-backend
-  url: https://gitlab.cee.redhat.com/identity-management/idmocp/idm-domains-backend
+  url: https://github.com/podengo-project/idmsvc-backend
   path: /deployments/clowder.yaml
   targets:
   - namespace:
@@ -62,4 +62,3 @@ resourceTemplates:
     ref: internal  # populated by bonfire
     parameters:
       ENV_NAME: ephemeral
-
