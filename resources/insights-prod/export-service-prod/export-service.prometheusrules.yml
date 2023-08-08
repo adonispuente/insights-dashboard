@@ -15,7 +15,8 @@ spec:
     - alert: ExportServiceAvailability
       expr: sum(rate(api_3scale_gateway_api_status{status="5xx",exported_service="export"}[5m])) / sum(rate(api_3scale_gateway_api_status{exported_service="export"}[5m])) > 0.05
       labels:
-        severity: high
+        #TODO: add a working prometheus rules test to increase severity again
+        severity: medium
         service: insights
         env: prod
         app_team: data-pipeline
@@ -28,7 +29,8 @@ spec:
     - alert: ExportServiceLatency
       expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}[5m])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}[5m])) < .9
       labels:
-        severity: high
+        #TODO: add a working prometheus rules test to increase severity again
+        severity: medium
         service: insights
         env: prod
         app_team: data-pipeline
@@ -41,7 +43,8 @@ spec:
     - alert: ExportServiceErrorRate
       expr: (sum(rate(export_service_http_requests_total{container="export-service-service", path="", code="5.*"}[5m]) or vector(0)) / (sum(rate(export_service_http_requests_total{container="export-service-service", path=""}[5m])) + 0.00001)) > 0.05
       labels:
-        severity: high
+        #TODO: add a working prometheus rules test to increase severity again
+        severity: medium
         service: insights
         env: prod
         app_team: data-pipeline
