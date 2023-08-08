@@ -320,7 +320,7 @@
 
 - job-template:
     id: 'insights-gh-pipeline'
-    name: '{gh_org}-{gh_repo}-pipeline'
+    name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
     slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:

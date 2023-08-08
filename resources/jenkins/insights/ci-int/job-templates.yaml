@@ -590,7 +590,7 @@
 
 - job-template:
     id: 'insights-gh-pipeline'
-    name: '{gh_org}-{gh_repo}-pipeline-{branch}'
+    name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
@@ -666,7 +666,7 @@
 
 - job-template:
     id: 'insights-gl-pipeline'
-    name: '{gl_group}-{gl_project}-pipeline-{branch}'
+    name: '{gl_group}-{gl_project}-pipeline-pr-check-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
