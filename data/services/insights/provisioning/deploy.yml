@@ -91,7 +91,7 @@ resourceTemplates:
       APP_NOTIFICATIONS_ENABLED: true
   - namespace: # PROD api
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: 8bbd98e720e8063ca3bc86b01303af046e636962
+    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
     promotion:
       publish:
       - provisioning-prod-deploy-success-channel
@@ -112,4 +112,4 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 8bbd98e720e8063ca3bc86b01303af046e636962
+    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
