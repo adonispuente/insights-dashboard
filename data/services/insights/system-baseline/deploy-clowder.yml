@@ -50,13 +50,11 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
-    ref: 0933e071214e7054e7dadcba1017e2135275c018
+    ref: 9f61520dd99fc51126bf162ae7a9adb8b98d3018
     parameters:
       SYSTEM_BASELINE_HOST: system-baseline-backend-service.system-baseline-prod.svc.cluster.local
       FLOORIST_SUSPEND: 'false'
-      FLOORIST_IMAGE_TAG: b57a5a8
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
-      FLOORIST_SCHEDULE: '20 11 * * *'
 
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
