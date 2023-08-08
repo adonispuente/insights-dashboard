@@ -88,6 +88,11 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/backoffice/preprod/3scale-api-gw
   version: 8
+- provider: vault-secret
+  path: insights/secrets/ephemeral/3scale/it-ca-bundle
+  version: 2
+  annotations:
+    qontract.recycle: "true"
 
 # rhsm
 - provider: vault-secret
