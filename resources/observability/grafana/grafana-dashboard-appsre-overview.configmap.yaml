@@ -1156,7 +1156,7 @@ data:
               "format": "table",
               "hide": false,
               "rawQuery": true,
-              "rawSql": "SELECT\n  $__timeGroupAlias(\"deployment_time\",'24h'),\n  count(*) as production\nFROM deployments\nWHERE $__timeFilter(\"deployment_time\") AND env_name like '%production%'\nGROUP BY time\nORDER BY time\n",
+              "rawSql": "SELECT\n  $__timeGroupAlias(\"deployment_time\",'24h'),\n  count(*) as \"production promotions\"\nFROM deployments\nWHERE $__timeFilter(\"deployment_time\") AND env_name like '%production%' AND trigger_integration = 'openshift-saas-deploy-trigger-configs'\nGROUP BY time\nORDER BY time\n",
               "refId": "B",
               "sql": {
                 "columns": [
