@@ -48,3 +48,11 @@ codeComponents:
 - name: glitchtip-app-sre
   resource: upstream
   url: https://github.com/app-sre/glitchtip
+
+endPoints:
+- name: glitchtip-prod
+  description: Glitchtip production instance
+  url: https://glitchtip.devshift.net
+  monitoring:
+  - provider:
+      $ref: /dependencies/monitoring/blackbox-http-2xx-critical.yml
