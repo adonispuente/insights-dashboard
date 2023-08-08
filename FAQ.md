@@ -171,7 +171,7 @@ If you have an urgent matter affecting production that needs to be addressed as 
 
 #### FedRamp
 
-If you need to get in touch with AppSRE FedRamp and DO have access to in-boundary, then you can page the FedRamp APPSRE on-call person directly in GoAlert.
+If you need to get in touch with AppSRE FedRamp on-call and DO have access to in-boundary, then you can page the FedRamp AppSRE on-call person directly in GoAlert.
 
 If you need to get in touch with AppSRE FedRamp on-call and don't have access to the FedRamp environment, please refer to the [wd-osd-fedramp slack channel](https://redhat-internal.slack.com/archives/C027UG79RR9).
 A weekly automated message is posted on Mondays indicating who is on-call for FedRamp.
