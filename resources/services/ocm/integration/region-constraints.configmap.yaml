@@ -14,6 +14,10 @@ data:
         - name: ap-southeast-3
           version_constraints:
             min_version: 4.11.0
+          product_constraints:
+            - product: hcp
+              version_constraints:
+                min_version: 4.12.23
         - name: ap-southeast-4
           version_constraints:
             min_version: 4.11.0
