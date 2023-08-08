@@ -169,17 +169,6 @@ If you have an urgent matter affecting production that needs to be addressed as 
 - Ping `@app-sre-emea` or `@app-sre-nasa` depending on the time of the day.
 - If you get no response, and if it's truly critical follow the [Paging AppSRE team](docs/app-sre/paging-appsre-oncall.md) guide.
 
-#### FedRamp
-
-If you need to get in touch with AppSRE FedRamp on-call and DO have access to in-boundary, then you can page the FedRamp AppSRE on-call person directly in GoAlert.
-
-If you need to get in touch with AppSRE FedRamp on-call and don't have access to the FedRamp environment, please refer to the [wd-osd-fedramp slack channel](https://redhat-internal.slack.com/archives/C027UG79RR9).
-A weekly automated message is posted on Mondays indicating who is on-call for FedRamp.
-This is because the FedRamp on-call schedule is managed through an in-boundary piece of software called GoAlert rather than through PagerDuty.
-
-To page the FedRamp on-call member, follow the process in [paging appsre team](docs/app-sre/paging-appsre-oncall.md) however ensure that you set `Assign To` to the FedRamp on-call person so that they are notified.
-Additionally, please do not share any sensitive details about an incident within PD as that should only be shared in-boundary.
-
 ### How can I get access to X?
 
 Start by accessing the Visual App-Interface at https://visual-app-interface.devshift.net.  Using the side bar, navigate to the [Permissions](https://visual-app-interface.devshift.net/permissions) section.
