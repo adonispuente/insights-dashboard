@@ -1,54 +1,74 @@
 ---
-$schema: /openshift/prometheus-rule-1.yml
-apiVersion: monitoring.coreos.com/v1
-kind: PrometheusRule
-metadata:
-  name: export-service
-  labels:
-    prometheus: app-sre
-    role: alert-rules
-spec:
-  groups:
-  - name: export-service-stage
-    rules:
+$schema: /app-interface/prometheus-rule-test-1.yml
 
-    - alert: ExportServiceAvailability
-      expr: sum(rate(api_3scale_gateway_api_status{status="5xx",exported_service="export"}[5m])) / sum(rate(api_3scale_gateway_api_status{exported_service="export"}[5m])) > 0.05
-      labels:
-        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+rule_files:
+- /insights-stage/export-service-stage/export-service.prometheusrules.yml
+
+evaluation_interval: 5m
+
+tests:
+
+# ExportServiceAvailability
+- interval: 1m
+  input_series:
+  - series: api_3scale_gateway_api_status{status="5xx",exported_service="export"}
+    values: 0+0x4 10+10x9 100+0x4
+  - series: api_3scale_gateway_api_status{exported_service="export"}
+    values: 20+20x4 120+20x9 320+20x4
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceAvailability
+    exp_alerts:
+    - exp_labels:
         severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
-      annotations:
+      exp_annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus&viewPanel=12"
         link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
         message: "Export Service Alert. Availability < 95% in stage environment."
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/App-export-service-In-export-service-stage-availability.rst"
 
-    - alert: ExportServiceLatency
-      expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}[5m])) / sum(rate(api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}[5m])) < .9
-      labels:
-        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+# ExportServiceLatency
+- interval: 1m
+  input_series:
+  - series: api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="export"}
+    values: 0+0x5 1+1x5
+  - series: api_3scale_gateway_api_time_bucket{le="+Inf", exported_service="export"}
+    values: 0+1x10
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceLatency
+    exp_alerts:
+    - exp_labels:
         severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
-      annotations:
+      exp_annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus&viewPanel=14"
         link_url:  "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
         message: "Export Service Alert. More than 10% of requests with Latency > 500ms in stage environment."
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service/App-export-service-In-export-service-stage-latency.rst"
 
-    - alert: ExportServiceErrorRate
-      expr: (sum(rate(export_service_http_requests_total{container="export-service-service", path="", code="5.*"}[5m]) or vector(0)) / (sum(rate(export_service_http_requests_total{container="export-service-service", path=""}[5m])) + 0.00001)) > 0.05
-      labels:
-        # TODO: add a prometheus rules test to increase severity again https://service.pages.redhat.com/dev-guidelines/docs/appsre/onboarding/observability/#prometheus-alerts-tests
+# ExportServiceErrorRate
+- interval: 1m
+  input_series:
+  - series: export_service_http_requests_total{container="export-service-service", path="", code="5.*"}
+    values: 0+0x4 10+10x9 100+0x4
+  - series: export_service_http_requests_total{container="export-service-service", path=""}
+    values: 20+20x4 120+20x9 320+20x4
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: ExportServiceErrorRate
+    exp_alerts:
+    - exp_labels:
         severity: medium
         service: insights
         env: stage
         app_team: data-pipeline
-      annotations:
+      exp_annotations:
         dashboard: "https://grafana.app-sre.devshift.net/d/ir5blOCVk/exportservice-dashboard?orgId=1&var-datasource=crcs02ue1-prometheus&viewPanel=18"
         link_url:  "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/export-service-stage/deployments"
         message: "Export Service Alert. Error rate > 5% in stage environment."
