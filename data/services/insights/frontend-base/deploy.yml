@@ -393,6 +393,48 @@ resourceTemplates:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
     disable: true
     ref: internal
+# Seats admin UI
+- name: seats-admin-ui
+  path: /deploy/frontend.yaml
+  url: https://github.com/RedHatInsights/seats-admin
+  targets:
+  # ephemeral for bonfire
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    disable: true # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal # populated by bonfire
+  # Stage Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: af073ac65d384d673ac74e142410eeb2d2c11ca7
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/seats-admin-ui"
+  # Stage Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: seats-admin-ui
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/seats-admin-ui"
+  # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: af073ac65d384d673ac74e142410eeb2d2c11ca7
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/seats-admin-ui"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: bf90913402df1f217de0fee5c3d46cc4716c889b
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/seats-admin-ui"
 
 # Service accounts
 - name: service-accounts
