@@ -107,7 +107,7 @@ resourceTemplates:
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 047209cb4b3ff96742e5e7c20afd47887e214f87
+    ref: 56f391c47d757206415410ce9010ac79a654802f
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
