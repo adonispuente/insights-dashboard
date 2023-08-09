@@ -403,36 +403,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ibm-infra
-- name: hs-sc-lbanih840
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0 * * * 1-4
-    conditions:
-      sector: canary
-      soakDays: 0
-      mutexes:
-      - canary
-- name: hs-sc-lbanihrng
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0 * * * 1-4
-    conditions:
-      sector: canary
-      soakDays: 0
-      mutexes:
-      - canary
-- name: hs-sc-lbanij0g0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0 * * * 1-4
-    conditions:
-      sector: canary
-      soakDays: 0
-      mutexes:
-      - canary
 - name: hs-sc-lbanijk3g
   upgradePolicy:
     workloads:
