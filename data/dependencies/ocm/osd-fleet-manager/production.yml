@@ -403,16 +403,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ibm-infra
-- name: hs-sc-odb7rh8ag
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0 13 * * 1-4
-    conditions:
-      sector: ibm-infra
-      soakDays: 0
-      mutexes:
-      - ibm-infra
 - name: hs-sc-621n0fmt0
   upgradePolicy:
     workloads:
