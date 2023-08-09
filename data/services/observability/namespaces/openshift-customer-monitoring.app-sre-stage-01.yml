@@ -134,6 +134,7 @@ openshiftResources:
     aws_resources_exporter_instances:
     - aws-resource-exporter
     - aws-resource-exporter-crc
+    - aws-resource-exporter-crc-perf
     - aws-resource-exporter-quay
     - aws-resource-exporter-osd-privatelink-stage
     - aws-resource-exporter-osd-privatelink-int
@@ -882,6 +883,12 @@ openshiftResources:
   variables:
     namespace: app-sre-observability-stage
     name: aws-resource-exporter-crc
+- provider: resource-template
+  type: jinja2
+  path: /observability/servicemonitors/aws-resource-exporter.servicemonitor.yaml
+  variables:
+    namespace: app-sre-observability-stage
+    name: aws-resource-exporter-crc-perf
 - provider: resource-template
   type: jinja2
   path: /observability/servicemonitors/aws-resource-exporter.servicemonitor.yaml
