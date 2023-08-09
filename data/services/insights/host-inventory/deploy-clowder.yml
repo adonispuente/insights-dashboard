@@ -141,4 +141,4 @@ resourceTemplates:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     ref: 041e0089b436988b5295a0911ed10f8faaa52f56
     parameters:
-      SYNCHRONIZER_RUN_NUMBER: 12
+      SYNCHRONIZER_RUN_NUMBER: 13
