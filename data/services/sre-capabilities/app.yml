@@ -30,4 +30,4 @@ quayRepos: []
 codeComponents:
 - name: sre-capabilities
   resource: upstream
-  url: https://github.com/service/sre-capabilities
+  url: https://gitlab.cee.redhat.com/service/sre-capabilities
