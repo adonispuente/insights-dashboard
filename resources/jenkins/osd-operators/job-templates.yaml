@@ -107,6 +107,16 @@
     <<: *gl_build_master
 
 - job-template:
+      id: 'gl-pr-check-aws-jumpaccounts-terraform'
+      name: 'gl-pr-check-aws-jumpaccounts-terraform'
+      pr_check_script_path: ./pr_check/pr_check.sh
+      wrappers:
+      - timeout_wrapper:
+          timeout: '{timeout}'
+      - ansicolor
+      <<: *gl_pr_check
+
+- job-template:
     id: 'gl-pr-check-aws-payer-accounts-terraform'
     name: 'gl-pr-check-aws-payer-accounts-terraform'
     pr_check_script_path: ./hack/cicd.sh check
