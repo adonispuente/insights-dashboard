@@ -295,5 +295,5 @@ recommendedVersions:
   initialVersion: openshift-v4.12.26
 - workload: dummy
   channel: stable
-  recommendedVersion: 4.12.26
-  initialVersion: openshift-v4.12.26
+  recommendedVersion: 4.12.27
+  initialVersion: openshift-v4.12.27
