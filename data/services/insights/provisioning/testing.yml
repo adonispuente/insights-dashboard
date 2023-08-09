@@ -28,7 +28,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: c73f4f47f46ca5ebefc879170f80b182b2cbbb94
+    ref: 0a66644174d22772e29d5518b359f4212f65a570
     parameters:
       IQE_ENV: stage_post_deploy
       IQE_MARKER: stage
