@@ -12,7 +12,7 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: SRE-Capabilities
   url: https://grafana.app-sre.devshift.net/dashboards/f/VLvCb2QVz/sre-capabilities
-onboardingStatus: InProgress
+onboardingStatus: Proposed
 parentApp:
   $ref: /services/app-interface/app.yml
 
