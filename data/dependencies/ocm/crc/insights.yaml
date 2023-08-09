@@ -26,5 +26,5 @@ upgradePolicyClusters:
 recommendedVersions:
 - workload: crc
   channel: candidate
-  recommendedVersion: 4.13.7
-  initialVersion: openshift-v4.13.7-candidate
+  recommendedVersion: 4.13.8
+  initialVersion: openshift-v4.13.8-candidate
