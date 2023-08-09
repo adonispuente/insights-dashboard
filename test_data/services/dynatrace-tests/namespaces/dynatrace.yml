@@ -1,9 +1,7 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels:
-  # TODO: only used during PoC phase -> move this to schema on namespace level
-  enableDynatraceLogging: ""
+labels: {}
 
 name: dynatrace
 description: Monitoring and Logging Stack for Dynatrace
@@ -17,6 +15,8 @@ app:
 environment:
   $ref: /products/app-sre/environments/test.yml
 
+enableDynatraceLogging: true
+
 managedResourceTypes:
 - DynaKube
 - Job
@@ -25,13 +25,7 @@ openshiftResources:
 - provider: resource-template
   type: jinja2
   path: /setup/dynatrace/dynakube-cluster-config.yaml.j2
-  variables:
-    # TODO: this could also be passed in via cluster level config dynatraceEnvironmentUrl -> {{ resource.namespace.cluster.dynatraceEnvironmentUrl }}
-    DT_ENV_URL: https://test
 - provider: resource-template
   type: jinja2
   path: /setup/dynatrace/log-config-job.yaml.j2
   enable_query_support: true
-  variables:
-    # TODO: this could also be passed in via cluster level config dynatraceEnvironmentUrl -> {{ resource.namespace.cluster.dynatraceEnvironmentUrl }}
-    DT_ENV_URL: https://test

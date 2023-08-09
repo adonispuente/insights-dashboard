@@ -1,12 +1,11 @@
-{%- set all_namespaces = query('/queries/dynatrace/namespaces-for-cluster.graphql', name=resource.namespace.cluster.name)[0].namespaces | sort(attribute='name') -%}
+{%- set cluster = query('/queries/dynatrace/cluster-with-namespaces.graphql', name=resource.namespace.cluster.name)[0] -%}
 {%- set namespace_names = [] -%}
-{%- for namespace in all_namespaces -%}
-{%- set namespace_labels = namespace.labels | json_to_dict -%}
-{%- if "enableDynatraceLogging" in namespace_labels -%}
+{%- for namespace in cluster.namespaces -%}
+{%- if namespace.enableDynatraceLogging -%}
 {%- set tmp = namespace_names.append(namespace.name) -%}
 {%- endif -%}
 {%- endfor -%}
-{%- set cluster_labels = resource.namespace.cluster.labels | json_to_dict -%}
+{%- set environmentUrl = cluster.dynatraceEnvironment.environmentUrl -%}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -51,7 +50,7 @@ spec:
 
               NAMESPACES=({%- for namespace in namespace_names -%}"{{ namespace }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
-              DT_API_URL="{{ cluster_labels['dynatraceEnvironmentUrl'] }}/api/v2"
+              DT_API_URL="{{ environmentUrl }}/api/v2"
               CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
               RULE_NAME="log-cluster-namespaces"
 

@@ -4,10 +4,12 @@
     name: "{{ name }}"
   )
   {
-    labels
+    dynatraceEnvironment {
+      environmentUrl
+    }
     namespaces {
       name
-      labels
+      enableDynatraceLogging
     }
   }
 }

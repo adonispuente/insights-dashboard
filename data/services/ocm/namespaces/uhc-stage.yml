@@ -1,9 +1,7 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels:
-  # TODO: remove after https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/71658
-  enableDynatraceLogging: ""
+labels: {}
 
 name: uhc-stage
 description: staging namespace for uhc
@@ -16,6 +14,8 @@ app:
 
 environment:
   $ref: /products/osdv4/environments/stage.yml
+
+enableDynatraceLogging: true
 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
