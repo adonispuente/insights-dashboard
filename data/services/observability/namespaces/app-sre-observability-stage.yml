@@ -169,6 +169,17 @@ openshiftResources:
     vpc: false
     route53: false
     ec2: false
+### account: insights-perf
+- provider: resource-template
+  path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
+  enable_query_support: true
+  variables:
+    name: aws-resource-exporter-crc-perf
+    account_name: insights-perf
+    rds: true
+    vpc: false
+    route53: false
+    ec2: false
 ### account: osd-privatelink-int
 - provider: resource-template
   path: /observability/aws-resource-exporter/aws-resource-exporter.configmap.yaml.j2
@@ -290,6 +301,16 @@ externalResources:
     policies:
     - AmazonRDSReadOnlyAccess
     output_resource_name: aws-resource-exporter-crc
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-perf/account.yml
+  resources:
+  # Insights staging aws-resource-exporter IAM user
+  - provider: aws-iam-service-account
+    identifier: aws-resource-exporter-crc-perf
+    policies:
+    - AmazonRDSReadOnlyAccess
+    output_resource_name: aws-resource-exporter-crc-perf
 - provider: aws
   provisioner:
     $ref: /aws/osd-privatelink-int/account.yml
