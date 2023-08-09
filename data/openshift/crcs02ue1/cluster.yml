@@ -97,3 +97,9 @@ peering:
       $ref: /aws/app-sre-stage/vpcs/app-sre-stage-vpc.yml
     manageAccountRoutes: true
     manageRoutes: true
+upgradePolicy:
+  workloads:
+  - crc
+  schedule: 0 18 * * 3
+  conditions:
+    soakDays: 14
