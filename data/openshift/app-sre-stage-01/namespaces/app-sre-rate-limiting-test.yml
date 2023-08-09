@@ -42,7 +42,7 @@ managedExternalResources: true
 externalResources:
   - provider: aws
     provisioner:
-      $ref: /aws/ter-int-dev/account.yml
+      $ref: /aws/app-sre-stage/account.yml
     resources:
     - provider: elasticache
       identifier: app-sre-rate-limiting-elasticache-01
