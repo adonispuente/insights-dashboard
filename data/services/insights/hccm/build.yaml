@@ -113,7 +113,6 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: hccm-frontend pr-check
-        branch: main
     - "insights-gh-build-master":
         display_name: hccm-frontend build-main
         branch: main
