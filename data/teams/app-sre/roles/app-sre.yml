@@ -308,6 +308,7 @@ self_service:
   - $ref: /services/unleash/app.yml
   - $ref: /services/container-security-operator/app.yml
   - $ref: /services/gabi/app.yml
+  - $ref: /services/sre-capabilities/app.yml
 - change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:

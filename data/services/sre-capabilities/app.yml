@@ -1,0 +1,33 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels: {}
+
+name: sre-capabilities
+
+description: SRE Capabilities
+
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/initiatives/sre-capabilities.md
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/app-sre/sop
+grafanaUrls:
+- title: SRE-Capabilities
+  url: https://grafana.app-sre.devshift.net/dashboards/f/VLvCb2QVz/sre-capabilities
+onboardingStatus: InProgress
+parentApp:
+  $ref: /services/app-interface/app.yml
+
+escalationPolicy:
+  $ref: /teams/app-sre/escalation-policies/stream-5.yaml
+serviceOwners:
+- name: App-SRE Stream 5
+  email: sd-app-sre+stream-5@redhat.com
+
+dependencies:
+- $ref: /dependencies/gitlab/service.yml
+
+quayRepos: []
+
+codeComponents:
+- name: sre-capabilities
+  resource: upstream
+  url: https://github.com/service/sre-capabilities
