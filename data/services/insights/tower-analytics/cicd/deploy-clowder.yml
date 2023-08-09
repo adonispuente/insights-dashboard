@@ -77,7 +77,7 @@ resourceTemplates:
     ref: main
     parameters:
       ENV_NAME: stage
-      GUNICORN_PROCESSES: 5
+      GUNICORN_PROCESSES: 10
       REPLICAS_API: 4
       REPLICAS_ONEVIEW: 2
       REPLICAS_ROLLUP: 3
