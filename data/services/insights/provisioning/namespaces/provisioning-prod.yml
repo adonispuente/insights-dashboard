@@ -65,7 +65,7 @@ externalResources:
   - provider: rds
     identifier: provisioning-prod
     defaults: /terraform/resources/insights/production/rds/postgres15-rds-1.yml
-    parameter_group: /terraform/resources/insights/production/rds/postgres13-parameter-group-provisioning-prod.yml
+    parameter_group: /terraform/resources/insights/production/rds/postgres15-parameter-group-provisioning-prod.yml
     output_resource_name: provisioning-db
     enhanced_monitoring: true
     annotations:
