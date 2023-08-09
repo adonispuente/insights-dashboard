@@ -503,6 +503,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
+- name: hs-sc-lbanihrng
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0 * * * 1-4
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
