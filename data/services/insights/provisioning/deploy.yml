@@ -102,10 +102,6 @@ resourceTemplates:
       ENV_NAME: prod
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
       APP_NOTIFICATIONS_ENABLED: false
-      API_REPLICAS: 0
-      WORKER_REPLICAS: 0
-      STATUSER_REPLICAS: 0
-      STATS_REPLICAS: 0
 - name: provisioning-dashboards
   url: https://github.com/RHEnVision/provisioning-backend
   path: /deploy/dashboards
