@@ -88,6 +88,9 @@ resourceTemplates:
       FEATURES_SNAPSHOTS_ENABLED: true
       # content9, hms-qa, dkliban
       FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865,11488192"
+      FEATURES_ADMIN_TASKS_ENABLED: true
+      # content9, hms-qa
+      FEATURES_ADMIN_TASKS_ACCOUNTS: "11486589,11481865"
     promotion:
       publish:
       - content-sources-stage-deploy-success-channel
@@ -103,7 +106,11 @@ resourceTemplates:
       NEW_TASKING_SYSTEM: true
       CLIENTS_PULP_SERVER: ""
       FEATURES_SNAPSHOTS_ENABLED: false
-      FEATURES_SNAPSHOTS_ACCOUNTS: ""
+      # hms
+      FEATURES_SNAPSHOTS_ACCOUNTS: "11494071"
+      FEATURES_ADMIN_TASKS_ENABLED: false
+      # hms
+      FEATURES_ADMIN_TASKS_ACCOUNTS: "11494071"
 - name: content-sources-dashboards
   url: https://github.com/content-services/content-sources-backend
   path: /deployments/dashboards
