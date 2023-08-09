@@ -1,0 +1,10 @@
+family: postgres15
+name: provisioning-stage-postgres15
+description: Parameter group for PostgreSQL 15 for Provisioning
+parameters:
+- name: log_statement
+  value: none
+  apply_method: immediate
+- name: log_min_duration_statement
+  value: -1
+  apply_method: immediate
