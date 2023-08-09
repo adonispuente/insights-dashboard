@@ -97,7 +97,7 @@ resourceTemplates:
       # shared params
       CLAIR_SECRET: "config"
       CLAIR_IMAGE: "quay.io/app-sre/clair"
-      IMAGE_TAG: "2829eac"
+      IMAGE_TAG: "a478ce9"
 - name: clair-dashboards  
   url: https://github.com/quay/clair
   path: /contrib/openshift/grafana/dashboards
