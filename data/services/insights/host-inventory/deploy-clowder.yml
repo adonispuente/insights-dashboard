@@ -24,6 +24,7 @@ managedResourceTypes:
 - ClowdJobInvocation
 - ConfigMap
 - Frontend
+- FloorPlan
 
 imagePatterns:
 - quay.io/cloudservices
@@ -82,9 +83,7 @@ resourceTemplates:
       INVENTORY_DB_SSL_MODE: verify-full
       REAPER_SUSPEND: 'false'
       FLOORIST_SUSPEND: 'false'
-      FLOORIST_IMAGE_TAG: fe12542 # 2022-06-03
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-stage
-      FLOORIST_SCHEDULE: '20 0 * * *'
       GUNICORN_WORKERS: 4
       GUNICORN_THREADS: 8
   - namespace:
