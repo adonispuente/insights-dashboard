@@ -51,7 +51,7 @@ resourceTemplates:
       UHC_BASE_URL: ${OCM_BASE_URL}
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 98c1d5d841b06e3b0d5d7bc2d803dad7c0d600b6
+    ref: a04daf46f539f652b07822f760ac7f8e5829ee0b
     promotion:
       auto: true
       subscribe:
