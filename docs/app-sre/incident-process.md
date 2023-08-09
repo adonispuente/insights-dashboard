@@ -64,14 +64,16 @@ As soon as the **Incident Commander** is nominated, which should be 10 minutes a
 
 ### Immediate Communication - Non-Security Incident
 
-* Create a JIRA with type `Task`, with label `type/incident` in the [APPSRE board].
-* Create slack channel for the incident, referencing the JIRA and the bridge ([zti]).
-* Start the RCA, by creating a copy of the [RCA template]. Attach to the JIRA.
-* Post a message to #sd-incidents-announce with: Service Name, short description of the issue, impact, JIRA and link to bridge ([zti]).
-* Send email to [serviceOwners], [serviceNotifications],
+* Start a WebRCA incident by calling `/rca new` in Slack. Alternatively, you can use the [WebRCA UI](https://web-rca.devshift.net/)
+* Add the bridge in a new comment in the WebRCA incident.
+* Post a message to #sd-incidents-announce with Product/Application Name, impact and link to created slack channel and link to bridge ([zti]).
+* Set the Incident Commander role (see above for details).
+* Send an email to [serviceOwners], [serviceNotifications],
   [sd-org@redhat.com](mailto:sd-org@redhat.com) and to
   [sd-notifications@redhat.com](mailto:sd-notifications@redhat.com). The email
   should include: Service Name, short description of the issue, impact and JIRA.
+  Add a note under Notifications in the WebRCA incident to document this.
+
 
 ### Immediate Communication - Security Incident
 * Create a JIRA with type `Task`, with label `type/incident` in the [APPSRE board] and make sure to set the Security Level to `Red Hat Employee (Red Hat Employee and Contractors only)`.
@@ -87,6 +89,7 @@ degraded.
 * [Updating status.quay.io] if relevant.
 * Update #sd-incidents-announce channel with current state of the incident, including impact.
 * Send update to the email thread created in the first step.
+* Create a JIRA Task, with label type/incident on the APPSRE board, assign to incident owner. 
 
 ### Resolution
 
@@ -95,6 +98,8 @@ Upon resolution, all the surfaces that were used to report the incident should b
 * Incident slack channel.
 * #sd-incidents-announce slack channel.
 * Email thread created in the first step.
+
+Additionally, kick-off RCA by creating a copy of the [RCA template]. Attach to the JIRA and the WebRCA incident.
 
 ## AppSRE Internal Escalations
 
@@ -199,3 +204,8 @@ Once the issue has been mitigated and resolved, the **Incident Owner** (defaults
 ### Tracking action items
 
 It is important to link any Jira tickets (use **is triggering**) that are created as action items for the incident to the AppSRE incident ticket. This makes it easier for AppSRE to track action items from incidents and follow-up on them as part of the checkpoint process.
+
+
+## WebRCA usage
+
+Read the following documentation on the general terms of WebRCA: https://gitlab.cee.redhat.com/service/WebRCA/-/blob/main/docs/USAGE.md
