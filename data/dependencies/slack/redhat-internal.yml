@@ -252,3 +252,4 @@ managedUsergroups:
 - dynatrace-rules-and-dashboards
 - managed-scripts
 - aro-codeowners
+- odf-sre-primary

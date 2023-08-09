@@ -1,0 +1,21 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: odf-sre-primary-coreos-slack
+description: ODF SRE Primary On Call (managed via app-interface)
+
+service: slack-usergroup
+handle: odf-sre-primary
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+pagerduty:
+- $ref: /dependencies/pagerduty/odf-sre-primary.yml
+
+channels:
+- forum-managed-tenants
+- sre-lp-teamchat
+- sd-sre-platform
