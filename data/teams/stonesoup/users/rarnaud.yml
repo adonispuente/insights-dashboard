@@ -7,10 +7,11 @@ name: Romain Arnaud
 org_username: rarnaud
 github_username: Roming22
 quay_username: rarnaud
+slack_username: Romain Arnaud
 
 roles:
 - $ref: /teams/stonesoup/roles/stonesoup.yml
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-pipeline-service-vault.yml
 - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 
