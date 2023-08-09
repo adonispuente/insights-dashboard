@@ -19,14 +19,13 @@ managedRoles: true
 
 managedResourceTypes:
 - Subscription.operators.coreos.com
-- FlowCollector
 
 openshiftResources:
 - provider: resource-template
   type: jinja2
   path: /tekton/openshift-pipelines-operator-rh.subscription.j2
 - provider: resource
-  path: /setup/network-observability/netobserv-operator.subscription.yaml
+  path: /setup/network-observability/netobserv-operator.stable.subscription.yaml
 - provider: resource
   path: /setup/advanced-cluster-security/rhacs-operator.subscription.yaml
 - provider: resource
