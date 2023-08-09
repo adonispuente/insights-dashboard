@@ -26,8 +26,6 @@ openshiftResources:
   type: jinja2
   path: /tekton/openshift-pipelines-operator-rh.subscription.j2
 - provider: resource
-  path: /setup/custom-metrics-autoscaler/openshift-custom-metrics-autoscaler-operator.subscription.yaml
-- provider: resource
   path: /setup/network-observability/netobserv-operator.subscription.yaml
 - provider: resource
   path: /setup/advanced-cluster-security/rhacs-operator.subscription.yaml
