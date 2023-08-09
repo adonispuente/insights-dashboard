@@ -89,10 +89,6 @@ resourceTemplates:
       ENV_NAME: stage
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
       APP_NOTIFICATIONS_ENABLED: true
-      API_REPLICAS: 0
-      WORKER_REPLICAS: 0
-      STATUSER_REPLICAS: 0
-      STATS_REPLICAS: 0
   - namespace: # PROD api
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
     ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
