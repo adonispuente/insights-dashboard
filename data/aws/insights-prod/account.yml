@@ -43,7 +43,6 @@ disable:
   integrations:
   - terraform-aws-route53
   - terraform-tgw-attachments
-  - terraform-resources
 
 deletionApprovals:
 - type: aws_elasticache_replication_group
