@@ -31,7 +31,6 @@ disable:
   integrations:
   - terraform-aws-route53
   - terraform-tgw-attachments
-  - terraform-resources
 
 resetPasswords:
   - user:
