@@ -1,0 +1,13 @@
+---
+$schema: /dependencies/pagerduty-target-1.yml
+
+labels:
+  service: pagerduty
+
+name: odf-sre-pagerduty-primary-oncall
+description: OpenShift Data Foundations (ODF) SRE Primary Oncall
+
+instance:
+  $ref: /dependencies/pagerduty/instance.yml
+
+scheduleID: P1QB2K7
