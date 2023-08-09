@@ -34,7 +34,7 @@ spec:
   provider: aws
   region: us-west-2
   channel: candidate
-  version: 4.13.4
+  version: 4.13.7
   initial_version: 4.13.0
   multi_az: true
   nodes: 9
