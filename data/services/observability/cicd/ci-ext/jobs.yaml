@@ -61,4 +61,14 @@ config:
         display_name: pr-check
         branch: main
         pr_check_script_path: "./pr_check.sh"
-
+- project:
+    name: statuspage-exporter
+    label: statuspage-exporter
+    node: app-sre
+    gh_org: app-sre
+    gh_repo: statuspage-exporter
+    quay_org: app-sre
+    jobs:
+    - 'gh-pr-check':
+        display_name: pr check
+        branch: main

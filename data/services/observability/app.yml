@@ -105,6 +105,9 @@ quayRepos:
     mirror:
       $ref: /dependencies/image-mirrors/registry.connect.redhat.com/dynatrace/dynatrace-operator.yml
     public: false
+  - name: statuspage-exporter
+    description: Prometheus exporter for Statuspage.io
+    public: true
 
 codeComponents:
 - name: app-sre-observability
@@ -134,3 +137,6 @@ codeComponents:
 - name: alert-translator
   resource: upstream
   url: https://github.com/app-sre/alert-translator
+- name: statuspage-exporter
+  resource: upstream
+  url: https://github.com/app-sre/statuspage-exporter
