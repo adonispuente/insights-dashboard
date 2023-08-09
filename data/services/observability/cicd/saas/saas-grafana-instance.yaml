@@ -78,6 +78,6 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 16ab519afccb425322f317767341079f388c1d28
+    ref: c5c40fb1dc6bda6b0d5c6cf2fa7fa36439569297
     parameters:
       REDIRECTOR_DESTINATION: https://grafana.app-sre.devshift.net
