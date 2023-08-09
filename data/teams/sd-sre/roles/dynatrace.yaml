@@ -19,7 +19,7 @@ self_service:
   datafiles:
   - $ref: /services/osd-operators/dynatrace/app.yml
 - change_type:
-    $ref: /app-interface/changetype/saas-file-self-service.yml
+    $ref: /app-interface/changetype/saas-file-self-service-validate-targets-in-app.yml
   datafiles:
   - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-dynatrace-rules.yaml
