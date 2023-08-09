@@ -22,6 +22,7 @@ managedResourceTypes:
 
 imagePatterns: []
 
+validateTargetsInApp: true
 resourceTemplates:
 - name: dynatrace-rules
   url: https://gitlab.cee.redhat.com/service/dynatrace-config

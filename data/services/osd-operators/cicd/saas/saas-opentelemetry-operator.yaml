@@ -23,6 +23,7 @@ managedResourceTypes:
 
 imagePatterns: []
 
+validateTargetsInApp: true
 resourceTemplates:
 - name: opentelemetry-operator
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
