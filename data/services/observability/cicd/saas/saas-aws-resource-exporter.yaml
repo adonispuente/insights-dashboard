@@ -91,6 +91,18 @@ resourceTemplates:
       NAME: aws-resource-exporter-crc
       SECRET_NAME: aws-resource-exporter-crc
       CONFIGMAP_NAME: aws-resource-exporter-crc
+  - name: insights-perf
+    namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: app-sre-aws-resource-exporter-gh-build-master
+    parameters:
+      NAME: aws-resource-exporter-crc-perf
+      SECRET_NAME: aws-resource-exporter-crc-perf
+      CONFIGMAP_NAME: aws-resource-exporter-crc-perf
   - name: insights-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
