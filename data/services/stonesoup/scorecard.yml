@@ -49,9 +49,14 @@ acceptanceCriteria:
 - comment: ''
   name: INCIDENT-MGMT-0006
   status: green
-- comment: No SOPs are written at this time.
+- comment: 'SOPs are being written for failure scenarios as they are identified, but progress on this control waits for the creation of alerts.
+      See also https://gitlab.cee.redhat.com/rhtap/docs/sop/-/tree/main/pipeline-service
+
+      Will not resolve this to green until we verify that all alerts are associated with adequate quality SOPs.
+
+      '
   name: INCIDENT-MGMT-0007
-  status: red
+  status: yellow
 - comment: CEE engagement has not been formalized yet
   name: INCIDENT-MGMT-0008
   status: yellow
