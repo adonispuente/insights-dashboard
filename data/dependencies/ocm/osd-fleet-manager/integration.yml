@@ -126,6 +126,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
+- name: hs-sc-e5tbse8cg
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
