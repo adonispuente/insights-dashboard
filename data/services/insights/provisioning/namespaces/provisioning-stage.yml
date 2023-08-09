@@ -60,7 +60,7 @@ externalResources:
   - provider: rds
     identifier: provisioning-stage
     defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
-    parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-quickstarts-stage.yml
+    parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-provisioning-stage.yml
     output_resource_name: provisioning-db
     enhanced_monitoring: true
     annotations:
