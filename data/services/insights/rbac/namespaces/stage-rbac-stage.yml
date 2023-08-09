@@ -40,6 +40,7 @@ networkPoliciesAllow:
 - $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
 - $ref: /services/insights/malware-detection/namespaces/stage-malware-detection-stage.yml
 - $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
+- $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
 
 managedRoles: true
 

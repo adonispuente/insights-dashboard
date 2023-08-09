@@ -40,6 +40,7 @@ networkPoliciesAllow:
 - $ref: /services/insights/ros/namespaces/ros-prod.yml
 - $ref: /services/insights/malware-detection/namespaces/malware-detection-prod.yml
 - $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
+- $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
 
 managedRoles: true
 
