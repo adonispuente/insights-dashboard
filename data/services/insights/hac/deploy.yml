@@ -121,7 +121,7 @@ resourceTemplates:
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: f753fbce0b69764944f43d72f3dfe9059e6a38b4
+    ref: 066791f4f10ecf2620eb7ab7558cee1557096c79
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hac-dev-frontend"
