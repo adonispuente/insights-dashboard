@@ -10,7 +10,7 @@ quay_username: hmariset
 
 roles:
 - $ref: /teams/stonesoup/roles/stonesoup.yml
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-monitoring-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 
