@@ -74,7 +74,7 @@ resourceTemplates:
       PROCESSOR_REPLICA_COUNT: '1'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: 5620c9182b8e0c3c494f2dbec88f839ef733ed1e
+    ref: 896da5351fa4a8dfa6dc549a8160e358ebe9dcae
     parameters:
       DAYS_UNTIL_STALE: '46'
       API_REPLICA_COUNT: '1'
