@@ -3,13 +3,15 @@ $schema: /dependencies/jira-board-1.yml
 
 labels: {}
 
-name: RHTAP
-description: RHTAP Jira project
+# Bug triage process: https://docs.google.com/document/d/1WRPLY1cwhFj84h1D1mPU12KJfIsSvnYjzD9nTTCzNSk/edit#
+name: RHTAPBUGS
+description: RHTAP Interrupt Catcher Queue
 server:
   $ref: /dependencies/jira/issues-redhat-com.yaml
 
 severityPriorityMappings:
   $ref: /dependencies/jira/severity-priority-mappings/major-major.yml
 
+issueType: Bug
 issueResolveState: Closed
 issueReopenState: New
