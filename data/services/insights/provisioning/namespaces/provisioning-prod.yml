@@ -63,7 +63,7 @@ externalResources:
     $ref: /aws/insights-prod/account.yml
   resources:
   - provider: rds
-    identifier: provisioning-stage
+    identifier: provisioning-prod
     defaults: /terraform/resources/insights/production/rds/postgres13-rds-1.yml
     overrides:
       name: provisioning_backend
