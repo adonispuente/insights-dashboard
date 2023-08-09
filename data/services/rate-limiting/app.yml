@@ -47,3 +47,12 @@ quayRepos:
     public: false 
     mirror:
       $ref: /dependencies/image-mirrors/registry.redhat.io/redis-5.yaml
+
+- org:
+    $ref: /dependencies/quay/app-sre.yml
+  items:
+  - name: httpbin
+    description: http server for used for limitador testing
+    public: false
+    mirror:
+      $ref: /dependencies/image-mirrors/docker.io/httpbin.yml
