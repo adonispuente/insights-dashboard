@@ -433,6 +433,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ibm-infra
+- name: hs-mc-621n0ikn0
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0 * * * 1-4
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
