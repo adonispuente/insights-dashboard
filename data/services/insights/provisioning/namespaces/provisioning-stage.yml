@@ -59,15 +59,14 @@ externalResources:
   resources:
   - provider: rds
     identifier: provisioning-stage
-    defaults: /terraform/resources/insights/stage/rds/postgres13-rds-1.yml
-    overrides:
-      name: provisioning_backend
-      engine_version: "13.10"
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
     parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-quickstarts-stage.yml
-    enhanced_monitoring: true
     output_resource_name: provisioning-db
+    enhanced_monitoring: true
     annotations:
       clowder/database: provisioning-backend
+    overrides:
+      name: provisioning_backend
 
     # This service account is supposed to assume Customer provided roles
     # We do not define any naming pattern for the Customer roles.
