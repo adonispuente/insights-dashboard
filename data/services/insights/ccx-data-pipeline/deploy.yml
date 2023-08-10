@@ -109,7 +109,7 @@ resourceTemplates:
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
-      DB_WRITER_REPLICAS: "3"
+      DB_WRITER_REPLICAS: "0"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     delete: false
