@@ -42,22 +42,55 @@ dependencies:
 - $ref: /dependencies/aws/service.yml
 
 codeComponents:
-- name: jvm-build-service
+- name: infra-deployments
   resource: upstream
-  url: https://github.com/redhat-appstudio/jvm-build-service
-- name: release-service
+  url: https://github.com/redhat-appstudio/infra-deployments
+- name: application-service
   resource: upstream
-  url: https://github.com/redhat-appstudio/release-service
-- name: integration-service
+  url: https://github.com/redhat-appstudio/application-service
+- name: application-api
   resource: upstream
-  url: https://github.com/redhat-appstudio/integration-service
+  url: https://github.com/redhat-appstudio/application-api
+- name: build-service
+  resource: upstream
+  url: https://github.com/redhat-appstudio/build-service
 - name: build-definitions
   resource: upstream
   url: https://github.com/redhat-appstudio/build-definitions
+- name: image-controller
+  resource: upstream
+  url: https://github.com/redhat-appstudio/image-controller
+- name: jvm-build-service
+  resource: upstream
+  url: https://github.com/redhat-appstudio/jvm-build-service
+- name: integration-service
+  resource: upstream
+  url: https://github.com/redhat-appstudio/integration-service
+- name: release-service
+  resource: upstream
+  url: https://github.com/redhat-appstudio/release-service
+- name: managed-gitops
+  resource: upstream
+  url: https://github.com/redhat-appstudio/managed-gitops
+- name: pipelines-service
+  resource: upstream
+  url: https://github.com/openshift-pipelines/pipelines-service
+- name: service-provider-integration-operator
+  resource: upstream
+  url: https://github.com/redhat-appstudio/service-provider-integration-operator
+- name: ec-cli
+  resource: upstream
+  url: https://github.com/enterprise-contract/ec-cli
+- name: ec-policies
+  resource: upstream
+  url: https://github.com/enterprise-contract/ec-policies
 - name: iib-resources
   resource: upstream
   url: https://github.com/hacbs-release/iib-resources
 - name: internal-services
+  resource: upstream
+  url: https://github.com/redhat-appstudio/internal-services
+- name: internal-services-resources
   resource: upstream
   url: https://github.com/hacbs-release/internal-services-resources
 - name: app-interface-deployments
