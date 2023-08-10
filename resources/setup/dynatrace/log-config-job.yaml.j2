@@ -51,7 +51,7 @@ spec:
               NAMESPACES=({%- for namespace in namespace_names -%}"{{ namespace }}" {% endfor -%})
               DYNATRACE_API_TOKEN=$(cat /secrets/apiToken)
               DT_API_URL="{{ environmentUrl }}/api/v2"
-              CLUSTER_NAME="{{ resource.namespace.cluster.name }}"
+              CLUSTER_NAME="{{ cluster.name }}"
               RULE_NAME="log-cluster-namespaces"
 
               hostGroupData=$(curl -s --fail-with-body -X GET -H "Authorization: Api-Token $DYNATRACE_API_TOKEN" -H "Content-Type: application/json" "$DT_API_URL/entities?entitySelector=type(\"HOST_GROUP\"),entityName(\"$CLUSTER_NAME\")&fields=properties")
