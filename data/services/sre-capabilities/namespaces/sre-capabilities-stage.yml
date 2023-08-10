@@ -35,3 +35,4 @@ externalResources:
   - provider: s3
     identifier: sre-capabilities-stage
     defaults: /terraform/resources/app-sre/app-interface-s3.yml
+    output_resource_name: sre-capabilities-s3
