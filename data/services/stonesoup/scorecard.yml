@@ -33,9 +33,9 @@ acceptanceCriteria:
 - comment: ''
   name: INCIDENT-MGMT-0001
   status: green
-- comment: The architecture is still work in progress.
+- comment: All service metadata in the app-1.yml and the linked architecture docsite is accurate and up-to-date.
   name: INCIDENT-MGMT-0002
-  status: red
+  status: green
 - comment: ''
   name: INCIDENT-MGMT-0003
   status: green
