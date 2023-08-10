@@ -4,8 +4,2564 @@ kind: ConfigMap
 metadata:
   name: cloud-resources-config
 data:
-  config.yaml: |
+  instance-types.yaml: |
     instance_types:
+    - id: g4dn.12xlarge
+      name: g4dn.12xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: accelerated_computing
+      size: 12xlarge
+      ccs_only: true
+      generic_name: t4-gpu-48
+    - id: g4dn.2xlarge
+      name: g4dn.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: accelerated_computing
+      size: 2xlarge
+      ccs_only: true
+      generic_name: t4-gpu-8
+    - id: g4dn.4xlarge
+      name: g4dn.4xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: accelerated_computing
+      size: 4xlarge
+      ccs_only: true
+      generic_name: t4-gpu-16
+    - id: g4dn.xlarge
+      name: g4dn.xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: accelerated_computing
+      size: xlarge
+      ccs_only: false
+      generic_name: t4-gpu-4
+    - id: n1-custom-48-184320+nvidia-tesla-t4
+      name: n1-custom-48-184320+nvidia-tesla-t4 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: t4-gpu-48
+    - id: n1-highmem-32+nvidia-tesla-v100
+      name: n1-highmem-32+nvidia-tesla-v100 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: v100-gpu-32
+    - id: n1-highmem-64+nvidia-tesla-v100
+      name: n1-highmem-64+nvidia-tesla-v100 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: v100-gpu-64
+    - id: n1-highmem-8+nvidia-tesla-v100
+      name: n1-highmem-8+nvidia-tesla-v100 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: v100-gpu-8
+    - id: n1-highmem-96+nvidia-tesla-v100
+      name: n1-highmem-96+nvidia-tesla-v100 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: v100-gpu-96
+    - id: n1-standard-16+nvidia-tesla-t4
+      name: n1-standard-16+nvidia-tesla-t4 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: t4-gpu-16
+    - id: n1-standard-4+nvidia-tesla-t4
+      name: n1-standard-4+nvidia-tesla-t4 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: false
+      generic_name: t4-gpu-4
+    - id: n1-standard-8+nvidia-tesla-t4
+      name: n1-standard-8+nvidia-tesla-t4 - Accelerated Computing
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 0
+      category: accelerated_computing
+      size: 
+      ccs_only: true
+      generic_name: t4-gpu-8
+    - id: p3.16xlarge
+      name: p3.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 523986010112
+      category: accelerated_computing
+      size: 
+      ccs_only: true
+      generic_name: v100-gpu-64
+    - id: p3.2xlarge
+      name: p3.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 65498251264
+      category: accelerated_computing
+      size: 
+      ccs_only: true
+      generic_name: v100-gpu-8
+    - id: p3.8xlarge
+      name: p3.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 261993005056
+      category: accelerated_computing
+      size: 
+      ccs_only: true
+      generic_name: v100-gpu-32
+    - id: p3dn.24xlarge
+      name: p3dn.24xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: accelerated_computing
+      size: 
+      ccs_only: true
+      generic_name: v100-gpu-96
+    - id: t3.2xlarge
+      name: t3.2xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: burstable
+      size: 2xlarge
+      ccs_only: true
+      generic_name: burst-8-t3
+    - id: t3.xlarge
+      name: t3.xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: burstable
+      size: xlarge
+      ccs_only: true
+      generic_name: burst-4-t3
+    - id: t3a.2xlarge
+      name: t3a.2xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: burstable
+      size: 2xlarge
+      ccs_only: true
+      generic_name: burst-8-t3a
+    - id: t3a.xlarge
+      name: t3a.xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: burstable
+      size: xlarge
+      ccs_only: true
+      generic_name: burst-4-t3a
+    - id: c5.12xlarge
+      name: c5.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48
+    - id: c5.18xlarge
+      name: c5.18xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 72
+      memory: 154618822656
+      category: compute_optimized
+      size: 18xlarge
+      ccs_only: true
+      generic_name: highcpu-72
+    - id: c5.24xlarge
+      name: c5.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highcpu-96
+    - id: c5.2xlarge
+      name: c5.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8
+    - id: c5.4xlarge
+      name: c5.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16
+    - id: c5.9xlarge
+      name: c5.9xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 36
+      memory: 77309411328
+      category: compute_optimized
+      size: 9xlarge
+      ccs_only: true
+      generic_name: highcpu-36
+    - id: c5.xlarge
+      name: c5.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highcpu-4
+    - id: c5a.12xlarge
+      name: c5a.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48-5a
+    - id: c5a.16xlarge
+      name: c5a.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highcpu-64-5a
+    - id: c5a.24xlarge
+      name: c5a.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highcpu-96-5a
+    - id: c5a.2xlarge
+      name: c5a.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8-5a
+    - id: c5a.4xlarge
+      name: c5a.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16-5a
+    - id: c5a.8xlarge
+      name: c5a.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highcpu-32-5a
+    - id: c5a.xlarge
+      name: c5a.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highcpu-4-5a
+    - id: c5d.12xlarge
+      name: c5d.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48-5d
+    - id: c5d.18xlarge
+      name: c5d.18xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 72
+      memory: 154618822656
+      category: compute_optimized
+      size: 18xlarge
+      ccs_only: true
+      generic_name: highcpu-72-5d
+    - id: c5d.24xlarge
+      name: c5d.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highcpu-96-5d
+    - id: c5d.2xlarge
+      name: c5d.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8-5d
+    - id: c5d.4xlarge
+      name: c5d.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16-5d
+    - id: c5d.9xlarge
+      name: c5d.9xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 36
+      memory: 77309411328
+      category: compute_optimized
+      size: 9xlarge
+      ccs_only: true
+      generic_name: highcpu-36-5d
+    - id: c5d.xlarge
+      name: c5d.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highcpu-4-5d
+    - id: c6i.12xlarge
+      name: c6i.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48-6i
+    - id: c6i.16xlarge
+      name: c6i.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highcpu-64
+    - id: c6i.24xlarge
+      name: c6i.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highcpu-96-6i
+    - id: c6i.2xlarge
+      name: c6i.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8-6i
+    - id: c6i.32xlarge
+      name: c6i.32xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highcpu-128
+    - id: c6i.4xlarge
+      name: c6i.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16-6i
+    - id: c6i.8xlarge
+      name: c6i.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highcpu-32
+    - id: c6i.xlarge
+      name: c6i.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6i
+    - id: custom-16-32768
+      name: custom-16-32768 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16
+    - id: custom-36-73728
+      name: custom-36-73728 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 36
+      memory: 77309411328
+      category: compute_optimized
+      size: 9xlarge
+      ccs_only: true
+      generic_name: highcpu-36
+    - id: custom-48-98304
+      name: custom-48-98304 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48
+    - id: custom-72-147456
+      name: custom-72-147456 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 72
+      memory: 154618822656
+      category: compute_optimized
+      size: 18xlarge
+      ccs_only: false
+      generic_name: highcpu-72
+    - id: custom-8-16384
+      name: custom-8-16384 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8
+    - id: custom-96-196608
+      name: custom-96-196608 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highcpu-96
+    - id: custom-16-65536
+      name: custom-16-65536 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16
+    - id: custom-32-131072
+      name: custom-32-131072 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32
+    - id: custom-4-16384
+      name: custom-4-16384 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4
+    - id: custom-48-196608
+      name: custom-48-196608 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: true
+      generic_name: standard-48
+    - id: custom-64-262144
+      name: custom-64-262144 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64
+    - id: custom-8-32768
+      name: custom-8-32768 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8
+    - id: custom-96-393216
+      name: custom-96-393216 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: true
+      generic_name: standard-96
+    - id: e2-standard-4
+      name: e2-standard-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-standard-4
+    - id: e2-standard-8
+      name: e2-standard-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-standard-8
+    - id: e2-standard-16
+      name: e2-standard-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: e2-standard-16
+    - id: e2-standard-32
+      name: e2-standard-32 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: e2-standard-32
+    - id: e2-highmem-4
+      name: e2-highmem-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highmem-4
+    - id: e2-highmem-8
+      name: e2-highmem-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 68719476736
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: e2-highmem-8
+    - id: e2-highmem-16
+      name: e2-highmem-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 137438953472
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highmem-16
+    - id: e2-highcpu-4
+      name: e2-highcpu-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 4294967296
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highcpu-4
+    - id: e2-highcpu-8
+      name: e2-highcpu-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 8589934592
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highcpu-8
+    - id: e2-highcpu-16
+      name: e2-highcpu-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 17179869184
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highcpu-16
+    - id: e2-highcpu-32
+      name: e2-highcpu-32 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: e2-highcpu-32
+    - id: n2-standard-4
+      name: n2-standard-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-4
+    - id: n2-standard-8
+      name: n2-standard-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-8
+    - id: n2-standard-16
+      name: n2-standard-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-16
+    - id: n2-standard-32
+      name: n2-standard-32 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-32
+    - id: n2-standard-48
+      name: n2-standard-48 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-48
+    - id: n2-standard-64
+      name: n2-standard-64 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-64
+    - id: n2-standard-80
+      name: n2-standard-80 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 80
+      memory: 343597383680
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-80
+    - id: n2-standard-96
+      name: n2-standard-96 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-96
+    - id: n2-standard-128
+      name: n2-standard-128 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-standard-128
+    - id: n2-highmem-4
+      name: n2-highmem-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-4
+    - id: n2-highmem-8
+      name: n2-highmem-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 68719476736
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-8
+    - id: n2-highmem-16
+      name: n2-highmem-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 137438953472
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-16
+    - id: n2-highmem-32
+      name: n2-highmem-32 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 274877906944
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-32
+    - id: n2-highmem-48
+      name: n2-highmem-48 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 412316860416
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-48
+    - id: n2-highmem-64
+      name: n2-highmem-64 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 549755813888
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-64
+    - id: n2-highmem-80
+      name: n2-highmem-80 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 80
+      memory: 687194767360
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-80
+    - id: n2-highmem-96
+      name: n2-highmem-96 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 824633720832
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-96
+    - id: n2-highmem-128
+      name: n2-highmem-128 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 128
+      memory: 927712935936
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highmem-128
+    - id: n2-highcpu-4
+      name: n2-highcpu-4 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 4294967296
+      category: general_purpose
+      size: 
+      ccs_only: true
+      generic_name: n2-highcpu-4
+    - id: n2-highcpu-8
+      name: n2-highcpu-8 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 8589934592
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-8
+    - id: n2-highcpu-16
+      name: n2-highcpu-16 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 17179869184
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-16
+    - id: n2-highcpu-32
+      name: n2-highcpu-32 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 34359738368
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-32
+    - id: n2-highcpu-48
+      name: n2-highcpu-48 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 51539607552
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-48
+    - id: n2-highcpu-64
+      name: n2-highcpu-64 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 68719476736
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-64
+    - id: n2-highcpu-80
+      name: n2-highcpu-80 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 80
+      memory: 85899345920
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-80
+    - id: n2-highcpu-96
+      name: n2-highcpu-96 - General purpose
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 103079215104
+      category: general_purpose
+      size: 
+      ccs_only: false
+      generic_name: n2-highcpu-96
+    - id: m3-ultramem-32
+      name: m3-ultramem-32 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 1047972020224
+      category: memory_optimized
+      size: 
+      ccs_only: true
+      generic_name: m3-ultramem-32
+    - id: m3-ultramem-64
+      name: m3-ultramem-64 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 2095944040448
+      category: memory_optimized
+      size: 
+      ccs_only: true
+      generic_name: m3-ultramem-64
+    - id: m3-ultramem-128
+      name: m3-ultramem-128 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 128
+      memory: 4191888080896
+      category: memory_optimized
+      size: 
+      ccs_only: true
+      generic_name: m3-ultramem-128
+    - id: m3-megamem-64
+      name: m3-megamem-64 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 1047972020224
+      category: memory_optimized
+      size: 
+      ccs_only: true
+      generic_name: m3-megamem-64
+    - id: m3-megamem-128
+      name: m3-megamem-128 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 128
+      memory: 2095944040448
+      category: memory_optimized
+      size: 
+      ccs_only: true
+      generic_name: m3-megamem-128
+    - id: c2-standard-4
+      name: c2-standard-4 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 17179869184
+      category: compute_optimized
+      size: 
+      ccs_only: true
+      generic_name: c2-standard-4
+    - id: c2-standard-8
+      name: c2-standard-8 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 34359738368
+      category: compute_optimized
+      size: 
+      ccs_only: true
+      generic_name: c2-standard-8
+    - id: c2-standard-16
+      name: c2-standard-16 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 68719476736
+      category: compute_optimized
+      size: 
+      ccs_only: true
+      generic_name: c2-standard-16
+    - id: c2-standard-30
+      name: c2-standard-30 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 30
+      memory: 128849018880
+      category: compute_optimized
+      size: 
+      ccs_only: false
+      generic_name: c2-standard-30
+    - id: c2-standard-60
+      name: c2-standard-60 - Compute optimized
+      cloud_provider_id: gcp
+      cpu_cores: 60
+      memory: 257698037760
+      category: compute_optimized
+      size: 
+      ccs_only: false
+      generic_name: c2-standard-60
+    - id: m5.12xlarge
+      name: m5.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48
+    - id: m5.16xlarge
+      name: m5.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64
+    - id: m5.24xlarge
+      name: m5.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: true
+      generic_name: standard-96
+    - id: m5.2xlarge
+      name: m5.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8
+    - id: m5.4xlarge
+      name: m5.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16
+    - id: m5.8xlarge
+      name: m5.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: true
+      generic_name: standard-32
+    - id: m5.xlarge
+      name: m5.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4
+    - id: m5a.12xlarge
+      name: m5a.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: true
+      generic_name: standard-48-5a
+    - id: m5a.16xlarge
+      name: m5a.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: true
+      generic_name: standard-64-5a
+    - id: m5a.24xlarge
+      name: m5a.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: true
+      generic_name: standard-96-5a
+    - id: m5a.2xlarge
+      name: m5a.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8-5a
+    - id: m5a.4xlarge
+      name: m5a.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16-5a
+    - id: m5a.8xlarge
+      name: m5a.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: true
+      generic_name: standard-32-5a
+    - id: m5a.xlarge
+      name: m5a.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4-5a
+    - id: m6a.12xlarge
+      name: m6a.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: true
+      generic_name: standard-48-6a
+    - id: m6a.16xlarge
+      name: m6a.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: true
+      generic_name: standard-64-6a
+    - id: m6a.24xlarge
+      name: m6a.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: true
+      generic_name: standard-96-6a
+    - id: m6a.2xlarge
+      name: m6a.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8-6a
+    - id: m6a.32xlarge
+      name: m6a.32xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 32xlarge
+      ccs_only: true
+      generic_name: standard-128-6a
+    - id: m6a.48xlarge
+      name: m6a.48xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 824633720832
+      category: general_purpose
+      size: 48xlarge
+      ccs_only: true
+      generic_name: standard-192
+    - id: m6a.4xlarge
+      name: m6a.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16-6a
+    - id: m6a.8xlarge
+      name: m6a.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: true
+      generic_name: standard-32-6a
+    - id: m6a.xlarge
+      name: m6a.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4-6a
+    - id: m6i.12xlarge
+      name: m6i.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: true
+      generic_name: standard-48-6i
+    - id: m6i.16xlarge
+      name: m6i.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: true
+      generic_name: standard-64-6i
+    - id: m6i.24xlarge
+      name: m6i.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: true
+      generic_name: standard-96-6i
+    - id: m6i.2xlarge
+      name: m6i.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8-6i
+    - id: m6i.32xlarge
+      name: m6i.32xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 32xlarge
+      ccs_only: true
+      generic_name: standard-128-6i
+    - id: m6i.4xlarge
+      name: m6i.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16-6i
+    - id: m6i.8xlarge
+      name: m6i.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: true
+      generic_name: standard-32-6i
+    - id: m6i.xlarge
+      name: m6i.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4-6i
+    - id: custom-16-131072-ext
+      name: custom-16-131072-ext - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16
+    - id: custom-32-262144
+      name: custom-32-262144 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32
+    - id: custom-4-32768-ext
+      name: custom-4-32768-ext - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4
+    - id: custom-48-393216
+      name: custom-48-393216 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48
+    - id: custom-64-524288
+      name: custom-64-524288 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64
+    - id: custom-8-65536-ext
+      name: custom-8-65536-ext - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8
+    - id: custom-96-786432
+      name: custom-96-786432 - Memory optimized
+      cloud_provider_id: gcp
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96
+    - id: r4.16xlarge
+      name: r4.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 523986010112
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-r4
+    - id: r4.2xlarge
+      name: r4.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 65498251264
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-r4
+    - id: r4.4xlarge
+      name: r4.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 130996502528
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-r4
+    - id: r4.8xlarge
+      name: r4.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 261993005056
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-r4
+    - id: r4.xlarge
+      name: r4.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 32749125632
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-r4
+    - id: r5.12xlarge
+      name: r5.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48
+    - id: r5.16xlarge
+      name: r5.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64
+    - id: r5.24xlarge
+      name: r5.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96
+    - id: r5.2xlarge
+      name: r5.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8
+    - id: r5.4xlarge
+      name: r5.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16
+    - id: r5.8xlarge
+      name: r5.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32
+    - id: r5.xlarge
+      name: r5.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4
+    - id: r5a.12xlarge
+      name: r5a.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-5a
+    - id: r5a.16xlarge
+      name: r5a.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-5a
+    - id: r5a.24xlarge
+      name: r5a.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-5a
+    - id: r5a.2xlarge
+      name: r5a.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-5a
+    - id: r5a.4xlarge
+      name: r5a.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-5a
+    - id: r5a.8xlarge
+      name: r5a.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-5a
+    - id: r5a.xlarge
+      name: r5a.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-5a
+    - id: r5ad.12xlarge
+      name: r5ad.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-5ad
+    - id: r5ad.16xlarge
+      name: r5ad.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-5ad
+    - id: r5ad.24xlarge
+      name: r5ad.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-5ad
+    - id: r5ad.2xlarge
+      name: r5ad.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-5ad
+    - id: r5ad.4xlarge
+      name: r5ad.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-5ad
+    - id: r5ad.8xlarge
+      name: r5ad.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-5ad
+    - id: r5ad.xlarge
+      name: r5ad.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-5ad
+    - id: r5d.12xlarge
+      name: r5d.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-5d
+    - id: r5d.16xlarge
+      name: r5d.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-5d
+    - id: r5d.24xlarge
+      name: r5d.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-5d
+    - id: r5d.2xlarge
+      name: r5d.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-5d
+    - id: r5d.4xlarge
+      name: r5d.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-5d
+    - id: r5d.8xlarge
+      name: r5d.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-5d
+    - id: r5d.xlarge
+      name: r5d.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-5d
+    - id: r5dn.12xlarge
+      name: r5dn.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-5dn
+    - id: r5dn.16xlarge
+      name: r5dn.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-5dn
+    - id: r5dn.24xlarge
+      name: r5dn.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highmem-96-5dn
+    - id: r5dn.2xlarge
+      name: r5dn.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-5dn
+    - id: r5dn.4xlarge
+      name: r5dn.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-5dn
+    - id: r5dn.8xlarge
+      name: r5dn.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-5dn
+    - id: r5dn.xlarge
+      name: r5dn.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-5dn
+    - id: r5n.12xlarge
+      name: r5n.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-5n
+    - id: r5n.16xlarge
+      name: r5n.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-5n
+    - id: r5n.24xlarge
+      name: r5n.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-5n
+    - id: r5n.2xlarge
+      name: r5n.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-5n
+    - id: r5n.4xlarge
+      name: r5n.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-5n
+    - id: r5n.8xlarge
+      name: r5n.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-5n
+    - id: r5n.xlarge
+      name: r5n.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-5n
+    - id: r6i.12xlarge
+      name: r6i.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-6i
+    - id: r6i.16xlarge
+      name: r6i.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-6i
+    - id: r6i.24xlarge
+      name: r6i.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-6i
+    - id: r6i.2xlarge
+      name: r6i.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-6i
+    - id: r6i.32xlarge
+      name: r6i.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-128
+    - id: r6i.4xlarge
+      name: r6i.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-6i
+    - id: r6i.8xlarge
+      name: r6i.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-6i
+    - id: r6i.xlarge
+      name: r6i.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-6i
+    - id: z1d.12xlarge
+      name: z1d.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-1d
+    - id: z1d.2xlarge
+      name: z1d.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-1d
+    - id: z1d.3xlarge
+      name: z1d.3xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 12
+      memory: 103079215104
+      category: memory_optimized
+      size: 3xlarge
+      ccs_only: true
+      generic_name: highmem-12
+    - id: z1d.6xlarge
+      name: z1d.6xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 24
+      memory: 206158430208
+      category: memory_optimized
+      size: 6xlarge
+      ccs_only: true
+      generic_name: highmem-24
+    - id: z1d.xlarge
+      name: z1d.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-1d
+    - id: c5n.18xlarge
+      name: c5n.18xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 72
+      memory: 206158430208
+      category: network_optimized
+      size: 18xlarge
+      ccs_only: true
+      generic_name: highnet-72-c5n
+    - id: c5n.2xlarge
+      name: c5n.2xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 22548578304
+      category: network_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highnet-8-c5n
+    - id: c5n.4xlarge
+      name: c5n.4xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 45097156608
+      category: network_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highnet-16-c5n
+    - id: c5n.9xlarge
+      name: c5n.9xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 36
+      memory: 103079215104
+      category: network_optimized
+      size: 9xlarge
+      ccs_only: true
+      generic_name: highnet-36-c5n
+    - id: c5n.xlarge
+      name: c5n.xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 11274289152
+      category: network_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highnet-4-c5n
+    - id: c5ad.12xlarge
+      name: c5ad.12xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: storage_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highstorage-48-5ad
+    - id: c5ad.16xlarge
+      name: c5ad.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highstorage-64-5ad
+    - id: c5ad.24xlarge
+      name: c5ad.24xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: storage_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highstorage-96
+    - id: c5ad.2xlarge
+      name: c5ad.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highstorage-8-5ad
+    - id: c5ad.4xlarge
+      name: c5ad.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highstorage-16-5ad
+    - id: c5ad.8xlarge
+      name: c5ad.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highstorage-32-5ad
+    - id: c5ad.xlarge
+      name: c5ad.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: storage_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highstorage-4-5ad
+    - id: i3.16xlarge
+      name: i3.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 523986010112
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highstorage-64
+    - id: i3.2xlarge
+      name: i3.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 65498251264
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highstorage-8
+    - id: i3.4xlarge
+      name: i3.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 130996502528
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highstorage-16
+    - id: i3.8xlarge
+      name: i3.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 261993005056
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highstorage-32
+    - id: i3.xlarge
+      name: i3.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 32749125632
+      category: storage_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highstorage-4
+    - id: i3en.12xlarge
+      name: i3en.12xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: storage_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highstorage-48
+    - id: i3en.24xlarge
+      name: i3en.24xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: storage_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highstorage-96-3en
+    - id: i3en.2xlarge
+      name: i3en.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highstorage-8-3en
+    - id: i3en.3xlarge
+      name: i3en.3xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 12
+      memory: 103079215104
+      category: storage_optimized
+      size: 3xlarge
+      ccs_only: true
+      generic_name: highstorage-12
+    - id: i3en.6xlarge
+      name: i3en.6xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 24
+      memory: 206158430208
+      category: storage_optimized
+      size: 6xlarge
+      ccs_only: false
+      generic_name: highstorage-24
+    - id: i3en.xlarge
+      name: i3en.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: storage_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highstorage-4-3en
+    - id: x1.16xlarge
+      name: x1.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 1047972020224
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-x116
+    - id: x1.32xlarge
+      name: x1.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 2095944040448
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-x132
+    - id: x1e.16xlarge
+      name: x1e.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 2095944040448
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-x1e16x
+    - id: x1e.2xlarge
+      name: x1e.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 261993005056
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-x1e2x
+    - id: x1e.32xlarge
+      name: x1e.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 4191888080896
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-x1e32x
+    - id: x1e.4xlarge
+      name: x1e.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 523986010112
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-x1e4x
+    - id: x1e.8xlarge
+      name: x1e.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 1047972020224
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-x1e8x
+    - id: x1e.xlarge
+      name: x1e.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 130996502528
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-x1ex
+    - id: x2idn.16xlarge
+      name: x2idn.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 1099511627776
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-x2idn16
+    - id: x2idn.24xlarge
+      name: x2idn.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 1649267441664
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-x2idn24
+    - id: x2idn.32xlarge
+      name: x2idn.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 2199023255552
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-x2idn32
+    - id: x2iedn.16xlarge
+      name: x2iedn.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 2199023255552
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn16x
+    - id: x2iedn.24xlarge
+      name: x2iedn.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 3298534883328
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn24x
+    - id: x2iedn.2xlarge
+      name: x2iedn.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 274877906944
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn2x
+    - id: x2iedn.32xlarge
+      name: x2iedn.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 4398046511104
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn32x
+    - id: x2iedn.4xlarge
+      name: x2iedn.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 549755813888
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn4x
+    - id: x2iedn.8xlarge
+      name: x2iedn.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 1099511627776
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-x2iedn8x
+    - id: x2iedn.xlarge
+      name: x2iedn.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 137438953472
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-x2iednx
+    - id: x2iezn.12xlarge
+      name: x2iezn.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 1649267441664
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-x2iezn12x
+    - id: x2iezn.2xlarge
+      name: x2iezn.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 274877906944
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-x2iezn2x
+    - id: x2iezn.4xlarge
+      name: x2iezn.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 549755813888
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-x2iezn4x
+    - id: x2iezn.6xlarge
+      name: x2iezn.6xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 24
+      memory: 824633720832
+      category: memory_optimized
+      size: 6xlarge
+      ccs_only: true
+      generic_name: highmem-x2iezn6x
+    - id: x2iezn.8xlarge
+      name: x2iezn.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 1099511627776
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-x2iezn8x
+    - id: c6i.metal
+      name: c6i.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-128-m
+    - id: c5d.metal
+      name: c5d.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-96-5dm
+    - id: c5.metal
+      name: c5.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-96-m
+    - id: c5n.metal
+      name: c5n.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 72
+      memory: 206158430208
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highnet-72-c5nm
+    - id: m5zn.metal
+      name: m5zn.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-48-5znm
+    - id: m5dn.metal
+      name: m5dn.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: highnet-96-5dnm
+    - id: m5n.metal
+      name: m5n.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: highnet-96-5nm
+    - id: m5d.metal
+      name: m5d.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: highstorage-96-5dm
+    - id: m6i.metal
+      name: m6i.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: standard-128-6im
+    - id: m5.metal
+      name: m5.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: standard-96-m
+    - id: r6i.metal
+      name: r6i.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-128-m
+    - id: z1d.metal
+      name: z1d.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-48-1dm
+    - id: r5d.metal
+      name: r5d.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-96-5dm
+    - id: r5dn.metal
+      name: r5dn.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-96-5dnm
+    - id: r5n.metal
+      name: r5n.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-96-5nm
+    - id: r5.metal
+      name: r5.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-96-m
+    - id: x2iezn.metal
+      name: x2iezn.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 1649267441664
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-x2iezn12xm
+    - id: i3.metal
+      name: i3.metal - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 72
+      memory: 549755813888
+      category: storage_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highstorage-72-m
+    - id: i3en.metal
+      name: i3en.metal - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: storage_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highstorage-96-enm
+    - id: c6a.metal
+      name: c6a.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 412316860416
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-192-am
+    - id: m6a.metal
+      name: m6a.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 824633720832
+      category: general_purpose
+      size: metal
+      ccs_only: true
+      generic_name: standard-192-am
+    - id: Hpc6a.48xlarge
+      name: Hpc6a.48xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: compute_optimized
+      size: 48xlarge
+      ccs_only: true
+      generic_name: highperf-48xa
+    - id: c6a.xlarge
+      name: c6a.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highcpu-4-6a
+    - id: c6a.2xlarge
+      name: c6a.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8-6a
+    - id: c6a.4xlarge
+      name: c6a.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highcpu-16-6a
+    - id: c6a.8xlarge
+      name: c6a.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highcpu-32-6a
+    - id: c6a.12xlarge
+      name: c6a.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48-6a
+    - id: c6a.16xlarge
+      name: c6a.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highcpu-64-6a
+    - id: c6a.24xlarge
+      name: c6a.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highcpu-96-6a
+    - id: c6a.32xlarge
+      name: c6a.32xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highcpu-128-6a
+    - id: c6a.48xlarge
+      name: c6a.48xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 412316860416
+      category: compute_optimized
+      size: 48xlarge
+      ccs_only: true
+      generic_name: highcpu-192-6a
     - id: m5ad.xlarge
       name: m5ad.xlarge - Storage optimized
       cloud_provider_id: aws
@@ -14,8 +2570,2329 @@ data:
       category: storage_optimized
       size: xlarge
       ccs_only: true
-      generic_name: highstorage-4-5ad
-      enabled: true
+      generic_name: highstorage-4-m5ad
+    - id: m5ad.2xlarge
+      name: m5ad.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highstorage-8-m5ad
+    - id: m5ad.4xlarge
+      name: m5ad.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highstorage-16-m5ad
+    - id: m5ad.8xlarge
+      name: m5ad.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highstorage-32-m5ad
+    - id: m5ad.12xlarge
+      name: m5ad.12xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: storage_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highstorage-48-m5ad
+    - id: m5ad.16xlarge
+      name: m5ad.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highstorage-64-m5ad
+    - id: m5ad.24xlarge
+      name: m5ad.24xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: storage_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highstorage-96-m5ad
+    - id: m5zn.12xlarge
+      name: m5zn.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highcpu-48-5zn
+    - id: m5zn.2xlarge
+      name: m5zn.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highcpu-8-5zn
+    - id: m5zn.3xlarge
+      name: m5zn.3xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 51539607552
+      category: compute_optimized
+      size: 3xlarge
+      ccs_only: true
+      generic_name: highcpu-12-5zn
+    - id: m5zn.6xlarge
+      name: m5zn.6xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 103079215104
+      category: compute_optimized
+      size: 6xlarge
+      ccs_only: true
+      generic_name: highcpu-24-5zn
+    - id: m5zn.xlarge
+      name: m5zn.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: compute_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highcpu-4-5zn
+    - id: m5dn.12xlarge
+      name: m5dn.12xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: network_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highnet-48-5dn
+    - id: m5dn.16xlarge
+      name: m5dn.16xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: network_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highnet-64-5dn
+    - id: m5dn.24xlarge
+      name: m5dn.24xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: network_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highnet-96-5dn
+    - id: m5dn.2xlarge
+      name: m5dn.2xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: network_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highnet-8-5dn
+    - id: m5dn.4xlarge
+      name: m5dn.4xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: network_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highnet-16-5dn
+    - id: m5dn.8xlarge
+      name: m5dn.8xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: network_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highnet-32-5dn
+    - id: m5dn.xlarge
+      name: m5dn.xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: network_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highnet-4-5dn
+    - id: m5n.12xlarge
+      name: m5n.12xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: network_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highnet-48-5n
+    - id: m5n.16xlarge
+      name: m5n.16xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: network_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highnet-64-5n
+    - id: m5n.24xlarge
+      name: m5n.24xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: network_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highnet-96-5n
+    - id: m5n.2xlarge
+      name: m5n.2xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: network_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highnet-8-5n
+    - id: m5n.4xlarge
+      name: m5n.4xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: network_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highnet-16-5n
+    - id: m5n.8xlarge
+      name: m5n.8xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: network_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highnet-32-5n
+    - id: m5n.xlarge
+      name: m5n.xlarge - Network optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: network_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highnet-4-5n
+    - id: m5d.12xlarge
+      name: m5d.12xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: storage_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highstorage-48-5d
+    - id: m5d.16xlarge
+      name: m5d.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highstorage-64-5d
+    - id: m5d.24xlarge
+      name: m5d.24xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: storage_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highstorage-96-5d
+    - id: m5d.2xlarge
+      name: m5d.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highstorage-8-5d
+    - id: m5d.4xlarge
+      name: m5d.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highstorage-16-5d
+    - id: m5d.8xlarge
+      name: m5d.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highstorage-32-5d
+    - id: m5d.xlarge
+      name: m5d.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: storage_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highstorage-4-5d
+    - id: r6id.xlarge
+      name: r6id.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: true
+      generic_name: highmem-4-6id
+    - id: r6id.2xlarge
+      name: r6id.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: true
+      generic_name: highmem-8-6id
+    - id: r6id.4xlarge
+      name: r6id.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: true
+      generic_name: highmem-16-6id
+    - id: r6id.8xlarge
+      name: r6id.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: true
+      generic_name: highmem-32-6id
+    - id: r6id.12xlarge
+      name: r6id.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: true
+      generic_name: highmem-48-6id
+    - id: r6id.16xlarge
+      name: r6id.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highmem-64-6id
+    - id: r6id.24xlarge
+      name: r6id.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highmem-96-6id
+    - id: r6id.32xlarge
+      name: r6id.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highmem-128d
+    - id: r6id.metal
+      name: r6id.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highmem-128-md
+    - id: c6id.xlarge
+      name: c6id.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6id
+    - id: c6id.2xlarge
+      name: c6id.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-6id
+    - id: c6id.4xlarge
+      name: c6id.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-6id
+    - id: c6id.8xlarge
+      name: c6id.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32d
+    - id: c6id.12xlarge
+      name: c6id.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-6id
+    - id: c6id.16xlarge
+      name: c6id.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: true
+      generic_name: highcpu-64d
+    - id: c6id.24xlarge
+      name: c6id.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: true
+      generic_name: highcpu-96-6id
+    - id: c6id.32xlarge
+      name: c6id.32xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: 32xlarge
+      ccs_only: true
+      generic_name: highcpu-128d
+    - id: c6id.metal
+      name: c6id.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: metal
+      ccs_only: true
+      generic_name: highcpu-128-md
+    - id: m6id.xlarge
+      name: m6id.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: true
+      generic_name: standard-4-6id
+    - id: m6id.2xlarge
+      name: m6id.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: true
+      generic_name: standard-8-6id
+    - id: m6id.4xlarge
+      name: m6id.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: true
+      generic_name: standard-16-6id
+    - id: m6id.8xlarge
+      name: m6id.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: true
+      generic_name: standard-32-6id
+    - id: m6id.12xlarge
+      name: m6id.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: true
+      generic_name: standard-48-6id
+    - id: m6id.16xlarge
+      name: m6id.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-6id
+    - id: m6id.24xlarge
+      name: m6id.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: false
+      generic_name: standard-96-6id
+    - id: m6id.32xlarge
+      name: m6id.32xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 32xlarge
+      ccs_only: false
+      generic_name: standard-128-6id
+    - id: m6id.metal
+      name: m6id.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: metal
+      ccs_only: false
+      generic_name: standard-128-6imd
+    - id: p4d.24xlarge
+      name: p4d.24xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 1236950581248
+      category: accelerated_computing
+      size: 24xlarge
+      ccs_only: false
+      generic_name: p4-gpu-24
+    - id: g4dn.8xlarge
+      name: g4dn.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: accelerated_computing
+      size: 8xlarge
+      ccs_only: false
+      generic_name: g4-gpu-8dn
+    - id: g4dn.16xlarge
+      name: g4dn.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: accelerated_computing
+      size: 16xlarge
+      ccs_only: false
+      generic_name: g4-gpu-16dn
+    - id: g4dn.metal
+      name: g4dn.metal - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: accelerated_computing
+      size: metal
+      ccs_only: false
+      generic_name: g4-gpu-metal
+    - id: g4an.xlarge
+      name: g4an.xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: accelerated_computing
+      size: xlarge
+      ccs_only: false
+      generic_name: g4-gpu-an
+    - id: g4an.2xlarge
+      name: g4an.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: accelerated_computing
+      size: 2xlarge
+      ccs_only: false
+      generic_name: g4-gpu-2an
+    - id: g4an.4xlarge
+      name: g4an.4xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: accelerated_computing
+      size: 4xlarge
+      ccs_only: false
+      generic_name: g4-gpu-4an
+    - id: g4an.8xlarge
+      name: g4an.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: accelerated_computing
+      size: 8xlarge
+      ccs_only: false
+      generic_name: g4-gpu-8an
+    - id: g4an.16xlarge
+      name: g4an.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: accelerated_computing
+      size: 16xlarge
+      ccs_only: false
+      generic_name: g4-gpu-16an
+    - id: g5.xlarge
+      name: g5.xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: accelerated_computing
+      size: xlarge
+      ccs_only: false
+      generic_name: g5-gpu-x
+    - id: g5.2xlarge
+      name: g5.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: accelerated_computing
+      size: 2xlarge
+      ccs_only: false
+      generic_name: g5-gpu-2x
+    - id: g5.4xlarge
+      name: g5.4xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: accelerated_computing
+      size: 4xlarge
+      ccs_only: false
+      generic_name: g5-gpu-4x
+    - id: g5.8xlarge
+      name: g5.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: accelerated_computing
+      size: 8xlarge
+      ccs_only: false
+      generic_name: g5-gpu-8x
+    - id: g5.16xlarge
+      name: g5.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: accelerated_computing
+      size: 16xlarge
+      ccs_only: false
+      generic_name: g5-gpu-16x
+    - id: g5.12xlarge
+      name: g5.12xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: accelerated_computing
+      size: 12xlarge
+      ccs_only: false
+      generic_name: g5-gpu-12x
+    - id: g5.24xlarge
+      name: g5.24xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: accelerated_computing
+      size: 24xlarge
+      ccs_only: false
+      generic_name: g5-gpu-24x
+    - id: g5.48xlarge
+      name: g5.48xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 824633720832
+      category: accelerated_computing
+      size: 48xlarge
+      ccs_only: false
+      generic_name: g5-gpu-48x
+    - id: u-3tb1.56xlarge
+      name: u-3tb1.56xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 224
+      memory: 3298534883328
+      category: memory_optimized
+      size: 56xlarge
+      ccs_only: false
+      generic_name: highmem-u3tb1-56x
+    - id: u-6tb1.56xlarge
+      name: u-6tb1.56xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 224
+      memory: 6597069766656
+      category: memory_optimized
+      size: 56xlarge
+      ccs_only: false
+      generic_name: highmem-u6tb1-56x
+    - id: u-6tb1.112xlarge
+      name: u-6tb1.112xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 6597069766656
+      category: memory_optimized
+      size: 112xlarge
+      ccs_only: false
+      generic_name: highmem-u6tb1-112x
+    - id: u-6tb1.metal
+      name: u-6tb1.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 6597069766656
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-u6tb1-metal
+    - id: u-9tb1.112xlarge
+      name: u-9tb1.112xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 9895604649984
+      category: memory_optimized
+      size: 112xlarge
+      ccs_only: false
+      generic_name: highmem-u9tb1-112x
+    - id: u-9tb1.metal
+      name: u-9tb1.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 9895604649984
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-u9tb1-metal
+    - id: u-12tb1.112xlarge
+      name: u-12tb1.112xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 13194139533312
+      category: memory_optimized
+      size: 112xlarge
+      ccs_only: false
+      generic_name: highmem-u12tb1-112x
+    - id: u-12tb1.metal
+      name: u-12tb1.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 13194139533312
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-u12tb1-metal
+    - id: u-18tb1.metal
+      name: u-18tb1.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 19791209299968
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-u18tb1-metal
+    - id: u-24tb1.metal
+      name: u-24tb1.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 26388279066624
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-u24tb1-metal
+    - id: dl1.24xlarge
+      name: dl1.24xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: accelerated_computing
+      size: 24xlarge
+      ccs_only: false
+      generic_name: d1-gaudi-24x
+    - id: x2idn.metal
+      name: x2idn.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 2199023255552
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-x2idn-metal
+    - id: x2iedn.metal
+      name: x2iedn.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 4398046511104
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-x2iedn-metal
+    - id: g4ad.xlarge
+      name: g4ad.xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: accelerated_computing
+      size: xlarge
+      ccs_only: false
+      generic_name: g4ad-gpu-x
+    - id: g4ad.2xlarge
+      name: g4ad.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: accelerated_computing
+      size: 2xlarge
+      ccs_only: false
+      generic_name: g4ad-gpu-2x
+    - id: g4ad.4xlarge
+      name: g4ad.4xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: accelerated_computing
+      size: 4xlarge
+      ccs_only: false
+      generic_name: g4ad-gpu-4x
+    - id: g4ad.8xlarge
+      name: g4ad.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: accelerated_computing
+      size: 8xlarge
+      ccs_only: false
+      generic_name: g4ad-gpu-8x
+    - id: g4ad.16xlarge
+      name: g4ad.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: accelerated_computing
+      size: 16xlarge
+      ccs_only: false
+      generic_name: g4ad-gpu-16x
+    - id: r6a.xlarge
+      name: r6a.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-6a
+    - id: r6a.2xlarge
+      name: r6a.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-6a
+    - id: r6a.4xlarge
+      name: r6a.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-6a
+    - id: r6a.8xlarge
+      name: r6a.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-6a
+    - id: r6a.12xlarge
+      name: r6a.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-6a
+    - id: r6a.16xlarge
+      name: r6a.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-6a
+    - id: r6a.24xlarge
+      name: r6a.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highmem-96-6a
+    - id: r6a.32xlarge
+      name: r6a.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: false
+      generic_name: highmem-128-6a
+    - id: r6a.48xlarge
+      name: r6a.48xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 1649267441664
+      category: memory_optimized
+      size: 48xlarge
+      ccs_only: false
+      generic_name: highmem-192-6a
+    - id: r6a.metal
+      name: r6a.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 192
+      memory: 1649267441664
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-m192-6a
+    - id: i4i.xlarge
+      name: i4i.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: storage_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highstori4ix
+    - id: i4i.2xlarge
+      name: i4i.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highstori4ix2
+    - id: i4i.4xlarge
+      name: i4i.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highstori4ix4
+    - id: i4i.8xlarge
+      name: i4i.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highstori4ix8
+    - id: i4i.16xlarge
+      name: i4i.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highstori4ix16
+    - id: i4i.32xlarge
+      name: i4i.32xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: storage_optimized
+      size: 32xlarge
+      ccs_only: false
+      generic_name: highstori4ix32
+    - id: i4i.metal
+      name: i4i.metal - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: storage_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highstori4imetal
+    - id: u-18tb1.112xlarge
+      name: u-18tb1.112xlarge- Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 19791209299968
+      category: memory_optimized
+      size: 112xlarge
+      ccs_only: false
+      generic_name: highmem-u18tb1-112x
+    - id: u-24tb1.112xlarge
+      name: u-24tb1.112xlarge- Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 448
+      memory: 26388279066624
+      category: memory_optimized
+      size: 112xlarge
+      ccs_only: false
+      generic_name: highmem-u24tb1-112x
+    - id: m6in.xlarge
+      name: m6in.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-6in
+    - id: m6in.2xlarge
+      name: m6in.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-6in
+    - id: m6in.4xlarge
+      name: m6in.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-6in
+    - id: m6in.8xlarge
+      name: m6in.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32-6in
+    - id: m6in.12xlarge
+      name: m6in.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48-6in
+    - id: m6in.16xlarge
+      name: m6in.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-6in
+    - id: m6in.24xlarge
+      name: m6in.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: false
+      generic_name: standard-96-6in
+    - id: m6in.32xlarge
+      name: m6in.32xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 32xlarge
+      ccs_only: false
+      generic_name: standard-128-6in
+    - id: m6idn.xlarge
+      name: m6idn.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-6idn
+    - id: m6idn.2xlarge
+      name: m6idn.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-6idn
+    - id: m6idn.4xlarge
+      name: m6idn.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-6idn
+    - id: m6idn.8xlarge
+      name: m6idn.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32-6idn
+    - id: m6idn.12xlarge
+      name: m6idn.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48-6idn
+    - id: m6idn.16xlarge
+      name: m6idn.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-6idn
+    - id: m6idn.24xlarge
+      name: m6idn.24xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 412316860416
+      category: general_purpose
+      size: 24xlarge
+      ccs_only: false
+      generic_name: standard-96-6idn
+    - id: m6idn.32xlarge
+      name: m6idn.32xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 549755813888
+      category: general_purpose
+      size: 32xlarge
+      ccs_only: false
+      generic_name: standard-128-6idn
+    - id: c6in.xlarge
+      name: c6in.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6in
+    - id: c6in.2xlarge
+      name: c6in.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-6in
+    - id: c6in.4xlarge
+      name: c6in.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-6in
+    - id: c6in.8xlarge
+      name: c6in.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32-6in
+    - id: c6in.12xlarge
+      name: c6in.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-6in
+    - id: c6in.16xlarge
+      name: c6in.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highcpu-64-6in
+    - id: c6in.24xlarge
+      name: c6in.24xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 206158430208
+      category: compute_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highcpu-96-6in
+    - id: c6in.32xlarge
+      name: c6in.32xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 274877906944
+      category: compute_optimized
+      size: 32xlarge
+      ccs_only: false
+      generic_name: highcpu-128-6in
+    - id: r6in.xlarge
+      name: r6in.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-6in
+    - id: r6in.2xlarge
+      name: r6in.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-6in
+    - id: r6in.4xlarge
+      name: r6in.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-6in
+    - id: r6in.8xlarge
+      name: r6in.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-6in
+    - id: r6in.12xlarge
+      name: r6in.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-6in
+    - id: r6in.16xlarge
+      name: r6in.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-6in
+    - id: r6in.24xlarge
+      name: r6in.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highmem-96-6in
+    - id: r6in.32xlarge
+      name: r6in.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: false
+      generic_name: highmem-128-6in
+    - id: r6idn.xlarge
+      name: r6idn.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-6idn
+    - id: r6idn.2xlarge
+      name: r6idn.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-6idn
+    - id: r6idn.4xlarge
+      name: r6idn.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-6idn
+    - id: r6idn.8xlarge
+      name: r6idn.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-6idn
+    - id: r6idn.12xlarge
+      name: r6idn.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-6idn
+    - id: r6idn.16xlarge
+      name: r6idn.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-6idn
+    - id: r6idn.24xlarge
+      name: r6idn.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highmem-96-6idn
+    - id: r6idn.32xlarge
+      name: r6idn.32xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 128
+      memory: 1099511627776
+      category: memory_optimized
+      size: 32xlarge
+      ccs_only: false
+      generic_name: highmem-128-6idn
+    - id: m6g.xlarge
+      name: m6g.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-6g
+    - id: m6g.2xlarge
+      name: m6g.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-6g
+    - id: m6g.4xlarge
+      name: m6g.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-6g
+    - id: m6g.8xlarge
+      name: m6g.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32-6g
+    - id: m6g.12xlarge
+      name: m6g.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48-6g
+    - id: m6g.16xlarge
+      name: m6g.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-6g
+    - id: m6g.metal
+      name: m6g.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: metal
+      ccs_only: false
+      generic_name: standard-64m-6g
+    - id: m6gd.xlarge
+      name: m6gd.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-6gd
+    - id: m6gd.2xlarge
+      name: m6gd.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-6gd
+    - id: m6gd.4xlarge
+      name: m6gd.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-6gd
+    - id: m6gd.8xlarge
+      name: m6gd.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32-6gd
+    - id: m6gd.12xlarge
+      name: m6gd.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48-6gd
+    - id: m6gd.16xlarge
+      name: m6gd.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-6gd
+    - id: m6gd.metal
+      name: m6gd.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: metal
+      ccs_only: false
+      generic_name: standard-64m-6gd
+    - id: a1.xlarge
+      name: a1.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-a1
+    - id: a1.2xlarge
+      name: a1.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-a1
+    - id: a1.4xlarge
+      name: a1.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-a1
+    - id: a1.metal
+      name: a1.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: general_purpose
+      size: metal
+      ccs_only: false
+      generic_name: standard-16m-a1
+    - id: t4g.xlarge
+      name: t4g.xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: burstable
+      size: xlarge
+      ccs_only: false
+      generic_name: burst-4-t4g
+    - id: t4g.2xlarge
+      name: t4g.2xlarge - Burstable
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: burstable
+      size: 2xlarge
+      ccs_only: false
+      generic_name: burst-8-t4g
+    - id: c6g.xlarge
+      name: c6g.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6g
+    - id: c6g.2xlarge
+      name: c6g.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-6g
+    - id: c6g.4xlarge
+      name: c6g.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-6g
+    - id: c6g.8xlarge
+      name: c6g.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32-6g
+    - id: c6g.12xlarge
+      name: c6g.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-6g
+    - id: c6g.16xlarge
+      name: c6g.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highcpu-64-6g
+    - id: c6g.metal
+      name: c6g.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highcpu-64m-6g
+    - id: c6gd.xlarge
+      name: c6gd.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6dg
+    - id: c6gd.2xlarge
+      name: c6gd.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-6dg
+    - id: c6gd.4xlarge
+      name: c6gd.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-6dg
+    - id: c6gd.8xlarge
+      name: c6gd.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32-6dg
+    - id: c6gd.12xlarge
+      name: c6gd.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-6dg
+    - id: c6gd.16xlarge
+      name: c6gd.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highcpu-64-6dg
+    - id: c6gd.metal
+      name: c6gd.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highcpu-64m-6dg
+    - id: c6gn.xlarge
+      name: c6gn.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-6gn
+    - id: c6gn.2xlarge
+      name: c6gn.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-6gn
+    - id: c6gn.4xlarge
+      name: c6gn.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-6gn
+    - id: c6gn.8xlarge
+      name: c6gn.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32-6gn
+    - id: c6gn.12xlarge
+      name: c6gn.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-6gn
+    - id: c6gn.16xlarge
+      name: c6gn.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highcpu-64-6gn
+    - id: r6g.xlarge
+      name: r6g.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-6g
+    - id: r6g.2xlarge
+      name: r6g.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-6g
+    - id: r6g.4xlarge
+      name: r6g.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-6g
+    - id: r6g.8xlarge
+      name: r6g.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-6g
+    - id: r6g.12xlarge
+      name: r6g.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-6g
+    - id: r6g.16xlarge
+      name: r6g.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-6g
+    - id: r6g.metal
+      name: r6g.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-64m-6g
+    - id: r6gd.xlarge
+      name: r6gd.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-6gd
+    - id: r6gd.2xlarge
+      name: r6gd.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-6gd
+    - id: r6gd.4xlarge
+      name: r6gd.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-6gd
+    - id: r6gd.8xlarge
+      name: r6gd.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-6gd
+    - id: r6gd.12xlarge
+      name: r6gd.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-6gd
+    - id: r6gd.16xlarge
+      name: r6gd.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-6gd
+    - id: r6gd.metal
+      name: r6gd.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-64m-6gd
+    - id: x2gd.xlarge
+      name: x2gd.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 68719476736
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-x2gd
+    - id: x2gd.2xlarge
+      name: x2gd.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 137438953472
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-x2gd
+    - id: x2gd.4xlarge
+      name: x2gd.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 274877906944
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-x2gd
+    - id: x2gd.8xlarge
+      name: x2gd.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 549755813888
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-x2gd
+    - id: x2gd.12xlarge
+      name: x2gd.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 824633720832
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-x2gd
+    - id: x2gd.16xlarge
+      name: x2gd.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 1099511627776
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-x2gd
+    - id: x2gd.metal
+      name: x2gd.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 1099511627776
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-64m-x2gd
+    - id: Is4gen.xlarge
+      name: Is4gen.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 25769803776
+      category: storage_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highstor-4-is4gen
+    - id: Is4gen.2xlarge
+      name: Is4gen.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 51539607552
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highstor-8-is4gen
+    - id: Is4gen.4xlarge
+      name: Is4gen.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 103079215104
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highstor-16-is4gen
+    - id: Is4gen.8xlarge
+      name: Is4gen.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 206158430208
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highstor-32-is4gen
+    - id: Im4gn.xlarge
+      name: Im4gn.xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: storage_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highstor-4-im4gn
+    - id: Im4gn.2xlarge
+      name: Im4gn.2xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: storage_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highstor-8-im4gn
+    - id: Im4gn.4xlarge
+      name: Im4gn.4xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: storage_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highstor-16-im4gn
+    - id: Im4gn.8xlarge
+      name: Im4gn.8xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: storage_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highstor-32-im4gn
+    - id: Im4gn.16xlarge
+      name: Im4gn.16xlarge - Storage optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: storage_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highstor-64-im4gn
+    - id: g5g.xlarge
+      name: g5g.xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: accelerated_computing
+      size: xlarge
+      ccs_only: false
+      generic_name: g5g-gpu-4
+    - id: g5g.2xlarge
+      name: g5g.2xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: accelerated_computing
+      size: 2xlarge
+      ccs_only: false
+      generic_name: g5g-gpu-8
+    - id: g5g.4xlarge
+      name: g5g.4xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: accelerated_computing
+      size: 4xlarge
+      ccs_only: false
+      generic_name: g5g-gpu-16
+    - id: g5g.8xlarge
+      name: g5g.8xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: accelerated_computing
+      size: 8xlarge
+      ccs_only: false
+      generic_name: g5g-gpu-32
+    - id: g5g.16xlarge
+      name: g5g.16xlarge - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: accelerated_computing
+      size: 16xlarge
+      ccs_only: false
+      generic_name: g5g-gpu-64
+    - id: g5g.metal
+      name: g5g.metal - Accelerated Computing
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: accelerated_computing
+      size: metal
+      ccs_only: false
+      generic_name: g5g-gpu-64m
+    - id: m7g.xlarge
+      name: m7g.xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 17179869184
+      category: general_purpose
+      size: xlarge
+      ccs_only: false
+      generic_name: standard-4-7g
+    - id: m7g.2xlarge
+      name: m7g.2xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 34359738368
+      category: general_purpose
+      size: 2xlarge
+      ccs_only: false
+      generic_name: standard-8-7g
+    - id: m7g.4xlarge
+      name: m7g.4xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 68719476736
+      category: general_purpose
+      size: 4xlarge
+      ccs_only: false
+      generic_name: standard-16-7g
+    - id: m7g.8xlarge
+      name: m7g.8xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 137438953472
+      category: general_purpose
+      size: 8xlarge
+      ccs_only: false
+      generic_name: standard-32-7g
+    - id: m7g.12xlarge
+      name: m7g.12xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 206158430208
+      category: general_purpose
+      size: 12xlarge
+      ccs_only: false
+      generic_name: standard-48-7g
+    - id: m7g.16xlarge
+      name: m7g.16xlarge - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: 16xlarge
+      ccs_only: false
+      generic_name: standard-64-7g
+    - id: m7g.metal
+      name: m7g.metal - General purpose
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 274877906944
+      category: general_purpose
+      size: metal
+      ccs_only: false
+      generic_name: standard-64m-7g
+    - id: c7g.xlarge
+      name: c7g.xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 8589934592
+      category: compute_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highcpu-4-7g
+    - id: c7g.2xlarge
+      name: c7g.2xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 17179869184
+      category: compute_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highcpu-8-7g
+    - id: c7g.4xlarge
+      name: c7g.4xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 34359738368
+      category: compute_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highcpu-16-7g
+    - id: c7g.8xlarge
+      name: c7g.8xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 68719476736
+      category: compute_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highcpu-32-7g
+    - id: c7g.12xlarge
+      name: c7g.12xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 103079215104
+      category: compute_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highcpu-48-7g
+    - id: c7g.16xlarge
+      name: c7g.16xlarge - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highcpu-64-7g
+    - id: c7g.metal
+      name: c7g.metal - Compute optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 137438953472
+      category: compute_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highcpu-64m-7g
+    - id: r7g.xlarge
+      name: r7g.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-7g
+    - id: r7g.2xlarge
+      name: r7g.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-7g
+    - id: r7g.4xlarge
+      name: r7g.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-7g
+    - id: r7g.8xlarge
+      name: r7g.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-7g
+    - id: r7g.12xlarge
+      name: r7g.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-7g
+    - id: r7g.16xlarge
+      name: r7g.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-7g
+    - id: r7g.metal
+      name: r7g.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-64m-7g
+    - id: r5b.xlarge
+      name: r5b.xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 4
+      memory: 34359738368
+      category: memory_optimized
+      size: xlarge
+      ccs_only: false
+      generic_name: highmem-4-5b
+    - id: r5b.2xlarge
+      name: r5b.2xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 8
+      memory: 68719476736
+      category: memory_optimized
+      size: 2xlarge
+      ccs_only: false
+      generic_name: highmem-8-5b
+    - id: r5b.4xlarge
+      name: r5b.4xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 16
+      memory: 137438953472
+      category: memory_optimized
+      size: 4xlarge
+      ccs_only: false
+      generic_name: highmem-16-5b
+    - id: r5b.8xlarge
+      name: r5b.8xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 32
+      memory: 274877906944
+      category: memory_optimized
+      size: 8xlarge
+      ccs_only: false
+      generic_name: highmem-32-5b
+    - id: r5b.12xlarge
+      name: r5b.12xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 48
+      memory: 412316860416
+      category: memory_optimized
+      size: 12xlarge
+      ccs_only: false
+      generic_name: highmem-48-5b
+    - id: r5b.16xlarge
+      name: r5b.16xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 64
+      memory: 549755813888
+      category: memory_optimized
+      size: 16xlarge
+      ccs_only: false
+      generic_name: highmem-64-5b
+    - id: r5b.24xlarge
+      name: r5b.24xlarge - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: 24xlarge
+      ccs_only: false
+      generic_name: highmem-96-5b
+    - id: r5b.metal
+      name: r5b.metal - Memory optimized
+      cloud_provider_id: aws
+      cpu_cores: 96
+      memory: 824633720832
+      category: memory_optimized
+      size: metal
+      ccs_only: false
+      generic_name: highmem-96m-5b
     cloud_regions:
     - id: us-west-1
       cloud_provider_id: aws
