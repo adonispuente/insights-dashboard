@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-devshiftnet-dns
+    haproxy.router.openshift.io/timeout: 32s
+  labels:
+    service: sre-capabilities
+  name: qontract-server
+spec:
+  host: {{ instance_name }}.gitops.devshift.net
+  to:
+    kind: Service
+    name: app-interface-nginx-gate
+    weight: 100
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge

@@ -20,6 +20,7 @@ environment:
 managedResourceTypes:
 - ConfigMap
 - Secret
+- Route
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
@@ -29,6 +30,10 @@ openshiftResources:
   path: /services/sre-capabilities/app-interface.configmap.yml
 - provider: resource-template
   path: /services/sre-capabilities/app-interface.secret.yml
+- provider: resource-template
+  path: /services/sre-capabilities/qontract-server.route.yml
+  variables:
+    instance_name: sre-capabilities-stage
 
 managedExternalResources: true
 
