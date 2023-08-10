@@ -29,6 +29,9 @@ imagePatterns:
 - quay.io/app-sre/nginx-gate
 - quay.io/app-sre/s3-reload
 - quay.io/app-sre/busybox
+- quay.io/app-sre/qontract-reconcile
+- quay.io/app-sre/fluentd
+- quay.io/app-sre/ubi8-ubi-minimal
 
 resourceTemplates:
 - name: qontract-server
@@ -61,3 +64,23 @@ resourceTemplates:
   - namespace:
       $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
     ref: dc3452748211c36547182aeee54ccb15fe346a49
+
+- name: qontract-manager
+  url: https://github.com/app-sre/qontract-reconcile
+  path: /openshift/qontract-manager.yaml
+  parameters:
+    INTEGRATIONS_MANAGER_MEMORY_REQUEST: 500Mi
+    INTEGRATIONS_MANAGER_MEMORY_LIMIT: 1000Mi
+    INTEGRATIONS_MANAGER_CPU_REQUEST: 200m
+    INTEGRATIONS_MANAGER_CPU_LIMIT: 1200m
+    # the manager needs to create integrations in stage.
+    # the integrations get their DRY_RUN settings from the environment parameters.
+    MANAGER_DRY_RUN: --no-dry-run
+  targets:
+  - namespace:
+      $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: app-sre-qontract-reconcile-gh-build-master
