@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-interface
+  annotations:
+    qontract.recycle: "true"
+type: Opaque
+data:
+  forward_host: app-interface.{{ resource.namespace.name }}.svc
+  load_method: s3
+  GITHUB_API: https://github-mirror.devshift.net
+  SENTRY_DSN: TODO
