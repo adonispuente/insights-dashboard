@@ -11,7 +11,7 @@ description: |
   request and download data archives from the apps running on the c.r.c
   platform.
 
-architectureDocument: https://docs.google.com/document/d/1YU7RC-ij-LaGW4HG1M6kVD4YzbXsLnF7Ex56z9MnHaY/edit?usp=sharing
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/export-service/docs/export-service-architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/export-service
 grafanaUrls:
 - title: export-service
