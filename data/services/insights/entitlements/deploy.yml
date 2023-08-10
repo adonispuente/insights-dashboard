@@ -141,3 +141,24 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
     ref: 3a0f90065c8c4bd4b0503956c10b5ce5e244f3dc
+
+# Ephemeral base
+- name: entitlements-api-go-ephemeral-base
+  path: /deployment/clowdapp.yml
+  url: https://github.com/RedHatInsights/entitlements-api-go
+  targets:
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    ref: master
+    parameters:
+      SUBS_HOST: https://subscription.stage.api.redhat.com
+      COMPLIANCE_HOST: "https://export-compliance.stage.api.redhat.com"
+      RUN_BUNDLE_SYNC: false
+      ENV_NAME: ephemeral
+- name: entitlements-bundle-config-ephemeral-base
+  path: /configs/stage/bundles.yml
+  url: https://github.com/RedHatInsights/entitlements-config
+  targets:
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    ref: 0d5a8115a3e5a27bfb040e43197c1be5c569d3f0
