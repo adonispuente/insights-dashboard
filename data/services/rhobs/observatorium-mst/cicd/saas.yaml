@@ -45,6 +45,8 @@ managedResourceTypes:
 - PrometheusRule # Adding everything that exists. This will be moved to a separate saas file.
 - RecordingRule.loki.grafana.com
 - LokiStack
+  #TODO - pgough/rhobs - remove Job after https://issues.redhat.com/browse/RHOBS-851
+- Job
 
 imagePatterns:
 - quay.io/thanos/thanos
@@ -771,6 +773,7 @@ resourceTemplates:
         OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-source
         K8S_SECRET_KEY: thanos.yaml
         TENANT_ID: FB870BF3-9F3A-44FF-9BF7-D7A047A52F43
+        IMAGE_TAG: 'v0.31.0'
 
 
 
