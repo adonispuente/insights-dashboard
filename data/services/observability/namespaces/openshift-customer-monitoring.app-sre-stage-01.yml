@@ -299,6 +299,10 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/observatorium-thanos-stage.prometheusrules.yaml
   type: resource
+#### Alertmanager
+- provider: prometheus-rule
+  path: /observability/prometheusrules/observatorium-alertmanager-stage.prometheusrules.yaml
+  type: resource
 #### Querier Cache
 - provider: prometheus-rule
   path: /observability/prometheusrules/observatorium-querier-cache-stage.prometheusrules.yaml
