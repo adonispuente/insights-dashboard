@@ -119,4 +119,4 @@ codeComponents:
   url: https://gitlab.cee.redhat.com/ocm/acceptance-tests
 - name: ocm-envoy
   resource: upstream
-  url: https://gitlab.cee.redhat.com/service/ocm-envoy
+  url: https://gitlab.cee.redhat.com/ocm/ocm-envoy
