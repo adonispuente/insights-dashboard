@@ -24,3 +24,4 @@ schemas:
 - /openshift/shared-resources-1.yml
 - /aws/account-1.yml
 - /dependencies/dependency-1.yml
+- /dependencies/dynatrace-environment-1.yml
