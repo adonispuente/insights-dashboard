@@ -267,3 +267,20 @@ openshiftResources:
   path: insights/secrets/ephemeral/ccx-data-pipeline/cache-writer-redis-credentials
   version: 1
   name: cache-writer-redis-credentials
+
+# entitlements-api-go
+- provider: vault-secret
+  path: insights/secrets/ephemeral/entitlements/go-api-certs
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/ephemeral/entitlements/oidc
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/backoffice/preprod/entitlements-api
+  version: 2
+  annotations:
+    qontract.recycle: "true"
