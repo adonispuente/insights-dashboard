@@ -89,9 +89,10 @@ resourceTemplates:
       ENV_NAME: stage
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
       APP_NOTIFICATIONS_ENABLED: true
+      APP_RBAC_ENABLED: true
   - namespace: # PROD api
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
+    ref: 09a4236544302dbdcdcf328ace7118741109798a
     promotion:
       publish:
       - provisioning-prod-deploy-success-channel
@@ -102,6 +103,7 @@ resourceTemplates:
       ENV_NAME: prod
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
       APP_NOTIFICATIONS_ENABLED: false
+      APP_RBAC_ENABLED: false
 - name: provisioning-dashboards
   url: https://github.com/RHEnVision/provisioning-backend
   path: /deploy/dashboards
@@ -112,4 +114,4 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 43be8f63f1705d3a6148961dc3b13f041a48133a
+    ref: 09a4236544302dbdcdcf328ace7118741109798a
