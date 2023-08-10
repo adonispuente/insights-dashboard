@@ -9,8 +9,6 @@
         secrets:
         - *app_interface_instance_s3
     publishers:
-    - archive:
-        artifacts: 'reports/**'
     - gitlab-notifier:
         name: '{display_name}'
     - slack:
