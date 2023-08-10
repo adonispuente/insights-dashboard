@@ -32,7 +32,7 @@ openshiftResources:
   path: /services/sre-capabilities/app-interface.secret.yml
 - provider: resource-template
   path: /services/sre-capabilities/qontract-server.route.yml
-  parameters:
+  variables:
     host: sre-capabilities-stage.gitops.devshift.net
 
 managedExternalResources: true
