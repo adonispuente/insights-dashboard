@@ -35,7 +35,7 @@ managed:
         cpu: 100m
       limits:
         memory: 4Gi
-        cpu: 1200m
+        cpu: 1500m
     logs:
       slack: true
   sharding:
