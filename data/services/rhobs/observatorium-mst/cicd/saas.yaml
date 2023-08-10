@@ -757,4 +757,20 @@ resourceTemplates:
       LOKI_RULER_PVC_REQUEST: '10Gi'
       RULES_OBJSTORE_S3_SECRET: observatorium-mst-rules-objstore-production-s3
       SERVICE_ACCOUNT_NAME: observatorium-mst
+  #TODO - pgough/rhobs - delete after https://issues.redhat.com/browse/RHOBS-851
+- name: observatorium-datahub-migration-bucket-inspect-job
+  path: /resources/operations/bucket-inspect/job-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
+      ref: 68bd8046ae3338de447ce8b3ade18e0b095a9a9e
+      parameters:
+        NAME: thanos-bucket-inspect-datahub-source
+        NAMESPACE: observatorium-datahub-migration
+        OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-source
+        K8S_SECRET_KEY: thanos.yaml
+        TENANT_ID: FB870BF3-9F3A-44FF-9BF7-D7A047A52F43
+
+
 
