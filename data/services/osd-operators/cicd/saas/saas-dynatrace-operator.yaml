@@ -99,6 +99,41 @@ resourceTemplates:
     ref: main
     parameters:
       ENVIRONMENT: staging
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
+    ref: 3414e1b3f457e3e35ce78b68a35220a1b3f2f065
+    parameters:
+      ENVIRONMENT: production
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
     ACTIVEGATE_CPU_REQUEST: 500m
