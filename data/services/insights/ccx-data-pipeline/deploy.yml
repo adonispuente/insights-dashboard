@@ -107,8 +107,8 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-insights-results-aggregator-gh-build-master
     parameters:
-      MIN_REPLICAS: "3"
-      MAX_REPLICAS: "6"
+      MIN_REPLICAS: "0"
+      MAX_REPLICAS: "0"
       DB_WRITER_REPLICAS: "0"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
