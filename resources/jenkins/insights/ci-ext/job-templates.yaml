@@ -321,6 +321,9 @@
 - job-template:
     id: 'insights-gh-pipeline'
     name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
+    concurrent: '{concurrent_build}'
+    branch: "master"
+    jenkinsfile_path: Jenkinsfile
     slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
@@ -350,7 +353,7 @@
         default: 'app-sre/creds/app-interface/production/basic-auth'
     pipeline-scm:
       # make parameter to override template name
-      script-path: 'Jenkinsfile'
+      script-path: '{jenkinsfile_path}'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/{gh_repo}.git'
@@ -376,7 +379,6 @@
             <<: *insights_default_admin_list_cfg
     disabled: '{disable}'
     node: '{node}'
-    concurrent: '{concurrent_build}'
     run_stack_analysis_path: ''
     max_previous_builds_count: 20
     <<: *gh_properties

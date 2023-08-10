@@ -591,7 +591,10 @@
 - job-template:
     id: 'insights-gh-pipeline'
     name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
-#    slack_channel_notification: 'consoledot-development-fails'
+    concurrent: '{concurrent_build}'
+    branch: "master"
+    jenkinsfile_path: Jenkinsfile
+    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
     - string:
@@ -622,8 +625,7 @@
         name: VAULT_PATH_CHROME_CYPRESS
         default: 'insights-cicd/chrome'
     pipeline-scm:
-      # make parameter to override template name
-      script-path: 'Jenkinsfile'
+      script-path: '{jenkinsfile_path}'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/{gh_repo}.git'
@@ -649,7 +651,6 @@
             <<: *insights_default_admin_list_cfg
     disabled: '{disable}'
     node: '{node}'
-    concurrent: '{concurrent_build}'
     run_stack_analysis_path: ''
     max_previous_builds_count: 20
     <<: *gh_properties
@@ -663,11 +664,19 @@
         results: 'artifacts/junit-*.xml'
     - archive:
         artifacts: 'artifacts/**/*'
+    - slack:
+        room: '{slack_channel_notification}'
+        notify-start: false
+        notify-success: false
+        notify-failure: true
+        notify-repeated-failure: true
 
 - job-template:
     id: 'insights-gl-pipeline'
     name: '{gl_group}-{gl_project}-pipeline-pr-check-{branch}'
-#    slack_channel_notification: 'consoledot-development-fails'
+    branch: master
+    jenkinsfile_path: Jenkinsfile
+    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
     - string:
@@ -695,30 +704,28 @@
         name: VAULT_PATH_APP_INTERFACE_CREDS
         default: 'app-sre/creds/app-interface/production/basic-auth'
     pipeline-scm:
-        # make parameter to override template name
-        script-path: 'Jenkinsfile'
-        scm:
-        - git:
-            remotes:
-            - 'origin':
-                url: 'git@gitlab.cee.redhat.com:{gl_group}/{gl_project}.git'
-                credentials-id: '{gitlab_ssh_credentials}'
-                refspec: '+refs/heads/*:refs/remotes/origin/* +refs/merge-requests/${{gitlabMergeRequestIid}}/head:refs/remotes/origin/merge-requests/${{gitlabMergeRequestIid}}'
-            branches:
-            - 'merge-requests/${{gitlabMergeRequestIid}}'
-            merge:
-                remote: 'origin'
-                branch: '${{gitlabTargetBranch}}'
-            included-regions:
-            - '{include_path}'
-            prune: true
-            clean:
-              before: true
+      script-path: '{jenkinsfile_path}'
+      scm:
+      - git:
+          remotes:
+          - 'origin':
+              url: 'git@gitlab.cee.redhat.com:{gl_group}/{gl_project}.git'
+              credentials-id: '{gitlab_ssh_credentials}'
+              refspec: '+refs/heads/*:refs/remotes/origin/* +refs/merge-requests/${{gitlabMergeRequestIid}}/head:refs/remotes/origin/merge-requests/${{gitlabMergeRequestIid}}'
+          branches:
+          - 'merge-requests/${{gitlabMergeRequestIid}}'
+          merge:
+              remote: 'origin'
+              branch: '${{gitlabTargetBranch}}'
+          included-regions:
+          - '{include_path}'
+          prune: true
+          clean:
+            before: true
           wipe-workspace: true
     disabled: '{disable}'
     node: '{node}'
     concurrent: '{concurrent_build}'
-    pr_check_script_path: "./Jenkinsfile"
     run_stack_analysis_path: ''
     max_previous_builds_count: 20
     <<: *gl_properties
@@ -729,6 +736,18 @@
         results: 'artifacts/junit-*.xml'
     - archive:
         artifacts: 'artifacts/**/*'
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier:
+        failure-only: true
+        name: '{name}'
+        mark-unstable-as-success: false
+    - slack:
+        room: '{slack_channel_notification}'
+        notify-start: false
+        notify-success: false
+        notify-failure: true
+        notify-repeated-failure: true
     triggers:
     - gitlab:
         trigger-push: true
@@ -742,6 +761,7 @@
         allow-all-branches: true
         ci-skip: true
         wip-skip: true
+        cancel-pending-builds-on-update: true
 
 - job-template:
     id: 'insights-gh-pipeline-multibranch'
