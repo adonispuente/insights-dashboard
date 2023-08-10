@@ -19,10 +19,16 @@ environment:
 
 managedResourceTypes:
 - ConfigMap
+- Secret
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
+openshiftResources:
+- provider: resource-template
+  path: /services/sre-capabilities/app-interface.configmap.yml
+- provider: resource-template
+  path: /services/sre-capabilities/app-interface.secret.yml
 
 managedExternalResources: true
 
