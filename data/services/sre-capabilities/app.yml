@@ -25,6 +25,7 @@ serviceOwners:
 dependencies:
 - $ref: /dependencies/gitlab/service.yml
 - $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/openshift/service.yml
 
 quayRepos: []
 
