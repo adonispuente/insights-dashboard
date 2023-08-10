@@ -15,14 +15,6 @@ blockedVersions:
 - ^.*-ec\..*$
 - ^.*-fc\..*$
 
-upgradePolicyClusters:
-- name: c-rh-c-eph
-  upgradePolicy:
-    workloads:
-    - crc
-    schedule: 0 9 * * 3
-    conditions:
-      soakDays: 0
 recommendedVersions:
 - workload: crc
   channel: candidate
