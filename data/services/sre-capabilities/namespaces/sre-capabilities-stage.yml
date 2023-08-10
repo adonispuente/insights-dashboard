@@ -21,6 +21,7 @@ managedResourceTypes:
 - ConfigMap
 - Secret
 - Route
+- ServiceAccount
 - ClusterRoleBinding.rbac.authorization.k8s.io
 
 managedResourceNames:
@@ -42,6 +43,10 @@ openshiftResources:
     instance_name: sre-capabilities-stage
 - provider: resource-template
   path: /services/sre-capabilities/vault-auth-delegate.clusterrolebinding.yml
+  variables:
+    name: qontract-reconcile
+- provider: resource-template
+  path: /services/common/serviceaccount.yaml
   variables:
     name: qontract-reconcile
 - provider: vault-secret
