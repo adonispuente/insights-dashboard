@@ -1,0 +1,15 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "create-child-token-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/stage/stage-devshift-net.yml
+rules: |
+  # Grants the ability to create a child token
+  # https://developer.hashicorp.com/vault/docs/concepts/tokens#token-hierarchies-and-orphan-tokens
+  path "auth/token/create" {
+    capabilities = ["update"]
+  }
