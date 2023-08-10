@@ -134,3 +134,17 @@ resourceTemplates:
     ref: internal
     parameters:
       IMAGE_TAG: latest
+  - namespace:
+      $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
+    ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: pulp-pulp-ostree-clowder-deployment-gh-build-main
+    parameters:
+      DOMAIN_ENABLED: "true"
+      PULP_API_REPLICAS: "2"
+      PULP_WEB_REPLICAS: "2"
+      PULP_WORKER_REPLICAS: "2"
+      PULP_CONTENT_REPLICAS: "2"
+      DB_SECRET_NAME: "image-builder-pulp-db-for-operator"
