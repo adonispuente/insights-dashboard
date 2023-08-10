@@ -4,7 +4,7 @@ name: postgres
 username: postgres
 engine_version: '12.5'
 instance_class: db.m5.2xlarge
-allocated_storage: 20
+allocated_storage: 40
 storage_encrypted: true
 auto_minor_version_upgrade: false
 skip_final_snapshot: true
