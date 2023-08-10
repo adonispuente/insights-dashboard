@@ -176,4 +176,15 @@ codeComponents:
 - name: qontract-development-cli
   resource: upstream
   url: https://github.com/app-sre/qontract-development-cli
-
+- name: terraform-repo-tekton
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/app-sre/terraform-repo-tekton
+  gitlabSync:
+    sourceProject:
+      name: terraform-repo-tekton
+      group: app-sre
+      branch: main
+    destinationProject:
+      name: terraform-repo-tekton
+      group: app-sre
+      branch: main
