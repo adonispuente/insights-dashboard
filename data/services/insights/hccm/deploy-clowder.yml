@@ -528,9 +528,9 @@ resourceTemplates:
       MAX_HEAP_SIZE: 3G
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: ab1350614a39ae246c77fedd1bc97c56da3e4347
+    ref: 9581ee241767cb01340d80ae1c80bb56291b8757
     parameters:
-      IMAGE_TAG: 3.1.3-metastore-015
+      IMAGE_TAG: 3.1.3-metastore-021
       MIN_REPLICAS: 1
       S3_BUCKET_NAME: hccm-prod-s3
       CPU_REQUEST: 200m
@@ -600,7 +600,7 @@ resourceTemplates:
     ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
     parameters:
       CONFIGMAP_HASH: 'gffsf6' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 418-002
+      IMAGE_TAG: 418-004
       S3_BUCKET_NAME: hccm-prod-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1 # 1
