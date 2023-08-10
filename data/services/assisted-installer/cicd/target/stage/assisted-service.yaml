@@ -2,17 +2,17 @@ $schema: /app-sre/saas-file-target-1.yml
 
 namespace:
   $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-ref: e5409f8b87034ef358c101c3dd1e51a8020f10fa
+ref: 59ea056cb881706eab634c653f5faa984dba881d
 promotion:
   publish:
   - assisted-installer-stage-deploy-success-channel
 parameters:
   INSTALL_RH_CA: true
-  INSTALLER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-rhel8:v1.0.0-282
-  CONTROLLER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-reporter-rhel8:v1.0.0-355
-  AGENT_DOCKER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-agent-rhel8:v1.0.0-273
+  INSTALLER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-rhel8:v1.0.0-286
+  CONTROLLER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-reporter-rhel8:v1.0.0-359
+  AGENT_DOCKER_IMAGE: registry-proxy.engineering.redhat.com/rh-osbs/openshift4-assisted-installer-agent-rhel8:v1.0.0-279
   PUBLIC_CONTAINER_REGISTRIES: quay.io,registry-proxy.engineering.redhat.com
-  RELEASE_TAG: v2.23.3
+  RELEASE_TAG: v2.24.0
   OS_IMAGES: |-
     [
       {
