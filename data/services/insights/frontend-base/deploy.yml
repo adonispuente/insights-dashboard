@@ -386,7 +386,7 @@ resourceTemplates:
   url: https://github.com/RedHatInsights/iam-ui-build
   targets:
   - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true # do not create an app-sre deploy job for ephemeral namespace
     ref: master # populated by bonfire
   - namespace:
