@@ -12,4 +12,5 @@ instance:
 
 service: vault
 vault_policies:
+- $ref: /services/vault.devshift.net/config/prod/policies/common/create-child-token.yml
 - $ref: /services/vault.devshift.net/config/prod/policies/osd-sre-policy.yml

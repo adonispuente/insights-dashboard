@@ -12,5 +12,6 @@ instance:
 
 service: vault
 vault_policies:
+- $ref: /services/vault.devshift.net/config/stage/policies/common/create-child-token.yml
 - $ref: /services/vault.devshift.net/config/stage/policies/app-sre-policy.yml
 - $ref: /services/vault.devshift.net/config/stage/policies/prometheus.yml
