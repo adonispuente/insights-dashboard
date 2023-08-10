@@ -17,10 +17,13 @@ description: |
 architectureDocument: https://redhat-appstudio.github.io/book/
 sopsUrl: https://gitlab.cee.redhat.com/rhtap/docs/sop
 
-# TODO!
 grafanaUrls:
-- title: GitOp Service
-  url: https://grafana-appstudio-workload-monitoring.apps.appstudio-stage.x99m.p1.openshiftapps.com/d/BhY6sRo4z/gitops
+# TODO - list single pane-of-glass url here when it is established:
+# https://issues.redhat.com/browse/RHTAPWATCH-452 - https://grafana.app-sre.devshift.net/...
+- title: Index of Service Dashboards available on the m01 (multi-tenant) cluster
+  url: https://grafana-access-appstudio-grafana.apps.stone-prd-m01.84db.p1.openshiftapps.com/dashboards/f/SOM2Hge4k/appstudio-grafana
+- title: Index of Service Dashboards available on the rh01 (red hat) cluster
+  url: https://grafana-access-appstudio-grafana.apps.stone-prd-rh01.pg1f.p1.openshiftapps.com/dashboards/f/Akcf0Oe4k/appstudio-grafana
 
 onboardingStatus: InProgress
 
