@@ -25,8 +25,8 @@ grafanaUrls:
 onboardingStatus: InProgress
 
 serviceOwners:
-- name: Stone Soup Development Teams
-  email: stonesoup@redhat.com
+- name: RHTAP Development Teams
+  email: rhtap@redhat.com
 
 serviceNotifications:
 - name: Red Hat Outage List
