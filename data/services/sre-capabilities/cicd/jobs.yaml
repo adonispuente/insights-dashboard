@@ -1,0 +1,33 @@
+---
+$schema: /dependencies/jenkins-config-1.yml
+
+labels:
+  service: sre-capabilities
+
+name: ci-int-sre-capabilities-jobs
+
+description: ''
+
+app:
+  $ref: /services/sre-capabilities/app.yml
+
+instance:
+  $ref: /dependencies/ci-int/ci-int.yml
+
+type: jobs
+
+config:
+- project:
+    name: sre-capabilities
+    label: sre-capabilities
+    node: app-interface
+    gl_group: service
+    gl_project: sre-capabilities
+    branch: main
+    jobs:
+    - 'gl-build-app-interface-instance':
+        display_name: SRE Capabilities build - deploy to stage only
+        build_deploy_script_path: ./hack/build_deploy.sh
+        instance_name: sre-capabilities-stage
+        s3_bucket_secret_path: app-sre/integrations-output/terraform-resources/appsres03ue1/sre-capabilities-stage/sre-capabilities-s3
+        slack_channel_notification: sd-sre-capabilities-stage

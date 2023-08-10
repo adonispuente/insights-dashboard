@@ -1,0 +1,22 @@
+- job-template:
+    id: 'gl-build-app-interface-instance'
+    name: '{gl_group}-{gl_project}-gl-build-{branch}-{instance_name}'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *app_interface_instance_s3
+    publishers:
+    - archive:
+        artifacts: 'reports/**'
+    - gitlab-notifier:
+        name: '{display_name}'
+    - slack:
+        room: '{slack_channel_notification}'
+        notify-start: False
+        notify-success: True
+        notify-failure: True
+        notify-repeated-failure: True
+    <<: *gl_build_master
