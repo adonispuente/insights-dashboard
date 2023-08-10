@@ -31,4 +31,4 @@ openshiftResources:
 - provider: resource
   path: /app-sre/gabi/gabi-openshift-oauth-delegate.clusterrole.yml
 - provider: resource
-  path: /app-sre/gabi/app-sre-stage-01.gabi-openshift-oauth-delegate.clusterrolebinding.yml
+  path: /app-sre/gabi/clairp01ue1-gabi-oauth-delegate.clusterrolebinding.yml
