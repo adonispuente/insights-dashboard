@@ -9,7 +9,7 @@ instance:
 
 name: "sre-capabilities-stage"
 type: "kubernetes"
-mount: "kubernetes-appsres03ue1/sre-capabilities-stage"
+mount: "kubernetes-appsres03ue1-sre-capabilities-stage/"
 
 options:
   _type: "kubernetes"
