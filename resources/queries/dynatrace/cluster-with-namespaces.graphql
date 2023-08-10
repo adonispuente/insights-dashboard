@@ -1,0 +1,16 @@
+{
+  clusters_v1
+  (
+    name: "{{ name }}"
+  )
+  {
+    name
+    dynatraceEnvironment {
+      environmentUrl
+    }
+    namespaces {
+      name
+      enableDynatraceLogging
+    }
+  }
+}

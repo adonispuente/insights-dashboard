@@ -1,9 +1,7 @@
 ---
 $schema: /openshift/namespace-1.yml
 
-labels:
-  # TODO: only used during PoC phase -> move this to schema on namespace level
-  enableDynatraceLogging: ""
+labels: {}
 
 name: glitchtip-stage
 description: staging namespace for glitchtip
@@ -16,6 +14,8 @@ app:
 
 environment:
   $ref: /products/glitchtip/environments/stage.yml
+
+enableDynatraceLogging: true
 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml

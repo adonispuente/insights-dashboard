@@ -20,6 +20,8 @@ observabilityNamespace:
     /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
+dynatraceEnvironment:
+  $ref: /dependencies/dynatrace/production/us-east-1-jgn20300.yml
 managedGroups:
 - dedicated-admins
 - dedicated-readers

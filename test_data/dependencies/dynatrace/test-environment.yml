@@ -1,0 +1,6 @@
+---
+$schema: /dependencies/dynatrace-environment-1.yml
+
+name: dynatrace test environment
+description: Dynatrace Environment for production us-east-1
+environmentUrl: https://test

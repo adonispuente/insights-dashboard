@@ -1,9 +1,7 @@
 ---
 $schema: /openshift/cluster-1.yml
 
-labels:
-  # TODO: only used during PoC phase -> move this to schema on cluster level
-  dynatraceEnvironmentUrl: https://test
+labels: {}
 
 name: test-cluster
 description: test cluster
@@ -13,6 +11,9 @@ prometheusUrl: ''
 alertmanagerUrl: ''
 serverUrl: ''
 elbFQDN: ''
+
+dynatraceEnvironment:
+  $ref: /dependencies/dynatrace/test-environment.yml
 
 internal: false
 auth: []
