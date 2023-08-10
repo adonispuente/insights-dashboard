@@ -68,6 +68,38 @@ parameters:
     "type": "service"
     }
     }
+  RH_INFRA_SERVICE_ORCHESTRATION_RULES: |
+    {
+      "orchestration_path": {
+      "catch_all": {
+          "actions": {}
+      },
+      "sets": [
+        {
+          "id": "start",
+          "rules": [
+            {
+              "actions": {
+                "suppress": true
+              },
+              "conditions": [
+                {
+                  "expression": "event.severity matches 'Warning'"
+                }
+              ]
+            },
+            {
+              "actions": {
+                "priority": "PDPJP5Q"
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+          "type": "service"
+      }
+      }
 
 use_channel_in_image_tag: true
 
