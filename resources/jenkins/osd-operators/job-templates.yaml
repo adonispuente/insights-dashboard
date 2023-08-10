@@ -114,6 +114,11 @@
       - timeout_wrapper:
           timeout: '{timeout}'
       - ansicolor
+      - vault-secrets:
+          <<: *vault_defaults
+          secrets:
+          - *sre-platform-bot
+          - *gitlab_fork_compliance_reconcile_toml
       <<: *gl_pr_check
 
 - job-template:
