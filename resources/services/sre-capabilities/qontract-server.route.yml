@@ -9,7 +9,7 @@ metadata:
     service: sre-capabilities
   name: qontract-server
 spec:
-  host: {{ host }}.gitops.devshift.net
+  host: {{ instance_name }}.gitops.devshift.net
   to:
     kind: Service
     name: app-interface-nginx-gate

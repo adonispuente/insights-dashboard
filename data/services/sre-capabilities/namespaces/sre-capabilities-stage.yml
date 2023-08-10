@@ -33,7 +33,7 @@ openshiftResources:
 - provider: resource-template
   path: /services/sre-capabilities/qontract-server.route.yml
   variables:
-    host: sre-capabilities-stage.gitops.devshift.net
+    instance_name: sre-capabilities-stage
 
 managedExternalResources: true
 
