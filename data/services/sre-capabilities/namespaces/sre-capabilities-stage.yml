@@ -35,6 +35,7 @@ openshiftResources:
   variables:
     instance_name: sre-capabilities-stage
 
+
 managedExternalResources: true
 
 externalResources:
@@ -47,3 +48,7 @@ externalResources:
     identifier: sre-capabilities-stage
     defaults: /terraform/resources/app-sre/app-interface-s3.yml
     output_resource_name: sre-capabilities-s3
+  - provider: cloudwatch
+    identifier: sre-capabilities-stage-cloudwatch
+    defaults: /terraform/resources/cloudwatch-1.yml
+    output_resource_name: app-interface-cloudwatch
