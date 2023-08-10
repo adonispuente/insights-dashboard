@@ -28,7 +28,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: 09a4236544302dbdcdcf328ace7118741109798a
+    ref: f12f10967a8efe65e6269708bf42195aa6ca5d33
     parameters:
       IQE_ENV: stage_post_deploy
       IQE_MARKER: stage
@@ -42,7 +42,7 @@ resourceTemplates:
       - channel: provisioning-stage-deploy-success-channel
         data:
         - parent_saas: provisioning
-          target_config_hash: d9b56b41f0af56e7
+          target_config_hash: eff9e18bed8902ce
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
