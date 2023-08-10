@@ -92,6 +92,9 @@ quayRepos:
   - name: uhc-portal
     description: Repo for the uhc-portal app frontend
     public: true
+  - name: ocm-envoy
+    description: Repo for ocm-envoy ubi8 images
+    public: false
 
 codeComponents:
 - name: uhc-portal
@@ -114,3 +117,6 @@ codeComponents:
 - name: acceptance-tests
   resource: upstream
   url: https://gitlab.cee.redhat.com/ocm/acceptance-tests
+- name: ocm-envoy
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/ocm-envoy
