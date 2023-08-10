@@ -21,7 +21,7 @@ observabilityNamespace:
 ocm:
   $ref: /dependencies/ocm/production.yml
 dynatraceEnvironment:
-  $ref: /dependencies/dynatrace/staging/us-east-1-jgn20300.yml
+  $ref: /dependencies/dynatrace/production/us-east-1-jgn20300.yml
 managedGroups:
 - dedicated-admins
 - dedicated-readers
