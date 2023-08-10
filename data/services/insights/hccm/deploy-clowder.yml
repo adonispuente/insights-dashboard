@@ -552,7 +552,7 @@ resourceTemplates:
     disable: true # tells app-sre to not actually run the deploy job for this target
     ref: internal # altered by bonfire
     parameters:
-      IMAGE_TAG: 418-002
+      IMAGE_TAG: 418-004
       S3_BUCKET_NAME: hccm-eph-s3
       S3_SSE_ENABLED: 'False'
       S3_SELECT_PUSHDOWN_ENABLED: 'False'
@@ -574,7 +574,7 @@ resourceTemplates:
     ref: 86057d901989d623787281190413ea6da7f4321d
     parameters:
       CONFIGMAP_HASH: '000002' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 418-003
+      IMAGE_TAG: 418-004
       S3_BUCKET_NAME: hccm-stage-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1
