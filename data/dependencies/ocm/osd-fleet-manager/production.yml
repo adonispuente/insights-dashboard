@@ -413,16 +413,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
-- name: hs-sc-odb7rjel0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0 13 * * 1-4
-    conditions:
-      sector: ibm-infra
-      soakDays: 0
-      mutexes:
-      - ibm-infra
 - name: hs-mc-621n0ikn0
   upgradePolicy:
     workloads:
