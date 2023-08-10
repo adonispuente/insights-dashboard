@@ -78,17 +78,17 @@ config:
 - project:
     name: insights-3scale
     label: insights
-    node: rhel8
+    node: insights
     gh_org: RedHatInsights
     gh_repo: insights-3scale
     quay_org: cloudservices
     jobs:
-    - "insights-gh-pr-check":
+    - "gh-pr-check":
         display_name: insights-3scale pr-check
-    - "insights-gh-build-master":
+    - "gh-build-master":
         display_name: insights-3scale build-master
         branch: master
-    - "insights-gh-build-master":
+    - "gh-build-master":
         display_name: insights-3scale build-security-compliance
         branch: security-compliance
     - "insights-gh-scheduled-rebuild":
