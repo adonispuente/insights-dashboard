@@ -11,8 +11,5 @@ permissions: []
 
 access:
 - namespace:
-    $ref: /services/openshift.io/namespaces/launchpad-preview.yml
-  role: edit
-- namespace:
     $ref: /services/openshift.io/namespaces/dsaas-preview.yml
   role: edit

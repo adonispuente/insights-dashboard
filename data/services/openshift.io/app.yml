@@ -663,15 +663,6 @@ codeComponents:
   - name: ike-prow-plugins
     resource: upstream
     url: https://github.com/arquillian/ike-prow-plugins
-  - name: launcher-application
-    resource: upstream
-    url: https://github.com/fabric8-launcher/launcher-application
-  - name: launcher-documentation
-    resource: upstream
-    url: https://github.com/fabric8-launcher/launcher-documentation
-  - name: saas-launchpad
-    resource: saasrepo
-    url: https://github.com/openshiftio/saas-launchpad
   - name: osio-scan
     resource: other
     url: https://gitlab.cee.redhat.com/dtsd/osio-scan

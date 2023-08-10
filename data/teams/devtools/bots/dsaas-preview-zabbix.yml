@@ -7,5 +7,4 @@ name: dsaas-preview-zabbix
 openshift_serviceaccount: dsaas-preview/zabbix
 
 roles:
-- $ref: /services/openshift.io/roles/dsaas-preview-zabbix.yml
 - $ref: /services/codeready-analytics/roles/codeready-dsaas-preview-zabbix.yml
