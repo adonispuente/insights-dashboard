@@ -44,11 +44,11 @@ resourceTemplates:
       name: lp-sre-package-operator-gl-build-internal
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: a9f7473dab3e0efa7898dba4fbecbb44d9a92577
+    ref: 37a8671b86da7c140449513060466e742537e359
   # The one below is staging too.
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: a9f7473dab3e0efa7898dba4fbecbb44d9a92577
+    ref: 37a8671b86da7c140449513060466e742537e359
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
     ref: 2da345368ff8173a1ef1a8b446c652c98e262277
@@ -86,11 +86,11 @@ resourceTemplates:
       name: lp-sre-package-operator-gl-build-internal
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: a9f7473dab3e0efa7898dba4fbecbb44d9a92577
+    ref: 37a8671b86da7c140449513060466e742537e359
   # The one below is staging too.
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: a9f7473dab3e0efa7898dba4fbecbb44d9a92577
+    ref: 37a8671b86da7c140449513060466e742537e359
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
     ref: 2da345368ff8173a1ef1a8b446c652c98e262277
