@@ -30,6 +30,10 @@ instances:
   identifier: clair-matcher-stage
   namespace:
     $ref: /services/clair/namespaces/stage.yml
+- account: quayio-prod
+  identifier: clair-matcher-replica
+  namespace:
+    $ref: /services/clair/namespaces/production.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
 expirationDate: '2023-11-01'
