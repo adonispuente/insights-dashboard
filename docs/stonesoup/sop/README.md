@@ -1,5 +1,3 @@
-# SOP : HACBS SOPs
+# SOP : RHTAP SOPs
 
-## How to
-
-* [Access the logs](logs.md)
+Moved to https://gitlab.cee.redhat.com/rhtap/docs/sop/
