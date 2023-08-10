@@ -160,7 +160,7 @@ config:
     name: ocm-envoy
     label: sd-uhc
     node: rhel8
-    gl_group: service
+    gl_group: ocm
     gl_project: ocm-envoy
     quay_org: app-sre
     jobs:
