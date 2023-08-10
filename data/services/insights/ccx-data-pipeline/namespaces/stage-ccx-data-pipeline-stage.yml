@@ -93,6 +93,7 @@ externalResources:
     identifier: ccx-notification-db-stage
     defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
     parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-ccx-notification-stage.yml
+    old_parameter_group: /terraform/resources/insights/stage/rds/postgres11-parameter-group-ccx-notification-stage.yml
     output_resource_name: ccx-notification-db
     enhanced_monitoring: true
     overrides:
