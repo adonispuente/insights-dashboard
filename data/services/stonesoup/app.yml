@@ -14,8 +14,8 @@ description: |
     a subset of app-interface capabilities.
     This is described in https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/stonesoup/support-agreement.md.
 
-architectureDocument: https://docs.google.com/presentation/d/1sJ7VBDiK-C0U2ku8INzSVcGB-g0INgWxiS9bmCMXLnY/edit#slide=id.g120f61c70fe_15_0
-sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/stonesoup/sop
+architectureDocument: https://redhat-appstudio.github.io/book/
+sopsUrl: https://gitlab.cee.redhat.com/rhtap/docs/sop
 
 # TODO!
 grafanaUrls:
@@ -25,8 +25,8 @@ grafanaUrls:
 onboardingStatus: InProgress
 
 serviceOwners:
-- name: Stone Soup Development Teams
-  email: stonesoup@redhat.com
+- name: RHTAP Development Teams
+  email: rhtap@redhat.com
 
 serviceNotifications:
 - name: Red Hat Outage List
