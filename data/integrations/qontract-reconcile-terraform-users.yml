@@ -23,7 +23,7 @@ managed:
         cpu: 200m
       limits:
         memory: 3000Mi
-        cpu: 800m
+        cpu: 1200m
     logs:
       slack: true
 - namespace:
@@ -35,7 +35,7 @@ managed:
         cpu: 200m
       limits:
         memory: 2000Mi
-        cpu: 800m
+        cpu: 1200m
     logs:
       slack: true
   sharding:
