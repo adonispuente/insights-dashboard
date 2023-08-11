@@ -214,6 +214,53 @@ run_user_validator() {
   return $status
 }
 
+run_tf_repo_int() {
+  local repo_output_dir=${WORK_DIR}/throughput/tf-repo
+  local repo_output_file="${repo_output_dir}/repo.yml"
+
+  mkdir -p "${repo_output_dir}"
+  run_int $@
+
+  RC="$?"
+
+  echo "${CA_CERT}" > "${WORK_DIR}/ca.crt"
+
+  if [ "$RC" == "0" ] && [ -f "${repo_output_file}" ]; then
+    INTEGRATION_NAME=tf-executor
+
+    # run executor
+    STARTTIME=$(date +%s)
+
+    podman run --rm \
+      -e VAULT_ADDR=${VAULT_ADDRESS} \
+      -e "VAULT_ROLE_ID=${TF_EXECUTOR_ROLE_ID}" \
+      -e "VAULT_SECRET_ID=${TF_EXECUTOR_SECRET_ID}" \
+      -e GIT_SSL_CAINFO=/etc/pki/ca-trust/source/anchors/ca.crt \
+      -e CONFIG_FILE=/config.yaml \
+      -e WORKDIR=/tf-repo \
+      -v "${repo_output_file}:/config.yaml:ro" \
+      -v "${WORK_DIR}/ca.crt:/etc/pki/ca-trust/source/anchors/ca.crt:ro" \
+      "${TF_EXECUTOR_IMAGE}:${TF_EXECUTOR_IMAGE_TAG}" \
+      2>&1 | tee "${SUCCESS_DIR}/${INTEGRATION_NAME}.txt"
+
+    RC="$?"
+    ENDTIME=$(date +%s)
+
+    echo "app_interface_int_execution_duration_seconds{integration=\"${INTEGRATION_NAME}\"} $((ENDTIME - STARTTIME))" >> "${SUCCESS_DIR}/int_execution_duration_seconds.txt"
+
+    if [ ${RC} != "0" ]; then
+      echo "INTEGRATION FAILED: ${INTEGRATION_NAME}" >&2
+      echo "Stopped processing terraform repos" >&2
+      mv "${SUCCESS_DIR}/${INTEGRATION_NAME}.txt" "${FAIL_DIR}/${INTEGRATION_NAME}.txt"
+    fi
+  fi
+
+  rm "${WORK_DIR}/ca.crt"
+
+  return $RC
+}
+
+
 send_log() {
   BUILDTIME=$(date -d "$BUILD_TIMESTAMP" +%s000)
 
