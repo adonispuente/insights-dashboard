@@ -586,7 +586,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
-      REFRESH: "1689782991"
+      REFRESH: "1691774401"
       NAME: "hosts"
       CUSTOM_SUBGRAPH_IMAGES: '[{"image": "quay.io/cloudservices/host-inventory-subgraph:latest", "name": "hbi-tags"}]'
       AVRO_SCHEMA: >
