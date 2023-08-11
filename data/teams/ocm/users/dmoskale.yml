@@ -1,0 +1,59 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Denis Moskalenko
+org_username: dmoskale
+github_username: den-rgb
+quay_username: dmoskale
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
