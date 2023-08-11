@@ -7,6 +7,7 @@
           priority
         }
       }
+      issueType
       issueResolveState
       issueReopenState
       escalationPolicies {
