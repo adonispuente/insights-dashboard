@@ -1,17 +1,15 @@
-ProvisioningReservationSuccessRate
-==================================
+ProvisioningProcessingRateAlert
+===============================
 
 Impact
 ------
 
-Provisioning instance launch reservation has been returning with a high error rate.
+Provisioning instance launch reservation is not getting processed and reservation queue is filling up.
 
 Summary
 -------
 
-This alert fires when the target SLO for successful reservation is high. A reservation is a hyperscaler instance launch (e.g. launch a AWS VM). This means that hyperscalers could not complete the requests.
-
-This can be caused by API outages, user misconfigurations (permissions) or lack of resources on the hyperscaler side.
+This alert fires when the workers pods are unable to complete reservations and jobs (reservations) are kept in pending state for longer than 10 minutes. If more than 20% of all reservations in the time window of last 24 hours, the alert is triggered.
 
 Access required
 ---------------
@@ -31,11 +29,11 @@ Access required
 
 Steps
 -----
-- View the namespace to verify provisioning pods are running.
-- View the dashboard to see the trend of errors.
-- View the logs to identify specific errors.
-- Check status of Sources service if they are not experiencing an outage.
-- Check status of AWS/Azure/GCP datacenters if they are not experiencing an outage.
+- Check if one of the supported cloud providers does not have outage
+- Verify that at least 3 pods of `provisioning-worker` are running
+- Check Kibana for reservations, use `@log_group: "provisioning-cloudwatch-stage" and @log_stream: "worker"` to access worker access logs
+- Use `reservation_id: 14697` to check for a particular reservation id
+- Restart worker pods or the whole application
 
 
 Escalations
