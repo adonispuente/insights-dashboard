@@ -13,4 +13,4 @@ platform: python
 teams:
 - $ref: /dependencies/glitchtip/teams/app-sre.yml
 organization:
-  $ref: /dependencies/glitchtip/organizations/app-sre.yml
+  $ref: data/dependencies/glitchtip/organizations/sre-capabilities.yml
