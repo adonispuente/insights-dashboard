@@ -1,0 +1,16 @@
+---
+$schema: /dependencies/glitchtip-project-1.yml
+
+labels: {}
+
+name: sre-capabilities-stage
+description: sre-capabilities project in stage
+
+app:
+  $ref: /services/sre-capabilities/app.yml
+
+platform: python
+teams:
+- $ref: /dependencies/glitchtip/teams/app-sre.yml
+organization:
+  $ref: /dependencies/glitchtip/organizations/app-sre.yml
