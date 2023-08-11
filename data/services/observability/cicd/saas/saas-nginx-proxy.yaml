@@ -32,13 +32,12 @@ managedResourceTypes:
 - Service
 - Route
 - ServiceAccount
-- ClusterRole.rbac.authorization.k8s.io
 - ClusterRoleBinding.rbac.authorization.k8s.io
 - Role.rbac.authorization.k8s.io
 
 imagePatterns:
-- quay.io/app-sre
-- quay.io/openshift
+- quay.io/app-sre/nginx
+- quay.io/openshift/origin-oauth-proxy
 
 authentication:
   image:
