@@ -74,7 +74,7 @@ resourceTemplates:
       RHOBS_HO_TENANT: hypershift-platform-staging
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7101874a44efb4db14accb703f319363a229ebba
+    ref: 9e935d7d88abb57c3a63e12c2fffbfd470703b2f
     promotion:
       auto: true
       subscribe:
