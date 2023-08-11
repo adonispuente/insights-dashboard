@@ -31,10 +31,25 @@ where `<instance-id>` is shown in Jenkins UI, e.g. `i-08c2168b1bb67b8eb`
 
 Once you have the IP, you can use your own RedHat user to log in.
 
+**NOTE**: In order to log in ci.ext workers, you have to use `ci.ext.ssh.devshift.net` as jump host. The classic way is to use ssh's `ProxyCommand`:
 
-Note: steps to access ci.ext Jenkins agents
+```
+ssh -o ProxyCommand="ssh -W %h:%p <RedHat user>@ci.ext.ssh.devshift.net" <jenkins-agent-ip>
+```
 
-1. `ssh -o ProxyCommand="ssh -W %h:%p <RedHat user>@ci.ext.ssh.devshift.net" <jenkins-agent-ip>`
+If you have OpenSSH version >= 7.5, you can use the simpler `ProxyJump` via the `-J` switch:
+
+```
+ssh -J ci.ext.ssh.devshift.net <jenkins-agent-ip>
+```
+
+or add the following to your `~/.ssh/config` file:
+
+```
+# Jenkins dynamic instances on 192.168.16.0/20
+Host 192.168.16.* 192.168.17.* 192.168.18.* 192.168.19.* 192.168.2?.* 192.168.30.* 192.168.31.*
+  ProxyJump ci.ext.ssh.devshift.net
+```
 
 ## Console access
 
