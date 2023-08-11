@@ -71,3 +71,6 @@ externalResources:
     identifier: sre-capabilities-stage-cloudwatch
     defaults: /terraform/resources/cloudwatch-1.yml
     output_resource_name: app-interface-cloudwatch
+
+glitchtipProjects:
+- $ref: /dependencies/glitchtip/projects/glitchtip-production/sre-capabilities-stage.yml
