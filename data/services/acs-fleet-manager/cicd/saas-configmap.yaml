@@ -8,7 +8,6 @@ name: acs-fleet-manager-config
 description: |
   Deliver ConfigMap to fleet-manager namespace that provides:
 
-  * Rollout group definitions and order
   * ACS version
   * ACS instance resource overrides
 
@@ -34,15 +33,16 @@ managedResourceNames:
 resourceTemplates:
   - name: acs-fleet-manager-stage
     url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
-    path: /stage.yaml
-    parameters: {}
+    path: /stage
+    provider: directory
     targets:
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
         ref: main
   - name: acs-fleet-manager-prod
     url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
-    path: /prod.yaml
+    path: /prod
+    provider: directory
     targets:
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
