@@ -142,7 +142,7 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: pulp-pulp-ostree-clowder-deployment-gh-build-main
     parameters:
-      DOMAIN_ENABLED: "true"
+      DOMAIN_ENABLED: "false"
       PULP_API_REPLICAS: "2"
       PULP_WEB_REPLICAS: "2"
       PULP_WORKER_REPLICAS: "2"
