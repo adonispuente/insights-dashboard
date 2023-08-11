@@ -19,7 +19,7 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 300m
+        cpu: 500m
     # once every 6 hours (was */6)
     cron: '0 2,8,14,20 * * *'
     dashdotdb: true
@@ -33,7 +33,7 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 300m
+        cpu: 500m
     # once every 6 hours (was */6)
     cron: '0 2,8,14,20 * * *'
     dashdotdb: true
