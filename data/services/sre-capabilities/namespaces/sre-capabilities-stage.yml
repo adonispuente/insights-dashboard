@@ -21,6 +21,13 @@ managedResourceTypes:
 - ConfigMap
 - Secret
 - Route
+- ServiceAccount
+- ClusterRoleBinding.rbac.authorization.k8s.io
+
+managedResourceNames:
+- resource: ClusterRoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - qontract-reconcile-auth-delegator
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
@@ -34,7 +41,19 @@ openshiftResources:
   path: /services/sre-capabilities/qontract-server.route.yml
   variables:
     instance_name: sre-capabilities-stage
-
+- provider: resource-template
+  path: /services/sre-capabilities/vault-auth-delegate.clusterrolebinding.yml
+  variables:
+    name: qontract-reconcile
+- provider: resource-template
+  path: /services/common/serviceaccount.yaml
+  variables:
+    name: qontract-reconcile
+- provider: vault-secret
+  path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-reconcile-toml
+  version: 1
+  annotations:
+    qontract.recycle: "true"
 
 managedExternalResources: true
 
