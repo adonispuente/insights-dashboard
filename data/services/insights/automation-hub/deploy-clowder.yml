@@ -134,7 +134,7 @@ resourceTemplates:
     targets:
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage.yml
-      ref: 8948803c51b9168a7e6f8b7c11df3d7e4a54ed4e
+      ref: 3779fd07051de5850f48fb1b315786c81236e7ad
       parameters:
         ARGS: django-admin download-namespace-logos
         RERUN: 0
