@@ -1,0 +1,9 @@
+---
+$schema: /dependencies/glitchtip-organization-1.yml
+
+labels: {}
+
+name: sre-capabilities
+description: sre-capabilities
+instance:
+  $ref: /dependencies/glitchtip/glitchtip-production.yml
