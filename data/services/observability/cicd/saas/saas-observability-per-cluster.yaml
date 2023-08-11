@@ -74,7 +74,7 @@ resourceTemplates:
       CLUSTER_LABEL: appsres03ue1
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.appsres03ue1.devshift.net
-      PROM_RESOURCES:
+      PROMETHEUS_RESOURCES:
         requests:
           cpu: 250m
           memory: 2Gi
