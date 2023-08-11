@@ -474,189 +474,189 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.app-sre-stage-01.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres03ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.appsres03ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres04ue2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.appsres04ue2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.app-sre-prod-01.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.app-sre-prod-04.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.appsrep05ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.appsrep06ue2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivei01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: integration
       EXTERNAL_URL: https://alertmanager.hivei01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hive-stage-01.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.hive-stage-01.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hives02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.hives02ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep02ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep03uw1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep03uw1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep04ew2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep04ew2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep05ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep05ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep06uw2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep06uw2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep07ue2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.hivep07ue2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.quays02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.quays02ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.quayp04ue2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.quayp04ue2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.quayp05ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.quayp05ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.clairp01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.clairp01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.telemeter-prod-01.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.crcs02ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.crcp01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.c-rh-c-eph.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: ephemeral
       EXTERNAL_URL: https://alertmanager.c-rh-c-eph.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.crcd01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: dev
       EXTERNAL_URL: https://alertmanager.crcd01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobsp02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.rhobsp02ue1.devshift.net
@@ -664,86 +664,86 @@ resourceTemplates:
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: integration
       EXTERNAL_URL: https://alertmanager.backplanei01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: integration
       EXTERNAL_URL: https://alertmanager.backplanei02ue1.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.backplanes01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes02uw2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.backplanes02uw2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes03ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.backplanes03ue1.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.backplanes04uw2.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.backplanep01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep02uw2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.backplanep02uw2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep03ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.backplanep03ue1.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.backplanep04uw2.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.stonesoups01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.stonesoups01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.stonesoupp01ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: production
       EXTERNAL_URL: https://alertmanager.stonesoupp01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hst02ue1.yml
-    ref: 752b837542ccc6fdaf5514e81b7549bf69412b52
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.hst02ue1.devshift.net
