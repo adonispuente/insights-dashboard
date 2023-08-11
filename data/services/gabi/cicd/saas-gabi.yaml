@@ -82,7 +82,7 @@ resourceTemplates:
       - github-gabi-stage-deploy-success-channel
   - namespace:
       $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -94,7 +94,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-acs-fleet-manager
   - namespace:
       $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -106,7 +106,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-acs-fleet-manager
   - namespace:
       $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -118,7 +118,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-advisor
   - namespace:
       $ref: /services/insights/advisor/namespaces/advisor-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -131,7 +131,7 @@ resourceTemplates:
       SERVER_TIMEOUT: 600s
   - namespace:
       $ref: /services/insights/cloud-connector/namespaces/stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -143,7 +143,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cloud-connector
   - namespace:
       $ref: /services/insights/cloud-connector/namespaces/prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -155,7 +155,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cloud-connector
   - namespace:
       $ref: /services/insights/cloudigrade/namespaces/stage-cloudigrade-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -167,7 +167,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cloudigrade
   - namespace:
       $ref: /services/insights/cloudigrade/namespaces/cloudigrade-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -179,7 +179,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cloudigrade
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -191,7 +191,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-compliance
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -203,7 +203,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-compliance
   - namespace:
       $ref: /services/insights/config-manager/namespaces/config-manager-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -215,7 +215,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-config-manager
   - namespace:
       $ref: /services/insights/edge/namespaces/stage-edge-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -227,7 +227,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-edge
   - namespace:
       $ref: /services/insights/edge/namespaces/edge-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -239,7 +239,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-edge
   - namespace:
       $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -251,7 +251,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cost-management
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -263,7 +263,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cost-management
   - namespace:
       $ref: /services/insights/historical-system-profiles/namespaces/stage-historical-system-profiles-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -275,7 +275,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-historical-system-profiles
   - namespace:
       $ref: /services/insights/historical-system-profiles/namespaces/historical-system-profiles-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -287,7 +287,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-historical-system-profiles
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/stage-host-inventory-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -299,7 +299,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-host-inventory
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -311,7 +311,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-host-inventory
   - namespace:
       $ref: /services/insights/malware-detection/namespaces/stage-malware-detection-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -323,7 +323,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-malware-detection
   - namespace:
       $ref: /services/insights/malware-detection/namespaces/malware-detection-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -336,7 +336,7 @@ resourceTemplates:
       SERVER_TIMEOUT: 600s
   - namespace:
       $ref: /services/insights/module-update-router/namespaces/stage-module-update-router-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -348,7 +348,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-module-update-router
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -360,7 +360,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-notifications
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -372,7 +372,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-notifications
   - namespace:
       $ref: /services/insights/ocp-vulnerability/namespaces/stage-ocp-vulnerability-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -384,7 +384,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ocp-vulnerability
   - namespace:
       $ref: /services/insights/ocp-vulnerability/namespaces/ocp-vulnerability-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -396,7 +396,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ocp-vulnerability
   - namespace:
       $ref: /services/insights/patchman/namespaces/stage-patchman-engine-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -408,7 +408,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-patchman
   - namespace:
       $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -420,7 +420,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-patchman
   - namespace:
       $ref: /services/insights/policies/namespaces/stage-policies-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -432,7 +432,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-policies
   - namespace:
       $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -444,7 +444,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-rbac
   - namespace:
       $ref: /services/insights/rbac/namespaces/rbac-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -456,7 +456,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-rbac
   - namespace:
       $ref: /services/insights/remediations/namespaces/stage-remediations-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -468,7 +468,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-remediations
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -480,7 +480,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-remediations
   - namespace:
       $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -496,7 +496,7 @@ resourceTemplates:
       MEMORY_LIMIT: 2Gi
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -512,7 +512,7 @@ resourceTemplates:
       MEMORY_LIMIT: 2Gi
   - namespace:
       $ref: /services/insights/sources/namespaces/stage-sources-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -524,7 +524,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-sources
   - namespace:
       $ref: /services/insights/sources/namespaces/sources-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -536,7 +536,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-sources
   - namespace:
       $ref: /services/insights/system-baseline/namespaces/stage-system-baseline-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     delete: true
     promotion:
       auto: true
@@ -549,7 +549,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-system-baselines
   - namespace:
       $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -561,7 +561,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-system-baselines
   - namespace:
       $ref: /services/insights/vulnerability/namespaces/stage-vmaas-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -573,7 +573,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-vmaas
   - namespace:
       $ref: /services/insights/vulnerability/namespaces/vmaas-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -585,7 +585,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-vmaas
   - namespace:
       $ref: /services/insights/vulnerability/namespaces/stage-vulnerability-engine-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -597,7 +597,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-vulnerability
   - namespace:
       $ref: /services/insights/vulnerability/namespaces/vulnerability-engine-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -611,7 +611,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: gabi-ocm-account-manager-stage
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -624,7 +624,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: gabi-ocm-account-manager-integration
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -637,7 +637,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     name: gabi-ocm-account-manager-production
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -650,7 +650,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: gabi-ocm-clusters-service-rds-stage
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -663,7 +663,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     name: gabi-ocm-cluster-service-rds-production
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -675,7 +675,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ocm-clusters-service
   - namespace:
       $ref: /services/quayio/namespaces/quays02ue1.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -688,7 +688,7 @@ resourceTemplates:
       DB_DRIVER: mysql
   - namespace:
       $ref: /services/quayio/namespaces/quayp04ue2.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -701,7 +701,7 @@ resourceTemplates:
       DB_DRIVER: mysql
   - namespace:
       $ref: /services/status-board/namespaces/stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -713,7 +713,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-status-board
   - namespace:
       $ref: /services/status-board/namespaces/production.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -725,7 +725,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-status-board
   - namespace:
       $ref: /services/web-rca/namespaces/stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -737,7 +737,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-web-rca
   - namespace:
       $ref: /services/web-rca/namespaces/production.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -749,7 +749,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-web-rca
   - namespace:
       $ref: /services/cna/namespaces/integration.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -761,7 +761,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cna
   - namespace:
       $ref: /services/cna/namespaces/stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -773,7 +773,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cna
   - namespace:
       $ref: /services/cna/namespaces/prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -785,7 +785,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-cna
   - namespace:
       $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -797,7 +797,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ros
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -809,7 +809,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ros
   - namespace:
       $ref: /services/insights/ros/namespaces/stage-ros-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     name: gabi-ros-ocp-stage
     promotion:
       auto: true
@@ -822,7 +822,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ros-ocp
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     name: gabi-ros-ocp-prod
     promotion:
       auto: true
@@ -835,7 +835,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-ros-ocp
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -847,7 +847,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-assisted-installer
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -859,7 +859,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-assisted-installer
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -872,7 +872,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/clair/namespaces/stage.yml
     name: gabi-clair-indexer-stage
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -884,7 +884,7 @@ resourceTemplates:
       GABI_INSTANCE: gabi-clair-indexer
   - namespace:
       $ref: /services/clair/namespaces/stage.yml
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     name: gabi-clair-matcher-stage
     promotion:
       auto: true
@@ -898,7 +898,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/clair/namespaces/production.yml
     name: gabi-clair-indexer-prod
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
@@ -911,7 +911,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/clair/namespaces/production.yml
     name: gabi-clair-matcher-prod
-    ref: c94871eae843c3c38a4880e26ff6ef8733d2c3b7
+    ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
     promotion:
       auto: true
       subscribe:
