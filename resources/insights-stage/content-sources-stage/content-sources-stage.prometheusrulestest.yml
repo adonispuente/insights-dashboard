@@ -20,7 +20,7 @@ tests:
         alertname: ContentSourcesBackendDown
         exp_alerts:
           - exp_labels:
-              severity: medium
+              severity: critical
               service: insights
               app_team: content-sources
               env: stage

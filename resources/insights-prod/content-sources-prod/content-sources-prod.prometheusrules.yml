@@ -17,7 +17,7 @@ spec:
           expr: sum(up{service="content-sources-backend-service", namespace="content-sources-prod"}) == 0
           labels:
             service: insights
-            severity: medium
+            severity: critical
             app_team: content-sources
             env: prod
     - name: content-sources-availability-prod
