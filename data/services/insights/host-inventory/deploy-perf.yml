@@ -54,7 +54,6 @@ resourceTemplates:
   path: /deploy/clowdapp.yml
   url: https://github.com/RedHatInsights/insights-host-inventory
   parameters:
-    ENV_NAME: perf
     CLOWDER_ENABLED: 'true'
     REPLICAS_P1: 5
     REPLICAS_PMIN: 5
@@ -85,7 +84,9 @@ resourceTemplates:
       PENDO_CRON_SCHEDULE: '@daily'
       PENDO_SYNC_ACTIVE: 'true'
       FLOORIST_SUSPEND: 'true'
+      FLOORIST_IMAGE_TAG: b57a5a8
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-perf
+      FLOORIST_SCHEDULE: '20 0 * * *'
       MEMORY_LIMIT_FLOO: 4Gi
       MEMORY_REQUEST_FLOO: 2Gi
       GUNICORN_WORKERS: 4
