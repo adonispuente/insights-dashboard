@@ -46,12 +46,12 @@ resourceTemplates:
     VERSION: v2.30.3
     RETENTION: 30d
     PV_SIZE: 50Gi
-    WAL_COMPRESSION: true
+    STORAGE_CLASS_NAME: gp3-csi
     LOG_LEVEL: debug
   targets:
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: 7bf2fa35b3ba8ecccf0cfab7be7b25b0a8cf3fd7
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       CLUSTER_LABEL: app-sre-stage-01
       ENVIRONMENT: staging
@@ -59,6 +59,7 @@ resourceTemplates:
       RETENTION: 30d
       LOG_LEVEL: info
       PV_SIZE: 150Gi
+      STORAGE_CLASS_NAME: gp2
       PROMETHEUS_RESOURCES:
         requests:
           cpu: 250m
@@ -68,12 +69,13 @@ resourceTemplates:
           memory: 10Gi
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres03ue1.yml
-    ref: f84dab7f66d7ccc73e2843b5ed395ac04c4385c8
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       VERSION: v2.45.0
       CLUSTER_LABEL: appsres03ue1
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.appsres03ue1.devshift.net
+      STORAGE_CLASS_NAME: gp2
       PROMETHEUS_RESOURCES:
         requests:
           cpu: 250m
@@ -83,11 +85,12 @@ resourceTemplates:
           memory: 4Gi
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres04ue2.yml
-    ref: f84dab7f66d7ccc73e2843b5ed395ac04c4385c8
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       CLUSTER_LABEL: appsres04ue2
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.appsres04ue2.devshift.net
+      STORAGE_CLASS_NAME: gp2
       PROMETHEUS_RESOURCES:
         requests:
           cpu: 250m
@@ -318,7 +321,7 @@ resourceTemplates:
     parameters:
       CLUSTER_LABEL: rhobs-testing
       ENVIRONMENT: staging
-      EXTERNAL_URL: https://prometheus.rhobs-testing.devshift.net
+      EXTERNAL_URL: https://prometheus-app-sre-observability-per-cluster.apps.rhobs-testing.qqzf.p1.openshiftapps.com
     ref: 86bc5b5efc43daed3942635256e7dc2e91af082d
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep07ue2.yml
