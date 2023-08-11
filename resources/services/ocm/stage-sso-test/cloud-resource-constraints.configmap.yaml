@@ -1,0 +1,1094 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-resource-constraints-config
+data:
+  constraints.yaml: |
+    instance_types:
+    - id: g4dn.12xlarge
+      enabled: true
+    - id: g4dn.2xlarge
+      enabled: true
+    - id: g4dn.4xlarge
+      enabled: true
+    - id: g4dn.xlarge
+      enabled: true
+    - id: n1-custom-48-184320+nvidia-tesla-t4
+      enabled: true
+    - id: n1-highmem-32+nvidia-tesla-v100
+      enabled: true
+    - id: n1-highmem-64+nvidia-tesla-v100
+      enabled: true
+    - id: n1-highmem-8+nvidia-tesla-v100
+      enabled: true
+    - id: n1-highmem-96+nvidia-tesla-v100
+      enabled: true
+    - id: n1-standard-16+nvidia-tesla-t4
+      enabled: true
+    - id: n1-standard-4+nvidia-tesla-t4
+      enabled: true
+    - id: n1-standard-8+nvidia-tesla-t4
+      enabled: true
+    - id: p3.16xlarge
+      enabled: true
+    - id: p3.2xlarge
+      enabled: true
+    - id: p3.8xlarge
+      enabled: true
+    - id: p3dn.24xlarge
+      enabled: true
+    - id: t3.2xlarge
+      enabled: true
+    - id: t3.xlarge
+      enabled: true
+    - id: t3a.2xlarge
+      enabled: true
+    - id: t3a.xlarge
+      enabled: true
+    - id: c5.12xlarge
+      enabled: true
+    - id: c5.18xlarge
+      enabled: true
+    - id: c5.24xlarge
+      enabled: true
+    - id: c5.2xlarge
+      enabled: true
+    - id: c5.4xlarge
+      enabled: true
+    - id: c5.9xlarge
+      enabled: true
+    - id: c5.xlarge
+      enabled: true
+    - id: c5a.12xlarge
+      enabled: true
+    - id: c5a.16xlarge
+      enabled: true
+    - id: c5a.24xlarge
+      enabled: true
+    - id: c5a.2xlarge
+      enabled: true
+    - id: c5a.4xlarge
+      enabled: true
+    - id: c5a.8xlarge
+      enabled: true
+    - id: c5a.xlarge
+      enabled: true
+    - id: c5d.12xlarge
+      enabled: true
+    - id: c5d.18xlarge
+      enabled: true
+    - id: c5d.24xlarge
+      enabled: true
+    - id: c5d.2xlarge
+      enabled: true
+    - id: c5d.4xlarge
+      enabled: true
+    - id: c5d.9xlarge
+      enabled: true
+    - id: c5d.xlarge
+      enabled: true
+    - id: c6i.12xlarge
+      enabled: true
+    - id: c6i.16xlarge
+      enabled: true
+    - id: c6i.24xlarge
+      enabled: true
+    - id: c6i.2xlarge
+      enabled: true
+    - id: c6i.32xlarge
+      enabled: true
+    - id: c6i.4xlarge
+      enabled: true
+    - id: c6i.8xlarge
+      enabled: true
+    - id: c6i.xlarge
+      enabled: true
+    - id: custom-16-32768
+      enabled: true
+    - id: custom-36-73728
+      enabled: true
+    - id: custom-48-98304
+      enabled: true
+    - id: custom-72-147456
+      enabled: true
+    - id: custom-8-16384
+      enabled: true
+    - id: custom-96-196608
+      enabled: true
+    - id: custom-16-65536
+      enabled: true
+    - id: custom-32-131072
+      enabled: true
+    - id: custom-4-16384
+      enabled: true
+    - id: custom-48-196608
+      enabled: true
+    - id: custom-64-262144
+      enabled: true
+    - id: custom-8-32768
+      enabled: true
+    - id: custom-96-393216
+      enabled: true
+    - id: e2-standard-4
+      enabled: true
+    - id: e2-standard-8
+      enabled: true
+    - id: e2-standard-16
+      enabled: true
+    - id: e2-standard-32
+      enabled: true
+    - id: e2-highmem-4
+      enabled: true
+    - id: e2-highmem-8
+      enabled: true
+    - id: e2-highmem-16
+      enabled: true
+    - id: e2-highcpu-4
+      enabled: true
+    - id: e2-highcpu-8
+      enabled: true
+    - id: e2-highcpu-16
+      enabled: true
+    - id: e2-highcpu-32
+      enabled: true
+    - id: n2-standard-4
+      enabled: true
+    - id: n2-standard-8
+      enabled: true
+    - id: n2-standard-16
+      enabled: true
+    - id: n2-standard-32
+      enabled: true
+    - id: n2-standard-48
+      enabled: true
+    - id: n2-standard-64
+      enabled: true
+    - id: n2-standard-80
+      enabled: true
+    - id: n2-standard-96
+      enabled: true
+    - id: n2-standard-128
+      enabled: true
+    - id: n2-highmem-4
+      enabled: true
+    - id: n2-highmem-8
+      enabled: true
+    - id: n2-highmem-16
+      enabled: true
+    - id: n2-highmem-32
+      enabled: true
+    - id: n2-highmem-48
+      enabled: true
+    - id: n2-highmem-64
+      enabled: true
+    - id: n2-highmem-80
+      enabled: true
+    - id: n2-highmem-96
+      enabled: true
+    - id: n2-highmem-128
+      enabled: true
+    - id: n2-highcpu-4
+      enabled: true
+    - id: n2-highcpu-8
+      enabled: true
+    - id: n2-highcpu-16
+      enabled: true
+    - id: n2-highcpu-32
+      enabled: true
+    - id: n2-highcpu-48
+      enabled: true
+    - id: n2-highcpu-64
+      enabled: true
+    - id: n2-highcpu-80
+      enabled: true
+    - id: n2-highcpu-96
+      enabled: true
+    - id: m3-ultramem-32
+      enabled: true
+    - id: m3-ultramem-64
+      enabled: true
+    - id: m3-ultramem-128
+      enabled: true
+    - id: m3-megamem-64
+      enabled: true
+    - id: m3-megamem-128
+      enabled: true
+    - id: c2-standard-4
+      enabled: true
+    - id: c2-standard-8
+      enabled: true
+    - id: c2-standard-16
+      enabled: true
+    - id: c2-standard-30
+      enabled: true
+    - id: c2-standard-60
+      enabled: true
+    - id: m5.12xlarge
+      enabled: true
+    - id: m5.16xlarge
+      enabled: true
+    - id: m5.24xlarge
+      enabled: true
+    - id: m5.2xlarge
+      enabled: true
+    - id: m5.4xlarge
+      enabled: true
+    - id: m5.8xlarge
+      enabled: true
+    - id: m5.xlarge
+      enabled: true
+    - id: m5a.12xlarge
+      enabled: true
+    - id: m5a.16xlarge
+      enabled: true
+    - id: m5a.24xlarge
+      enabled: true
+    - id: m5a.2xlarge
+      enabled: true
+    - id: m5a.4xlarge
+      enabled: true
+    - id: m5a.8xlarge
+      enabled: true
+    - id: m5a.xlarge
+      enabled: true
+    - id: m6a.12xlarge
+      enabled: true
+    - id: m6a.16xlarge
+      enabled: true
+    - id: m6a.24xlarge
+      enabled: true
+    - id: m6a.2xlarge
+      enabled: true
+    - id: m6a.32xlarge
+      enabled: true
+    - id: m6a.48xlarge
+      enabled: true
+    - id: m6a.4xlarge
+      enabled: true
+    - id: m6a.8xlarge
+      enabled: true
+    - id: m6a.xlarge
+      enabled: true
+    - id: m6i.12xlarge
+      enabled: true
+    - id: m6i.16xlarge
+      enabled: true
+    - id: m6i.24xlarge
+      enabled: true
+    - id: m6i.2xlarge
+      enabled: true
+    - id: m6i.32xlarge
+      enabled: true
+    - id: m6i.4xlarge
+      enabled: true
+    - id: m6i.8xlarge
+      enabled: true
+    - id: m6i.xlarge
+      enabled: true
+    - id: custom-16-131072-ext
+      enabled: true
+    - id: custom-32-262144
+      enabled: true
+    - id: custom-4-32768-ext
+      enabled: true
+    - id: custom-48-393216
+      enabled: true
+    - id: custom-64-524288
+      enabled: true
+    - id: custom-8-65536-ext
+      enabled: true
+    - id: custom-96-786432
+      enabled: true
+    - id: r4.16xlarge
+      enabled: true
+    - id: r4.2xlarge
+      enabled: true
+    - id: r4.4xlarge
+      enabled: true
+    - id: r4.8xlarge
+      enabled: true
+    - id: r4.xlarge
+      enabled: true
+    - id: r5.12xlarge
+      enabled: true
+    - id: r5.16xlarge
+      enabled: true
+    - id: r5.24xlarge
+      enabled: true
+    - id: r5.2xlarge
+      enabled: true
+    - id: r5.4xlarge
+      enabled: true
+    - id: r5.8xlarge
+      enabled: true
+    - id: r5.xlarge
+      enabled: true
+    - id: r5a.12xlarge
+      enabled: true
+    - id: r5a.16xlarge
+      enabled: true
+    - id: r5a.24xlarge
+      enabled: true
+    - id: r5a.2xlarge
+      enabled: true
+    - id: r5a.4xlarge
+      enabled: true
+    - id: r5a.8xlarge
+      enabled: true
+    - id: r5a.xlarge
+      enabled: true
+    - id: r5ad.12xlarge
+      enabled: true
+    - id: r5ad.16xlarge
+      enabled: true
+    - id: r5ad.24xlarge
+      enabled: true
+    - id: r5ad.2xlarge
+      enabled: true
+    - id: r5ad.4xlarge
+      enabled: true
+    - id: r5ad.8xlarge
+      enabled: true
+    - id: r5ad.xlarge
+      enabled: true
+    - id: r5d.12xlarge
+      enabled: true
+    - id: r5d.16xlarge
+      enabled: true
+    - id: r5d.24xlarge
+      enabled: true
+    - id: r5d.2xlarge
+      enabled: true
+    - id: r5d.4xlarge
+      enabled: true
+    - id: r5d.8xlarge
+      enabled: true
+    - id: r5d.xlarge
+      enabled: true
+    - id: r5dn.12xlarge
+      enabled: true
+    - id: r5dn.16xlarge
+      enabled: true
+    - id: r5dn.24xlarge
+      enabled: true
+    - id: r5dn.2xlarge
+      enabled: true
+    - id: r5dn.4xlarge
+      enabled: true
+    - id: r5dn.8xlarge
+      enabled: true
+    - id: r5dn.xlarge
+      enabled: true
+    - id: r5n.12xlarge
+      enabled: true
+    - id: r5n.16xlarge
+      enabled: true
+    - id: r5n.24xlarge
+      enabled: true
+    - id: r5n.2xlarge
+      enabled: true
+    - id: r5n.4xlarge
+      enabled: true
+    - id: r5n.8xlarge
+      enabled: true
+    - id: r5n.xlarge
+      enabled: true
+    - id: r6i.12xlarge
+      enabled: true
+    - id: r6i.16xlarge
+      enabled: true
+    - id: r6i.24xlarge
+      enabled: true
+    - id: r6i.2xlarge
+      enabled: true
+    - id: r6i.32xlarge
+      enabled: true
+    - id: r6i.4xlarge
+      enabled: true
+    - id: r6i.8xlarge
+      enabled: true
+    - id: r6i.xlarge
+      enabled: true
+    - id: z1d.12xlarge
+      enabled: true
+    - id: z1d.2xlarge
+      enabled: true
+    - id: z1d.3xlarge
+      enabled: true
+    - id: z1d.6xlarge
+      enabled: true
+    - id: z1d.xlarge
+      enabled: true
+    - id: c5n.18xlarge
+      enabled: true
+    - id: c5n.2xlarge
+      enabled: true
+    - id: c5n.4xlarge
+      enabled: true
+    - id: c5n.9xlarge
+      enabled: true
+    - id: c5n.xlarge
+      enabled: true
+    - id: c5ad.12xlarge
+      enabled: true
+    - id: c5ad.16xlarge
+      enabled: true
+    - id: c5ad.24xlarge
+      enabled: true
+    - id: c5ad.2xlarge
+      enabled: true
+    - id: c5ad.4xlarge
+      enabled: true
+    - id: c5ad.8xlarge
+      enabled: true
+    - id: c5ad.xlarge
+      enabled: true
+    - id: i3.16xlarge
+      enabled: true
+    - id: i3.2xlarge
+      enabled: true
+    - id: i3.4xlarge
+      enabled: true
+    - id: i3.8xlarge
+      enabled: true
+    - id: i3.xlarge
+      enabled: true
+    - id: i3en.12xlarge
+      enabled: true
+    - id: i3en.24xlarge
+      enabled: true
+    - id: i3en.2xlarge
+      enabled: true
+    - id: i3en.3xlarge
+      enabled: true
+    - id: i3en.6xlarge
+      enabled: true
+    - id: i3en.xlarge
+      enabled: true
+    - id: x1.16xlarge
+      enabled: true
+    - id: x1.32xlarge
+      enabled: true
+    - id: x1e.16xlarge
+      enabled: true
+    - id: x1e.2xlarge
+      enabled: true
+    - id: x1e.32xlarge
+      enabled: true
+    - id: x1e.4xlarge
+      enabled: true
+    - id: x1e.8xlarge
+      enabled: true
+    - id: x1e.xlarge
+      enabled: true
+    - id: x2idn.16xlarge
+      enabled: true
+    - id: x2idn.24xlarge
+      enabled: true
+    - id: x2idn.32xlarge
+      enabled: true
+    - id: x2iedn.16xlarge
+      enabled: true
+    - id: x2iedn.24xlarge
+      enabled: true
+    - id: x2iedn.2xlarge
+      enabled: true
+    - id: x2iedn.32xlarge
+      enabled: true
+    - id: x2iedn.4xlarge
+      enabled: true
+    - id: x2iedn.8xlarge
+      enabled: true
+    - id: x2iedn.xlarge
+      enabled: true
+    - id: x2iezn.12xlarge
+      enabled: true
+    - id: x2iezn.2xlarge
+      enabled: true
+    - id: x2iezn.4xlarge
+      enabled: true
+    - id: x2iezn.6xlarge
+      enabled: true
+    - id: x2iezn.8xlarge
+      enabled: true
+    - id: c6i.metal
+      enabled: true
+    - id: c5d.metal
+      enabled: true
+    - id: c5.metal
+      enabled: true
+    - id: c5n.metal
+      enabled: true
+    - id: m5zn.metal
+      enabled: true
+    - id: m5dn.metal
+      enabled: true
+    - id: m5n.metal
+      enabled: true
+    - id: m5d.metal
+      enabled: true
+    - id: m6i.metal
+      enabled: true
+    - id: m5.metal
+      enabled: true
+    - id: r6i.metal
+      enabled: true
+    - id: z1d.metal
+      enabled: true
+    - id: r5d.metal
+      enabled: true
+    - id: r5dn.metal
+      enabled: true
+    - id: r5n.metal
+      enabled: true
+    - id: r5.metal
+      enabled: true
+    - id: x2iezn.metal
+      enabled: true
+    - id: i3.metal
+      enabled: true
+    - id: i3en.metal
+      enabled: true
+    - id: c6a.metal
+      enabled: true
+    - id: m6a.metal
+      enabled: true
+    - id: Hpc6a.48xlarge
+      enabled: true
+    - id: c6a.xlarge
+      enabled: true
+    - id: c6a.2xlarge
+      enabled: true
+    - id: c6a.4xlarge
+      enabled: true
+    - id: c6a.8xlarge
+      enabled: true
+    - id: c6a.12xlarge
+      enabled: true
+    - id: c6a.16xlarge
+      enabled: true
+    - id: c6a.24xlarge
+      enabled: true
+    - id: c6a.32xlarge
+      enabled: true
+    - id: c6a.48xlarge
+      enabled: true
+    - id: m5ad.xlarge
+      enabled: true
+    - id: m5ad.2xlarge
+      enabled: true
+    - id: m5ad.4xlarge
+      enabled: true
+    - id: m5ad.8xlarge
+      enabled: true
+    - id: m5ad.12xlarge
+      enabled: true
+    - id: m5ad.16xlarge
+      enabled: true
+    - id: m5ad.24xlarge
+      enabled: true
+    - id: m5zn.12xlarge
+      enabled: true
+    - id: m5zn.2xlarge
+      enabled: true
+    - id: m5zn.3xlarge
+      enabled: true
+    - id: m5zn.6xlarge
+      enabled: true
+    - id: m5zn.xlarge
+      enabled: true
+    - id: m5dn.12xlarge
+      enabled: true
+    - id: m5dn.16xlarge
+      enabled: true
+    - id: m5dn.24xlarge
+      enabled: true
+    - id: m5dn.2xlarge
+      enabled: true
+    - id: m5dn.4xlarge
+      enabled: true
+    - id: m5dn.8xlarge
+      enabled: true
+    - id: m5dn.xlarge
+      enabled: true
+    - id: m5n.12xlarge
+      enabled: true
+    - id: m5n.16xlarge
+      enabled: true
+    - id: m5n.24xlarge
+      enabled: true
+    - id: m5n.2xlarge
+      enabled: true
+    - id: m5n.4xlarge
+      enabled: true
+    - id: m5n.8xlarge
+      enabled: true
+    - id: m5n.xlarge
+      enabled: true
+    - id: m5d.12xlarge
+      enabled: true
+    - id: m5d.16xlarge
+      enabled: true
+    - id: m5d.24xlarge
+      enabled: true
+    - id: m5d.2xlarge
+      enabled: true
+    - id: m5d.4xlarge
+      enabled: true
+    - id: m5d.8xlarge
+      enabled: true
+    - id: m5d.xlarge
+      enabled: true
+    - id: r6id.xlarge
+      enabled: true
+    - id: r6id.2xlarge
+      enabled: true
+    - id: r6id.4xlarge
+      enabled: true
+    - id: r6id.8xlarge
+      enabled: true
+    - id: r6id.12xlarge
+      enabled: true
+    - id: r6id.16xlarge
+      enabled: true
+    - id: r6id.24xlarge
+      enabled: true
+    - id: r6id.32xlarge
+      enabled: true
+    - id: r6id.metal
+      enabled: true
+    - id: c6id.xlarge
+      enabled: true
+    - id: c6id.2xlarge
+      enabled: true
+    - id: c6id.4xlarge
+      enabled: true
+    - id: c6id.8xlarge
+      enabled: true
+    - id: c6id.12xlarge
+      enabled: true
+    - id: c6id.16xlarge
+      enabled: true
+    - id: c6id.24xlarge
+      enabled: true
+    - id: c6id.32xlarge
+      enabled: true
+    - id: c6id.metal
+      enabled: true
+    - id: m6id.xlarge
+      enabled: true
+    - id: m6id.2xlarge
+      enabled: true
+    - id: m6id.4xlarge
+      enabled: true
+    - id: m6id.8xlarge
+      enabled: true
+    - id: m6id.12xlarge
+      enabled: true
+    - id: m6id.16xlarge
+      enabled: true
+    - id: m6id.24xlarge
+      enabled: true
+    - id: m6id.32xlarge
+      enabled: true
+    - id: m6id.metal
+      enabled: true
+    - id: p4d.24xlarge
+      enabled: true
+    - id: g4dn.8xlarge
+      enabled: true
+    - id: g4dn.16xlarge
+      enabled: true
+    - id: g4dn.metal
+      enabled: true
+    - id: g4an.xlarge
+      enabled: true
+    - id: g4an.2xlarge
+      enabled: true
+    - id: g4an.4xlarge
+      enabled: true
+    - id: g4an.8xlarge
+      enabled: true
+    - id: g4an.16xlarge
+      enabled: true
+    - id: g5.xlarge
+      enabled: true
+    - id: g5.2xlarge
+      enabled: true
+    - id: g5.4xlarge
+      enabled: true
+    - id: g5.8xlarge
+      enabled: true
+    - id: g5.16xlarge
+      enabled: true
+    - id: g5.12xlarge
+      enabled: true
+    - id: g5.24xlarge
+      enabled: true
+    - id: g5.48xlarge
+      enabled: true
+    - id: u-3tb1.56xlarge
+      enabled: true
+    - id: u-6tb1.56xlarge
+      enabled: true
+    - id: u-6tb1.112xlarge
+      enabled: true
+    - id: u-6tb1.metal
+      enabled: true
+    - id: u-9tb1.112xlarge
+      enabled: true
+    - id: u-9tb1.metal
+      enabled: true
+    - id: u-12tb1.112xlarge
+      enabled: true
+    - id: u-12tb1.metal
+      enabled: true
+    - id: u-18tb1.metal
+      enabled: true
+    - id: u-24tb1.metal
+      enabled: true
+    - id: dl1.24xlarge
+      enabled: true
+    - id: x2idn.metal
+      enabled: true
+    - id: x2iedn.metal
+      enabled: true
+    - id: g4ad.xlarge
+      enabled: true
+    - id: g4ad.2xlarge
+      enabled: true
+    - id: g4ad.4xlarge
+      enabled: true
+    - id: g4ad.8xlarge
+      enabled: true
+    - id: g4ad.16xlarge
+      enabled: true
+    - id: r6a.xlarge
+      enabled: true
+    - id: r6a.2xlarge
+      enabled: true
+    - id: r6a.4xlarge
+      enabled: true
+    - id: r6a.8xlarge
+      enabled: true
+    - id: r6a.12xlarge
+      enabled: true
+    - id: r6a.16xlarge
+      enabled: true
+    - id: r6a.24xlarge
+      enabled: true
+    - id: r6a.32xlarge
+      enabled: true
+    - id: r6a.48xlarge
+      enabled: true
+    - id: r6a.metal
+      enabled: true
+    - id: i4i.xlarge
+      enabled: true
+    - id: i4i.2xlarge
+      enabled: true
+    - id: i4i.4xlarge
+      enabled: true
+    - id: i4i.8xlarge
+      enabled: true
+    - id: i4i.16xlarge
+      enabled: true
+    - id: i4i.32xlarge
+      enabled: true
+    - id: i4i.metal
+      enabled: true
+    - id: u-18tb1.112xlarge
+      enabled: true
+    - id: u-24tb1.112xlarge
+      enabled: true
+    - id: m6in.xlarge
+      enabled: true
+    - id: m6in.2xlarge
+      enabled: true
+    - id: m6in.4xlarge
+      enabled: true
+    - id: m6in.8xlarge
+      enabled: true
+    - id: m6in.12xlarge
+      enabled: true
+    - id: m6in.16xlarge
+      enabled: true
+    - id: m6in.24xlarge
+      enabled: true
+    - id: m6in.32xlarge
+      enabled: true
+    - id: m6idn.xlarge
+      enabled: true
+    - id: m6idn.2xlarge
+      enabled: true
+    - id: m6idn.4xlarge
+      enabled: true
+    - id: m6idn.8xlarge
+      enabled: true
+    - id: m6idn.12xlarge
+      enabled: true
+    - id: m6idn.16xlarge
+      enabled: true
+    - id: m6idn.24xlarge
+      enabled: true
+    - id: m6idn.32xlarge
+      enabled: true
+    - id: c6in.xlarge
+      enabled: true
+    - id: c6in.2xlarge
+      enabled: true
+    - id: c6in.4xlarge
+      enabled: true
+    - id: c6in.8xlarge
+      enabled: true
+    - id: c6in.12xlarge
+      enabled: true
+    - id: c6in.16xlarge
+      enabled: true
+    - id: c6in.24xlarge
+      enabled: true
+    - id: c6in.32xlarge
+      enabled: true
+    - id: r6in.xlarge
+      enabled: true
+    - id: r6in.2xlarge
+      enabled: true
+    - id: r6in.4xlarge
+      enabled: true
+    - id: r6in.8xlarge
+      enabled: true
+    - id: r6in.12xlarge
+      enabled: true
+    - id: r6in.16xlarge
+      enabled: true
+    - id: r6in.24xlarge
+      enabled: true
+    - id: r6in.32xlarge
+      enabled: true
+    - id: r6idn.xlarge
+      enabled: true
+    - id: r6idn.2xlarge
+      enabled: true
+    - id: r6idn.4xlarge
+      enabled: true
+    - id: r6idn.8xlarge
+      enabled: true
+    - id: r6idn.12xlarge
+      enabled: true
+    - id: r6idn.16xlarge
+      enabled: true
+    - id: r6idn.24xlarge
+      enabled: true
+    - id: r6idn.32xlarge
+      enabled: true
+    - id: m6g.xlarge
+      enabled: true
+    - id: m6g.2xlarge
+      enabled: true
+    - id: m6g.4xlarge
+      enabled: true
+    - id: m6g.8xlarge
+      enabled: true
+    - id: m6g.12xlarge
+      enabled: true
+    - id: m6g.16xlarge
+      enabled: true
+    - id: m6g.metal
+      enabled: true
+    - id: m6gd.xlarge
+      enabled: true
+    - id: m6gd.2xlarge
+      enabled: true
+    - id: m6gd.4xlarge
+      enabled: true
+    - id: m6gd.8xlarge
+      enabled: true
+    - id: m6gd.12xlarge
+      enabled: true
+    - id: m6gd.16xlarge
+      enabled: true
+    - id: m6gd.metal
+      enabled: true
+    - id: a1.xlarge
+      enabled: true
+    - id: a1.2xlarge
+      enabled: true
+    - id: a1.4xlarge
+      enabled: true
+    - id: a1.metal
+      enabled: true
+    - id: t4g.xlarge
+      enabled: true
+    - id: t4g.2xlarge
+      enabled: true
+    - id: c6g.xlarge
+      enabled: true
+    - id: c6g.2xlarge
+      enabled: true
+    - id: c6g.4xlarge
+      enabled: true
+    - id: c6g.8xlarge
+      enabled: true
+    - id: c6g.12xlarge
+      enabled: true
+    - id: c6g.16xlarge
+      enabled: true
+    - id: c6g.metal
+      enabled: true
+    - id: c6gd.xlarge
+      enabled: true
+    - id: c6gd.2xlarge
+      enabled: true
+    - id: c6gd.4xlarge
+      enabled: true
+    - id: c6gd.8xlarge
+      enabled: true
+    - id: c6gd.12xlarge
+      enabled: true
+    - id: c6gd.16xlarge
+      enabled: true
+    - id: c6gd.metal
+      enabled: true
+    - id: c6gn.xlarge
+      enabled: true
+    - id: c6gn.2xlarge
+      enabled: true
+    - id: c6gn.4xlarge
+      enabled: true
+    - id: c6gn.8xlarge
+      enabled: true
+    - id: c6gn.12xlarge
+      enabled: true
+    - id: c6gn.16xlarge
+      enabled: true
+    - id: r6g.xlarge
+      enabled: true
+    - id: r6g.2xlarge
+      enabled: true
+    - id: r6g.4xlarge
+      enabled: true
+    - id: r6g.8xlarge
+      enabled: true
+    - id: r6g.12xlarge
+      enabled: true
+    - id: r6g.16xlarge
+      enabled: true
+    - id: r6g.metal
+      enabled: true
+    - id: r6gd.xlarge
+      enabled: true
+    - id: r6gd.2xlarge
+      enabled: true
+    - id: r6gd.4xlarge
+      enabled: true
+    - id: r6gd.8xlarge
+      enabled: true
+    - id: r6gd.12xlarge
+      enabled: true
+    - id: r6gd.16xlarge
+      enabled: true
+    - id: r6gd.metal
+      enabled: true
+    - id: x2gd.xlarge
+      enabled: true
+    - id: x2gd.2xlarge
+      enabled: true
+    - id: x2gd.4xlarge
+      enabled: true
+    - id: x2gd.8xlarge
+      enabled: true
+    - id: x2gd.12xlarge
+      enabled: true
+    - id: x2gd.16xlarge
+      enabled: true
+    - id: x2gd.metal
+      enabled: true
+    - id: Is4gen.xlarge
+      enabled: true
+    - id: Is4gen.2xlarge
+      enabled: true
+    - id: Is4gen.4xlarge
+      enabled: true
+    - id: Is4gen.8xlarge
+      enabled: true
+    - id: Im4gn.xlarge
+      enabled: true
+    - id: Im4gn.2xlarge
+      enabled: true
+    - id: Im4gn.4xlarge
+      enabled: true
+    - id: Im4gn.8xlarge
+      enabled: true
+    - id: Im4gn.16xlarge
+      enabled: true
+    - id: g5g.xlarge
+      enabled: true
+    - id: g5g.2xlarge
+      enabled: true
+    - id: g5g.4xlarge
+      enabled: true
+    - id: g5g.8xlarge
+      enabled: true
+    - id: g5g.16xlarge
+      enabled: true
+    - id: g5g.metal
+      enabled: true
+    - id: m7g.xlarge
+      enabled: true
+    - id: m7g.2xlarge
+      enabled: true
+    - id: m7g.4xlarge
+      enabled: true
+    - id: m7g.8xlarge
+      enabled: true
+    - id: m7g.12xlarge
+      enabled: true
+    - id: m7g.16xlarge
+      enabled: true
+    - id: m7g.metal
+      enabled: true
+    - id: c7g.xlarge
+      enabled: true
+    - id: c7g.2xlarge
+      enabled: true
+    - id: c7g.4xlarge
+      enabled: true
+    - id: c7g.8xlarge
+      enabled: true
+    - id: c7g.12xlarge
+      enabled: true
+    - id: c7g.16xlarge
+      enabled: true
+    - id: c7g.metal
+      enabled: true
+    - id: r7g.xlarge
+      enabled: true
+    - id: r7g.2xlarge
+      enabled: true
+    - id: r7g.4xlarge
+      enabled: true
+    - id: r7g.8xlarge
+      enabled: true
+    - id: r7g.12xlarge
+      enabled: true
+    - id: r7g.16xlarge
+      enabled: true
+    - id: r7g.metal
+      enabled: true
+    - id: r5b.xlarge
+      enabled: true
+    - id: r5b.2xlarge
+      enabled: true
+    - id: r5b.4xlarge
+      enabled: true
+    - id: r5b.8xlarge
+      enabled: true
+    - id: r5b.12xlarge
+      enabled: true
+    - id: r5b.16xlarge
+      enabled: true
+    - id: r5b.24xlarge
+      enabled: true
+    - id: r5b.metal
+      enabled: true
