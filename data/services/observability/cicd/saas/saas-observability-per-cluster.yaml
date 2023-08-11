@@ -99,14 +99,68 @@ resourceTemplates:
           cpu: "2"
           memory: 2500Mi
   - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
-      CLUSTER_LABEL: crcs02ue1
-      ENVIRONMENT: staging
-      EXTERNAL_URL: https://prometheus.crcs02ue1.devshift.net
+      CLUSTER_LABEL: app-sre-prod-01
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.app-sre-prod-01.devshift.net
       PV_SIZE: 100Gi
       STORAGE_CLASS_NAME: gp2
+      PROMETHEUS_RESOURCES:
+        requests:
+          cpu: 500m
+          memory: 5000Mi
+        limits:
+          cpu: "2"
+          memory: 6500Mi
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: app-sre-prod-04
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.app-sre-prod-04.devshift.net
+      PV_SIZE: 150Gi
+      STORAGE_CLASS_NAME: gp2
+      PROMETHEUS_RESOURCES:
+        requests:
+          cpu: 500m
+          memory: 5600Mi
+        limits:
+          cpu: "2"
+          memory: 7200Mi
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      VERSION: v2.45.0
+      CLUSTER_LABEL: appsrep05ue1
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.appsrep05ue1.devshift.net
+      STORAGE_CLASS_NAME: gp2
+      PROMETHEUS_RESOURCES:
+        requests:
+          cpu: "1"
+          memory: 10000Mi
+        limits:
+          cpu: "2"
+          memory: 13000Mi
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: appsrep06ue2
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.appsrep06ue2.devshift.net
+      STORAGE_CLASS_NAME: gp2
+      PROMETHEUS_RESOURCES:
+        requests:
+          cpu: 500m
+          memory: 1800Mi
+        limits:
+          cpu: "2"
+          memory: 2400Mi
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.hivei01ue1.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
@@ -200,6 +254,14 @@ resourceTemplates:
         limits:
           memory: 5Gi
   - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep07ue2.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: hivep07ue2
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.hivep07ue2.devshift.net
+      STORAGE_CLASS_NAME: gp2
+  - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.quays02ue1.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
@@ -208,54 +270,6 @@ resourceTemplates:
       EXTERNAL_URL: https://prometheus.quays02ue1.devshift.net
       RETENTION: 30d
       STORAGE_CLASS_NAME: gp2
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: app-sre-prod-01
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.app-sre-prod-01.devshift.net
-      PV_SIZE: 100Gi
-      STORAGE_CLASS_NAME: gp2
-      PROMETHEUS_RESOURCES:
-        requests:
-          cpu: 500m
-          memory: 5000Mi
-        limits:
-          cpu: "2"
-          memory: 6500Mi
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: app-sre-prod-04
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.app-sre-prod-04.devshift.net
-      PV_SIZE: 150Gi
-      STORAGE_CLASS_NAME: gp2
-      PROMETHEUS_RESOURCES:
-        requests:
-          cpu: 500m
-          memory: 5600Mi
-        limits:
-          cpu: "2"
-          memory: 7200Mi
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      VERSION: v2.45.0
-      CLUSTER_LABEL: appsrep05ue1
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.appsrep05ue1.devshift.net
-      STORAGE_CLASS_NAME: gp2
-      PROMETHEUS_RESOURCES:
-        requests:
-          cpu: "1"
-          memory: 10000Mi
-        limits:
-          cpu: "2"
-          memory: 13000Mi
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.quayp04ue2.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
@@ -294,6 +308,15 @@ resourceTemplates:
       LOG_LEVEL: info
       STORAGE_CLASS_NAME: gp2
   - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: crcs02ue1
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://prometheus.crcs02ue1.devshift.net
+      PV_SIZE: 100Gi
+      STORAGE_CLASS_NAME: gp2
+  - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
@@ -324,35 +347,12 @@ resourceTemplates:
       PV_SIZE: 100Gi
       STORAGE_CLASS_NAME: gp2
   - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: appsrep06ue2
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.appsrep06ue2.devshift.net
-      STORAGE_CLASS_NAME: gp2
-      PROMETHEUS_RESOURCES:
-        requests:
-          cpu: 500m
-          memory: 1800Mi
-        limits:
-          cpu: "2"
-          memory: 2400Mi
-  - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobs-testing.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       CLUSTER_LABEL: rhobs-testing
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus-app-sre-observability-per-cluster.apps.rhobs-testing.qqzf.p1.openshiftapps.com
-      STORAGE_CLASS_NAME: gp2
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep07ue2.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: hivep07ue2
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.hivep07ue2.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobsp02ue1.yml
@@ -368,9 +368,16 @@ resourceTemplates:
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       CLUSTER_LABEL: backplanei01ue1
-      ENVIRONMENT: staging
+      ENVIRONMENT: integration
       EXTERNAL_URL: https://prometheus.backplanei01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: backplanei02ue1
+      ENVIRONMENT: integration
+      EXTERNAL_URL: https://prometheus.backplanei02ue1.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes01ue1.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
@@ -380,20 +387,34 @@ resourceTemplates:
       EXTERNAL_URL: https://prometheus.backplanes01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep01ue1.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: backplanep01ue1
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.backplanep01ue1.devshift.net
-      STORAGE_CLASS_NAME: gp2
-  - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes02uw2.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
       CLUSTER_LABEL: backplanes02uw2
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.backplanes02uw2.devshift.net
+      STORAGE_CLASS_NAME: gp2
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes03ue1.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: backplanes03ue1
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://prometheus.backplanes03ue1.devshift.net
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: backplanes04uw2
+      ENVIRONMENT: staging
+      EXTERNAL_URL: https://prometheus.backplanes04uw2.devshift.net
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep01ue1.yml
+    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
+    parameters:
+      CLUSTER_LABEL: backplanep01ue1
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.backplanep01ue1.devshift.net
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep02uw2.yml
@@ -410,14 +431,13 @@ resourceTemplates:
       CLUSTER_LABEL: backplanep03ue1
       ENVIRONMENT: production
       EXTERNAL_URL: https://prometheus.backplanep03ue1.devshift.net
-      STORAGE_CLASS_NAME: gp2
   - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes03ue1.yml
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
     parameters:
-      CLUSTER_LABEL: backplanes03ue1
-      ENVIRONMENT: staging
-      EXTERNAL_URL: https://prometheus.backplanes03ue1.devshift.net
+      CLUSTER_LABEL: backplanep04uw2
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.backplanep04uw2.devshift.net
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.stonesoups01ue1.yml
     ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
@@ -441,27 +461,6 @@ resourceTemplates:
       CLUSTER_LABEL: hst02ue1
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.hst02ue1.devshift.net
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanei02ue1.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: backplanei02ue1
-      ENVIRONMENT: integration
-      EXTERNAL_URL: https://prometheus.backplanei02ue1.devshift.net
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanes04uw2.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: backplanes04uw2
-      ENVIRONMENT: staging
-      EXTERNAL_URL: https://prometheus.backplanes04uw2.devshift.net
-  - namespace:
-      $ref: /services/observability/namespaces/openshift-customer-monitoring.backplanep04uw2.yml
-    ref: 027047cbab4b23b3b968bcc79754e0c1e1fb1be1
-    parameters:
-      CLUSTER_LABEL: backplanep04uw2
-      ENVIRONMENT: production
-      EXTERNAL_URL: https://prometheus.backplanep04uw2.devshift.net
 
 # Alertmanager
 - name: alertmanager
