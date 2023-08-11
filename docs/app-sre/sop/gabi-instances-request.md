@@ -12,7 +12,7 @@
 
 In order to provide generic db access for tenant‘s service, we provide [gabi](https://github.com/app-sre/gabi) to run SQL queries on protected databases. Currently, gabi supports MySQL and PostgreSQL. The gabi SOP can be found [here](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/gabi/architecture-documents/gabi-architecture.md). 
 
-For **InProgress or OnBoarded apps, tenants will only be allowed to access read-replicas (for both stage and prod)**. A read-replica will need to be created if one doesn't already exist, and that this will increase costs so **management approval will be required**.
+For **InProgress or OnBoarded apps, tenants will only be allowed to access read-replicas in production (not required for staging environments)**. A read-replica will need to be created if one doesn't already exist, and that this will increase costs so **management approval will be required**.
 
 For best-effort apps tenant can access to actual DBs (stage and prod)
 
