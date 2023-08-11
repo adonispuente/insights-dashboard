@@ -28,6 +28,6 @@ sharedResources:
 
 openshiftResources:
 - provider: vault-secret
-  path: app-sre/creds/dynatrace/redhat-aws/operator-api-tokens/staging/us-east-virginia/hrm15629
+  path: app-sre/creds/dynatrace/terraform/app-sre-clusters/app-sre-stage-01-hrm15629
   version: 1
   name: dynatrace-tokens
