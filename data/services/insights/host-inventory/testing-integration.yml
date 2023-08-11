@@ -38,10 +38,8 @@ resourceTemplates:
     ref: d1a84d7596d15f1b6a11e03719cadbd4d9604947
     promotion:
       auto: true
-      subscribe:
-      - host-inventory-stage-post-deploy-success-channel
       publish:
       - host-inventory-stage-post-deploy-integration-tests-success-channel
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
-      IQE_MARKER_EXPRESSION: <TBD>
+      IQE_REQUIREMENTS: HMS_INTEGRATION-CONVERSION-EXPERIENCE
