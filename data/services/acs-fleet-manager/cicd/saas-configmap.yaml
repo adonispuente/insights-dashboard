@@ -22,6 +22,8 @@ slack:
     $ref: /dependencies/slack/redhat-internal.yml
   channel: acs-fleet-manager-notifications
 
+imagePatterns: []
+
 managedResourceTypes:
   - ConfigMap
 
