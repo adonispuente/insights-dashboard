@@ -77,32 +77,32 @@ resourceTemplates:
       PROMETHEUS_SERVER_NAME: prometheus.appsres04ue2.devshift.net
   - namespace:
       $ref: /openshift/app-sre-prod-01/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.app-sre-prod-01.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.app-sre-prod-01.devshift.net
   - namespace:
       $ref: /openshift/app-sre-prod-04/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.app-sre-prod-04.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.app-sre-prod-04.devshift.net
   - namespace:
       $ref: /openshift/appsrep05ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.appsrep05ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.appsrep05ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/appsrep06ue2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.appsrep06ue2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.appsrep06ue2.devshift.net
   - namespace:
       $ref: /openshift/telemeter-prod-01/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.telemeter-prod-01.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.telemeter-prod-01.devshift.net
@@ -114,19 +114,19 @@ resourceTemplates:
       PROMETHEUS_SERVER_NAME: prometheus.quays02ue1.devshift.net
   - namespace:
       $ref: /openshift/quayp04ue2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.quayp04ue2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.quayp04ue2.devshift.net
   - namespace:
       $ref: /openshift/quayp05ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.quayp05ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.quayp05ue1.devshift.net
   - namespace:
       $ref: /openshift/clairp01ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.clairp01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.clairp01ue1.devshift.net
@@ -153,49 +153,49 @@ resourceTemplates:
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep01ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep01ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep02ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep02ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep02ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep03uw1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep03uw1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep03uw1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep04ew2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep04ew2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep04ew2.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep05ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep05ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep05ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep06uw2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep06uw2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep06uw2.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/hivep07ue2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep07ue2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep07ue2.devshift.net
@@ -208,7 +208,7 @@ resourceTemplates:
       PROMETHEUS_SERVER_NAME: prometheus.crcs02ue1.devshift.net
   - namespace:
       $ref: /openshift/crcp01ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.crcp01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.crcp01ue1.devshift.net
@@ -232,7 +232,7 @@ resourceTemplates:
       PROMETHEUS_SERVER_NAME: prometheus-app-sre-observability-per-cluster.apps.rhobs-testing.qqzf.p1.openshiftapps.com
   - namespace:
       $ref: /openshift/rhobsp02ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.rhobsp02ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.rhobsp02ue1.devshift.net
@@ -280,28 +280,28 @@ resourceTemplates:
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/backplanep01ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.backplanep01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.backplanep01ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/backplanep02uw2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.backplanep02uw2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.backplanep02uw2.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/backplanep03ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.backplanep03ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.backplanep03ue1.devshift.net
       CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
   - namespace:
       $ref: /openshift/backplanep04uw2/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.backplanep04uw2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.backplanep04uw2.devshift.net
@@ -314,7 +314,7 @@ resourceTemplates:
       PROMETHEUS_SERVER_NAME: prometheus.stonesoups01ue1.devshift.net
   - namespace:
       $ref: /openshift/stonesoupp01ue1/namespaces/app-sre-observability-per-cluster.yml
-    ref: 1abfd12fc2ce478a1bbda8a5ca1b12f07af4be6e
+    ref: a264128e795ab1c12b1de91a7b51fceccbc1d0f1
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.stonesoupp01ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.stonesoupp01ue1.devshift.net
