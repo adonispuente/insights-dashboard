@@ -35,6 +35,9 @@ sharedResources:
 openshiftResources:
 - provider: resource-template
   path: /services/sre-capabilities/app-interface.configmap.yml
+  variables:
+    instance_name: sre-capabilities-stage
+    dsn_secret_version: 1
 - provider: resource-template
   path: /services/sre-capabilities/app-interface.secret.yml
 - provider: resource-template
