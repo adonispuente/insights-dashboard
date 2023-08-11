@@ -39,6 +39,9 @@ codeComponents:
 - name: acs-fleet-manager
   resource: upstream
   url: https://github.com/stackrox/acs-fleet-manager
+- name: acs-fleet-manager-config
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
 
 quayRepos:
 - org:
