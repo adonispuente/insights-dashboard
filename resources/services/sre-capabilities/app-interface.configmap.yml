@@ -9,4 +9,4 @@ data:
   forward_host: app-interface.{{ resource.namespace.name }}.svc
   load_method: s3
   GITHUB_API: https://github-mirror.devshift.net
-  SENTRY_DSN: {{ vault('app-interface/app-interface-instances/' ~ instance_name ~ '/sentry', 'dsn', dsn_secret_version) }}
+  SENTRY_DSN: {{ vault('app-interface/app-interface-instances/' ~ instance_name ~ '/glitchtip', 'dsn', dsn_secret_version) }}
