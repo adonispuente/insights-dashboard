@@ -255,8 +255,8 @@ resourceTemplates:
       WORKER_DOWNLOAD_REPLICAS: 3
       WORKER_DOWNLOAD_CPU_REQUEST: 300m
       WORKER_DOWNLOAD_CPU_LIMIT: 600m
-      WORKER_DOWNLOAD_MEMORY_REQUEST: 2Gi
-      WORKER_DOWNLOAD_MEMORY_LIMIT: 4Gi
+      WORKER_DOWNLOAD_MEMORY_REQUEST: 4Gi
+      WORKER_DOWNLOAD_MEMORY_LIMIT: 6Gi
       # worker-ocp
       WORKER_OCP_REPLICAS: 3
       WORKER_OCP_CPU_REQUEST: 75m
@@ -833,4 +833,3 @@ resourceTemplates:
     - namespace:
         $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
       ref: a025da861ebf646c2253f4fcaf10f3d5214d5c16
-
