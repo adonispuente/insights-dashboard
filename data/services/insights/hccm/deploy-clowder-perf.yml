@@ -64,7 +64,7 @@ resourceTemplates:
   # Performance:
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 86b8fe5112bf174ee9457418c152bb031e4e997e
+    ref: 2ba568457eaf9b5a93ddae48a67d8068178f3dc0
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Performance
@@ -87,13 +87,8 @@ resourceTemplates:
       KOKU_SENTRY_ENV: perf
       ENABLE_API_SENTRY: True
       ENABLE_CELERY_SENTRY: True
-      DEMO_ACCOUNTS: '{"6193296":{"arn:aws:iam::589173575009:role/NisePopulatorAccessRole":{"source_type": "AWS", "report_prefix":"cur","report_name":"awscost"},"5d4eb34d-43c7-4b06-8257-1cb599b48d1e":{"source_type": "Azure", "report_prefix":"cur","report_name":"azurecost","container_name":"cur"}}}'
       ENABLE_PARQUET_PROCESSING: True
       ENABLE_S3_ARCHIVING: True
-      ENABLE_TRINO_SOURCES: 'f71993c9-db47-4dcf-b375-c32d84502b13,118445f0-7304-4311-aa22-ed86b484f48d,79419ac3-cf38-450c-84cf-7d2accc2c293,889668d0-8bdc-4e96-84fe-4311b3514efb,b139babe-9f1a-4519-ae49-bfd4e06807a2,cbf2420e-ab4b-4ab3-b27c-d5a05d578262,d24bd391-fc65-4275-a7bb-174c91e1c9fe,f1eb8998-4984-4ee5-9bfb-f0370cb690a4,cc11e600-9888-4614-be92-634b132c0f44,a84c1928-4891-4ff0-b458-f4fd27a7218a,a6568967-155a-428f-a20c-3c5d46f45ad8,bfad1e15-91eb-478f-a600-ffb3b0ee1042'
-      ENABLE_TRINO_SOURCE_TYPE: 'GCP'
-      ENABLE_TRINO_ACCOUNTS: 'acct7049367'
-      QE_SCHEMA: 'acct6089719'
       TRINO_DATE_STEP: 3  # 5
       AUTO_DATA_INGEST: True
       RETAIN_NUM_MONTHS: 5
@@ -106,27 +101,24 @@ resourceTemplates:
 
       TENANT_MULTIPROCESSING_MAX_PROCESSES: "4"
       TENANT_MULTIPROCESSING_CHUNKS: "1"
-
-      # REPORT_DOWNLOAD_SCHEDULE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_OCI: "0 8 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_GCP: "0 10 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_AZURE: "0 12 * * *"
-      REPORT_DOWNLOAD_SCHEDULE_AWS: "0 14 * * *"
+      REPORT_DOWNLOAD_SCHEDULE: "0 22 * * *" # 1 time a day
+      POLLING_TIMER: 72000 # 20 hours
+      POLLING_BATCH_SIZE: 25 # Polling provider count
 
       TRINO_HOST: trino-coordinator
       GUNICORN_THREADS: False
       GUNICORN_WORKERS: 2
       # Deployment specific variables:
       # koku-api
-      KOKU_REPLICAS: 10
+      KOKU_REPLICAS: 3
       KOKU_CPU_REQUEST: 250m
       KOKU_CPU_LIMIT: 1
       KOKU_MEMORY_REQUEST: 2Gi
       KOKU_MEMORY_LIMIT: 4Gi
       # listener
-      LISTENER_REPLICAS: 6  # 6
+      LISTENER_REPLICAS: 3
       LISTENER_CPU_REQUEST: 200m
-      LISTENER_CPU_LIMIT: 1
+      LISTENER_CPU_LIMIT: 500m
       LISTENER_MEMORY_REQUEST: 1Gi
       LISTENER_MEMORY_LIMIT: 2Gi
       # masu
@@ -142,59 +134,59 @@ resourceTemplates:
       SOURCES_CLIENT_CPU_REQUEST: 250m
       SOURCES_CLIENT_CPU_LIMIT: 500m
       SOURCES_CLIENT_MEMORY_REQUEST: 256Mi
-      SOURCES_CLIENT_MEMORY_LIMIT: 1Gi
+      SOURCES_CLIENT_MEMORY_LIMIT: 512Mi
       # sources-listener
       SOURCES_LISTENER_REPLICAS: 1
       SOURCES_LISTENER_CPU_REQUEST: 250m
       SOURCES_LISTENER_CPU_LIMIT: 500m
       SOURCES_LISTENER_MEMORY_REQUEST: 256Mi
-      SOURCES_LISTENER_MEMORY_LIMIT: 1Gi
+      SOURCES_LISTENER_MEMORY_LIMIT: 512Mi
       # workers global
       WORKER_PROC_ALIVE_TIMEOUT: 9
       # worker-celery
       WORKER_CELERY_REPLICAS: 3
       WORKER_CELERY_CPU_REQUEST: 200m
       WORKER_CELERY_CPU_LIMIT: 1
-      WORKER_CELERY_MEMORY_REQUEST: 1Gi
-      WORKER_CELERY_MEMORY_LIMIT: 2Gi
+      WORKER_CELERY_MEMORY_REQUEST: 512Mi
+      WORKER_CELERY_MEMORY_LIMIT: 1Gi
       # worker-cost-model
-      WORKER_COST_MODEL_REPLICAS: 3
+      WORKER_COST_MODEL_REPLICAS: 2
       WORKER_COST_MODEL_CPU_REQUEST: 100m
       WORKER_COST_MODEL_CPU_LIMIT: 300m
       WORKER_COST_MODEL_MEMORY_REQUEST: 512Mi
       WORKER_COST_MODEL_MEMORY_LIMIT: 1Gi
       # worker-download
-      WORKER_DOWNLOAD_REPLICAS: 6  # 6
+      WORKER_DOWNLOAD_REPLICAS: 3
       WORKER_DOWNLOAD_CPU_REQUEST: 700m
       WORKER_DOWNLOAD_CPU_LIMIT: 1500m
-      WORKER_DOWNLOAD_MEMORY_REQUEST: 5Gi
+      WORKER_DOWNLOAD_MEMORY_REQUEST: 4Gi
       WORKER_DOWNLOAD_MEMORY_LIMIT: 8Gi
       # worker-ocp
-      WORKER_OCP_REPLICAS: 7  # 7
+      WORKER_OCP_REPLICAS: 3
       WORKER_OCP_CPU_REQUEST: 300m
       WORKER_OCP_CPU_LIMIT: 500m
-      WORKER_OCP_MEMORY_REQUEST: 1Gi
-      WORKER_OCP_MEMORY_LIMIT: 2Gi
+      WORKER_OCP_MEMORY_REQUEST: 512Mi
+      WORKER_OCP_MEMORY_LIMIT: 1Gi
       # worker-priority
-      WORKER_PRIORITY_REPLICAS: 1  # 3
+      WORKER_PRIORITY_REPLICAS: 1
       WORKER_PRIORITY_CPU_REQUEST: 500m
       WORKER_PRIORITY_CPU_LIMIT: 1
       WORKER_PRIORITY_MEMORY_REQUEST: 3Gi
       WORKER_PRIORITY_MEMORY_LIMIT: 5Gi
       # worker-refresh
-      WORKER_REFRESH_REPLICAS: 3  # 3
+      WORKER_REFRESH_REPLICAS: 2
       WORKER_REFRESH_CPU_REQUEST: 100m
       WORKER_REFRESH_CPU_LIMIT: 200m
       WORKER_REFRESH_MEMORY_REQUEST: 300Mi
       WORKER_REFRESH_MEMORY_LIMIT: 600Mi
       # worker-summary
-      WORKER_SUMMARY_REPLICAS: 6  # 6
+      WORKER_SUMMARY_REPLICAS: 3
       WORKER_SUMMARY_CPU_REQUEST: 100m
       WORKER_SUMMARY_CPU_LIMIT: 200m
       WORKER_SUMMARY_MEMORY_REQUEST: 512Mi
-      WORKER_SUMMARY_MEMORY_LIMIT: 2Gi
+      WORKER_SUMMARY_MEMORY_LIMIT: 1Gi
       # worker-hcs
-      WORKER_HCS_REPLICAS: 3
+      WORKER_HCS_REPLICAS: 1
       WORKER_HCS_CPU_REQUEST: 100m
       WORKER_HCS_CPU_LIMIT: 200m
       WORKER_HCS_MEMORY_REQUEST: 500Mi
@@ -210,16 +202,16 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: ab1350614a39ae246c77fedd1bc97c56da3e4347
+    ref: 9581ee241767cb01340d80ae1c80bb56291b8757
     parameters:
-      IMAGE_TAG: 3.1.3-metastore-015
+      IMAGE_TAG: 3.1.3-metastore-021
       MIN_REPLICAS: 1
       S3_BUCKET_NAME: hccm-perf-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      MEMORY_REQUEST: 18Gi
-      MEMORY_LIMIT: 20Gi
-      MAX_HEAP_SIZE: 18G
+      MEMORY_REQUEST: 6Gi
+      MEMORY_LIMIT: 10Gi
+      MAX_HEAP_SIZE: 6G
 
 - name: presto
   # repo deploy file: https://github.com/RedHatInsights/ubi-trino/blob/main/deploy/clowdapp.yaml
@@ -231,20 +223,20 @@ resourceTemplates:
   # Performance
   - namespace:
       $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: 0d7bda946ac6a0f964cd2a5ed4ed9f5e2439ffab
+    ref: 86057d901989d623787281190413ea6da7f4321d
     parameters:
       CONFIGMAP_HASH: 'gffsf6' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 418-002
+      IMAGE_TAG: 418-004
       S3_BUCKET_NAME: hccm-perf-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1 # 1
-      WORKER_REPLICAS: 4 # 4
-      COORDINATOR_CPU_REQUEST: 4
-      COORDINATOR_CPU_LIMIT: 7800m
+      WORKER_REPLICAS: 3
+      COORDINATOR_CPU_REQUEST: 1
+      COORDINATOR_CPU_LIMIT: 2
       COORDINATOR_MEMORY_REQUEST: 12Gi
       COORDINATOR_MEMORY_LIMIT: 36Gi
-      WORKER_CPU_REQUEST: 4
-      WORKER_CPU_LIMIT: 7800m
+      WORKER_CPU_REQUEST: 400m
+      WORKER_CPU_LIMIT: 2
       WORKER_MEMORY_REQUEST: 6Gi
       WORKER_MEMORY_LIMIT: 10Gi
       QUERY_MAX_MEMORY_PER_NODE: 10GB # (jvm max - heap headroom)
@@ -254,44 +246,3 @@ resourceTemplates:
       MAX_HEAP_SIZE: 51200M # 51200 == 50 GiB
       LIVENESS_PROBE_PERIOD: 120
       LIVENESS_PROBE_TIMEOUT: 120
-
-        #- name: koku-daily
-  # repo deploy file: https://github.com/project-koku/koku-daily/blob/main/deploy/clowdapp.yaml
-  # container image: quay.io/cloudservices/koku-daily
-  # container repo:  https://quay.io/repository/cloudservices/koku-daily
-  #  path: /deploy/clowdapp.yaml
-  #url: https://github.com/project-koku/koku-daily
-  #targets:
-  #- namespace:
-  #    $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-  #  ref: d2172aa56f0c2a3dd14784b58b3919a927fd4b6c
-  #  parameters:
-  #    PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
-  #    REPLICAS: 1
-  #    APP_URL_PREFIX: /api/cost-management/v1/koku-daily/
-  #    CPU_REQUEST: 100m
-  #    CPU_LIMIT: 250m
-  #    MEMORY_REQUEST: 500Mi
-  #    MEMORY_LIMIT: 1Gi
-  #    EMAIL_GROUPS: {"engineering": "cost-mgmt-metrics-eng@redhat.com", "marketing": "cost-mgmt-metrics-mkt@redhat.com"}
-  #    EMAIL_SCHEDULE: '0 17 * * *'
-  #    S3_BUCKET_NAME: hccm-perf-s3
-  #    S3_SCHEDULE: "0 19 * * *"
-  #    WEEKLY_REPORT_SCHEDULED_DAY: "3"
-
-- name: nise-populator
-  # repo deploy file: https://github.com/project-koku/nise-populator/blob/main/deploy/clowdapp.yaml
-  # container image: quay.io/cloudservices/nise-populator
-  # container repo:  https://quay.io/repository/cloudservices/nise-populator
-  path: /deploy/clowdapp.yaml
-  url: https://github.com/project-koku/nise-populator
-  targets:
-  - namespace:
-      $ref: /services/insights/hccm/namespaces/perf-hccm-perf.yml
-    ref: f287775b29c7189c6cd0636830c9cce3d91f303f
-    parameters:
-      CPU_REQUEST: 250m
-      CPU_LIMIT: 500m
-      POPULATE_SCHEDULE: "0 11 * * *"
-      POPULATE_SOURCES: "ocp"
-
