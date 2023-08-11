@@ -172,7 +172,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-qetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 7101874a44efb4db14accb703f319363a229ebba
+    ref: 9e935d7d88abb57c3a63e12c2fffbfd470703b2f
     promotion:
       auto: true
       subscribe:
@@ -226,7 +226,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-dynatrace
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 7101874a44efb4db14accb703f319363a229ebba
+    ref: 9e935d7d88abb57c3a63e12c2fffbfd470703b2f
     promotion:
       auto: true
       subscribe:
@@ -237,7 +237,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 7101874a44efb4db14accb703f319363a229ebba
+    ref: 9e935d7d88abb57c3a63e12c2fffbfd470703b2f
     promotion:
       auto: true
       subscribe:
@@ -251,7 +251,7 @@ resourceTemplates:
   - name: osd-fleet-manager-integration-upgradetesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 7101874a44efb4db14accb703f319363a229ebba
+    ref: 9e935d7d88abb57c3a63e12c2fffbfd470703b2f
     promotion:
       auto: true
       subscribe:
