@@ -28,11 +28,13 @@ managedResourceNames:
 - resource: ClusterRoleBinding.rbac.authorization.k8s.io
   resourceNames:
   - qontract-reconcile-auth-delegator
+  - app-interface-namespace-admin
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
 openshiftResources:
+# app-interface configuration
 - provider: resource-template
   path: /services/sre-capabilities/app-interface.configmap.yml
   variables:
@@ -40,18 +42,26 @@ openshiftResources:
     dsn_secret_version: 1
 - provider: resource-template
   path: /services/sre-capabilities/app-interface.secret.yml
+# qontract server route
 - provider: resource-template
   path: /services/sre-capabilities/qontract-server.route.yml
   variables:
     instance_name: sre-capabilities-stage
-- provider: resource-template
-  path: /services/sre-capabilities/vault-auth-delegate.clusterrolebinding.yml
-  variables:
-    name: qontract-reconcile
+# sa for integrations
 - provider: resource-template
   path: /services/common/serviceaccount.yaml
   variables:
     name: qontract-reconcile
+# vault auth delegator
+- provider: resource-template
+  path: /services/sre-capabilities/vault-auth-delegate.clusterrolebinding.yml
+  variables:
+    name: qontract-reconcile
+# grant qontract-reconcile namespace admin
+# to manage integrations + namespace saas
+- provider: resource-template
+  path: /services/sre-capabilities/qontract-reconcile-admin.clusterrolebinding.yml
+# toml for integrations
 - provider: vault-secret
   path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-reconcile-toml
   version: 1
@@ -65,11 +75,12 @@ externalResources:
   provisioner:
     $ref: /aws/app-sre-stage/account.yml
   resources:
-  # the bucket for bundles
+  # bundle storage
   - provider: s3
     identifier: sre-capabilities-stage
     defaults: /terraform/resources/app-sre/app-interface-s3.yml
     output_resource_name: sre-capabilities-s3
+  # integrations logs
   - provider: cloudwatch
     identifier: sre-capabilities-stage-cloudwatch
     defaults: /terraform/resources/cloudwatch-1.yml
