@@ -23,12 +23,15 @@ managedResourceTypes:
 - Route
 - ServiceAccount
 - ClusterRoleBinding.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
 
 managedResourceNames:
 - resource: ClusterRoleBinding.rbac.authorization.k8s.io
   resourceNames:
   - qontract-reconcile-auth-delegator
-  - app-interface-namespace-admin
+- resource: RoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - qontract-reconcile-admin
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
@@ -60,7 +63,7 @@ openshiftResources:
 # grant qontract-reconcile namespace admin
 # to manage integrations + namespace saas
 - provider: resource-template
-  path: /services/sre-capabilities/qontract-reconcile-admin.clusterrolebinding.yml
+  path: /services/sre-capabilities/qontract-reconcile-admin.rolebinding.yml
 # toml for integrations
 - provider: vault-secret
   path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-reconcile-toml
