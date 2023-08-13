@@ -32,3 +32,7 @@ externalResources:
     identifier: stonesoup-remotesecret-secrets-manager
     secrets_prefix: remotesecret-prod
     output_resource_name: remotesecret-secrets-manager
+  - provider: s3
+    identifier: rh-artifacts-bucket
+    defaults: /terraform/resources/s3-all-expires-7-days.yml
+    output_resource_name: rh-artifacts-bucket
