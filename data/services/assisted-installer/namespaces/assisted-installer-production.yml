@@ -135,7 +135,7 @@ openshiftResources:
 - provider: vault-secret
   name: bug-master-secrets
   path: app-interface/assisted-installer/bug-master-secrets/production
-  version: 1    
+  version: 2
 
 managedRoles: true
 
