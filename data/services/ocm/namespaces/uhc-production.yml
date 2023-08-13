@@ -148,6 +148,23 @@ externalResources:
     identifier: rh-oidc
     defaults: /terraform/resources/ocm/s3-cloudfront-production.yml
     output_resource_name: rh-oidc-s3-secret
+  - provider: aws-iam-role
+    identifier: OrganizationAccountAccessRole
+    assume_role:
+      AWS:
+      # rhcontrol
+      - arn:aws:iam::922711891673:root
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+          }
+        ]
+      }
   - provider: s3
     identifier: rh-osd-network-verifier
     defaults: /terraform/resources/s3-private-1.yml
