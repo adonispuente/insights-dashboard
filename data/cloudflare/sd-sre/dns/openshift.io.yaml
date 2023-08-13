@@ -8,13 +8,6 @@ plan: enterprise
 account:
   $ref: /cloudflare/sd-sre/account.yml
 records:
-- name: forge.api.openshift.io
-  identifier: cname-forge-api-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-prod-01.i7w5.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
 - name: multicluster-demo.openshift.io
   identifier: a-multicluster-demo-openshift-io
   type: A
@@ -120,20 +113,6 @@ records:
   value: elb.apps.app-sre-prod-01.i7w5.p1.openshiftapps.com.
   proxied: false
   priority: 0
-- name: appdev.openshift.io
-  identifier: cname-appdev-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-prod-01.i7w5.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
-- name: launch.openshift.io
-  identifier: cname-launch-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-prod-01.i7w5.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
 - name: emr-deployment.api.prod-preview.openshift.io
   identifier: cname-emr-deployment-api-prod-preview-openshift-io
   type: CNAME
@@ -204,13 +183,6 @@ records:
   value: elb.openshift.io.
   proxied: false
   priority: 0
-- name: appdev.prod-preview.openshift.io
-  identifier: cname-appdev-prod-preview-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
 - name: sso.openshift.io
   identifier: cname-sso-openshift-io
   type: CNAME
@@ -244,20 +216,6 @@ records:
   type: CNAME
   ttl: 30
   value: openshift-helm-charts.github.io.
-  proxied: false
-  priority: 0
-- name: forge.api.prod-preview.openshift.io
-  identifier: cname-forge-api-prod-preview-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
-  proxied: false
-  priority: 0
-- name: launch.prod-preview.openshift.io
-  identifier: cname-launch-prod-preview-openshift-io
-  type: CNAME
-  ttl: 30
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
   proxied: false
   priority: 0
 - name: openshift.io
