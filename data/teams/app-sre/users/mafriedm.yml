@@ -14,7 +14,6 @@ tag_on_cluster_updates: false
 roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-emea-slack.yml
-- $ref: /cloudflare/devtools/roles/admin-read-only.yml
 
 public_gpg_key: |
   mQINBGIg4hQBEADmiGRE9yKqBL4vpdeJ0ViJAcoHK1ZkbkydKb9hrGd1sIhykgQcTXLBPYJGkkCG
