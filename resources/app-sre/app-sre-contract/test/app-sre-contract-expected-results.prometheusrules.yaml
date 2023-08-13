@@ -22,7 +22,7 @@ spec:
       expr: '1
 
         '
-      for: 1m
+      for: 1d
       labels:
         app: app-metadata-tests
         jiralert: TEST/app-metadata
@@ -41,7 +41,7 @@ spec:
       expr: '1
 
         '
-      for: 1m
+      for: 1d
       labels:
         app: app-metadata-tests
         jiralert: TEST/app-metadata
