@@ -7,4 +7,4 @@ name: devtools-cloudflare-admin-read-only
 permissions: []
 
 cloudflare_access:
-- $ref: /cloudflare/devtools/roles/cloudflare-admin-read-only.yml
+- $ref: /cloudflare/devtools/roles/cloudflare-access-admin-read-only.yml
