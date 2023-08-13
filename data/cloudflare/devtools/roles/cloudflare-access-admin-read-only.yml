@@ -1,0 +1,11 @@
+---
+$schema: /cloudflare/account-role-1.yml
+
+account:
+  $ref: /cloudflare/devtools/account.yml
+
+name: devtools-cloudflare-admin-read-only
+description: Read-only access to the devtools Cloudflare account
+
+roles:
+  - 'Administrator Read Only'
