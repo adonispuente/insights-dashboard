@@ -1,0 +1,10 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: devtools-cloudflare-admin-read-only
+
+permissions: []
+
+cloudflare_access:
+- $ref: /cloudflare/devtools/roles/cloudflare-access-admin-read-only.yml
