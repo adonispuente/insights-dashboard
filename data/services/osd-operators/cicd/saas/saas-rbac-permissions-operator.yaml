@@ -56,25 +56,25 @@ resourceTemplates:
       name: openshift-rbac-permissions-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: e747aa27d94f06cd75608a0c52abb3fe4d6a6eb2
+    ref: b9b9f9345682c4c2451c3c66bffc356047b323ea
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
