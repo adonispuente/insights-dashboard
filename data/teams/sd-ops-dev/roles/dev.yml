@@ -13,6 +13,8 @@ permissions:
 - $ref: /teams/sd-ops-dev/permissions/status-board-slack.yml
 # gitlab
 - $ref: /dependencies/gitlab/permissions/sd-ops-services-dev-member.yml
+# statuspage-exporter
+- $ref: /teams/sd-ops-dev/permissions/statuspage-exporter.yml
 
 access:
 - namespace:

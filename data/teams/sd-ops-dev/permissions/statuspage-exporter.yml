@@ -1,0 +1,11 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: statuspage-exporter
+description: members can contribute to statuspage-exporter
+
+service: github-org-team
+org: app-sre
+team: statuspage-exporter
