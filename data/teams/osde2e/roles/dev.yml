@@ -21,6 +21,7 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/osde2e/roles/dev.yml
+  - $ref: /teams/sd-sre/roles/sd-cicd.yml
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
