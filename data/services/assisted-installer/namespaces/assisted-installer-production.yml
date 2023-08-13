@@ -30,6 +30,8 @@ sharedResources:
 openshiftResources:
 - provider: route
   path: /services/assisted-installer/kibana-production.route.yaml
+- provider: route
+  path: /services/assisted-installer/bug-master-production.route.yaml
 - provider: resource
   path: /services/assisted-installer/kibana.serviceaccount.yaml
 - provider: route
