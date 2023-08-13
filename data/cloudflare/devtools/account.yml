@@ -18,3 +18,11 @@ terraformStateAccount:
 
 enforceTwofactor: true
 type: standard
+
+deletionApprovals:
+- type: cloudflare_record
+  name: launcher
+  expiration: '2023-08-30'
+- type: cloudflare_record
+  name: launcher-preview
+  expiration: '2023-08-30'
