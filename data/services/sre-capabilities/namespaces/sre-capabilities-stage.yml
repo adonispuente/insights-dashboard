@@ -46,6 +46,10 @@ openshiftResources:
   path: /services/common/serviceaccount.yaml
   variables:
     name: qontract-reconcile
+- provider: resource-template
+  path: /services/common/serviceaccount-token.secret.yml
+  variables:
+    name: qontract-reconcile
 # grant qontract-reconcile namespace admin
 # to manage integrations + namespace saas
 - provider: resource-template
@@ -56,6 +60,11 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+
+openshiftServiceAccountTokens:
+- namespace:
+    $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
+  serviceAccountName: qontract-reconcile
 
 managedExternalResources: true
 
