@@ -81,8 +81,9 @@ externalResources:
     identifier: ccx-data-pipeline-stage
     defaults: /terraform/resources/insights/stage/rds/postgres11-rds-1.yml
     overrides:
+      apply_immediately: true
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.16"
+      engine_version: "11.20"
     output_resource_name: ccx-data-pipeline-db
     enhanced_monitoring: true
     annotations:
@@ -94,9 +95,10 @@ externalResources:
     output_resource_name: ccx-notification-db
     enhanced_monitoring: true
     overrides:
+      apply_immediately: true
       allocated_storage: 100
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.16"
+      engine_version: "11.20"
     annotations:
       clowder/database: ccx-notification-writer
   - provider: cloudwatch
