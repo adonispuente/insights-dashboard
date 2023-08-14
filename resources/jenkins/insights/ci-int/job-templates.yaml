@@ -727,7 +727,7 @@
         default: '{run_unit_tests_stage}'
     pipeline-scm:
       # make parameter to override template name
-      script-path: 'frontends-pipeline-pr-checks/Jenkinsfile'
+      script-path: 'examples/frontends-pipeline-pr-checks/Jenkinsfile'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/cicd-tools.git'
@@ -735,10 +735,10 @@
           skip-tag: true
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
-          - 'mknop/frontends-template-scripts'
-        #   merge:
-        #       remote: origin
-        #       branch: '{branch}'
+          - '${{ghprbActualCommit}}'
+          merge:
+              remote: origin
+              branch: '{branch}'
           git-config-name: "AppSRE"
           git-config-email: "sd-app-sre@redhat.com"
           included-regions:
