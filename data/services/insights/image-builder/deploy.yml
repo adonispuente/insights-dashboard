@@ -90,6 +90,9 @@ resourceTemplates:
         PGSSLMODE: "require"
         QUOTA_FILE: "/app/config/quotas.json"
         ALLOW_FILE: "/app/config/allow_list.json"
+        CPU_LIMIT: 500m
+        MEMORY_REQUEST: 128Mi
+        MEMORY_LIMIT: 256Mi
       promotion:
         publish:
           - image-builder-stage-deploy-success-channel
