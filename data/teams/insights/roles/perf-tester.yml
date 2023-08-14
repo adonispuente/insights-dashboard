@@ -197,6 +197,7 @@ self_service:
   - /terraform/resources/insights/perf/rds/postgres13-rds-kruize-perf.yml
   - /terraform/resources/insights/perf/rds/postgres13-rds-ros-ocp-perf.yml
   - /terraform/resources/insights/perf/s3/s3-gdpr-14.yml
+  - /terraform/resources/insights/perf/s3/s3-gdpr-90.yml
   - /terraform/resources/insights/perf/sqs-insights-sideload-perf.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
