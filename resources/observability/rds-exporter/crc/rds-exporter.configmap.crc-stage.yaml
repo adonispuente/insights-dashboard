@@ -17,10 +17,6 @@ data:
     #   instance: advisor-stage-readonly
     #   disable_basic_metrics: true
     #   disable_enhanced_metrics: false
-    # - region: us-east-1
-    #   instance: approval-stage
-    #   disable_basic_metrics: true
-    #   disable_enhanced_metrics: false
     - region: us-east-1
       instance: automation-hub-stage
       disable_basic_metrics: true
