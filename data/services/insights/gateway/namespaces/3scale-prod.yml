@@ -53,8 +53,6 @@ openshiftResources:
   type: kubernetes.io/dockerconfigjson
   name: quay-cloudservices-pull
 - provider: resource
-  path: /insights-prod/3scale-prod/api-gateway-prod.route.yml
-- provider: resource
   path: /insights-prod/3scale-prod/gateway-prod.route.yml
 - provider: vault-secret
   path: insights/secrets/insights-prod/3scale-prod/apicast-configuration-url-secret
