@@ -19,10 +19,7 @@ app:
 environment:
   $ref: /products/insights/environments/perf.yml
 
-# networkPoliciesAllow:
-# - $ref: /services/observability/namespaces/openshift-customer-monitoring.crcs02ue1.yml
-# - $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-# - $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
+networkPoliciesAllow: []
 
 managedRoles: true
 
@@ -76,6 +73,8 @@ externalResources:
   - provider: s3
     identifier: insights-buck-it-openshift-perf
     defaults: /terraform/resources/s3-gdpr-1.yml
+    #sqs_identifier: insights-buck-it-openshift-perf
+    #s3_events: ["s3:ObjectCreated:*"]
     output_resource_name: insights-buck-it-openshift
   - provider: s3
     identifier: insights-buck-it-ansible-perf
@@ -84,9 +83,20 @@ externalResources:
   - provider: s3
     identifier: insights-sideload-aicoe-perf
     defaults: /terraform/resources/s3-gdpr-1.yml
-    # sqs_identifier: insights-sideload-aicoe-perf
-    # s3_events: ["s3:ObjectCreated:*"]
+    #sqs_identifier: insights-sideload-aicoe-perf
+    #s3_events: ["s3:ObjectCreated:*"]
     output_resource_name: insights-sideload-aicoe
+  #- provider: s3
+  #  identifier: insights-upload-puptoo
+  #  defaults: /terraform/resources/insights/production/s3/s3-oneday-1.yml
+  #- provider: elasticache
+  #  identifier: puptoo-elasticache
+  #  defaults: /terraform/resources/insights/stage/elasticache/elasticache-puptoo-1.yml
+  #  output_resource_name: in-memory-db
+
+  - provider: s3
+    identifier: insights-upload-tower-analytics-perf
+    defaults: /terraform/resources/insights/perf/s3/s3-gdpr-90.yml
   - provider: aws-iam-service-account
     identifier: ingress-buckets-read-write-perf
     variables:
@@ -105,7 +115,9 @@ externalResources:
               "arn:aws:s3:::insights-ingress-rejected-perf",
               "arn:aws:s3:::insights-buck-it-openshift-perf",
               "arn:aws:s3:::insights-buck-it-ansible-perf",
-              "arn:aws:s3:::insights-ingress-archives-perf"
+              "arn:aws:s3:::insights-ingress-archives-perf",
+              "arn:aws:s3:::insights-sideload-aicoe-perf",
+              "arn:aws:s3:::insights-upload-tower-analytics-perf",
             ]
           },
           {
@@ -118,7 +130,9 @@ externalResources:
               "arn:aws:s3:::insights-ingress-rejected-perf/*",
               "arn:aws:s3:::insights-buck-it-openshift-perf/*",
               "arn:aws:s3:::insights-buck-it-ansible-perf/*",
-              "arn:aws:s3:::insights-ingress-archives-perf/*"
+              "arn:aws:s3:::insights-ingress-archives-perf/*",
+              "arn:aws:s3:::insights-sideload-aicoe-perf/*",
+              "arn:aws:s3:::insights-upload-tower-analytics-perf/*",
             ]
           }
         ]
@@ -131,21 +145,71 @@ externalResources:
     user_policy:
       {
         "Version": "2012-10-17",
-        "Statement": [{
-          "Effect": "Allow",
-          "Action": [
-            "s3:ListBucket",
-            "s3:GetObject"
-          ],
-          "Resource": [
-            "arn:aws:s3:::insights-buck-it-openshift-perf",
-            "arn:aws:s3:::insights-buck-it-openshift-perf/*"
-          ]
-        }]
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:ListBucket",
+              "s3:GetObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::insights-buck-it-openshift-perf",
+              "arn:aws:s3:::insights-buck-it-openshift-perf/*"
+            ]
+          }
+        ]
       }
     output_resource_name: ingress-buck-it-openshift-read
   - provider: aws-iam-service-account
     identifier: ingress-buck-it-ansible-read-perf
+    variables:
+      aws_region: us-east-1
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:ListBucket",
+              "s3:GetObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::insights-buck-it-ansible-perf",
+              "arn:aws:s3:::insights-buck-it-ansible-perf/*"
+            ]
+          }
+        ]
+      }
+    output_resource_name: ingress-buck-it-ansible-read
+  - provider: aws-iam-service-account
+    identifier: ingress-data-hub-read-perf
+    variables:
+      aws_region: us-east-1
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:ListBucket",
+              "s3:GetObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::upload-perf",
+              "arn:aws:s3:::upload-perf/*",
+              "arn:aws:s3:::insights-ingress-archives-perf",
+              "arn:aws:s3:::insights-ingress-archives-perf/*",
+              "arn:aws:s3:::insights-warehouse-perf",
+              "arn:aws:s3:::insights-warehouse-perf/*"
+            ]
+          }
+        ]
+      }
+    output_resource_name: ingress-data-hub-read
+  - provider: aws-iam-service-account
+    identifier: hydra-ss-insights-qa-bucket-user
     variables:
       aws_region: us-east-1
     user_policy:
@@ -163,9 +227,9 @@ externalResources:
           ]
         }]
       }
-    output_resource_name: ingress-buck-it-ansible-read
+    output_resource_name: hydra-ss-insights-qa-bucket-user
   - provider: aws-iam-service-account
-    identifier: ingress-data-hub-read-perf
+    identifier: tower-analytics-read-write-perf-user
     variables:
       aws_region: us-east-1
     user_policy:
@@ -175,14 +239,12 @@ externalResources:
           "Effect": "Allow",
           "Action": [
             "s3:ListBucket",
-            "s3:GetObject"
+            "s3:*Object"
           ],
           "Resource": [
-            "arn:aws:s3:::upload-perf",
-            "arn:aws:s3:::upload-perf/*",
-            "arn:aws:s3:::insights-ingress-archives-perf",
-            "arn:aws:s3:::insights-ingress-archives-perf/*",
+            "arn:aws:s3:::insights-upload-tower-analytics-perf",
+            "arn:aws:s3:::insights-upload-tower-analytics-perf/*"
           ]
         }]
       }
-    output_resource_name: ingress-data-hub-read
+    output_resource_name: tower-analytics-read-write-perf-user
