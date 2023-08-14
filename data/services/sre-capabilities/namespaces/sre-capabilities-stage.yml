@@ -71,7 +71,7 @@ openshiftResources:
 # toml for integrations
 - provider: vault-secret
   path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-reconcile-toml
-  version: 1
+  version: 2
   annotations:
     qontract.recycle: "true"
 
