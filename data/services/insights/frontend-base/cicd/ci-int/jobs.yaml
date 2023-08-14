@@ -104,9 +104,15 @@ config:
         branch: "master-stable"
 
     # Frontends build deploy POC work
-    - "insights-gh-pipeline":
+    - "insights-gh-pipeline-experimental":
         display_name: insights-chrome frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
+        run_cypress_component_stage: 'true'
+        run_cypress_e2e_tests_stage: 'true'
+        run_frontend_build_stage: 'true'
+        run_iqe_tests_stage: 'true'
+        run_lint_stage: 'true'
+        run_unit_tests_stage: 'true'
 
 - project:
     name: frontend-configs
