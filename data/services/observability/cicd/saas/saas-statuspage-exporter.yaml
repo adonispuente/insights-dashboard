@@ -43,3 +43,5 @@ resourceTemplates:
       NAME: statuspage-exporter
       TOKEN_SECRET_NAME: status.redhat.com
       TOKEN_SECRET_KEY: token
+      # Red Hat page
+      PAGE_ID: dn6mqn7xvzz3
