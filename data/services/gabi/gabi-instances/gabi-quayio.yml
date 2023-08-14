@@ -24,6 +24,7 @@ users:
 - $ref: /teams/quay/users/bcaton.yml
 - $ref: /teams/quay/users/bdettelb.yml
 - $ref: /teams/quay/users/sdadi.yml
+- $ref: /teams/app-sre/users/kwilczynski.yml
 
 instances:
 - account: quayio-stage
