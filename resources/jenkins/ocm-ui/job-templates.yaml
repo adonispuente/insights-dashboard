@@ -36,6 +36,7 @@
         secrets:
         - *ocm_selenium_tests
         - *quay_secret_pull
+        - *quay_secret_push
         - *insights_rh_registry_pull_secret
     - ansicolor
     publishers:
