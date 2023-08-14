@@ -43,6 +43,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
     ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
+    delete: true
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
@@ -69,6 +70,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/eventing/namespaces/stage-eventing-stage.yml
     ref: ec87fc1552ba6af813646efeab9b43ae05f3bc9e
+    delete: true
 # The following block is commented out because we need to deploy a specific commit hash in stage
 #    upstream:
 #      instance:
