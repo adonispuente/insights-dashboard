@@ -9,4 +9,58 @@ github_username: bjoydeep
 
 roles:
 - $ref: /teams/advanced-cluster-management/roles/member.yml
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
 
+public_gpg_key: |
+  mQINBGTXvm4BEADQCU9iNtVCCxGQy/kc+10jjBPrVLmcEmuD36gzc0h/Yk33RTLa
+  6qMQtea0eFFN6ruJo7yDm4sAzZ5AMxZIbsp0wrP2pMwcGw93Hlf3c+ZVMRYcuAtL
+  emCs5T3H80OhjKrOk4zPVDmuJWHIWqWuRkXzLuavmVPQFnqdNTJy8gckSe0NnzAl
+  pCHnXnWAlDDz6HWUKUgofPHz/5tS/xtNAmR9ucs0IsaSxSdTJAkwSaauUF/H4tiM
+  dBBN9ranlOQxVr5lUShhg/LeQjHWAwusXg7gqX3dOyz4UOaswpZrkJJX5jdde7VC
+  Xu74ILIRxNK4qsbQKLv3SSDKArgaY9P1tBNEKbHJzP7H7g5xaD74dKq2n5DRLPeW
+  IXRZ0BhNElrGsat/nl7sYw/nZcX2dQFmubiPcS+CTBQ51vrPOKuunFcZwUanIbvg
+  PVOMajy47bxTH03Ju9iDi0FG+sNqVWM6T0jR499figCazSql4v0ycUXyX8jYmcNl
+  dLNTLx6SorKTQaRto5K9076tdQtwpRR7fC/ejBycoCmye/QBSrFLq0nAAKbNbgsJ
+  K091sDajT3LNYEfVRkLbCfKKw3kcmBmUieTJsUQPqYdZGc/N0+m5NWL0UQcqp6Kw
+  ouuLInFHSF3f/ojfCaoVFAZr4cviXTHhgPGpWXU8vuolu4jbFSP/lOqcJwARAQAB
+  tCZKb3lkZWVwIEJhbmVyamVlIDxqYmFuZXJqZUByZWRoYXQuY29tPokCUQQTAQgA
+  OxYhBLoglIQ57410siTDtoz44qdnQhbtBQJk175uAhsDBQsJCAcCAiICBhUKCQgL
+  AgQWAgMBAh4HAheAAAoJEIz44qdnQhbtDA0P/jIWfehdl0pgd7gKHxsk7oquP7xN
+  gc52hgXOZwVCJ5iFWz3YNbbp0elkMsA/GigfNktkLvvdx9myUp0QR6VxeNIfSWQC
+  P/VQmbFKNWbuM/qQWKlQnFilUmfRCxWDk4uPMDztYpGhmGwK3KHFlbth12lZ4j2q
+  aaCzRzCLGgx198lE9SNyG3JfD9JWy0eY+BUJ3/5FsT2x33NafwYxmPsTHm/JzgaJ
+  5LiMdRlrJfxO+Z4t4yS40h/t/tHevNXAd4RjSFixBQjJWgABuexb0RPwAtVyJJBM
+  t7PPFolBy1wOK8xHdJe943xz3JOX8Ir3+c4SUp+W1Yor+6NY6Vjg6oruJ6Yd6oRb
+  1S5Hmy1+W3vuAc0QT9TVg4wl9llMTmOoMu2qIx3bDYHth/xFLPGEUDUuiyqmObJT
+  gj8Z3idIppKyvVidHtB0KoLu8MMfDFybCvC4hbbMx6EPkjd2IEb5V7VzAnLe1AZF
+  2SQ2XodxpooOVuYcm0RgjnkIfirUcBPlZCAEhjJuUFDVtxz5WWpif3pSG4tLybRB
+  mFIi0zeOLuzX6557HjsPPfAuv9PLC+nzhq4wDbyMINCnyb7tUFm0EnXfSMIvs8G2
+  b63f2a+rWg+luKGlKkFifPsqrJL77vT/2x5TlvC2Nh7NViIjPrgJ1QfQgdAfilB1
+  DU8qoUKk1zQgW/JTuQINBGTXvm4BEACsro3D3ejfREAXs7DjfZDZd9rb3WW1yn8S
+  4inUUfSlGxZ9A+SCv97aleXzbgznqfZ7OhF3sa7SKIxHJGuL2CaSC+CqxKzuvE7n
+  NlfXfjrzjOdDfgVMy1r41inEL0qmHd4A8tCrlhtSnUJ5lfvHbTr+5Mxd30iaDSEj
+  5K3CdSzBZBlAptlvcs5HMZsBsdKgEqFDHkGFyYSizg6addNY0aWrXnSW4cBWMTmr
+  cotHoKJGk6BFGUjuRUWdGdsL5fJalZigvB0mKocL4SHCwlIovyKcOB+8zKDl9IqB
+  7ptmSJegzGS05vdmBwyhpD4XoASviRHhHrbWYIln0otE7189H+Q85L4wKvgYIPEA
+  R5ixCxIethKpYXFIJlSYOukJpDJEzcuspULfHrxJLBTYIyZh5lrTFrUjrwJat5xv
+  uV6WAmeRPLsh0YeERYtUM+Hq7lsMHWp09SAr7uyM1aWS940SRZbco3b4SkLgXnZb
+  4f32XBqg0gVzZu3Vu5nt5q+qhy8sxfMq9vkX7U6wzjXez9CnjEm5XY4ftt2FJOgl
+  qEpv0b/cksTzmG8Do5hw8y2/fjfY+qpQLt0wZLa58fJ5xXa9X4CCGLpX5rUOuI2b
+  PIgu/bCUEu0I6s+u5Vvb2qNZwZK4t/vVp4R4mFPrdzLajewfy/h5a6xmqNpCxgnt
+  NJ+bizN2SwARAQABiQI2BBgBCAAgFiEEuiCUhDnvjXSyJMO2jPjip2dCFu0FAmTX
+  vm4CGwwACgkQjPjip2dCFu1vqBAAtcu3WHkv1j+3JNbMHI72IagOazDGfCITZ527
+  n9WgNRpNaS4sadu3YQ25CFwdrRqtiPF0jHPtRziQS7e9krKBjqJEjo/1Jo/rujyf
+  sGNAxWyOKNazUQbW5Usytn05DbIviPbIvJ8+vcY/uVgY39O1oTi7Q3vXd8nHXrF4
+  b6EUY7vAI7IaPoflgybLEScwJH6mSaHNF2IVCLuV+4LGfP5g9jtjIstH5Q5pP5z/
+  0YD4ctpuek5zrbHdaVJe3QOhJHGkSjsGLdSt294noXCA4Q0siKQKsdlK7DUEJrs0
+  f6PP1mvZp3rHoiOIHP9pKvQxHVWJSMEuRGV5GIhkeK3wKyrXw578g+PJxCNyhwsh
+  6+LNwC7sltx0EIZm9HQ27T3f53+49mrc+pP7e7H3FGXU3AscE9FADB8VzwKqnWiz
+  7togKbtbxmOaZU4x/ZFfWZGLaLDL8B6XUkMt9ZwFt9PBFYH05HI0B2QC0knXVoBV
+  L7eIpanVRB3K6qZ2i7np1cAJK3TFHb9/dqMSgV2OaGbpJ4Vde0DLNxk65CL8UUYP
+  ClWK6iTbV6FjCXb11C8kHhPJUq/y2u8s/gcgtweKt7j0xqcYsg7BtXUwklU6k/El
+  xq3n6pHoaatxrQVUylDaNnW5jR7Ej04ihtEQ2FBqhHp5788RJDBm4m3RtlZt7K8b
+  jYLNldA=
