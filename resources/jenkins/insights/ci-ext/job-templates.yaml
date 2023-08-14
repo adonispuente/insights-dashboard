@@ -318,6 +318,9 @@
     - shell:
         command: "{ci_cmd}"
 
+# Wrappers and Publishers are ignored for 'Pipeline' project type
+# https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/wrappers.py#L3003-L3006
+# https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/publishers.py#L8338-L8341
 - job-template:
     id: 'insights-gh-pipeline'
     name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
@@ -384,34 +387,10 @@
     <<: *gh_properties
     builders:
     - *stack_analysis
-    wrappers:
-    - timestamps
-    - timeout_wrapper:
-        timeout: '{timeout}'
-    - ansicolor
-    - vault-secrets:
-        <<: *vault_defaults
-        secrets:
-        - *insights_crcd_oc_login
-        - *insights_ephemeral_oc_login
-        - *app_interface_creds
-        - *insights_rh_registry_pull_secret
-        - *quay_secret_push
-        - *quay_api_token
-        - *insightsdroid_github
-        - *ibutsu
-    publishers:
-    - junit:
-        results: 'artifacts/junit-*.xml'
-    - archive:
-        artifacts: 'artifacts/**/*'
-    - slack:
-        room: '{slack_channel_notification}'
-        notify-start: false
-        notify-success: false
-        notify-failure: true
-        notify-repeated-failure: true
 
+# Wrappers and Publishers are ignored for 'Pipeline' project type
+# https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/wrappers.py#L3003-L3006
+# https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/publishers.py#L8338-L8341
 - job-template:
     id: 'insights-gh-pipeline-multibranch'
     name: '{gh_org}-{gh_repo}-pipeline-multibranch'
