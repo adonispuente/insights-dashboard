@@ -41,7 +41,6 @@ self_service:
   - $ref: /services/insights/ephemeral/app.yml
   - $ref: /services/insights/fakamai/app.yml
   - $ref: /services/insights/devprod/app.yml
-  - $ref: /services/insights/mnm/app.yml
   - $ref: /services/insights/postgres-exporter/app.yml
   - $ref: /services/insights/operational-metrics/app.yml
   - $ref: /services/insights/frontend-base/app.yml
