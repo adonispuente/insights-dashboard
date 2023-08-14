@@ -905,6 +905,8 @@ openshiftResources:
   variables:
     namespace: app-sre-observability-stage
     name: aws-resource-exporter-osd-privatelink-stage
+
+### statuspage-exporter
 - provider: resource-template
   type: jinja2
   path: /observability/servicemonitors/statuspage-exporter.servicemonitor.yaml
