@@ -273,8 +273,8 @@ resourceTemplates:
       IMAGE_TAG_JOBS: 096d2f0 # v3.4.22
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
-      ADVISORY_REFRESH_SUSPEND: 'false'
-      PKG_REFRESH_SUSPEND: 'false'
+      ADVISORY_REFRESH_SUSPEND: 'true'
+      PKG_REFRESH_SUSPEND: 'true'
       DB_READ_REPLICA_ENABLED_JOBS: 'true'
 
       # Floorist parameters
