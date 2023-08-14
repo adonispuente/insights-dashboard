@@ -21,6 +21,7 @@
     - [Test provisioning an AWS cluster](#test-provisioning-an-aws-cluster)
     - [Test provisioning a GCP cluster](#test-provisioning-a-gcp-cluster)
     - [Test that private clusters can be provisioned](#test-that-private-clusters-can-be-provisioned)
+    - [Test creation of hypershift clusters](#test-creation-of-hypershift-clusters)
   - [Disabling shards from rotation](#disabling-shards-from-rotation)
     - [Verify that at least one round of osde2e tests ran successfully when using the new shard. Dashboards:](#verify-that-at-least-one-round-of-osde2e-tests-ran-successfully-when-using-the-new-shard-dashboards)
   - [OSD operators notes](#osd-operators-notes)
