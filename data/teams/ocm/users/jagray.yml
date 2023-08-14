@@ -1,0 +1,66 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Jakob Gray
+org_username: jagray
+github_username: JakobGray
+quay_username: jakobgray
+tag_on_cluster_updates: false
+
+roles:
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/sd-a-team-member.yml
+- $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /aws/app-sre/roles/log-consumer-rds.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
