@@ -196,7 +196,7 @@ resourceTemplates:
       PRELOAD_ADVISORY_DETAIL_CACHE: 'true'
       SCHEMA_MIGRATION: "-1"
       GOMEMLIMIT_MANAGER: '1843MiB'
-      DB_READ_REPLICA_ENABLED: 'true'
+      DB_READ_REPLICA_ENABLED: 'false'
 
       # Listener
       REPLICAS_LISTENER: '3'
@@ -275,7 +275,7 @@ resourceTemplates:
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
       ADVISORY_REFRESH_SUSPEND: 'true'
       PKG_REFRESH_SUSPEND: 'true'
-      DB_READ_REPLICA_ENABLED_JOBS: 'true'
+      DB_READ_REPLICA_ENABLED_JOBS: 'false'
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'
