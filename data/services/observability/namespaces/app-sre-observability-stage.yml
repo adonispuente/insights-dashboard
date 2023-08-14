@@ -137,7 +137,7 @@ openshiftResources:
 
 ## Statuspage Exporter
 - provider: vault-secret
-  path: app-sre/creds/statuspage-exporter
+  path: app-sre/creds/status.redhat.com
   version: 1
 
 ## AWS Resource exporter
