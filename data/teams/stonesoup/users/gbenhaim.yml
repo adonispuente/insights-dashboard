@@ -15,6 +15,7 @@ roles:
 - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+- $ref: /teams/stonesoup/roles/rh-artifacts-bucket-read.yml
 
 public_gpg_key: |
   mQENBFdiaJABCADiyOu3dPCnPvEQT7AiK3iSvolVd+P2GYanGRvPCJ01+8PXy51Akel7OqdFmwI5

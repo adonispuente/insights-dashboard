@@ -1,0 +1,31 @@
+---
+$schema: /aws/policy-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/stonesoup-prod/account.yml
+
+name: RHArtifactsBucketRead
+description: |
+    Allows a user to access the s3 buckets that contain artifacts produced by RHTAP (Stonesoup) pipelines
+
+policy:
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "RHArtifactsBucketRead",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:ListBucket"
+        ],
+        "Resource": [
+          "arn:aws:s3:::rh-artifacts-bucket",
+          "arn:aws:s3:::rh-artifacts-bucket/*"
+        ]
+      }
+    ]
+  }
+
