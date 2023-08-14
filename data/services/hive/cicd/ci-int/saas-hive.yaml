@@ -71,22 +71,22 @@ resourceTemplates:
       name: openshift-hive-gh-build-master
   - namespace:
       $ref: /services/hive/namespaces/hivep01ue1/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep02ue1/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep03uw1/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep04ew2/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep05ue1/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep06uw2/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep07ue2/hive-production.yml
-    ref: 6aa3fa8754eab1bb5f2bbb25df1ff1f83bc55eda
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
