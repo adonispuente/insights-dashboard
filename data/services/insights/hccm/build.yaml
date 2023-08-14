@@ -113,26 +113,6 @@ config:
     jobs:
     - "insights-gh-pr-check":
         display_name: hccm-frontend pr-check
-    - "insights-gh-pipeline":
-        display_name: hccm-frontend pipeline-main
-        branch: main
-        concurrent_build: true
-        status_context: ci.ext.devshift.net PR pipeline-main
-    - "insights-gh-pipeline":
-        display_name: hccm-frontend pipeline-stage-stable
-        branch: stage-stable
-        concurrent_build: true
-        status_context: ci.ext.devshift.net PR pipeline-stage-stable
-    - "insights-gh-pipeline":
-        display_name: hccm-frontend pipeline-prod-beta
-        branch: prod-beta
-        concurrent_build: true
-        status_context: ci.ext.devshift.net PR pipeline-prod-beta
-    - "insights-gh-pipeline":
-        display_name: hccm-frontend pipeline-prod-stable
-        branch: prod-stable
-        concurrent_build: true
-        status_context: ci.ext.devshift.net PR pipeline-prod-stable
     - "insights-gh-build-master":
         display_name: hccm-frontend build-main
         branch: main
