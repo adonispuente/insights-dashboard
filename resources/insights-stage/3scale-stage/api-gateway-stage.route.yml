@@ -4,6 +4,8 @@ metadata:
   labels:
     app: 3scale-gateway
   name: api-gateway-stage
+  annotations:
+    haproxy.router.openshift.io/timeout: 60s
 spec:
   host: {{ host }}
   port:
