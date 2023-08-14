@@ -143,7 +143,7 @@ resourceTemplates:
       - advisor-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/advisor/namespaces/advisor-prod.yml
-    ref: e58bb8524d26f74d371a6578c0d77347a51bbb40
+    ref: 3f64ce0c3fb70f1580f63324359bd5c718122eb7
     promotion:
       auto: true
       subscribe:
