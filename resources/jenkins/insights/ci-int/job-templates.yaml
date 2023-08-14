@@ -666,8 +666,6 @@
 - job-template:
     id: 'insights-gh-pipeline-experimental'
     name: '{gh_org}-{gh_repo}-pipeline-experimental-{branch}'
-    concurrent: '{concurrent_build}'
-    jenkinsfile_path: 'frontends-pipeline-pr-checks/Jenkinsfile'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
@@ -729,7 +727,7 @@
         default: '{run_unit_tests_stage}'
     pipeline-scm:
       # make parameter to override template name
-      script-path: 'Jenkinsfile'
+      script-path: 'frontends-pipeline-pr-checks/Jenkinsfile'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/cicd-tools.git'
