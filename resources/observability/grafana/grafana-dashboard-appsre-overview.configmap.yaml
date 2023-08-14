@@ -940,7 +940,7 @@ data:
                 "uid": "P2C3F6ECC774D80E6"
               },
               "editorMode": "code",
-              "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\"}[24h] offset -24h))",
+              "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\"}[24h] offset -24h)) OR on() vector(0)",
               "interval": "1d",
               "legendFormat": "all merge requests",
               "range": true,
@@ -952,7 +952,7 @@ data:
                 "uid": "P2C3F6ECC774D80E6"
               },
               "editorMode": "code",
-              "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\",self_service=\"False\",auto_merge!=\"True\",app_sre!=\"True\"}[24h] offset -24h))",
+              "expr": "sum(increase(qontract_reconcile_merged_merge_requests_total{project_id=\"13582\",self_service=\"False\",auto_merge!=\"True\",app_sre!=\"True\"}[24h] offset -24h)) OR on() vector(0)",
               "hide": false,
               "interval": "1d",
               "legendFormat": "non self-serviceable merge requests",
