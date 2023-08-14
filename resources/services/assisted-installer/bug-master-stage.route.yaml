@@ -8,7 +8,7 @@ metadata:
     app: bug-master
   name: bug-master-route
 spec:
-  host: "bug-master-assisted-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com"
+  host: "bug-master-assisted-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com"
   port:
     targetPort: "8080"
   to:
