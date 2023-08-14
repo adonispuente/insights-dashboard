@@ -38,7 +38,7 @@ resourceTemplates:
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
-      name: app-sre-statuspage-exporter-gh-build-master
+      name: app-sre-statuspage-exporter-gh-build-main
     parameters:
       NAME: statuspage-exporter
       TOKEN_SECRET_NAME: statuspage-exporter
