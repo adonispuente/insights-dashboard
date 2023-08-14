@@ -442,7 +442,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: af073ac65d384d673ac74e142410eeb2d2c11ca7
+    ref: a427f0dad307c9c307768f2087ea64e4fde9ed55
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/seats-admin-ui"
