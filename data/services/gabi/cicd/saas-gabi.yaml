@@ -699,6 +699,8 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: quay-db-config-gabi-secret
       GABI_INSTANCE: gabi-quayio
       DB_DRIVER: mysql
+      OAUTH_PROXY_UPSTREAM_TIMEOUT: 300s
+      REQUEST_TIMEOUT: 300s
   - namespace:
       $ref: /services/status-board/namespaces/stage.yml
     ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
