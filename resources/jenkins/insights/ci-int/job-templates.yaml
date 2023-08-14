@@ -734,7 +734,7 @@
           skip-tag: true
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
-          - 'main'
+          - 'mknop/frontends-template-scripts'
         #   merge:
         #       remote: origin
         #       branch: '{branch}'
