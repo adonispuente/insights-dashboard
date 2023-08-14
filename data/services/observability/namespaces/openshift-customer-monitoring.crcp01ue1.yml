@@ -528,11 +528,6 @@ openshiftResources:
   tests:
   - /insights-prod/ros-prod/ros.prometheusrules-tests.yml
 - provider: prometheus-rule
-  path: /insights-prod/eventing-prod/eventing-prometheusrules.yaml
-  type: resource
-  tests:
-  - /insights-prod/eventing-prod/eventing-prometheusrulestests.yaml
-- provider: prometheus-rule
   path: /insights-prod/malware-detection-prod/malware-detection.prometheusrules.yaml
   type: resource
   tests:

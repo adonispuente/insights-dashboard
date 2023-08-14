@@ -16,6 +16,3 @@ The vast majority of events are handled without issue in typically 98% or 100% s
  can be queried again; we are sending critical notifications once to third party services that customers might not otherwise see without visiting their Insights Dashboard.
 
 Events should empty from the kafka topic in a timely manner.  If it takes each event longer than one second per message, we want to be alerted as this could indicate a problem early before it starts effecting the handled success rate above which would impact the customers.
-
-## Alerts
-We have set up Alerts for both handled event success rate and kafka lag over in https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/insights-prod/eventing-prod/eventing-prometheusrules.yaml
