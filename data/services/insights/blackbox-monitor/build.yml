@@ -5,7 +5,7 @@ labels:
   service: blackbox-monitor
 
 name: ci-int-blackbox-jobs
-description: catalog ci-int jobs
+description: blackbox ci-int jobs
 
 app:
   $ref: /services/insights/blackbox-monitor/app.yml

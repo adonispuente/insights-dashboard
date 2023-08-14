@@ -17,14 +17,8 @@ product:
 
 parameters:
   ADVISOR_HOST: insights-advisor-api.advisor-prod.svc.cluster.local
-  APPROVAL_PROCESS_HOST: approval-process-pam.approval-process-prod.svc.cluster.local
-  APPROVAL_PROCESS_PORT: '8000'
   BACKOFFICE_CLIENT_ENV: prod
   BACKOFFICE_HOST: backoffice-proxy.apps.ext.spoke.prod.us-west-2.aws.paas.redhat.com
-  CATALOG_HOST: catalog-api.catalog-prod.svc.cluster.local
-  CATALOG_INVENTORY_HOST: catalog-inventory-api.catalog-inventory-prod.svc.cluster.local
-  CATALOG_INVENTORY_PORT: '8000'
-  CATALOG_PORT: '8000'
   CLOUD_CONNECTOR_HOST: cloud-connector.cloud-connector-prod.svc.cluster.local
   CLOUD_CONNECTOR_PORT: '8080'
   COMPLIANCE_HOST: compliance-service.compliance-prod.svc.cluster.local

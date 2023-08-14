@@ -121,8 +121,6 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/sources/sources-satellite.servicemonitor.yml
 - provider: resource
-  path: /insights-prod/catalog-prod/catalog.servicemonitor.yml
-- provider: resource
   path: /insights-prod/compliance-prod/compliance-prometheus-exporter.servicemonitor.yml
 - provider: resource
   path: /insights-prod/floorist-operator-system/floorist-operator.servicemonitor.yml
