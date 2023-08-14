@@ -232,17 +232,6 @@ upgradePolicyClusters:
       sector: migrationtesting
       soakDays: 0
       mutexes: []
-- name: hs-sc-174p9qa8g
-  upgradePolicy:
-    workloads:
-# Incident rehearsal workloads are updated to "dummy" to essentially remove them from the offical service/mgmt cluster
-# upgrade chains.
-    - dummy
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: incidentrehearsal
-      soakDays: 0
-      mutexes: []
 - name: hs-mc-9c1o9bbsg
   upgradePolicy:
     workloads:
