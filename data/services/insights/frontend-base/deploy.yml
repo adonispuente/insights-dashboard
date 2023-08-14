@@ -460,14 +460,14 @@ resourceTemplates:
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: af073ac65d384d673ac74e142410eeb2d2c11ca7
+    ref: a427f0dad307c9c307768f2087ea64e4fde9ed55
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/seats-admin-ui"
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: bf90913402df1f217de0fee5c3d46cc4716c889b
+    ref: a427f0dad307c9c307768f2087ea64e4fde9ed55
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/seats-admin-ui"
