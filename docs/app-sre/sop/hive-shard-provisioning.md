@@ -445,8 +445,7 @@ EOJ
 Some IDs/ARNs might need to be updated. Best is to check using ocm get on one of the existing clusters. (Please do not use production VPCs for testing!)
 
 Example: 
-```
-
+```shell
 ocm post /api/clusters_mgmt/v1/clusters <<EOJ
 {
     "name": "jbolltest-hcp",
@@ -470,7 +469,8 @@ ocm post /api/clusters_mgmt/v1/clusters <<EOJ
     },
     "properties": {
         "rosa_cli_version": "1.2.22",
-        "rosa_creator_arn": "arn:aws:iam::366871242094:user/terraform"
+        "rosa_creator_arn": "arn:aws:iam::366871242094:user/terraform",
+        "provision_shard_id": "11015a3e-9e4d-4cf1-93d7-06fb2cf83a1c"
     },
     "aws": {
       "account_id": "366871242094",
