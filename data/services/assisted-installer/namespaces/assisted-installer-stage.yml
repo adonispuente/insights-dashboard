@@ -30,6 +30,8 @@ sharedResources:
 openshiftResources:
 - provider: route
   path: /services/assisted-installer/kibana-stage.route.yaml
+- provider: route
+  path: /services/assisted-installer/bug-master-stage.route.yaml
 - provider: resource
   path: /services/assisted-installer/kibana.serviceaccount.yaml
 - provider: route
@@ -139,7 +141,7 @@ openshiftResources:
 - provider: vault-secret
   name: bug-master-secrets
   path: app-interface/assisted-installer/bug-master-secrets/stage
-  version: 1
+  version: 2
 
 managedRoles: true
 
