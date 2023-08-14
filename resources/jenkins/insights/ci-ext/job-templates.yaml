@@ -392,9 +392,10 @@
 # https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/wrappers.py#L3003-L3006
 # https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/publishers.py#L8338-L8341
 - job-template:
-    id: 'insights-gh-pipeline-multibranch'
-    name: '{gh_org}-{gh_repo}-pipeline-multibranch'
-    project-type: multibranch
+    id: 'insights-gh-pipeline-experimental'
+    name: '{gh_org}-{gh_repo}-pipeline-experimental-{branch}'
+    slack_channel_notification: 'consoledot-development-fails'
+    project-type: pipeline
     parameters:
     - string:
         name: VAULT_ADDRESS
@@ -418,19 +419,58 @@
         name: VAULT_PATH_QUAY_TOKEN
         default: 'insights-cicd/quay/{quay_org}'
     - string:
-        name: VAULT_PATH_CHROME_CYPRESS
-        default: 'insights-cicd/chrome'
-    script-path: 'Jenkinsfile'
-    scm:
-    - github:
-        repo-owner: '{gh_org}'
-        repo: '{gh_repo}'
-        credentials-id: '{github_ssh_credentials}'
-        branch-discovery: only-pr
-        prune: true
-        clean:
-            before: true
-            after: true
+        name: VAULT_PATH_APP_INTERFACE_CREDS
+        default: 'app-sre/creds/app-interface/production/basic-auth'
+
+    # Parameters to set which stages will run
+    - string:
+        name: PROJECT_NAME
+    - string:
+        name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_CYPRESS_E2E_TESTS_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_FRONTEND_BUILD_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_IQE_TESTS_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_LINT_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_UNIT_TESTS_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    pipeline-scm:
+      # make parameter to override template name
+      script-path: 'Jenkinsfile'
+      scm:
+      - git:
+          url: 'git@github.com:{gh_org}/cicd-tools.git'
+          credentials-id: '{github_ssh_credentials}'
+          skip-tag: true
+          refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+          branches:
+          - 'main'
+        #   merge:
+        #       remote: origin
+        #       branch: '{branch}'
+          git-config-name: "AppSRE"
+          git-config-email: "sd-app-sre@redhat.com"
+          included-regions:
+          - '{include_path}'
+          prune: true
+          clean:
+              before: true
+          wipe-workspace: true
     triggers:
         - github-pull-request:
             <<: *insights_default_ghprb_triggers_cfg
@@ -438,8 +478,38 @@
     disabled: '{disable}'
     node: '{node}'
     concurrent: '{concurrent_build}'
+    run_stack_analysis_path: ''
     max_previous_builds_count: 20
     <<: *gh_properties
+    builders:
+    - *stack_analysis
+    wrappers:
+    - timestamps
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *insights_crcd_oc_login
+        - *insights_ephemeral_oc_login
+        - *app_interface_creds
+        - *insights_rh_registry_pull_secret
+        - *quay_secret_push
+        - *quay_api_token
+        - *insightsdroid_github
+        - *ibutsu
+    publishers:
+    - junit:
+        results: 'artifacts/junit-*.xml'
+    - archive:
+        artifacts: 'artifacts/**/*'
+    - slack:
+        room: '{slack_channel_notification}'
+        notify-start: false
+        notify-success: false
+        notify-failure: true
+        notify-repeated-failure: true
 
 - job-template:
     id: 'insights-gh-scheduled-rebuild'
