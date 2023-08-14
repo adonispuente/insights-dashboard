@@ -35,6 +35,8 @@ resourceTemplates:
     REGISTRY_IMG: quay.io/app-sre/package-operator-manager
     PACKAGE_IMG: quay.io/app-sre/package-operator-package
   targets:
+  # INTEGRATION
+  # -----------
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: internal
@@ -42,13 +44,16 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: lp-sre-package-operator-gl-build-internal
+  # STAGING
+  # -------
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 37a8671b86da7c140449513060466e742537e359
-  # The one below is staging too.
+    ref: 87d2c3573be59e049a61d276189e2d47cdd7291f
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 37a8671b86da7c140449513060466e742537e359
+    ref: 87d2c3573be59e049a61d276189e2d47cdd7291f
+  # PRODUCTION
+  # ----------
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
     ref: 37a8671b86da7c140449513060466e742537e359
@@ -77,6 +82,8 @@ resourceTemplates:
     REGISTRY_IMG: quay.io/app-sre/package-operator-manager
     PACKAGE_IMG: quay.io/app-sre/package-operator-package
   targets:
+  # INTEGRATION
+  # -----------
   - namespace:
       $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
     ref: internal
@@ -84,13 +91,16 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: lp-sre-package-operator-gl-build-internal
+  # STAGING
+  # -------
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 37a8671b86da7c140449513060466e742537e359
-  # The one below is staging too.
+    ref: 87d2c3573be59e049a61d276189e2d47cdd7291f
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 37a8671b86da7c140449513060466e742537e359
+    ref: 87d2c3573be59e049a61d276189e2d47cdd7291f
+  # PRODUCTION
+  # ----------
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
     ref: 37a8671b86da7c140449513060466e742537e359
