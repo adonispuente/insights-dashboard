@@ -271,7 +271,3 @@ recommendedVersions:
   channel: stable
   recommendedVersion: 4.12.27
   initialVersion: openshift-v4.12.27
-- workload: dummy
-  channel: stable
-  recommendedVersion: 4.12.27
-  initialVersion: openshift-v4.12.27
