@@ -25,6 +25,12 @@ managedResourceTypes:
 - ClusterRoleBinding.rbac.authorization.k8s.io
 - RoleBinding.rbac.authorization.k8s.io
 
+
+managedResourceNames:
+- resource: ClusterRoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - sre-capabilities-stage-auth-delegator
+
 sharedResources:
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
