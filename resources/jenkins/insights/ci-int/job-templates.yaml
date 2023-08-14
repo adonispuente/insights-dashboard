@@ -729,15 +729,15 @@
       script-path: 'Jenkinsfile'
       scm:
       - git:
-          url: 'git@github.com:{gh_org}/{gh_repo}.git'
+          url: 'git@github.com:{gh_org}/cicd-tools.git'
           credentials-id: '{github_ssh_credentials}'
           skip-tag: true
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
-          - '${{ghprbActualCommit}}'
-          merge:
-              remote: origin
-              branch: '{branch}'
+          - 'main'
+        #   merge:
+        #       remote: origin
+        #       branch: '{branch}'
           git-config-name: "AppSRE"
           git-config-email: "sd-app-sre@redhat.com"
           included-regions:
