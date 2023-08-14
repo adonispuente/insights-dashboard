@@ -152,6 +152,7 @@ externalResources:
     identifier: rhcontrol-access # OrganizationAccountAccessRole (schema changes required)
     assume_role:
       AWS:
+      # rhcontrol
       - arn:aws:iam::922711891673:root
     inline_policy:
       {
