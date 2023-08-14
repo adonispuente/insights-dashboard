@@ -366,7 +366,7 @@ openshiftResources:
     - name: network-manager
     - name: hs-sc
     - name: access-key-worker-manager
-    - name: region-manager   
+    - name: region-manager
 
 ### OSD Fleet Manager Stage
 - provider: prometheus-rule
@@ -394,7 +394,7 @@ openshiftResources:
     - name: network-manager
     - name: hs-sc
     - name: access-key-worker-manager
-    - name: region-manager   
+    - name: region-manager
 ### Status Board
 - provider: prometheus-rule
   path: /observability/prometheusrules/status-board-stage.prometheusrules.yaml
@@ -905,6 +905,11 @@ openshiftResources:
   variables:
     namespace: app-sre-observability-stage
     name: aws-resource-exporter-osd-privatelink-stage
+- provider: resource-template
+  type: jinja2
+  path: /observability/servicemonitors/statuspage-exporter.servicemonitor.yaml
+  variables:
+    namespace: app-sre-observability-stage
 
 ### CloudFlare
 - provider: resource-template

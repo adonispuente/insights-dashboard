@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ name | default('statuspage-exporter') }}
+  labels:
+    prometheus: app-sre
+spec:
+  selector:
+    matchLabels:
+      app: {{ name | default('statuspage-exporter') }}
+  endpoints:
+  - port: http
+    interval: 30s
+  namespaceSelector:
+    matchNames:
+    - {{namespace}}

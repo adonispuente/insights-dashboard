@@ -27,3 +27,14 @@ config:
     jobs:
     - 'gh-build-master':
         display_name: build master
+- project:
+    name: statuspage-exporter
+    label: statuspage-exporter
+    node: app-sre
+    gh_org: app-sre
+    gh_repo: statuspage-exporter
+    quay_org: app-sre
+    jobs:
+    - 'gh-build-master':
+        display_name: build master
+        branch: main
