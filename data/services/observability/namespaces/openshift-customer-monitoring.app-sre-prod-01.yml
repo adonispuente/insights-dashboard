@@ -184,6 +184,14 @@ openshiftResources:
     - cloudwatch-exporter-osio
     - cloudwatch-exporter-quay
     - cloudwatch-exporter-crc
+
+### statuspage-exporter
+- provider: resource-template
+  type: jinja2
+  path: /observability/servicemonitors/statuspage-exporter.servicemonitor.yaml
+  variables:
+    namespace: app-sre-observability-production
+
 ### SignalFX Prometheus Exporter
 - provider: prometheus-rule
   path: /observability/prometheusrules/signalfx-prometheus-exporter.prometheusrules.yaml

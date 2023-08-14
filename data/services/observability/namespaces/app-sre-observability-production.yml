@@ -149,6 +149,11 @@ openshiftResources:
   path: app-sre/creds/cloudflare/app-interface-read-metrics
   version: 1
 
+## Statuspage Exporter
+- provider: vault-secret
+  path: app-sre/creds/status.redhat.com
+  version: 1
+
 ## AWS Resource exporter
 ### account: app-sre
 - provider: resource-template
