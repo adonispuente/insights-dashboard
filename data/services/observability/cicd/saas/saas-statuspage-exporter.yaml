@@ -41,5 +41,5 @@ resourceTemplates:
       name: app-sre-statuspage-exporter-gh-build-main
     parameters:
       NAME: statuspage-exporter
-      TOKEN_SECRET_NAME: statuspage-exporter
-      TOKEN_SECRET_KEY: TOKEN
+      TOKEN_SECRET_NAME: status.redhat.com
+      TOKEN_SECRET_KEY: token
