@@ -320,10 +320,6 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/marketplace-gateway/marketplace-gateway.servicemonitor.yml
 - provider: resource
-  path: /insights-stage/eventing-stage/eventing.servicemonitor.yml
-- provider: resource
-  path: /insights-stage/eventing-stage/eventing-splunk.servicemonitor.yml
-- provider: resource
   path: /insights-stage/content-sources-stage/content-sources.servicemonitor.yml
 # chrome services
 - provider: resource

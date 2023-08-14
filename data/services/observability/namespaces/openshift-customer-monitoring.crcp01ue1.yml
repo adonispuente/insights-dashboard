@@ -309,12 +309,6 @@ openshiftResources:
 - provider: resource
   path: /insights-prod/unleash-proxy-prod/unleash-proxy-api.servicemonitor.yml
 
-# Eventing
-- provider: resource
-  path: /insights-prod/eventing-prod/eventing.servicemonitor.yml
-- provider: resource
-  path: /insights-prod/eventing-prod/eventing-splunk.servicemonitor.yml
-
 # PrometheusRules
 # - provider: resource
 #   path: /insights-prod/3scale-prod/3scale.prometheusrules.yaml
