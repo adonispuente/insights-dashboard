@@ -91,12 +91,12 @@ externalResources:
     defaults: /terraform/resources/insights/stage/elasticache/elasticache-content-sources-1.yml
     output_resource_name: in-memory-db
   - provider: s3
-    identifier: content-sources-s3-custom-repos-stage
-    defaults: /terraform/resources/s3-private-1.yml
+    identifier: content-sources-s3-custom-repos-stage-2
+    defaults: /terraform/resources/content-sources/stage/s3.yml
     output_resource_name: content-sources-s3-custom-repos
   - provider: s3
-    identifier: content-sources-pulp-s3
-    defaults: /terraform/resources/s3-private-1.yml
+    identifier: content-sources-pulp-s3-2
+    defaults: /terraform/resources/content-sources/stage/s3.yml
     output_resource_name: content-sources-pulp-s3
   - provider: cloudwatch
     identifier: content-sources-stage
