@@ -164,7 +164,7 @@ resourceTemplates:
       CRON_SCHEDULE_USER_METRICS: '* 10 * * *'
       CRON_SCHEDULE_DATA_PRUNING: 0 13 * * 2
       # Data exporter Svc
-      DATA_EXPORT_ENABLED: 'True'
+      DATA_EXPORT_ENABLED: 'False'
       JOBS_LOG_LEVEL: INFO
       # S3 Buckets
       BUNDLES_BUCKET_NAME: insights-ingress-prod # TODO: not used ??
@@ -176,7 +176,7 @@ resourceTemplates:
       FASTAPI_HOST: automation-analytics-api-fastapi-v2.tower-analytics-prod.svc.cluster.local
       FASTAPI_PORT: 8000
       # Data pruning Job
-      DATA_PRUNING_ENABLED: 'True'
+      DATA_PRUNING_ENABLED: 'False'
       DATA_PRUNING_INTERNAL_DATA_ENABLED: 'True'
       DATA_PRUNING_RAW_TABLE_RETENTION_DAYS: '183'
       DATA_PRUNING_DAILY_ROLLUP_RETENTION_DAYS: '3660'
@@ -187,7 +187,7 @@ resourceTemplates:
       LOCK_PROCESSOR_CONTROLLER_ENABLED: 'True'  # Lock per message
       LOCK_PROCESSOR_CONTROLLER_EVENTS_ENABLED: 'False'  # Lock per tenant
       # Messages Recovery Job
-      MESSAGE_RECOVERY_STATUSES: 'failed'
+      MESSAGE_RECOVERY_STATUSES: ''
       # Processor Controller Svc
       PROCESSOR_CONTROLLER_APP: 'processor-controller' # or processor-controller-kafka (disable processor-ingress)
       PROCESSOR_CONTROLLER_STATUSES: 'new'
