@@ -128,7 +128,7 @@ resourceTemplates:
       NAMESPACE: advisor-prod
       AWS_RDS_SECRET_NAME: advisor-db
       GABI_INSTANCE: gabi-advisor
-      SERVER_TIMEOUT: 600s
+      REQUEST_TIMEOUT: 180s
   - namespace:
       $ref: /services/insights/cloud-connector/namespaces/stage.yml
     ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
@@ -333,7 +333,7 @@ resourceTemplates:
       NAMESPACE: malware-detection
       AWS_RDS_SECRET_NAME: malware-detection-db
       GABI_INSTANCE: gabi-malware-detection
-      SERVER_TIMEOUT: 600s
+      REQUEST_TIMEOUT: 180s
   - namespace:
       $ref: /services/insights/module-update-router/namespaces/stage-module-update-router-stage.yml
     ref: c43ea16acb0fc7d0c1fbc2ef65319e32bfe7289c
@@ -490,8 +490,7 @@ resourceTemplates:
       NAMESPACE: rhsm-stage
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
-      OAUTH_PROXY_UPSTREAM_TIMEOUT: 180s
-      REQUEST_TIMEOUT: 120s
+      REQUEST_TIMEOUT: 180s
       MEMORY_REQUEST: 512Mi
       MEMORY_LIMIT: 2Gi
   - namespace:
@@ -506,8 +505,7 @@ resourceTemplates:
       NAMESPACE: rhsm-prod
       AWS_RDS_SECRET_NAME: swatch-tally-db
       GABI_INSTANCE: gabi-subscription-watch
-      OAUTH_PROXY_UPSTREAM_TIMEOUT: 180s
-      REQUEST_TIMEOUT: 120s
+      REQUEST_TIMEOUT: 180s
       MEMORY_REQUEST: 512Mi
       MEMORY_LIMIT: 2Gi
   - namespace:
@@ -607,7 +605,7 @@ resourceTemplates:
       NAMESPACE: vulnerability-engine-prod
       AWS_RDS_SECRET_NAME: vulnerability-engine-db-readonly
       GABI_INSTANCE: gabi-vulnerability
-      SERVER_TIMEOUT: 300s
+      REQUEST_TIMEOUT: 180s
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: gabi-ocm-account-manager-stage
@@ -699,7 +697,6 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: quay-db-config-gabi-secret
       GABI_INSTANCE: gabi-quayio
       DB_DRIVER: mysql
-      OAUTH_PROXY_UPSTREAM_TIMEOUT: 300s
       REQUEST_TIMEOUT: 300s
   - namespace:
       $ref: /services/status-board/namespaces/stage.yml
