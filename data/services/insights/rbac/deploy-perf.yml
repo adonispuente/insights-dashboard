@@ -55,7 +55,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: perf
       BYPASS_BOP_VERIFICATION: "True"
-      ROLE_CREATE_ALLOW_LIST: cost-management,remediations,inventory,drift,policies,advisor,catalog,approval,vulnerability,compliance,automation-analytics,notifications,patch,integrations,subscriptions
+      ROLE_CREATE_ALLOW_LIST: cost-management,remediations,inventory,drift,policies,advisor,vulnerability,compliance,automation-analytics,notifications,patch,integrations,subscriptions
       DISABLE_MIGRATE: "False"
       EPH_ENV: "False"
       CLOWDER_ENABLED: "true"

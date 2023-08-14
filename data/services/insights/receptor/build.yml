@@ -5,7 +5,7 @@ labels:
   service: receptor
 
 name: ci-ext-receptor-jobs
-description: catalog ci-ext jobs
+description: receptor ci-ext jobs
 
 app:
   $ref: /services/insights/receptor/app.yml

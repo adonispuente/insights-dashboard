@@ -55,8 +55,6 @@ config:
           - openshift-saas-deploy-advisor-insights-stage
           - openshift-saas-deploy-automation-hub-insights-production
           - openshift-saas-deploy-automation-hub-insights-stage
-          - openshift-saas-deploy-catalog-insights-production
-          - openshift-saas-deploy-catalog-insights-stage
           - openshift-saas-deploy-compliance-insights-production
           - openshift-saas-deploy-compliance-insights-stage
           - openshift-saas-deploy-drift-insights-production
