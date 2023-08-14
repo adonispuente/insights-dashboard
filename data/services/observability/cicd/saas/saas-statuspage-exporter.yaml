@@ -34,7 +34,7 @@ resourceTemplates:
   - name: app-sre-stage
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage.yml
-    ref: master
+    ref: main
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
