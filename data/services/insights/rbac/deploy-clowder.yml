@@ -52,7 +52,7 @@ resourceTemplates:
   # UI - Stage Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 3e4065a6cabe064cd1785a8a056d34787817c74e
+    ref: d86b0c999d5698e08c8e642bf7a78beb19312e26
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
@@ -70,14 +70,14 @@ resourceTemplates:
   # UI - Prod Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 426a4e57bc92ef74d1e980b7e3f8195b89716fd7
+    ref: d86b0c999d5698e08c8e642bf7a78beb19312e26
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
   # UI - Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 426a4e57bc92ef74d1e980b7e3f8195b89716fd7
+    ref: ad3b3cecc01b60fe87a72220cef54dbee6d4c9a2
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/rbac-frontend"
