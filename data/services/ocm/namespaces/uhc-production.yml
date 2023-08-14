@@ -97,6 +97,7 @@ externalResources:
       apply_immediately: true
       engine_version: '12.13'
       multi_az: false
+      allocated_storage: 40
   - provider: rds
     identifier: uhc-clusters-service-production-readonly
     defaults: /terraform/resources/app-sre/production/rds-1-readonly.yml
@@ -116,6 +117,7 @@ externalResources:
       apply_immediately: false
       engine_version: '12.13'
       maintenance_window: Sun:11:00-Sun:11:30
+      allocated_storage: 40
   - provider: rds
     identifier: ocm-managed-services-production
     defaults: /terraform/resources/app-sre/production/rds-2-cloudwatch-enabled.yml
