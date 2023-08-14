@@ -47,7 +47,7 @@ resourceTemplates:
   ## Production
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
-    ref: 0392d5a1521081d8a66acd112ee71e203b1a7d53
+    ref: 38b3a3237a63a457fb6eb4e799c78549eb611b40
     parameters:
       IQE_MARKER: prod and api
       IQE_ENV: prod
@@ -61,5 +61,5 @@ resourceTemplates:
       - channel: content-sources-prod-deploy-success-channel
         data:
         - parent_saas: content-sources
-          target_config_hash: 7e19a7b62cb3c0e3
+          target_config_hash: 77eae1aba240d0ab
           type: parent_saas_config
