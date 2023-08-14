@@ -178,3 +178,8 @@ externalResources:
         value: job-queue-service-heartbeat-staging-dlq
       - key: job_queue_osl_staging_dlq
         value: job-queue-osl-staging-dlq
+
+glitchtipProjects:
+  - $ref: /dependencies/glitchtip/projects/glitchtip-production/ocm-uhc-portal.yml
+
+
