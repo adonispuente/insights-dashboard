@@ -667,7 +667,7 @@
     id: 'insights-gh-pipeline-experimental'
     name: '{gh_org}-{gh_repo}-pipeline-experimental-{branch}'
     concurrent: '{concurrent_build}'
-    jenkinsfile_path: 'frontends-pipeline-pr-check/Jenkinsfile'
+    jenkinsfile_path: 'frontends-pipeline-pr-checks/Jenkinsfile'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
