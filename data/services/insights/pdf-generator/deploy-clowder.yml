@@ -66,7 +66,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/pdf-generator/namespaces/pdf-generator-prod.yml
-    ref: b2e3e4f18727ed8163a7b3cc6a984dcaedf1a96a
+    ref: 9493f33e964134f32876fa7e36772243e05707be
     parameters:
       ENV_NAME: prod
       PROMETHEUS_PUSH_GATEWAY: ${PROMETHEUS_PUSHGATEWAY}
