@@ -5,7 +5,7 @@ labels:
 name: image-builder-testing
 description: image-builder acceptance testing
 app:
-  $ref: /services/image-builder/app.yml
+  $ref: /services/insights/image-builder/app.yml
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
