@@ -109,6 +109,7 @@ externalResources:
       snapshot_identifier: tower-analytics-prod-man-snap-2023-08-14
       allocated_storage: 40000
       max_allocated_storage: 44000
+      iops: 22000
     parameter_group: /terraform/resources/insights/production/rds/postgres13-parameter-group-tower-analytics-prod.yml
     output_resource_name: automation-analytics-db
     output_resource_db_name: tower_analytics_backend
