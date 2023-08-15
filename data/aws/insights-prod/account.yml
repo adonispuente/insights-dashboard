@@ -1336,6 +1336,18 @@ deletionApprovals:
 - type: aws_db_event_subscription
   name: 'cost-prod-rds-notification_db-instance_aws_db_event_subscription'
   expiration: '2023-08-14'
+- type: aws_db_instance
+  name: 'tower-analytics-prod-2'
+  expiration: '2023-08-16'
+- type: aws_db_parameter_group
+  name: 'tower-analytics-prod-2-pg'
+  expiration: '2023-08-16'
+- type: aws_iam_role
+  name: 'tower-analytics-prod-2-enhanced-monitoring'
+  expiration: '2023-08-16'
+- type: aws_iam_role_policy_attachment
+  name: 'tower-analytics-prod-2-enhanced-monitoring'
+  expiration: '2023-08-16'
 
 resetPasswords:
   - user:
