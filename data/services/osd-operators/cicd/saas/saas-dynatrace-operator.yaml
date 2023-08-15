@@ -231,6 +231,10 @@ resourceTemplates:
       DT_TENANT_ID: uva53433
       REGIONS:
       - ap-southeast-3
+      - ap-southeast-4
+      - ap-southeast-2
+      - ap-northeast-1
+      - ap-northeast-2
   - name: dynatrace-token-production-eu-west-ireland-vap62935
     provider: dynamic
     namespaceSelector:
