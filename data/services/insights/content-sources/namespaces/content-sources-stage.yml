@@ -90,6 +90,10 @@ externalResources:
     identifier: content-sources-elasticache-stage
     defaults: /terraform/resources/insights/stage/elasticache/elasticache-content-sources-1.yml
     output_resource_name: in-memory-db
+  - provider: s3 #Old bucket to be removed once versions are deleted
+    identifier: content-sources-s3-custom-repos-stage
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: content-sources-s3-custom-repos-old
   - provider: s3
     identifier: content-sources-s3-custom-repos-stage-2
     defaults: /terraform/resources/content-sources/stage/s3.yml
