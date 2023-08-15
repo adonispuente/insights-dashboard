@@ -12,8 +12,10 @@ oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/app-interface-telemeter.yml
 
 access:
+# rhobs
+
 - namespace:
-    $ref: /services/rhobs/observatorium/namespaces/observatorium-production.yml
+    $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/rhobs.yml
   role: view
 - namespace:
     $ref: /services/rhobs/observatorium/namespaces/observatorium-stage.yml
