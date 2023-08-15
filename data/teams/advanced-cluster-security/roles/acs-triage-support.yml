@@ -1,0 +1,15 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: advanced-cluster-security-triage-support-member
+# This role is used for rotating the acs-triage-support-oncall alias on Slack.
+
+# It has no permissions to AppSRE infrastructure or ACSCS resources.
+permissions: []
+
+# oidc_permissions:
+
+# self_service:
+
+# access:

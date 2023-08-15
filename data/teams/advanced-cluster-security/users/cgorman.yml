@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Connor Gorman
 org_username: cgorman
 github_username: connorgorman
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mDMEZFlipRYJKwYBBAHaRw8BAQdAGz6ERD7xqYDdq6rK9k0fkUk9Nsqay9TL6dBO
   9d/zxly0IkNvbm5vciBHb3JtYW4gPGNnb3JtYW5AcmVkaGF0LmNvbT6IkwQTFgoA

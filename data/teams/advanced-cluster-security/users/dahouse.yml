@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: David House
 org_username: dahouse
 github_username: davdhacs
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGRUFfYBEAC8LzvhiL9V901i+B3FsqJqLu+B7Uq6/9ZsjxyR5ZgPOEuOkgBY
   RJLU7udQH1Jg0StBMqHNUCYOlH+a78ZhpKquNGNhOfPQiNn8oVvENojdp1Up6Wvp

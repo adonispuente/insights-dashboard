@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Yury Kovalev
 org_username: ykovalev
 github_username: kovayur
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGMtq8IBEADEaityG4m1QKn+xElhyKUDziP05JeDqLGwKv1cStTRaQ77PtG+
   ydxhnUHyLW1BmZU5qgPA5wEjOTG5x/2Lann8Wz4OVDqI+5r8Ja+9rXDLcssapInO

@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Gavin Jefferies
 org_username: gjefferi
 github_username: gavin-stackrox
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGRIRxIBEADkVETiDZPJRiSySJyV7pPH4y+/zUlYeBVr3k9utjBCSfTKV1L0
   rjAMqtZIBw9tSjVtA8st/BdwX+WHbLJNjEEHdj4E0044A4EGLhQRIDAAkTugXA3t

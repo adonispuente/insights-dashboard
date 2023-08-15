@@ -1,17 +1,14 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: J. Victor Martins
 org_username: jvmartin
 github_username: jvdm
 pagerduty_username: jvdm
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGRV9yEBEAC67FZB33LgH5J0JhJ83YPIWh8lm12jx5GFv9eE/2LlyWYJeHMDKI5ebjLJxkFh
   Jz/6EkZ59s6/jBuHL7AQP8giru8DFikLgN25O7sewgM7Bvo8wSzPE1fcUh5x6R8htO82j04W1Bko

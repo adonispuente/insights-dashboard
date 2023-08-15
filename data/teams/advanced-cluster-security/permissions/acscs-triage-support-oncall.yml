@@ -1,0 +1,22 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: acs-triage-support-oncall
+description: Advanced Cluster Security (ACS) engineers who are currently on-call as part of ACS customer support rotation.
+
+
+service: slack-usergroup
+handle: acs-triage-support-oncall
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+pagerduty:
+- $ref: /dependencies/pagerduty/acscs-triage-support-primary.yml
+- $ref: /dependencies/pagerduty/acscs-triage-support-secondary.yml
+
+channels:
+- acs-support-triage
+- team-acs-support-triage

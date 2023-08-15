@@ -1,0 +1,13 @@
+---
+$schema: /dependencies/pagerduty-target-1.yml
+
+labels:
+  service: pagerduty
+
+name: acs-triage-support-secondary
+description: Advanced Cluster Security (ACS) Triage Support Secondary On-Call Schedule
+
+instance:
+  $ref: /dependencies/pagerduty/instance.yml
+
+scheduleID: PHSCJGV

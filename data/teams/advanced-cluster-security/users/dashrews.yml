@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: David Shrewsberry
 org_username: dashrews
 github_username: dashrews78
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGQ9pmUBEACxZKxY1V8c4LzOzYRWw+1/Bs+M2HTKEqAu7nFbmsygqSDQn287
   XV3gA2enezXfYVZ5ARlSHwLJqY0Mvrc4iq7oqT9LXdk22mc4x0fjClU/94L5PBVN
