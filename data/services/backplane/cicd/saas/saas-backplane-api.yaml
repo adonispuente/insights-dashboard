@@ -113,25 +113,25 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/backplane/namespaces/backplane-stage-hive-stage-01.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "644306948063"
       ENABLE_TEST_SCRIPT_API: "true"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-stage-hives02ue1.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "644306948063"
       ENABLE_TEST_SCRIPT_API: "true"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-stage-backplanes01ue1.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "644306948063"
       ENABLE_TEST_SCRIPT_API: "true"      
   - namespace:
       $ref: /services/backplane/namespaces/backplane-stage-backplanes02uw2.yml
-    ref: eaf35b0cd87af5598053ffd494c30e572711ead4
+    ref: d3d788ecf158ba9cdcae980333f69e556f20157c
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "644306948063"
       ENABLE_TEST_SCRIPT_API: "true"
