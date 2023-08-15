@@ -45,3 +45,13 @@ resourceTemplates:
       TOKEN_SECRET_KEY: token
       # Red Hat page
       PAGE_ID: dn6mqn7xvzz3
+  - name: app-sre
+    namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-production.yml
+    ref: eced1a3cad4047a05070abf91df8dfe681519441
+    parameters:
+      NAME: statuspage-exporter
+      TOKEN_SECRET_NAME: status.redhat.com
+      TOKEN_SECRET_KEY: token
+      # Red Hat page
+      PAGE_ID: dn6mqn7xvzz3
