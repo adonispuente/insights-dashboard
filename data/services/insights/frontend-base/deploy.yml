@@ -79,7 +79,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 002cb8082b6b41a70424cf56fba06e944e896811
+    ref: d13add1061e555ff56bb26419f444abca53e42e8
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
