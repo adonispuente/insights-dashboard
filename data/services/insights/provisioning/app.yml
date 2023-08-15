@@ -12,11 +12,11 @@ description: |
   This is used by customer to provision new machines in their hybrid cloud environment.
   It supports provisioning images build by image builder into AWS, GCE or Azure.
 
-architectureDocument: https://TODO
-sopsUrl: https://TODO
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/architecture/provisioning.md
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/provisioning
 grafanaUrls:
-- title: Notifications Dashboard
-  url: https://TODO
+- title: Provisioning monitoring
+  url: https://grafana.app-sre.devshift.net/d/211/provisioning?orgId=1
 onboardingStatus: InProgress
 
 parentApp:
