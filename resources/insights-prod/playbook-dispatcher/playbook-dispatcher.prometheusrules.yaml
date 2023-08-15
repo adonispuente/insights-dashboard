@@ -62,7 +62,8 @@ spec:
 
     - alert: PlaybookDispatcherSLOLatencyAPI
       expr: |
-        sum(increase(echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api"}[1w])) / sum(increase(echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api"}[1w])) < 0.95
+        sum(increase(echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api"}[5m])) / sum(increase(echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api"}[5m])) < 0.95
+      for: 30m
       labels:
         severity: info
         service: insights
@@ -80,7 +81,7 @@ spec:
 
     - alert: PlaybookDispatcherSLOLatencyKafka
       expr: |
-        quantile_over_time(0.95, playbook_dispatcher:consumer_group_lag:sum[1w]) > 10000
+        quantile_over_time(0.95, playbook_dispatcher:consumer_group_lag:sum[20m]) > 10000
       labels:
         severity: info
         service: insights
