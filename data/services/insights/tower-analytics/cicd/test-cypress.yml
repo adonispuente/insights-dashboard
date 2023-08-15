@@ -32,7 +32,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/stage-tower-analytics-stage-tests.yml
-    ref: 295f8481c69f802d495e8335796019c932e3c680
+    ref: 408d57dfecd9846401faf3bcedf91372672713ae
     parameters:
       ENV_NAME: stage
       CPU_REQUEST_IQE: 500m
@@ -48,5 +48,5 @@ resourceTemplates:
       - channel: automation-analytics-stage-post-deploy-iqe-success-channel
         data:
         - parent_saas: tower-analytics-test
-          target_config_hash: f3dbc3ae95f88ff2
+          target_config_hash: 7a9508c68a0ff654
           type: parent_saas_config
