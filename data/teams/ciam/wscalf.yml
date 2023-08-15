@@ -10,3 +10,4 @@ github_username: wscalf
 
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/frontend-admins.yml
