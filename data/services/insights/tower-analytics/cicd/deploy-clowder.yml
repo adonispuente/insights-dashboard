@@ -144,7 +144,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: prod
       GUNICORN_PROCESSES: 1
-      REPLICAS_API: 22
+      REPLICAS_API: 0
       REPLICAS_ONEVIEW: 2
       REPLICAS_ROLLUP: 0  # was 6 (!77267)
       REPLICAS_PROCESSOR_CONTROLLER: 0  # was 4 (!77256)

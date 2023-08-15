@@ -110,6 +110,7 @@ externalResources:
       allocated_storage: 40000
       max_allocated_storage: 44000
       iops: 22000
+      deletion_protection: false
     parameter_group: /terraform/resources/insights/production/rds/postgres13-parameter-group-tower-analytics-prod.yml
     output_resource_name: automation-analytics-db
     output_resource_db_name: tower_analytics_backend
