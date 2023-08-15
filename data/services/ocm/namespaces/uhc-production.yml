@@ -151,7 +151,7 @@ externalResources:
     defaults: /terraform/resources/ocm/s3-cloudfront-production.yml
     output_resource_name: rh-oidc-s3-secret
   - provider: aws-iam-role
-    identifier: rhcontrol-access # OrganizationAccountAccessRole (schema changes required)
+    identifier: OrganizationAccountAccessRole
     assume_role:
       AWS:
       # rhcontrol
