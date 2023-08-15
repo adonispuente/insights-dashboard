@@ -60,17 +60,23 @@ acceptanceCriteria:
 - comment: CEE engagement has not been formalized yet
   name: INCIDENT-MGMT-0008
   status: yellow
-- comment: 'All services must expose a prometheus endpoint, exposing relevant data
+- comment: |
+    All services must expose a prometheus endpoint, exposing relevant data
     and have a dashboard.
 
-
     For member clusters, managed as dataplane, SRE needs a way to get all metrics
-    as well. Whether that''s config in app-interface or dynamic discovery or metrics
-    push to a central location is to be debated.
+    as well.
+    
+    data-plane - The metrics are pushed to RHOBS and can be seen from appsre-grafana.
+    The following flowchart describes how metrics are pushed to RHOBS
+    https://miro.com/app/board/uXjVMeIRKU8=/?moveToWidget=3458764561560268803&cot=14
 
-    '
+    control-plane - The clusters were provisioned and maintained by the AppSRE team.
+    Metrics produced by RHTAP's ArgoCD instance are collected by the Prometheus AppSRE
+    instance deployed on each cluster.
+    
   name: OBSERVABILITY-0001
-  status: red
+  status: green
 - comment: All services must defined and track SLOs and be exposed through a dashboard.
   name: OBSERVABILITY-0002
   status: red
