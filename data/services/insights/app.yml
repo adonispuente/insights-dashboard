@@ -11,7 +11,7 @@ description: |
   The Insights Application
   https://consoledot.pages.redhat.com/docs/dev/index.html
 
-architectureDocument: https://TODO
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/README.md
 sopsUrl: https://gitlab.cee.redhat.com/TODO
 grafanaUrls:
 - title: TODOREPLACE
