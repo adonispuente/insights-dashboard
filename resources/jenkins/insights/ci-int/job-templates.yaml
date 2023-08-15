@@ -736,9 +736,9 @@
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
           - 'main'
-          merge:
-              remote: origin
-              branch: '{branch}'
+        #   merge:
+        #       remote: origin
+        #       branch: '{branch}'
           git-config-name: "AppSRE"
           git-config-email: "sd-app-sre@redhat.com"
           included-regions:
