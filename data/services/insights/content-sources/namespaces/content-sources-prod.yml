@@ -70,6 +70,10 @@ externalResources:
     identifier: content-sources-elasticache-prod
     defaults: /terraform/resources/insights/production/elasticache/elasticache-content-sources-1.yml
     output_resource_name: in-memory-db
+  - provider: s3
+    identifier: content-sources-s3-custom-repos-prod
+    defaults: /terraform/resources/content-sources/production/s3.yml
+    output_resource_name: content-sources-s3-custom-repos
   - provider: cloudwatch
     identifier: content-sources-prod
     defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
