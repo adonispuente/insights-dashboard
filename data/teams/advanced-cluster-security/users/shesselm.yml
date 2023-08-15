@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Stephan Hesselmann
 org_username: shesselm
 github_username: stehessel
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGMHTXEBEADXc9UBP8NDJXPEVI7XXJrvs6dkOyqW9KSClPjuPvuct+pJpK3k/iHhkzO4kTd9
   9clwPPHD28cbK0Ih/W4xqM5kLRJoAtSfqoLV50ZeCVUBniofB4xXoSgD8txxYdzZfDY9t2UfOQoh

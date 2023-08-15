@@ -10,6 +10,7 @@ github_username: JoukoVirtanen
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 
 public_gpg_key: |
   mQENBGS8EN8BCACWHFSdOLvHV/Q16X1TuMr46LBN7SQycVXkjb8KXLCGb6UUs6calDdFv33JS0qX

@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Ivan Degtiarenko
 org_username: idegtiar
 github_username: ivan-degtiarenko
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGOPW2MBEADTtQ/TN5skIr1YzCk1jcXaI/wUoNXEY8rsYM2syNUfdcJx0XPj
   M7ylnm/LA+B1TSCATHdkVL6gZgbziHJydbvR2xHsSEB4qxjUPEy/Uij1hXTelcc6

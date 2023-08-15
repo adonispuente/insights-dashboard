@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Johannes Malsam
 org_username: jmalsam
 github_username: johannes94
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGRGM6oBEAC/PPZJfbQ/S7Zy5H+i+8mwDnwLAAoXKI1h+pFtmVx+GWoS1QGy
   BBBEGSHk3+v2o+JGeLOyj1F0NW9zstpgkyDMW9rLkpSGTLPZSwOsP21tPlpq/fCv

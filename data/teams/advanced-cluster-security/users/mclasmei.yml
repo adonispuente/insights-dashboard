@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Moritz Clasmeier
 org_username: mclasmei
 github_username: mtesseract
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |
   mQINBGMIgJ0BEADbApwNLwPpfTChFrfnHeYSjuaUTlZOu+7OtrSeBdze1n/YsBYNmAzAuSq0RbY5A0IF
   2DrQDiun2vN1jJaQho6epg5Kt2p8zi/y9u+mK67C8BgU2PDnCFu3qXBaFNqBBLlHQjKMJn+lIY5UvOat

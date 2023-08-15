@@ -1,16 +1,13 @@
 ---
 $schema: /access/user-1.yml
-
 labels: {}
-
 name: Cong Du
 org_username: cdu
 github_username: c-du
-
 roles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
   - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-
+  - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
 public_gpg_key: |-
   mQINBGRVYekBEAC8kMEyJlhJoGgPPzGO5E4MdK5x41Y5rZ2HKroT0aMI9gNaondW
   saQ0ue52Fv+d2SOcWGz81g7wYKHVcz68UmkQ8/WLBx7E1iZMqtJlsC+vYurFOa+8
