@@ -17,4 +17,4 @@ channels:
   - devtools-saas@redhat.com
 
   jiraBoard:
-  - $ref: /teams/devtools/jira/crt.yaml
+  - $ref: /teams/devtools/jira/sandbox.yaml
