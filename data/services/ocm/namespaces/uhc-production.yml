@@ -167,6 +167,7 @@ externalResources:
           }
         ]
       }
+    output_resource_name: rhcontrol-access-role
   - provider: s3
     identifier: rh-osd-network-verifier
     defaults: /terraform/resources/s3-private-1.yml
