@@ -74,6 +74,7 @@ resourceTemplates:
     ref: internal  # populated by bonfire
     parameters:
       FEATURES_SNAPSHOTS_ENABLED: true #Allow all accounts
+      CLIENTS_PULP_DOWNLOAD_POLICY: "on_demand"
   - namespace: # STAGE
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
     ref: main
@@ -89,6 +90,7 @@ resourceTemplates:
       # content9, hms-qa, dkliban
       FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865,11488192"
       FEATURES_ADMIN_TASKS_ENABLED: true
+      CLIENTS_PULP_DOWNLOAD_POLICY: "immediate"
       # content9, hms-qa
       FEATURES_ADMIN_TASKS_ACCOUNTS: "11486589,11481865"
     promotion:
@@ -105,6 +107,7 @@ resourceTemplates:
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/prod
       NEW_TASKING_SYSTEM: true
       CLIENTS_PULP_SERVER: ""
+      CLIENTS_PULP_DOWNLOAD_POLICY: "immediate"
       FEATURES_SNAPSHOTS_ENABLED: false
       # hms
       FEATURES_SNAPSHOTS_ACCOUNTS: "11494071"
