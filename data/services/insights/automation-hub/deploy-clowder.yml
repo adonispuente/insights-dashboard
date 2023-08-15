@@ -52,7 +52,7 @@ resourceTemplates:
         REPLICAS: 1
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/stage-automation-hub-stage.yml
-      ref: 168d909e581423eea7d0e767fcf7a5b8b4664ee6
+      ref: 425293537c795facd7a76559f08a22eae0dd5963
       #upstream:
       #  instance:
       #    $ref: /dependencies/ci-ext/ci-ext.yml
