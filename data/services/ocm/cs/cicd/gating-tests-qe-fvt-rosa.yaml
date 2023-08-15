@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
-    ref: 8ee48d39ba39d11289cb634e85a895c2e9f9e030
+    ref: 64b9800b81d9473664a4f8c7444d27c293a993c1
     name: rosa-sts-advanced
     promotion:
       auto: true
