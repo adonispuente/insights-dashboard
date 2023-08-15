@@ -38,6 +38,7 @@ resourceTemplates:
     ref: 38b3a3237a63a457fb6eb4e799c78549eb611b40
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
+      IQE_MARKER_EXPRESSION: content_sources
     promotion:
       auto: true
       subscribe:

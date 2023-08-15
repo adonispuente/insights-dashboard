@@ -37,6 +37,7 @@ resourceTemplates:
     ref: 05ded0ac24b862ba87dce393ccb51c54a46ca163
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
+      IQE_MARKER_EXPRESSION: image_builder
     promotion:
       auto: true
       subscribe:
