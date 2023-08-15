@@ -42,7 +42,6 @@ self_service:
   - $ref: /services/insights/fakamai/app.yml
   - $ref: /services/insights/devprod/app.yml
   - $ref: /services/insights/postgres-exporter/app.yml
-  - $ref: /services/insights/operational-metrics/app.yml
   - $ref: /services/insights/frontend-base/app.yml
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
