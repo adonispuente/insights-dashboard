@@ -428,10 +428,21 @@ resourceTemplates:
     disable: true # do not create an app-sre deploy job for ephemeral namespace
     ref: master # populated by bonfire
   - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: tbd
+  - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    disable: true
-    ref: internal
-# Seats admin UI
+    ref: tbd
+    # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: tbd
+    # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: tbd
+
+  # Seats admin UI
 - name: seats-admin-ui
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/seats-admin
