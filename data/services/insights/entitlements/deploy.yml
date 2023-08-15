@@ -45,7 +45,7 @@ resourceTemplates:
 
 # Stage environment
 - name: entitlements-api-go-stage
-  path: /deployment/deploy.yml
+  path: /deployment/clowdapp.yml
   url: https://github.com/RedHatInsights/entitlements-api-go
   parameters:
     REPLICAS: 2
