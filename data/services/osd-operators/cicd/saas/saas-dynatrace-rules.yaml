@@ -37,5 +37,25 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: main
-  parameters:
-    ENVIRONMENT: integration
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
+    ref: b9f94090748de13aba41f7efff1cb5e623229bda
+
