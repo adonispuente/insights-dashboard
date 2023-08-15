@@ -83,7 +83,7 @@ config:
     gh_repo: insights-3scale
     quay_org: cloudservices
     jobs:
-    - "gh-pr-check":
+    - "insights-gh-pr-check":
         display_name: insights-3scale pr-check
     - "gh-build-master":
         display_name: insights-3scale build-master
