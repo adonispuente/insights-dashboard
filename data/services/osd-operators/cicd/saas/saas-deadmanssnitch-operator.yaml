@@ -86,22 +86,22 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/deadmanssnitch-operator.yml
-    ref: a1d727ae975d5239cee7c9d838e7cc330157b586
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657
