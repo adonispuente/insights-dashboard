@@ -12,4 +12,5 @@ slack_username: geowa4
 roles:
 - $ref: /teams/sd-sre/roles/sre.yml
 - $ref: /teams/sd-sre/roles/sd-sre-nasa-east.yml
+- $ref: /teams/sd-sre/roles/sd-sre-nasa-west.yml
 

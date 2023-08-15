@@ -11,6 +11,7 @@ quay_username: abyrne_openshift
 roles:
 - $ref: /teams/sd-sre/roles/sre.yml
 - $ref: /teams/sd-sre/roles/sd-sre-nasa-east.yml
+- $ref: /teams/sd-sre/roles/sd-sre-nasa-west.yml
 - $ref: /aws/app-sre-stage/roles/s3-verifier-logs-stage.yml
 - $ref: /aws/app-sre/roles/s3-verifier-logs.yml
 
@@ -23,3 +24,4 @@ public_gpg_key: |
  +b8pW+TlBS6IEgwlsmdgyfV+K/n+MQMBCAeIfgQYFgoAJhYhBDkN1ZKuBCiA9RYi9PSqDbu9x1R0
  BQJktZUqAhsMBQkB4TOAAAoJEPSqDbu9x1R0oA0A/3uSfuINKJ4nkfPbvxpxO/UGLkWqRihdXbDa
  c9JiQ0yVAQC7lMlTeS33SM0gRbu14Am1UnC6y3Vwkw+Fs3YwfpeXAA==
+
