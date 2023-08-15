@@ -53,7 +53,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
-    ref: 8a8c36242b1b365371185c5eced5a4a40a1dfba3
+    ref: 38b3a3237a63a457fb6eb4e799c78549eb611b40
     parameters:
       ENV_FOR_DYNACONF: prod
     promotion:
@@ -66,5 +66,5 @@ resourceTemplates:
       - channel: content-sources-prod-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: a98c3f7e0d0b2c4b
+          target_config_hash: 93d5e9c9197dcae3
           type: parent_saas_config
