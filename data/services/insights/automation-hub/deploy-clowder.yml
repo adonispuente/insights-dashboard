@@ -125,7 +125,7 @@ resourceTemplates:
       ref: internal  # populated by bonfire
     - namespace:
         $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-      ref: c50acc1fc67157dd8987c7c8aa8473ac3ff103d0
+      ref: 098b7c1a7a3b39d885c8a8aade3d87998374528e
       parameters:
         ENV_NAME: env-stage
   - name: automation-hub-job
