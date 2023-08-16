@@ -53,7 +53,8 @@ Above's diagram shows the proposed architecture for the first iteration of the u
 
 ## Alternatives considered
 
-Creating a new app-interface, has many challenges, that would sidetrack this effort. We decided to take this on in the second iteration.
+* Creating a new app-interface, has many challenges, that would sidetrack this effort. We decided to take this on in the second iteration.
+* Using a single unleash instance and provide shared access can't work due to missing RBAC capabilities in the opensource version.
 
 ## Milestones
 
