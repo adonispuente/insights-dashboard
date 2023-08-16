@@ -30,7 +30,7 @@ managedResourceTypes:
 
 resourceTemplates:
 - name: host-inventory-integration-testing
-  url: https://github.com/RedHatInsights/insights-host-inventory/blob/master
+  url: https://github.com/RedHatInsights/insights-host-inventory
   path: /deploy/testing-integration.yml
   targets:
   - namespace:
