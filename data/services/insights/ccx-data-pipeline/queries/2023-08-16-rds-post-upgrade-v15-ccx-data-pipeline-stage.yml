@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-08-16-rds-post-upgrade-v15-ccx-data-pipeline-stage
+namespace:
+  $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
+identifier: ccx-data-pipeline-stage
+output: stdout
+queries:
+  - SELECT cluster_id, created_at FROM recommendation;
+  - ANALYZE VERBOSE;
