@@ -7,5 +7,5 @@ namespace:
 identifier: ccx-notification-db-stage
 output: filesystem
 queries:
-  - SELECT COUNT(*) FROM reported;
+  - SELECT cluster, notified_at FROM reported;
   - ANALYZE VERBOSE

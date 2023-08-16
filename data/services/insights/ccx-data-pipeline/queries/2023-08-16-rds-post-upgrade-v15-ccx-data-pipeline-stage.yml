@@ -7,5 +7,5 @@ namespace:
 identifier: ccx-data-pipeline-stage
 output: filesystem
 queries:
-  - SELECT COUNT(*) FROM recommendation;
+  - SELECT cluster_id, created_at FROM recommendation;
   - ANALYZE VERBOSE
