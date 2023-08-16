@@ -1,0 +1,28 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "stonesoup-approle-int-srvc-policy"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "stonesoup/metadata/production/integration-service/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/production/integration-service/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/integration-service/" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/metadata/staging/integration-service/*" {
+    capabilities = ["read", "list"]
+  }
+  path "stonesoup/data/production/integration-service/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }
+  path "stonesoup/data/staging/integration-service/*" {
+    capabilities = ["create", "update", "read", "list"]
+  }
