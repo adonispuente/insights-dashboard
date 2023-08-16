@@ -200,14 +200,14 @@ config:
     label: insights
     node: insights
     gl_group: it-user
-    gl_project: admin-self-services
+    gl_project: iam-console
     quay_org: cloudservices
     jobs:
     - "insights-gh-pr-check":
         display_name: iam-console pr-check
     - "insights-gh-build-master":
         display_name: iam-console build-stage-beta
-        branch: "master"
+        branch: "main"
     - "insights-gh-build-master":
         display_name: iam-console build-stage-stable
         branch: "stage-stable"
