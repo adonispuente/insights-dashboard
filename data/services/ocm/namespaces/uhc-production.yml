@@ -216,7 +216,7 @@ externalResources:
             "iam:UpdateAssumeRolePolicy"
           ],
           "Effect": "Allow",
-          "Resource": "arn:aws:iam::*:role/RH-Technical-Support-Access*"
+          "Resource": "arn:aws:iam::*:role/RH-Technical-Support*"
         }]
       }
     output_resource_name: sts-credentials
