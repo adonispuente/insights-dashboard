@@ -69,7 +69,7 @@ resourceTemplates:
   url: https://github.com/app-sre/qontract-reconcile
   path: /openshift/qontract-manager.yaml
   parameters:
-    INTEGRATIONS_MANAGER_MEMORY_REQUEST: 500Mi
+    INTEGRATIONS_MANAGER_MEMORY_REQUEST: 510Mi
     INTEGRATIONS_MANAGER_MEMORY_LIMIT: 1000Mi
     INTEGRATIONS_MANAGER_CPU_REQUEST: 200m
     INTEGRATIONS_MANAGER_CPU_LIMIT: 1200m
