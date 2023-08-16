@@ -79,26 +79,26 @@ externalResources:
   resources:
   - provider: rds
     identifier: ccx-data-pipeline-stage
-    defaults: /terraform/resources/insights/stage/rds/postgres11-rds-1.yml
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
     overrides:
       apply_immediately: true
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.20"
+      engine_version: "15.3"
     output_resource_name: ccx-data-pipeline-db
     enhanced_monitoring: true
     annotations:
       clowder/database: ccx-insights-results
   - provider: rds
     identifier: ccx-notification-db-stage
-    defaults: /terraform/resources/insights/stage/rds/postgres11-rds-1.yml
-    parameter_group: /terraform/resources/insights/stage/rds/postgres11-parameter-group-ccx-notification-stage.yml
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
+    parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-ccx-notification-stage.yml
     output_resource_name: ccx-notification-db
     enhanced_monitoring: true
     overrides:
       apply_immediately: true
       allocated_storage: 100
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.20"
+      engine_version: "15.3"
     annotations:
       clowder/database: ccx-notification-writer
   - provider: cloudwatch
