@@ -34,8 +34,6 @@ externalResources:
       AWS:
       # app-sre
       - arn:aws:iam::950916221866:user/terraform
-      # osd-privatelink-stage - To be removed once TGW attachement is removed from osd-privatelink-stage
-      - arn:aws:iam::644306948063:user/terraform
       # osd-privatelink-prod
       - arn:aws:iam::710019948333:user/terraform
       # app-sre/backplane-vpc-backplanep04uw2 allows hive to associate hostedzones
