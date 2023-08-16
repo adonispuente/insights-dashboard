@@ -85,7 +85,7 @@ resourceTemplates:
     parameters:
       CLIENTS_RBAC_BASE_URL: http://${RBAC_HOST}:8080/api/rbac/v1
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/stage
-      CLIENTS_PULP_SERVER: "http://cs-pulp-web-svc.content-sources-stage.svc.cluster.local:24880"
+      CLIENTS_PULP_SERVER: "http://cs-pulp-api-svc.content-sources-stage.svc.cluster.local:24817"
       FEATURES_SNAPSHOTS_ENABLED: true
       # content9, hms-qa, dkliban
       FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865,11488192"
