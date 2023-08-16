@@ -88,7 +88,7 @@ resourceTemplates:
       AMS_HOST: https://api.openshift.com
       BOP_URL: https://${BACKOFFICE_HOST}/v1/users
       BOP_ENV: prod
-      DISABLE_SEAT_MANAGER: true
+      DISABLE_SEAT_MANAGER: false
       SUBS_CACHE_DURATION: 180
 - name: entitlements-bundle-config-prod
   path: /configs/prod/bundles.yml
