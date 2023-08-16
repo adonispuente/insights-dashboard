@@ -126,6 +126,12 @@ externalResources:
     output_resource_name: backplane-vpc-creds-backplanep03ue1
     aws_infrastructure_access:
       assume_role: arn:aws:iam::049267941105:role/network-mgmt-backplanep03ue1
+  - provider: aws-iam-service-account
+    identifier: backplane-vpc-backplanep04uw2
+    user_policy: {"Version": "2012-10-17", "Statement": [{"Action": ["sts:AssumeRole"], "Effect": "Allow", "Resource": "*"}]}
+    output_resource_name: backplane-vpc-creds-backplanep04uw2
+    aws_infrastructure_access:
+      assume_role: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
   - provider: route53-zone
     identifier: p1-openshiftapps-com
     name: p1.openshiftapps.com
