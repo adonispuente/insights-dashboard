@@ -421,7 +421,7 @@ resourceTemplates:
   # IAM Console
 - name: iam-console
   path: /deploy/frontend.yaml
-  url: https://github.com/RedHatInsights/iam-ui-build
+  url: https://gitlab.cee.redhat.com/it-user/admin-self-service/
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
