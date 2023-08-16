@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
-    ref: 457555b4498b868f205fcb3427f222ea85b64dd5
+    ref: 3a1bb7e015ff1c461058121ac11c42bf3253311a
     name: integration-canary
     promotion:
       auto: true
