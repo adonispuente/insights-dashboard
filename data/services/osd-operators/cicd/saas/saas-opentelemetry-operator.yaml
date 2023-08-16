@@ -38,28 +38,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
     ref: main
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 45cae5a9459589cf583498af814914635ff4cd35
-
 - name: opentelemetry-collector-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/opentelemetry-collector/template.yaml
