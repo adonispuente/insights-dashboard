@@ -1,0 +1,13 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Michal Stokluska
+org_username: mstoklus
+github_username: MStokluska
+quay_username: mstoklus
+
+roles:
+- $ref: /teams/rhmi/roles/dev.yml
+- $ref: /teams/rhmi/roles/saas-ocm-sendgrid-approver.yaml
