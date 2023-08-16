@@ -140,13 +140,13 @@ resourceTemplates:
       - automation-analytics-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
-    ref: 200902e8c7b08ad17b0fd395ab3aa218fcfc5b28
+    ref: 850b2b4b8cf7c5e96517c14b2d529eeeacdab3d5
     parameters:
       ENV_NAME: prod
       GUNICORN_PROCESSES: 1
       REPLICAS_API: 20
       REPLICAS_ONEVIEW: 2
-      REPLICAS_ROLLUP: 0 # was 6
+      REPLICAS_ROLLUP: 3 # was 6
       REPLICAS_PROCESSOR_CONTROLLER: 0  # was 4 (!77256)
       REPLICAS_PROCESSOR_INGRESS: 3
       REPLICAS_EXPORTER: 0  # was 3 (!77267)
