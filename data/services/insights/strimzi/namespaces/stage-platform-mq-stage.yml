@@ -95,6 +95,9 @@ openshiftResources:
   path: insights/secrets/insights-stage/strimzi-stage/lag-exporter-config
   version: 14
   name: lag-exporter-config
+- provider: vault-secret
+  path: app-interface/assisted-installer/msk-credentials/stage/mirrormaker
+  version: 1
 
 managedExternalResources: true
 
