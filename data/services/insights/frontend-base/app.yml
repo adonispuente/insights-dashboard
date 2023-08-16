@@ -87,7 +87,7 @@ quayRepos:
   - name: subscriptions-dashboard-ui
     public: true
     description: Quay repo for subscriptions-dashboard-ui frontend
-  - name: iam-ui-build
+  - name: iam-console
     public: true
     description: Identity and Access Management administration console.
 
