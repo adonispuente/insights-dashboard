@@ -122,7 +122,7 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: b6b1ec8bd252b4eb92908889b02c50ba00299263
+    ref: 6d92af3af03147fa7d2948779dd042ff9e366f76
     parameters:
       GATE_NAME: ocm-ams-prod-canary
       CPU_LIMIT: '2'
