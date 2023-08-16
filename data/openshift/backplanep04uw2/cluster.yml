@@ -110,24 +110,13 @@ peering:
   - provider: account-tgw
     name: backplanep04uw2
     account:
-      $ref: /aws/osd-privatelink-stage/account.yml
+      $ref: /aws/osd-privatelink-prod/account.yml
     assumeRole: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
     tags:
       osd: privatelink
     cidrBlock: 172.16.0.0/12
     manageRoutes: true
     manageSecurityGroups: true
-    delete: true
-  # - provider: account-tgw
-  #   name: backplanep04uw2
-  #   account:
-  #     $ref: /aws/osd-privatelink-prod/account.yml
-  #   assumeRole: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
-  #   tags:
-  #     osd: privatelink
-  #   cidrBlock: 172.16.0.0/12
-  #   manageRoutes: true
-  #   manageSecurityGroups: true
 
 observabilityNamespace:
   $ref: 
