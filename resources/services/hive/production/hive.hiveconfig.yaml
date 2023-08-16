@@ -96,10 +96,10 @@ spec:
       vpcID: vpc-02e1602b47285215a
       credentialsSecretRef:
         name: backplane-vpc-creds-backplanep03ue1
-    # - region: us-west-2
-    #   vpcID: vpc-0a4744d5dfaf35edd
-    #   credentialsSecretRef:
-    #     name: backplane-vpc-creds-backplanep04uw2
+    - region: us-west-2
+      vpcID: vpc-0a4744d5dfaf35edd
+      credentialsSecretRef:
+        name: backplane-vpc-creds-backplanep04uw2
     endpointVPCInventory:
     - region: ap-northeast-1
       subnets:
