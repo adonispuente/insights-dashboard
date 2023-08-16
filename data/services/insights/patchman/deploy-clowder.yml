@@ -196,7 +196,7 @@ resourceTemplates:
       PRELOAD_ADVISORY_DETAIL_CACHE: 'true'
       SCHEMA_MIGRATION: "-1"
       GOMEMLIMIT_MANAGER: '1843MiB'
-      DB_READ_REPLICA_ENABLED: 'false'
+      DB_READ_REPLICA_ENABLED: 'true'
 
       # Listener
       REPLICAS_LISTENER: '3'
@@ -273,9 +273,9 @@ resourceTemplates:
       IMAGE_TAG_JOBS: 9ee6689 # hotfix
       JOBS_TIMEOUT: '21600'  # kill jobs after 6 hours
       ADVISORY_REFRESH_SCHEDULE: '30 11-22 * * *'
-      ADVISORY_REFRESH_SUSPEND: 'true'
-      PKG_REFRESH_SUSPEND: 'true'
-      DB_READ_REPLICA_ENABLED_JOBS: 'false'
+      ADVISORY_REFRESH_SUSPEND: 'false'
+      PKG_REFRESH_SUSPEND: 'false'
+      DB_READ_REPLICA_ENABLED_JOBS: 'true'
 
       # Floorist parameters
       FLOORIST_SUSPEND: 'false'
