@@ -58,36 +58,36 @@ resourceTemplates:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 4a62d63bd423a2b712be0b0890a9fe263ff547e2
+    ref: ad263db06724ed2c760ddf919217d7dccff0d5f5
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
