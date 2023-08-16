@@ -272,6 +272,33 @@ externalResources:
           }
         ]
       }
+  - provider: aws-iam-role
+    identifier: athena-cloudfront-prod-logs-access-role
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Principal": {
+            "AWS": "arn:aws:iam::942491940283:root"
+        },
+        "Statement": [
+          {
+            "Sid": "accessbucket",
+            "Effect": "Allow",
+            "Action": [
+              "s3:GetBucketLocation",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:ListBucketMultipartUploads",
+              "s3:ListMultipartUploadParts",
+              "s3:AbortMultipartUpload"
+            ],
+            "Resource": [
+              "arn:aws:s3:::quayio-cloudfront-logs",
+              "arn:aws:s3:::quayio-cloudfront-logs/*"
+            ]
+          }
+        ]
+      }
   - provider: ecr
     region: eu-central-1
     identifier: quayio-backup
