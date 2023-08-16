@@ -429,18 +429,18 @@ resourceTemplates:
     ref: master # populated by bonfire
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
-    ref: tbd
+    ref: 7221699a5cc7f201596f3d85f33b63500e06cc4e
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: tbd
+    ref: 9150c74ab4a37624f3e3b7a7b3f185a6fb7d7675
     # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: tbd
+    ref: a6d02b01fb7ba7094569fb441990929c0d1ba08a
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: tbd
+    ref: b298f5fb135c175cdfdf71fa6fc0c37ff733cbac
 
   # Seats admin UI
 - name: seats-admin-ui
