@@ -15,6 +15,8 @@ roles:
 - $ref: /teams/ocm/roles/stage-debugger.yml
 - $ref: /aws/app-sre/roles/log-consumer-rds.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
+- $ref: /teams/ocm/roles/ocm-stage-unleash-admin.yml
 
 # TODO managed-services specific roles below to be removed when 
 # RHOSAK project is closed
