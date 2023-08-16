@@ -349,7 +349,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
-    delete: true
     promotion:
       auto: true
       subscribe:
