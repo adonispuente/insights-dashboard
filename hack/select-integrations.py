@@ -158,6 +158,10 @@ def print_cmd(
         cmd += "run_git_partition_sync_integration &"
     elif int_name == "terraform-resources":
         cmd = print_cmd_terraform_resources(integration, cmd)
+    elif int_name == "terraform-repo":
+        # tf_repo_int is a wrapper around running terraform repo and the executor
+        # so we include the command args for terraform-repo int to run with
+        cmd += f"run_tf_repo_int {pr['cmd']} &"
     else:
         cmd += f"run_int {pr['cmd']} &"
 
