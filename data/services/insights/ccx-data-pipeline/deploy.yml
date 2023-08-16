@@ -439,6 +439,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
+    disable: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
