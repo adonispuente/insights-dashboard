@@ -91,7 +91,7 @@ resourceTemplates:
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c14c914fdf7a09e25f6a360ab9297e54b58f6c82
+    ref: 5a9427e1f3742c7b8e12637daa0d62fdaf67385f
     promotion:
       auto: true
       subscribe:
