@@ -35,9 +35,8 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/host-inventory-stage-testing.yml
-    ref: d1a84d7596d15f1b6a11e03719cadbd4d9604947
+    ref: main
     promotion:
-      auto: true
       publish:
       - host-inventory-stage-post-deploy-integration-tests-success-channel
     parameters:
