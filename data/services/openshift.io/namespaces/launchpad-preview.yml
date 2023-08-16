@@ -16,39 +16,4 @@ app:
 environment:
   $ref: /products/openshift.io/environments/stage.yml
 
-grafanaUrl: "https://grafana.app-sre.devshift.net/d/k8s-compute-resources-namespace-pods/kubernetes-compute-resources-namespace-pods?var-datasource=app-sre-stage-01-cluster-prometheus&var-namespace=launchpad-preview"
-
-managedRoles: true
-
-managedResourceTypes:
-- ConfigMap
-- ServiceAccount
-
-openshiftResources:
-- provider: vault-secret
-  path: app-interface/global/quay/openshiftio/quay.io
-  version: 2
-  type: kubernetes.io/dockercfg
-- provider: vault-secret
-  path: app-interface/global/quay/openshiftio/prod.registry.devshift.net
-  version: 2
-  type: kubernetes.io/dockercfg
-- provider: resource
-  path: /dsaas-stg/launchpad-preview/launcher-clusters.configmap.yaml
-- provider: resource
-  path: /dsaas-stg/launchpad-preview/launcher-documentation.configmap.yaml
-- provider: resource
-  path: /dsaas-stg/launchpad-preview/launcher.configmap.yaml
-- provider: vault-secret
-  path: app-interface/dsaas-stg/launchpad-preview/launcher
-  version: 1
-- provider: route
-  path: /dsaas-stg/launchpad-preview/appdev.route.yaml
-- provider: route
-  path: /dsaas-stg/launchpad-preview/launcher-documentation.route.yaml
-- provider: route
-  path: /dsaas-stg/launchpad-preview/launcher.route.yaml
-- provider: route
-  path: /dsaas-stg/launchpad-preview/launcher-application.route.yaml
-- provider: resource
-  path: /dsaas-stg/dsaas-deploy.serviceaccount.yaml
+delete: true
