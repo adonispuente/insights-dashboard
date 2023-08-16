@@ -11,14 +11,14 @@ tests:
 # ImagebuilderNoPodsFound
 - interval: 5m
   input_series:
-  - series: up{namespace="image-builder-stage"}
+  - series: up{namespace="image-builder-stage", service="image-builder-service"}
     values: 0+0x4
   alert_rule_test:
   - eval_time: 5m
     alertname: ImageBuilderNoPodsFound
     exp_alerts:
     - exp_labels:
-        severity: info
+        severity: warning
         service: image-builder
         env: stage
       exp_annotations:
