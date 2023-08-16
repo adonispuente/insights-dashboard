@@ -40,6 +40,7 @@ resourceTemplates:
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_MARKER_EXPRESSION: provisioning
+      IQE_BROWSERLOG: ''
     promotion:
       auto: true
       subscribe:
@@ -57,6 +58,7 @@ resourceTemplates:
     ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
     parameters:
       ENV_FOR_DYNACONF: prod
+      IQE_BROWSERLOG: ''
     promotion:
       auto: true
       subscribe:
