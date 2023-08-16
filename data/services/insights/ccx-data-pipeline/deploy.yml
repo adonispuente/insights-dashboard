@@ -107,9 +107,9 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-insights-results-aggregator-gh-build-master
     parameters:
-      MIN_REPLICAS: "0"
-      MAX_REPLICAS: "0"
-      DB_WRITER_REPLICAS: "0"
+      MIN_REPLICAS: "3"
+      MAX_REPLICAS: "6"
+      DB_WRITER_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     delete: false
@@ -213,7 +213,6 @@ resourceTemplates:
     # Note: Automerge latest master version to STAGE env.
     #       Implementation: latest master build is deployed to STAGE.
     #       IMAGE_TAG is not needed here..
-    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
@@ -386,8 +385,8 @@ resourceTemplates:
       name: RedHatInsights-ccx-notification-writer-gh-build-master
     parameters:
       IMAGE: "quay.io/cloudservices/ccx-notification-writer"
-      MIN_REPLICAS: "0"
-      MAX_REPLICAS: "0"
+      MIN_REPLICAS: "1"
+      MAX_REPLICAS: "1"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 1f0d5ef4539c3e42b37bd366bc1e48e446f6e7f3
@@ -409,7 +408,6 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
-    delete: true
     ref: master
     upstream:
       instance:
@@ -440,7 +438,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
-    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
