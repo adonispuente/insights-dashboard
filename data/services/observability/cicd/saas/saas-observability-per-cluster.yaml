@@ -314,7 +314,7 @@ resourceTemplates:
       CLUSTER_LABEL: crcs02ue1
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.crcs02ue1.devshift.net
-      PV_SIZE: 100Gi
+      PV_SIZE: 150Gi
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.crcp01ue1.yml
