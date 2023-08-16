@@ -277,6 +277,7 @@ externalResources:
     inline_policy:
       {
         "Version": "2012-10-17",
+        "Id": "CloudFrontLogsAthenaS3Access",
         "Principal": {
           "AWS": "arn:aws:iam::942491940283:root"
         },
