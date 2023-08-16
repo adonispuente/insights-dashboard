@@ -26,6 +26,6 @@ parameters:
   APP_INTERFACE_PROJECT_ID: '78363'
   DRY_RUN: --dry-run
   GITHUB_API: https://github-mirror.stage.devshift.net
-  SLACK_CHANNEL: sd-sre-capabilities-stage
-  SLACK_CHANNEL_TRIGGER: sd-sre-capabilities-stage
+  SLACK_CHANNEL: sd-sre-capabilities-reconcile-stage
+  SLACK_CHANNEL_TRIGGER: sd-sre-capabilities-reconcile-stage
   SLEEP_DURATION_SECS: 600
