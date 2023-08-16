@@ -156,9 +156,9 @@ All dependencies need to be available for Playbook Dispatcher to work as expecte
 Playbook Dispatcher requires the Amazon RDS for PostgresSQL and the Kafka message queue. Without these components, Playbook Dispatcher will not fulfill its objectives.
 
 ## Load Testing
-_Reference to load testing data and frameworks._
 
-Coming soon.
+Load tests were conducted as part of [RHCLOUD-27541](https://issues.redhat.com/browse/RHCLOUD-27541).
+The tests can be re-run using [this guide](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/playbook-dispatcher/playbook-dispatcher-load-testing.md).
 
 ## Capacity
 
