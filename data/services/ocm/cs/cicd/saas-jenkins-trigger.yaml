@@ -31,7 +31,7 @@ resourceTemplates:
       JENKINS_JOB_NAME: uhc-integration-tests-integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-tests.yml
-    ref: 0e426a9a4cb28591cd5e17f77684f8c4f64bff73
+    ref: a77b6bdb2076f12b82c8cfea2dd2e1e2f7667be1
     promotion:
       auto: true
       subscribe:
