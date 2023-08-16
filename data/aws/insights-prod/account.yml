@@ -1348,6 +1348,37 @@ deletionApprovals:
 - type: aws_iam_role_policy_attachment
   name: 'tower-analytics-prod-2-enhanced-monitoring'
   expiration: '2023-08-16'
+# Related to RHCLOUD-27323
+- type: aws_cloudwatch_log_group
+  name: eventing-prod
+  expiration: '2023-08-18'
+- type: aws_cloudwatch_log_subscription_filter
+  name: eventing-prod-lambda
+  expiration: '2023-08-18'
+- type: aws_iam_access_key
+  name: eventing-prod
+  expiration: '2023-08-18'
+- type: aws_iam_policy
+  name: eventing-prod
+  expiration: '2023-08-18'
+- type: aws_iam_role
+  name: eventing-prod-lambda-execution-role
+  expiration: '2023-08-18'
+- type: aws_iam_role_policy
+  name: eventing-prod-lambda-execution-policy
+  expiration: '2023-08-18'
+- type: aws_iam_user
+  name: eventing-prod
+  expiration: '2023-08-18'
+- type: aws_iam_user_policy_attachment
+  name: eventing-prod
+  expiration: '2023-08-18'
+- type: aws_lambda_function
+  name: eventing-prod-lambda
+  expiration: '2023-08-18'
+- type: aws_lambda_permission
+  name: eventing-prod-lambda
+  expiration: '2023-08-18'
 
 resetPasswords:
   - user:

@@ -6,6 +6,7 @@ labels:
 
 name: eventing-prod
 description: Insights eventing-prod on the Prod cluster under clowder deployment
+delete: true
 
 cluster:
   $ref: /openshift/crcp01ue1/cluster.yml
@@ -42,14 +43,3 @@ openshiftResources:
 
 
 managedExternalResources: true
-
-externalResources:
-- provider: aws
-  provisioner:
-    $ref: /aws/insights-prod/account.yml
-  resources:
-  - provider: cloudwatch
-    identifier: eventing-prod
-    defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
-    output_resource_name: cloudwatch
-    es_identifier: kibana-elasticsearch
