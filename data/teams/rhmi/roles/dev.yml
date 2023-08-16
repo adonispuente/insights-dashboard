@@ -33,3 +33,7 @@ access:
 - namespace:
     $ref: /services/sendgrid/namespaces/sendgrid-pipelines.appsrep05ue1.yaml
   role: tekton-trigger-access
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/rhmi/roles/dev.yml
