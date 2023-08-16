@@ -13,7 +13,7 @@ slack:
   channel: team-clouddot-info
 pipelinesProvider:
   $ref: /services/insights/pipelines/tekton.crc-poc-pipelines.appsres03ue1.yaml
-timeout: 5h
+timeout: 5h0m0s
 publishJobLogs: true
 imagePatterns:
 - quay.io/cloudservices

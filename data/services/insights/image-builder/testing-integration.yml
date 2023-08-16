@@ -17,7 +17,7 @@ imagePatterns:
 - quay.io/cloudservices
 - quay.io/redhatqe
 
-timeout: 90m
+timeout: 1h30m0s
 
 authentication:
   image:
