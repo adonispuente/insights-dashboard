@@ -14,12 +14,12 @@ spec:
     rules:
 
     - alert: ImageBuilderNoPodsFound
-      expr: sum(up{namespace="image-builder-prod"}) == 0
+      expr: sum(up{namespace="image-builder-prod", service="image-builder-service"}) == 0
       for: 5m
       annotations:
         message: No pods found in the namespace
       labels:
-        severity: info
+        severity: warning
         service: image-builder
         env: prod
 
