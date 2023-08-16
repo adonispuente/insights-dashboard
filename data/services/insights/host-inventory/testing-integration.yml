@@ -42,4 +42,4 @@ resourceTemplates:
       - host-inventory-stage-post-deploy-integration-tests-success-channel
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
-      IQE_REQUIREMENTS: HMS_INTEGRATION-CONVERSION-EXPERIENCE
+      IQE_MARKER_EXPRESSION: host_inventory
