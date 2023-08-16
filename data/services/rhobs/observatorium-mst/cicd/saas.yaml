@@ -302,7 +302,7 @@ resourceTemplates:
       # TODO(bwplotka): Fix it on templating side, it's super confusing. It means downsampling is enabled.
       THANOS_COMPACTOR_RETENTION_DISABLE_DOWNSAMPLING: '--no-downsampling.disable'
       THANOS_CONFIG_SECRET: observatorium-mst-thanos-objectstorage
-      THANOS_IMAGE_TAG: v0.30.2
+      THANOS_IMAGE_TAG: v0.32.0-rc.0
       THANOS_QUERIER_CPU_LIMIT: '2'
       THANOS_QUERIER_CPU_REQUEST: '1'
       THANOS_QUERIER_MEMORY_LIMIT: '8Gi'
