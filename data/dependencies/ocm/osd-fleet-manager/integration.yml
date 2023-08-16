@@ -96,16 +96,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
-- name: hs-mc-edloetb30
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: canary
-      soakDays: 0
-      mutexes:
-      - canary
 - name: hs-sc-f15jf9h00
   upgradePolicy:
     workloads:
@@ -130,16 +120,6 @@ upgradePolicyClusters:
   upgradePolicy:
     workloads:
     - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: canary
-      soakDays: 0
-      mutexes:
-      - canary
-- name: hs-mc-e5tbseksg
-  upgradePolicy:
-    workloads:
-    - management-cluster
     schedule: 0,15,30,45 * * * *
     conditions:
       sector: canary
