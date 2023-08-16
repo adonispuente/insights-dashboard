@@ -26,6 +26,7 @@ managedResourceTypes:
 - Service
 - ConfigMap
 - Frontend
+- ClowdApp
 
 imagePatterns:
 - quay.io/cloudservices
@@ -36,16 +37,11 @@ authentication:
     field: all
     version: 3
 
-# Generally, the resource template section should follow the convention described in https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/continuous-delivery-in-app-interface.md#overview
-# This practically means that targets deploying the same template should reside under the same resource template.
-# This SaaS file is an exception since it deploys business specific configuration that is strictly validated in the upstream repository.
-# Slack thread: https://redhat-internal.slack.com/archives/CCRND57FW/p1634066186435700
-
 resourceTemplates:
 
 # Stage environment
 - name: entitlements-api-go-stage
-  path: /deployment/deploy.yml
+  path: /deployment/clowdapp.yml
   url: https://github.com/RedHatInsights/entitlements-api-go
   parameters:
     REPLICAS: 2
@@ -54,6 +50,7 @@ resourceTemplates:
       $ref: /services/insights/entitlements/namespaces/stage-entitlements-stage.yml
     ref: master
     parameters:
+      ENV_NAME: stage
       SUBS_HOST: https://subscription.stage.api.redhat.com
       COMPLIANCE_HOST: https://export-compliance.stage.api.redhat.com
       RUN_BUNDLE_SYNC: true
