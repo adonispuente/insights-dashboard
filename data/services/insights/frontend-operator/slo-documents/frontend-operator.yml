@@ -14,38 +14,14 @@ namespaces:
       $ref: /services/insights/frontend-operator/namespaces/prod.yml
 
 slos:
-- name: frontend operator reconciliation error rate
+- name: Frontend controller reconciliation time for Frontend Operator
   SLIType: correctness
-  SLISpecification: Correctness
-  SLODetails: https://github.com/RedHatInsights/frontend-operator
+  SLISpecification: Percentage of Frontend controller Reconciliations that complete within 4 seconds 
+  SLODetails: https://github.com/RedHatInsights/clowder
   SLOParameters:
     window: 28d
-  expr: (sum by (controller) (avg_over_time(controller_runtime_reconcile_total{controller=~"frontend", result=~"success"}[28d]))) / (sum by (controller) (avg_over_time(controller_runtime_reconcile_total{controller=~"frontend", result=~"error|success"}[28d])))
-  SLOTarget: 0.90
-  SLOTargetUnit: percent_0_1
-  prometheusRules: resources/insights-stage/frontend-operator/frontend-operator.prometheusrules.yaml
-  dashboard: https://grafana.app-sre.devshift.net/d/GSX6u0bnz/frontend-operator-metrics?orgId=1&viewPanel=14
-
-- name: frontend operator reconciliation time
-  SLIType: correctness
-  SLISpecification: Correctness 
-  SLODetails: https://github.com/RedHatInsights/frontend-operator
-  SLOParameters:
-    window: 28d
-  expr: 100 * sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"frontend", le="4"}[28d])) by (controller) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller=~"frontend", le="+Inf"}[28d])) by (controller)
+  expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="+Inf"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
-  prometheusRules: resources/insights-stage/frontend-operator/frontend-operator.prometheusrules.yaml
-  dashboard: https://grafana.app-sre.devshift.net/d/GSX6u0bnz/frontend-operator-metrics?orgId=1&viewPanel=16
-
-- name: frontend operator workqueue depth
-  SLIType: correctness
-  SLISpecification: Correctness 
-  SLODetails: https://github.com/RedHatInsights/frontend-operator
-  SLOParameters:
-    window: 28d
-  expr: 1 - sum(avg_over_time(workqueue_depth{service="frontend-operator-controller-manager-metrics-service-non-auth"}[28d])) by (name)
-  SLOTarget: 0.99
-  SLOTargetUnit: percent_0_1
-  prometheusRules: resources/insights-stage/frontend-operator/frontend-operator.prometheusrules.yaml
-  dashboard: https://grafana.app-sre.devshift.net/d/GSX6u0bnz/frontend-operator-metrics?orgId=1&viewPanel=18
+  prometheusRules: resources/insights-prod/clowder/clowder.prometheusrules.yaml
+  dashboard: https://grafana.app-sre.devshift.net/d/VTSfF_0Gk/clowder-metrics?var-datasource=crcp01ue1-prometheus&viewPanel=6
