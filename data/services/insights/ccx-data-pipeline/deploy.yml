@@ -135,6 +135,7 @@ resourceTemplates:
       MIN_REPLICAS: "1"
       DB_WRITER_REPLICAS: "1"
       CLOUDWATCH_ENABLED: "false"
+      PG_PARAMS: "sslmode=disable"
   # ephemeral deployment for OCM qaprodauth
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
@@ -150,6 +151,7 @@ resourceTemplates:
       MAX_REPLICAS: "6"
       DB_WRITER_REPLICAS: "1"
       CLOUDWATCH_ENABLED: "false"
+      PG_PARAMS: "sslmode=disable"
 
 - name: insights-results-smart-proxy
   path: /deploy/clowdapp.yaml
@@ -226,6 +228,7 @@ resourceTemplates:
     ref: internal
     parameters:
       CLOUDWATCH_ENABLED: "false"
+      PG_PARAMS: "sslmode=disable"
 
 - name: insights-content-service
   path: /deploy/clowdapp.yaml
@@ -369,6 +372,7 @@ resourceTemplates:
     parameters:
       OUTPUT: "file"
       DB_NAME: ccx-insights-results
+      PG_PARAMS: "sslmode=disable"
 
 ### CCX Notification Services
 
@@ -401,6 +405,7 @@ resourceTemplates:
     parameters:
       MIN_REPLICAS: "1"
       MAX_REPLICAS: "1"
+      PG_PARAMS: "sslmode=disable"
 
 - name: ccx-notification-db-cleaner
   path: /deploy/clowdapp-db-cleaner.yaml
@@ -430,6 +435,8 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
     ref: internal
+    parameters:
+      PG_PARAMS: "sslmode=disable"
 
 - name: ccx-notification-service
   path: /deploy/clowdapp.yaml
@@ -476,6 +483,7 @@ resourceTemplates:
       JOB_SCHEDULE: "*/3 * * * *"
       NOTIFICATION_RESEND_COOLDOWN: "29m"
       PLATFORM_UI_HOSTNAME: console.redhat.com
+      PG_PARAMS: "sslmode=disable"
 
 - name: insights-notification-db-exporter
   path: /deploy/clowdapp.yaml
@@ -524,6 +532,7 @@ resourceTemplates:
     parameters:
       OUTPUT: "file"
       DB_NAME: ccx-notification-writer
+      PG_PARAMS: "sslmode=disable"
 
 - name: insights-content-template-renderer
   path: /deploy/clowdapp.yaml
