@@ -88,7 +88,7 @@ resourceTemplates:
       - channel: notifications-splunk-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: c90de45ea3b5f22a
+          target_config_hash: c010adff98529c72
           type: parent_saas_config
 - name: notifications-engine
   path: /.rhcicd/stage-engine-post-deployment-tests.yaml
