@@ -86,11 +86,9 @@ externalResources:
   resources:
   - provider: rds
     identifier: notifications-backend-stage
-    defaults: /terraform/resources/insights/stage/rds/postgres11-rds-1.yml
-    overrides:
-      engine_version: "11.20"
-      name: notifications_backend
+    defaults: /terraform/resources/insights/stage/rds/postgres15-rds-notifications-stage.yml
     output_resource_name: notifications-backend-db
+    parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-notifications-stage.yml
     enhanced_monitoring: true
   - provider: cloudwatch
     identifier: notifications-stage
