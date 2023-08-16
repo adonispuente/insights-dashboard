@@ -179,6 +179,8 @@ resourceTemplates:
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
     ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
     parameters:
+      KAFKA_MAX_POLL_INTERVAL_MS: 1200000
+      KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
