@@ -67,5 +67,5 @@ resourceTemplates:
       - channel: provisioning-prod-post-deploy-tests-success-channel
         data:
         - parent_saas: provisioning-testing
-          target_config_hash: c02892f61dbcb635
+          target_config_hash: 78588351dddeec6c
           type: parent_saas_config
