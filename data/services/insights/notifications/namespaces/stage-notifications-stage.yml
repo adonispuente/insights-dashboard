@@ -88,6 +88,9 @@ externalResources:
     identifier: notifications-backend-stage
     defaults: /terraform/resources/insights/stage/rds/postgres15-rds-notifications-stage.yml
     output_resource_name: notifications-backend-db
+    # Override for the database upgrade. Remove once we're done.
+    overrides:
+      apply_immediately: true
     parameter_group: /terraform/resources/insights/stage/rds/postgres15-parameter-group-notifications-stage.yml
     enhanced_monitoring: true
   - provider: cloudwatch
