@@ -213,6 +213,7 @@ resourceTemplates:
     # Note: Automerge latest master version to STAGE env.
     #       Implementation: latest master build is deployed to STAGE.
     #       IMAGE_TAG is not needed here..
+    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
@@ -408,7 +409,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
-    disable: false
+    delete: true
     ref: master
     upstream:
       instance:
@@ -439,7 +440,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
     ref: master
-    disable: true
+    delete: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
