@@ -1,0 +1,11 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Randy George
+org_username: rageorge
+github_username: randymgeorge
+
+roles:
+- $ref: /teams/sd-org/roles/sd-architects.yml

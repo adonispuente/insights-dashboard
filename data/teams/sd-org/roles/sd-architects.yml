@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: sd-architects
+
+permissions:
+- $ref: /teams/sd-org/permissions/sd-arch-team-coreos-slack.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/sd-org/roles/sd-architects.yml
