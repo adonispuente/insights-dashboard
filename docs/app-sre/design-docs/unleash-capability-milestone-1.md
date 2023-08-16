@@ -61,6 +61,8 @@ Creating a new app-interface, has many challenges, that would sidetrack this eff
 * [APPSRE-8132](https://issues.redhat.com/browse/APPSRE-8132) Adapt RH-IDP for authentication
 * [APPSRE-8131](https://issues.redhat.com/browse/APPSRE-8131) Create a db-schema-manager
 * [APPSRE-8140](https://issues.redhat.com/browse/APPSRE-8140) Make unleash ready for continuous delivery
+* [APPSRE-8185](https://issues.redhat.com/browse/APPSRE-8185) Document Unleash capability, especially non-functional requirements
+
 
 ### Outlook
 
