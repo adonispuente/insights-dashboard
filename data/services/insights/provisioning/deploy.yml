@@ -92,7 +92,7 @@ resourceTemplates:
       APP_RBAC_ENABLED: true
   - namespace: # PROD api
       $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: 09a4236544302dbdcdcf328ace7118741109798a
+    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
     promotion:
       publish:
       - provisioning-prod-deploy-success-channel
@@ -114,4 +114,4 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 09a4236544302dbdcdcf328ace7118741109798a
+    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
