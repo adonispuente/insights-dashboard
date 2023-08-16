@@ -6,3 +6,9 @@ name: ocm-integration-unleash
 
 permissions:
 - $ref: /dependencies/unleash/permissions/ocm-integration.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
