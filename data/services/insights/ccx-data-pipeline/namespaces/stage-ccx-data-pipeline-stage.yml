@@ -82,6 +82,7 @@ externalResources:
     defaults: /terraform/resources/insights/stage/rds/postgres15-rds-1.yml
     overrides:
       apply_immediately: true
+      allow_major_version_upgrade: true
       maintenance_window: Mon:05:00-Mon:07:00
       engine_version: "15.3"
     output_resource_name: ccx-data-pipeline-db
@@ -96,6 +97,7 @@ externalResources:
     enhanced_monitoring: true
     overrides:
       apply_immediately: true
+      allow_major_version_upgrade: true
       allocated_storage: 100
       maintenance_window: Mon:05:00-Mon:07:00
       engine_version: "15.3"
