@@ -278,7 +278,7 @@ externalResources:
       {
         "Version": "2012-10-17",
         "Principal": {
-            "AWS": "arn:aws:iam::942491940283:root"
+          "AWS": "arn:aws:iam::942491940283:root"
         },
         "Statement": [
           {
