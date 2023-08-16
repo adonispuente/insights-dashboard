@@ -1,0 +1,16 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: sd-arch-team-coreos-slack
+description: Service Delivery Architects (managed via app-interface)
+
+service: slack-usergroup
+handle: sd-arch-team
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+- sd-architecture

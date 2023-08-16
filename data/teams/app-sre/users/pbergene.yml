@@ -12,6 +12,7 @@ tag_on_cluster_updates: false
 
 roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
+- $ref: /teams/sd-org/roles/sd-architects.yml
 
 public_gpg_key: |
   mQINBFlbvCIBEAC5OUp/CH9CUrn9YBddWKviZJVHvpl0RynwbmGP6zXxh62/zlPqrqNIfp0cL9Rj

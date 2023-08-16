@@ -7,4 +7,5 @@ name: Randy George
 org_username: rageorge
 github_username: randymgeorge
 
-roles: []
+roles:
+- $ref: /teams/sd-org/roles/sd-architects.yml
