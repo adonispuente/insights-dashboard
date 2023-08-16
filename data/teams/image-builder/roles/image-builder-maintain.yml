@@ -50,4 +50,3 @@ self_service:
   datafiles:
   - $ref: /aws/image-builder-stage/account.yml
   - $ref: /aws/image-builder-prod/account.yml
-  
