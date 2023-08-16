@@ -9,15 +9,3 @@ output: filesystem
 queries:
   - SELECT COUNT(*) FROM recommendation;
   - ANALYZE VERBOSE
-
----
-$schema: /app-interface/app-interface-sql-query-1.yml
-labels: {}
-name: 2023-08-16-rds-post-upgrade-v15-ccx-notification-db-stage
-namespace:
-  $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
-identifier: ccx-notification-db-stage
-output: filesystem
-queries:
-  - SELECT COUNT(*) FROM reported;
-  - ANALYZE VERBOSE
