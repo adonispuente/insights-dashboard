@@ -274,6 +274,9 @@ externalResources:
       }
   - provider: aws-iam-role
     identifier: athena-cf-prod-logs-access-role
+    assume_role:
+      AWS:
+      - arn:aws:iam::942491940283:role/athena-cf-logs-access
     inline_policy:
       {
         "Version": "2012-10-17",
