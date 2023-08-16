@@ -17,6 +17,7 @@ roles:
 - $ref: /teams/lp-sre/roles/app-sre-osd-addons.yml
 - $ref: /teams/dvo/roles/dvo-maintainer.yaml
 - $ref: /teams/obs-poc/roles/obs-poc-role.yml
+- $ref: /teams/sd-org/roles/sd-architects.yml
 
 public_gpg_key: |
   mQENBFp636sBCACW+3vErxWIAZZ5NsSSChYfyHQg2wxZQVgmsL0GS+xjCmEr4i6aBFK+Wg4dQuoc
