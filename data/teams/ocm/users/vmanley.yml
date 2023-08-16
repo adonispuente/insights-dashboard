@@ -18,13 +18,6 @@ roles:
 - $ref: /teams/ocm/roles/ocm-integration-unleash-admin.yml
 - $ref: /teams/ocm/roles/ocm-stage-unleash-admin.yml
 
-# TODO managed-services specific roles below to be removed when 
-# RHOSAK project is closed
-- $ref: /teams/managed-services/roles/dev.yml
-- $ref: /teams/managed-services/roles/control-plane-full.yaml
-- $ref: /teams/managed-services/roles/managed-application-services.yml
-- $ref: /teams/managed-services/roles/saas-managed-services-approver.yaml
-
 public_gpg_key: |
   mQINBGMQxQsBEACkooRzZldxSHBZ3NKy1+iTiRtqtfLH0fswEqlgIPWy0qV2jWJ8B30GdWMUBBwL
   EZOzRm5Ts0390hF70n+n3RjdahvfiWPeXstCoU8tR5q/SwOEEmNmKg9Hpjn8WVf5iz6W4vwR4f5G
