@@ -8,4 +8,4 @@ identifier: ccx-notification-db-stage
 output: filesystem
 queries:
   - SELECT cluster, notified_at FROM reported;
-  - ANALYZE VERBOSE
+  - ANALYZE VERBOSE;
