@@ -665,7 +665,7 @@
 # which stages developers want to run.
 - job-template:
     id: 'insights-gh-pipeline-experimental'
-    name: '{gh_org}-{gh_repo}-pipeline-experimental-{branch}'
+    name: '{gh_org}-{gh_repo}-pipeline-pr-check-experimental-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
