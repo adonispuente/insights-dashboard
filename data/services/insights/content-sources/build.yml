@@ -58,18 +58,4 @@ config:
     - "hms-gh-pr-check":
         display_name: content-sources-backend pr-check-prod-freeze
         branch: 2023-prod-freeze
-- project:
-    name: content-sources-pulp
-    label: insights
-    node: insights
-    gh_org: pulp
-    gh_repo: pulp-clowder-deployments
-    quay_org: cloudservices
-    jobs:
-    - "insights-gh-build-master":
-        display_name: content-sources-pulp build-master
-        branch: main
-        slack_channel_notification: team-pulp-services
-    - "hms-gh-pr-check":
-        display_name: content-sources-pulp pr-check
-        branch: main
+
