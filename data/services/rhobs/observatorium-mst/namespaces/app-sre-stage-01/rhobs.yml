@@ -26,3 +26,15 @@ managedRoles: true
 sharedResources:
   - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
+
+managedExternalResources: true
+
+externalResources:
+  - provider: aws
+    provisioner:
+      $ref: /aws/app-sre/account.yml
+    resources:
+      - provider: s3
+        identifier: app-sre-stage-01-telemeter-tenant
+        defaults: /terraform/resources/telemeter/s3-private-1.yml
+        output_resource_name: telemeter-tenant-s3
