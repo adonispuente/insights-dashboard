@@ -40,7 +40,7 @@ resourceTemplates:
       name: openshift-assisted-bug-master-bot-gh-build-main
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-    ref: 83b0a00948eb11131a093f0536d8bb76a011c7f7
+    ref: c0a7644fbd79401aba78e347e1c3599b7d8acd94
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     ref: 83b0a00948eb11131a093f0536d8bb76a011c7f7
