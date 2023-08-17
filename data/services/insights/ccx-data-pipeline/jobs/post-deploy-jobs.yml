@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-stage.yml
-    ref: 75534d57b10e40e3daa6d53469a8f9727ab472f8
+    ref: fecb9a260767c1443b3e40dd303f4002b1d48dc5
     promotion:
       auto: true
       subscribe:
