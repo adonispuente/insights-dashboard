@@ -220,6 +220,18 @@ resourceTemplates:
                 - key: obo
                   value: true
                   effect: NoSchedule
+  - name: osd-fleet-manager-integration-podisolation
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
+    ref: 457555b4498b868f205fcb3427f222ea85b64dd5
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-int-canary
+    parameters:
+      DEPLOYMENT_NAME: podisolation
+      GATE_NAME: ocm-osdfm-int-canary
+      ENABLE_POD_ISOLATION: true
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
