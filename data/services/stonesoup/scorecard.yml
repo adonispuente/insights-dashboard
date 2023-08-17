@@ -87,9 +87,14 @@ acceptanceCriteria:
 - comment: No dashboards yet
   name: OBSERVABILITY-0004
   status: red
-- comment: Work in progress.
-  name: OBSERVABILITY-0005
-  status: yellow
+- name: OBSERVABILITY-0005
+  comment: |
+    OpenShift application, audit and infrastructure logs are being forwarded to RH's
+    Splunk Cloud. Same with AWS VPC Network Flow logs.
+    
+    For more information see: 
+    https://github.com/redhat-appstudio/book/blob/main/book/logging.md  
+  status: green
 - comment: No SLO response policy yet.
   name: OBSERVABILITY-0006
   status: red
