@@ -1,0 +1,27 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: cert-manager-operator
+description: appsres05ue1 cert-manager-operator namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/app-sre/cert-manager/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- OperatorGroup.operators.coreos.com
+- Subscription.operators.coreos.com
+
+openshiftResources:
+- provider: resource-template
+  type: jinja2
+  path: /cert-manager/openshift-cert-manager-operator.subscription.j2
+- provider: resource
+  path: /cert-manager/cert-manager-operator-operatorgroup.yaml
