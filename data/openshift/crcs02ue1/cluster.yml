@@ -33,7 +33,7 @@ spec:
   version: 4.13.8
   initial_version: 4.5.16-fast
   multi_az: false
-  nodes: 20
+  nodes: 23
   instance_type: m5.2xlarge
   storage: 2600
   load_balancers: 4
