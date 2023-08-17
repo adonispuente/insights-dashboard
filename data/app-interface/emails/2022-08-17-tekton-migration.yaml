@@ -39,7 +39,7 @@ to:
   - $ref: /services/insights/drift/app.yml
   - $ref: /services/insights/edge/app.yml
   - $ref: /services/insights/ephemeral/app.yml
-  - $ref: /services/insights/eventing/app.yml
+#  - $ref: /services/insights/eventing/app.yml
   - $ref: /services/insights/floorist/app.yml
   - $ref: /services/insights/frontend-operator/app.yml
   - $ref: /services/insights/hac/app.yml
