@@ -69,7 +69,7 @@ resourceTemplates:
       - code-quarkus-redhat-frontend-stage-deploy-success-channel
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-redhat-production.yml
-    ref: 7f62374c87f569c58af3508e9e79f8cce048c19a
+    ref: ffe3df2f8f7104d799612d9fc7a3f0b6b90773e1
     parameters:
       REPLICAS: 3
     promotion:
