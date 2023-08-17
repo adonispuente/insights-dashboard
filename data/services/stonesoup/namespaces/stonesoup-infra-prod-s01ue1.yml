@@ -36,3 +36,26 @@ externalResources:
     identifier: rh-artifacts-bucket
     defaults: /terraform/resources/s3-all-expires-7-days.yml
     output_resource_name: rh-artifacts-bucket
+  - provider: aws-iam-service-account
+    identifier: rh-artifacts-bucket-writer
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "RHArtifactsBucketRead",
+            "Effect": "Allow",
+            "Action": [
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:ListBucket",
+              "s3:PutObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::rh-artifacts-bucket",
+              "arn:aws:s3:::rh-artifacts-bucket/*"
+            ]
+          }
+        ]
+      }
+    output_resource_name: rh-artifacts-bucket-writer
