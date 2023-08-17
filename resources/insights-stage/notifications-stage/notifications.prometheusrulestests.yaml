@@ -524,6 +524,32 @@ tests:
         message: "Kafka lag detected [env=stage, topic=platform.notifications.ingress, group=integrations]"
         runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineIngressTopicKafkaLagProd.html"
 
+# NotificationsEgressIPChangeStage
+- interval: 1m
+  input_series:
+  - series: console_url{url="https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com"}
+    values: 1 1 0
+
+  alert_rule_test:
+  - eval_time: 1m
+    alertname: NotificationsEgressIPChangeStage
+    exp_alerts:
+
+  - eval_time: 2m
+    alertname: NotificationsEgressIPChangeStage
+    exp_alerts:
+    - exp_labels:
+        app_team: notifications
+        env: stage
+        service: insights
+        severity: critical
+        url: https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Egress IPs changed in stage! The external IP of the cluster has changed!"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEgressIPChangeProd.html"
+
 ##################################
 # Alerts about external services #
 ##################################
