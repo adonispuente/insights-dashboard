@@ -12,7 +12,7 @@ roles:
 - $ref: /teams/devfile-registry/roles/saas-approver.yml
 
 # Stonesoup-specific roles needed for jcollier
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-has-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml

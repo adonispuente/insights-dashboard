@@ -11,7 +11,7 @@ roles:
 - $ref: /teams/devfile-registry/roles/dev.yml
 
 # Stonesoup-specific roles needed for mfaisal
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-has-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
