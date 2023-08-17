@@ -9,10 +9,9 @@ github_username: pawelpaszki
 quay_username: ppaszki
 
 roles:
-- $ref: /teams/managed-services/roles/dev.yml
-- $ref: /teams/managed-services/roles/saas-managed-services-approver.yaml
+- $ref: /teams/ocm/roles/dev.yml
+- $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
-- $ref: /teams/managed-services/roles/control-plane-full.yaml
 
 public_gpg_key: |
   mQINBGBKAVkBEAD2F7G1RwYpuozDBjr3ohA1X0CXXXov0HYZ7ejYTve/6unslsWT
