@@ -24,7 +24,7 @@ tests:
               service: insights
               env: stage
               app_team: provisioning
-              severity: medium
+              severity: high
             exp_annotations:
               message: One of the provisioning service pods is down
       - eval_time: 15m
@@ -34,7 +34,7 @@ tests:
               service: insights
               env: stage
               app_team: provisioning
-              severity: medium
+              severity: high
             exp_annotations:
               message: One of the provisioning service pods is down
 
