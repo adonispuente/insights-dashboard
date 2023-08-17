@@ -20,7 +20,7 @@ spec:
         service: insights
         env: prod
         app_team: provisioning
-        severity: medium
+        severity: high
       annotations:
         message: "One of the provisioning service pods is down"
 
