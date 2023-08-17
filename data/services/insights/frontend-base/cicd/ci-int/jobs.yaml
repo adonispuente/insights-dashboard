@@ -108,8 +108,6 @@ config:
         display_name: insights-chrome frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
         project_name: 'insights-chrome'
-        git_repo_url: "https://github.com/RedHatInsights/insights-chrome.git"
-        git_repo_branch: "mknop/RHCLOUD-27269-frontends-pipeline"
         run_cypress_component_stage: 'true'
         run_cypress_e2e_tests_stage: 'true'
         run_frontend_build_stage: 'true'
