@@ -15,13 +15,21 @@ pipelinesProvider:
   $ref: /services/insights/pipelines/tekton.crc-pipelines.appsrep05ue1.yaml
 publishJobLogs: true
 imagePatterns:
-- quay.io/cloudservices
+- quay.io/cloudservices  # iqe container
+- quay.io/redhatqe  # sel container
+
+authentication:
+  image:
+    path: insights/quay/cloudservices-push
+    field: all
+    version: 3
 
 managedResourceTypes:
 - ClowdJobInvocation
 - Job
 
 resourceTemplates:
+# OLD RESOURCSE GETTING REPLACED
 - name: provisioning-testing
   url: https://github.com/RHEnVision/provisioning-backend
   path: /deploy/testing.yaml
@@ -29,36 +37,42 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
     ref: ca6ecdd0417e6d201a0f5cc86210988604eab7f1
+    delete: true
+  - namespace:
+      $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
+    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
+    delete: true
+# NEW RESOURCES
+- name: provisioning-stage-testing
+  # Using CJI in the stage cluster namespace
+  url: https://github.com/RHEnVision/provisioning-backend
+  path: /deploy/testing.yaml
+  targets:
+  - namespace:
+      $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
+    ref: ca6ecdd0417e6d201a0f5cc86210988604eab7f1
     parameters:
-      IQE_ENV: stage_post_deploy
+      IQE_ENV: stage_post_deploy # REMOVE ME
+      ENV_FOR_DYNACONF: stage_post_deploy
       IQE_MARKER: stage
     promotion:
-      auto: true
-      subscribe:
-      - provisioning-stage-deploy-success-channel
       publish:
       - provisioning-stage-post-deploy-tests-success-channel
-      promotion_data:
-      - channel: provisioning-stage-deploy-success-channel
-        data:
-        - parent_saas: provisioning
-          target_config_hash: 979fe6cfa30246b9
-          type: parent_saas_config
+- name: provisioning-prod-testing
+  # Using Job in the internal cluster
+  url: https://github.com/RHEnVision/provisioning-backend
+  path: /deploy/testing-integration.yaml
+  targets:
   - namespace:
-      $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
+      $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
+    ref: ca6ecdd0417e6d201a0f5cc86210988604eab7f1
     parameters:
-      IQE_ENV: prod
-      IQE_MARKER: prod
+      ENV_FOR_DYNACONF: prod
+      IQE_MARKER_EXPRESSION: prod
+      IQE_IMAGE: quay.io/cloudservices/iqe-tests
+      IQE_IMAGE_TAG: provisioning
+      IQE_PLUGINS: provisioning
+      NAME_STUB: service-tests
     promotion:
-      auto: true
-      subscribe:
-      - provisioning-prod-deploy-success-channel
       publish:
       - provisioning-prod-post-deploy-tests-success-channel
-      promotion_data:
-      - channel: provisioning-prod-deploy-success-channel
-        data:
-        - parent_saas: provisioning
-          target_config_hash: 0c40bdb40f24eeae
-          type: parent_saas_config
