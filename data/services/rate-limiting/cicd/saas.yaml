@@ -42,6 +42,7 @@ resourceTemplates:
       $ref: /openshift/app-sre-stage-01/namespaces/app-sre-rate-limiting-test.yml
     ref: master
     parameters:
+      REDIS_URL: "redis://app-sre-rate-limiting-elasticache-stage.blh0c5.ng.0001.use1.cache.amazonaws.com:6379"
       CLEANUP_DAYS: 7
       IMAGE_TAG: "0.4.0"
       LIMITS: |
