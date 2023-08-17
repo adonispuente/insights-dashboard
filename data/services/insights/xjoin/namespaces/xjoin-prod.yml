@@ -111,3 +111,9 @@ externalResources:
     old_parameter_group: /terraform/resources/insights/production/rds/postgres10-parameter-group-cyndi-prod.yml
     overrides:
       engine_version: "12.14"
+  - provider: rds
+    identifier: xjoin-apicurio-prod
+    defaults: /terraform/resources/insights/prod/rds/rds-xjoin-apicurio-prod.yml
+    enhanced_monitoring: true
+    output_resource_name: xjoin-apicurio-db
+    parameter_group: /terraform/resources/insights/prod/rds/postgres13-parameter-group-xjoin-apicurio-prod.yml
