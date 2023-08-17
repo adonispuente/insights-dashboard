@@ -129,6 +129,9 @@ resourceTemplates:
           region: us-east-2
         sector: dynatrace
       - predicate:
+          region: eu-west-3
+        sector: podisolation
+      - predicate:
           region: eu-central-1
         sector: upgradetesting
       - predicate:
