@@ -24,7 +24,7 @@ config:
     gh_org: openshift
     gh_repo: rbac-permissions-operator
     quay_org: app-sre
-    build_deploy_script_path: make build-push
+    build_deploy_script_path: make build-push && make e2e-image-build-push
     jobs:
     - 'gh-build-master':
         display_name: rbac-permissions-operator build master
