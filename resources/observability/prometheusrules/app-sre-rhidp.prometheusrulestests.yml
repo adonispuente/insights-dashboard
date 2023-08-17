@@ -26,25 +26,3 @@ tests:
               dashboard: "https://grafana.app-sre.devshift.net/goto/nM9JSL94z?orgId=1"
               message: "The initial access token for auth.redhat.com will expire in less than 5 days."
               link_url: ""
-  - interval: 1m
-    input_series:
-      - series: rhidp_sso_client_inital_access_token_expiration{integration="rhidp-sso-client", path="app-sre/creds/rhidp/auth.stage.redhat.com"}
-        values: 1000000+0x4 1+0x10
-    alert_rule_test:
-      - eval_time: 5m
-        alertname: IATStageExpireSoon
-        exp_alerts: []
-      - eval_time: 10m
-        alertname: IATStageExpireSoon
-        exp_alerts:
-          - exp_labels:
-              service: rhidp
-              severity: medium
-              jiralert: ASIC
-              integration: rhidp-sso-client
-              path: app-sre/creds/rhidp/auth.stage.redhat.com
-            exp_annotations:
-              runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/rhidp-iat.md"
-              dashboard: "https://grafana.app-sre.devshift.net/goto/nM9JSL94z?orgId=1"
-              message: "The initial access token for auth.stage.redhat.com (stage SSO instance) will expire in less than 5 days."
-              link_url: ""
