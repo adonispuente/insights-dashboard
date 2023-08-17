@@ -40,7 +40,7 @@ Let's use a qontract-reconcile integration called dynatrace-token-provider to ac
 4. dynatrace-token-provider calls [SyncSet API](https://api.openshift.com/#/default/post_api_clusters_mgmt_v1_clusters__cluster_id__external_configuration_syncsets) to persist the token in `dynatrace` namespace.
 
 
-Essentially we want to remove the need for clusters to own or store the bootstrap token. While we are aware that App Interface and qontract-reconcile as a internal platform isn't the best option to serve the external customer use cases, but security wise it is still a valid mitigation. Moreover there is a pressing timeline (Dynatrace Milestone 2 coming up on August 18th) to address mentioned concern and we do have a proven effective framework and precedence. The idea is to use this integration as a prototype and it will be extracted as a service from qontract-reconcile when we have other usecases than Hypershift infrastructure. This is in alignment with the SRE capabilities evolution model.
+Essentially we want to remove the need for clusters to own or store the bootstrap token. While we are aware that App Interface and qontract-reconcile as a internal platform isn't the best option to serve the external customer use cases, but security wise it is still a valid mitigation. Moreover there is a pressing timeline (Dynatrace Milestone 2 coming up on August 18th) to address mentioned concern and we do have a proven effective framework and precedence. The idea is to use this integration as a prototype and it will be extracted as a service from qontract-reconcile when we have other use cases than Hypershift infrastructure. This is in alignment with the SRE capabilities evolution model.
 
 To avoid unexpected use cases, when clusters are retrieved from OCM API, the organizations that they belong to will need to be allowed by cross referencing App Interface. We also want to make sure that when the integration failed due to user error, App SRE are not responding as we are to regular integration, i.e. there will be no pager created for this integration.
 
@@ -48,7 +48,11 @@ Under the situation when tokens are leaked, cluster owners(in this case Platform
 
 ## Alternative considered
 
-Like mentioned, there were a lot of discussion around doing this in other places such as [ocm-sendgrid-service](https://gitlab.cee.redhat.com/service/ocm-sendgrid-service), osd-fleet-manager or a standalone service in OCM ecosystem. However those approaches will depend on other team's availability, which is unrealistic with the Dynatrace Milestone 2 timeline.
+There were a lot of discussion around doing this in other places such as [ocm-sendgrid-service](https://gitlab.cee.redhat.com/service/ocm-sendgrid-service), osd-fleet-manager or a standalone service in OCM ecosystem. However those approaches will depend on other team's availability, which is unrealistic with the Dynatrace Milestone 2 timeline.
+
+## Risks
+
+We will be making regular API calls to OCM and Dynatrace, which brings the risk of being throttled following unexpected behavior, for example, the token can failed to be created as SyncSet if we got throttled from OCM and the token can get lost. As first step of mitigation, we'll make sure the integration makes as few as API calls as possible, and have monitoring in place. Considering the current use cases are limited to Hypershift clusters we will accept this risk and leave further mitigation (cache, exponential back-off etc) later.
 
 
 ## Milestones
