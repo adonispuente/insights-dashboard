@@ -592,80 +592,81 @@
 # https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/wrappers.py#L3003-L3006
 # Publishers ignored for Pipeline type:
 # https://opendev.org/jjb/jenkins-job-builder/src/commit/a191e0b174322a55eac082ad4815fb7c35de56fa/jenkins_jobs/modules/publishers.py#L8338-L8341
-- job-template:
-    id: 'insights-gh-pipeline'
-    name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
-    concurrent: '{concurrent_build}'
-    branch: "master"
-    jenkinsfile_path: Jenkinsfile
-    slack_channel_notification: 'consoledot-development-fails'
-    project-type: pipeline
-    parameters:
-    - string:
-        name: VAULT_ADDRESS
-        default: "https://vault.devshift.net"
-    - string:
-        name: VAULT_CREDS_ID
-        default: 'vault-creds'
-    - string:
-        name:   VAULT_PATH_SVC_ACCOUNT_EPHEMERAL
-        default: 'insights-cicd/ephemeral-bot-svc-account'
-    - string:
-        name:   VAULT_PATH_QUAY_PUSH
-        default: 'app-sre/quay/cloudservices-push'
-    - string:
-        name: VAULT_PATH_RHR_PULL
-        default: 'insights-cicd/rh-registry-pull'
-    - string:
-        name: VAULT_PATH_MINIKUBE
-        default: 'insights-cicd/minikube-ssh-key-22.04'
-    - string:
-        name: VAULT_PATH_QUAY_TOKEN
-        default: 'insights-cicd/quay/{quay_org}'
-    - string:
-        name: VAULT_PATH_APP_INTERFACE_CREDS
-        default: 'app-sre/creds/app-interface/production/basic-auth'
-    - string:
-        name: VAULT_PATH_CHROME_CYPRESS
-        default: 'insights-cicd/chrome'
-    pipeline-scm:
-      script-path: '{jenkinsfile_path}'
-      scm:
-      - git:
-          url: 'git@github.com:{gh_org}/{gh_repo}.git'
-          credentials-id: '{github_ssh_credentials}'
-          skip-tag: true
-          refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-          branches:
-          - '${{ghprbActualCommit}}'
-          merge:
-              remote: origin
-              branch: '{branch}'
-          git-config-name: "AppSRE"
-          git-config-email: "sd-app-sre@redhat.com"
-          included-regions:
-          - '{include_path}'
-          prune: true
-          clean:
-              before: true
-          wipe-workspace: true
-    triggers:
-        - github-pull-request:
-            <<: *insights_default_ghprb_triggers_cfg
-            <<: *insights_default_admin_list_cfg
-    disabled: '{disable}'
-    node: '{node}'
-    run_stack_analysis_path: ''
-    max_previous_builds_count: 20
-    <<: *gh_properties
-    builders:
-    - *stack_analysis
+
+# - job-template:
+#     id: 'insights-gh-pipeline'
+#     name: '{gh_org}-{gh_repo}-pipeline-pr-check-{branch}'
+#     concurrent: '{concurrent_build}'
+#     branch: "master"
+#     jenkinsfile_path: Jenkinsfile
+#     slack_channel_notification: 'consoledot-development-fails'
+#     project-type: pipeline
+#     parameters:
+#     - string:
+#         name: VAULT_ADDRESS
+#         default: "https://vault.devshift.net"
+#     - string:
+#         name: VAULT_CREDS_ID
+#         default: 'vault-creds'
+#     - string:
+#         name:   VAULT_PATH_SVC_ACCOUNT_EPHEMERAL
+#         default: 'insights-cicd/ephemeral-bot-svc-account'
+#     - string:
+#         name:   VAULT_PATH_QUAY_PUSH
+#         default: 'app-sre/quay/cloudservices-push'
+#     - string:
+#         name: VAULT_PATH_RHR_PULL
+#         default: 'insights-cicd/rh-registry-pull'
+#     - string:
+#         name: VAULT_PATH_MINIKUBE
+#         default: 'insights-cicd/minikube-ssh-key-22.04'
+#     - string:
+#         name: VAULT_PATH_QUAY_TOKEN
+#         default: 'insights-cicd/quay/{quay_org}'
+#     - string:
+#         name: VAULT_PATH_APP_INTERFACE_CREDS
+#         default: 'app-sre/creds/app-interface/production/basic-auth'
+#     - string:
+#         name: VAULT_PATH_CHROME_CYPRESS
+#         default: 'insights-cicd/chrome'
+#     pipeline-scm:
+#       script-path: '{jenkinsfile_path}'
+#       scm:
+#       - git:
+#           url: 'git@github.com:{gh_org}/{gh_repo}.git'
+#           credentials-id: '{github_ssh_credentials}'
+#           skip-tag: true
+#           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+#           branches:
+#           - '${{ghprbActualCommit}}'
+#           merge:
+#               remote: origin
+#               branch: '{branch}'
+#           git-config-name: "AppSRE"
+#           git-config-email: "sd-app-sre@redhat.com"
+#           included-regions:
+#           - '{include_path}'
+#           prune: true
+#           clean:
+#               before: true
+#           wipe-workspace: true
+#     triggers:
+#         - github-pull-request:
+#             <<: *insights_default_ghprb_triggers_cfg
+#             <<: *insights_default_admin_list_cfg
+#     disabled: '{disable}'
+#     node: '{node}'
+#     run_stack_analysis_path: ''
+#     max_previous_builds_count: 20
+#     <<: *gh_properties
+#     builders:
+#     - *stack_analysis
 
 # Purpose of this job is to add option parameters to choose
 # which stages developers want to run.
 - job-template:
     id: 'insights-gh-pipeline-experimental'
-    name: '{gh_org}-{gh_repo}-pipeline-pr-check-experimental-{branch}'
+    name: '{gh_repo}-pipeline-pr-check-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
