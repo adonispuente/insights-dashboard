@@ -147,7 +147,7 @@ resourceTemplates:
       REPLICAS_API: 20
       REPLICAS_ONEVIEW: 2
       REPLICAS_ROLLUP: 3 # was 6
-      REPLICAS_PROCESSOR_CONTROLLER: 0  # was 4 (!77256)
+      REPLICAS_PROCESSOR_CONTROLLER: 1  # was 4 (!77256)
       REPLICAS_PROCESSOR_INGRESS: 3
       REPLICAS_EXPORTER: 0  # was 3 (!77267)
       REPLICAS_DEBUG: 0
@@ -190,7 +190,7 @@ resourceTemplates:
       MESSAGE_RECOVERY_STATUSES: ''
       # Processor Controller Svc
       PROCESSOR_CONTROLLER_APP: 'processor-controller' # or processor-controller-kafka (disable processor-ingress)
-      PROCESSOR_CONTROLLER_STATUSES: 'new'
+      PROCESSOR_CONTROLLER_STATUSES: 'new,failed'
       # Processor Ingress Svc
       PROCESSOR_INGRESS_SEND_TO_RECOVERY: 'True'
       # Processor Replay Job
