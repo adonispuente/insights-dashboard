@@ -41,12 +41,8 @@ The repo will contain the declarations of integrations to run as capabilities (a
 For the actual runtime of an app-interface instance, a set of infrastructural requirements need to be fulfilled.
 
 * an S3 bucket to hold bundles for the repo
-* cloudwatch setup for log forwarding
-* a glitchtip project for error tracking
 * a namespace to run qontract-server and integrations-manager (and subsequently also the integrations)
 * CI jobs for bundling and PR checks
-* DNS names
-* ...
 
 For the setup of all this infrastructure and processes we propose to use app-interface commercial as the ignition and management engine, ramping namespaces, defining Jenkins jobs, creating resources on AWS, deploying a qontract-server via saas, ...
 
