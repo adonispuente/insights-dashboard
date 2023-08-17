@@ -1,0 +1,136 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  enableDynatraceLogging: ""
+
+name: xcm-integration
+description: Namespace for the XCM core in Integration
+
+cluster:
+  $ref: /openshift/app-sre-stage-01/cluster.yml
+
+app:
+  $ref: /services/ocm/app.yml
+
+environment:
+  $ref: /products/osdv4/environments/integration-hivei01ue1.yml
+
+networkPoliciesAllow:
+  - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+
+managedRoles: true
+
+managedResourceTypes:
+  - ConfigMap
+  - Secret
+  - ServiceAccount
+
+sharedResources:
+  - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+  - $ref: /services/ocm/shared-resources/ecr.yml
+  - $ref: /services/ocm/shared-resources/service-accounts.yml
+  - $ref: /services/ocm/shared-resources/common.yml
+  - $ref: /services/ocm/shared-resources/qe.yml
+
+openshiftResources:
+  - provider: vault-secret
+    path: app-interface/app-sre-stage/uhc-integration/clusters-service
+    version: 9
+    annotations:
+      qontract.recycle: "true"
+  - provider: resource-template
+    type: extracurlyjinja2
+    path: /services/ocm/integration/provision-shards.secret.yaml
+    variables:
+      # hive
+      aws_base_domain: i1.devshift.org
+      gcp_base_domain: i2.devshift.org
+      shards:
+        - id: e6bc4f5c-bb10-46e4-99d1-fc92b9f3df91
+          status: active
+          hive_cluster_name: hivei01ue1
+          hive_cluster_api_url: https://api.hivei01ue1.f7i5.p1.openshiftapps.com:6443
+          hive_cluster_api_url_slug: api-hivei01ue1-f7i5-p1-openshiftapps-com:6443
+      # this is a workaround to use the vault function inside the for loop in the template
+      current_hive_cluster:
+        name: 'workaround'
+
+      # hypershift
+      hypershift_shards: []
+      # this is a workaround to use the vault function inside the for loop in the template
+      current_hypershift_cluster:
+        name: 'hypershift_workaround'
+
+openshiftServiceAccountTokens:
+  # telemeter
+  - name: telemeter-bearer
+    namespace:
+      $ref: /services/rhobs/telemeter/namespaces/telemeter-integration.yml
+    serviceAccountName: uhc-prometheus-access
+  # hivei01ue1
+  - namespace:
+      $ref: /services/hive/namespaces/hivei01ue1/hive-integration.yml
+    serviceAccountName: hive-frontend
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/aws-account-operator.yml
+    serviceAccountName: aws-account-operator-client
+
+managedExternalResources: true
+
+externalResources:
+  - provider: aws
+    provisioner:
+      $ref: /aws/app-sre-stage/account.yml
+    resources:
+      - provider: s3-cloudfront
+        identifier: rh-oidc-integration-xcm-int
+        defaults: /terraform/resources/ocm/s3-cloudfront-integration.yml
+        output_resource_name: rh-oidc-s3-secret-xcm-int
+      - provider: s3
+        identifier: rh-osd-network-verifier-integration-xcm-int
+        defaults: /terraform/resources/s3-private-1.yml
+        output_resource_name: rh-osd-network-verifier-s3-secret-xcm-int
+  - provider: aws
+    provisioner:
+      $ref: /aws/osd-privatelink-int/account.yml
+    resources:
+      - provider: aws-iam-service-account
+        identifier: ocm-sts-access-xcm-int
+        variables:
+          aws_role_arn: arn:aws:iam::896164604406:role/RH-Managed-OpenShift-Installer
+          aws_allowed_principal_arn: arn:aws:iam::896164604406:root
+        user_policy:
+          {
+            "Version": "2012-10-17",
+            "Statement": [{
+              "Action": [
+                "sts:AssumeRole"
+              ],
+              "Effect": "Allow",
+              "Resource": "arn:aws:iam::*:role/RH-Installer-Role"
+            },{
+              "Action": [
+                "ec2:DescribeRegions",
+                "ec2:DescribeInstanceTypeOfferings",
+                "iam:GetRole",
+                "iam:CreateRole",
+                "iam:UpdateAssumeRolePolicy"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }]
+          }
+        output_resource_name: sts-credentials-xcm-int
+  - provider: aws
+    provisioner:
+      $ref: /aws/app-sre/account.yml
+    resources:
+      - provider: rds
+        identifier: clusters-service-integration-v4-xcm-int
+        defaults: /terraform/resources/app-sre/integration/rds-1.yml
+        output_resource_name: clusters-service-rds-xcm-int
+        overrides:
+          apply_immediately: true
+          engine_version: '15.3'
+          performance_insights_enabled: true

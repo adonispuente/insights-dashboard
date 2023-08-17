@@ -1,0 +1,13 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: xcm-approver
+
+permissions: []
+
+self_service:
+  - change_type:
+      $ref: /app-interface/changetype/namespace-owner.yml
+    datafiles:
+      - $ref: /services/ocm/namespaces/xcm-integration.yml
