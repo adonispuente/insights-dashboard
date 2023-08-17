@@ -44,4 +44,4 @@ instances:
     $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-08-28'
+expirationDate: '2023-11-15'
