@@ -1,0 +1,64 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Lisa Seelye
+org_username: lseelye
+github_username: lisa
+quay_username: lseelye
+
+roles:
+  - $ref: /teams/app-sre/roles/app-sre.yml
+  - $ref: /teams/app-sre/roles/app-sre-nasa-slack.yml
+  - $ref: /teams/app-sre/roles/app-sre-stream-1-slack.yml
+
+public_gpg_key: |
+  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
+  rgheWIU1fqY=
