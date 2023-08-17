@@ -44,7 +44,7 @@ For the actual runtime of an app-interface instance, a set of infrastructural re
 * a namespace to run qontract-server and integrations-manager (and subsequently also the integrations)
 * CI jobs for bundling and PR checks
 
-For the setup of all this infrastructure and processes we propose to use app-interface commercial as the ignition and management engine, ramping namespaces, defining Jenkins jobs, creating resources on AWS, deploying a qontract-server via saas, ...
+For the setup of all this infrastructure and processes we propose to use app-interface commercial as the ignition and management engine, ramping namespaces, defining CI jobs, creating resources on AWS, deploying a qontract-server via saas, ...
 
 The sre-capabilities instance will be `just another service` managed by app-interface commercial.
 
