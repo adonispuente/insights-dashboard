@@ -44,7 +44,7 @@ resourceTemplates:
       - code-quarkus-api-stage-deploy-success-channel
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-production.yml
-    ref: ffbc3b033bf5068993871503a6f69271d8efec70
+    ref: 60b74beb0a2d89c06e2c818ab6ffe7acae32e661
     parameters:
       REPLICAS: 3
       QUARKUS_LOG_SENTRY: 'true'
