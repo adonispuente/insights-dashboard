@@ -90,4 +90,4 @@ resourceTemplates:
     #   name: RedHatInsights-ephemeral-namespace-operator-gh-build-main
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-ns-operator.yml
-    ref: 0fcb839ba28049f1411425471c045bd6a16b3523
+    ref: e6a7897e0fb98e799d272d75c6e62ab117c8e7a7
