@@ -34,7 +34,6 @@ enableDeletion: true
 disable:
   integrations:
   - terraform-tgw-attachments
-  - terraform-resources
 
 resetPasswords:
 - user:
