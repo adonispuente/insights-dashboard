@@ -248,6 +248,32 @@ externalResources:
     identifier: quayio-cloudfront-logs
     defaults: /terraform/resources/s3-all-expires-90-days-external-acl.yml
     output_resource_name: quayio-cloudfront-logs
+    bucket_policy:
+      {
+        "Version": "2012-10-17",
+        "Id": "CloudFrontLogsAthenaS3Access",
+        "Statement": [
+          {
+            "Sid": "accessbucket",
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "arn:aws:iam::942491940283:root"
+            },
+            "Action": [
+              "s3:GetBucketLocation",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:ListBucketMultipartUploads",
+              "s3:ListMultipartUploadParts",
+              "s3:AbortMultipartUpload"
+            ],
+            "Resource": [
+              "arn:aws:s3:::quayio-cloudfront-logs",
+              "arn:aws:s3:::quayio-cloudfront-logs/*"
+            ]
+          }
+        ]
+      }
   - provider: aws-iam-role
     identifier: emr-cloudfront-prod-logs-access-role
     assume_role:
