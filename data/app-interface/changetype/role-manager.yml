@@ -19,3 +19,4 @@ changes:
 - provider: jsonPath
   jsonPathSelectors:
   - glitchtip_teams
+  - ldapGroup
