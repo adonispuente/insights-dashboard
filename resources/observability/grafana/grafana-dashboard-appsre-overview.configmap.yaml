@@ -1288,6 +1288,64 @@ data:
                 "limit": 50
               },
               "table": "deployments"
+            },
+            {
+              "datasource": {
+                "type": "postgres",
+                "uid": "P5108662370F9C14C"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "hide": false,
+              "rawQuery": true,
+              "rawSql": "SELECT\n  $__timeGroupAlias(\"deployment_time\",'24h'),\n  count(*) as \"all auto-promotions\"\nFROM deployments\nWHERE $__timeFilter(\"deployment_time\") AND trigger_integration = 'openshift-saas-deploy-trigger-configs' AND trigger_reason like '%auto-promotion%'\nGROUP BY time\nORDER BY time\n",
+              "refId": "C",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
+            },
+            {
+              "datasource": {
+                "type": "postgres",
+                "uid": "P5108662370F9C14C"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "hide": false,
+              "rawQuery": true,
+              "rawSql": "SELECT\n  $__timeGroupAlias(\"deployment_time\",'24h'),\n  count(*) as \"production auto-promotions\"\nFROM deployments\nWHERE $__timeFilter(\"deployment_time\") AND env_name like '%production%' AND trigger_integration = 'openshift-saas-deploy-trigger-configs' AND trigger_reason like '%auto-promotion%'\nGROUP BY time\nORDER BY time\n",
+              "refId": "D",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
             }
           ],
           "title": "Number of deployments",
@@ -1792,7 +1850,7 @@ data:
       "timezone": "",
       "title": "AppSRE Overview",
       "uid": "xNTPSl-Vk",
-      "version": 4,
+      "version": 5,
       "weekStart": ""
     }
 kind: ConfigMap
