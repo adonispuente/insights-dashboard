@@ -18,6 +18,7 @@ roles:
 - $ref: /aws/app-sre/roles/ocm-rds-readonly.yml
 - $ref: /aws/app-sre/roles/performance-insights-rds.yml
 - $ref: /teams/ocm/roles/stage-debugger.yml
+- $ref: /teams/ocm/roles/xcm-approver.yml
 
 public_gpg_key: |
   mQGNBGL1c1YBDACx/tLyuKmCANza52Q+Vr+ytPp2O+RksMU5Lqu2tkeMM4QGf5NnpSawDuFwbVPR

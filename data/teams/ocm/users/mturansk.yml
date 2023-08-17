@@ -16,3 +16,4 @@ roles:
 - $ref: /teams/ocm/roles/uhc-gateway-approver.yml
 - $ref: /teams/ocm/roles/sd-b-team-member.yml
 - $ref: /teams/ocm/roles/osd-fleet-manager-dev.yml
+- $ref: /teams/ocm/roles/xcm-approver.yml

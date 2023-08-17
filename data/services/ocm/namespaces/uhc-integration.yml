@@ -177,6 +177,9 @@ externalResources:
       performance_insights_enabled: true
       apply_immediately: true
       allow_major_version_upgrade: true
+
+  # these Route53-Zones are shared between Global CS and regional XCM instances.
+  # AWS resources are distinct per account.
   - provider: route53-zone
     identifier: i3-devshift-org
     name: i3.devshift.org
