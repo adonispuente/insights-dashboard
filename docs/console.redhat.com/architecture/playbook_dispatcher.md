@@ -160,6 +160,14 @@ Playbook Dispatcher requires the Amazon RDS for PostgresSQL and the Kafka messag
 Load tests were conducted as part of [RHCLOUD-27541](https://issues.redhat.com/browse/RHCLOUD-27541).
 The tests can be re-run using [this guide](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/playbook-dispatcher/playbook-dispatcher-load-testing.md).
 
+## Technology Stack
+
+Playbook Dispatcher's technology stack is made up of the following:
+* Go (golang)
+* PostgreSQL
+* Kafka
+* Kafka Connect (Java)
+
 ## Capacity
 
 The current and future CPU and Memory capacity limits for all components, except for Playbook Dispatcher Connect, is as follows:
