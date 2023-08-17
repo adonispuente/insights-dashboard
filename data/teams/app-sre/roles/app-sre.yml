@@ -25,7 +25,6 @@ permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-rhoas-app-sre.yml
 # Unleash
 - $ref: /dependencies/unleash/permissions/app-interface.yml
-- $ref: /dependencies/unleash/permissions/insights-perf-read-only.yml
 - $ref: /dependencies/unleash/permissions/insights-read-only.yml
 - $ref: /dependencies/unleash/permissions/ocm-integration-read-only.yml
 - $ref: /dependencies/unleash/permissions/ocm-read-only.yml
