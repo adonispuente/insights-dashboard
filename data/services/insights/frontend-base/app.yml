@@ -87,7 +87,7 @@ quayRepos:
   - name: subscriptions-dashboard-ui
     public: true
     description: Quay repo for subscriptions-dashboard-ui frontend
-  - name: iam-ui-build
+  - name: iam-console
     public: true
     description: Identity and Access Management administration console.
 
@@ -130,6 +130,6 @@ codeComponents:
 - name: subscriptions-dashboard-ui
   resource: upstream
   url: https://github.com/RedHatInsights/subscriptions-dashboard-ui
-- name: iam-ui-build
+- name: iam-console
   resource: upstream
-  url: https://github.com/RedHatInsights/iam-ui-build
+  url: https://gitlab.cee.redhat.com/it-user/iam-console

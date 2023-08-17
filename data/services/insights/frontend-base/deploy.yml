@@ -421,17 +421,14 @@ resourceTemplates:
   # IAM Console
 - name: iam-console
   path: /deploy/frontend.yaml
-  url: https://github.com/RedHatInsights/iam-ui-build
+  url: https://gitlab.cee.redhat.com/it-user/iam-console
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true # do not create an app-sre deploy job for ephemeral namespace
-    ref: master # populated by bonfire
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    disable: true
-    ref: internal
-# Seats admin UI
+    ref: internal # populated by bonfire
+
+  # Seats admin UI
 - name: seats-admin-ui
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/seats-admin

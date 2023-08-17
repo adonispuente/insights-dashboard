@@ -196,24 +196,24 @@ config:
         display_name: cloud-services-config build-prod-beta
         branch: "prod-beta"
 - project:
-    name: iam-ui-build
+    name: iam-console
     label: insights
     node: insights
-    gh_org: RedHatInsights
-    gh_repo: iam-ui-build
+    gl_group: it-user
+    gl_project: iam-console
     quay_org: cloudservices
     jobs:
-    - "insights-gh-pr-check":
-        display_name: iam-ui-build pr-check
-    - "insights-gh-build-master":
-        display_name: iam-ui-build build-stage-beta
-        branch: "master"
-    - "insights-gh-build-master":
-        display_name: iam-ui-build build-stage-stable
+    - "insights-gl-pr-check":
+        display_name: iam-console pr-check
+    - "insights-gl-build-master":
+        display_name: iam-console build-stage-beta
+        branch: "main"
+    - "insights-gl-build-master":
+        display_name: iam-console build-stage-stable
         branch: "stage-stable"
-    - "insights-gh-build-master":
-        display_name: iam-ui-build build-prod-stable
+    - "insights-gl-build-master":
+        display_name: iam-console build-prod-stable
         branch: "prod-stable"
-    - "insights-gh-build-master":
-        display_name: iam-ui-build build-prod-beta
+    - "insights-gl-build-master":
+        display_name: iam-console build-prod-beta
         branch: "prod-beta"
