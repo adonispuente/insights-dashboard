@@ -11,7 +11,12 @@ https://issues.redhat.com/browse/SDE-3341
 
 ## Problem Statement
 
-Currently base data and runtime configuration for sre-capabilities reside in  [app-interface commercial](https://gitlab.cee.redhat.com/service/app-interface) which makes data ownership and sovereignty unclear and blurs the lines of what data/configuration belongs to an AppSRE tenant that went through ROMS and what data does not, e.g. the OCM-label based flavors of AUS and RH-IDP run as integrations in the app-interface context, consuming configuration data from GQL. This was an agreed compromise for the time being to have a quick path to enable capabilities but needs to be addressed eventually.
+Currently base data and runtime configuration for sre-capabilities reside in  [app-interface commercial](https://gitlab.cee.redhat.com/service/app-interface), which complicates data ownership and sovereignty. It also blurs the lines between the two different user groups of app-interface:
+
+* classic tenants that undergo ROMS
+* capability users that consume offerings à la carte without any onboarding
+
+Mixing these two usecases and their data was an agreed compromise for the time being, to allow for a quick path to enable capabilities, but needs to be addressed sooner than later.
 
 ## Goals
 
