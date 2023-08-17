@@ -324,7 +324,7 @@ resourceTemplates:
       ENVIRONMENT: production
       EXTERNAL_URL: https://prometheus.crcp01ue1.devshift.net
       RETENTION: 28d
-      PV_SIZE: 150Gi
+      PV_SIZE: 200Gi
       STORAGE_CLASS_NAME: gp2
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.c-rh-c-eph.yml
