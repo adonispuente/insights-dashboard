@@ -702,12 +702,6 @@
         name: PROJECT_NAME
         default: '{project_name}'
     - string:
-        name: GIT_REPO_URL
-        default: '{git_repo_url}'
-    - string:
-        name: GIT_REPO_BRANCH
-        default: '{git_repo_branch}'
-    - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']
         default: '{run_cypress_component_stage}'
