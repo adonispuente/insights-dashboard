@@ -33,6 +33,7 @@ upgradePolicyAllowedMutexes:
 - main
 - dynatrace
 - upgradetesting
+- podisolation
 
 publishVersionData:
 - $ref: /dependencies/ocm/osd-fleet-manager/stage.yml
@@ -42,6 +43,9 @@ sectors:
   dependencies:
   - name: canary
 - name: upgradetesting
+  dependencies:
+  - name: canary
+- name: podisolation
   dependencies:
   - name: canary
 - name: main
