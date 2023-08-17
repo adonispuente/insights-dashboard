@@ -44,7 +44,6 @@ users:
 - $ref: /teams/lp-sre/users/asowitzk.yml
 - $ref: /teams/lp-sre/users/cabeywar.yml
 - $ref: /teams/lp-sre/users/crarobin.yml
-- $ref: /teams/lp-sre/users/gathomas.yaml
 - $ref: /teams/lp-sre/users/jcueto.yml
 - $ref: /teams/lp-sre/users/jsarnovs.yml
 - $ref: /teams/lp-sre/users/mfreer.yml
