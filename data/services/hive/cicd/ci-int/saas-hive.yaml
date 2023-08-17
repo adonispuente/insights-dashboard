@@ -43,28 +43,16 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/hive/namespaces/hivei01ue1/hive-integration.yml
-    ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-hive-gh-build-master
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hives02ue1/hive-stage.yml
     ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hive-stage-01/hive-stage.yml
-    ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-hive-gh-build-master
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/ssotest01ue1/hive-stage.yml
-    ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: openshift-hive-gh-build-master
+    ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
   - namespace:
       $ref: /services/hive/namespaces/hivep01ue1/hive-production.yml
     ref: 70b666ec89b05c2578fe7dec3ddd3a53d39ca246
