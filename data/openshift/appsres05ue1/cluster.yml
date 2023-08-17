@@ -56,6 +56,10 @@ automationToken:
   path: app-sre/creds/kube-configs/appsres05ue1
   field: token
 
+clusterAdminAutomationToken:
+  path: app-sre/creds/kube-configs/appsres05ue1-cluster-admin
+  field: token
+
 network:
   type: OVNKubernetes
   # vpcid: vpc-036cb989c3d8c781c
