@@ -98,9 +98,9 @@ tests:
 # PlaybookDispatcherSLOAvailability
 - interval: 1m
   input_series:
-  - series: echo_http_requests_total{status="2xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="2xx", exported_service="playbook-dispatcher"}
     values: 0+1x60
-  - series: echo_http_requests_total{status="5xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="5xx", exported_service="playbook-dispatcher"}
     values: 0+0x60
   alert_rule_test:
   - eval_time: 1h
@@ -108,9 +108,9 @@ tests:
 
 - interval: 1m
   input_series:
-  - series: echo_http_requests_total{status="2xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="2xx", exported_service="playbook-dispatcher"}
     values: 0+1x60
-  - series: echo_http_requests_total{status="5xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="5xx", exported_service="playbook-dispatcher"}
     values: 0+0x55 3+0x4
   alert_rule_test:
   - eval_time: 1h
@@ -118,9 +118,9 @@ tests:
 
 - interval: 1m
   input_series:
-  - series: echo_http_requests_total{status="2xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="2xx", exported_service="playbook-dispatcher"}
     values: 0+1x60
-  - series: echo_http_requests_total{status="5xx", service="playbook-dispatcher-api"}
+  - series: api_3scale_gateway_api_status{status="5xx", exported_service="playbook-dispatcher"}
     values: 0+0x55 5+0x4
   alert_rule_test:
   - eval_time: 1h
@@ -140,9 +140,9 @@ tests:
 # PlaybookDispatcherSLOLatencyAPI
 - interval: 1m
   input_series:
-  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api", method="POST"}
     values: 0+1x60
-  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api", method="POST"}
     values: 0+1x60
   alert_rule_test:
   - eval_time: 1h
@@ -150,9 +150,9 @@ tests:
 
 - interval: 1m
   input_series:
-  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api", method="POST"}
     values: 0+1x60
-  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api", method="POST"}
     values: 0+1x55 0+2x4
   alert_rule_test:
   - eval_time: 1h
@@ -160,9 +160,9 @@ tests:
 
 - interval: 1m
   input_series:
-  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api", method="POST"}
     values: 0+1x60
-  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api"}
+  - series: echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api", method="POST"}
     values: 0+2x60
   alert_rule_test:
   - eval_time: 1h
