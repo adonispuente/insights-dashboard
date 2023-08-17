@@ -104,6 +104,10 @@ openshiftResources:
 - provider: prometheus-rule
   path: /observability/prometheusrules/observatorium-http-traffic-production.prometheusrules.yaml
   type: resource
+#### Alertmanager
+- provider: prometheus-rule
+  path: /observability/prometheusrules/observatorium-alertmanager-production.prometheusrules.yaml
+  type: resource
 
 sharedResources:
 - $ref: /services/observability/shared-resources/dvo-openshift.yml
