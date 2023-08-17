@@ -10,10 +10,6 @@ permissions:
 
 self_service:
 - change_type:
-    $ref: /app-interface/changetype/app-owner.yml
-  datafiles:
-  - $ref: /services/insights/eventing/app.yml
-- change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/insights/roles/eventing.yml
