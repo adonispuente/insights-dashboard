@@ -131,3 +131,6 @@ access:
 - cluster:
     $ref: /openshift/backplanep04uw2/cluster.yml
   clusterRole: cluster-monitoring-view
+- cluster:
+    $ref: /openshift/appsres05ue1/cluster.yml
+  clusterRole: cluster-monitoring-view

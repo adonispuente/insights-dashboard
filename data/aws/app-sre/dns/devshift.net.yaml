@@ -439,3 +439,11 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/crcs02ue1/cluster.yml
+- name: prometheus.appsres05ue1
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/appsres05ue1/cluster.yml
+- name: alertmanager.appsres05ue1
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/appsres05ue1/cluster.yml

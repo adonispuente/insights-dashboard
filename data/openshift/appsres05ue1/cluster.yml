@@ -105,6 +105,8 @@ peering:
     manageRoutes: true
     cidrBlock: 10.0.0.0/8
 
+observabilityNamespace:
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres05ue1.yml
 
 disable:
   integrations:
