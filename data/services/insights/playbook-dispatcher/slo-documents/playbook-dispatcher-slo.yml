@@ -1,0 +1,53 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: playbook-dispatcher
+
+name: playbook-dispatcher
+
+app:
+  $ref: /services/insights/playbook-dispatcher/app.yml
+
+namespaces:
+- $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
+
+slos:
+- name: Playbook Dispatcher Availability
+  dashboard: https://grafana.app-sre.devshift.net/d/js1xeMwMz/playbook-dispatcher?orgId=1
+  SLIType: availability
+  SLISpecification: The portion of the HTTP responses that are not 5xx
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/playbook-dispatcher/playbook-dispatcher-slo-availability.md
+  expr: |
+    1 - (sum(increase(api_3scale_gateway_api_status{status="5xx", exported_service="playbook-dispatcher"}[{{window}}])) / sum(increase(api_3scale_gateway_api_status{exported_service="playbook-dispatcher"}[{{window}}])))
+  prometheusRules: /insights-prod/playbook-dispatcher/playbook-dispatcher.prometheusrules.yaml
+
+- name: Playbook Dispatcher API Latency
+  dashboard: https://grafana.app-sre.devshift.net/d/js1xeMwMz/playbook-dispatcher?orgId=1
+  SLIType: latency
+  SLISpecification: The portion of HTTP POST requests served within 2 seconds
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/playbook-dispatcher/playbook-dispatcher-slo-latency-api.md
+  expr: |
+    sum(increase(echo_http_request_duration_seconds_bucket{le="2", service="playbook-dispatcher-api", method="POST"}[{{window}}])) / sum(increase(echo_http_request_duration_seconds_bucket{le="+Inf", service="playbook-dispatcher-api", method="POST"}[{{window}}]))
+  prometheusRules: /insights-prod/playbook-dispatcher/playbook-dispatcher.prometheusrules.yaml
+
+- name: Playbook Dispatcher Kafka Latency
+  dashboard: https://grafana.app-sre.devshift.net/d/js1xeMwMz/playbook-dispatcher?orgId=1
+  SLIType: latency
+  SLISpecification: The portion of the time when there is less than 10000 messages waiting to be processed
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  SLOParameters:
+    window: 28d
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/playbook-dispatcher/playbook-dispatcher-slo-latency-kafka.md
+  expr: |
+    1 - (quantile_over_time(0.95, playbook_dispatcher:consumer_group_lag:sum[{{window}}])/10000)
+  prometheusRules: /insights-prod/playbook-dispatcher/playbook-dispatcher.prometheusrules.yaml
