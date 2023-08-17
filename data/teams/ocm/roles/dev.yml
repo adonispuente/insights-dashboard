@@ -30,6 +30,9 @@ access:
     $ref: /services/ocm/namespaces/uhc-integration.yml
   role: edit
 - namespace:
+    $ref: /services/ocm/namespaces/xcm-integration.yml
+  role: edit
+- namespace:
     $ref: /services/rhobs/telemeter/namespaces/telemeter-production.yml
   role: view
 - namespace:
