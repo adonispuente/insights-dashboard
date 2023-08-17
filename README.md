@@ -3417,6 +3417,25 @@ Policy provider on Vault replication integration allows to copy all the secrets 
 
 Real examples can be found [here](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/vault.devshift.net/config/prod/devshift-net.yml)
 
+### Persist App-Interface role as LDAP group
+
+App-Interface roles can be persisted as LDAP groups. This is useful for services that need to use LDAP groups for authorization.
+
+To enable this feature, add the following to your `/access/role-1.yml`:
+
+```yaml
+---
+$schema: /access/role-1.yml
+
+name: <role-name>
+
+ldapGroup: ai-<LDAP-GROUP-name>
+```
+
+> **Attention** :warning:
+>
+> The ldap group name must begin with the `ai-` prefix!
+
 ## Design
 
 Additional design information: [here](docs/app-interface/design.md)
