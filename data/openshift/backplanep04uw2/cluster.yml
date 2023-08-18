@@ -99,6 +99,7 @@ peering:
       $ref: /openshift/appsres03ue1/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
+  # qontract integrations / tekton  on stage
   - provider: cluster-vpc-requester
     name: backplanep04uw2_appsres05ue1
     cluster:

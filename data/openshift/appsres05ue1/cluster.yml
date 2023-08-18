@@ -112,6 +112,66 @@ peering:
     manageRoutes: true
     assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
   - provider: cluster-vpc-accepter
+    name: appsres05ue1_hive-stage-01
+    cluster:
+      $ref: /openshift/hive-stage-01/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_hives02ue1
+    cluster:
+      $ref: /openshift/hives02ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_ssotest01ue1
+    cluster:
+      $ref: /openshift/ssotest01ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanei01ue1
+    cluster:
+      $ref: /openshift/backplanei01ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanes01ue1
+    cluster:
+      $ref: /openshift/backplanes01ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanes02uw2
+    cluster:
+      $ref: /openshift/backplanes02uw2/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanei02ue1
+    cluster:
+      $ref: /openshift/backplanei02ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanes03ue1
+    cluster:
+      $ref: /openshift/backplanes03ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanes04uw2
+    cluster:
+      $ref: /openshift/backplanes04uw2/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanep03ue1
+    cluster:
+      $ref: /openshift/backplanep03ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
     name: appsres05ue1_backplanep04uw2
     cluster:
       $ref: /openshift/backplanep04uw2/cluster.yml
