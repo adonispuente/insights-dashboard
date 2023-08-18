@@ -9,7 +9,6 @@ ldapGroup: ai-ocm-ui-dev
 permissions:
   - $ref: /dependencies/quay/permissions/quay-membership-app-sre-uhc.yml
   - $ref: /dependencies/unleash/permissions/ocm-integration-read-only.yml
-  - $ref: /dependencies/unleash/permissions/ocm-stage-read-only.yml
   - $ref: /dependencies/unleash/permissions/ocm-read-only.yml
   - $ref: /dependencies/ci-int/permissions/ci-int-read-only.yml
   - $ref: /dependencies/ci-int/permissions/ci-int-job-control.yml

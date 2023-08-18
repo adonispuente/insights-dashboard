@@ -6,8 +6,7 @@ name: ocm-stage-unleash
 
 ldapGroup: ai-ocm-stage-unleash
 
-permissions:
-- $ref: /dependencies/unleash/permissions/ocm-stage.yml
+permissions: []
 
 self_service:
 - change_type:

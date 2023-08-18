@@ -28,7 +28,6 @@ permissions:
 - $ref: /dependencies/unleash/permissions/insights-perf-read-only.yml
 - $ref: /dependencies/unleash/permissions/insights-read-only.yml
 - $ref: /dependencies/unleash/permissions/ocm-integration-read-only.yml
-- $ref: /dependencies/unleash/permissions/ocm-stage-read-only.yml
 - $ref: /dependencies/unleash/permissions/ocm-read-only.yml
 
 oidc_permissions:
