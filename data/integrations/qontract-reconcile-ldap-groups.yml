@@ -27,6 +27,9 @@ managed:
     logs:
       slack: true
     internalCertificates: true
+    extraEnv:
+    - name: REQUESTS_CA_BUNDLE
+      value: /etc/pki/tls/cert.pem
     state: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
@@ -41,6 +44,9 @@ managed:
     logs:
       slack: true
     internalCertificates: true
+    extraEnv:
+    - name: REQUESTS_CA_BUNDLE
+      value: /etc/pki/tls/cert.pem
     state: true
 
 schemas:
