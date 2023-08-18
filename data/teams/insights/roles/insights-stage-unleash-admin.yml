@@ -6,5 +6,4 @@ name: insights-stage-unleash
 
 ldapGroup: ai-insights-stage-unleash
 
-permissions:
-- $ref: /dependencies/unleash/permissions/insights-stage.yml
+permissions: []
