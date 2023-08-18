@@ -6,8 +6,7 @@ name: ocm-integration-unleash
 
 ldapGroup: ai-ocm-integration-unleash
 
-permissions:
-- $ref: /dependencies/unleash/permissions/ocm-integration.yml
+permissions: []
 
 self_service:
 - change_type:

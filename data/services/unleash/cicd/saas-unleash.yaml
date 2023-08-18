@@ -122,15 +122,14 @@ resourceTemplates:
   - name: ocm-integration
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
-    ref: 34818915475a5bce7a4fbbbba4ce3d3f8e0c8517
+    ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
     parameters:
       identifier: ocm-integration
       configSecret: ocm-integration-config
       tokenSecret: ocm-integration-unleash-token
       databaseSecret: ocm-integration-unleash-rds
-      org: app-sre
-      team: ocm-integration-unleash
-      read_only_team: ocm-integration-unleash-read-only
+      admin_roles: ai-ocm-integration-unleash
+      viewer_roles: ai-app-sre, ai-ocm-dev, ai-ocm-ui-dev
       host: ocm-integration.unleash.devshift.net
   ### OCM Production
   - name: ocm-production
