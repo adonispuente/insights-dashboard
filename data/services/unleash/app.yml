@@ -36,6 +36,9 @@ quayRepos:
   - name: unleash
     description: Unleash
     public: true
+  - name: unleash-pko
+    description: Unleash Package Operator Image
+    public: true
 
 codeComponents:
 - name: unleash
