@@ -36,6 +36,7 @@ def get_base_yaml() -> YAML:
     yaml = YAML()
     yaml.explicit_start = True
     yaml.preserve_quotes = True
+    yaml.width = 4096
     return yaml
 
 
