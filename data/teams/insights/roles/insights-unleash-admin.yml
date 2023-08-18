@@ -4,5 +4,7 @@ $schema: /access/role-1.yml
 labels: {}
 name: insights-unleash
 
+ldapGroup: ai-insights-unleash
+
 permissions:
 - $ref: /dependencies/unleash/permissions/insights.yml

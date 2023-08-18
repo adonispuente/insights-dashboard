@@ -11,6 +11,7 @@ upstream: https://github.com/app-sre/qontract-reconcile
 pr_check:
   cmd: ldap-groups
   early_exit: true
+  state: true
 
 managed:
 - namespace:
@@ -26,6 +27,7 @@ managed:
     logs:
       slack: true
     internalCertificates: true
+    state: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
@@ -39,6 +41,7 @@ managed:
     logs:
       slack: true
     internalCertificates: true
+    state: true
 
 schemas:
 - /access/role-1.yml

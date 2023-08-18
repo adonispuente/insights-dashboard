@@ -4,6 +4,8 @@ $schema: /access/role-1.yml
 labels: {}
 name: app-sre
 
+ldapGroup: ai-app-sre
+
 permissions:
 # github
 - $ref: /teams/app-sre/permissions/github-app-sre-owner.yml

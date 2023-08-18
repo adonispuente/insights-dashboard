@@ -4,6 +4,8 @@ $schema: /access/role-1.yml
 labels: {}
 name: ocm-dev
 
+ldapGroup: ai-ocm-dev
+
 permissions:
 - $ref: /dependencies/quay/permissions/quay-membership-app-sre-uhc.yml
 - $ref: /dependencies/unleash/permissions/ocm-integration-read-only.yml
