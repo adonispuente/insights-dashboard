@@ -85,3 +85,6 @@ openshiftResources:
   - /observability/prometheusrules/container-security-operator.prometheusrulestest.yaml
 
 ################## Add  any cluster-specific content below this line ##################
+sharedResources:
+- $ref: /services/observability/shared-resources/dvo-openshift.yml
+- $ref: /services/observability/shared-resources/dvo-alerts.yml
