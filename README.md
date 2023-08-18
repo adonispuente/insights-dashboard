@@ -522,16 +522,25 @@ Please note that the organization's name must be unique.
 
 ### Create a Glitchtip Project for an onboarded App (`/dependencies/glitchtip-project-1.yml`)
 
-To define your glitchtip project, create a file in `/data/dependencies/glitchtip/projects/` with a structure like the following:
+To define your glitchtip project, create a file in `/data/dependencies/glitchtip/projects/glitchtip-production` with a structure like the following:
 ```yaml
+---
+$schema: /dependencies/glitchtip-project-1.yml
+
+labels: {}
+
 name: <name of the project - lower case max 64 characters>
 description: <description of the project>
+
 app:
   $ref: <app datafile (`/app-sre/app-1.yml`)>
+
 platform: <project language>
+
 teams:
 - $ref: <glitchtip team datafile (`/dependencies/glitchtip-team-1.yml`), for example `/dependencies/glitchtip/teams/app-sre.yml`>
 - ...
+
 organization:
   $ref: <glitchtip organization datafile (`/dependencies/glitchtip-organization-1.yml`), for example `/dependencies/glitchtip/glitchtip-production.yml`>
 
@@ -603,6 +612,20 @@ glitchtip_teams:
 ```
 E.g.: [app-sre role](data/teams/app-sre/roles/app-sre.yml)
 
+### Rename a Glitchtip Project (`/dependencies/glitchtip-project-1.yml`)
+
+To simply the App-Interface Glitchtip project definition, the Qontract-Reconcile integration derives the Glitchtip project ID from the project name. If you want to rename a project, you need to specifiy this ID manually (`projectId`), so that the integration is able to keep track of the project. The `projectId` must always be the original project name, regardless how often you rename the project.
+
+Adapt the project definition as follows:
+
+```yaml
+---
+$schema: /dependencies/glitchtip-project-1.yml
+
+name: <new project name>
+projectId: <original/old project name>
+...
+```
 
 ### Glitchtip Project Alerts
 
