@@ -17,3 +17,5 @@ roles:
 - $ref: /teams/ocm/roles/dev.yml
 - $ref: /teams/sd-sre/roles/osd-rhobs-rules-and-dashboards-approver.yml
 - $ref: /teams/sd-org/roles/sd-architects.yml
+- $ref: /teams/sd-sre/roles/dynatrace.yaml
+

@@ -14,6 +14,7 @@ roles:
 - $ref: /teams/sd-sre/roles/sre-fedramp.yml
 - $ref: /teams/sd-sre/roles/saas-approver.yml
 - $ref: /teams/sd-sre/roles/sre-platform-functionalleads.yml
+- $ref: /teams/sd-sre/roles/dynatrace.yaml
 
 public_gpg_key: |
   mQINBGF4IGwBEADBM8xzDIHrVE65qq7oPrm2B2vvXfk4aPPEupyy0dN4Pa6s+rPmwMeP81eGjEuX

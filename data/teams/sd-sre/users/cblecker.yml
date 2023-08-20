@@ -15,3 +15,4 @@ roles:
 - $ref: /teams/sd-sre/roles/sre-platform-teamleads.yml
 - $ref: /teams/sd-sre/roles/sre.yml
 - $ref: /teams/sd-org/roles/sd-architects.yml
+- $ref: /teams/sd-sre/roles/dynatrace.yaml

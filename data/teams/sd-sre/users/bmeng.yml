@@ -13,6 +13,7 @@ roles:
 - $ref: /aws/app-sre/roles/s3-hive-logs.yml
 - $ref: /teams/sd-sre/roles/saas-approver.yml
 - $ref: /teams/sd-sre/roles/sre-platform-functionalleads.yml
+- $ref: /teams/sd-sre/roles/dynatrace.yaml
 
 public_gpg_key: |
   mQINBF7xdFsBEADKJfdn2C0QnJ0jQpOvW8vuzmCl9KZ8fLJqsP7anu9W48FU0YjAxPGIrxPWieoL
