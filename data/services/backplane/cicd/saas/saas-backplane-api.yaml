@@ -179,7 +179,33 @@ resourceTemplates:
     parameters:
       AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
       ENABLE_TEST_SCRIPT_API: "true"
-      BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"      
+      BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"
+      CLOUD_CONFIG: |
+        aws:
+          token-file: /var/run/secrets/openshift/serviceaccount
+          backplane-role: arn:aws:iam::611491592236:role/backplane-backplanei02ue1
+          root-role: arn:aws:iam::277304166082:role/backplanei02ue1
+          jump-role: arn:aws:iam::${AWS_JUMP_ROLE_ACCOUNT_ID}:role/RH-Technical-Support-Access
+          credentials-dir: /cloud/aws
+          roles:
+          - name: "SREP"
+            sessionPrefix: "RH-SRE"
+          - name: "CEE"
+            managedPolicies:
+              - "arn:aws:iam::aws:policy/job-function/SupportUser"
+            sessionPrefix: "RH-CEE"
+          - name: "CSSRE"
+            managedPolicies:
+              - "arn:aws:iam::aws:policy/job-function/SupportUser"
+              - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+              - "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess"
+            sessionPrefix: "RH-CSSRE"
+          - name: "LPSRE"
+            managedPolicies:
+              - "arn:aws:iam::aws:policy/job-function/SupportUser"
+              - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+              - "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess"
+            sessionPrefix: "RH-LPSRE"
   - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-hivep01ue1.yml
     ref: eaf35b0cd87af5598053ffd494c30e572711ead4
