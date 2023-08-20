@@ -176,7 +176,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/cluster-bootstrap.yaml
   targets:
-  - name: dynatrace-token-production-ap-southeast-singapore-uva53433
+  - name: dynatrace-token-production-ap-southeast-sydney-zwz85475
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
@@ -184,8 +184,8 @@ resourceTemplates:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
     ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
     parameters:
-      DT_REGION: ap-southeast-singapore
-      DT_TENANT_ID: uva53433
+      DT_REGION: ap-southeast-sydney
+      DT_TENANT_ID: zwz85475
       REGIONS:
       - ap-southeast-3
       - ap-southeast-4
