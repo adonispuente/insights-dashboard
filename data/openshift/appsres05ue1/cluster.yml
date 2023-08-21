@@ -104,6 +104,18 @@ peering:
       service: ci-int
     manageRoutes: true
     cidrBlock: 10.0.0.0/8
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_hivei01ue1
+    cluster:
+      $ref: /openshift/hivei01ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+
+awsInfrastructureManagementAccounts:
+- account:
+    $ref: /aws/app-sre/account.yml
+  accessLevel: network-mgmt
+  default: true
 
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres05ue1.yml
