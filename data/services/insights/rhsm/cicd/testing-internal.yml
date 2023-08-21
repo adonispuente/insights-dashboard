@@ -6,7 +6,7 @@ labels:
 name: rhsm-testing-internal
 description: rhsm internal cluster testing
 app:
-  $ref: /services/insights/content-sources/app.yml
+  $ref: /services/insights/rhsm/app.yml
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
