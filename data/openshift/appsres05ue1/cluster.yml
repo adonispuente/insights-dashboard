@@ -111,5 +111,11 @@ peering:
     manageRoutes: true
     assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
 
+awsInfrastructureManagementAccounts:
+- account:
+    $ref: /aws/app-sre/account.yml
+  accessLevel: network-mgmt
+  default: true
+
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres05ue1.yml
