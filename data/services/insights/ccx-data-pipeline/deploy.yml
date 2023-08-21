@@ -115,9 +115,9 @@ resourceTemplates:
     delete: false
     ref: 15b22d0e61ce3b20b8cc15c256a8b4a2f663c6f6
     parameters:
-      MIN_REPLICAS: "3"
-      MAX_REPLICAS: "6"
-      DB_WRITER_REPLICAS: "16"
+      MIN_REPLICAS: "0"
+      MAX_REPLICAS: "0"
+      DB_WRITER_REPLICAS: "0"
       DB_WRITER_CPU_LIMIT: "500m"
       DB_WRITER_MEMORY_LIMIT: "6000Mi"
       DB_WRITER_CPU_REQUEST: "100m"
@@ -222,6 +222,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 0fcb9ee504a0d409c72a5de571c434957b2a54bb
+    delete: true
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
@@ -395,8 +396,8 @@ resourceTemplates:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
     parameters:
-      MIN_REPLICAS: "1"
-      MAX_REPLICAS: "1"
+      MIN_REPLICAS: "0"
+      MAX_REPLICAS: "0"
       DB_MIGRATION_VERSION: "latest"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
@@ -427,6 +428,7 @@ resourceTemplates:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: false
     ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
+    delete: true
     parameters:
       JOB_SCHEDULE: "0 */3 * * *"
       OLD_REPORTS_MAX_AGE: '8 days'
@@ -463,6 +465,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: a2401112c1cfcd4ba7eba12e90f8db5b5799c267
+    delete: true
     parameters:
       CONTENT_SERVICE_PORT: 10000
       JOB_SCHEDULE__NOTIFICATION_BACKEND: "*/15 * * * *"
