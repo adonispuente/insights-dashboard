@@ -128,6 +128,9 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-xjoin-api-gateway-gh-build-master
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+    ref: 456d6863cb09d7eff4d531d938009ba11c8d5111
 
 - name: xjoin-es-exporter
   path: /templates/xjoin/xjoin-es-exporter.yaml
