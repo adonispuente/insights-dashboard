@@ -113,7 +113,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     delete: false
-    ref: 65997316d31a5e4c25670932dc8604636948442f
+    ref: f08c17d7ffc969004aae1aff50c093068dad8cf0
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
@@ -221,7 +221,7 @@ resourceTemplates:
       name: RedHatInsights-insights-results-aggregator-cleaner-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: ad749bddb634d117cb84e7f7a4609879e30e9958
+    ref: 0fcb9ee504a0d409c72a5de571c434957b2a54bb
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
@@ -350,7 +350,7 @@ resourceTemplates:
       - insights-aggregator-exporter-stage-ready-channel
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 0370b83392efb588e3097262dd716339cf824684
+    ref: 75534d57b10e40e3daa6d53469a8f9727ab472f8
     parameters:
       ENABLE_ORG_ID_FILTERING: "true" # used for testing with prod data
       ORGANIZATION_IDS_CSV_FILE: "/db-exporter-organization-ids/db_exporter_organization_ids.csv"
@@ -393,7 +393,7 @@ resourceTemplates:
       MAX_REPLICAS: "1"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 1f0d5ef4539c3e42b37bd366bc1e48e446f6e7f3
+    ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
     parameters:
       MIN_REPLICAS: "1"
       MAX_REPLICAS: "1"
@@ -426,7 +426,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: false
-    ref: 1f0d5ef4539c3e42b37bd366bc1e48e446f6e7f3
+    ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
     parameters:
       JOB_SCHEDULE: "0 */3 * * *"
       OLD_REPORTS_MAX_AGE: '8 days'
@@ -462,7 +462,7 @@ resourceTemplates:
       LOG_LEVEL: "debug"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 9d4a0131bd4379578a611b21c7152bb95492913e
+    ref: a2401112c1cfcd4ba7eba12e90f8db5b5799c267
     parameters:
       CONTENT_SERVICE_PORT: 10000
       JOB_SCHEDULE__NOTIFICATION_BACKEND: "*/15 * * * *"
@@ -512,7 +512,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: true
-    ref: 0370b83392efb588e3097262dd716339cf824684
+    ref: 75534d57b10e40e3daa6d53469a8f9727ab472f8
     parameters:
       OUTPUT: "S3"
       MEMORY_REQUEST: 5Gi
