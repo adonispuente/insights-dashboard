@@ -29,20 +29,6 @@ managedResourceTypes:
 - Job
 
 resourceTemplates:
-# OLD RESOURCES GETTING DELETED
-- name: content-sources-testing
-  url: https://github.com/content-services/content-sources-backend
-  path: /deployments/testing.yaml
-  targets:
-  - namespace:
-      $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
-    ref: 38b3a3237a63a457fb6eb4e799c78549eb611b40
-    delete: true
-  - namespace:
-      $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
-    ref: 38b3a3237a63a457fb6eb4e799c78549eb611b40
-    delete: true
-## NEW RESOURCES GETTING ADDED
 - name: content-sources-stage-testing
   # Using a CJI in the stage cluster namespace
   url: https://github.com/content-services/content-sources-backend
@@ -54,8 +40,10 @@ resourceTemplates:
     parameters:
       IQE_MARKER: smoke and api
       ENV_FOR_DYNACONF: stage_post_deploy
-      IQE_ENV: stage_post_deploy  # remove me
     promotion:
+      auto: true
+      subscribe:
+      - content-sources-stage-deploy-success-channel
       publish:
       - content-sources-stage-post-deploy-tests-success-channel
 - name: content-sources-prod-testing
@@ -67,14 +55,16 @@ resourceTemplates:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
     ref: ad2067d52ef1e8b9c2dc258f8345f3aa7a8b224d
     parameters:
-      IQE_MARKER: prod and api
+      IQE_MARKER_EXPRESSION: prod and api
       IQE_IMAGE: quay.io/cloudservices/iqe-tests
       IQE_IMAGE_TAG: content-sources
       IQE_PLUGINS: content-sources
       ENV_FOR_DYNACONF: prod
-      IQE_ENV: prod  # remove me
       NAME_STUB: service-tests
     promotion:
+      auto: true
+      subscribe:
+      - content-sources-prod-deploy-success-channel
       publish:
       - content-sources-prod-post-deploy-tests-success-channel
 

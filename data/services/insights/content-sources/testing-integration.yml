@@ -46,14 +46,11 @@ resourceTemplates:
       IQE_BROWSERLOG: ""
       NAME_STUB: e2e-tests
     promotion:
+      auto: true
+      subscribe:
+      - content-sources-stage-post-deploy-tests-success-channel
       publish:
       - content-sources-stage-post-deploy-integration-tests-success-channel
-  ## GETTING DELETED, MOVED BELOW
-  - namespace:
-      $ref: /services/insights/content-sources/namespaces/content-sources-prod.yml
-    delete: true  ## DELETE RESOURCES, REMOVE TARGET COMPLETELY IN FOLLOWUP
-    ref: ad2067d52ef1e8b9c2dc258f8345f3aa7a8b224d
-  ## NEW NAMESPACE+CLUSTER
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
     ref: ad2067d52ef1e8b9c2dc258f8345f3aa7a8b224d
@@ -66,5 +63,8 @@ resourceTemplates:
       IQE_BROWSERLOG: ""
       NAME_STUB: e2e-tests
     promotion:
+      auto: true
+      subscribe:
+      - content-sources-prod-post-deploy-tests-success-channel
       publish:
       - content-sources-prod-post-deploy-integration-tests-success-channel
