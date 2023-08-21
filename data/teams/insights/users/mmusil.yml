@@ -12,5 +12,9 @@ quay_username: mmusil
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/rhsm.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /services/insights/rhsm/roles/rhsm-stage-testing-edit.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/managed-services/roles/managed-application-services-ci-vault-admin.yml
