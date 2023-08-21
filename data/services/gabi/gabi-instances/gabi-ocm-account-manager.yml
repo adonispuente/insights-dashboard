@@ -29,13 +29,13 @@ instances:
   namespace:
     $ref: /services/ocm/namespaces/uhc-integration.yml
 - account: app-sre
-  identifier: uhc-acct-mngr-staging
+  identifier: uhc-acct-mngr-staging-readonly-ue2
   namespace:
-    $ref: /services/ocm/namespaces/uhc-stage.yml
+    $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
 - account: app-sre
-  identifier: uhc-acct-mngr-production-readonly
+  identifier: uhc-acct-mngr-production-readonly-ue2
   namespace:
-    $ref: /services/ocm/namespaces/uhc-production.yml
+    $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
 expirationDate: '2023-07-30'

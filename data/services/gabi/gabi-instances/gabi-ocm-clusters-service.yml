@@ -31,13 +31,13 @@ users:
 
 instances:
 - account: app-sre
-  identifier: clusters-service-staging
+  identifier: uhc-clusters-service-staging-readonly-ue2
   namespace:
-    $ref: /services/ocm/namespaces/uhc-stage.yml
+    $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
 - account: app-sre
-  identifier: uhc-clusters-service-production-readonly
+  identifier: uhc-clusters-service-production-readonly-ue2
   namespace:
-    $ref: /services/ocm/namespaces/uhc-production.yml
+    $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
 expirationDate: '2023-08-28'
