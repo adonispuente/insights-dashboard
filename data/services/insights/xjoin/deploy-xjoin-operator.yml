@@ -84,7 +84,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: 7792c2e2b43dd5ea69e643b8c747179cae26af17
+    ref: f322a9ce8c15ec7f18b9abd6063897e993c68675
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
@@ -117,6 +117,7 @@ resourceTemplates:
       VALIDATION_POD_MEMORY_REQUEST: '2Gi'
       DATASOURCE_KAFKA_TOPIC_PARTITIONS: '500'
       INDEX_KAFKA_TOPIC_PARTITIONS: '500'
+      CORE_NUM_PODS: "2"
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
