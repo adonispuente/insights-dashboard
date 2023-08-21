@@ -1,0 +1,16 @@
+
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: ciam-s-tenant-admin-team
+
+permissions:
+# slack
+- $ref: /teams/ciam/permissions/ciam-s-tenant-administration-team-coreos-slack.yml
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/ciam/roles/ciam-s-tenant-administration-team.yml

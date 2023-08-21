@@ -9,7 +9,8 @@ org_username: smourya
 github_username: svkm102
 
 roles:
-  - $ref: /teams/insights/roles/insights-engineers.yml
-  - $ref: /teams/ocm/roles/sentry-access.yml
-  - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
-  - $ref: /teams/insights/roles/insights-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/ocm/roles/sentry-access.yml
+- $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
+- $ref: /teams/insights/roles/insights-unleash-admin.yml
+- $ref: /teams/ciam/roles/ciam-s-tenant-administration-team.yml
