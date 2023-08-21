@@ -34,3 +34,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
     ref: main
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
+    ref: 9aa67081f6ac313d2a8f726fecc3d297a3c33625
