@@ -29,6 +29,8 @@ managedRoles: true
 managedResourceTypes:
 - ServiceAccount
 
+managedExternalResources: true
+
 openshiftResources:
 - provider: resource-template
   path: /services/common/serviceaccount.yaml
