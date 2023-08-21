@@ -14,8 +14,7 @@ auth:
 - service: oidc
   name: redhat-app-sre-auth
 observabilityNamespace:
-  $ref: 
-    /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
