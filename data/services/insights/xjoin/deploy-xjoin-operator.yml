@@ -104,6 +104,18 @@ resourceTemplates:
       FULL_VALIDATION_NUM_THREADS: "25"
       FULL_VALIDATION_CHUNK_SIZE: "25"
       SCHEMA_REGISTRY_SECRET_NAME: "service-registry-prod"
+      KAFKA_BOOTSTRAP_URL: platform-mq-kafka-bootstrap.platform-mq-prod:9092
+      KAFKA_CLUSTER_NAMESPACE: platform-mq-prod
+      KAFKA_CLUSTER: platform-mq
+      CONNECT_CLUSTER_NAMESPACE: xjoin-prod
+      SCHEMA_REGISTRY_PROTOCOL: http
+      SCHEMA_REGISTRY_HOST: xjoin-apicurio-service.xjoin-prod.svc
+      SCHEMA_REGISTRY_PORT: '10000'
+      VALIDATION_ATTEMPT_INTERVAL: '60'
+      VALIDATION_ATTEMPTS: '60'
+      VALIDATION_POD_MEMORY_LIMIT: '4Gi'
+      VALIDATION_POD_MEMORY_REQUEST: '2Gi'
+
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
     ref: master
