@@ -65,3 +65,8 @@ Reevaluate the way we drive PR-checks and bundling with the current state of the
 ## Milestone 3
 
 Promotions of all evolving components of an app-interface instance is delicate business. Making sure a stack composed of qontract-server, schemas, integrations, CI-code, etc. that works well in commercial can be replicated with ease to the sre-capabilities app-interface instance and potentially also Fedframp.
+
+# Ideas for follow-up design docs
+
+* spike tekton for CI jobs - this would enable app-interface to consolidate required infrastructure towards Openshift/K8s
+* introduce a dedicated root app-interface instance with the sole purpose to ignite and manage other app-interface instances (eventually also adopting a-i commercial)
