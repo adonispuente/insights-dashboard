@@ -115,11 +115,12 @@ resourceTemplates:
       VALIDATION_ATTEMPTS: '60'
       VALIDATION_POD_MEMORY_LIMIT: '4Gi'
       VALIDATION_POD_MEMORY_REQUEST: '2Gi'
-      DATASOURCE_KAFKA_TOPIC_PARTITIONS: '2'
-      INDEX_KAFKA_TOPIC_PARTITIONS: '100'
-      CORE_NUM_PODS: "2"
       CORE_POD_CPU_LIMIT: '300m'
       CORE_POD_CPU_REQUEST: '150m'
+      DATASOURCE_KAFKA_TOPIC_PARTITIONS: '15'
+      CORE_NUM_PODS: "15"
+      INDEX_KAFKA_TOPIC_PARTITIONS: '15'
+      INDEX_CONNECTOR_TASKS_MAX: '15'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
