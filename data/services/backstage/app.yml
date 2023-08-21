@@ -11,8 +11,8 @@ description: |
 
   https://drive.google.com/file/d/1KnsYWA_cGQKqjvULgLK1elt0M5Ik8FSD
 
-architectureDocument: TODO
-sopsUrl: TODO
+architectureDocument: https://TODO
+sopsUrl: https://gitlab.cee.redhat.com/TODO
 grafanaUrls:
 - title: TODO
   url: https://todo
