@@ -3574,5 +3574,13 @@ deletionApprovals:
   name: rhcontrol-access
   expiration: '2023-08-18'
 
+# Related to task: APPSRE-7907
+- type: aws_db_instance
+  name: uhc-acct-mngr-production-readonly
+  expiration: '2023-08-22'
+- type: aws_db_instance
+  name: uhc-clusters-service-production-readonly
+  expiration: '2023-08-22'
+
 terraformState:
   $ref: /aws/app-sre/state.yml
