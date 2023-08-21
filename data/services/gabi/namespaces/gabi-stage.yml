@@ -32,6 +32,4 @@ externalResources:
     defaults: /terraform/resources/gabi/rds-stage-1.yml
     output_resource_name: gabi-stage-rds
     overrides:
-      apply_immediately: true
-      allow_major_version_upgrade: true
       engine_version: '15.3'
