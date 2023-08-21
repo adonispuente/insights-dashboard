@@ -619,6 +619,11 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: uhc-acct-mngr-rds
       GABI_INSTANCE: gabi-ocm-account-manager
   - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+    name: gabi-ocm-account-manager-stage
+    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
+    delete: true
+  - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: gabi-ocm-account-manager-integration
     ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
@@ -631,6 +636,11 @@ resourceTemplates:
       NAMESPACE: uhc-integration
       AWS_RDS_SECRET_NAME: uhc-acct-mngr-rds
       GABI_INSTANCE: gabi-ocm-account-manager
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-production.yml
+    name: gabi-ocm-account-manager-production
+    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
+    delete: true
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
     name: gabi-ocm-account-manager-production
@@ -657,6 +667,16 @@ resourceTemplates:
       NAMESPACE: uhc-stage
       AWS_RDS_SECRET_NAME: clusters-service-rds
       GABI_INSTANCE: gabi-ocm-clusters-service
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+    name: gabi-ocm-clusters-service-rds-stage
+    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
+    delete: true
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-production.yml
+    name: gabi-ocm-cluster-service-rds-production
+    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
+    delete: true
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
     name: gabi-ocm-cluster-service-rds-production
