@@ -18,7 +18,7 @@ pipelinesProvider:
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
-  channel: team-consoledot-accessmanagement
+  channel: team-clouddot-info
 
 managedResourceTypes:
 - ConfigMap
