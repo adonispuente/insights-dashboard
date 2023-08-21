@@ -29,9 +29,9 @@ instances:
   namespace:
     $ref: /services/ocm/namespaces/uhc-integration.yml
 - account: app-sre
-  identifier: uhc-acct-mngr-staging-readonly-ue2
+  identifier: uhc-acct-mngr-staging
   namespace:
-    $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+    $ref: /services/ocm/namespaces/uhc-stage.yml
 - account: app-sre
   identifier: uhc-acct-mngr-production-readonly-ue2
   namespace:

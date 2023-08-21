@@ -31,9 +31,9 @@ users:
 
 instances:
 - account: app-sre
-  identifier: uhc-clusters-service-staging-readonly-ue2
+  identifier: clusters-service-staging
   namespace:
-    $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+    $ref: /services/ocm/namespaces/uhc-stage.yml
 - account: app-sre
   identifier: uhc-clusters-service-production-readonly-ue2
   namespace:
