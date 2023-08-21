@@ -4,7 +4,7 @@ $schema: /openshift/namespace-1.yml
 labels: {}
 
 name: gabi-crcs02ue1-cluster-scope
-description: namespace for gabi cluster scoped resources
+description: A namespace for GABI cluster scoped resources.
 
 cluster:
   $ref: /openshift/crcs02ue1/cluster.yml
@@ -13,7 +13,7 @@ app:
   $ref: /services/gabi/app.yml
 
 environment:
-  $ref: /products/app-sre/environments/production.yml
+  $ref: /products/app-sre/environments/stage.yml
 
 managedResourceTypes:
 - ClusterRole.rbac.authorization.k8s.io
