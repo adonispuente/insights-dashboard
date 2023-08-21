@@ -606,11 +606,6 @@ resourceTemplates:
       GABI_INSTANCE: gabi-vulnerability
       REQUEST_TIMEOUT: 180s
   - namespace:
-      $ref: /services/ocm/namespaces/uhc-stage.yml
-    name: gabi-ocm-account-manager-stage
-    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
-    delete: true
-  - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
     name: gabi-ocm-account-manager-stage
     ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
@@ -649,11 +644,6 @@ resourceTemplates:
       NAMESPACE: uhc-production
       AWS_RDS_SECRET_NAME: uhc-acct-mngr-rds-readonly
       GABI_INSTANCE: gabi-ocm-account-manager
-  - namespace:
-      $ref: /services/ocm/namespaces/uhc-stage.yml
-    name: gabi-ocm-clusters-service-rds-stage
-    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
-    delete: true
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
     name: gabi-ocm-clusters-service-rds-stage
