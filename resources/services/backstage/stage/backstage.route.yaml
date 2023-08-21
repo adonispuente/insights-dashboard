@@ -5,8 +5,8 @@ metadata:
     cert-manager.io/issuer-kind: ClusterIssuer
     cert-manager.io/issuer-name: letsencrypt-prod-http
   labels:
-    service: github-mirror
-  name: github-mirror
+    service: backstage
+  name: backstage
 spec:
   host: backstage.stage.devshift.net
   to:
