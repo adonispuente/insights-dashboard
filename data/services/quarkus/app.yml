@@ -19,8 +19,8 @@ onboardingStatus: OnBoarded
 escalationPolicy:
   $ref: /teams/quarkus/escalation-policies/quarkus.yml
 serviceOwners:
-- name: Andy Damevin
-  email: adamevin@redhat.com
+- name: Quarkus Team
+  email: quarkus-eng@redhat.com
 
 dependencies:
 - $ref: /dependencies/ci-ext/service.yml
