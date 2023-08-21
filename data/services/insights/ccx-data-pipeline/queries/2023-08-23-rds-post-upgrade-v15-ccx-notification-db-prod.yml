@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-08-23-rds-post-upgrade-v15-ccx-notification-db-prod
+namespace:
+  $ref: /services/insights/ccx-data-pipeline/namespaces/stage-ccx-data-pipeline-prod.yml
+identifier: ccx-notification-db-prod
+output: stdout
+queries:
+  - SELECT cluster, notified_at FROM reported;
+  - ANALYZE VERBOSE;
