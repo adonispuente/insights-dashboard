@@ -31,7 +31,7 @@ acceptanceCriteria:
     GitOps Service: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/stonesoup/scorecard/gitops-service/CONTINUITY-0003-data-management.md
     '
   name: CONTINUITY-0003
-  status: red
+  status: green
 - comment: ''
   name: INCIDENT-MGMT-0001
   status: green
