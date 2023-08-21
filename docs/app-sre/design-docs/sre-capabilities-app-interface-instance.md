@@ -28,7 +28,7 @@ Define a model for app-interface instances as a service (as a capability).
 
 ## Proposal
 
-Create a new app-interface instance named `sre-capabilities` that will hold all configuration and runtime information for sre-capabilities and that manages the execution of capabilities.
+Create a new app-interface instance named `sre-capabilities` that will hold all configuration and runtime information for sre-capabilities and that manages the execution of capabilities. app-interface commercial will act as a root/parent for the `sre-capabilities` instance, igniting and managing its infrastructure and base components.
 
 ### Repository content
 
