@@ -1,5 +1,5 @@
 replication_group_id: app-sre-rate-limiting-elasticache-stage
-replication_group_description: rate limiting elasticache test cluster
+replication_group_description: rate limiting elasticache stage cluster
 number_cache_clusters: 2
 node_type: cache.t3.micro
 automatic_failover_enabled: true
