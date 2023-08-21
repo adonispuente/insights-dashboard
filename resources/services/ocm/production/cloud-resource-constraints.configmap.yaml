@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: cloud-resource-constraints-config
 data:
-  constraints.yaml: |
+  instance-type-constraints.yaml: |
     instance_types:
     - id: g4dn.12xlarge
       enabled: true
