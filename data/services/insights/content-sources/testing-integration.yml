@@ -36,7 +36,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
-    ref: ad2067d52ef1e8b9c2dc258f8345f3aa7a8b224d
+    ref: 4960a0a7cbfd034a14a559a86c835b9b049985e4
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_PLUGINS: hms_integration
@@ -51,6 +51,12 @@ resourceTemplates:
       - content-sources-stage-post-deploy-tests-success-channel
       publish:
       - content-sources-stage-post-deploy-integration-tests-success-channel
+      promotion_data:
+      - channel: content-sources-stage-post-deploy-tests-success-channel
+        data:
+        - parent_saas: content-sources-testing
+          target_config_hash: 51e24f06e0a478ec
+          type: parent_saas_config
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
     ref: ad2067d52ef1e8b9c2dc258f8345f3aa7a8b224d
