@@ -1,0 +1,18 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: internal-developer-platform
+
+permissions: []
+
+access:
+- namespace:
+    $ref: /services/backstage/namespaces/backstage-stage.yml
+  role: view
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/backstage/app.yml

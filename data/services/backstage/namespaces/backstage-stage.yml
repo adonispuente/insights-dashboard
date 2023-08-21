@@ -1,0 +1,40 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: backstage-stage
+description: stage namespace for backstage
+
+cluster:
+  $ref: /openshift/app-sre-stage-01/cluster.yml
+
+app:
+  $ref: /services/backstage/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- ConfigMap
+
+openshiftResources:
+- provider: resource
+  path: /services/backstage/stage/app-config.configmap.yml
+- provider: route
+  path: /services/backstage/stage/backstage.route.yaml
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-stage/account.yml
+  resources:
+  - provider: rds
+    identifier: backstage-stage
+    defaults: /terraform/resources/app-sre-stage/staging/rds-1.yml
+    overrides:
+      instance_class: db.t3.micro
+      engine_version: '14.7'
+    output_resource_name: backstage-db
