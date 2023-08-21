@@ -1,0 +1,30 @@
+---
+$schema: /dependencies/jenkins-config-1.yml
+
+labels:
+  service: starter-apps
+
+name: ci-ext-starter-app-jobs
+description: 'Jobs related to Starter Apps'
+
+app:
+  $ref: /services/insights/devprod/app.yml
+
+instance:
+  $ref: /dependencies/ci-ext/ci-ext.yml
+
+type: jobs
+
+config:
+- project:
+    name: python-starter-app
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: cookiecutter-backend-starter-app-python
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-pipeline":
+        branch: "main"
+        display_name: Cookiecutter Starter App Python pipeline
+        concurrent_build: true
