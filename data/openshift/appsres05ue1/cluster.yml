@@ -104,13 +104,22 @@ peering:
       service: ci-int
     manageRoutes: true
     cidrBlock: 10.0.0.0/8
+  # cluster-to-cluster peerings
   - provider: cluster-vpc-accepter
     name: appsres05ue1_hivei01ue1
     cluster:
       $ref: /openshift/hivei01ue1/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_backplanep04uw2
+    cluster:
+      $ref: /openshift/backplanep04uw2/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
 
+# This is used in the cluster-to-cluster peerings.
+# The account used to do the necessary assume role will be this one.
 awsInfrastructureManagementAccounts:
 - account:
     $ref: /aws/app-sre/account.yml

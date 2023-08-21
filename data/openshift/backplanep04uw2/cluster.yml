@@ -99,6 +99,18 @@ peering:
       $ref: /openshift/appsres03ue1/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
+  - provider: cluster-vpc-requester
+    name: backplanep04uw2_appsres05ue1
+    cluster:
+      $ref: /openshift/appsres05ue1/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::049267941105:role/network-mgmt-backplanep04uw2
+    # terraform-vpc-peerings works without this because currently we force
+    # the two accounts to assume role from to be equal and
+    # awsInfrastructureManagementAccounts is needed in the accpeter side,
+    # but it is certainly clearer how things work if this is provided here.
+    awsInfrastructureManagementAccount:
+      $ref: /aws/app-sre/account.yml
   # qontract integrations / tekton on prod
   - provider: cluster-vpc-requester
     name: backplanep04uw2_appsrep05ue1
