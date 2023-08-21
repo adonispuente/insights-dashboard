@@ -13,3 +13,5 @@ roles:
 - $ref: /teams/sd-sre/roles/sd-sre-apac-west.yml
 - $ref: /teams/telemeter/roles/telemetry-sme.yml
 - $ref: /teams/sd-sre/roles/dynatrace.yaml
+- $ref: /teams/sd-sre/roles/sre-platform-functionalleads.yml
+- $ref: /teams/sd-sre/roles/saas-approver.yml
