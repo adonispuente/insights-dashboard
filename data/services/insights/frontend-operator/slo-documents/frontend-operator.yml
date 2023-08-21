@@ -17,7 +17,7 @@ slos:
 - name: Frontend controller reconciliation time for Frontend Operator
   SLIType: correctness
   SLISpecification: Percentage of Frontend controller Reconciliations that complete within 4 seconds 
-  SLODetails: https://github.com/RedHatInsights/frontend-operator
+  SLODetails: https://github.com/RedHatInsights/frontend-operator/blob/main/docs/slos/frontend-operator-reconciliation-time.md
   SLOParameters:
     window: 28d
   expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="4"}[{{window}}])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="+Inf"}[{{window}}]))
