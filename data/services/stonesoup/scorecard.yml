@@ -28,6 +28,7 @@ acceptanceCriteria:
     service) or for any CRs defined by the operators that constitute stonesoup.
 
     Pipeline Service: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/stonesoup/scorecard/pipeline-service/CONTINUITY-0003-data-management.md
+    GitOps Service: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/stonesoup/scorecard/gitops-service/CONTINUITY-0003-data-management.md
     '
   name: CONTINUITY-0003
   status: red
