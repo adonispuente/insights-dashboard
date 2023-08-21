@@ -38,3 +38,7 @@ externalResources:
       instance_class: db.m5.large
       engine_version: '14.7'
     output_resource_name: backstage-db
+  - provider: s3
+    identifier: backstage-stage
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: backstage-storage
