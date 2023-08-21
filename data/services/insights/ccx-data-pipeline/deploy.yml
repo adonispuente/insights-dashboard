@@ -574,7 +574,7 @@ resourceTemplates:
       name: ccx-ccx-upgrades-inference-gl-build-main
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 225fbb61746692d441e87eb0eb0e6259a94d9c63
+    ref: 62ebe91b7262bc5c99b28d7132451be7e40ba60e
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
