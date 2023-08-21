@@ -22,7 +22,8 @@ Specify the required qontract-schema changes and implementation details for the 
 
 ## Nongoals
 
-Revisiting existing database instances and reducing permissions.
+* Revisiting existing database instances and reducing permissions
+* Managing permissions on individual tables
 
 ## Proposals
 
