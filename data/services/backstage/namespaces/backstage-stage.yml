@@ -35,6 +35,6 @@ externalResources:
     identifier: backstage-stage
     defaults: /terraform/resources/app-sre-stage/staging/rds-1.yml
     overrides:
-      instance_class: db.t3.micro
+      instance_class: db.t2.micro
       engine_version: '14.7'
     output_resource_name: backstage-db
