@@ -69,7 +69,7 @@ resourceTemplates:
       MIN_REPLICAS: 3
   - namespace:
       $ref: /services/insights/quickstarts/namespaces/quickstarts-prod.yml
-    ref: 2e6d03f469e73f3ccd26ef2581297999a6a096b7
+    ref: 21a31bee74c757523c55ac6f835eeebf44c75499
     parameters:
       MIN_REPLICAS: 3
       ENV_NAME: prod
