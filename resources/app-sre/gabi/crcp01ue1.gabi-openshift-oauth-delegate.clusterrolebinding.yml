@@ -53,6 +53,10 @@ subjects:
     namespace: rbac-prod
 
   - kind: ServiceAccount
+    name: gabi-policies
+    namespace: policies-prod
+
+  - kind: ServiceAccount
     name: gabi-remediations
     namespace: remediations-prod
 
