@@ -1,4 +1,4 @@
-# Design doc: Glitchtip Project Alert Integration
+# Design doc: Glitchtip Project Alerts Integration
 
 **Table of contents:**
 
@@ -14,7 +14,7 @@ Christian Assing / August 2023
 
 ## Problem Statement
 
-Glitchtip can act on incoming events and send notifications to external systems via email or webhooks. Emails are sent to the configured project team members. Webhooks are sent to a configured URL. The receiver can be a chat system like Slack, Discord, or other compatible systems.
+Tenants can configure their Glitchtip project to act on incoming events (**project alerts**) and send notifications to external systems via email or webhooks. Emails are sent to the configured project team members. Webhooks are sent to a configured URL. The receiver can be a chat system like Slack, Discord, or other compatible systems.
 
 Currently, the tenants can't manage project alerts via App-Interface and need **admin** access to the Glitchtip project to configure alerts themselves. Unfortunately, the **admin** access allows the tenant to configure the whole project and not only the alerts. Such an unwanted change happened recently and caused an outage of [Glitchtip itself](https://docs.google.com/document/d/1T1mvvuuJQKHAbj1icdqVM9_HnQfxQ9ySvPm9vZid7qM.).
 
