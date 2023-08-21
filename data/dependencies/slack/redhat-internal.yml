@@ -255,3 +255,5 @@ managedUsergroups:
 - aro-codeowners
 - odf-sre-primary
 - sd-arch-team
+- ciam-s-tenant-administration-team
+- ciam-s-tenant-administration-sre

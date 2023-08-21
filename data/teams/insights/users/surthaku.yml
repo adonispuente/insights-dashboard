@@ -4,17 +4,13 @@ $schema: /access/user-1.yml
 labels:
   platform: insights
 
-name: Engin Atik
-org_username: eatik
-github_username: eatikrh
+name: Surya Thakur
+org_username: surthaku
+github_username: surya212
 
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/ocm/roles/sentry-access.yml
-- $ref: /teams/insights/roles/platform-experience.yml
-- $ref: /teams/managed-services/roles/dev.yml
-- $ref: /teams/managed-services/roles/devexps.yml
 - $ref: /teams/insights/roles/insights-stage-unleash-admin.yml
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
-- $ref: /teams/insights/roles/crcd-dev-jenkins-viewers.yml
 - $ref: /teams/ciam/roles/ciam-s-tenant-administration-team.yml

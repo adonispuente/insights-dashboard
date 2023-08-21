@@ -1,0 +1,13 @@
+---
+$schema: /dependencies/pagerduty-target-1.yml
+
+labels:
+  service: pagerduty
+
+name: ciam-s-tenant-administration-sre-pagerduty
+description: CIAM-S Tenant Administration Team SRE
+
+instance:
+  $ref: /dependencies/pagerduty/instance.yml
+
+scheduleID: PRQSH4K

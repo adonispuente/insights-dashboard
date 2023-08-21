@@ -1,0 +1,23 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: ciam-s-tenant-administration-sre-coreos-slack
+description: CIAM-S Tenant Administration SRE (managed via app-interface)
+
+service: slack-usergroup
+handle: ciam-s-tenant-administration-sre
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+pagerduty:
+- $ref: /dependencies/pagerduty/ciam-s-tenant-administration-sre.yml
+
+channels:
+- team-ciam
+- forum-ciam
+- sd-app-sre
+- sd-app-sre-oncall
+- sd-app-sre-alert
