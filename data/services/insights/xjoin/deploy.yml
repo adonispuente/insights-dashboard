@@ -216,6 +216,9 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-apicurio-gh-build-master
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+    ref: f8c4c05a6ed8b2cf14b554ee9dc9385ff7d3ad65
 
 - name: xjoin-datasource
   path: /deploy/datasource.yml
