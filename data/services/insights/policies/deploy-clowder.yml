@@ -55,7 +55,7 @@ resourceTemplates:
       - policies-engine-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/policies/namespaces/policies-prod.yml
-    ref: 7222d0993b353e633f35c66c801c85b4e3a2a5cf
+    ref: f40d4a93c9abbb67371f3bc989da6dbb695cce97
     parameters:
       CLOUDWATCH_ENABLED: true
       MEMORY_LIMIT: 1500Mi
@@ -105,7 +105,7 @@ resourceTemplates:
       - policies-ui-backend-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/policies/namespaces/policies-prod.yml
-    ref: 309e836084b7a106f4158ef261327ec7d0896870
+    ref: e0f064d2e8ec1cd16299f3ff7fdf9cff48ad8aef
     parameters:
       FLOORIST_SUSPEND: 'true'
       FLOORIST_IMAGE_TAG: b57a5a8
