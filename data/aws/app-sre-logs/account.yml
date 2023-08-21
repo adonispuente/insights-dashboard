@@ -36,6 +36,9 @@ disable:
 
 resetPasswords:
 - user:
+    $ref: /teams/hive/users/lleshchi.yml
+  requestId: reset-lleshchi1
+- user:
     $ref: /teams/ocm/users/zgalor.yml
   requestId: please
 - user:
