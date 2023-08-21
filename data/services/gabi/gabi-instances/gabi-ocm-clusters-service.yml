@@ -35,6 +35,10 @@ instances:
   namespace:
     $ref: /services/ocm/namespaces/uhc-stage.yml
 - account: app-sre
+  identifier: uhc-clusters-service-staging-readonly-ue2
+  namespace:
+    $ref: /services/ocm/namespaces/uhc-stage-appsres04ue2.yml
+- account: app-sre
   identifier: uhc-clusters-service-production-readonly-ue2
   namespace:
     $ref: /services/ocm/namespaces/uhc-production-appsrep06ue2.yml
