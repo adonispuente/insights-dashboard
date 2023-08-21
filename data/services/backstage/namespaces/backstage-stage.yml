@@ -16,11 +16,11 @@ environment:
   $ref: /products/app-sre/environments/stage.yml
 
 managedResourceTypes:
-- ConfigMap
+- Secret
 
 openshiftResources:
-- provider: resource
-  path: /services/backstage/stage/app-config.configmap.yml
+- provider: resource-template
+  path: /services/backstage/stage/app-config.secret.yml
 - provider: route
   path: /services/backstage/stage/backstage.route.yaml
 
