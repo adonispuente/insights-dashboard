@@ -57,7 +57,7 @@ resourceTemplates:
   ### DEV ###
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: a990450c16ed4fba816c8f0c00f83d14bf58c4f4
+    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -66,12 +66,11 @@ resourceTemplates:
       REPLICAS: 1
       APICAST_INTERNAL_IDP_TARGET: auth.stage.redhat.com
       APICAST_CPU_LIMIT: 400m
-      IMAGE_TAG: insights-dev
   
   ### STAGE ###
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: a990450c16ed4fba816c8f0c00f83d14bf58c4f4
+    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -101,7 +100,7 @@ resourceTemplates:
   ### OCM ###
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
-    ref: ded77ab1828faee1e0275c60495e267a06dc1cd3
+    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
     parameters:
       DISABLE_BASIC_AUTH: false
       REPLICAS: 1
