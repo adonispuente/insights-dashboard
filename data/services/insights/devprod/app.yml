@@ -53,7 +53,13 @@ quayRepos:
   - name: bonfire
     public: true
     description: Bonfire image repository
+  - name: backend-starter-app-python
+    public: true
+    description: Backend Starter App - Python template image repository
 codeComponents:
 - name: consoledot-health-metrics
   resource: upstream
   url: https://gitlab.corp.redhat.com/maholder/consoledot-health-metrics
+- name: cookiecutter-backend-starter-app-python
+  resource: upstream
+  url: https://github.com/RedHatInsights/cookiecutter-backend-starter-app-python
