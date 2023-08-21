@@ -7,7 +7,7 @@ auto_minor_version_upgrade: false
 availability_zones: ["us-east-1a", "us-east-1b"]
 engine: redis
 at_rest_encryption_enabled: true
-transit_encryption_enabled: false
+transit_encryption_enabled: true
 engine_version: '6.x'
 parameter_group_name: default.redis6.x
 port: 6379
