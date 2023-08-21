@@ -4893,6 +4893,7 @@ data:
       size: metal
       ccs_only: false
       generic_name: highmem-96m-5b
+  cloud-regions.yaml: |
     cloud_regions:
     - id: us-west-1
       cloud_provider_id: aws
