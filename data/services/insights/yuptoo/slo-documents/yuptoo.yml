@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/yuptoo/app.yml
 
 namespaces:
-- $ref: /services/insights/yuptoo/namespaces/yuptoo-prod.yml
+  - namespace:
+       $ref: /services/insights/yuptoo/namespaces/yuptoo-prod.yml
 
 slos:
 - name: Report processing success rate

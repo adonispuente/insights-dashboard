@@ -10,7 +10,8 @@ app:
   $ref: /services/assisted-installer/app.yml
 
 namespaces:
-- $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
+  - namespace:
+      $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
 
 slos:
 - name: latency

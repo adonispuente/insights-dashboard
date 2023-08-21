@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/rhsm/app.yml
 
 namespaces:
-- $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
+  - namespace:
+      $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
 
 slos:
 - name: RHSM api success

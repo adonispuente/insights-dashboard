@@ -10,7 +10,8 @@ app:
   $ref: /services/glitchtip/app.yml
 
 namespaces:
-  - $ref: /services/glitchtip/namespaces/glitchtip-production.yaml
+  - namespace:
+      $ref: /services/glitchtip/namespaces/glitchtip-production.yaml
 
 slos:
 - name: Availability of HTTP Requests

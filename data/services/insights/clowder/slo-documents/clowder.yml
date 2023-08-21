@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/clowder/app.yml
 
 namespaces:
-- $ref: /services/insights/clowder/namespaces/prod.yml
+  - namespace:
+      $ref: /services/insights/clowder/namespaces/prod.yml
 
 slos:
 - name: ClowdApp reconciliation time for Clowder

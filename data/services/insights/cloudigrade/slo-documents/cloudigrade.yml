@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/cloudigrade/app.yml
 
 namespaces:
-- $ref: /services/insights/cloudigrade/namespaces/cloudigrade-prod.yml
+  - namespace:
+       $ref: /services/insights/cloudigrade/namespaces/cloudigrade-prod.yml
 
 slos:
 - name: cloudigrade api success

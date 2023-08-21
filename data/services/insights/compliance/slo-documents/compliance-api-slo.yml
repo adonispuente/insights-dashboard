@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/compliance/app.yml
 
 namespaces:
-- $ref: /services/insights/compliance/namespaces/compliance-prod.yml
+  - namespace:
+      $ref: /services/insights/compliance/namespaces/compliance-prod.yml
 
 slos:
 - name: compliance availability

@@ -7,7 +7,8 @@ labels:
 name: receptor
 
 namespaces:
-- $ref: /services/insights/receptor/namespaces/receptor-prod.yml
+  - namespace:
+      $ref: /services/insights/receptor/namespaces/receptor-prod.yml
 
 app:
   $ref:  /services/insights/receptor/app.yml

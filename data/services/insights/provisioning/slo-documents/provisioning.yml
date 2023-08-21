@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/provisioning/app.yml
 
 namespaces:
-- $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
+  - namespace:
+      $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
 
 slos:
 - name: API Reservation Success Rate

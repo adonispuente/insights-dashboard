@@ -10,7 +10,8 @@ app:
   $ref: /services/clair/app.yml
 
 namespaces:
-- $ref: /services/clair/namespaces/production.yml
+  - namespace:
+      $ref: /services/clair/namespaces/production.yml
 
 slos:
 - name: Index report creation availability

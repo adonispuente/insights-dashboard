@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/quickstarts/app.yml
 
 namespaces:
-- $ref: /services/insights/quickstarts/namespaces/quickstarts-prod.yml
+  - namespace:
+      $ref: /services/insights/quickstarts/namespaces/quickstarts-prod.yml
 
 slos:
 - name: Requests result in successful non-5xx response

@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/ccx-data-pipeline/app.yml
 
 namespaces:
-- $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
+  - namespace:
+      $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
 
 slos:
 - name: Archive processing is taking too long

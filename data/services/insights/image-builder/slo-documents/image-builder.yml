@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/image-builder/app.yml
 
 namespaces:
-- $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
+  - namespace:
+      $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
 
 slos:
 - name: image-builder compose success

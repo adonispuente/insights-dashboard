@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/crc-pdf-generator/app.yml
 
 namespaces:
-- $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
+  - namespace:
+      $ref: /services/insights/crc-pdf-generator/namespaces/crc-pdf-generator-prod.yml
 
 slos:
 - name: Requests result in successful non-5xx response
