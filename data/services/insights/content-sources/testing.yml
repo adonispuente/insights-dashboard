@@ -74,3 +74,9 @@ resourceTemplates:
       publish:
       - content-sources-prod-post-deploy-tests-success-channel
 
+      promotion_data:
+      - channel: content-sources-prod-deploy-success-channel
+        data:
+        - parent_saas: content-sources
+          target_config_hash: e185d7f164f97b1f
+          type: parent_saas_config
