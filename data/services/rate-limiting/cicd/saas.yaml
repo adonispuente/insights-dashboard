@@ -334,7 +334,7 @@ resourceTemplates:
         # per minute in the production environment:
         - namespace: production:accounts_mgmt
           max_value: 35000
-          seconds: 60
+          seconds: 1
           conditions:
           - path == cluster_registrations
           variables:
