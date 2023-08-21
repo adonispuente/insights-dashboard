@@ -4,7 +4,7 @@ $schema: /openshift/namespace-1.yml
 labels: {}
 
 name: gabi-app-sre-prod-01-cluster-scope
-description: namespace for gabi cluster scoped resources
+description: A namespace for GABI cluster scoped resources.
 
 cluster:
   $ref: /openshift/app-sre-prod-01/cluster.yml
