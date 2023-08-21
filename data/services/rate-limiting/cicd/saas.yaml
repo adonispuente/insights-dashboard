@@ -339,6 +339,13 @@ resourceTemplates:
           - path == cluster_registrations
           variables:
           - path
+        - namespace: production:accounts_mgmt_v2
+          max_value: 35000
+          seconds: 1
+          conditions:
+          - path == cluster_registrations
+          variables:
+          - path
         # Limit OCM service log service cluster logs to 10000
         # per minute in the production environment:
         - namespace: production:service_logs
