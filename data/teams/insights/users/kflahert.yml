@@ -19,6 +19,7 @@ roles:
 - $ref: /teams/insights/roles/insights-unleash-admin.yml
 - $ref: /teams/insights/roles/aws/stage-app-developers.yml
 - $ref: /teams/insights/roles/aws/prod-app-developers.yml
+- $ref: /teams/insights/roles/host-inventory.yml
 
 public_gpg_key: |
   mQINBGN1C+UBEAC6NLEMGbkZ6vdI6nU4W6kNJuslYGTsc2SAmKj5CjYUdDTJlWB54dXPw17JzWTL

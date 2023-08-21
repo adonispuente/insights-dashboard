@@ -24,6 +24,7 @@ users:
 - $ref: /teams/insights/users/khowell.yml
 - $ref: /teams/insights/users/csams.yml
 - $ref: /teams/insights/users/roliveri.yml
+- $ref: /teams/insights/users/kflahert.yml
 
 instances:
 - account: insights-stage
