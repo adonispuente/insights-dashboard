@@ -55,7 +55,7 @@ resourceTemplates:
       ENV_NAME: "env-stage"
     promotion:
       publish:
-      - host-inventory-stage-post-deploy-success-channel
+      - host-inventory-frontend-stage-post-deploy-success-channel
 
 - name: host-inventory
   path: /deploy/clowdapp.yml
