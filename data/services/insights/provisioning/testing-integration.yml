@@ -47,13 +47,11 @@ resourceTemplates:
       IQE_BROWSERLOG: ""
       NAME_STUB: e2e-tests
     promotion:
+      auto: true
+      subscribe:
+      - provisioning-stage-post-deploy-tests-success-channel
       publish:
       - provisioning-stage-post-deploy-integration-tests-success-channel
-  # GETTING DELETED, MOVED BELOW
-  - namespace:
-      $ref: /services/insights/provisioning/namespaces/provisioning-prod.yml
-    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
-    delete: true
   # PROD TESTING
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
@@ -67,6 +65,9 @@ resourceTemplates:
       IQE_BROWSERLOG: ""
       NAME_STUB: e2e-tests
     promotion:
+      auto: true
+      subscribe:
+      - provisioning-prod-post-deploy-tests-success-channel
       publish:
       - provisioning-prod-post-deploy-integration-tests-success-channel
     
