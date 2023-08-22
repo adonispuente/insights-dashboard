@@ -1,8 +1,61 @@
 ---
 $schema: /access/user-1.yml
-labels: {}
+
+labels:
+  platform: insights
+
 name: Yi Li
 org_username: yli3
 github_username: daynewlee
+quay_username: rh_ee_yli3
+tag_on_merge_requests: false
+
 roles:
+  - $ref: /teams/advanced-cluster-security/roles/acs.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
   - $ref: /teams/advanced-cluster-security/roles/acs-triage-support.yml
+
+public_gpg_key: |
+  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
+  QKchPtDyPNDVsXPmjw4ZRceOZKF48xkA6Q==
+
+
