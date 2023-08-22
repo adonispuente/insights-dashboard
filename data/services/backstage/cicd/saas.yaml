@@ -24,6 +24,7 @@ managedResourceTypes:
 
 imagePatterns:
 - quay.io/janus-idp/redhat-backstage-build
+- quay.io/janus-idp/backstage-showcase
 
 resourceTemplates:
 - name: backstage
@@ -34,4 +35,5 @@ resourceTemplates:
       $ref: /services/backstage/namespaces/backstage-stage.yml
     ref: main
     parameters:
+      IMGAE: quay.io/janus-idp/backstage-showcase 
       IMAGE_TAG: latest
