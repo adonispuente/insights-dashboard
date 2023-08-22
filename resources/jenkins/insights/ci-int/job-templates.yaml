@@ -691,8 +691,8 @@
 # Purpose of this job is to add option parameters to choose
 # which stages developers want to run.
 - job-template:
-    id: 'insights-gh-pipeline-experimental'
-    name: '{gh_repo}-pipeline-pr-check-{branch}'
+    id: 'insights-gh-pipeline-frontends'
+    name: '{gh_repo}-pipeline-pr-check-frontends-{branch}'
 #    slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
     parameters:
@@ -762,10 +762,7 @@
           skip-tag: true
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
-          - 'alternative-cicd-tools'    # Temp, will change back to 'main'
-        #   merge:
-        #       remote: origin
-        #       branch: '{branch}'
+          - 'main'    # Temp, will change back to 'main'
           git-config-name: "AppSRE"
           git-config-email: "sd-app-sre@redhat.com"
           included-regions:
