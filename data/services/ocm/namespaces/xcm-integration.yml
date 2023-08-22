@@ -35,6 +35,13 @@ sharedResources:
 
 openshiftResources:
   - provider: vault-secret
+    path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/route53-creds
+    version: 1
+  - provider: resource
+    path: /services/ocm/integration/authentication.configmap.yaml
+  - provider: resource
+    path: /services/ocm/integration/region-constraints.configmap.yaml
+  - provider: vault-secret
     path: app-interface/app-sre-stage/uhc-integration/clusters-service
     version: 9
     annotations:
