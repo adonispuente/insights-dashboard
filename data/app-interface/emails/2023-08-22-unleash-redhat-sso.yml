@@ -1,0 +1,27 @@
+---
+$schema: /app-interface/app-interface-email-1.yml
+labels: {}
+name: 2023-08-22-unleash-redhat-sso
+subject: "Unleash RedHat SSO migration and AppSRE GitHub org removal"
+to:
+  roles:
+  - $ref: /teams/ocm/roles/ocm-unleash-admin.yml
+  - $ref: /teams/ocm/roles/dev.yml
+  - $ref: /teams/ocm/roles/ui-dev.yml
+  - $ref: /teams/insights/roles/insights-tools.yml
+  - $ref: /teams/insights/roles/insights-unleash-admin.yml
+body: |
+  Hello,
+
+  As part of our work to move away from GitHub authentication in favor of RedHat SSO, we will change the authentication provider
+  for all tenant unleash instances (Insights and OCM).
+
+  Besides the authentication and authorization change, this will also remove your GitHub users from the AppSRE GitHub organization.
+
+  As communicated in Slack (https://redhat-internal.slack.com/archives/CCRND57FW/p1692599884779199), the non-prod instances have already been
+  updated and the prod instances (https://insights.unleash.devshift.net and https://ocm.unleash.devshift.net) will follow on August 24th, 2023 9:00 UTC.
+
+  If you have questions or concerns about this, please post a question in the #sd-app-sre Slack channel.
+
+  Thank you,
+  The SRE team
