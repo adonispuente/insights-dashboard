@@ -39,4 +39,12 @@ openshiftResources:
 
 managedExternalResources: true
 
-externalResources: []
+externalResources:
+  - provider: aws
+    provisioner:
+      $ref: /aws/app-sre-stage/account.yml
+    resources:
+      - provider: elasticache
+        identifier: app-sre-rate-limiting-elasticache-test
+        defaults: /terraform/resources/app-sre-stage/app-sre-rate-limiting-redis-stage-1.yml
+        output_resource_name: app-sre-rate-limiting-elasticache-test
