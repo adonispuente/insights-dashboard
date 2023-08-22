@@ -12,3 +12,4 @@ quay_username: mcorr
 roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/internal-developer-platform/roles/internal-developer-platform.yml
