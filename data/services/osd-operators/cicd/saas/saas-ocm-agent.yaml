@@ -54,25 +54,25 @@ resourceTemplates:
       name: openshift-ocm-agent-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 35857d84b18bed6e94ef1338765ee660c956b430
+    ref: 7c961d950c676b342a46533737342ca0da80d960
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
