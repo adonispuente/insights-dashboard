@@ -43,6 +43,8 @@ openshiftResources:
   path: /ocm/allow-port-forwarding.role.yml
 - provider: resource
   path: /ocm/sda-dev-allow-port-forwarding.rolebinding.yml
+- provider: resource
+  path: /services/ocm/stage/cloud-resource-constraints.configmap.yaml
 
 managedExternalResources: true
 
