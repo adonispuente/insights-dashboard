@@ -40,7 +40,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
-    ref: 3f9c3bf1ffda028d9e781594069f0dd7671ed858
+    ref: 88ab3a3adb9526d3dcdb0e1e26c30cc98f51f76e
 
 - name: rbac-config-yml-stage
   path: /_private/configmaps/stage/rbac-config.yml
@@ -48,7 +48,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
-    ref: 3f9c3bf1ffda028d9e781594069f0dd7671ed858
+    ref: 88ab3a3adb9526d3dcdb0e1e26c30cc98f51f76e
 
 # Prod Config
 - name: model-access-permissions-yml-prod
