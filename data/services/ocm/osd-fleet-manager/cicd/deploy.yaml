@@ -266,9 +266,11 @@ resourceTemplates:
             private: false
             additional_machine_pool_gangs:
             - id_prefix: obo
-              machine_type: r5.4xlarge
+              machine_type: m5.xlarge
               autoscale: false
-              nodes: 3 # AFAIK this means 1 in each of the 3 available AZs
+              autoscale_min_replicas: 1
+              autoscale_max_replicas: 1
+              nodes: 1
               labels:
                 - key: node-role.kubernetes.io/obo
                   value: ""
@@ -276,6 +278,32 @@ resourceTemplates:
                 - key: obo
                   value: true
                   effect: NoSchedule
+            - id_prefix: serving
+              machine_type: m5.xlarge
+              nodes: 1
+              autoscale: false
+              autoscale_min_replicas: 1
+              autoscale_max_replicas: 1
+              labels:
+                - key: hypershift.openshift.io/request-serving-component
+                  value: "true"
+              taints:
+                - key: hypershift.openshift.io/request-serving-component
+                  value: "true"
+                  effect: "NoSchedule"
+            - id_prefix: non-serving
+              nodes: 1
+              machine_type: m5.xlarge
+              autoscale: false
+              autoscale_min_replicas: 1
+              autoscale_max_replicas: 1
+              labels:
+                - key: hypershift.openshift.io/control-plane
+                  value: "true"
+              taints:
+                - key: hypershift.openshift.io/control-plane
+                  value: "true"
+                  effect: "NoSchedule"
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
             # requires the one image and needs ocp 4.14 nightly hosted cluster
             hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:202a64e58897e6652e2deb1aa2ddb1a82c72a8cbd149276b37daec73b81416fa
