@@ -1,0 +1,53 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Ryan Cole
+org_username: rycole
+github_username: 14rcole
+quay_username: rycole
+
+tag_on_cluster_updates: false
+
+roles:
+  - $ref: /teams/stonesoup/roles/stonesoup.yml
+  - $ref: /teams/stonesoup/roles/hacbs-vault.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+  - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
+
+# Export with gpg --export your_public_key_id | base64
+public_gpg_key: |
+  mQGNBGTjhJ8BDADKAVLWKnQbPJic9aNrenwJLuCfrjzeeY8F67mYhIefj7rs+31T2ll5Xt/wXQA/
+  mbApabFszcbxqIFcXycjFWvzmbqYRawWWHVAUp9OLGd4zjIA1v2vYL5FdhjGh94FXXA3eMZYw4qB
+  IDXasVvrZSUWVG1j1cdugYekOxRxISNTrkEsPiUqFRGFc5SQXsdQEvJkpfg/RSBjE0JgfR2XTUvN
+  bxm86jHvj3Nxywd8R0RVF5xHXnB9ZJyjObCXYNeZRR5lBaHI4uu6hfOsDM0iIAfRRGiJV2UVoAcN
+  6FrZUw9pn+A/5eQ0EM1CL4MgrGixDDWcLTOmuku8681YbObsWvAPmds+EiKCd9iN7+dnjQdeljE8
+  YfkHmkbvSiOIcpmkEZaMEC9ZSKHw7botWVeiNEFChpYHVqAAd5WM8yVAgxz+fdW7ekPTndciLXDX
+  jghSp7vzvGLCGGRT2jOnfxjWWYi1DIZo3MbQ3choX9eTyqMQ23MoULYIcQ3Si8X4xKUbhjcAEQEA
+  AbQZcmh0YXAgPHJ5Y29sZUByZWRoYXQuY29tPokB0QQTAQgAOxYhBCxL1p2NJfys4kK+5a6lUXAo
+  oubxBQJk44SfAhsDBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEK6lUXAooubxehUMAKQ1
+  Aw2Pga0zNKKBP5ijliNPUZHt6OtXmEcIiR41ayJGKj/cYXqDVtSOcTG7S93rNyKnN5mpIueZfv7c
+  LkulltmdvgdYzhq0UH3qnUTOht6ZzFEcBN/bH8VvS1LHwyTmTH2ILMAI0pucEZKwQOwcSxQLaazB
+  52XuzSIBKh2B2a6HySgBvM72PjVrto96g+yAtEiY9Rp33uL04HpXc93DNn3des6vdNq/g5q5FHx0
+  Z0hr5nk7wqLpVoSswFyedB48gy9P5tpAjGk+PjJ8wDtE0nAGfPOnQV8us4Xnm+sgfLRDY4hrawDk
+  JJkeXMAPKBcewdggGtQzhg/XjaRvmA8xbCiO2kaRrhbSDTndpCbFIeFZ7CTbq6e50/BT3MhXaSVH
+  W0+QYUiO7s2oi0cXdpoznBiXCzMGHBdePuQuevEGp5E0nY0ug1gUBw92ge4yomBh9Ox1gE+ZdslX
+  2q1iOlj4JwFOy67h1cxs8Xld4z8ZOtLazv7hZ6EHk3V/r4mPTxXy9rkBjQRk44SfAQwApq29Dlxn
+  0iHvyd3ourAYqSMGNvDxOsZTW/YNDfcYHAAbYiLwGIOov21asTrCuKe5EX9Nw+EoigT3ua6Ue/ER
+  bdebeWnTF4YcZERB4DLhEIgHI1OLdf2mdLdqadHZylIswWwuAwenGuFGuk0MAxAFf9Ou4pfvVJQt
+  un4rPHu3slUmY5ZMmQmOQ+2bNb0NwNviOcgCoCpP3ZJeSB8PtV5XVyS2Dkecod98H/3kF0XtvYDD
+  MVfwVS3lbCRuMyoEGbvNnAUO4SfH2YSd1doIdKQQMVodSStHt2i4xfTZZ6kSIB7lPkU5c5SKKpAs
+  2oSre/pETfVAeiu7y+hrC//Tt+QNGdaVDNNJsGbPc8Y7p7htPuKZj4ji4jpUP1IbqTb4NutR2fot
+  08dFfYO2ruYTWdRLlK4xO4HZ68I52+Zzx/FKzdVMoJAgThiL0G98u9ByfURS5dlcqiAbJ9FYHFnp
+  3RoINSuFd8/a96D42p27Hl3XkA9UGB/y5pHFxoF6wBi3554RABEBAAGJAbYEGAEIACAWIQQsS9ad
+  jSX8rOJCvuWupVFwKKLm8QUCZOOEnwIbDAAKCRCupVFwKKLm8Vn/DACKoR/kyNG1OxWaX/FC1nRm
+  UWE6aIU0hRVRaAxxEmMBs30Rl+FZcEQMC+NOLEQ3jbsKWbwY8BoxWtu/NpbqxS/LCmiBG9/ud47u
+  l5c24IYoyiboQzA3eemnWtDphilIVJAH3aUQtph7h/Vg6POmV4QOphsdV9V5MS92emiQqfHf2l+L
+  YmsC05NsEk8LUVp7kcrPVFKm9BxGk6oDOhuzpCu7NsfR+XzOOfYXsq8+/lSluj9RvuRMm7rTtJMh
+  EsNEi7nLlXRfpycJCRDiA7rJ/XTEc3CzEw/h9w8uW6VGXQ7YI9bllHT1xo0SQEIXmusuWyJ1blB0
+  volEs6rrgq4XnNmVRk2x6l7QBxDzG70BuhfEbWVdFh5T5K9TtSCAcgRLT9HEB95LSw7CzC5Udgtb
+  An3L95g3bF5iTSpAKFwDfFgmxearfZWULKMEuUfGMtsrVkqntO+6w0l9fOLXHQ1vtt+TnyLl/Par
+  4xSL08QSKkTIP7et6utNiwWaHHJQtDac6SM=
