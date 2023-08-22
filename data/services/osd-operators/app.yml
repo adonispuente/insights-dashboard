@@ -740,3 +740,11 @@ codeComponents:
 - name: saas-configure-goalert-operator-bundle
   resource: bundle
   url: https://gitlab.cee.redhat.com/service/saas-configure-goalert-operator-bundle    
+- name: osd-gcp-marketplace-config
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/osd-gcp-marketplace-config
+  gitlabRepoOwners:
+    enabled: true
+  gitlabHousekeeping:
+    enabled: true
+    rebase: false
