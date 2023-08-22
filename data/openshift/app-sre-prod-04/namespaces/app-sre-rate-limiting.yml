@@ -33,3 +33,15 @@ openshiftResources:
   path: /services/common/serviceaccount.yaml
   variables:
     name: app-sre-rate-limiting
+
+managedExternalResources: true
+
+externalResources:
+  - provider: aws
+    provisioner:
+      $ref: /aws/app-sre/account.yml
+    resources:
+      - provider: elasticache
+        identifier: app-sre-rate-limiting-elasticache-prod
+        defaults: /terraform/resources/app-sre/production/app-sre-rate-limiting-redis-prod-1.yml
+        output_resource_name: app-sre-rate-limiting-elasticache-prod
