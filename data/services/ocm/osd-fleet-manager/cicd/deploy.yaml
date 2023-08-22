@@ -235,9 +235,6 @@ resourceTemplates:
       DEPLOYMENT_NAME: podisolation
       GATE_NAME: ocm-osdfm-int-canary
       ENABLE_POD_ISOLATION: true
-      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # requires the one image and needs ocp 4.14 nightly hosted cluster
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:202a64e58897e6652e2deb1aa2ddb1a82c72a8cbd149276b37daec73b81416fa
       CLUSTER_TEMPLATES: |2-
           # HyperShift Service Cluster
           hs-sc:
@@ -279,17 +276,9 @@ resourceTemplates:
                 - key: obo
                   value: true
                   effect: NoSchedule
-            - id_prefix: non-serving
-                machine_type: m5.4xlarge
-                autoscale: false
-                nodes: 3
-                labels:
-                  - key: hypershift.openshift.io/control-plane
-                    value: true
-                taints:
-                  - key: hypershift.openshift.io/control-plane
-                    value: true
-                    effect: NoSchedule
+      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
+            # requires the one image and needs ocp 4.14 nightly hosted cluster
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:202a64e58897e6652e2deb1aa2ddb1a82c72a8cbd149276b37daec73b81416fa
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
