@@ -32,3 +32,20 @@ This alert is being changed from a catch-all alert to a per-resource alert as pa
 https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/36114
 
 The alert will cause a Jira ticket to be created on a tenant's board.
+
+### Disabling the alert
+
+If you want to disable this alert you can do so by adding a label to your
+namespace with this format `rds_predict_out_of_burst_balance_{DB_IDENTIFIER}`.
+You can find an example [here](https://gitlab.cee.redhat.com/service/app-interface/blob/cf26f45c1788bade0232f7d834aacdc511d31e96/data/services/insights/patchman/namespaces/patchman-engine-prod.yml#L6)
+and the skip logic [here](https://gitlab.cee.redhat.com/service/app-interface/blob/d2f07913fd44462222fb79b23f5bfd69f341a90d/resources/observability/cloudwatch-exporter/prometheusrules/cloudwatch-exporter-templated.prometheusrules.yaml.j2#L45). The `DB_IDENTIFIER`
+is the `identifier` field used in `externalResources`:
+
+```
+externalResources:
+- provider: aws
+    ...
+  - provider: rds
+    identifier: DB_IDENTIFIER
+    ...
+```
