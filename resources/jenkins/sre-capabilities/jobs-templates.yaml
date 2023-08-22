@@ -34,6 +34,8 @@
         - *app_interface_instance_s3
         - *app_interface_instance_basic_auth
         - *github_api
+        - *gitlab_token
+        - *push_gateway_basic_auth
     success_note_url_path: 'app-interface_20JSON_20validation'
     num_to_keep: 5000
     publishers:
