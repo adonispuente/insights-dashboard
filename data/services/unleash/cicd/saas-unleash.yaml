@@ -69,15 +69,14 @@ resourceTemplates:
   - name: insights-perf
     namespace:
       $ref: /services/unleash/namespaces/app-sre-stage-01.yml
-    ref: 06632d48a80f8079f94073971dd6ce523781388d
+    ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
     parameters:
       identifier: insights-perf
       configSecret: insights-perf-config
       tokenSecret: insights-perf-unleash-token
       databaseSecret: insights-perf-unleash-rds
-      org: app-sre
-      team: insights-perf-unleash
-      read_only_team: insights-perf-unleash-read-only
+      admin_roles: ai-perf-tester
+      viewer_roles: ai-app-sre
       host: insights-perf.unleash.devshift.net
   ### Insights Stage
   - name: insights-stage

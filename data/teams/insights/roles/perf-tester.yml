@@ -6,8 +6,7 @@ name: perf-tester
 
 ldapGroup: ai-perf-tester
 
-permissions:
-- $ref: /dependencies/unleash/permissions/insights-perf.yml
+permissions: []
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/insights/insights-perf.yml
