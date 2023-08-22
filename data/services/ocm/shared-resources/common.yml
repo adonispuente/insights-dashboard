@@ -18,7 +18,7 @@ openshiftResources:
   type: extracurlyjinja2
   variables:
     version: '4.12'
-    ref: 001b59112f46cba969155bd3e966736633eca200
+    ref: a7ee283bc410f773472c80f052a39dc7d5328876
     keys:
     - openshift_cloud_credential_operator_cloud_credential_operator_iam_ro_creds_policy
     - openshift_cluster_csi_drivers_ebs_cloud_credentials_policy
