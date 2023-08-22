@@ -47,6 +47,12 @@ resourceTemplates:
       publish:
       - provisioning-stage-post-deploy-tests-success-channel
 
+      promotion_data:
+      - channel: provisioning-stage-deploy-success-channel
+        data:
+        - parent_saas: provisioning
+          target_config_hash: 979fe6cfa30246b9
+          type: parent_saas_config
 - name: provisioning-prod-testing
   # Using Job in the internal cluster
   url: https://github.com/RHEnVision/provisioning-backend
