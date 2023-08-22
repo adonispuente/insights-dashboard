@@ -15,3 +15,6 @@ rules: |
   path "app-sre/approles/stonesoup-production-approle" {
     capabilities = ["read"]
   }
+  path "app-sre/approles/stonesoup-production-rh-approle" {
+    capabilities = ["read"]
+  }
