@@ -29,20 +29,6 @@ managedResourceTypes:
 - Job
 
 resourceTemplates:
-# OLD RESOURCSE GETTING REPLACED
-- name: provisioning-testing
-  url: https://github.com/RHEnVision/provisioning-backend
-  path: /deploy/testing.yaml
-  targets:
-  - namespace:
-      $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: ca6ecdd0417e6d201a0f5cc86210988604eab7f1
-    delete: true
-  - namespace:
-      $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
-    ref: f8a1fe1fc263686eba8e408cb1b37c8e6b8d4028
-    delete: true
-# NEW RESOURCES
 - name: provisioning-stage-testing
   # Using CJI in the stage cluster namespace
   url: https://github.com/RHEnVision/provisioning-backend
@@ -50,14 +36,17 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: ca6ecdd0417e6d201a0f5cc86210988604eab7f1
+    ref: cab3e1a362133cd2af6b5e57c24edccc28591841
     parameters:
-      IQE_ENV: stage_post_deploy # REMOVE ME
       ENV_FOR_DYNACONF: stage_post_deploy
       IQE_MARKER: stage
     promotion:
+      auto: true
+      subscribe:
+      - provisioning-stage-deploy-success-channel
       publish:
       - provisioning-stage-post-deploy-tests-success-channel
+
 - name: provisioning-prod-testing
   # Using Job in the internal cluster
   url: https://github.com/RHEnVision/provisioning-backend
@@ -74,5 +63,8 @@ resourceTemplates:
       IQE_PLUGINS: provisioning
       NAME_STUB: service-tests
     promotion:
+      auto: true
+      subscribe:
+      - provisioning-prod-deploy-success-channel
       publish:
       - provisioning-prod-post-deploy-tests-success-channel
