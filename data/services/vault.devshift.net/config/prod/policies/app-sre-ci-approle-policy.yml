@@ -13,7 +13,7 @@ rules: |
     capabilities = ["read"]
   }
 
-  path "app-interface/app-interface-instances/*" {
+  path "app-interface/data/app-interface-instances/*" {
     capabilities = ["read"]
   }
 
