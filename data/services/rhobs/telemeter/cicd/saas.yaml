@@ -190,7 +190,7 @@ resourceTemplates:
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-metrics-production
       IMAGE_TAG: 'a6b4a93'
       IMAGE_CANARY_TAG: '8e65e1c'
-      REPLICAS: 10
+      REPLICAS: 11
       REPLICAS_CANARY: 0
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       MEMCACHED_EXPORTER_IMAGE_TAG: v0.6.0
