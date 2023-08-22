@@ -23,16 +23,16 @@ slos:
   SLOTargetUnit: percent_0_1
   expr: avg_over_time(service:sli:status_5xx:pctl5rate5m{exported_service="sources"}[{{window}}])
   prometheusRules: /resources/insights-prod/sources/sources.prometheusrules.yml
-  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources
+  dashboard: https://grafana.app-sre.devshift.net/d/zxZKNnAMz/sources
 
 - name: Sources service latency uptime
   SLIType: latency
-  SLISpecification: The Proportion of the service request durations under 2 seconds during the defined time window.
+  SLISpecification: The Proportion of the service request durations under 500 ms during the defined time window.
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/sources/SLO.md
   SLOParameters:
     window: 28d
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
-  expr: avg_over_time(service:sli:latency_gt_2000:pctl10rate5m{exported_service="sources"}[{{window}}])
+  expr: sum(rate(api_3scale_gateway_api_time_bucket{le="0500.0", exported_service="sources"}[{{window}}])) / sum(rate(api_3scale_gateway_api_time_count{exported_service="sources"}[{{window}}]))
   prometheusRules: /resources/insights-prod/sources/sources.prometheusrules.yml
-  dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources 
+  dashboard: https://grafana.app-sre.devshift.net/d/zxZKNnAMz/sources

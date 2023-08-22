@@ -4,7 +4,7 @@ Sources availability and latency is calculated from metrics gathered through 3Sc
 
 SLO document: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/data/services/insights/sources/slo-documents/sources.yml
 
-Grafana Dashboard: https://grafana.app-sre.devshift.net/d/slo-dashboard/slo-dashboard?orgId=1&from=now-28d&to=now&var-datasource=crcp01ue1-prometheus&var-label=sources 
+Grafana Dashboard: https://grafana.app-sre.devshift.net/d/zxZKNnAMz/sources
 
 
 Prometheus alerts: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/insights-prod/sources/sources.prometheusrules.yml 
@@ -14,4 +14,4 @@ The percentage of time the Sources service has been up as an average of the last
 
 
 ## SLO Latency
-The Proportion of the service request durations under 2 seconds during the last 28 days is higher than 95 %.
+The Proportion of the service request durations under 500 ms during the last 28 days is higher than 95 %.
