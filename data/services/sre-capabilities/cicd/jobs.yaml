@@ -34,15 +34,15 @@ config:
     - 'gl-pr-check-app-interface-instance':
         display_name: SRE Capabilities schema validator pr-check
         concurrent_build: true
-        ci_toml_secret_path: app-interface-instances/sre-capabilities-stage/ci-toml
+        ci_toml_secret_path: app-interface/app-interface-instances/sre-capabilities-stage/ci-toml
         s3_bucket_secret_path: app-sre/integrations-output/terraform-resources/appsres03ue1/sre-capabilities-stage/sre-capabilities-s3
         state_bucket_secret_path: app-sre/integrations-output/terraform-resources/appsres03ue1/sre-capabilities-stage/sre-capabilities-s3
-        qontract_server_auth_secret_path: app-interface-instances/sre-capabilities-stage/qontract-server-creds
+        qontract_server_auth_secret_path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-server-creds
         # This is a temporary workaround to prevent changes to the hack directory from running MR checks
         pr_check_script_path: |
             #!/bin/bash
             set -evuo pipefail
-            if ! git diff --quiet origin/master HEAD -- ./hack/; then
+            if ! git diff --quiet origin/main HEAD -- ./hack/; then
               MERGE_REQUEST_QUERY=api/v4/projects/"$gitlabMergeRequestTargetProjectId"/merge_requests/"$gitlabMergeRequestIid"
               echo "Checking permission for merge request: $MERGE_REQUEST_QUERY ..."
               AUTHOR_ID=$(curl -s --header "PRIVATE-TOKEN: $GITLAB_TOKEN" "$GITLAB_SERVER/$MERGE_REQUEST_QUERY" | jq '.author.id')
