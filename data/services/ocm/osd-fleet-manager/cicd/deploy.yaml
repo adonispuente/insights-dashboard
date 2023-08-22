@@ -236,16 +236,8 @@ resourceTemplates:
       GATE_NAME: ocm-osdfm-int-canary
       ENABLE_POD_ISOLATION: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            # https://gitlab.cee.redhat.com/acm-cicd/downstream-builds/-/raw/mce-2.3/build-pipeline/20230804-1527/hypershift-override-images.yaml
-            apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:480f4909dfb88a251b1c4324e8e5a140483fdf4ef7a04be83893b3ad5b88c780
-            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:8fa62a63bac2a29c21bd7e190b9cc4ba002c764c5a80738847be65c5f2482634
-            cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:f93c77aee88f9b4cf8031dc57bbaa0e8c552ca42f17c14fbfefe90a2814df4ac
-            cluster-api-provider-agent: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-agent-rhel8@sha256:3c2dfd1a9f8068a76f7d0962c5708c7fc16301570baff38784e1a17943745014
-            cluster-api-provider-aws: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-aws-rhel8@sha256:c7c2a2e351044ed974fd9a4e066448b0247c038db8ff52d8172d2591017b145d
-            cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:cd1476ae3d1b4ecc193c5f5105931e95574e16e566037db697fce42aca893325
-            cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:9e618976b64da50231bdad3e24f764d4ca6654759c68428de4979f6e08d5211f
-            hypershift-cli: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-cli-rhel8@sha256:ef870408f8ca1f2e539ce9fcace41d4735de7a4e06b5af0349ef2ded1abc18e0
-            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:659cbbe22bf3375cc3a63485a0fa5e4f9c82f2feaabb0be18a02d3983bf3c39b
+            # requires the one image and needs ocp 4.14 nightly hosted cluster
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:202a64e58897e6652e2deb1aa2ddb1a82c72a8cbd149276b37daec73b81416fa
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
