@@ -13,6 +13,10 @@ rules: |
     capabilities = ["read"]
   }
 
+  path "app-interface/app-interface-instances/*" {
+    capabilities = ["read"]
+  }
+
   path "sd-uhc/*" {
     capabilities = ["read"]
   }
