@@ -25,6 +25,15 @@ This can cause the application to run slower, or even unexpectedly crash.
           deployment_validation_operator_unset_cpu_requirements: "no cpu limits"
         ```
 
+## When to use CPU limits
+
+CPU limits should be unset by default, unless there is a good reason to set it.
+Can find good reasons in the paper [CPU bandwidth control for CFS](https://research.google/pubs/pub36669/)
+
+> There are many enterprise scenarios where this functionality is useful.
+> In particular are the cases of pay-per-use environments,
+> and user facing services where provisioning is latency bounded.
+
 
 ## References
 
