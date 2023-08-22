@@ -72,3 +72,7 @@ self_service:
   - /jenkins/uhc/secrets.yaml
   - /services/ocm/aws-sts-policies.configmap.yaml
   - /services/ocm/cloud-resources.configmap.yaml
+  - /services/ocm/integration/cloud-resource-constraints.configmap.yaml
+  - /services/ocm/production/cloud-resource-constraints.configmap.yaml
+  - /services/ocm/stage-sso-test/cloud-resource-constraints.configmap.yaml
+  - /services/ocm/stage/cloud-resource-constraints.configmap.yaml

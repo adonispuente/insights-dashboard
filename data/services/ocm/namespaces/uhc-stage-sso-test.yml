@@ -113,6 +113,8 @@ openshiftResources:
   version: 1
 - provider: resource
   path: /services/ocm/stage-sso-test/empty-dbreadonly.secret.yml
+- provider: resource
+  path: /services/ocm/stage-sso-test/cloud-resource-constraints.configmap.yaml
 
 openshiftServiceAccountTokens:
 # telemeter

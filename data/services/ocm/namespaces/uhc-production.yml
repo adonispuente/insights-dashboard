@@ -42,6 +42,8 @@ openshiftResources:
   type: resource
   tests:
   - /observability/prometheusrules/cincinnati-production-ext.prometheusrulestests.yaml
+- provider: resource
+  path: /services/ocm/production/cloud-resource-constraints.configmap.yaml
 
 managedExternalResources: true
 
