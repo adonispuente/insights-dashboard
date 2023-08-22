@@ -64,6 +64,8 @@ resourceTemplates:
         NGINX_IMAGE_TAG: 'a3812f1'
         NGINX_CPU_REQUEST: 100m
         NGINX_MEMORY_REQUEST: 128Mi
+        
+        GALAXY_API_MEMORY_LIMIT: 2Gi
 
         CONTENT_ORIGIN: 'https://console.stage.redhat.com/'
         IMPORTER_JOB_NAMESPACE: automation-hub-jobs-stage
