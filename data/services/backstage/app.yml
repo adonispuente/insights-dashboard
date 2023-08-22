@@ -23,6 +23,10 @@ escalationPolicy:
 serviceOwners:
 - name: Chris Sams
   email: csams@redhat.com
+- name: Melanie Corr
+  email: mcorr@redhat.com
+- name: Pete Savage
+  email: psavage@redhat.com
 
 dependencies:
 - $ref: /dependencies/gitlab/service.yml
