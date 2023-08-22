@@ -1,0 +1,44 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  platform: insights
+  service: host-inventory
+name: host-inventory-integration-testing
+description: host-inventory integration testing
+app:
+  $ref: /services/insights/host-inventory/app.yml
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: team-consoledot-inventory
+pipelinesProvider:
+  $ref: /services/insights/pipelines/tekton.crc-pipelines.appsrep05ue1.yaml
+publishJobLogs: true
+imagePatterns:
+- quay.io/cloudservices
+- quay.io/redhatqe
+
+timeout: 90m
+
+authentication:
+  image:
+    path: insights/quay/cloudservices-push
+    field: all
+    version: 3
+managedResourceTypes:
+- Job
+
+resourceTemplates:
+- name: host-inventory-integration-testing
+  url: https://github.com/RedHatInsights/insights-host-inventory
+  path: /deploy/testing-integration.yml
+  targets:
+  - namespace:
+      $ref: /services/insights/host-inventory/namespaces/host-inventory-stage-testing.yml
+    ref: master
+    promotion:
+      publish:
+      - host-inventory-stage-post-deploy-integration-tests-success-channel
+    parameters:
+      ENV_FOR_DYNACONF: stage_proxy
+      IQE_MARKER_EXPRESSION: host_inventory
