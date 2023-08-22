@@ -188,10 +188,10 @@ resourceTemplates:
       LOCK_PROCESSOR_CONTROLLER_ENABLED: 'True'  # Lock per message
       LOCK_PROCESSOR_CONTROLLER_EVENTS_ENABLED: 'False'  # Lock per tenant
       # Messages Recovery Job
-      MESSAGE_RECOVERY_STATUSES: ''
+      MESSAGE_RECOVERY_STATUSES: 'failed'
       # Processor Controller Svc
       PROCESSOR_CONTROLLER_APP: 'processor-controller' # or processor-controller-kafka (disable processor-ingress)
-      PROCESSOR_CONTROLLER_STATUSES: 'new,failed'
+      PROCESSOR_CONTROLLER_STATUSES: 'new'
       # Processor Ingress Svc
       PROCESSOR_INGRESS_SEND_TO_RECOVERY: 'True'
       # Processor Replay Job
