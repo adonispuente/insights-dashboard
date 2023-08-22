@@ -56,22 +56,22 @@ resourceTemplates:
       name: openshift-custom-domains-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: e4f3f426d3f93e69facb06ceb76f5eb04d4eccf9
+    ref: 5b1688f2267b15d68afd95b110eb13c5692d9249
