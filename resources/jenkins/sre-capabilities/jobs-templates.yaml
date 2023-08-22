@@ -18,3 +18,42 @@
         notify-failure: True
         notify-repeated-failure: True
     <<: *gl_build_master
+
+- job-template:
+    id: 'gl-pr-check-app-interface-instance'
+    name: '{gl_group}-{gl_project}-gl-pr-check{job_type}'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *app_interface_instance_reconcile_toml
+        - *app_interface_instance_state
+        - *app_interface_instance_s3
+        - *app_interface_instance_basic_auth
+        - *github_api
+    success_note_url_path: 'app-interface_20JSON_20validation'
+    num_to_keep: 5000
+    publishers:
+    - gitlab_message:
+        <<: *gitlab_message_defaults
+    - gitlab-notifier
+    - archive:
+        artifacts: 'temp/reports/**'
+    - html-publisher:
+        name: "app-interface JSON validation"
+        dir: "temp/reports/"
+        files: "index.html"
+        keep-all: true
+        allow-missing: true
+        link-to-last-build: true
+    - html-publisher:
+        name: "app-interface test data JSON validation"
+        dir: "temp/reports-test-data/"
+        files: "index.html"
+        keep-all: true
+        allow-missing: true
+        link-to-last-build: true
+    <<: *gl_pr_check
