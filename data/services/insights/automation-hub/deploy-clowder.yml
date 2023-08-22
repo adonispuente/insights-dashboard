@@ -85,12 +85,12 @@ resourceTemplates:
         - automation-hub-stage-deploy-success-channel
     - namespace:
         $ref: /services/insights/automation-hub/namespaces/automation-hub-prod.yml
-      ref: 95a98ece5584180fd1a1f1f051a5a00086d20bf9
+      ref: 425293537c795facd7a76559f08a22eae0dd5963
       parameters:
         REPLICAS: 1
         SUFFIX: '-cwa'
 
-        NGINX_IMAGE_TAG: '3e78b30'
+        NGINX_IMAGE_TAG: 'a3812f1'
         NGINX_CPU_REQUEST: 100m
         NGINX_MEMORY_REQUEST: 128Mi
 
@@ -111,7 +111,7 @@ resourceTemplates:
         GALAXY_FEATURE_FLAGS_DISPLAY_SIGNATURES: 'true'
 
         NGINX_REPLICAS: '3'
-        GALAXY_API_REPLICAS: '0'
+        GALAXY_API_REPLICAS: '1'
         PULP_CONTENT_APP_REPLICAS: '0'
         PULP_WORKER_REPLICAS: '0'
         TRIGGER_RESTART: '1'
