@@ -97,7 +97,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       FLOORIST_BUCKET_SECRET_NAME: insights-metrics-export-prod
@@ -143,7 +143,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -177,7 +177,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
@@ -216,7 +216,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -250,7 +250,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -289,7 +289,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -369,7 +369,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       IT_SERVICE_TO_SERVICE_KEY_STORE: file:/mnt/secrets/clientkeystore.jks
@@ -441,7 +441,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 1556cf2235a3f91879628ceb3ed1637f534770b5
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       CRONTAB_AGGREGATION_JOB: 0/15 * * * *
@@ -492,7 +492,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/notifications-prod.yml
     # notifications-gw commit hash that determines the clowdapp.yaml version
-    ref: 743d91211a792b0fde9697cec5673123eafd7751
+    ref: 47a94daecedc09bdaba815ca5cabc072352816de
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 250m
