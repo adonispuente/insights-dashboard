@@ -3,6 +3,7 @@ $schema: /openshift/namespace-1.yml
 
 labels:
   service: ccx-data-pipeline
+  rds_predict_out_of_burst_balance_ccx-notification-prod: skip  # We don't care about burst balance for this DB
 
 name: ccx-data-pipeline-prod
 description: Insights ccx-data-pipeline-prod on the PROD cluster deployed by app-interface
