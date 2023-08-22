@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
+      $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
 
 slos:
 #- name: TODO OSDFM Added Latency TODO

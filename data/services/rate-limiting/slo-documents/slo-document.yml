@@ -8,7 +8,7 @@ name: rate-limiting
 
 namespaces:
   - namespace:
-       $ref: /openshift/app-sre-prod-04/namespaces/app-sre-rate-limiting.yml
+      $ref: /openshift/app-sre-prod-04/namespaces/app-sre-rate-limiting.yml
 
 app:
   $ref:  /services/rate-limiting/app.yml

@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/ocm/namespaces/uhc-production.yml
+      $ref: /services/ocm/namespaces/uhc-production.yml
 
 slos:
 - name: latency

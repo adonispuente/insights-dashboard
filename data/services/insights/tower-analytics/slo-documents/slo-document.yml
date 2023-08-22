@@ -8,7 +8,7 @@ name: tower-analytics
 
 namespaces:
   - namespace:
-       $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
+      $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
 
 app:
   $ref:  /services/insights/tower-analytics/app.yml

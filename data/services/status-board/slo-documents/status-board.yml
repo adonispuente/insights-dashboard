@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/status-board/namespaces/production.yml
+      $ref: /services/status-board/namespaces/production.yml
 
 slos:
   - name: Status-Board API Latency

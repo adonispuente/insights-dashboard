@@ -9,7 +9,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/quayio/namespaces/quayp05ue1.yml
+      $ref: /services/quayio/namespaces/quayp05ue1.yml
 
 slos:
 - name: Quay.io success rate for pushes and pulls

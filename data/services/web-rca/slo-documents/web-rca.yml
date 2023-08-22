@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/web-rca/namespaces/production.yml
+      $ref: /services/web-rca/namespaces/production.yml
 
 slos:
   - name: Web-RCA API Latency

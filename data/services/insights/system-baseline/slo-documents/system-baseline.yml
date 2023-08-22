@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
+      $ref: /services/insights/system-baseline/namespaces/system-baseline-prod.yml
 
 slos:
 - name: baseline availability

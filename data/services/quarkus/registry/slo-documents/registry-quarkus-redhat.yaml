@@ -11,7 +11,7 @@ app:
 
 namespaces:
   - namespace:
-       $ref: /services/quarkus/registry/namespaces/registry-quarkus-redhat-production.yml
+      $ref: /services/quarkus/registry/namespaces/registry-quarkus-redhat-production.yml
 
 slos:
   - name: latency
