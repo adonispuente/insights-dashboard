@@ -67,7 +67,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -133,7 +133,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -167,7 +167,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -203,7 +203,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -240,7 +240,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -274,7 +274,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
@@ -320,7 +320,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -420,7 +420,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: a29634595e4d4160c1a7a2e369909c326e9655ba
+    ref: a5a5d545b6e1411c297034ebe823c9ff76f7275a
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
@@ -471,7 +471,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-gw commit hash that determines the clowdapp.yaml version
-    ref: ac89a2857f8cb4827a890afa171f739769d15d54
+    ref: 47a94daecedc09bdaba815ca5cabc072352816de
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 250m
