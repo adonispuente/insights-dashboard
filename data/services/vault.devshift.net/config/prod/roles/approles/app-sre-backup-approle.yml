@@ -8,7 +8,8 @@ name: "app-sre-backup"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 type: "approle"
-mount: "approle/"
+mount:
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/approle-auth.yml
 options:
   _type: "approle"
   bind_secret_id: "true"
@@ -23,10 +24,10 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - app-sre-policy
-    - vault-manager-policy
+    - $ref: /services/vault.devshift.net/config/prod/policies/app-sre-policy.yml
+    - $ref: /services/vault.devshift.net/config/prod/policies/vault-manager-policy.yml
   policies:
-    - app-sre-policy
-    - vault-manager-policy
+    - $ref: /services/vault.devshift.net/config/prod/policies/app-sre-policy.yml
+    - $ref: /services/vault.devshift.net/config/prod/policies/vault-manager-policy.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []

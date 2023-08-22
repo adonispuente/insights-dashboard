@@ -9,7 +9,8 @@ instance:
 
 name: "vault-manager"
 type: "kubernetes"
-mount: "kubernetes-appsres03ue1/"
+mount:
+  $ref: /services/vault.devshift.net/config/stage/auth-backends/kubernetes-appsres03ue1.yml
 
 options:
   _type: "kubernetes"
@@ -24,7 +25,7 @@ options:
   token_type: "default"
   token_period: "0"
   token_policies: 
-  - vault-manager-stage-policy
+    - $ref: /services/vault.devshift.net/config/stage/policies/vault-manager-stage-policy.yml
   token_bound_cidrs: []
   token_no_default_policy: false
   token_num_uses: "0"

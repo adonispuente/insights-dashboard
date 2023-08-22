@@ -9,7 +9,8 @@ instance:
 
 name: "sre-capabilities-stage"
 type: "kubernetes"
-mount: "kubernetes-appsres03ue1/"
+mount:
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/kubernetes/appsres03ue1.yml
 
 options:
   _type: "kubernetes"
@@ -25,7 +26,7 @@ options:
   token_type: "default"
   token_period: "0"
   token_policies:
-  - app-interface-approle-policy
+    - $ref: /services/vault.devshift.net/config/prod/policies/app-interface-approle-policy.yml
   token_bound_cidrs: []
   token_no_default_policy: false
   token_num_uses: "0"

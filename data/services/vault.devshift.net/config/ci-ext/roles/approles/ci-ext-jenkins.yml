@@ -8,7 +8,8 @@ name: "ci-ext_jenkins"
 instance:
   $ref: /services/vault.devshift.net/config/ci-ext/ci-ext.yml
 type: "approle"
-mount: "approle/"
+mount: 
+  $ref: /services/vault.devshift.net/config/ci-ext/auth-backends/approle-auth.yml
 output_path: app-sre/approles/ci-ext-jenkins-approle
 options:
   _type: "approle"
@@ -24,8 +25,8 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - ci-ext-approle-policy
+    - $ref: /services/vault.devshift.net/config/ci-ext/policies/ci-ext-approle-policy.yml
   policies:
-    - ci-ext-approle-policy
+    - $ref: /services/vault.devshift.net/config/ci-ext/policies/ci-ext-approle-policy.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []
