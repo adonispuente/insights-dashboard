@@ -36,10 +36,9 @@ managed:
     resources:
       requests:
         memory: 300Mi
-        cpu: 200m
+        cpu: 50m
       limits:
         memory: 600Mi
-        cpu: 800m
     extraArgs: ''
     internalCertificates: true
     logs:

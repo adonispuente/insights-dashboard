@@ -15,10 +15,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 100m
+        cpu: 50m
       limits:
         memory: 400Mi
-        cpu: 200m
     extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw
     #                                              app-sre-stage               # app-sre-prod
     logs:
@@ -30,10 +29,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 100m
+        cpu: 50m
       limits:
         memory: 400Mi
-        cpu: 200m
     extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw
     #                                              app-sre-stage               # app-sre-prod
     logs:

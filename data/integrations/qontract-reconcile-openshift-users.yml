@@ -18,10 +18,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 300m
       limits:
         memory: 1040Mi
-        cpu: 1500m
     logs:
       slack: true
 - namespace:
@@ -30,10 +29,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 300m
       limits:
         memory: 1040Mi
-        cpu: 1500m
     logs:
       slack: true
 

@@ -19,10 +19,9 @@ managed:
     resources:
       requests:
         memory: 100Mi
-        cpu: 100m
+        cpu: 25m
       limits:
         memory: 200Mi
-        cpu: 200m
     state: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
@@ -30,10 +29,9 @@ managed:
     resources:
       requests:
         memory: 100Mi
-        cpu: 100m
+        cpu: 25m
       limits:
         memory: 200Mi
-        cpu: 200m
     state: true
 
 schemas:
@@ -45,4 +43,3 @@ schemas:
 - /dependencies/status-page-component-1.yml
 - /aws/account-1.yml
 - /aws/ecr-1.yml
-

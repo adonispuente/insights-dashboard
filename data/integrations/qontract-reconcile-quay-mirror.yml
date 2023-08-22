@@ -28,7 +28,6 @@ managed:
         cpu: 200m
       limits:
         memory: 550Mi
-        cpu: 600m
     cache: true
     extraArgs: --control-file-dir /.cache --no-compare-tags
     internalCertificates: true
@@ -45,7 +44,6 @@ managed:
         cpu: 200m
       limits:
         memory: 2000Mi
-        cpu: 600m
     cache: true
     extraArgs: --control-file-dir /.cache
     internalCertificates: true

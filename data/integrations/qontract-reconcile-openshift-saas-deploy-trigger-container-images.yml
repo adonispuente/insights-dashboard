@@ -21,10 +21,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 200m
       limits:
         memory: 1000Mi
-        cpu: 3500m
     extraArgs: --include-trigger-trace
     logs:
       slack: true
@@ -36,10 +35,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 200m
       limits:
         memory: 1000Mi
-        cpu: 3500m
     extraArgs: --include-trigger-trace
     logs:
       slack: true

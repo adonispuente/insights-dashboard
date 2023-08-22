@@ -23,10 +23,9 @@ managed:
     resources:
       requests:
         memory: 1200Mi
-        cpu: 300m
+        cpu: 100m
       limits:
         memory: 1800Mi
-        cpu: 1200m
     extraArgs: --vault-output-path app-sre/integrations-output
     internalCertificates: true
     logs:
@@ -40,10 +39,9 @@ managed:
     resources:
       requests:
         memory: 1200Mi
-        cpu: 300m
+        cpu: 200m
       limits:
         memory: 2400Mi
-        cpu: 1200m
     extraArgs: --vault-output-path app-sre/integrations-output
     internalCertificates: true
     logs:

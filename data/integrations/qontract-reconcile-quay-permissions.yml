@@ -22,7 +22,6 @@ managed:
         cpu: 100m
       limits:
         memory: 300Mi
-        cpu: 200m
     logs:
       slack: true
 - namespace:
@@ -34,7 +33,6 @@ managed:
         cpu: 100m
       limits:
         memory: 300Mi
-        cpu: 200m
     logs:
       slack: true
 

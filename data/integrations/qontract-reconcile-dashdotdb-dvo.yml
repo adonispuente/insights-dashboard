@@ -22,7 +22,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 300m
     cron: '0 0,6,12,18 * * *'
     dashdotdb: true
 - namespace:
@@ -38,7 +37,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 300m
     cron: '0 0,6,12,18 * * *'
     dashdotdb: true
 

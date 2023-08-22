@@ -20,10 +20,9 @@ managed:
     resources:
       requests:
         memory: 100Mi
-        cpu: 100m
+        cpu: 25m
       limits:
         memory: 400Mi
-        cpu: 200m
     logs:
       slack: false
     extraEnv:
@@ -35,10 +34,9 @@ managed:
     resources:
       requests:
         memory: 100Mi
-        cpu: 100m
+        cpu: 25m
       limits:
         memory: 400Mi
-        cpu: 200m
     logs:
       slack: false
     extraEnv:
