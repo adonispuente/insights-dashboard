@@ -8,7 +8,8 @@ name: "core_kb_role"
 instance:
   $ref: /services/vault.devshift.net/config/stage/stage-devshift-net.yml
 type: "approle"
-mount: "approle/"
+mount:
+  $ref: /services/vault.devshift.net/config/stage/auth-backends/approle-auth.yml
 options:
   _type: "approle"
   bind_secret_id: "true"
@@ -23,8 +24,8 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - core_kb_approle_policy
+    - $ref: /services/vault.devshift.net/config/stage/policies/core_kb_approle_policy.yml
   policies:
-    - core_kb_approle_policy
+    - $ref: /services/vault.devshift.net/config/stage/policies/core_kb_approle_policy.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []

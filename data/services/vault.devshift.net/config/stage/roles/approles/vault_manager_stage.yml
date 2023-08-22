@@ -8,7 +8,8 @@ name: "vault_manager_stage"
 instance:
   $ref: /services/vault.devshift.net/config/stage/stage-devshift-net.yml
 type: "approle"
-mount: "approle/"
+mount:
+  $ref: /services/vault.devshift.net/config/stage/auth-backends/approle-auth.yml
 output_path: app-sre/creds/vault-manager-stage-approle
 options:
   _type: "approle"
@@ -24,10 +25,10 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - vault-manager-stage-policy
-    - prometheus
+    - $ref: /services/vault.devshift.net/config/stage/policies/vault-manager-stage-policy.yml
+    - $ref: /services/vault.devshift.net/config/stage/policies/prometheus.yml
   policies:
-    - vault-manager-stage-policy
-    - prometheus
+    - $ref: /services/vault.devshift.net/config/stage/policies/vault-manager-stage-policy.yml
+    - $ref: /services/vault.devshift.net/config/stage/policies/prometheus.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []

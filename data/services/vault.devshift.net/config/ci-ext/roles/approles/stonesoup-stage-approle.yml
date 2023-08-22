@@ -8,7 +8,8 @@ name: "stonesoup-stage"
 instance:
   $ref: /services/vault.devshift.net/config/ci-ext/ci-ext.yml
 type: "approle"
-mount: "approle/"
+mount:
+  $ref: /services/vault.devshift.net/config/ci-ext/auth-backends/approle-auth.yml
 output_path: app-sre/approles/stonesoup-stage-approle
 options:
   _type: "approle"
@@ -24,8 +25,8 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - stonesoup-stage-approle-policy
+    - $ref: /services/vault.devshift.net/config/ci-ext/policies/stonesoup-stage-approle-policy.yml
   policies:
-    - stonesoup-stage-approle-policy
+    - $ref: /services/vault.devshift.net/config/ci-ext/policies/stonesoup-stage-approle-policy.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []

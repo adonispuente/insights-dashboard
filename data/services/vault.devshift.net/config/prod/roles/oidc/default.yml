@@ -7,7 +7,8 @@ name: "default"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 type: "oidc"
-mount: "oidc/"
+mount:
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/oidc.yml
 options:
   _type: "oidc"
   allowed_redirect_uris:
@@ -21,7 +22,7 @@ options:
   token_type: "default"
   token_period: "0"
   token_policies: 
-    - default
+    - $ref: /services/vault.devshift.net/config/prod/policies/default.yml
   token_bound_cidrs: []
   token_no_default_policy: false
   token_num_uses: "0"

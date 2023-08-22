@@ -8,7 +8,8 @@ name: "app-interface-development"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 type: "approle"
-mount: "approle/"
+mount: 
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/approle-auth.yml
 output_path: app-sre/approles/dev/app-interface-development
 options:
   _type: "approle"
@@ -24,8 +25,8 @@ options:
   token_ttl: "1800"
   token_type: "default"
   token_policies:
-    - app-interface-development-approle-policy
+    - $ref: /services/vault.devshift.net/config/prod/policies/app-interface-dev-approle-policy.yml
   policies:
-    - app-interface-development-approle-policy
+    - $ref: /services/vault.devshift.net/config/prod/policies/app-interface-dev-approle-policy.yml
   secret_id_bound_cidrs: []
   token_bound_cidrs: []
