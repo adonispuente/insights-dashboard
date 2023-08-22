@@ -24,19 +24,7 @@ config:
     gh_repo: curiosity-frontend
     quay_org: cloudservices
     jobs:
-    # Frontends build deploy POC work
-    - "insights-gh-pipeline-experimental":
-        display_name: curiosity-frontend frontend-pipeline-pr-check
-        status_context: ci.int.devshift.net PR pipeline
-        branch: "main"
-        project_name: 'curiosity-frontend'
-        run_cypress_component_stage: 'false'
-        run_cypress_e2e_tests_stage: 'false'
-        run_frontend_build_stage: 'true'
-        run_iqe_tests_stage: 'true'
-        run_lint_stage: 'false'
-        run_unit_tests_stage: 'true'
-    # - "insights-gh-pipeline":
-    #     display_name: 'curiosity-frontend pipeline'
-    #     status_context: ci.ext.devshift.net PR pipeline
-    #     branch: main
+    - "insights-gh-pipeline":
+        display_name: 'curiosity-frontend pipeline'
+        status_context: ci.ext.devshift.net PR pipeline
+        branch: main
