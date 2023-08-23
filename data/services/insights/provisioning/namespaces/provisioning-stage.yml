@@ -51,6 +51,10 @@ openshiftResources:
   name: provisioning-sentry
   path: app-interface/provisioning/stage/glitchtip-dsn
   version: 1
+- provider: vault-secret
+  name: provisioning-azure-auth-secret
+  path: insights/secrets/qe/qa/provisioning/azure
+  version: 18
 
 externalResources:
 - provider: aws
