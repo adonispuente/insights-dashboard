@@ -132,6 +132,18 @@ resourceTemplates:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 456d6863cb09d7eff4d531d938009ba11c8d5111
 
+- name: xjoin-prometheus-push-gateway
+  path: /deploy/prometheus-push-gateway.yaml
+  url: https://github.com/RedHatInsights/xjoin-operator
+  targets:
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-xjoin-operator-gh-build-catalog-master-upstream-RedHatInsights-xjoin-operator-gh-build-master
+
 - name: xjoin-es-exporter
   path: /templates/xjoin/xjoin-es-exporter.yaml
   url: https://gitlab.cee.redhat.com/insights-platform/saas-templates
