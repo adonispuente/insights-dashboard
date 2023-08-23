@@ -57,6 +57,9 @@ codeComponents:
 - name: hypershift
   resource: upstream
   url: https://github.com/openshift/hypershift
+- name: maestro-configs
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/maestro-configs
 
 quayRepos:
 - org:
