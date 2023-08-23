@@ -67,7 +67,7 @@ resourceTemplates:
         
         GALAXY_API_MEMORY_LIMIT: 2Gi
         PULP_WORKER_MEMORY_LIMIT: 1Gi
-        PULP_WORKER_CPU_LIMIT: '4'
+        PULP_WORKER_CPU_LIMIT: '3'
 
         CONTENT_ORIGIN: 'https://console.stage.redhat.com/'
         IMPORTER_JOB_NAMESPACE: automation-hub-jobs-stage
