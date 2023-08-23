@@ -300,6 +300,15 @@ data:
                 },
                 "orgId": 1,
                 "type": "file"
+            },
+            {
+                "folder": "RHTAP",
+                "name": "RHTAP",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/RHTAP"
+                },
+                "orgId": 1,
+                "type": "file"
             }
         ]
     }
