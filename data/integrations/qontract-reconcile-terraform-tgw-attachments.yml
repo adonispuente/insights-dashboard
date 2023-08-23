@@ -20,10 +20,9 @@ managed:
     resources:
       requests:
         memory: 2Gi
-        cpu: 100m
+        cpu: 200m
       limits:
         memory: 6Gi
-        cpu: 2000m
     logs:
       slack: true
 - namespace:
@@ -32,10 +31,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 100m
+        cpu: 200m
       limits:
         memory: 4Gi
-        cpu: 1500m
     logs:
       slack: true
   sharding:

@@ -21,7 +21,6 @@ managed:
         cpu: 300m
       limits:
         memory: 500Mi
-        cpu: 300m
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
@@ -34,7 +33,6 @@ managed:
         cpu: 300m
       limits:
         memory: 500Mi
-        cpu: 300m
 
 schemas:
 - /aws/account-1.yml

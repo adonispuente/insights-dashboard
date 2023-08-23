@@ -19,10 +19,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 50m
       limits:
         memory: 1000Mi
-        cpu: 1200m
     logs:
       slack: true
     trigger: true
@@ -32,10 +31,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 50m
       limits:
         memory: 1000Mi
-        cpu: 1200m
     logs:
       slack: true
     trigger: true

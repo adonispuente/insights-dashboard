@@ -15,10 +15,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 200m
       limits:
         memory: 1040Mi
-        cpu: 1200m
     state: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
@@ -26,10 +25,9 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 400m
+        cpu: 200m
       limits:
         memory: 1040Mi
-        cpu: 1200m
     state: true
 
 schemas:

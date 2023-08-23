@@ -18,20 +18,18 @@ managed:
     resources:
       requests:
         memory: 800Mi
-        cpu: 900m
+        cpu: 100m
       limits:
         memory: 1200Mi
-        cpu: 1200m
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
     resources:
       requests:
         memory: 800Mi
-        cpu: 900m
+        cpu: 100m
       limits:
         memory: 1200Mi
-        cpu: 1200m
 
 schemas:
 - /openshift/cluster-1.yml

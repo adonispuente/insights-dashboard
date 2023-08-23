@@ -18,10 +18,9 @@ managed:
     resources:
       requests:
         memory: 700Mi
-        cpu: 100m
+        cpu: 300m
       limits:
         memory: 1000Mi
-        cpu: 1500m
     logs:
       slack: true
     internalCertificates: true
@@ -31,10 +30,9 @@ managed:
     resources:
       requests:
         memory: 700Mi
-        cpu: 100m
+        cpu: 300m
       limits:
         memory: 1000Mi
-        cpu: 1500m
     logs:
       slack: true
     internalCertificates: true

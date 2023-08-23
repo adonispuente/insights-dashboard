@@ -21,7 +21,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     cron: '0 2 5 4 *'
     extraArgs: --gitlab-project-id=${APP_INTERFACE_PROJECT_ID}
 - namespace:
@@ -36,7 +35,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     cron: '0 2 5 4 *'
     extraArgs: --gitlab-project-id=${APP_INTERFACE_PROJECT_ID}
 

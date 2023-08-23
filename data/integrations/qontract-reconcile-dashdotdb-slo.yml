@@ -23,7 +23,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     # once a day
     cron: '0 5 * * *'
     dashdotdb: true
@@ -38,7 +37,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     # once a day
     cron: '0 5 * * *'
     dashdotdb: true

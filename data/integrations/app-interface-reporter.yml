@@ -21,7 +21,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     # first day of month
     cron: '0 1 1 * *'
     extraEnv:
@@ -40,7 +39,6 @@ managed:
         cpu: 100m
       limits:
         memory: 600Mi
-        cpu: 200m
     # first day of month
     cron: '0 1 1 * *'
     extraEnv:

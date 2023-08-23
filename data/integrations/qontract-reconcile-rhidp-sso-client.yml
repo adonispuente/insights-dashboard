@@ -18,10 +18,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 200m
+        cpu: 10m
       limits:
         memory: 200Mi
-        cpu: 200m
     extraArgs: --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
     logs:
       slack: true
@@ -31,10 +30,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 200m
+        cpu: 10m
       limits:
         memory: 200Mi
-        cpu: 200m
     extraArgs: --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
     logs:
       slack: true

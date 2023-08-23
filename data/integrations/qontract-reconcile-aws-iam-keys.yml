@@ -19,7 +19,7 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 100m
+        cpu: 50m
       limits:
         memory: 400Mi
         cpu: 200m
@@ -32,10 +32,9 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 100m
+        cpu: 50m
       limits:
         memory: 400Mi
-        cpu: 200m
     logs:
       slack: true
     state: true

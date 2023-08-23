@@ -21,7 +21,6 @@ managed:
         cpu: 200m
       limits:
         memory: 1000Mi
-        cpu: 1200m
     extraArgs: --vault-output-path app-sre/integrations-output
     internalCertificates: true
     logs:
@@ -35,7 +34,6 @@ managed:
         cpu: 200m
       limits:
         memory: 1000Mi
-        cpu: 1200m
     extraArgs: --vault-output-path app-sre/integrations-output
     internalCertificates: true
     logs:

@@ -19,7 +19,6 @@ managed:
         cpu: 25m
       limits:
         memory: 400Mi
-        cpu: 50m
     # once a week
     cron: '0 0 * * 0'
 - namespace:
@@ -32,7 +31,6 @@ managed:
         cpu: 25m
       limits:
         memory: 400Mi
-        cpu: 50m
     # once a week
     cron: '0 0 * * 0'
 

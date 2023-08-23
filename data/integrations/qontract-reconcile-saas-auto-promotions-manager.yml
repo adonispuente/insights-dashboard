@@ -24,7 +24,6 @@ managed:
         cpu: 100m
       limits:
         memory: 500Mi
-        cpu: 300m
     state: true
     logs:
       slack: false
@@ -38,7 +37,6 @@ managed:
         cpu: 100m
       limits:
         memory: 500Mi
-        cpu: 300m
     state: true
     logs:
       slack: false
@@ -67,4 +65,3 @@ schemas:
 - /dependencies/jenkins-instance-1.yml
 - /dependencies/quay-org-1.yml
 - /dependencies/quay-instance-1.yml
-
