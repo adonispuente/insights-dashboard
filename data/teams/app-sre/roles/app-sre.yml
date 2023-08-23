@@ -63,6 +63,9 @@ access:
 - cluster:
     $ref: /openshift/appsres05ue1/cluster.yml
   group: dedicated-admins
+- cluster:
+    $ref: /openshift/appsres06ue1/cluster.yml
+  group: dedicated-admins
 ## Hive
 - cluster:
     $ref: /openshift/hivep01ue1/cluster.yml

@@ -45,6 +45,7 @@ self_service:
   - $ref: /openshift/appsres03ue1/cluster.yml
   - $ref: /openshift/appsres04ue2/cluster.yml
   - $ref: /openshift/appsres05ue1/cluster.yml
+  - $ref: /openshift/appsres06ue1/cluster.yml
   - $ref: /openshift/clairp01ue1/cluster.yml
   - $ref: /openshift/crcp01ue1/cluster.yml
   - $ref: /openshift/crcs02ue1/cluster.yml

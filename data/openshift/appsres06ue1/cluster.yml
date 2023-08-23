@@ -1,0 +1,73 @@
+---
+$schema: /openshift/cluster-1.yml
+
+labels:
+  service: backplane
+
+name: appsres06ue1
+description: appsres06ue1 cluster
+consoleUrl: ''
+kibanaUrl: ''
+prometheusUrl: ''
+alertmanagerUrl: ''
+serverUrl: ''
+elbFQDN: ''
+
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
+
+ocm:
+  $ref: /dependencies/ocm/production.yml
+
+# managedGroups:
+# - dedicated-admins
+
+# managedClusterRoles: true
+
+spec:
+  product: rosa
+  account:
+    $ref: /aws/sd-infra-stage-01/account.yml
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: ''
+  initial_version: 4.13.9-candidate
+  multi_az: true
+  nodes: 3
+  instance_type: m5.2xlarge
+  private: false
+  disable_user_workload_monitoring: true
+  hypershift: false
+  id: ''
+  external_id: ''
+  provision_shard_id: ''
+  subnet_ids:
+  - subnet-0a0c47f05c334a503
+  - subnet-0f4bbb18701bad7d1
+  - subnet-0fb5d857b2a1da03e
+  - subnet-0230c106513dd4348
+  - subnet-032240fa04d04f125
+  - subnet-090c162206f2a2d4a
+  availability_zones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1c
+
+# automationToken:
+#   path: app-sre/creds/kube-configs/appsres06ue1
+#   field: token
+
+# clusterAdminAutomationToken:
+#   path: app-sre/creds/kube-configs/appsres06ue1-cluster-admin
+#   field: token
+
+network:
+  type: OVNKubernetes
+  # vpcid: vpc-0f5095839291575a9
+  vpc: 10.170.48.0/22
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+
+internal: false
