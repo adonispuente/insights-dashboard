@@ -10,7 +10,8 @@ app:
   $ref: /services/acs-fleet-manager/app.yml
 
 namespaces:
-- $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
+  - namespace:
+      $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
 
 slos:
 - name: API availability

@@ -7,7 +7,8 @@ labels:
 name: tower-analytics
 
 namespaces:
-- $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
+  - namespace:
+      $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
 
 app:
   $ref:  /services/insights/tower-analytics/app.yml

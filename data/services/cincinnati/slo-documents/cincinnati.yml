@@ -10,7 +10,8 @@ app:
   $ref: /services/cincinnati/app.yml
 
 namespaces:
-- $ref: /services/cincinnati/namespaces/cincinnati-production.yml
+  - namespace:
+      $ref: /services/cincinnati/namespaces/cincinnati-production.yml
 
 slos:
 - name: policy-engine latency

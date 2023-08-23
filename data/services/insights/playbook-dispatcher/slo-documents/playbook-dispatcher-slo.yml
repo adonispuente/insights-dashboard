@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/playbook-dispatcher/app.yml
 
 namespaces:
-- $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
+  - namespace:
+      $ref: /services/insights/playbook-dispatcher/namespaces/prod.yml
 
 slos:
 - name: Playbook Dispatcher Availability

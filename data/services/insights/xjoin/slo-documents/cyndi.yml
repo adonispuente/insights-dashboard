@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/xjoin/app.yml
 
 namespaces:
-- $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
+  - namespace:
+      $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
 
 slos:
 - name: Data consistency

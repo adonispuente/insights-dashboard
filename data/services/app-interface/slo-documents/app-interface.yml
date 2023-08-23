@@ -10,7 +10,8 @@ app:
   $ref: /services/app-interface/app.yml
 
 namespaces:
-- $ref: /services/app-interface/namespaces/app-interface-production.yml
+  - namespace:
+      $ref: /services/app-interface/namespaces/app-interface-production.yml
 
 slos:
 - name: Reconciliation time of app-interface integrations

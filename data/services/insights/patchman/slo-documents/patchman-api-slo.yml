@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/patchman/app.yml
 
 namespaces:
-- $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
+  - namespace:
+      $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
 
 slos:
 - name: patchman availability

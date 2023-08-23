@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/ros/app.yml
 
 namespaces:
-- $ref: /services/insights/ros/namespaces/ros-prod.yml
+  - namespace:
+      $ref: /services/insights/ros/namespaces/ros-prod.yml
 
 slos:
 - name: ros availability

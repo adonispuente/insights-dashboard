@@ -10,8 +10,10 @@ app:
   $ref: /services/service-registry/app.yml
 
 namespaces:
-- $ref: /services/service-registry/namespaces/service-registry-stage.yml
-- $ref: /services/service-registry/namespaces/service-registry-production.yml
+  - namespace:
+      $ref: /services/service-registry/namespaces/service-registry-stage.yml
+  - namespace:
+      $ref: /services/service-registry/namespaces/service-registry-production.yml
 
 slos:
 

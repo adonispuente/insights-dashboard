@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/hccm/app.yml
 
 namespaces:
-- $ref: /services/insights/hccm/namespaces/hccm-prod.yml
+  - namespace:
+      $ref: /services/insights/hccm/namespaces/hccm-prod.yml
 
 slos:
 - name: Cost Management API Availability

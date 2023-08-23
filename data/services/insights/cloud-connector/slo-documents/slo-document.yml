@@ -7,7 +7,8 @@ labels:
 name: cloud-connector
 
 namespaces:
-- $ref: /services/insights/cloud-connector/namespaces/prod.yml
+  - namespace:
+      $ref: /services/insights/cloud-connector/namespaces/prod.yml
 
 app:
   $ref:  /services/insights/cloud-connector/app.yml

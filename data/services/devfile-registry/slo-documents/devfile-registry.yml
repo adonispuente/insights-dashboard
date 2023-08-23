@@ -10,7 +10,8 @@ app:
   $ref: /services/devfile-registry/app.yml
 
 namespaces:
-- $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
+  - namespace:
+      $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
 
 slos:
 - name: devfile registry index latency

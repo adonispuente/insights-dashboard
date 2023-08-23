@@ -10,7 +10,8 @@ app:
   $ref: /services/cna/app.yml
 
 namespaces:
-  - $ref: /services/cna/namespaces/stage.yml
+  - namespace:
+      $ref: /services/cna/namespaces/stage.yml
 
 slos:
   - name: CNA API Latency

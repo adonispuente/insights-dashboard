@@ -8,7 +8,9 @@ app:
   $ref: /services/quayio/app.yml
 
 namespaces:
-  - $ref: /services/quayio/namespaces/quayp05ue1.yml
+  - namespace:
+      $ref: /services/quayio/namespaces/quayp05ue1.yml
+
 slos:
 - name: Quay.io success rate for pushes and pulls
   dashboard: "https://grafana.app-sre.devshift.net/d/quay-slo/quay-slo?orgId=1"

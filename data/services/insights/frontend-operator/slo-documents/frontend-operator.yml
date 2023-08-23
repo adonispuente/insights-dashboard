@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/frontend-operator/app.yml
 
 namespaces:
-- $ref: /services/insights/frontend-operator/namespaces/prod.yml
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod.yml
 
 slos:
 - name: frontend operator reconciliation error rate

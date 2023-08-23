@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/fedramp-customer-interest/app.yml
 
 namespaces:
-- $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
+  - namespace:
+      $ref: /services/insights/fedramp-customer-interest/namespaces/stage.yml
 
 slos:
 - name: Requests result in successful (non-5xx) response

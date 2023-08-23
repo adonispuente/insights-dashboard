@@ -10,8 +10,10 @@ app:
   $ref: /services/insights/hybrid-committed-spend/app.yml
 
 namespaces:
-- $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-- $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
 
 slos:
 - name: Hybrid Committed Spend Frontend Availability
