@@ -146,6 +146,6 @@ resourceTemplates:
     upstream:
       instance:
         $ref: /dependencies/ci-ext/ci-ext.yml
-      name: quay-osa-openshift-analytics-gh-build-master
+      name: quay-osa-openshift-analytics-gh-build-main
     parameters:
       OSA_QUAY_JOB_SECRET: quayio-osa-analytics-job-config
