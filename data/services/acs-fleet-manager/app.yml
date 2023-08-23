@@ -52,4 +52,3 @@ quayRepos:
   - name: acs-fleet-manager
     description: ACS Fleet Manager
     public: true
-
