@@ -70,7 +70,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       name: service-web-rca-gl-build-main
   - namespace:
       $ref: /services/web-rca/namespaces/production.yml
-    ref: 51cd54c6abcff4e2bcc1fdb857d511b9d4930037
+    ref: 7ad98abbd09fb11cc1253eca1a23947a37be3193
     parameters:
       DATABASE_SECRET_NAME: web-rca-production-rds
       OCM_BASE_URL: https://api.openshift.com
@@ -100,7 +100,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       name: service-web-rca-ui-gl-build-main
   - namespace:
       $ref: /services/web-rca/namespaces/production.yml
-    ref: c73579ac551087e18b873199edfe728e38ed2da3
+    ref: f5a783792474e561004eddc93a159a1a6958ed2b
     parameters:
       OCM_BASE_URL: https://api.openshift.com
       REPLICAS: 3
