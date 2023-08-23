@@ -34,6 +34,7 @@ dependencies:
 - $ref: /dependencies/openshift/service.yml
 - $ref: /dependencies/github/service.yml
 - $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/gitlab/service.yml
 
 codeComponents:
 - name: acs-fleet-manager
@@ -52,5 +53,3 @@ quayRepos:
     description: ACS Fleet Manager
     public: true
 
-dependencies:
-  - $ref: /dependencies/gitlab/service.yml
