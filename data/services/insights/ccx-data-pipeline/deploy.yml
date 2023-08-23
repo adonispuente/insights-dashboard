@@ -315,7 +315,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: a429f0151780951dd4ac4d334700f5947f1ee143
+    ref: fc3d735e6934110b537fbcf5bc70ce9e509410f5
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
