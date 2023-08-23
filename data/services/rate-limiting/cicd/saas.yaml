@@ -34,6 +34,15 @@ imagePatterns:
 - quay.io/app-sre/redis-5
 
 resourceTemplates:
+- name: limitador-dashboards
+  url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
+  path: /dashboards
+  provider: directory
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+    ref: master
+
 - name: limitador
   url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
   path: /limitador.yaml
