@@ -7,5 +7,5 @@ namespace:
 identifier: ccx-notification-db-prod
 output: stdout
 queries:
-  - SELECT cluster, notified_at FROM reported;
+  - SELECT cluster, notified_at FROM reported LIMIT 100;
   - ANALYZE VERBOSE;

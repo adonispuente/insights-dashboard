@@ -7,5 +7,5 @@ namespace:
 identifier: ccx-data-pipeline-prod
 output: stdout
 queries:
-  - SELECT cluster_id, created_at FROM recommendation;
+  - SELECT cluster_id, created_at FROM recommendation LIMIT 100;
   - ANALYZE VERBOSE;
