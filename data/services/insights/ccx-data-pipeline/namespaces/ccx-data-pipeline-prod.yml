@@ -92,27 +92,31 @@ externalResources:
     defaults: /terraform/resources/insights/production/kms-insights-buck-it-openshift-prod.yml
   - provider: rds
     identifier: ccx-data-pipeline-prod
-    defaults: /terraform/resources/insights/production/rds/postgres11-rds-1.yml
+    defaults: /terraform/resources/insights/production/rds/postgres15-rds-1.yml
     overrides:
       apply_immediately: true
+      allow_major_version_upgrade: true
       monitoring_interval: 60
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.20"
+      engine_version: "15.3"
     enhanced_monitoring: true
     output_resource_name: ccx-data-pipeline-db
     annotations:
       clowder/database: ccx-insights-results
   - provider: rds
     identifier: ccx-notification-prod
-    defaults: /terraform/resources/insights/production/rds/postgres11-rds-1.yml
-    parameter_group: /terraform/resources/insights/production/rds/postgres11-parameter-group-ccx-notification-prod.yml
+    defaults: /terraform/resources/insights/production/rds/postgres15-rds-1.yml
+    parameter_group: /terraform/resources/insights/production/rds/postgres15-parameter-group-ccx-notification-prod.yml
+    old_parameter_group: /terraform/resources/insights/production/rds/postgres11-parameter-group-ccx-notification-prod.yml
     overrides:
+      apply_immediately: true
+      allow_major_version_upgrade: true
       monitoring_interval: 60
       allocated_storage: 200
       instance_class: db.m5.2xlarge
       apply_immediately: true
       maintenance_window: Mon:05:00-Mon:07:00
-      engine_version: "11.20"
+      engine_version: "15.3"
     enhanced_monitoring: true
     output_resource_name: ccx-notification-db
     annotations:
