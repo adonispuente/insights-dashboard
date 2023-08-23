@@ -543,7 +543,7 @@ resourceTemplates:
         USER_HOST: user.stage.api.redhat.com
         CPU_LIMIT: 2
         CPU_REQUEST: 2
-        MEMORY_REQUEST: 800Mi
+        MEMORY_REQUEST: 1200Mi
         MEMORY_LIMIT: 4096Mi
         REPLICAS: 3
         DATABASE_MAX_POOL_SIZE: 6
