@@ -762,7 +762,7 @@
           skip-tag: true
           refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
           branches:
-          - 'main'    # Temp, will change back to 'main'
+          - 'alternative-cicd-tools'    # Temp, will change back to 'main'
           git-config-name: "AppSRE"
           git-config-email: "sd-app-sre@redhat.com"
           included-regions:
