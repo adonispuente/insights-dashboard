@@ -53,4 +53,4 @@ quayRepos:
     public: true
 
 depedencies:
-  $ref: /dependencies/gitlab/service.yml
+  - $ref: /dependencies/gitlab/service.yml
