@@ -492,6 +492,39 @@ resourceTemplates:
             subject: "*|LOG_SUMMARY|*"
             bcc_address: "ocm-devel+inflight@redhat.com"
   - namespace:
+      $ref: /services/ocm/namespaces/xcm-integration.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-ocm-service-log-gl-build-master
+    promotion:
+      publish:
+        - xcm-osl-deployed-int
+    parameters:
+      GLOG_V: 5
+      ULOG_V: info
+      UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_0
+      WEBHOOK_ADDITIONAL_CA_FILE: "/config/service-ca/service-ca.crt"
+      # Resources are lower in INT env since it does not have to be prod-like and there is significantly lower traffic
+      MEMORY_REQUEST: 100Mi
+      MEMORY_LIMIT: 512Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 500m
+      ENABLE_JQS: false
+      # Defining the triggers in integration for OSL
+      TRIGGERS_CONFIG:
+      - name: "Example Webhook"
+        criteria: "summary is 'test webhook trigger log'"
+        owner: "test@redhat.com"
+        action:
+          type: "webhook"
+          webhook_parameters:
+            url: "http://127.0.0.1/webhook"
+            verify_ssl: true
+            authentication:
+              method: "none"
+  - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
     ref: 86d5128a0d53d33ff60761d608d239e252b07a51
     parameters:
