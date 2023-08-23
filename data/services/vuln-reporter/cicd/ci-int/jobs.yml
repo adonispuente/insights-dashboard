@@ -68,3 +68,20 @@ config:
         display_name: vuln-reporter publisher build master
         branch: main
         build_deploy_script_path: ./publisher/build_deploy.sh
+# cleaner
+- project:
+    name: vuln-reporter-cleaner
+    label: vuln-reporter
+    node: app-sre
+    gl_group: app-sre
+    gl_project: vuln-reporter
+    quay_org: app-sre
+    jobs:
+    - gl-mr-check-vuln-reporter-cleaner:
+        display_name: pr-check vuln-reporter cleaner
+        branch: main
+        pr_check_script_path: ./cleaner/pr_check.sh
+    - gl-build-master-vuln-reporter-cleaner:
+        display_name: vuln-reporter cleaner build master
+        branch: main
+        build_deploy_script_path: ./cleaner/build_deploy.sh

@@ -75,3 +75,29 @@
         secrets:
         - *quay_secret_push
     <<: *gl_build_master
+
+# cleaner
+
+- job-template:
+    id: 'gl-mr-check-vuln-reporter-cleaner'
+    name: '{gl_group}-{gl_project}-cleaner-gl-mr-check-{branch}'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+    <<: *gl_pr_check
+
+- job-template:
+    id: 'gl-build-master-vuln-reporter-cleaner'
+    name: '{gl_group}-{gl_project}-cleaner-gl-build-{branch}'
+    wrappers:
+    - timeout_wrapper:
+        timeout: '{timeout}'
+    - ansicolor
+    - vault-secrets:
+        <<: *vault_defaults
+        secrets:
+        - *quay_secret_push
+    <<: *gl_build_master
