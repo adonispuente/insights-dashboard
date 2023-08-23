@@ -52,5 +52,5 @@ quayRepos:
     description: ACS Fleet Manager
     public: true
 
-depedencies:
+dependencies:
   - $ref: /dependencies/gitlab/service.yml
