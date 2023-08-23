@@ -108,11 +108,11 @@ externalResources:
       - provider: s3-cloudfront
         identifier: rh-oidc-integration-xcm-int
         defaults: /terraform/resources/ocm/s3-cloudfront-integration.yml
-        output_resource_name: rh-oidc-s3-secret-xcm-int
+        output_resource_name: rh-oidc-s3-secret
       - provider: s3
         identifier: rh-osd-network-verifier-integration-xcm-int
         defaults: /terraform/resources/s3-private-1.yml
-        output_resource_name: rh-osd-network-verifier-s3-secret-xcm-int
+        output_resource_name: rh-osd-network-verifier-s3-secret
   - provider: aws
     provisioner:
       $ref: /aws/osd-privatelink-int/account.yml
@@ -143,7 +143,7 @@ externalResources:
               "Resource": "*"
             }]
           }
-        output_resource_name: sts-credentials-xcm-int
+        output_resource_name: sts-credentials
   - provider: aws
     provisioner:
       $ref: /aws/app-sre/account.yml
@@ -151,7 +151,7 @@ externalResources:
       - provider: rds
         identifier: clusters-service-integration-v4-xcm-int
         defaults: /terraform/resources/app-sre/integration/rds-1.yml
-        output_resource_name: clusters-service-rds-xcm-int
+        output_resource_name: clusters-service-rds
         overrides:
           apply_immediately: true
           engine_version: '15.3'
