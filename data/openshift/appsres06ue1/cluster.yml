@@ -43,17 +43,6 @@ spec:
   id: ''
   external_id: ''
   provision_shard_id: ''
-  subnet_ids:
-  - subnet-0a0c47f05c334a503
-  - subnet-0f4bbb18701bad7d1
-  - subnet-0fb5d857b2a1da03e
-  - subnet-0230c106513dd4348
-  - subnet-032240fa04d04f125
-  - subnet-090c162206f2a2d4a
-  availability_zones:
-  - us-east-1a
-  - us-east-1b
-  - us-east-1c
 
 # automationToken:
 #   path: app-sre/creds/kube-configs/appsres06ue1
@@ -65,7 +54,6 @@ spec:
 
 network:
   type: OVNKubernetes
-  # vpcid: vpc-0f5095839291575a9
   vpc: 10.170.48.0/22
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
