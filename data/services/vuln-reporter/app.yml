@@ -47,6 +47,9 @@ quayRepos:
   - name: vuln-reporter-publisher
     description: vuln-reporter-publisher
     public: true
+  - name: vuln-reporter-cleaner
+    description: vuln-reporter-cleaner
+    public: true
 
 codeComponents:
 - name: vuln-reporter
