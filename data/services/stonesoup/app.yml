@@ -22,6 +22,8 @@ grafanaUrls:
   url: https://grafana.app-sre.devshift.net/alerting/list?dataSource=rhtap-observatorium-production
 - title: RHTAP (Stonesoup) Staging
   url: https://grafana.app-sre.devshift.net/alerting/list?dataSource=rhtap-observatorium-stage
+- title: RHTAP SLOs
+  url: https://grafana.app-sre.devshift.net/d/rhtap-slos
 
 onboardingStatus: InProgress
 
