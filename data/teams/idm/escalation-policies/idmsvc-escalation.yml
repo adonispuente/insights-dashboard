@@ -21,4 +21,4 @@ channels:
 
   jiraBoard:
   - $ref: /teams/insights/jira/hms.yaml
-  jiraComponet: 'Identity Management'
+  jiraComponent: 'Identity Management'
