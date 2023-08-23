@@ -52,17 +52,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
     ref: 1d0d43712ef7c5f84cc924068c18977472e9d857
-- name: uhc-auth-proxy-dashboards
-  url: https://github.com/RedHatInsights/uhc-auth-proxy
-  path: /grafana/dashboards
-  provider: directory
-  targets:
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: 3ea31e89d2ddda8fed859954833f5e024d7d1b92
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 3ea31e89d2ddda8fed859954833f5e024d7d1b92
 - name: remediations-dashboards
   url: https://github.com/RedHatInsights/insights-remediations
   path: /dashboards
