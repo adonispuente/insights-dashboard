@@ -46,7 +46,11 @@ codeComponents:
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
+
   items:
   - name: acs-fleet-manager
     description: ACS Fleet Manager
     public: true
+
+depedencies:
+  $ref: /dependencies/gitlab/service.yml
