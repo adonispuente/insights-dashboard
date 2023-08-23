@@ -251,7 +251,7 @@ externalResources:
       - provider: git
         tag_name: composer_commit
         url: https://github.com/osbuild/osbuild-composer
-        ref: fc0c7b703f7db7b990da5bc6f8a9c9270d76bf84
+        ref: e40fe408d92b0bf423875df0421e48ae1efae4c5
       - provider: static
         tag_name: arch
         value: x86_64
@@ -270,7 +270,7 @@ externalResources:
       - provider: git
         tag_name: composer_commit
         url: https://github.com/osbuild/osbuild-composer
-        ref: fc0c7b703f7db7b990da5bc6f8a9c9270d76bf84
+        ref: e40fe408d92b0bf423875df0421e48ae1efae4c5
       - provider: static
         tag_name: arch
         value: aarch64
