@@ -57,6 +57,7 @@ projectRequests:
   - keycloak-config-manager
   - saas-configure-goalert-operator-bundle
   - quayio-aurora-configs
+  - maestro-configs
 
 token:
   path: app-sre/ci-int/gitlab-token
