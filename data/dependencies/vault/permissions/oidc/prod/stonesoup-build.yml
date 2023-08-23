@@ -13,3 +13,4 @@ instance:
 service: vault
 vault_policies:
 - $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-build.yml
+- $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-list-only.yml
