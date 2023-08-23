@@ -215,3 +215,55 @@ spec:
           dashboard: "https://grafana.app-sre.devshift.net/d/hFu11qbVz/ccx-upgrade-risks-predictions"
           link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/deployments"
           runbook: "https://ccx.pages.redhat.com/ccx-docs/docs/processing/customer/sops/update_risks/"
+      - alert: NotificationsNotSentErrorsToHigh
+        expr: sum(rate(ccx_notification_service_notification_backend_notification_not_sent_error_state{namespace="app-sre-observability-production"}[20m])) > 1
+        for: 1h
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: ccx-data-pipeline
+          namespace: app-sre-observability-production
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/ERzLEqdnk/ccx-notification-services"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/cronjobs/ccx-notification-service-to-notification-backend"
+          message: "There are more errors than expected when trying to send new notifications."
+      - alert: NoNewNotificationsNotSent
+        expr: sum(rate(ccx_notification_service_notification_backend_notification_sent{namespace="app-sre-observability-production"}[20m])) == 0
+        for: 1h
+        labels:
+          severity: high
+          service: insights
+          env: prod
+          namespace: app-sre-observability-production
+          app_team: ccx-data-pipeline
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/ERzLEqdnk/ccx-notification-services"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/cronjobs/ccx-notification-service-to-notification-backend"
+          message: "The notification service has not sent any new notification for the past hour."
+      - alert: ServiceLogNotificationsNotSentErrorsToHigh
+        expr: sum(rate(ccx_notification_service_service_log_notification_not_sent_error_state{namespace="app-sre-observability-production"}[20m])) > 1
+        for: 1h
+        labels:
+          severity: medium
+          service: insights
+          env: prod
+          app_team: ccx-data-pipeline
+          namespace: app-sre-observability-production
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/ERzLEqdnk/ccx-notification-services"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/cronjobs/ccx-notification-service-to-service-log"
+          message: "There are more errors than expected when trying to send new notifications to service log."
+      - alert: ServiceLogNoNewNotificationsNotSent
+        expr: sum(rate(ccx_notification_service_service_log_notification_sent{namespace="app-sre-observability-production"}[20m])) == 0
+        for: 1h
+        labels:
+          severity: high
+          service: insights
+          env: prod
+          namespace: app-sre-observability-production
+          app_team: ccx-data-pipeline
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/ERzLEqdnk/ccx-notification-services"
+          link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/ccx-data-pipeline-prod/cronjobs/ccx-notification-service-to-service-log"
+          message: "The notification-to-service-log service has not sent any new notification for the past hour."
