@@ -27,13 +27,14 @@ authentication:
     path: insights/quay/cloudservices-push
     field: all
     version: 3
+
 resourceTemplates:
 - name: image-builder-testing
   url: https://github.com/osbuild/image-builder
   path: /templates/iqe-trigger-integration.yml
   targets:
   - namespace:
-      $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage-testing.yml
+      $ref: /services/insights/image-builder/namespaces/stage-image-builder-testing.yml
     ref: 83e53e86574e2cc77011b6ada434fbc02bb65f26
     parameters:
       USE_BETA: "false"
