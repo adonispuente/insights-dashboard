@@ -28,7 +28,7 @@ managedGroups:
 spec:
   product: rosa
   account:
-    $ref: /aws/sd-infra-stage-01/account.yml
+    $ref: /aws/app-sre-rosa-stage-01/account.yml
   provider: aws
   region: us-east-1
   channel: candidate
