@@ -66,6 +66,7 @@ resourceTemplates:
         NGINX_MEMORY_REQUEST: 128Mi
         
         GALAXY_API_MEMORY_LIMIT: 2Gi
+        PULP_WORKER_MEMORY_LIMIT: 1Gi
 
         CONTENT_ORIGIN: 'https://console.stage.redhat.com/'
         IMPORTER_JOB_NAMESPACE: automation-hub-jobs-stage
@@ -100,6 +101,7 @@ resourceTemplates:
         GALAXY_API_CPU_LIMIT: '1'
         GALAXY_API_MEMORY_REQUEST: 2Gi
         GALAXY_API_MEMORY_LIMIT: 2Gi
+        PULP_WORKER_MEMORY_LIMIT: 1Gi
 
         CONTENT_ORIGIN: 'https://console.redhat.com/'
         IMPORTER_JOB_NAMESPACE: automation-hub-jobs-prod
