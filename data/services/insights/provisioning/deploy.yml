@@ -50,6 +50,13 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
+  # Stage stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: fc5b495c824e3b340946fe3f102b5e82c2f54fb1
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/provisioning-frontend"
   # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
