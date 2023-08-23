@@ -195,11 +195,3 @@ resourceTemplates:
     - namespace:
         $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
       ref: 87b3301cc0d5409288fdd44146618791a2e8bc1e
-- name: turnpike-dashboards
-  url: https://github.com/RedHatInsights/turnpike
-  path: /dashboards
-  provider: directory
-  targets:
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: 90d16ed64be29394f53b55193e2ae8347329195a
