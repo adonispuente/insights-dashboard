@@ -34,11 +34,15 @@ sharedResources:
   - $ref: /services/ocm/shared-resources/qe.yml
 
 openshiftResources:
+  # Shared dependencies
+  - provider: resource
+    path: /services/ocm/integration/authentication.configmap.yaml
+  # Shared dependencies
+
+  # CS dependencies
   - provider: vault-secret
     path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/route53-creds
     version: 1
-  - provider: resource
-    path: /services/ocm/integration/authentication.configmap.yaml
   - provider: resource
     path: /services/ocm/integration/region-constraints.configmap.yaml
   - provider: vault-secret
@@ -68,6 +72,17 @@ openshiftResources:
       # this is a workaround to use the vault function inside the for loop in the template
       current_hypershift_cluster:
         name: 'hypershift_workaround'
+  # CS dependencies
+
+  # OSL dependencies
+  - provider: vault-secret
+    path: app-interface/app-sre-stage/uhc-integration/ocm-service-log
+    version: 2
+  - provider: route
+    path: /services/ocm/xcm-integration/ocm-service-logs.route.yaml
+  - provider: resource
+    path: /services/ocm/xcm-integration/ocm-service-logs-envoy.configmap.yaml
+  # OSL dependencies
 
 openshiftServiceAccountTokens:
   # telemeter
@@ -137,6 +152,14 @@ externalResources:
         identifier: clusters-service-integration-v4-xcm-int
         defaults: /terraform/resources/app-sre/integration/rds-1.yml
         output_resource_name: clusters-service-rds-xcm-int
+        overrides:
+          apply_immediately: true
+          engine_version: '15.3'
+          performance_insights_enabled: true
+      - provider: rds
+        identifier: ocm-service-log-integration-v4-xcm-int
+        defaults: /terraform/resources/app-sre/integration/rds-1.yml
+        output_resource_name: ocm-service-log-rds
         overrides:
           apply_immediately: true
           engine_version: '15.3'
