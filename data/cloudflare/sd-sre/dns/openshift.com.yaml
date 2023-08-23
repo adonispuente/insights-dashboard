@@ -24,6 +24,11 @@ records:
   type: CNAME
   ttl: 900
   value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
+- name: api.aws.xcm.integration.openshift.com
+  identifier: cname-api-aws-xcm-integration-openshift-com
+  type: CNAME
+  ttl: 900
+  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
 - name: metrics.3-11-test3.openshift.com
   identifier: cname-metrics-3-11-test3-openshift-com
   type: CNAME
