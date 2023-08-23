@@ -20,6 +20,5 @@ channels:
     - avisiedo@redhat.com
 
   jiraBoard:
-  # component 'Identity Management'
   - $ref: /teams/insights/jira/hms.yaml
-
+  jiraComponet: 'Identity Management'
