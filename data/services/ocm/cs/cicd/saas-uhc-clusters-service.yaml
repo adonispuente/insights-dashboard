@@ -71,6 +71,30 @@ resourceTemplates:
       JIRA_ISSUE_TYPE: Bug
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
+      $ref: /services/ocm/namespaces/xcm-integration.yml
+    ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: service-uhc-clusters-service-gl-build-master
+    promotion:
+      publish:
+        - xcm-cs-deployed-int
+    parameters:
+      ENVIRONMENT: integration
+      XCM_ID: aws.xcm.integration
+      GATE_NAME: xcm-cs-int
+      LOG_LEVEL: info
+      DEFAULT_EXPIRATION: 36h
+      MAXIMUM_EXPIRATION: 168h
+      GODEBUG: ''
+      FORCE_MIGRATION: ''
+      JIRA_PROJECT: SDAINT
+      CLUSTER_ERROR_REPORT: 'false'
+      USER_DEFINED_DNS_BASE_DOMAIN: 'i1.devshift.org'
+      JIRA_ISSUE_TYPE: Bug
+      JIRA_COMPONENTS: Provision & Uninstallation
+  - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: c702166d15f08b88d55ac8775aa41028a17a2754
     promotion:
