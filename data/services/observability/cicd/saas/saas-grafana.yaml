@@ -151,17 +151,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
     ref: 7a7c7c50a898ed119e2e84cb04568331fb41f623
-- name: rbac-dashboards
-  url: https://github.com/RedHatInsights/insights-rbac
-  path: /dashboards
-  provider: directory
-  targets:
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: d3543018e408f739b8f6908d9adfdc9f3fda5234
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: d3543018e408f739b8f6908d9adfdc9f3fda5234
 - name: entitlements-dashboards
   url: https://github.com/RedHatInsights/entitlements-api-go
   path: /dashboards
