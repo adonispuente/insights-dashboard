@@ -759,7 +759,7 @@ resourceTemplates:
       LOKI_RULER_PVC_REQUEST: '10Gi'
       RULES_OBJSTORE_S3_SECRET: observatorium-mst-rules-objstore-production-s3
       SERVICE_ACCOUNT_NAME: observatorium-mst
-  #TODO - pgough/rhobs - delete after https://issues.redhat.com/browse/RHOBS-851
+#TODO - pgough/rhobs - delete all below after https://issues.redhat.com/browse/RHOBS-851
 - name: observatorium-datahub-migration-bucket-inspect-job
   path: /resources/operations/bucket-inspect/job-template.yaml
   url: https://github.com/rhobs/configuration
@@ -774,6 +774,39 @@ resourceTemplates:
         K8S_SECRET_KEY: thanos.yaml
         TENANT_ID: FB870BF3-9F3A-44FF-9BF7-D7A047A52F43
         IMAGE_TAG: 'v0.31.0'
+- name: observatorium-datahub-destination-secret
+  path: /resources/operations/bucket-replicate/s3-secret-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
+      ref: 0a98f7c9c0bb9228d53449b6882f818dd71cc404
+      parameters:
+        NAMESPACE: observatorium-datahub-migration
+        OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-destination
+      secretParameters:
+        - name: ACCESS_KEY_ID
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+            field: aws_access_key_id
+        - name: SECRET_ACCESS_KEY
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+            field: aws_secret_access_key
+        - name: S3_BUCKET_NAME
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+            field: bucket
+        - name: S3_BUCKET_REGION
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+            field: aws_region
+        - name: S3_BUCKET_ENDPOINT
+          secret:
+            path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+            field: endpoint
 
-
+allowedSecretParameterPaths:
+  - app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs
+##### END DELETE https://issues.redhat.com/browse/RHOBS-851 ###
 

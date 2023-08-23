@@ -20,6 +20,7 @@ slack:
 
 managedResourceTypes:
 - ServiceMonitor
+- PodMonitor
 
 imagePatterns: []
 
@@ -60,3 +61,14 @@ resourceTemplates:
     parameters:
       NAMESPACE: observatorium-mst-production
 
+  #TODO - pgough/rhobs - delete all below after https://issues.redhat.com/browse/RHOBS-851
+- name: thanos-migrate-job
+  path: /resources/operations/bucket-replicate/monitoring-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
+      ref: 0a98f7c9c0bb9228d53449b6882f818dd71cc404
+      parameters:
+        NAMESPACE: observatorium-datahub-migration
+##### END DELETE https://issues.redhat.com/browse/RHOBS-851 ###
