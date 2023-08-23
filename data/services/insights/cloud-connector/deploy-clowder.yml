@@ -112,7 +112,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: d1d3f95e4a77ae3b0325f7a488b0442e1136a4a3
+    ref: 21221fb3ef2c8c1e1550b658501a5e9b437372fe
 
 
 - name: mosquitto
