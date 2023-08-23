@@ -249,7 +249,6 @@ externalResources:
   - provider: rds
     identifier: uhc-acct-mngr-integration-v4
     defaults: /terraform/resources/app-sre/integration/rds-1.yml
-    parameter_group: [/terraform/resources/ocm/ocm-stage-rds-parameter-group-pg12.yml, /terraform/resources/ocm/rds-parameter-group-ssl-2-pg12.yml]
     output_resource_name: uhc-acct-mngr-rds
     ca_cert:
       path: app-interface/global/rds-ca-cert
@@ -259,7 +258,6 @@ externalResources:
       apply_immediately: true
       engine_version: '12.13'
       performance_insights_enabled: true
-
   - provider: rds
     identifier: ocm-service-log-integration-v4
     defaults: /terraform/resources/app-sre/integration/rds-1.yml
