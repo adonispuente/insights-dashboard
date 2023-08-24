@@ -67,3 +67,6 @@ codeComponents:
 - name: clowder-plugin
   resource: upstream
   url: https://github.com/RedHatInsights/clowder-plugin
+- name: clowder-envoy
+  resource: upstream
+  url: https://github.com/RedHatInsights/clowder-envoy

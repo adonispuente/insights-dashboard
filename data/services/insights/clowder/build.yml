@@ -68,3 +68,19 @@ config:
         branch: security-compliance
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
+
+- project:
+    name: clowder-envoy
+    label: insights
+    node: insights
+    gh_org: RedHatInsights
+    gh_repo: clowder-envoy
+    quay_org: cloudservices
+    jobs:
+    - "insights-gh-build-master":
+        display_name: clowder-envoy build-master
+    - "insights-gh-scheduled-rebuild":
+        display_name: clowder-envoy build-master-weekly
+        branch: security-compliance
+        cron_expression: "H H(0-3) * * 6"
+        ci_cmd: './build_deploy.sh'
