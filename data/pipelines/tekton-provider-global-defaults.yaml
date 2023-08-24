@@ -58,5 +58,4 @@ deployResources:
     cpu: 300m
     memory: 600Mi
   limits:
-    cpu: 1200m
     memory: 1200Mi

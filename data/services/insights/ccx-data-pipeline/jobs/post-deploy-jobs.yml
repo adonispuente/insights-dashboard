@@ -14,7 +14,6 @@ deployResources:
     cpu: 1500m
     memory: 700Mi
   limits:
-    cpu: 1500m
     memory: 1200Mi
 slack:
   workspace:

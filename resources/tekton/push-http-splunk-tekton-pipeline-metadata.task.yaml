@@ -24,7 +24,6 @@ spec:
         cpu: 20m
         memory: 30Mi
       limits:
-        cpu: 20m
         memory: 30Mi
     env:
     - name: SPLUNK_URL

@@ -18,7 +18,6 @@ deployResources:
     cpu: 800m
     memory: 2500Mi
   limits:
-    cpu: 1200m
     memory: 2500Mi
 
 slack:
@@ -820,4 +819,3 @@ resourceTemplates:
 allowedSecretParameterPaths:
   - app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs
 ##### END DELETE https://issues.redhat.com/browse/RHOBS-851 ###
-

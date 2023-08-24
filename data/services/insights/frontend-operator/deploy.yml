@@ -19,7 +19,6 @@ deployResources:
     cpu: "1"
     memory: 2Gi
   limits:
-    cpu: 1200m
     memory: 3Gi
 
 clusterAdmin: true

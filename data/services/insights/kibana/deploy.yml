@@ -19,7 +19,6 @@ deployResources:
     cpu: "1"
     memory: 2000Mi
   limits:
-    cpu: "2"
     memory: 4000Mi
 
 slack:
@@ -108,4 +107,3 @@ resourceTemplates:
     parameters:
       SRE_MANAGED: "True"
       RET_DAYS: '14'
-

@@ -17,7 +17,6 @@ deployResources:
     cpu: 900m
     memory: 2500Mi
   limits:
-    cpu: 1200m
     memory: 2500Mi
 
 managedResourceTypes:

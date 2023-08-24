@@ -54,7 +54,6 @@ deployResources:
     cpu: 400m
     memory: 2000Mi
   limits:
-    cpu: 1200m
     memory: 2000Mi
 
 resourceTemplates:

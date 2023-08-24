@@ -83,11 +83,10 @@ Perform the following actions in a single MR:
     ```yaml
     deployResources:
       requests:
-        cpu: 400m
-        memory: 900Mi
+        cpu: 300m
+        memory: 600Mi
       limits:
-        cpu: 400m
-        memory: 900Mi
+        memory: 1200Mi
     ```
     * Every property in the defaults file can be overriden from the pipelines provider
 

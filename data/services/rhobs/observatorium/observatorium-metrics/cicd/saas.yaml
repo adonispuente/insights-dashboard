@@ -18,7 +18,6 @@ deployResources:
     cpu: 800m
     memory: 1500Mi
   limits:
-    cpu: 1200m
     memory: 1500Mi
 
 slack:
@@ -342,4 +341,3 @@ resourceTemplates:
       JAEGER_AGENT_IMAGE_TAG: 1.22.0
       JAEGER_COLLECTOR_NAMESPACE: observatorium-production
       SERVICE_ACCOUNT_NAME: observatorium-metrics
-

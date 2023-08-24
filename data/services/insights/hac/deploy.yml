@@ -19,7 +19,6 @@ deployResources:
     cpu: "1"
     memory: 2000Mi
   limits:
-    cpu: 1200m
     memory: 2000Mi
 
 managedResourceTypes:
@@ -162,4 +161,3 @@ resourceTemplates:
       ENV_NAME: ephem-hac
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
       SSO_URL: https://sso.redhat.com/auth/
-
