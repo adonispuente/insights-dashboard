@@ -161,7 +161,7 @@ externalResources:
   - provider: rds
     identifier: cost-management-prod-readonly
     defaults: /terraform/resources/insights/production/rds/postgres13-rds-cost-management-prod.yml
-    parameter_group: /terraform/resources/insights/production/rds/postgres-curr-parameter-group-cost-management-prod.yml
+    parameter_group: /terraform/resources/insights/production/rds/postgres-curr-parameter-group-cost-management-prod-readonly.yml
     replica_source: cost-management-prod
     output_resource_name: cost-prod-db-ro
     output_resource_db_name: koku
