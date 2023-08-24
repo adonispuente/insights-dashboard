@@ -14,3 +14,4 @@ roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 - $ref: /teams/insights/roles/fedramp-customer-interest.yaml
 - $ref: /teams/insights/roles/fedramp-customer-interest-allow-port-forwarding.yml
+- $ref: /teams/swat/roles/trusted-content.yml

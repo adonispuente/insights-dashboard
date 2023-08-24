@@ -1,0 +1,15 @@
+---
+$schema: /app-sre/product-1.yml
+
+
+labels:
+  service: trusted-content
+
+name: Trusted-Content
+
+description: |
+  Red Hat Trusted Content is a cloud service that helps IT developer teams increase security and integrity at the SBOM level and accelerate the application development process
+
+productOwners:
+- name: Ecosystem AppEng
+  email: ecosystem-appeng@redhat.com
