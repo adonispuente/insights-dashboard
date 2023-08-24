@@ -20,6 +20,7 @@ environment:
 managedResourceTypes:
 - ArgoCD
 - Application
+- AppProject
 
 managedResourceNames:
 - resource: ArgoCD
@@ -55,6 +56,8 @@ openshiftResources:
     appstudio.redhat.com/member-cluster: 'true'
     appstudio.redhat.com/tekton-ci: 'true'
     argocd.argoproj.io/secret-type: cluster
+- provider: resource
+  path: /stonesoup/argocd-control-plane/tenants-config-project.yml
 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.stonesoupp01ue1.yml
