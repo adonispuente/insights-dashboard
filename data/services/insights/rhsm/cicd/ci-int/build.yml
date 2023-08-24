@@ -44,6 +44,7 @@ config:
     - "insights-gh-pipeline-frontends":
         display_name: curiosity-frontend frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
+        branch: "main"
         project_name: 'curiosity-frontend'
         run_cypress_component_stage: 'false'
         run_cypress_e2e_tests_stage: 'false'
