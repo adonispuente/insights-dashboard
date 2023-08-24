@@ -42,7 +42,7 @@ config:
         build_deploy_script_path: "./deploy/build_deploy.sh"
     # Frontends build deploy POC work
     - "insights-gh-pipeline-frontends":
-        display_name: curiosity-frontend frontend-pipeline-pr-check
+        display_name: curiosity-frontend frontend-pipeline-pr-check-exp
         status_context: ci.int.devshift.net PR pipeline
         project_name: 'curiosity-frontend'
         run_cypress_component_stage: 'false'
