@@ -15,7 +15,6 @@ app:
 environment:
   $ref: /products/app-sre/environments/production.yml
 
-
 managedResourceTypes:
 - ClusterRoleBinding.rbac.authorization.k8s.io
 
