@@ -18,7 +18,6 @@ deployResources:
     cpu: 200m
     memory: 400Mi
   limits:
-    cpu: 1000m
     memory: 1Gi
 
 slack: # configure where to send notifications of success/failure of deployments

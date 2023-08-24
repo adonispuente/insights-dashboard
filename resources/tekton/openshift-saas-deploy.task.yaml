@@ -23,7 +23,6 @@ spec:
         cpu: 20m
         memory: 30Mi
       limits:
-        cpu: 20m
         memory: 30Mi
     volumeMounts:
     - mountPath: /shared
@@ -37,7 +36,6 @@ spec:
         cpu: 20m
         memory: 30Mi
       limits:
-        cpu: 20m
         memory: 30Mi
     env:
     - name: CONFIG_TOML
@@ -89,7 +87,6 @@ spec:
         cpu: 20m
         memory: 30Mi
       limits:
-        cpu: 20m
         memory: 30Mi
     volumeMounts:
     - mountPath: /shared

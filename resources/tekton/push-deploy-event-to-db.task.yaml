@@ -49,7 +49,6 @@ spec:
       name: push-deploy-event-to-db
       resources:
         limits:
-          cpu: 20m
           memory: 30Mi
         requests:
           cpu: 20m
@@ -65,4 +64,3 @@ spec:
         fi
         echo "Storing deploy event for app: $(params.app_name), env: $(params.env_name), status: $task_status, time: $(date -u), trigger_reason: $(params.trigger_reason), trigger_integration: $(params.trigger_integration)"
         psql -c "insert into deployments(deployment_time, succeeded, app_name, env_name, trigger_reason, trigger_integration) values(now(), $task_status, '$(params.app_name)', '$(params.env_name)', '$(params.trigger_reason)', '$(params.trigger_integration)')"
-

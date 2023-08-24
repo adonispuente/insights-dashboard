@@ -19,7 +19,6 @@ deployResources:
     cpu: 1500m
     memory: 700Mi
   limits:
-    cpu: 2000m
     memory: 2Gi
 
 slack:
