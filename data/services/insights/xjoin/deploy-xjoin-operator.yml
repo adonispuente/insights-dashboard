@@ -118,9 +118,12 @@ resourceTemplates:
       CORE_POD_CPU_LIMIT: '300m'
       CORE_POD_CPU_REQUEST: '150m'
       DATASOURCE_KAFKA_TOPIC_PARTITIONS: '15'
-      CORE_NUM_PODS: "15"
+      CORE_NUM_PODS: "4"
       INDEX_KAFKA_TOPIC_PARTITIONS: '15'
       INDEX_CONNECTOR_TASKS_MAX: '15'
+      INDEX_CONNECTOR_MAX_IN_FLIGHT_REQUESTS: '15'
+      INDEX_CONNECTOR_BATCH_SIZE: '100'
+      INDEX_CONNECTOR_MAX_BUFFERED_RECORDS: '2000'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
