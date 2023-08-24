@@ -40,17 +40,6 @@ deprecated: true
 
 resourceTemplates:
 # tenant dashboards
-- name: insights-dashboards
-  url: https://gitlab.cee.redhat.com/insights-platform/saas-templates
-  path: /dashboards
-  provider: directory
-  targets:
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
-    ref: 1d0d43712ef7c5f84cc924068c18977472e9d857
-  - namespace:
-      $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 1d0d43712ef7c5f84cc924068c18977472e9d857
 - name: remediations-dashboards
   url: https://github.com/RedHatInsights/insights-remediations
   path: /dashboards
