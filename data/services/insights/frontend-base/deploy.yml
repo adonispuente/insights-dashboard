@@ -2,14 +2,14 @@
 $schema: /app-sre/saas-file-2.yml
 
 labels:
-  service: ephemeral
+  service: frontend-base
   platform: insights
 
 name: consoledot-frontend-base
-description: containerized frontends for chrome, landing, dashboard, and api-docs
+description: containerized frontends for chrome, landing, dashboard, etc.
 
 app:
-  $ref: /services/insights/ephemeral/app.yml
+  $ref: /services/insights/frontend-base/app.yml
 
 pipelinesProvider:
   # TEMPORARY: use the tekton poc namespace for APPSRE-3420 testing
