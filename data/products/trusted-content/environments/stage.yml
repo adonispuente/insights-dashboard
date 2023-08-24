@@ -1,0 +1,16 @@
+
+---
+$schema: /app-sre/environment-1.yml
+
+
+labels:
+  service: trusted-content
+  type: stage
+
+name: trusted-content-stage
+
+description: |
+  The stage environment for Trusted-Content
+
+product:
+  $ref: /products/trusted-content/product.yml

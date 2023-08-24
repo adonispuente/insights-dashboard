@@ -1,0 +1,38 @@
+---
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: exhort
+  platform: trusted-content
+
+name: exhort
+
+description: |
+ The Exhort service <BLA_BLA_BLA>
+
+architectureDocument: https://TODO
+sopsUrl: https://TODO
+grafanaUrls:
+- title: https://TODO
+  url: https://TODO
+onboardingStatus: InProgress
+
+parentApp:
+  $ref: /services/trusted-content/app.yml
+
+serviceOwners:
+- name: Ecosystem AppEng
+  email: ecosystem-appeng@redhat.com
+
+escalationPolicy:
+  $ref: /teams/swat/escalation-policies/general-policy.yml
+
+dependencies:
+- $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/github/service.yml
+- $ref: /dependencies/openshift/service.yml
+
+codeComponents:
+- name: exhort
+  resource: upstream
+  url: https://github.com/RHEcosystemAppEng/exhort.git
