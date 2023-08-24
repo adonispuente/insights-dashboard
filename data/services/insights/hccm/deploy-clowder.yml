@@ -76,6 +76,7 @@ resourceTemplates:
     ref: internal # altered by bonfire
     parameters:
       ENABLE_HCS_DEBUG: True
+      ENABLE_SUBS_DEBUG: True
       ENABLE_S3_ARCHIVING: True
       AUTO_DATA_INGEST: True
       RETAIN_NUM_MONTHS: 4
@@ -126,6 +127,10 @@ resourceTemplates:
       WORKER_SUMMARY_XL_REPLICAS: 0
       # worker-hcs
       WORKER_HCS_REPLICAS: 1
+      # worker-subs-extraction
+      WORKER_SUBS_EXTRACTION_REPLICAS: 1
+      # worker-subs-transmission
+      WORKER_SUBS_TRANSMISSION_REPLICAS: 1
       # Change these settings when deploying migrations to Ephemeral
       # Migrations Image Tag
       # DBM_IMAGE_TAG: x
