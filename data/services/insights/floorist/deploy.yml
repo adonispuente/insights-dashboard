@@ -76,7 +76,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/floorist/namespaces/floorist-operator-prod.yaml
-    ref: 7d5e7694f4552b09a179b18d5dfec32f43e20e45
+    ref: 6c70224c7ee64fe4753e049f1bb9a72de62b2cfb
 
 - name: floorist-dashboards
   url: https://github.com/RedHatInsights/floorist-operator
@@ -88,4 +88,4 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 7d5e7694f4552b09a179b18d5dfec32f43e20e45
+    ref: 6c70224c7ee64fe4753e049f1bb9a72de62b2cfb
