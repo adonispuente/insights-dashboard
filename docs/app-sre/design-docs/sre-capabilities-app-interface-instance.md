@@ -35,7 +35,7 @@ Create a new app-interface instance named `sre-capabilities` that will hold all 
 
 The `sre-capabilities` repo will be structurally aligned to what app-interface commercial provides - if you are familiar with commercial you will be with sre-capabilities.
 
-The repo will contain the declarations of integrations to run as capabilities (as `integration-1.yml` files) along with some required base configuration data (e.g. OCM environment for OCM related capabilities like AUS and RH-IDP).
+The repo will contain the declarations of integrations (as `integration-1.yml` files) to run the capabilities logic along with some required base configuration data (e.g. OCM environment for OCM related capabilities like AUS and RH-IDP). A dedicated integrations-manager attached to the the `sre-capabilities` repo will take care of managing its integrations.
 
 ### Infrastructure management
 
