@@ -582,6 +582,22 @@ resourceTemplates:
               "type": "string",
               "xjoin.type": "string"
             }
+          },
+          {
+            "name": "__dbz_ts_ms",
+            "type": {
+              "type": "long",
+              "xjoin.type": "string",
+              "xjoin.index": "false"
+            }
+          },
+          {
+            "name": "__dbz_source_ts_ms",
+            "type": {
+              "type": "long",
+              "xjoin.type": "string",
+              "xjoin.index": "false"
+            }
           }
         ]
       }
@@ -615,6 +631,27 @@ resourceTemplates:
             "xjoin.type": "reference"
           },
           "name": "host"
+        }, {
+          "name": "__core_read_ms",
+          "type": [{
+            "type": "long",
+            "xjoin.type": "string",
+            "xjoin.index": false
+          }, "null"]
+        }, {
+          "name": "__core_write_ms",
+          "type": [{
+            "type": "long",
+            "xjoin.type": "string",
+            "xjoin.index": "false"
+          }, "null"]
+        }, {
+          "name": "__es_write_ms",
+          "type": [{
+            "type": "long",
+            "xjoin.type": "string",
+            "xjoin.index": "false"
+          }, "null"]
         }],
         "xjoin.transformations": [{
             "transformation": "object_to_array_of_objects",
