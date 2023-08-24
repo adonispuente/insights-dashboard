@@ -27,6 +27,8 @@ self_service:
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-tools-traces.yaml
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-tools-profiling.yaml
   - $ref: /services/rhobs/observatorium-mst/cicd/saas-post-deploy-test.yaml
+    #TODO - pgough/rhobs - delete saas-datahub-migration.yaml after https://issues.redhat.com/browse/RHOBS-851
+  - $ref: /services/rhobs/observatorium-mst/cicd/saas-datahub-migration.yaml
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
