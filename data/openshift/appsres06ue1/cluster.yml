@@ -1,0 +1,61 @@
+---
+$schema: /openshift/cluster-1.yml
+
+labels:
+  service: backplane
+
+name: appsres06ue1
+description: appsres06ue1 cluster
+consoleUrl: ''
+kibanaUrl: ''
+prometheusUrl: ''
+alertmanagerUrl: ''
+serverUrl: ''
+elbFQDN: ''
+
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
+
+ocm:
+  $ref: /dependencies/ocm/production.yml
+
+managedGroups:
+- dedicated-admins
+
+# managedClusterRoles: true
+
+spec:
+  product: rosa
+  account:
+    $ref: /aws/app-sre-rosa/account.yml
+  provider: aws
+  region: us-east-1
+  channel: candidate
+  version: ''
+  initial_version: 4.13.9-candidate
+  multi_az: true
+  nodes: 3
+  instance_type: m5.2xlarge
+  private: false
+  disable_user_workload_monitoring: true
+  hypershift: false
+  id: ''
+  external_id: ''
+  provision_shard_id: ''
+
+# automationToken:
+#   path: app-sre/creds/kube-configs/appsres06ue1
+#   field: token
+
+# clusterAdminAutomationToken:
+#   path: app-sre/creds/kube-configs/appsres06ue1-cluster-admin
+#   field: token
+
+network:
+  type: OVNKubernetes
+  vpc: 10.170.48.0/22
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+
+internal: false
