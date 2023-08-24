@@ -48,12 +48,12 @@ resourceTemplates:
       name: openshift-addon-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 47c58b1dec5c219fa271e555ebfd9e07fe89bd73
+    ref: fe63d03c8ba779374e920447c9b52baec1e72433
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 47c58b1dec5c219fa271e555ebfd9e07fe89bd73
+    ref: fe63d03c8ba779374e920447c9b52baec1e72433
     parameters:
       FEATURE_FLAGS: "ADDONS_PLUG_AND_PLAY"
   - namespace:
