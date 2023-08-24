@@ -65,7 +65,7 @@ resourceTemplates:
       TARGET_NAMESPACE: xjoin-operator-stage
       SOURCE_NAMESPACE: xjoin-operator-stage
       LOG_LEVEL: "debug"
-      VALIDATION_INTERVAL: "1800"
+      VALIDATION_INTERVAL: "1801"
       VALIDATION_ATTEMPTS_THRESHOLD: "2"
       VALIDATION_ATTEMPTS_THRESHOLD_INIT: "60"
       VALIDATION_INTERVAL_INIT: "30"
