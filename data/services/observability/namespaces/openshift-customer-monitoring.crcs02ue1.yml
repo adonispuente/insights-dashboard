@@ -320,8 +320,6 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/malware-detection-stage/malware-detection-api.servicemonitor.yml
 - provider: resource
-  path: /insights-stage/marketplace-gateway/marketplace-gateway.servicemonitor.yml
-- provider: resource
   path: /insights-stage/content-sources-stage/content-sources.servicemonitor.yml
 # chrome services
 - provider: resource

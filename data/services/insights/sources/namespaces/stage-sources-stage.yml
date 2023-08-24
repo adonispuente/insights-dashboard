@@ -25,7 +25,6 @@ networkPoliciesAllow:
 - $ref: /services/insights/rhsm/namespaces/stage-rhsm-stage.yml
 - $ref: /services/insights/rhsm-api-proxy/namespaces/stage-rhsm-api-proxy-stage.yml
 - $ref: /services/insights/cloud-connector/namespaces/stage.yml
-- $ref: /services/insights/marketplace-gateway/namespaces/stage.yml
 - $ref: /services/insights/advisor/namespaces/stage-advisor-stage.yml
 - $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
 - $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
