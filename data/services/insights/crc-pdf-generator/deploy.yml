@@ -45,7 +45,7 @@ resourceTemplates:
     ref: main
     upstream:
       instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
+        $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-pdf-generator-gh-build-main
     parameters:
       ENV_NAME: ephem-hac
@@ -61,7 +61,7 @@ resourceTemplates:
     ref: main
     upstream:
       instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
+        $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-pdf-generator-gh-build-main
     parameters:
       ENV_NAME: stage
