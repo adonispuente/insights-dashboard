@@ -25,9 +25,7 @@ config:
     gh_repo: pdf-generator
     quay_org: cloudservices
     jobs:
-    - 'insights-gh-build-master':
-        branch: main
-        display_name: crc-pdf-generator build main
+    # security-compliance does not need to build behind the VPN
     - 'insights-gh-build-master':
         branch: security-compliance
         display_name: crc-pdf-generator build-security-compliance
@@ -36,6 +34,3 @@ config:
         branch: security-compliance
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
-    - 'insights-gh-pr-check':
-        branch: main
-        display_name: crc-pdf-generator pr-check
