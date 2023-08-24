@@ -18,7 +18,7 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: Content Sources Dashboard
   url: https://grafana.app-sre.devshift.net/d/content-sources/content-sources?orgId=1&var-datasource=crcp01ue1-prometheus&from=now-24h&to=now
-onboardingStatus: InProgress
+onboardingStatus: TransitionPeriod
 
 parentApp:
   $ref: /services/insights/app.yml
