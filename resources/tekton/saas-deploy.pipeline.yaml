@@ -2,6 +2,9 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: saas-deploy
+  annotations:
+    ignore-check.kube-linter.io/unset-cpu-requirements: "no cpu limits"
+
 spec:
   params:
   - name: saas_file_name
