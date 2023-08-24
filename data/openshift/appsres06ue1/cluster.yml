@@ -13,7 +13,7 @@ alertmanagerUrl: ''
 serverUrl: https://api.appsres06ue1.e3ka.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.appsres06ue1.e3ka.p1.openshiftapps.com
 
-# auth:
+auth: {}
 # - service: oidc
 #   name: redhat-app-sre-auth
 
