@@ -11,3 +11,11 @@ self_service:
       $ref: /app-interface/changetype/namespace-owner.yml
     datafiles:
       - $ref: /services/ocm/namespaces/xcm-integration.yml
+  - change_type:
+      $ref: /app-interface/changetype/resource-owner.yml
+    resources:
+      - /services/ocm/xcm-integration/ocm-service-logs.route.yaml
+      - /services/ocm/xcm-integration/ocm-service-logs-envoy.configmap.yaml
+      - /services/ocm/xcm-integration/cluster-proxy-service.configmap.yaml
+      - /services/ocm/xcm-integration/clusters-service-envoy.configmap.yaml
+
