@@ -11,7 +11,7 @@ name: idmsvc
 description: Directory and Domain services on console.redhat.com
 
 architectureDocument: https://github.com/podengo-project/idmsvc-backend/blob/main/docs/ARCHITECTURE.md
-sopsUrl: https://TODO
+sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/idmsvc
 grafanaUrls:
 - title: Notifications Dashboard
   url: https://TODO
