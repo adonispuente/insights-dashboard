@@ -422,7 +422,7 @@
         notify-repeated-failure: true
     - naginator:
         max-failed-builds: 3
-    <<: *gh_build_master
+    <<: *gh_timed
 
 - job-template:
     id: 'insights-gh-pr-check'
