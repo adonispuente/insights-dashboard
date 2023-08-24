@@ -11,7 +11,6 @@ permissions:
 - $ref: /teams/insights/quay-teams/cloudsre.yml
 - $ref: /dependencies/ci-ext/permissions/ci-ext-job-control.yml
 - $ref: /dependencies/ci-int/permissions/ci-int-job-control.yml
-- $ref: /dependencies/unleash/permissions/insights.yml
 
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/insights/insights-vault-admin.yml

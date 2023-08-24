@@ -95,15 +95,14 @@ resourceTemplates:
   - name: insights-production
     namespace:
       $ref: /services/unleash/namespaces/app-sre-prod-01.yml
-    ref: 06632d48a80f8079f94073971dd6ce523781388d
+    ref: 7231ea18a9b294b5cb76f216e9ec37a4b395b214
     parameters:
       identifier: insights
       configSecret: insights-config
       tokenSecret: insights-unleash-token
       databaseSecret: insights-unleash-rds
-      org: app-sre
-      team: insights-unleash
-      read_only_team: insights-unleash-read-only
+      admin_roles: ai-insights-unleash, ai-insights-tools
+      viewer_roles: ai-app-sre
       host: insights.unleash.devshift.net
   ### OCM Stage
   - name: ocm-stage
