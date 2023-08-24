@@ -59,7 +59,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
-    ref: 0ff0c82ce5c860317e66bae361d426b8fd42e29e
+    ref: 11b60d75a17fd6e95162afd07e56ea9d9065ee9c
     parameters:
       IQE_MARKER_EXPRESSION: prod and api
       IQE_IMAGE: quay.io/cloudservices/iqe-tests
@@ -78,5 +78,5 @@ resourceTemplates:
       - channel: content-sources-prod-deploy-success-channel
         data:
         - parent_saas: content-sources
-          target_config_hash: d6332f89388e7f0d
+          target_config_hash: ac424012b2270cef
           type: parent_saas_config
