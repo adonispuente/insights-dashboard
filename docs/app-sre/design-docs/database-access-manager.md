@@ -38,7 +38,7 @@ $schema: /app-interface/database-access-1.yml
 
 name: guestbook
 username: gb-app
-database: guestbook
+database: gb
 
 # Set delete: True to delete the user and database
 # delete: True
@@ -62,14 +62,14 @@ Example reference in namespace:
   databases:
     - $ref: /terraform/resources/app-sre/production/important-database-guestbook.yml
   output_resource_name: important-database-root
-  schema_output_prefix: important-database
+  database_output_prefix: important-database
 ```
 
 ### Database access manager
 
 The database access manager should be able to create and delete databases and users on an instance. It should be able to read the configuration from `/app-interface/database-access-1.yml` schemas and apply it to the database instance.
 
-The access manager should create a random password for the db user created and store it in a secret beside the main database password. The additional secret should also be stored in the output path, next to the main secret. The name will be: `$schema_output_prefix-$schema.name`, in our example: `important-database-guestbook`
+The access manager should create a random password for the db user created and store it in a secret beside the main database password. The additional secret should also be stored in the output path, next to the main secret. The name will be `$database_output_prefix-$-databaseaccess.name`, in our example: `important-database-guestbook`. If `$database_output_prefix` is not set, it will be the same as the `$identifier` of the rds resources.
 
 The access manager should be agnostic of the engine used, for Postgres we'll start by using psycopg [2].
 
