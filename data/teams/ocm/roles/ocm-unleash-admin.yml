@@ -6,5 +6,4 @@ name: ocm-unleash
 
 ldapGroup: ai-ocm-unleash
 
-permissions:
-- $ref: /dependencies/unleash/permissions/ocm.yml
+permissions: []
