@@ -13,7 +13,6 @@ roles:
 - $ref: /teams/insights/roles/insights-engineers.yml
 # general
 - $ref: /teams/insights/roles/insights-qe.yml
-- $ref: /teams/insights/roles/marketplace-gateway.yml
 - $ref: /teams/insights/roles/malware-detection.yml
 # platform-backend
 - $ref: /teams/insights/roles/platform-data-view.yml
