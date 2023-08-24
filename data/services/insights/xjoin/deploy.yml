@@ -585,11 +585,11 @@ resourceTemplates:
           },
           {
             "name": "groups",
-            "type": {
+            "type": [{
               "type": "string",
               "xjoin.type": "string",
               "xjoin.index": "false"
-            }
+            }, "null"]
           },
           {
             "name": "__dbz_ts_ms",
