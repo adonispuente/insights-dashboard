@@ -73,7 +73,7 @@ resourceTemplates:
       - code-quarkus-frontend-stage-deploy-success-channel
   - namespace:
       $ref: /services/quarkus/namespaces/code-quarkus-production.yml
-    ref: a51212e700eb311c43adf6b7f99cb755fe14f97f
+    ref: 653a7c93118a47e8c1a03aa6dc18bdc78c8102da
     parameters:
       REPLICAS: 3
     promotion:
