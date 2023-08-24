@@ -247,6 +247,8 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/xjoin-stage/xjoin-search.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/xjoin-stage/xjoin-prometheus-push-gateway.servicemonitor.yml
+- provider: resource
   path: /insights-stage/xjoin-stage/cyndi-operator.podmonitor.yml
 - provider: resource
   path: /insights-stage/xjoin-operator-stage/xjoin-operator.servicemonitor.yml
