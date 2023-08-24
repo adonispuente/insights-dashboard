@@ -40,6 +40,9 @@ name: guestbook
 username: gb-app
 database: guestbook
 
+# Set delete: True to delete the user and database
+# delete: True
+
 grants:
   - select
   - insert
@@ -84,5 +87,5 @@ Add database management to terraform-resources, as i.e. null-resource with a scr
 
 ## References
 
-[1] https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.MasterAccounts.html
-[2] https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries
+1. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.MasterAccounts.html
+2. https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries
