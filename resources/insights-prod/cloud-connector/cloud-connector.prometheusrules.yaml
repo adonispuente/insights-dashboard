@@ -12,6 +12,80 @@ spec:
   - name: cloud-connector
     rules:
 
+
+    # -----------------------------------------------------------------------
+    # SLOs
+    # -----------------------------------------------------------------------
+
+    - alert: CloudConnectorSLOAvailability
+      for: 1h
+      expr: |
+        1 - ( (sum(increase(cloud_connector_http_status_code_counter{status_code=~"5.*", service="cloud-connector-api"}[5m])) or vector(0)) / sum(increase(cloud_connector_http_status_code_counter{service="cloud-connector-api"}[5m]))) < 0.95
+      labels:
+        severity: info
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/cloud-connector-prod/deployments/cloud-connector-api"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/cloud-connector/CloudConnectorSLOAvailability.rst"
+        message: "cloud-connector availability SLO breached: {{ $value }}"
+
+
+    - alert: CloudConnectorSLOMQTTMessageAvailability
+      expr: |
+        sum(rate(cloud_connector_mqtt_message_consumer_kafka_writer_publish_duration_count[5m])) / sum(rate(cloud_connector_mqtt_control_message_received_count[5m])) < 0.95
+      labels:
+        severity: info
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/cloud-connector-prod/deployments/cloud-connector-api"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/cloud-connector/CloudConnectorSLOMQTTMessageAvailability.rst"
+        message: "cloud-connector mqtt message availability SLO breached"
+
+
+    - record: cloud_connector:consumer_group_lag:sum
+      expr: |
+        sum(kafka_consumergroup_group_lag{group="cloud-connector-rhc-message-consumer"})
+
+    - alert: CloudConnectorSLOLatencyKafka
+      for: 1h
+      expr: |
+        quantile_over_time(0.90, cloud_connector:consumer_group_lag:sum[5m]) > 100
+      labels:
+        severity: info
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/cloud-connector-prod/deployments/cloud-connector-api"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/cloud-connector/CloudConnectorSLOLatencyKafka.rst"
+        message: "cloud-connector latency SLO breached: {{ $value }}"
+
+
+    - alert: CloudConnectorSLOPODAvailability
+#      for: 1h
+      expr: |
+        avg(avg_over_time(up{container="cloud-connector-api"}[5m])) < 0.95 OR
+        avg(avg_over_time(up{container="cloud-connector-kafka-message-consumer"}[5m])) < 0.95 OR
+        avg(avg_over_time(up{container="cloud-connector-mqtt-message-consumer"}[5m])) < 0.95
+      labels:
+        severity: info
+        service: insights
+        env: prod
+        app_team: data-pipeline
+      annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/c91dcda039618ded/cloud-connector?orgId=1&var-datasource=crcp01ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com/k8s/ns/cloud-connector-prod/deployments/cloud-connector-api"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/cloud-connector/CloudConnectorSLOLatencyKafka.rst"
+        message: "cloud-connector pod availability SLO breached"
+
+
     - alert: CloudConnectorAbsent
       expr: |
         absent(up{job="cloud-connector-api"} == 1) OR
