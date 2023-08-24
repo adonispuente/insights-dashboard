@@ -24,7 +24,8 @@ Move sre-capabilities to a dedicated runtime and configuration space separate fr
 
 ## Non-objectives
 
-Define a model for app-interface instances as a service (as a capability).
+* Define a model for app-interface instances as a service (as a capability).
+* Run integrations not related to capabilities for the sre-capabilities app-interface instance
 
 ## Proposal
 
@@ -54,7 +55,7 @@ The sre-capabilities instance will be `just another service` managed by app-inte
 
 Create a new repository and fill it with base data and configuration to enable the execution of sre-capabilities. Ignite the entire infrastructure to run the new app-interface instance and put PR check, merge processes and bundling processes in place.
 
-During this Milestone we will try to change as little as possible/necessary on schemas, integrations and hack scripts, with the purpose to proof the concept by migrating a capability to that new runtime and configuration space.
+During this Milestone we will try to change as little as possible/necessary on schemas, integrations and hack scripts, with the purpose to proof the concept by migrating the AUS-capability to that new runtime and configuration space.
 
 We have a PoC up right now in https://gitlab.cee.redhat.com/service/sre-capabilities. See [APPSRE-8161](https://issues.redhat.com/browse/APPSRE-8161) for the work that has been done for ignition in app-interface commercial. Right now we only added a small schema change to allow us a [lean configuration of a namespace](https://github.com/app-sre/qontract-schemas/pull/499) for integrations-deployment from `integration-1.yml` files.
 
