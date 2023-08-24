@@ -1,0 +1,76 @@
+#TODO - pgough/rhobs - delete all after https://issues.redhat.com/browse/RHOBS-851
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: observatorium
+
+name: saas-observatorium-datahub-migration
+description: SaaS tracking file for temporary datahub migration resources
+
+app:
+  $ref: /services/rhobs/observatorium-mst/app.yml
+
+pipelinesProvider:
+  $ref: /services/rhobs/observatorium/pipelines/observatorium-pipeline.appsrep05ue1.yaml
+
+deployResources:
+  requests:
+    cpu: 800m
+    memory: 1800Mi
+  limits:
+    cpu: 1200m
+    memory: 1800Mi
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: team-monitoring-info
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+managedResourceTypes:
+  - Secret
+
+imagePatterns:
+  - quay.io/thanos/thanos
+
+
+allowedSecretParameterPaths:
+  - app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs
+
+resourceTemplates:
+  - name: observatorium-datahub-destination-secret
+    path: /resources/operations/bucket-replicate/s3-secret-template.yaml
+    url: https://github.com/rhobs/configuration
+    targets:
+      - namespace:
+          $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
+        ref: 0a98f7c9c0bb9228d53449b6882f818dd71cc404
+        parameters:
+          NAMESPACE: observatorium-datahub-migration
+          OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-destination
+        secretParameters:
+          - name: ACCESS_KEY_ID
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_access_key_id
+          - name: SECRET_ACCESS_KEY
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_secret_access_key
+          - name: S3_BUCKET_NAME
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: bucket
+          - name: S3_BUCKET_REGION
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_region
+          - name: S3_BUCKET_ENDPOINT
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: endpoint
