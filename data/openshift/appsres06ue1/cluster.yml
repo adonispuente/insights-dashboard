@@ -59,3 +59,12 @@ network:
   pod: 10.128.0.0/14
 
 internal: false
+
+peering:
+  connections:
+  - provider: account-vpc
+    name: appsres06ue1_app-sre-stage
+    vpc:
+      $ref: /aws/app-sre-stage/vpcs/app-sre-stage-vpc.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::366871242094:role/network-mgmt-appsres06ue1
