@@ -49,6 +49,16 @@ For the setup of all this infrastructure and processes we propose to use app-int
 
 The sre-capabilities instance will be `just another service` managed by app-interface commercial.
 
+## Component promotions
+
+For the time being, all relevant components like qontract-server, schema, integrations etc. need to be promoted manually. The versions present in a-i commercial have no influence on the versions running for `sre-capabilities`. In the long run, we will need to have some sort of automation to promote good known component combinations / stacke releases from to app-interface instances like `sre-capabilities`.
+
+## Observability
+
+All components of the sre-capabilities instance will be monitored via Prometheus like commercial. We will resuse the base dashboards for integration failures / runtimes etc.
+
+An alerting strategy is not being proposed in the context of this design document.
+
 # Milestones
 
 ## Milestone 1
