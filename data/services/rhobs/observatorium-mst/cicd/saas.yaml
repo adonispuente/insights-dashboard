@@ -273,7 +273,7 @@ resourceTemplates:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: info
       OBSERVATORIUM_ALERTMANAGER_IMAGE: quay.io/prometheus/alertmanager
-      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.25.0
+      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.26.0
       OBSERVATORIUM_NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_LOGS_NAMESPACE: observatorium-mst-stage

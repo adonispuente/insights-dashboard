@@ -75,7 +75,7 @@ resourceTemplates:
       OBSERVATORIUM_NAMESPACE: observatorium-testing
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: debug
       OBSERVATORIUM_ALERTMANAGER_IMAGE: quay.io/prometheus/alertmanager
-      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.21.0
+      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.26.0
       THANOS_CONFIG_SECRET: thanos-objectstorage
       THANOS_S3_SECRET: telemeter-thanos-testing-s3
       THANOS_IMAGE_TAG: v0.32.0
@@ -145,7 +145,7 @@ resourceTemplates:
       OBSERVATORIUM_NAMESPACE: observatorium-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: debug
       OBSERVATORIUM_ALERTMANAGER_IMAGE: quay.io/prometheus/alertmanager
-      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.21.0
+      OBSERVATORIUM_ALERTMANAGER_IMAGE_TAG: v0.26.0
       THANOS_CONFIG_SECRET: thanos-objectstorage
       THANOS_S3_SECRET: telemeter-thanos-stage-s3
       THANOS_IMAGE_TAG: v0.32.0
