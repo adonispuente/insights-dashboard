@@ -6,12 +6,12 @@ labels:
 
 name: appsres06ue1
 description: appsres06ue1 cluster
-consoleUrl: ''
+consoleUrl: https://console-openshift-console.apps.appsres06ue1.e3ka.p1.openshiftapps.com
 kibanaUrl: ''
 prometheusUrl: ''
 alertmanagerUrl: ''
-serverUrl: ''
-elbFQDN: ''
+serverUrl: https://api.appsres06ue1.e3ka.p1.openshiftapps.com:6443
+elbFQDN: elb.apps.appsres06ue1.e3ka.p1.openshiftapps.com
 
 auth:
 - service: oidc
@@ -32,7 +32,7 @@ spec:
   provider: aws
   region: us-east-1
   channel: candidate
-  version: ''
+  version: 4.13.9
   initial_version: 4.13.9-candidate
   multi_az: true
   nodes: 3
@@ -40,9 +40,9 @@ spec:
   private: false
   disable_user_workload_monitoring: true
   hypershift: false
-  id: ''
-  external_id: ''
-  provision_shard_id: ''
+  id: 25qam2sc4pg79u1vbstr81f2snhea8gm
+  external_id: 61597c92-5e4d-43fc-8561-2f172d1e354c
+  provision_shard_id: a1bc453a-2c1e-41dd-924e-943c96147ed3
 
 # automationToken:
 #   path: app-sre/creds/kube-configs/appsres06ue1
