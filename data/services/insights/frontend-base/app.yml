@@ -2,12 +2,12 @@
 $schema: /app-sre/app-1.yml
 
 labels:
-  service: chrome
+  service: frontend-base
   platform: insights
 
-name: chrome
+name: frontend-base
 
-description: chrome, landing and configs used by the containerized frontend that lives on all the environments
+description: chrome, landing, dashboard and other containerized frontends config that lives on all the environments
 
 architectureDocument: https://TODO
 sopsUrl: https://gitlab.cee.redhat.com/TODO
@@ -26,14 +26,10 @@ serviceOwners:
   email: adrew@redhat.com
 - name: Brandon Squizzato
   email: bsquizza@redhat.com
-- name: Blake Holifield
-  email: bholifie@redhat.com
 - name: Ben Turner
   email: bturner@redhat.com
 - name: Gabor Burges
   email: gburges@redhat.com
-- name: Kyle Lape
-  email: klape@redhat.com
 - name: Matt Knop
   email: mknop@redhat.com
 - name: Pete Savage
