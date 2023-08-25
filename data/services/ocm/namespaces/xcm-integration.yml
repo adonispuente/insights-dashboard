@@ -45,7 +45,8 @@ openshiftResources:
     version: 1
   - provider: resource
     path: /services/ocm/integration/region-constraints.configmap.yaml
-
+  - provider: route
+    path: /services/ocm/xcm-integration/clusters-service.route.yaml
   - provider: resource
     path: /services/ocm/xcm-integration/cluster-proxy-service.configmap.yaml
   - provider: resource
