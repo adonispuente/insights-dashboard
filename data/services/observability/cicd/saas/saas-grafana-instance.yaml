@@ -53,12 +53,11 @@ resourceTemplates:
       DASHBOARD_DISCOVERY_IMAGE_TAG: '1.22.2'
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 6c6ff6f7f1485b6665eca42d5555dc2a606e658f
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       REPLICAS: 3
       IMAGE_TAG: '9.3.8'
       GRAFANA_CPU_REQUEST: 100m
-      GRAFANA_CPU_LIMIT: 800m
       GRAFANA_MEMORY_REQUEST: 250Mi
       GRAFANA_MEMORY_LIMIT: 1Gi
   # dev instance for app-interface-dev-data

@@ -43,7 +43,7 @@ resourceTemplates:
       REPLICAS: 3
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 3b25bf1e92bf3aa3bd2fcbe375f46c52486b3a2d
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       SKUPPER_SERVICE_NAME: "osd-token-refresher-prod"
       TOKEN_REFRESHER_IMAGE: "quay.io/observatorium/token-refresher"

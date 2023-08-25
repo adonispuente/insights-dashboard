@@ -48,7 +48,7 @@ resourceTemplates:
   - name: app-sre-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: eef6572356a02655d4834697baa327408702cab4
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       NAME: cloudflare-exporter
       ENVIRONMENT: prod

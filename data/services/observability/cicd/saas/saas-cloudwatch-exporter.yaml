@@ -60,7 +60,7 @@ resourceTemplates:
   - name: app-sre
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter
       AWS_SECRET_NAME: aws-cloudwatch-exporter-app-sre
@@ -68,7 +68,7 @@ resourceTemplates:
   - name: app-sre-us-east-2
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter-us-east-2
       AWS_SECRET_NAME: aws-cloudwatch-exporter-app-sre
@@ -76,7 +76,7 @@ resourceTemplates:
   - name: osio
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter-osio
       AWS_SECRET_NAME: aws-cloudwatch-exporter-osio
@@ -92,7 +92,7 @@ resourceTemplates:
   - name: quayio-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter-quay
       AWS_SECRET_NAME: aws-cloudwatch-exporter-quay
@@ -108,7 +108,7 @@ resourceTemplates:
   - name: insights-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: f2c710df4786025faef8abed3b80b82290369ab3
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       CLOUDWATCH_EXPORTER: cloudwatch-exporter-crc
       AWS_SECRET_NAME: aws-cloudwatch-exporter-crc
