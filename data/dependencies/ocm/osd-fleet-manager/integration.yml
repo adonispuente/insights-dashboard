@@ -120,6 +120,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - canary
+- name: hs-mc-32gf12vl0
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0,15,30,45 * * * *
+    conditions:
+      sector: canary
+      soakDays: 0
+      mutexes:
+      - canary
 recommendedVersions:
 - workload: service-cluster
   channel: stable
