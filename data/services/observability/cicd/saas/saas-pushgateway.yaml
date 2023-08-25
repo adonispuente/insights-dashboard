@@ -43,7 +43,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 5d7f63f84877d38eeed6b184b17a00b8f44aa059
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       MEMORY_REQUESTS: 64Mi
       MEMORY_LIMIT: 128Mi
