@@ -153,7 +153,7 @@ resourceTemplates:
     parameters:
       DOMAIN_ENABLED: "true"
       PULP_API_REPLICAS: "2"
-      PULP_WEB_REPLICAS: "2"
+      PULP_WEB_REPLICAS: "0"
       PULP_WORKER_REPLICAS: "2"
       PULP_CONTENT_REPLICAS: "2"
       DB_SECRET_NAME: "content-sources-pulp-db-for-operator"
