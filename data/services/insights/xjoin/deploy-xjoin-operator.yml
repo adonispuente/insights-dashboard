@@ -84,7 +84,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: aa984d1a373e7307b9e219a9c1b47593553724f0
+    ref: 0d25a95012eb5b3c3af45ca09fb9a4d5ce603e9f
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
@@ -122,9 +122,9 @@ resourceTemplates:
       INDEX_KAFKA_TOPIC_PARTITIONS: '120'
       INDEX_CONNECTOR_TASKS_MAX: '120'
       INDEX_CONNECTOR_MAX_IN_FLIGHT_REQUESTS: '120'
-      INDEX_CONNECTOR_BATCH_SIZE: '100'
-      INDEX_CONNECTOR_MAX_BUFFERED_RECORDS: '15000'
-      INDEX_CONNECTOR_LINGER_MS: '200'
+      INDEX_CONNECTOR_BATCH_SIZE: '200'
+      INDEX_CONNECTOR_MAX_BUFFERED_RECORDS: '25000'
+      INDEX_CONNECTOR_LINGER_MS: '500'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
