@@ -80,7 +80,7 @@ resourceTemplates:
       name: service-uhc-clusters-service-gl-build-master
     promotion:
       publish:
-        - xcm-cs-deployed-int
+      - xcm-cs-deployed-int
     parameters:
       ENVIRONMENT: integration
       XCM_ID: aws.xcm.integration
@@ -97,7 +97,7 @@ resourceTemplates:
       JIRA_COMPONENTS: Provision & Uninstallation
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: c702166d15f08b88d55ac8775aa41028a17a2754
+    ref: bc9aeac71e0425440c62603afc6c88bce79df5d3
     promotion:
       auto: true
       subscribe:
