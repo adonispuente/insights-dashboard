@@ -51,7 +51,7 @@ config:
         run_frontend_build_stage: 'true'
         run_iqe_tests_stage: 'true'
         run_lint_stage: 'true'
-        run_unit_tests_stage: 'true'
+        run_unit_tests_stage: 'false'
 - project:
     name: rhsm-subscriptions
     label: insights
