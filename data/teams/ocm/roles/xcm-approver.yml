@@ -16,6 +16,7 @@ self_service:
     resources:
       - /services/ocm/xcm-integration/ocm-service-logs.route.yaml
       - /services/ocm/xcm-integration/ocm-service-logs-envoy.configmap.yaml
+      - /services/ocm/xcm-integration/clusters-service.route.yaml
       - /services/ocm/xcm-integration/cluster-proxy-service.configmap.yaml
       - /services/ocm/xcm-integration/clusters-service-envoy.configmap.yaml
 
