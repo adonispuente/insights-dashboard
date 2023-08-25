@@ -1,0 +1,19 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Suyash Nalawade
+org_username: sunalawa
+github_username: snalawad
+quay_username: rh-ee-sunalawa
+
+roles:
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/insights/roles/perf-tester.yml
+- $ref: /teams/insights/roles/hccm.yml
+- $ref: /teams/insights/roles/hccm-qe.yml
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/insights-qe.yml
+- $ref: /teams/insights/roles/hybrid-committed-spend.yml
