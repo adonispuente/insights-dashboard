@@ -36,4 +36,4 @@ resourceTemplates:
   - name: observatorium-mst-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-    ref: 9e15886b2d9777b842126ee36de76a59f3335874
+    ref: 55d099083f159fef4a43ae0dcef830b97fae7b69
