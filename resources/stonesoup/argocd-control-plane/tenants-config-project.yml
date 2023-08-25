@@ -39,6 +39,8 @@ spec:
     kind: Component
   - group: appstudio.redhat.com
     kind: EnterpriseContractPolicy
+  - group: v1
+    kind: PersistentVolumeClaim
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
     warn: false
