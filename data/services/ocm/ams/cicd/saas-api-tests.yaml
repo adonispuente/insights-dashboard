@@ -122,3 +122,16 @@ resourceTemplates:
           OCM_CLIENT_SECRET_PATH: /secrets/service/ocm-service.clientSecret
           SERVICE_ACCOUNT: fleet-manager
           SECRET_MOUNT: /secrets/service
+      - namespace:
+          $ref: /services/ocm/namespaces/xcm-integration.yml
+        ref: da98a2ceea1c1f08f2914b1ad636c48f3905af50
+        promotion:
+          publish:
+            - xcm-gatewatch-deployed-int
+        parameters:
+          NAMESPACE: xcm-integration
+          SECRET_NAME: clusters-service
+          OCM_CLIENT_ID_PATH: /secrets/service/client.id
+          OCM_CLIENT_SECRET_PATH: /secrets/service/client.secret
+          SERVICE_ACCOUNT: clusters-service
+          SECRET_MOUNT: /secrets/service
