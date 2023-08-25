@@ -88,7 +88,7 @@ resourceTemplates:
       DEFAULT_EXPIRATION: 36h
       MAXIMUM_EXPIRATION: 168h
       GODEBUG: ''
-      FORCE_MIGRATION: ''
+      FORCE_MIGRATION: '1656843667'
       JIRA_PROJECT: SDAINT
       CLUSTER_ERROR_REPORT: 'false'
       USER_DEFINED_DNS_BASE_DOMAIN: 'i1.devshift.org'
