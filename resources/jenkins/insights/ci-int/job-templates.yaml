@@ -413,6 +413,9 @@
         - *quay_secret_push
         - *quay_api_token
         - *chrome_cypress
+        - *insights_ephemeral_oc_login
+        - *app_interface_creds
+        - *insightsdroid_github
     publishers:
     - slack:
         room: '{slack_channel_notification}'
