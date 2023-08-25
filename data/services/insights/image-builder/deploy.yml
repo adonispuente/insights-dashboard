@@ -147,7 +147,7 @@ resourceTemplates:
     parameters:
       DOMAIN_ENABLED: "false"
       PULP_API_REPLICAS: "2"
-      PULP_WEB_REPLICAS: "2"
+      PULP_WEB_REPLICAS: "0"
       PULP_WORKER_REPLICAS: "2"
       PULP_CONTENT_REPLICAS: "2"
       DB_SECRET_NAME: "image-builder-pulp-db-for-operator"
