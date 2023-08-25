@@ -29,6 +29,7 @@ config:
     - "insights-gh-build-master":
         display_name: compliance-backend build-master
         disable_retry_on_failure: false
+        slack_channel_notification: 'team-clouddot-compliance-alarms'
     - "insights-gh-pipeline":
         display_name: compliance-backend pipeline
         concurrent_build: true
@@ -36,6 +37,7 @@ config:
     - "insights-gh-build-master":
         display_name: compliance-backend build-security-compliance
         branch: security-compliance
+        slack_channel_notification: 'team-clouddot-compliance-alarms'
     - "insights-gh-scheduled-rebuild":
         display_name: compliance-backend build-security-compliance-weekly
         branch: security-compliance
