@@ -176,6 +176,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-backplane-api-gl-build-master
     parameters:
+      LOG_LEVEL: 5
       AWS_JUMP_ROLE_ACCOUNT_ID: "896164604406"
       ENABLE_TEST_SCRIPT_API: "true"
       BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"
