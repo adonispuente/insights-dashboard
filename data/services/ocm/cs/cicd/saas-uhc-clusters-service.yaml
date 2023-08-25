@@ -73,6 +73,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/xcm-integration.yml
     ref: master
+    disable: true
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
