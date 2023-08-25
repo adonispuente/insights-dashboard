@@ -37,6 +37,8 @@ spec:
     kind: Application
   - group: appstudio.redhat.com
     kind: Component
+  - group: appstudio.redhat.com
+    kind: EnterpriseContractPolicy
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
     warn: false
