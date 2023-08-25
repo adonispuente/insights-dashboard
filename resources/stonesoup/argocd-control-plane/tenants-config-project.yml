@@ -16,10 +16,14 @@ spec:
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   # Destination clusters can be identified by 'server', 'name', or both.
   destinations:
-  - namespace: '*-tenant'
+  - namespace: 'gbenhaim-tenant'
+    name: stone-prd-rh01
+  - namespace: 'rh-managed-red-hat-acm-tenant'
+    name: stone-prd-rh01
+  - namespace: 'rh-managed-cnv-fbc-tenant'
     name: stone-prd-rh01
 
-  # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  # Deny all namespaced-scoped resources from being created, except for the following
   namespaceResourceWhitelist:
   - group: jvmbuildservice.io
     kind: JBSConfig
