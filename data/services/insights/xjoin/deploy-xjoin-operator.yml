@@ -84,7 +84,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: 3dfa14f7cc2d62dc21a5461f48401b648e2ab395
+    ref: fef505f1f9fce71c11263d6fe098251edd8fe353
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
