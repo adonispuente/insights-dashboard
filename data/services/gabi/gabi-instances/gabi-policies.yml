@@ -10,6 +10,11 @@ description: |
  I would like to be able to get db access for Policies
  I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
 
+readReplicasWaiverPledge: |
+  I request that the read replicas requirement be waived for my service Insights Policies for the accompanying GABI
+  instance deployment in the production environment. I hereby accept risks related to using a primary production
+  database instance to carry-out troubleshooting activities, which is the intended use case of the GABI service.
+
 signoffManagers:
 - $ref: /teams/insights/users/sthirugn.yml
 

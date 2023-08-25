@@ -430,6 +430,18 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: policies-ui-backend-db
       GABI_INSTANCE: gabi-policies
   - namespace:
+      $ref: /services/insights/policies/namespaces/policies-prod.yml
+    ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
+    promotion:
+      auto: true
+      subscribe:
+      - github-gabi-stage-post-deploy-tests-success-channel
+    parameters:
+      HOST: gabi-policies-prod.apps.crcp01ue1.o9m8.p1.openshiftapps.com
+      NAMESPACE: policies-prod
+      AWS_RDS_SECRET_NAME: policies-ui-backend-db
+      GABI_INSTANCE: gabi-policies
+  - namespace:
       $ref: /services/insights/rbac/namespaces/stage-rbac-stage.yml
     ref: 215145bd72f2aec99f5713aba006ba59b6b0c8b9
     promotion:
