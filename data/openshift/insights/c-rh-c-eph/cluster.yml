@@ -16,7 +16,6 @@ elbFQDN: elb.apps.c-rh-c-eph.8p0c.p1.openshiftapps.com
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.c-rh-c-eph.yml
 
-
 automationToken:
   path: insights/creds/kube-configs/c-rh-c-eph
   field: token
@@ -33,6 +32,10 @@ managedGroups:
 internal: false
 
 managedClusterRoles: true
+
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
 
 ocm:
   $ref: /dependencies/ocm/crc/insights.yaml
@@ -68,19 +71,8 @@ upgradePolicy:
 disable:
   integrations:
   # This cluster is a CCS cluster and we con't fully support it
-  - ocm-clusters
+  - ocm-oidc-idp
   - openshift-users
-  # - openshift-groups
-  # - openshift-resources
-  # - openshift-clusterrolebindings
-  # - openshift-rolebindings
-  # - openshift-routes
-  # - openshift-network-policies
-  # - openshift-namespaces
-  # - openshift-namespace-labels
-  # - openshift-resourcequotas
-  # - openshift-limitranges
-  # - openshift-vault-secrets
-  # - openshift-serviceaccount-tokens
-  # - terraform-resources
-auth: []
+  - openshift-rolebindings
+  - openshift-clusterrolebindings
+  - ocm-clusters
