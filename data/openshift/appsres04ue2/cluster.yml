@@ -14,7 +14,8 @@ auth:
 - service: oidc
   name: redhat-app-sre-auth
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres04ue2.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.appsres04ue2.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
@@ -27,7 +28,7 @@ spec:
   provider: aws
   region: us-east-2
   channel: candidate
-  version: 4.13.9
+  version: 4.13.10
   initial_version: 4.5.7-fast
   multi_az: false
   nodes: 4
