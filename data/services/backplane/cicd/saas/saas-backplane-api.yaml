@@ -181,7 +181,7 @@ resourceTemplates:
       BACKPLANE_TLS_SERVING_SECRET_NAME: "public-cert"
       CLOUD_CONFIG: |
         aws:
-          token-file: /var/run/secrets/openshift/serviceaccount
+          token-file: /var/run/secrets/openshift/serviceaccount/token
           backplane-role: arn:aws:iam::611491592236:role/backplane-backplanei02ue1
           root-role: arn:aws:iam::277304166082:role/backplanei02ue1
           jump-role: arn:aws:iam::${AWS_JUMP_ROLE_ACCOUNT_ID}:role/RH-Technical-Support-Access
