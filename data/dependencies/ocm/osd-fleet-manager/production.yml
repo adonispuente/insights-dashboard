@@ -443,6 +443,16 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - ibm-infra
+- name: hs-mc-5ih09mi50
+  upgradePolicy:
+    workloads:
+    - management-cluster
+    schedule: 0 * * * 1-4
+    conditions:
+      sector: us-east-1
+      soakDays: 0
+      mutexes:
+      - us-east-1
 recommendedVersions:
 - workload: service-cluster
   channel: stable
