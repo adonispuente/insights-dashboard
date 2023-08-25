@@ -334,18 +334,21 @@ data:
                       prefix: /api/accounts_mgmt
                     route:
                       cluster: accounts_mgmt
+                      auto_host_rewrite: true
                       timeout: 300s
                   - name: authorizations
                     match:
                       prefix: /api/authorizations
                     route:
                       cluster: authorizations
+                      auto_host_rewrite: true
                       timeout: 300s
                   - name: service_logs
                     match:
                       prefix: /api/service_logs
                     route:
                       cluster: service_logs
+                      auto_host_rewrite: true
                       timeout: 300s
 
               http_filters:
