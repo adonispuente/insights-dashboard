@@ -518,13 +518,13 @@ resourceTemplates:
     disable: true # tells app-sre to not actually run the deploy job for this target
     ref: internal # altered by bonfire
     parameters:
-      IMAGE_TAG: 3.1.3-metastore-021
+      IMAGE_TAG: 3.1.3-metastore-022
       S3_BUCKET_NAME: hccm-eph-s3
   - namespace:
       $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
-    ref: 9581ee241767cb01340d80ae1c80bb56291b8757
+    ref: ac5e834f9464aec3b59c6ce1e33ad8b3c781fabf
     parameters:
-      IMAGE_TAG: 3.1.3-metastore-021
+      IMAGE_TAG: 3.1.3-metastore-022
       S3_BUCKET_NAME: hccm-stage-s3
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
@@ -557,7 +557,7 @@ resourceTemplates:
     disable: true # tells app-sre to not actually run the deploy job for this target
     ref: internal # altered by bonfire
     parameters:
-      IMAGE_TAG: 418-005
+      IMAGE_TAG: 418-006
       S3_BUCKET_NAME: hccm-eph-s3
       S3_SSE_ENABLED: 'False'
       S3_SELECT_PUSHDOWN_ENABLED: 'False'
@@ -576,10 +576,10 @@ resourceTemplates:
   # Staging
   - namespace:
       $ref: /services/insights/hccm/namespaces/stage-hccm-stage.yml
-    ref: 6b61b8aaed4d336967279014ea8bc730e16d78f3
+    ref: 7c175d140c736fa1df8cf4507b6f043e723fe3b9
     parameters:
       CONFIGMAP_HASH: '000002' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
-      IMAGE_TAG: 418-005
+      IMAGE_TAG: 418-006
       S3_BUCKET_NAME: hccm-stage-s3
       MACHINE_POOL_OPTION: memory-optimized
       COORDINATOR_REPLICAS: 1
