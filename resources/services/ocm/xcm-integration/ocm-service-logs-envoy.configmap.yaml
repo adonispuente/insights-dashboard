@@ -119,8 +119,9 @@ data:
             "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
             common_tls_context:
               validation_context:
+                # trusted CA is the public api.*.openshift.com CA, not the kube service CA
                 trusted_ca:
-                  filename: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+                  filename: /etc/ssl/certs/ca-certificates.crt
       - name: authorizations
         connect_timeout: 1s
         type: STRICT_DNS
@@ -140,8 +141,9 @@ data:
             "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
             common_tls_context:
               validation_context:
+                # trusted CA is the public api.*.openshift.com CA, not the kube service CA
                 trusted_ca:
-                  filename: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+                  filename: /etc/ssl/certs/ca-certificates.crt
       - name: service_logs
         connect_timeout: 1s
         type: STRICT_DNS
