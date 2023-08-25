@@ -84,7 +84,7 @@ resourceTemplates:
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
-    ref: 040fe444fd854071beebbc77478295e437decda0
+    ref: ae68bce084031b5beb67381f872926605f3c5e50
     parameters:
       HBI_DB_SSL_MODE: "disable"
       TARGET_NAMESPACE: xjoin-operator-prod
@@ -125,10 +125,11 @@ resourceTemplates:
       INDEX_CONNECTOR_BATCH_SIZE: '100'
       INDEX_CONNECTOR_MAX_BUFFERED_RECORDS: '2000'
       INDEX_CONNECTOR_LINGER_MS: '100'
-      DATASOURCE_CONNECTOR_MAX_BATCH_SIZE: '16384'
-      DATASOURCE_CONNECTOR_MAX_QUEUE_SIZE: '32768'
+      DATASOURCE_CONNECTOR_MAX_BATCH_SIZE: '2048'
+      DATASOURCE_CONNECTOR_MAX_QUEUE_SIZE: '8192'
       DATASOURCE_CONNECTOR_SNAPSHOT_FETCH_SIZE: '10240'
-      DATASOURCE_CONNECTOR_INCREMENTAL_CHUNK_SIZE: '8192'
+      DATASOURCE_CONNECTOR_INCREMENTAL_CHUNK_SIZE: '1024'
+      DATASOURCE_CONNECTOR_POLL_INTERVAL: '500'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-perf.yml
