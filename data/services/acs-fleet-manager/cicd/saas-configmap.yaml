@@ -41,11 +41,12 @@ resourceTemplates:
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
         ref: main
-  - name: acs-fleet-manager-prod
-    url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
-    path: /prod
-    provider: directory
-    targets:
-      - namespace:
-          $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
-        ref: main
+# TODO: uncomment to enable prod deployments of the gitops configuration
+#  - name: acs-fleet-manager-prod
+#    url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
+#    path: /prod
+#    provider: directory
+#    targets:
+#      - namespace:
+#          $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
+#        ref: main
