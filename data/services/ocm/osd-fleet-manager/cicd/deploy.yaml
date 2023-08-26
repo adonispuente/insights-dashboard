@@ -266,7 +266,7 @@ resourceTemplates:
             private: false
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
             # requires the one image and needs ocp 4.14 nightly hosted cluster
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:202a64e58897e6652e2deb1aa2ddb1a82c72a8cbd149276b37daec73b81416fa
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:a79960b
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
