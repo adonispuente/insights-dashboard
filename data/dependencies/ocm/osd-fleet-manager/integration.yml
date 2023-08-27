@@ -100,16 +100,6 @@ upgradePolicyClusters:
       soakDays: 0
       mutexes:
       - main
-- name: hs-mc-6cmvoe750
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 - name: hs-sc-rlvophdf0
   upgradePolicy:
     workloads:
