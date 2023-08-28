@@ -35,7 +35,7 @@ access:
 glitchtip_roles:
 - organization:
     $ref: /dependencies/glitchtip/organizations/insights.yml
-  role: admin
+  role: member
 
 glitchtip_teams:
 - $ref: /dependencies/glitchtip/teams/insights-rbac.yml
