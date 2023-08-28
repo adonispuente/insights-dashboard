@@ -509,7 +509,7 @@ resourceTemplates:
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: ab492b53bd25eba7247dc8492078848b6a335234
+    ref: 9f250670ea0a894c7f1bf136c032c61701d08a53
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/service-accounts"
