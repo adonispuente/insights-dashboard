@@ -57,6 +57,9 @@ resourceTemplates:
       $ref: /openshift/appsres05ue1/namespaces/cert-manager.yml
     ref: main
   - namespace:
+      $ref: /openshift/appsres06ue1/namespaces/cert-manager.yml
+    ref: main
+  - namespace:
       $ref: /openshift/app-sre-stage-01/namespaces/cert-manager.yml
     ref: main
   - namespace:
