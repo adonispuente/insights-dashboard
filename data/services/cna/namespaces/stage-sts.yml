@@ -1,0 +1,30 @@
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: cna
+
+name: cna-stage
+
+description: Staging namespace for the CNA service
+
+cluster:
+  $ref: /openshift/appsres06ue1/cluster.yml
+
+app:
+  $ref: /services/cna/app.yml
+
+environment:
+  $ref: /products/cna/environments/stage.yml
+
+managedRoles: true
+
+sharedResources:
+- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+networkPoliciesAllow:
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres06ue1.yml
+
+managedExternalResources: false
+
+glitchtipProjects:
+- $ref: /dependencies/glitchtip/projects/glitchtip-production/cna-stage.yml
