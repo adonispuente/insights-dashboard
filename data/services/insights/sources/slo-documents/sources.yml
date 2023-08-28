@@ -10,7 +10,8 @@ app:
   $ref: /services/insights/sources/app.yml
 
 namespaces:
-- $ref: /services/insights/sources/namespaces/sources-prod.yml
+- namespace:
+    $ref: /services/insights/sources/namespaces/sources-prod.yml
 
 slos:
 - name: Sources service error rate uptime
