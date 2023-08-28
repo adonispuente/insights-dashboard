@@ -13,7 +13,6 @@ Users are getting errors on API requests
 Assisted Installer  service API is returning an abnormally high number of 5xx Error requests
 
 ### Access required
-
 - Access to the cluster that runs the assisted-service Pod
 - View access to the namespaces:
   - assisted-installer
@@ -40,7 +39,6 @@ Users are experiencing hight latency on API requests
 Assisted Installer service API is having an abnormally high number of requests with high latency
 
 ### Access required
-
 - Access to the cluster that runs the assisted-service Pod
   - stage: https://console-openshift-console.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com/k8s/cluster/projects
   - prod: https://console-openshift-console.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/k8s/cluster/projects
@@ -65,7 +63,6 @@ Users are unable to access Assisted Installer service
 There are 0 pods serving Assisted-installer service.
 
 ### Access required
-
 - Access to the cluster that runs the assisted-service Pod
   - stage: https://console-openshift-console.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com/k8s/cluster/projects
   - prod: https://console-openshift-console.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/k8s/cluster/projects
@@ -74,7 +71,6 @@ There are 0 pods serving Assisted-installer service.
 
 ### Steps
 - Check the endpoint:
-
     - Stage:
     `curl https://api.stage.openshift.com/api/assisted-install/v1/clusters -H "Authorization: bearer $(ocm token)"`
 
@@ -110,7 +106,6 @@ errors the reset of the pods will be upgraded as well.
 If the first pods failed to upgrade we want to be notified about it regardless the job which handle the upgrade.
 
 ### Access required
-
 - Access to the cluster that runs the assisted-service Pod
 - View access to the namespaces:
   - assisted-installer
@@ -130,7 +125,6 @@ Users are unable to deploy new bare-metal OpenShift clusters using Assisted Inst
 Assisted-installer based cluster installation fails to complete.
 
 ### Access required
-
 - Access to the cluster that runs the assisted-service Pod
 - View access to the namespaces:
   - assisted-installer
@@ -158,7 +152,6 @@ Usage statistics might lagging and not be near-real-time
 When the process storing usage statistics fails, it might lead to restarts. Some are controlled restarts (when there are too many errors), other might be non-controlled errors.
 
 ### Access required
-
 - Access to the cluster that runs the assisted-events-scrape Pod
 - View access to the namespaces:
   - assisted-installer
@@ -179,7 +172,6 @@ Due to unknown issue(s), the process might "hang" and stop computing.
 We should find out what causes this and ultimately fix the root cause.
 
 ### Access required
-
 - Access to the cluster that runs the assisted-events-scrape Pod
 - View access to the namespaces:
   - assisted-installer
@@ -200,7 +192,6 @@ Due to unknown issue(s), we are not saving enough data to elasticsearch.
 We must find out why this is happening
 
 ### Access required
-
 - Access to the cluster that runs the assisted-events-scrape Pod
 - View access to the namespaces:
   - assisted-installer
@@ -223,7 +214,6 @@ We must find out why this is happening
 Possibly pods will get OOMKilled, and some requests might return 500.
 If the problem is severe and restart happen too frequently, we might get service downtime.
 
-
 ### Summary
 Pods are consuming much more memory than expected.
 This can be due to several reasons.
@@ -243,7 +233,6 @@ To solve this issue, we must first identify the root cause.
 ### Escalations
 - If `@edge-support` is unresponsive, ping the `@assistedinstaller-team` user on Slack channel #team-assisted-installer-alert
 
-
 ## Anomaly detected
 
 ### Severity: Warning
@@ -251,7 +240,6 @@ To solve this issue, we must first identify the root cause.
 ### Impact
 Depending on what is the anomaly, this might be having an effect on the product (or might have soon)
 degrading the quality of service.
-
 
 ### Summary
 Anomalies could be related to incoming http requests, CPU usage, events generation.
@@ -267,7 +255,6 @@ Grafana access is usually enough to determine what impact is the anomaly having 
 ### Escalations
 - If `@edge-support` is unresponsive, ping the `@assistedinstaller-team` user on Slack channel #team-assisted-installer-alert
 
-
 ## Pods restarting
 
 ### Severity: Warning
@@ -275,7 +262,6 @@ Grafana access is usually enough to determine what impact is the anomaly having 
 ### Impact
 Some connections will be killed resulting in 500s.
 If the problem is severe and restart happen too frequently, we might get service downtime.
-
 
 ### Summary
 This can be due to uncaught exceptions, panics, and the likes or OOMKills.
@@ -297,12 +283,12 @@ Depending on the solution, we need different level of access.
 ### Escalations
 - If `@edge-support` is unresponsive, ping the `@assistedinstaller-team` user on Slack channel #team-assisted-installer-alert
 
-## Opensearch disk filling up
+## OpenSearch disk filling up
 
 ### Severity: Warning
 
 ### Impact
-If Opensearch used disk space reaches 80%, the server will start rejecting writes, to avoid filling up disk and causing even more serious issues.
+If OpenSearch used disk space reaches 80%, the server will start rejecting writes, to avoid filling up disk and causing even more serious issues.
 
 ### Summary
 This can be due to some rogue process, or simply maintenance neglection.
@@ -310,9 +296,8 @@ This can be due to some rogue process, or simply maintenance neglection.
 ### Access required
 
 Access to opensearch:
-* [Opensearch production](https://kibana-assisted.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/_dashboards/app/home/)
-* [Opensearch stage](https://kibana-assisted-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com/_dashboards/app/home/)
-
+* [OpenSearch production](https://kibana-assisted.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com/_dashboards/app/home/)
+* [OpenSearch stage](https://kibana-assisted-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com/_dashboards/app/home/)
 
 ### Steps
 - Go to dev-tools tab
@@ -337,9 +322,7 @@ Assisted image service pods won't start up if the disk is full. If all of the po
 We need to make more space for the image service to be able to download images
 
 ### Access required
-
-- Gitlab https://gitlab.cee.redhat.com/service/app-interface/
-
+- GitLab https://gitlab.cee.redhat.com/service/app-interface/
 
 ### Steps
 - Check whether the PVC is running out of space
@@ -364,9 +347,7 @@ We need to run `VACUM FULL` or other means of freeing up space. If this won't wo
 need to increment disk size.
 
 ### Access required
-
-- Gitlab https://gitlab.cee.redhat.com/service/app-interface/
-
+- GitLab https://gitlab.cee.redhat.com/service/app-interface/
 
 ### Steps
 - Check RDS free space:
@@ -374,7 +355,51 @@ need to increment disk size.
   - [stage](https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1&var-instance=assisted-installer-stage&var-datasource=app-sre-prod-01-prometheus)
   - [integration](https://grafana.app-sre.devshift.net/d/ezEQIcPnk/rds-postgres?orgId=1&var-instance=assisted-installer-integration-v4&var-datasource=app-sre-prod-01-prometheus)
 - Try to run `VACUUM FULL` (or alternative tools), ([example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/assisted-installer/queries/20230704-vacuum-full.yaml))
-- If not enough space left for vacuum, or vacuum did not free enough space, [resize RDS disk](https://gitlab.cee.redhat.com/service/app-interface/-/commit/5aef20b2e4fc45d976f69b256da00461e36b3da3)
+- If there is not enough space left for vacuum, or vacuum did not free enough space, [resize RDS disk](https://gitlab.cee.redhat.com/service/app-interface/-/commit/5aef20b2e4fc45d976f69b256da00461e36b3da3)
+
+### Escalations
+`@edge-cloud-team` can help with this, alternatively `@assistedinstaller-team` can be pinged.
+
+## Kafka broker disk is running out of available space
+
+### Severity: Warning
+
+### Impact
+If disk space gets too low, Assisted Installer SaaS events will not be recorded.
+Potentially Kafka cluster could get offline and Assisted Installer SaaS won't boot if rebooted.
+
+### Summary
+We need to increase space for the Kafka cluster involved.
+
+### Access required
+- GitLab https://gitlab.cee.redhat.com/service/app-interface/
+
+### Steps
+- If there is not enough space left, [resize AWS MSK volume](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/terraform/resources/assisted-installer/msk-production-1.yml#L15)
+
+### Escalations
+`@edge-cloud-team` can help with this, alternatively `@assistedinstaller-team` can be pinged.
+
+## Kafka offset lag is too high
+
+### Severity: Warning
+
+### Impact
+OpenSearch data is lagging behind.
+
+### Summary
+When offset lag is high, it means consumers are not processing messages fast enough.
+This can be due to a few scenarios:
+* consumers are processing messages, but not fast enough: we need to scale up replicas
+* consumers are not consuming messages, this could be because the pod it's crashing, or a bug in the code, or some connection is hanging and thus the pod is stuck
+
+### Access required
+- GitLab https://gitlab.cee.redhat.com/service/app-interface/
+
+### Steps
+- If the Pod seems stuck, we should try to restart it and see if it gets unstuck
+- To scale up replicas we need to change the value of the parameter `REPLICAS_COUNT` for assisted-events-streams deployment for the right environment. [Replicas count](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/assisted-installer/cicd/saas-events.yaml#L190)
+- If the Pod is crashing or we identified a bug, a fix must be submitted to [its repository](https://github.com/openshift-assisted/assisted-events-stream/)
 
 ### Escalations
 `@edge-cloud-team` can help with this, alternatively `@assistedinstaller-team` can be pinged.
