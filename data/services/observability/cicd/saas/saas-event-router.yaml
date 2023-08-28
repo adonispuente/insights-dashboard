@@ -169,3 +169,6 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/appsres05ue1/namespaces/app-sre-event-router.yaml
     ref: 33392d7061576fee364669206aa1beb773b3c9d8
+  - namespace:
+      $ref: /openshift/appsres06ue1/namespaces/app-sre-event-router.yaml
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
