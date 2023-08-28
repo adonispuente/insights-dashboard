@@ -68,7 +68,6 @@ resourceTemplates:
           cpu: 50m
           memory: 512Mi
         limits:
-          cpu: 500m
           memory: 512Mi
       IMAGE_GATE_AUTH_DISABLE: "true"
   - namespace:
