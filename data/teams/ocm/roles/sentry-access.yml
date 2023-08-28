@@ -9,7 +9,7 @@ permissions: []
 glitchtip_roles:
 - organization:
     $ref: /dependencies/glitchtip/organizations/ocm.yml
-  role: admin
+  role: member
 
 glitchtip_teams:
 - $ref: /dependencies/glitchtip/teams/ocm.yml

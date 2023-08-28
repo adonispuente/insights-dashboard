@@ -33,7 +33,7 @@ access:
 glitchtip_roles:
 - organization:
     $ref: /dependencies/glitchtip/organizations/assisted-installer.yml
-  role: admin
+  role: member
 
 glitchtip_teams:
 - $ref: /dependencies/glitchtip/teams/ocm.yml

@@ -33,5 +33,5 @@ access:
 glitchtip_roles:
 - organization:
     $ref: /dependencies/glitchtip/organizations/managed-services.yml
-  role: admin
+  role: member
 

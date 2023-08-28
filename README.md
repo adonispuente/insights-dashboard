@@ -544,9 +544,34 @@ teams:
 organization:
   $ref: <glitchtip organization datafile (`/dependencies/glitchtip-organization-1.yml`), for example `/dependencies/glitchtip/glitchtip-production.yml`>
 
+alerts:
+# either a reference to an glitchtip-alert-1.yml file
+- $ref: <glitchtip alert datafile (`/dependencies/glitchtip-alert-1.yml`), for example `/dependencies/glitchtip/projects/glitchtip-production/ccx-data-pipeline.yml`>
+# or inline (but not both!!!)
+- name: <name of the alert>
+  # see schema descrtiption below for details
 ```
 
 The name, app, description, platform, teams, and organization fields are required. The name must be unique.
+
+The alerts field is optional. If you want to create a new alert, you can either create a new `glitchtip-alert-1.yml` file or add the alert inline. If you want to add an existing alert, you can add a reference to the `glitchtip-alert-1.yml` file.
+
+```yaml
+---
+$schema: /dependencies/glitchtip-alert-1.yml
+
+name: <name of the alert must be context unique>
+description: <description of the alert>
+quantity: 1
+timespanMinutes: 1
+recipients:
+- provider: <email-project-members OR webhook>
+# for webhook
+url: <url of the webhook>
+```
+> **Attention** :warning:
+>
+> There is no default email alert configured for any Glitchtip project. If you don't configure an email alert, you won't receive any alert emails.
 
 Now that the project is defined, you have to include it in an openshift namespace (`/openshift/namespace-1.yml`):
 
@@ -605,7 +630,7 @@ Define or create a `role` that includes a `glitchtip_roles` and a `glitchtip_tea
 glitchtip_roles:
 - organization:
     $ref: <glitchtip organization datafile (`/dependencies/glitchtip-organization-1.yml`), for example `/dependencies/glitchtip/glitchtip-production.yml`>
-role: admin
+role: member
 
 glitchtip_teams:
 - $ref: <glitchtip team datafile (`/dependencies/glitchtip-team-1.yml`), for example `/dependencies/glitchtip/teams/app-sre.yml`>
@@ -626,14 +651,6 @@ name: <new project name>
 projectId: <original/old project name>
 ...
 ```
-
-### Glitchtip Project Alerts
-
-At the moment, project alerts (emails and webhooks) can't be configured via App-Interface. Please configure them manually via the Glitchtip UI (`Settings -> Projects -> Settings -> Project Alerts`).
-
-> **Attention** :warning:
->
-> There is no default email alert configured for any Glitchtip project. If you don't configure an email alert, you won't receive any alert emails.
 
 ---
 ### Manage Openshift resources via App-Interface (`/openshift/namespace-1.yml`)
