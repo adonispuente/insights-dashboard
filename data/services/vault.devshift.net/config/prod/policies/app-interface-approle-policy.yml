@@ -114,3 +114,6 @@ rules: |
   path "swat/*" {
      capabilities = ["read"]
   }
+  path "trusted-content/*" {
+     capabilities = ["read"]
+  }
