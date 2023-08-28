@@ -22,7 +22,7 @@ parameters:
   value: 120000
   apply_method: immediate
 - name: max_slot_wal_keep_size
-  value: 10000000000
+  value: 10000
   apply_method: immediate
 - name: rds.log_retention_period
   value: 1440
