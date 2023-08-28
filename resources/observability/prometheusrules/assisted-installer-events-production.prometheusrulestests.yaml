@@ -157,3 +157,98 @@ tests:
       exp_annotations:
         message: "Assisted Installer Opensearch - Opensearch (production) disk is above watermark (node nodeB is 82% full) <!subteam^S01T3MZGJ9M>"
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#opensearch-disk-filling-up"
+
+# Kafka disk is getting full
+- interval: 1m
+  input_series:
+  - series: aws_kafka_kafka_data_logs_disk_used_maximum{cluster_name="assisted-installer-production",broker_id="1"}
+    values: 0+1x82 82-5x18
+  - series: aws_kafka_kafka_data_logs_disk_used_maximum{cluster_name="assisted-installer-production",broker_id="2"}
+    values: 45+0x80 92+0x12 50x8
+  - series: aws_kafka_kafka_data_logs_disk_used_maximum{cluster_name="assisted-installer-production",broker_id="3"}
+    values: 55+0x100
+
+  alert_rule_test:
+    # 10m past threshold
+  - eval_time: 81m
+    alertname: "Assisted Installer Kafka - Kafka broker disk is running out of available space"
+    exp_alerts:
+    - exp_labels:
+        broker_id: "1"
+        cluster_name: "assisted-installer-production"
+        service: assisted-installer
+        severity: warning
+      exp_annotations:
+        message: Assisted Installer Kafka assisted-installer-production - Kafka broker 1 disk is running out of available space (81% used) <!subteam^S01T3MZGJ9M>
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#kafka-broker-disk-is-running-out-of-available-space"
+        dashboard: "https://grafana.app-sre.devshift.net/d/V4mSz6j4k/assisted-installer-kafka?orgId=1&var-datasource=app-sre-prod-01-prometheus&from=now-3h&to=now"
+    # 10m past threshold - broker 2 over 90%
+  - eval_time: 91m
+    alertname: "Assisted Installer Kafka - Kafka broker disk is running out of available space"
+    exp_alerts:
+    - exp_labels:
+        broker_id: "2"
+        cluster_name: "assisted-installer-production"
+        service: assisted-installer
+        severity: high
+      exp_annotations:
+        message: Assisted Installer Kafka assisted-installer-production - Kafka broker 2 disk is running out of available space (92% used) <!subteam^S01T3MZGJ9M>
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#kafka-broker-disk-is-running-out-of-available-space"
+        dashboard: "https://grafana.app-sre.devshift.net/d/V4mSz6j4k/assisted-installer-kafka?orgId=1&var-datasource=app-sre-prod-01-prometheus&from=now-3h&to=now"
+
+    # Alert stopped
+  - eval_time: 95m
+    alertname: "Assisted Installer Kafka - Kafka broker disk is running out of available space"
+    exp_alerts:
+      []
+    # 5m past threshold: should not alert
+  - eval_time: 75m
+    alertname: "Assisted Installer Kafka - Kafka broker disk is running out of available space"
+    exp_alerts:
+      []
+    # no disk has enough usage
+  - eval_time: 60m
+    alertname: "Assisted Installer Kafka - Kafka broker disk is running out of available space"
+    exp_alerts:
+      []
+
+# Kafka offset too high
+- interval: 1m
+  input_series:
+  - series: aws_kafka_max_offset_lag_maximum{cluster_name="assisted-installer-production",consumer_group="consumer-foo"}
+    values: 900+10x60 1500+10x360 600-10x60 0+0x120
+  - series: aws_kafka_max_offset_lag_maximum{cluster_name="assisted-installer-production",consumer_group="amazon.consumer.foo"}
+    values: 4000+0x480
+  - series: aws_kafka_max_offset_lag_maximum{cluster_name="assisted-installer-production",consumer_group="consumer-bar"}
+    values: 0+0x480
+
+  alert_rule_test:
+    # 10m past threshold
+  - eval_time: 6h30m
+    alertname: "Assisted Installer Kafka - Offset lag is too high"
+    exp_alerts:
+    - exp_labels:
+        consumer_group: "consumer-foo"
+        cluster_name: "assisted-installer-production"
+        service: assisted-installer
+        severity: warning
+      exp_annotations:
+        message: Assisted Installer Kafka assisted-installer-production - Consumer group consumer-foo offset lag has been high for the last 4h, now reaching 4790 <!subteam^S01T3MZGJ9M>
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/assisted-installer/sop#kafka-offset-lag-is-too-high"
+        dashboard: "https://grafana.app-sre.devshift.net/d/V4mSz6j4k/assisted-installer-kafka?orgId=1&var-datasource=app-sre-prod-01-prometheus&from=now-3h&to=now"
+
+    # Alert stopped
+  - eval_time: 7h30m
+    alertname: "Assisted Installer Kafka - Offset lag is too high"
+    exp_alerts:
+      []
+    # 2h past threshold: should not alert
+  - eval_time: 3h
+    alertname: "Assisted Installer Kafka - Offset lag is too high"
+    exp_alerts:
+      []
+    # no relevant consumer group has enough lag
+  - eval_time: 60m
+    alertname: "Assisted Installer Kafka - Offset lag is too high"
+    exp_alerts:
+      []
