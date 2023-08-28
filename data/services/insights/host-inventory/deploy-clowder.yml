@@ -96,7 +96,7 @@ resourceTemplates:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     # ref: a87342172df2b7a4d6d07ae05d22894bcdb9540b
     # the commit ref from Aug 24, 2023 1614HR.  Revert back to the above ref after the job runs.
-    ref: c12b0d20a009b2de6c35ea1e2d3c0f3b16dd3275
+    ref: bca56157631f9efe1c03ee2414f37f5902de404a
     parameters:
       IMAGE_TAG: a873421 # The tag currently used in Prod
       REPLICAS_SVC: 25
