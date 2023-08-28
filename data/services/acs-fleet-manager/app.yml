@@ -34,15 +34,20 @@ dependencies:
 - $ref: /dependencies/openshift/service.yml
 - $ref: /dependencies/github/service.yml
 - $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/gitlab/service.yml
 
 codeComponents:
 - name: acs-fleet-manager
   resource: upstream
   url: https://github.com/stackrox/acs-fleet-manager
+- name: acs-fleet-manager-config
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
 
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
+
   items:
   - name: acs-fleet-manager
     description: ACS Fleet Manager

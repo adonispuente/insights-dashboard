@@ -1,0 +1,52 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: acs-fleet-manager
+
+name: acs-fleet-manager-config
+description: |
+  Deliver ConfigMap to fleet-manager namespace that provides:
+
+  * ACS version
+  * ACS instance resource overrides
+
+app:
+  $ref: /services/acs-fleet-manager/app.yml
+
+pipelinesProvider:
+  $ref: /services/acs-fleet-manager/pipelines/tekton.acs-fleet-manager-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: acs-fleet-manager-notifications
+
+imagePatterns: []
+
+managedResourceTypes:
+  - ConfigMap
+
+managedResourceNames:
+  - resource: ConfigMap
+    resourceNames:
+      - gitops-config
+
+resourceTemplates:
+  - name: acs-fleet-manager-stage
+    url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
+    path: /stage
+    provider: directory
+    targets:
+      - namespace:
+          $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
+        ref: main
+# TODO: uncomment to enable prod deployments of the gitops configuration
+#  - name: acs-fleet-manager-prod
+#    url: https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config
+#    path: /prod
+#    provider: directory
+#    targets:
+#      - namespace:
+#          $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
+#        ref: main
