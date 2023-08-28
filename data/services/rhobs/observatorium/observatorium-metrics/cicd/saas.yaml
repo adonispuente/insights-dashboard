@@ -69,7 +69,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-testing.yml
-    ref: 4d193c0536ff453a1d6e7cac2c0b71f85f8c31be
+    ref: 2bc9f0d2f46cdfb71cffbbecfd38e73ce7fb6776
     parameters:
       NAMESPACE: observatorium-metrics-testing
       OBSERVATORIUM_NAMESPACE: observatorium-testing
@@ -139,7 +139,7 @@ resourceTemplates:
       THANOS_REQUEST_LOGGING_LEVEL: DEBUG
   - namespace:
       $ref: /services/rhobs/observatorium/observatorium-metrics/namespaces/observatorium-metrics-stage.yml
-    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
+    ref: 2bc9f0d2f46cdfb71cffbbecfd38e73ce7fb6776
     parameters:
       NAMESPACE: observatorium-metrics-stage
       OBSERVATORIUM_NAMESPACE: observatorium-stage
