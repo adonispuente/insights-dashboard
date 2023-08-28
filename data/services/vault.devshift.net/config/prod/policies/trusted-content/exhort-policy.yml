@@ -8,6 +8,9 @@ name: "exhort-policy"
 instance:
   $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
 rules: |
+  path "trusted-content/*" {
+    capabilities = ["list"]
+  }
   path "trusted-content/data/secrets/trusted-content-prod/exhort-prod/*" {
     capabilities = ["create", "read", "update"]
   }
