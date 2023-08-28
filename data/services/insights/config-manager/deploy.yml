@@ -54,7 +54,7 @@ resourceTemplates:
       REPLICAS: 2
   - namespace:
       $ref: /services/insights/config-manager/namespaces/config-manager-prod.yml
-    ref: ee6c030e56029c6b015885cbca277f6701e5122b
+    ref: bc4f0a4af4b3042f5dfb2f3b89e94541ef12ccbd
     parameters:
       CM_LOG_LEVEL: info
       CM_DISPATCHER_HOST: http://${PLAYBOOK_DISPATCHER_HOST}:${PLAYBOOK_DISPATCHER_PORT}
