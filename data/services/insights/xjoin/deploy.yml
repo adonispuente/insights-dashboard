@@ -623,7 +623,7 @@ resourceTemplates:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
     parameters:
-      REFRESH: "1692924488"
+      REFRESH: "1693236046"
 
 - name: xjoin-index
   path: /deploy/index.yml
@@ -700,4 +700,4 @@ resourceTemplates:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
     parameters:
-      REFRESH: "1692924488"
+      REFRESH: "1693236046"
