@@ -554,7 +554,7 @@ data:
       enabled: true
     - id: m6a.metal
       enabled: true
-    - id: Hpc6a.48xlarge
+    - id: hpc6a.48xlarge
       enabled: true
     - id: c6a.xlarge
       enabled: true
