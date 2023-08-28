@@ -84,10 +84,6 @@ openshiftResources:
   type: extracurlyjinja2
   path: /insights-stage/platform-mq-stage/kafka-cyndi.secret.yaml
 - provider: vault-secret
-  path: insights/secrets/insights-stage/strimzi-stage/mk-oauth-secret
-  version: 5
-  name: mk-oauth-secret
-- provider: vault-secret
   path: insights/secrets/insights-stage/strimzi-stage/clowder-auth
   version: 2
   name: clowder-auth
@@ -98,6 +94,16 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/assisted-installer/msk-credentials/stage/mirrormaker
   version: 1
+- provider: vault-secret
+  path: insights/secrets/insights-stage/msk-credentials/admin
+  version: 1
+- provider: vault-secret
+  path: insights/secrets/insights-stage/msk-credentials/consume
+  version: 1
+- provider: vault-secret
+  path: insights/secrets/insights-stage/msk-credentials/produce
+  version: 1
+
 
 managedExternalResources: true
 
