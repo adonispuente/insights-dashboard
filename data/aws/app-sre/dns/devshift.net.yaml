@@ -451,3 +451,9 @@ records:
 
 # Backstage
 - {name: backstage.stage, type: CNAME, _target_cluster: {$ref: /openshift/app-sre-stage-01/cluster.yml}}
+
+# Trusted Content Exhort
+- name: exhort-alpha.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/app-sre-stage-01/cluster.yml
