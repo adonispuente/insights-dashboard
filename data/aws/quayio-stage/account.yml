@@ -34,6 +34,9 @@ resetPasswords:
 - user:
     $ref: /teams/app-sre/users/bhthakur.yml
   requestId: bhthakurreset
+- user:
+    $ref: /teams/app-sre/users/essilva.yml
+  requestId: essilva-reset-20230828
 deleteKeys:
 # APPSRE-4733
 - AKIAQI3ZB5AKRNPH3FPN
