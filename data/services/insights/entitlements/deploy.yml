@@ -65,7 +65,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/stage-entitlements-stage.yml
-    ref: cec7ee468eeee58cbcfdaf66383844904728bbd1
+    ref: 7e9715338dd8abd71c90a4b8b4c5b6f86818d289
 
 # Prod environment
 - name: entitlements-api-go-prod
@@ -94,7 +94,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/entitlements-prod.yml
-    ref: cec7ee468eeee58cbcfdaf66383844904728bbd1
+    ref: 7e9715338dd8abd71c90a4b8b4c5b6f86818d289
 
 # OCM environment for qaprodauth
 
