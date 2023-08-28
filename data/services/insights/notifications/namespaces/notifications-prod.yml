@@ -56,6 +56,8 @@ openshiftResources:
 - provider: vault-secret
   path: insights/secrets/insights-prod/notifications-prod/it-services
   version: 6
+  annotations:
+    qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/insights-prod/notifications-prod/rhose
   version: 2
