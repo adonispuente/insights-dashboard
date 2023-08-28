@@ -792,13 +792,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
-    # Stage Stable Deployment
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 1139ca95fe4fd14f4eb3c0d064e9eb2aecb4c3f7
-    parameters:
-      ENV_NAME: "frontends"
-      IMAGE: "quay.io/cloudservices/hccm-frontend"
     # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
@@ -810,19 +803,26 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
-    # Prod Stable Deployment
+    # Stage Stable Deployment
   - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: b0f98ad4baf9b484c67f0e993ada420668bfe54c
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: 8e47c5f617bfdb15ccb3e914d37dc23f04bf69ba
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: ef481f63f39f7a800fe9de639f9e9f252047b73c
+    ref: a153f099da64a31e9880d7c5f698310318f82c61
     parameters:
       ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/hccm-frontend"
+    # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: 13ffbbd51656e240118d619e55ea18cf5da36861
+    parameters:
+      ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hccm-frontend"
 
 - name: cost-management-dashboards
