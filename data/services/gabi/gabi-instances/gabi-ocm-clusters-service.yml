@@ -12,6 +12,10 @@ description: |
 
 signoffManagers:
 - $ref: /teams/ocm/users/igoihman.yml
+- $ref: /teams/ocm/users/dffrench.yml
+- $ref: /teams/ocm/users/crizzo.yml
+- $ref: /teams/ocm/users/pvasanth.yml
+- $ref: /teams/ocm/users/bvulaj.yml
 
 users:
 - $ref: /teams/ocm/users/etabak.yml
