@@ -1,0 +1,35 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: uhc-portal
+
+name: uhc-portal
+description: Deploy UHC portal resources
+
+app:
+  $ref: /services/ocm/app.yml
+
+pipelinesProvider:
+  $ref: /services/ocm/pipelines/tekton.ocm-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: ocm-ui-eng-internal
+
+managedResourceTypes:
+  - Frontend
+
+imagePatterns:
+  - quay.io/app-sre
+
+resourceTemplates:
+  - name: uhc-portal
+    path: /deploy/frontend.yaml
+    url: https://gitlab.cee.redhat.com/service/uhc-portal
+    targets:
+      - namespace:
+          $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+        disable: true  # do not create an app-sre deploy job for ephemeral namespace
+        ref: internal  # populated by bonfire
