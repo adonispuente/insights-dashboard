@@ -15,3 +15,10 @@ teams:
 - $ref: /dependencies/glitchtip/teams/hcc-content-sources.yml
 organization:
   $ref: /dependencies/glitchtip/organizations/insights.yml
+alerts:
+- name: alert-3
+  description: Alert imported from Glitchtip
+  quantity: 1
+  timespanMinutes: 1
+  recipients:
+  - provider: email-project-members

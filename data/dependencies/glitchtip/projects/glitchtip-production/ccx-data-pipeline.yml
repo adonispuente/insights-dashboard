@@ -14,3 +14,12 @@ teams:
 - $ref: /dependencies/glitchtip/teams/ccx-data-pipeline.yml
 organization:
   $ref: /dependencies/glitchtip/organizations/insights.yml
+alerts:
+- name: alert-8
+  description: Alert imported from Glitchtip
+  quantity: 10
+  timespanMinutes: 1
+  recipients:
+  - provider: email-project-members
+  - provider: webhook
+    url: https://hooks.slack.com/services/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
