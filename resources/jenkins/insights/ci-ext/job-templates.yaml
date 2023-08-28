@@ -451,7 +451,7 @@
         default: 'false'
     pipeline-scm:
       # make parameter to override template name
-      script-path: 'Jenkinsfile'
+      script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/cicd-tools.git'

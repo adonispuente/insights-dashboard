@@ -757,7 +757,7 @@
         default: '{run_unit_tests_stage}'
     pipeline-scm:
       # make parameter to override template name
-      script-path: 'examples/frontends-pipeline-pr-checks/Jenkinsfile'
+      script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
       scm:
       - git:
           url: 'git@github.com:{gh_org}/cicd-tools.git'
