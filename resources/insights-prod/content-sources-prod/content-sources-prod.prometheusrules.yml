@@ -14,6 +14,7 @@ spec:
         - alert: ContentSourcesBackendDown
           annotations:
             message: "content-sources-backend-service pod down for 5 minutes."
+            runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/content-sources/BackendDown.md"
           expr: sum(up{service="content-sources-backend-service", namespace="content-sources-prod"}) == 0
           labels:
             service: insights

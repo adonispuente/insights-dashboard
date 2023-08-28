@@ -26,6 +26,7 @@ tests:
         env: prod
       exp_annotations:
         message: "content-sources-backend-service pod down for 5 minutes."
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/content-sources/BackendDown.md"
 
 # --- Availability Tests --- #
 
