@@ -44,13 +44,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # Do not create an app-sre deploy job for ephemeral namespace.
     ref: internal  # Populated by Bonfire.
-    # Stage Stable Deployment
-  - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 80447090eca58ac4933cec512a8782db10204c27
-    parameters:
-      ENV_NAME: "frontends"
-      IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
     # Stage Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
@@ -62,19 +55,26 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
-    # Prod Stable Deployment
+    # Stage Stable Deployment
   - namespace:
-      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 5476ccb491b34f6f3bb2034911747429a5d9e0f0
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: 8e412ebd16b9457dc79d9445e45d9d9f6bd16777
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
     # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 3140ca52a20c08573ef0aeee9ecc79981253979c
+    ref: 642ac4509fd07bb3502d81e0b46799f0404852a8
     parameters:
       ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
+    # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: f0c0d7d113c3fe56b02a406112f601e7ff8aeb0b
+    parameters:
+      ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/hybrid-committed-spend-frontend"
 
 - name: hybrid-committed-spend-dashboard
