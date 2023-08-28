@@ -18,6 +18,7 @@ ocm:
 managedGroups:
 - dedicated-admins
 - argocd-developers
+- argocd-release-eng
 
 spec:
   product: osd

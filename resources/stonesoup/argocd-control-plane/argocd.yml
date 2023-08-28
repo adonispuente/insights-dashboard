@@ -78,6 +78,12 @@ spec:
 
       g, argocd-developers, role:developer
 
+      p, role:release-eng, applications, sync, tenants-config/*, allow
+      p, role:release-eng, applications, get, tenants-config/*, allow
+      p, role:release-eng, logs, get, tenants-config/*, allow
+
+      g, argocd-release-eng, role:release-eng
+
     scopes: '[groups]'
   repo:
     resources:
