@@ -35,4 +35,4 @@ managedResourceTypes:
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/cluster-logging-operator.yaml
-#- $ref: /services/app-sre/shared-resources/cluster-logging-config.yaml
+- $ref: /services/app-sre/shared-resources/cluster-logging-config.yaml
