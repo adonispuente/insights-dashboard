@@ -1,0 +1,16 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "exhort-policy-stage"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "trusted-content/data/secrets/trusted-content-stage/exhort-stage/*" {
+    capabilities = ["create", "read", "update"]
+  }
+  path "trusted-content/metadata/secrets/trusted-content-stage/exhort-stage/*" {
+    capabilities = ["list", "read"]
+  }

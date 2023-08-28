@@ -9,11 +9,15 @@ name: trusted-content
 permissions: []
 
 oidc_permissions:
-- $ref: /dependencies/vault/permissions/oidc/stage/trusted-content/exhort.yml
-
+- $ref: /dependencies/vault/permissions/oidc/prod/trusted-content-exhort-prod.yml
+- $ref: /dependencies/vault/permissions/oidc/prod/trusted-content-exhort-stage.yml
 self_service:
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
   datafiles:
   - $ref: /services/trusted-content/exhort/app.yml
   - $ref: /services/trusted-content/app.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/swat/roles/trusted-content.yml
