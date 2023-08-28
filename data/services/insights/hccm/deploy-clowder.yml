@@ -378,8 +378,8 @@ resourceTemplates:
       KOKU_REPLICAS: 10
       KOKU_CPU_REQUEST: 250m
       KOKU_CPU_LIMIT: 1
-      KOKU_MEMORY_REQUEST: 2Gi
-      KOKU_MEMORY_LIMIT: 4Gi
+      KOKU_MEMORY_REQUEST: 4Gi
+      KOKU_MEMORY_LIMIT: 8Gi
       # clowder-api nginx
       NGINX_REPLICAS: 3
       NGINX_CPU_REQUEST: 150m
