@@ -57,25 +57,25 @@ resourceTemplates:
       name: openshift-route-monitor-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
@@ -106,36 +106,36 @@ resourceTemplates:
       PACKAGE_TAG: latest
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: deba714e13fd28a1562c991a52eb5b0f0f5c8197
+    ref: 71112a29c1632eafb22a364943845e1b0bdc7f26
     parameters:
       PACKAGE_TAG: v0.1.570-71112a2
