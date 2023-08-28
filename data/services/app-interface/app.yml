@@ -188,3 +188,15 @@ codeComponents:
       name: terraform-repo-tekton
       group: app-sre
       branch: main
+- name: terraform-repo-template
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/app-sre/terraform-repo-template
+  gitlabSync:
+    sourceProject:
+      name: terraform-repo-template
+      group: app-sre
+      branch: main
+    destinationProject:
+      name: terraform-repo-template
+      group: app-sre
+      branch: main
