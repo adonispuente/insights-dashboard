@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="916px" preserveAspectRatio="none" style="width:702px;height:916px;background:#FFFFFF;" version="1.1" viewBox="0 0 702 916" width="702px" zoomAndPan="magnify">
+    <defs />
+    <g>
+        <rect height="29.0679" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="136.125" x="276.0275" y="5" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="126.125" x="281.0275" y="24.9659">Launch - Dynamic</text>
+        <!--MD5=[dccdb81cfc9426b97c712f8193f35c65]
+cluster Launch\n[Software System]-->
+        <g id="cluster_Launch\n[Software System]">
+            <path d="M23.68,352.0679 L152.68,352.0679 A3.75,3.75 0 0 1 155.18,354.5679 L162.18,396.2038 L468.68,396.2038 A2.5,2.5 0 0 1 471.18,398.7038 L471.18,906.5679 A2.5,2.5 0 0 1 468.68,909.0679 L23.68,909.0679 A2.5,2.5 0 0 1 21.18,906.5679 L21.18,354.5679 A2.5,2.5 0 0 1 23.68,352.0679 " style="stroke:#9A9A9A;stroke-width:1.5;fill:none;" />
+            <line style="stroke:#9A9A9A;stroke-width:1.5;fill:none;" x1="21.18" x2="162.18" y1="396.2038" y2="396.2038" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51.625" x="63.3675" y="369.0339">Launch</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="128" x="25.18" y="388.1018">[Software System]</text>
+        </g>
+        <!--MD5=[0fa8bdb862fd448cc0059ab1a8fca0bd]
+entity Launch.ProvisioningAPI-->
+        <g id="elem_Launch.ProvisioningAPI">
+            <rect fill="#DDDDDD" height="55.412" rx="2.5" ry="2.5" style="stroke:#9A9A9A;stroke-width:0.5;" width="151.5" x="86.18" y="409.0679" /><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="131.5" x="96.18" y="436.172">Provisioning API</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="53" x="135.43" y="451.55">[Container]</text>
+        </g>
+        <!--MD5=[319832ef6873e89b0cb7e2ec67928ffe]
+entity Launch.Worker-->
+        <g id="elem_Launch.Worker">
+            <rect fill="#DDDDDD" height="112.6158" rx="2.5" ry="2.5" style="stroke:#9A9A9A;stroke-width:0.5;" width="197" x="231.68" y="564.0679" /><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="60" x="300.18" y="591.172">Worker</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93" x="283.68" y="606.55">[Container: Worker]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="328.18" y="624.4459"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="241.68" y="643.5138">Executes the provisioning</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="313.18" y="662.5817">tasks</text>
+        </g>
+        <!--MD5=[d6bab28b3caa5968a4e49b8c565bd6b0]
+entity Launch.provisioningdb-->
+        <g id="elem_Launch.provisioningdb">
+            <path d="M80.18,800.0679 C80.18,790.0679 172.18,790.0679 172.18,790.0679 C172.18,790.0679 264.18,790.0679 264.18,800.0679 L264.18,882.6158 C264.18,892.6158 172.18,892.6158 172.18,892.6158 C172.18,892.6158 80.18,892.6158 80.18,882.6158 L80.18,800.0679 " fill="#DDDDDD" style="stroke:#9A9A9A;stroke-width:0.5;" />
+            <path d="M80.18,800.0679 C80.18,810.0679 172.18,810.0679 172.18,810.0679 C172.18,810.0679 264.18,810.0679 264.18,800.0679 " fill="none" style="stroke:#9A9A9A;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="127.5" x="108.43" y="831.172">provisioning-db</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="114" x="115.18" y="846.55">[Container: PostgreSQL]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="170.18" y="864.4459"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="90.18" y="883.5138">Stores provisioning data</text>
+        </g>
+        <!--MD5=[4d809b7d9d49b731f4b519870b576f4f]
+entity ImogenImage-->
+        <g id="elem_ImogenImage">
+            <ellipse cx="162.18" cy="80.4681" fill="#DDDDDD" rx="34.4001" ry="34.4001" style="stroke:#9A9A9A;stroke-width:0.5;" />
+            <rect fill="#DDDDDD" height="150.7516" rx="34.4001" ry="34.4001" style="stroke:#9A9A9A;stroke-width:0.5;" width="178" x="73.18" y="114.8682" /><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="116.5" x="103.93" y="141.9722">Imogen Image</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39" x="142.68" y="157.3502">[Person]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="160.18" y="175.2462"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="90.18" y="194.3141">Supports application</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="87.68" y="213.382">developers at her org</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="83.18" y="232.4499">through managing the</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="115.18" y="251.5178">infrastructure</text>
+        </g>
+        <!--MD5=[05ce46a04bced421f35e1491f06cc8d7]
+entity AmazonElasticCloud-->
+        <g id="elem_AmazonElasticCloud">
+            <rect fill="#DDDDDD" height="55.412" rx="2.5" ry="2.5" style="stroke:#9A9A9A;stroke-width:0.5;" width="191" x="500.68" y="814.0679" /><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="171" x="510.68" y="841.172">Amazon Elastic Cloud</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="85" x="553.68" y="856.55">[Software System]</text>
+        </g>
+        <!--MD5=[bcb386bfe6e030862982973ffc8411de]
+link ImogenImage to Launch.ProvisioningAPI-->
+        <g id="link_ImogenImage_Launch.ProvisioningAPI">
+            <path d="M97.29,266.1379 C90.45,289.0579 88.2,313.2179 95.18,336.0679 C102.8,361.0079 118.99,385.3579 133.55,403.7279 " fill="none" id="ImogenImage-to-Launch.ProvisioningAPI" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="136.66,407.5679,134.1102,398.0548,133.5157,403.6804,127.8901,403.0858,136.66,407.5679" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="86" x="96.18" y="314.7579">1. Launch request</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="19" x="129.68" y="326.2398">[API]</text>
+        </g>
+        <!--MD5=[bcb386bfe6e030862982973ffc8411de]
+link ImogenImage to Launch.ProvisioningAPI-->
+        <g id="link_ImogenImage_Launch.ProvisioningAPI">
+            <path d="M186.61,266.3279 C189.18,289.3479 189.97,313.4879 187.18,336.0679 C184.38,358.7179 178.12,383.6179 172.56,402.8479 " fill="none" id="ImogenImage-to-Launch.ProvisioningAPI-1" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="171.22,407.4279,177.6006,399.9254,172.6331,402.6318,169.9268,397.6643,171.22,407.4279" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48" x="208.68" y="307.7579">2. Verifies</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="90" x="189.18" y="321.3779">deployment status</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="19" x="224.68" y="332.8598">[API]</text>
+        </g>
+        <!--MD5=[c9334b86c6ab0ec9f3d9c094bf66229b]
+link Launch.ProvisioningAPI to Launch.provisioningdb-->
+        <g id="link_Launch.ProvisioningAPI_Launch.provisioningdb">
+            <path d="M140.17,464.2279 C96.18,520.9579 6,656.8879 59.18,760.0679 C63.89,769.1979 70.16,777.5179 77.35,785.0479 " fill="none" id="Launch.ProvisioningAPI-to-Launch.provisioningdb" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="80.87,788.5679,77.3345,779.3755,77.3345,785.0324,71.6776,785.0324,80.87,788.5679" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49" x="101.18" y="605.7579">2. Creates</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="97" x="77.18" y="619.3779">deployment request</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="31" x="111.68" y="632.9979">record</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="20" x="117.18" y="644.4798">[SQL]</text>
+        </g>
+        <!--MD5=[1432ca191c32561e8627312006fdd5a4]
+link Launch.ProvisioningAPI to Launch.Worker-->
+        <g id="link_Launch.ProvisioningAPI_Launch.Worker">
+            <path d="M186.97,464.4179 C209.85,489.2079 244.65,526.9179 274.22,558.9479 " fill="none" id="Launch.ProvisioningAPI-to-Launch.Worker" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="277.52,562.5179,274.3592,553.19,274.1304,558.8423,268.4782,558.6134,277.52,562.5179" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="59" x="261.18" y="505.7579">3. Enqueues</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="80" x="252.18" y="519.3779">deployment task</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="27" x="278.68" y="530.8598">[Redis]</text>
+        </g>
+        <!--MD5=[ee86f07ae700e2ba918ab425c0cf9064]
+link Launch.Worker to Launch.provisioningdb-->
+        <g id="link_Launch.Worker_Launch.provisioningdb">
+            <path d="M335,677.4779 C334.66,704.4379 330.09,736.0579 314.18,760.0679 C303.05,776.8779 287.14,790.5579 269.96,801.5579 " fill="none" id="Launch.Worker-to-Launch.provisioningdb" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="265.88,804.0879,275.6393,802.7631,270.1344,801.4611,271.4364,795.9561,265.88,804.0879" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49" x="357.18" y="718.7579">4. Fetches</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="97" x="333.18" y="732.3779">deployment request</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22" x="372.18" y="745.9979">data</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="20" x="373.18" y="757.4798">[SQL]</text>
+        </g>
+        <!--MD5=[ee86f07ae700e2ba918ab425c0cf9064]
+link Launch.Worker to Launch.provisioningdb-->
+        <g id="link_Launch.Worker_Launch.provisioningdb">
+            <path d="M231.47,659.8779 C215.09,665.8679 198.21,671.7979 182.18,677.0679 C135.66,692.3479 105.71,668.0179 76.18,707.0679 C61.97,725.8579 66.22,738.7179 76.18,760.0679 C80.37,769.0479 86.11,777.3779 92.71,785.0079 " fill="none" id="Launch.Worker-to-Launch.provisioningdb-1" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="95.91,788.5479,92.8446,779.1883,92.5581,784.8379,86.9085,784.5514,95.91,788.5479" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92" x="77.18" y="725.2579">6. Marks progress -</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="63" x="93.18" y="738.8779">SSH key done</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="20" x="114.68" y="750.3598">[SQL]</text>
+        </g>
+        <!--MD5=[ee86f07ae700e2ba918ab425c0cf9064]
+link Launch.Worker to Launch.provisioningdb-->
+        <g id="link_Launch.Worker_Launch.provisioningdb">
+            <path d="M236.49,677.3379 C226.25,686.2979 216.8,696.2379 209.18,707.0679 C193.43,729.4679 184.37,758.3479 179.16,783.5079 " fill="none" id="Launch.Worker-to-Launch.provisioningdb-2" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="178.21,788.3379,183.8568,780.2686,179.1659,783.4301,176.0044,778.7392,178.21,788.3379" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92" x="210.18" y="718.7579">8. Marks progress -</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="78" x="217.18" y="732.3779">EC2 Reservation</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37" x="239.18" y="745.9979">created</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="20" x="247.68" y="757.4798">[SQL]</text>
+        </g>
+        <!--MD5=[60ed06b3fd65a7413299fccd4b0b0274]
+link Launch.Worker to AmazonElasticCloud-->
+        <g id="link_Launch.Worker_AmazonElasticCloud">
+            <path d="M406.83,677.4379 C418.93,686.9979 431.09,697.0779 442.18,707.0679 C466.24,728.7379 468.19,738.3179 492.18,760.0679 C511.51,777.5979 534.32,795.5279 553.64,809.9979 " fill="none" id="Launch.Worker-to-AmazonElasticCloud" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="557.26,812.6979,552.4403,804.1089,553.2531,809.7071,547.655,810.5199,557.26,812.6979" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="493.18" y="725.2579">5. Ensures ssh</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48" x="505.18" y="738.8779">public key</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="21" x="518.68" y="750.3598">[SDK]</text>
+        </g>
+        <!--MD5=[60ed06b3fd65a7413299fccd4b0b0274]
+link Launch.Worker to AmazonElasticCloud-->
+        <g id="link_Launch.Worker_AmazonElasticCloud">
+            <path d="M429.08,633.5579 C478.37,644.6479 534.84,665.9979 570.18,707.0679 C593.95,734.6879 598.51,777.5279 598.38,807.1979 " fill="none" id="Launch.Worker-to-AmazonElasticCloud-1" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#707070" points="598.3,812.1779,602.4282,803.236,598.3714,807.1784,594.429,803.1217,598.3,812.1779" style="stroke:#707070;stroke-width:2.0;" /><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="100" x="594.18" y="725.2579">7. Requests instance</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40" x="624.18" y="738.8779">creation</text><text fill="#707070" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="21" x="633.68" y="750.3598">[SDK]</text>
+        </g>
+        <!--MD5=[6b4b23dce8b9d4faaa81bf296799b109]
+@startuml
+title Launch - Dynamic
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<AmazonElasticCloud>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam person<<ImogenImage>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<Launch.ProvisioningAPI>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<Launch.Worker>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam database<<Launch.provisioningdb>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+package "Launch\n[Software System]" <<Launch>> {
+  skinparam PackageBorderColor<<Launch>> #9a9a9a
+  skinparam PackageFontColor<<Launch>> #9a9a9a
+
+  rectangle "==Provisioning API\n<size:10>[Container]</size>" <<Launch.ProvisioningAPI>> as Launch.ProvisioningAPI
+  rectangle "==Worker\n<size:10>[Container: Worker]</size>\n\nExecutes the provisioning tasks" <<Launch.Worker>> as Launch.Worker
+  database "==provisioning-db\n<size:10>[Container: PostgreSQL]</size>\n\nStores provisioning data" <<Launch.provisioningdb>> as Launch.provisioningdb
+}
+
+person "==Imogen Image\n<size:10>[Person]</size>\n\nSupports application developers at her org through managing the infrastructure" <<ImogenImage>> as ImogenImage
+rectangle "==Amazon Elastic Cloud\n<size:10>[Software System]</size>" <<AmazonElasticCloud>> as AmazonElasticCloud
+
+ImogenImage .[#707070,thickness=2].> Launch.ProvisioningAPI : "<color:#707070>1. Launch request\n<color:#707070><size:8>[API]</size>"
+Launch.ProvisioningAPI .[#707070,thickness=2].> Launch.provisioningdb : "<color:#707070>2. Creates deployment request record\n<color:#707070><size:8>[SQL]</size>"
+ImogenImage .[#707070,thickness=2].> Launch.ProvisioningAPI : "<color:#707070>2. Verifies deployment status\n<color:#707070><size:8>[API]</size>"
+Launch.ProvisioningAPI .[#707070,thickness=2].> Launch.Worker : "<color:#707070>3. Enqueues deployment task\n<color:#707070><size:8>[Redis]</size>"
+Launch.Worker .[#707070,thickness=2].> Launch.provisioningdb : "<color:#707070>4. Fetches deployment request data\n<color:#707070><size:8>[SQL]</size>"
+Launch.Worker .[#707070,thickness=2].> AmazonElasticCloud : "<color:#707070>5. Ensures ssh public key\n<color:#707070><size:8>[SDK]</size>"
+Launch.Worker .[#707070,thickness=2].> Launch.provisioningdb : "<color:#707070>6. Marks progress - SSH key done\n<color:#707070><size:8>[SQL]</size>"
+Launch.Worker .[#707070,thickness=2].> AmazonElasticCloud : "<color:#707070>7. Requests instance creation\n<color:#707070><size:8>[SDK]</size>"
+Launch.Worker .[#707070,thickness=2].> Launch.provisioningdb : "<color:#707070>8. Marks progress - EC2 Reservation created\n<color:#707070><size:8>[SQL]</size>"
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 12:55:52 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+-->
+    </g>
+</svg>

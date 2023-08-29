@@ -24,13 +24,15 @@ Hard dependencies:
 * **Image Builder API** - we retrieve information about the images to be Launched and can't Launch images without it.
 * **RBAC** - we deny access for unauthorized users and without RBAC, we can not determine access, so we deny it.
 
+* **Redis** - we need redis to plan Jobs, without it the app can not run properly.
+
 Soft dependencies:
 
 * **Notifications** if notifications are down, we do not deliver notifications :)
 
 ## Service diagram
 
-https://satellite-services.pages.redhat.com/architecture/docs/06_runtime_view.html
+![Launch service diagram](./provisioning-service-diagram.svg "Launch service diagram")
 
 ## Application Success Criteria
 
@@ -42,6 +44,8 @@ https://satellite-services.pages.redhat.com/architecture/docs/06_runtime_view.ht
 All master data are stored in AWS RDS PostgreSQL database provided through app-interface.
 The app is not storing any long term customer data,
 losing data here means just temporary disruption of currently processed reservations and losing an audit trail of past reservations.
+
+Redis is storing only cache data and Job in-flight data, loosing these data has no major impact on the app.
 
 Some data are exported for statistical purposes to S3.
 If these are lost, we lose our statistics, but no disruption to the business.
@@ -60,8 +64,9 @@ Limit for pod is 600Mi memory and 0.5 CPU.
 
 This is current usage in production with some traffic:
 
-|**Resource type** | **Used** | **Max in namespace**
-|limits.cpu        | 4        | 6
-|limits.memory     | 4800Mi   | 24Gi
-|requests.cpu      | 800m     | 3
-|requests.memory   | 800Mi    | 12Gi
+| Resource type | Used | Max in namespace
+| -- | -- | --
+| limits.cpu        | 4        | 6
+| limits.memory     | 4800Mi   | 24Gi
+| requests.cpu      | 800m     | 3
+| requests.memory   | 800Mi    | 12Gi
