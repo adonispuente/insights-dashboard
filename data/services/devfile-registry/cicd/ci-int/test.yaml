@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/devfile-registry/namespaces/devfile-registry-stage.yml
-    ref: 7371a6b2797ba7360ec0e531dd8abd69f3845ae5
+    ref: 13169e6652723b7406733d5b95f46e0c78b72f01
     parameters:
       REGISTRY: https://registry.stage.devfile.io
       IMAGE_TAG: next
