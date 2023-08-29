@@ -12,7 +12,7 @@ app:
   $ref: /services/trusted-content/exhort/app.yml
 environment:
   $ref: /products/trusted-content/environments/stage.yml
-
+managedRoles: true
 openshiftResources:
 - provider: route
   path: /trusted-content-stage/exhort-stage/stage-route.yml
