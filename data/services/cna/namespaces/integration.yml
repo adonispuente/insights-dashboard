@@ -106,7 +106,7 @@ externalResources:
     assume_role:
       AWS:
       - arn:aws:iam::366871242094:role/cna-service-integration-appsres06ue1
-    user_policy:
+    inline_policy:
       {
         "Version": "2012-10-17",
         "Statement": [
