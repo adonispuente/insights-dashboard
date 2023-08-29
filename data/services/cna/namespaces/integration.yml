@@ -34,8 +34,6 @@ openshiftResources:
 - provider: vault-secret
   path: app-interface/cna/integration/runtime
   version: 2
-  #- provider: route -- FIXME: need to request a hostname first
-  #  path: /cna/stage/cna.route.yaml
 # allows creation of Taskruns
 - provider: resource
   path: /cna/integration/taskrunner.rolebinding.yaml
