@@ -624,6 +624,7 @@ resourceTemplates:
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
     parameters:
       REFRESH: "1693236046"
+    delete: true
 
 - name: xjoin-index
   path: /deploy/index.yml
@@ -701,3 +702,4 @@ resourceTemplates:
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
     parameters:
       REFRESH: "1693236046"
+    delete: true
