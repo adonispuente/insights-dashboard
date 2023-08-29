@@ -115,7 +115,7 @@ resourceTemplates:
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: 8f8b035522ad0a5a27596ddedc98ec5baa921051
+    ref: c3d7a85ba57ca334c6777c1bc73324470c2992af
     parameters:
       MEMORY_LIMIT: '2Gi'
       API_REPLICA_COUNT: 3
