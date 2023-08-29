@@ -1,0 +1,67 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Rob Blake
+org_username: rblake
+github_username: robpblake
+quay_username: rblake
+tag_on_cluster_updates: false
+
+roles:
+  - $ref: /teams/ocm/roles/dev.yml
+  - $ref: /teams/ocm/roles/sd-a-team-member.yml
+  - $ref: /teams/ocm/roles/stage-debugger.yml
+  - $ref: /aws/app-sre/roles/log-consumer-rds.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+
+public_gpg_key: |
+  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
+  =XiFZ
