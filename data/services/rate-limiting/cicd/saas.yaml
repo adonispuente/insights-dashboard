@@ -44,7 +44,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: bb37afbcae25f85dd1c5b978ced47731aabfa500
+    ref: 46bf816bf763e37698a69954de73ca35d1ff3ccf
 
 - name: limitador
   url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
