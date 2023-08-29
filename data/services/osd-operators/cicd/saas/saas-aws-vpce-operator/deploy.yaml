@@ -58,43 +58,43 @@ resourceTemplates:
       name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep07ue2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep06uw2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep05ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep04ew2
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep03uw1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep02ue1
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 455b3c18ca33b949492b6adc9db61213a0229cee
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:
       publish:
       - aws-vpce-operator-sss-deployed-success-channel-hivep01ue1
