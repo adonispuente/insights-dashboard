@@ -36,7 +36,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
-    ref: 1f0af1d39186813a48137f2f53e783b3525e317a
+    ref: ff432cf56a725001ce1aa17f46ed8c0a9e7fbd78
     parameters:
       IQE_MARKER: smoke and api
       ENV_FOR_DYNACONF: stage_post_deploy
