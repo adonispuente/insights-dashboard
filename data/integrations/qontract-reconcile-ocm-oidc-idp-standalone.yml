@@ -18,8 +18,8 @@ managed:
         cpu: 25m
       limits:
         memory: 500Mi
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
-    #                        app-sre-stage               app-sre-prod                ota (APPSRE-7879)           APPSRE-7951                 APPSRE-8018
+    extraArgs: --ocm-env ocm-production --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
+    #                                                 app-sre-stage               app-sre-prod                ota (APPSRE-7879)           APPSRE-7951                 APPSRE-8018
     logs:
       slack: true
 - namespace:
@@ -31,8 +31,8 @@ managed:
         cpu: 25m
       limits:
         memory: 500Mi
-    extraArgs: --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
-    #                        app-sre-stage               app-sre-prod                ota (APPSRE-7879)           APPSRE-7951                 APPSRE-8018
+    extraArgs: --ocm-env ocm-production --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe --vault-input-path app-sre/integrations-throughput/rhidp/ocm --auth-name redhat-sso
+    #                                                 app-sre-stage               app-sre-prod                ota (APPSRE-7879)           APPSRE-7951                 APPSRE-8018
     logs:
       slack: true
 
