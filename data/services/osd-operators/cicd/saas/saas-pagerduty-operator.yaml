@@ -204,25 +204,25 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
 
 - name: pagerduty-service-orchestration-osd
   url: https://github.com/openshift/pagerduty-operator
@@ -230,22 +230,22 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
-    ref: b7ff9831e7c0dce4483b4beb141b80634e4d88d5
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
