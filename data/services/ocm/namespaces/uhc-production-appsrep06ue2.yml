@@ -18,6 +18,8 @@ environment:
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
 
+managedRoles: true
+
 managedExternalResources: true
 
 externalResources:
