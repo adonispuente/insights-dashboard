@@ -94,8 +94,9 @@ resourceTemplates:
       - host-inventory-stage-post-deploy-success-channel
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: a87342172df2b7a4d6d07ae05d22894bcdb9540b
+    ref: f12eeec16cda33d9e90dfdcd2999deb2bb03604f
     parameters:
+      IMAGE_TAG: a873421
       REPLICAS_SVC: 25
       INVENTORY_DB_SSL_MODE: verify-full
       REAPER_SUSPEND: 'false'
