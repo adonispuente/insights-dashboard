@@ -7650,7 +7650,7 @@ records:
   identifier: cname-a5df8sfd7k-api-openshift-com
   type: CNAME
   ttl: 900
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
+  value: elb.apps.appsres06ue1.e3ka.p1.openshiftapps.com.
   proxied: false
   priority: 0
 - name: metrics.sectest-usw2-03.openshift.com
