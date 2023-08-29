@@ -24,7 +24,7 @@ spec:
           Application: {{ $labels.name }}
           Cluster: {{ $labels.dest_server }}
           Health status Degraded.
-          Related SOP: https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/o11y/alert-rule-degradedArgocdApp.md
+        runbook_url: https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/o11y/alert-rule-degradedArgocdApp.md
     - alert: ProgressingArgocdApp
       expr: |
         max_over_time(argocd_app_info{health_status="Progressing", dest_namespace!~".+-tenant"}[20m]) == 1
@@ -41,4 +41,4 @@ spec:
           Application: {{ $labels.name }}
           Cluster: {{ $labels.dest_server }}
           App progressing for too long.
-          Related SOP: https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/o11y/alert-rule-ProgressingArgocdApp.md
+        runbook_url: https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/o11y/alert-rule-ProgressingArgocdApp.md
