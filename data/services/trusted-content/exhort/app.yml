@@ -35,4 +35,4 @@ dependencies:
 codeComponents:
 - name: exhort
   resource: upstream
-  url: https://github.com/RHEcosystemAppEng/exhort.git
+  url: https://github.com/RHEcosystemAppEng/exhort
