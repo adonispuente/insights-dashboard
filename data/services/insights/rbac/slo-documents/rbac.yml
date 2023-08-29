@@ -1,0 +1,39 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: rbac
+
+name: rbac
+
+app:
+  $ref: /services/insights/rbac/app.yml
+
+namespaces:
+- namespace:
+    $ref: /services/insights/rbac/namespaces/rbac-prod.yml
+
+slos:
+- name: RBAC error rate uptime
+  SLIType: availability
+  SLISpecification: Availability of RBAC in the defined time window.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rbac/SLO.md
+  SLOParameters:
+    window: 28d
+  SLOTarget: 0.99
+  SLOTargetUnit: percent_0_1
+  expr: avg_over_time(service:sli:status_5xx:pctl5rate5m{environment="prod", exported_service="rbac"}[{{window}}])
+  prometheusRules: /resources/insights-prod/rbac-prod/rbac.prometheusrules.yaml
+  dashboard: https://grafana.app-sre.devshift.net/d/TjP_nMWMk/operations-rbac-w-cpu
+
+- name: RBAC latency uptime
+  SLIType: latency
+  SLISpecification: The Proportion of the service request durations under 500 ms in the defined time window.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/rbac/SLO.md
+  SLOParameters:
+    window: 28d
+  SLOTarget: 0.99
+  SLOTargetUnit: percent_0_1
+  expr: sum(rate(django_http_requests_latency_including_middlewares_seconds_bucket{le="0.5", namespace="rbac-prod"}[{{window}}])) / sum(rate(django_http_requests_latency_including_middlewares_seconds_count{namespace="rbac-prod"}[{{window}}]))
+  prometheusRules: /resources/insights-prod/rbac-prod/rbac.prometheusrules.yaml
+  dashboard: https://grafana.app-sre.devshift.net/d/TjP_nMWMk/operations-rbac-w-cpu
