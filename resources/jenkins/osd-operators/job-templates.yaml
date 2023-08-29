@@ -30,6 +30,7 @@
     - gitlab-notifier
     - archive:
         artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
+        allow-empty: 'true'
     <<: *gl_pr_check
 
 - job-template:
@@ -53,6 +54,7 @@
     - gitlab-notifier
     - archive:
         artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
+        allow-empty: 'true'
     - slack:
         room: '{slack_channel_notification}'
         notify-start: false
@@ -98,6 +100,7 @@
     - gitlab-notifier
     - archive:
         artifacts: '**/*.tfplan.txt, **/*-hiveconfig.yaml'
+        allow-empty: 'true'
     - slack:
         room: '{slack_channel_notification}'
         notify-start: false
