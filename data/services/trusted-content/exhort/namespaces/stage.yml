@@ -21,6 +21,7 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+
 # network policies 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml

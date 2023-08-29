@@ -11,6 +11,7 @@ permissions: []
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/trusted-content-exhort-prod.yml
 - $ref: /dependencies/vault/permissions/oidc/prod/trusted-content-exhort-stage.yml
+
 self_service:
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
@@ -21,3 +22,10 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/swat/roles/trusted-content.yml
+access:
+- namespace:
+    $ref: /services/trusted-content/namespaces/tekton.exhort-pipelines.appsrep05ue1.yml
+  role: view
+- namespace:
+    $ref: /services/trusted-content/namespaces/tekton.exhort-pipelines.appsrep05ue1.yml
+  role: tekton-trigger-access
