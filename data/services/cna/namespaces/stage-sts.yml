@@ -66,7 +66,7 @@ externalResources:
     output_resource_name: cna-service-role-arn
     assume_role:
       AWS:
-      - arn:aws:iam::366871242094:role/cna-service-stage-appsres06ue1
+      - arn:aws:sts::366871242094:assumed-role/cna-service-stage-appsres06ue1/cna
     inline_policy:
       {
         "Version": "2012-10-17",
