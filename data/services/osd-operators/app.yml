@@ -88,6 +88,9 @@ quayRepos:
   - name: ocm-agent-operator-test-harness
     description: ocm-agent-operator osde2e test harness
     public: true
+  - name: must-gather-operator-test-harness
+    description: must-gather-operator osde2e test harness
+    public: true
   - name: boilerplate
     description: boilerplate dependencies image
     public: true
