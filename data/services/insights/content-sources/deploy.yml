@@ -82,6 +82,7 @@ resourceTemplates:
     parameters:
       FEATURES_SNAPSHOTS_ENABLED: true #Allow all accounts
       CLIENTS_PULP_DOWNLOAD_POLICY: "on_demand"
+      RBAC_ORG_ADMIN_SKIP: true
   - namespace: # STAGE
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
     ref: main
@@ -100,6 +101,7 @@ resourceTemplates:
       CLIENTS_PULP_DOWNLOAD_POLICY: "immediate"
       # content9, hms-qa
       FEATURES_ADMIN_TASKS_ACCOUNTS: "11486589,11481865"
+      RBAC_ORG_ADMIN_SKIP: true
     promotion:
       publish:
       - content-sources-stage-deploy-success-channel
