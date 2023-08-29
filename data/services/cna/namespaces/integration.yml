@@ -43,7 +43,7 @@ openshiftResources:
 - provider: route
   path: /cna/integration/cna.route.yaml
 # AWS STS credentials
-- provider: openshift-resources
+- provider: resource-template
   path: /cna/cna-aws-credentials.secret.yaml
 
 managedExternalResources: true

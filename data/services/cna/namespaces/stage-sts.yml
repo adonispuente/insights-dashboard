@@ -41,7 +41,7 @@ openshiftResources:
 - provider: resource
   path: /cna/stage/taskrunner.role.yaml
 # AWS STS credentials
-- provider: openshift-resources
+- provider: resource-template
   path: /cna/cna-aws-credentials.secret.yaml
 # TODO - route
 
