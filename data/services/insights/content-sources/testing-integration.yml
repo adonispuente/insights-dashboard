@@ -36,7 +36,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
-    ref: 1f0af1d39186813a48137f2f53e783b3525e317a
+    ref: ff432cf56a725001ce1aa17f46ed8c0a9e7fbd78
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_PLUGINS: hms_integration
@@ -55,7 +55,7 @@ resourceTemplates:
       - channel: content-sources-stage-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: 24811ffbb04a9c07
+          target_config_hash: 7b65aef2098c9f64
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
