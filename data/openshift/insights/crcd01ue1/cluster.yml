@@ -70,5 +70,5 @@ upgradePolicy:
 
 disable:
   integrations:
-  # This cluster is a CCS cluster and we con't fully support it
+  # This cluster is a CCS cluster and we can't fully support it
   - ocm-clusters
