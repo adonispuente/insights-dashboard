@@ -2472,8 +2472,8 @@ data:
       size: metal
       ccs_only: true
       generic_name: standard-192-am
-    - id: Hpc6a.48xlarge
-      name: Hpc6a.48xlarge - Compute optimized
+    - id: hpc6a.48xlarge
+      name: hpc6a.48xlarge - Compute optimized
       cloud_provider_id: aws
       cpu_cores: 96
       memory: 412316860416
