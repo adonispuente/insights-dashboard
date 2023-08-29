@@ -30,6 +30,7 @@ config:
     - "insights-gl-build-master":
         display_name: ccx build-master
         disable_retry_on_failure: false
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: insights-results-aggregator
     label: insights
@@ -43,6 +44,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: ccx-smart-proxy
     label: insights
@@ -56,6 +58,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-smart-proxy build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: ccx-insights-content-service
     label: insights
@@ -70,9 +73,11 @@ config:
     - "insights-gh-build-master":
         display_name: ccx-insights-content-service build-master
         disable_retry_on_failure: false
+        slack_channel_notification: 'ccx-dev-notifications'
     - "insights-gh-build-master":
         display_name: ccx-insights-content-service build-security-compliance
         branch: security-compliance
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: insights-results-aggregator-cleaner
     label: insights
@@ -86,6 +91,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator-cleaner build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: ccx-notification-writer
     label: insights
@@ -99,6 +105,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-notification-writer build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 - project:
     name: ccx-notification-service
     label: insights
@@ -112,6 +119,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: ccx-notification-service build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: io-gathering-service
@@ -128,6 +136,7 @@ config:
     - "insights-gh-build-master":
         branch: main
         display_name: io-gathering-service build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-sha-extractor
@@ -144,6 +153,7 @@ config:
     - "insights-gl-build-master":
         branch: master
         display_name: ccx-sha-extractor build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-kafka-monitor
@@ -155,6 +165,7 @@ config:
     jobs:
     - "insights-gh-build-master":
         display_name: ccx-kafka-monitor build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: insights-results-aggregator-exporter
@@ -169,6 +180,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-results-aggregator-exporter build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-load-test
@@ -181,6 +193,7 @@ config:
     - "insights-gl-build-master":
         display_name: ccx-load-test build-master
         branch: main
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: insights-content-template-renderer
@@ -195,6 +208,7 @@ config:
         concurrent_build: true
     - "insights-gh-build-master":
         display_name: insights-content-template-renderer build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-upgrades-inference
@@ -210,6 +224,7 @@ config:
     - "insights-gl-pr-check":
         display_name: ccx-upgrades-inference pr-check
         concurrent_build: true
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-upgrades-data-eng
@@ -222,6 +237,7 @@ config:
     - "insights-gl-build-master":
         display_name: ccx-upgrades-data-eng build-master
         branch: main
+        slack_channel_notification: 'ccx-dev-notifications'
     - "insights-gl-pr-check":
         display_name: ccx-upgrades-data-eng pr-check
         concurrent_build: true
@@ -239,6 +255,7 @@ config:
         concurrent_build: true
     - insights-gh-build-master:
         display_name: ocp-advisor-frontend build-master
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: insights-behavioral-spec
@@ -251,6 +268,7 @@ config:
     - insights-gh-build-master:
         display_name: insights-behavioral-spec build-master
         branch: main
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: rhobs-mock
@@ -263,6 +281,7 @@ config:
     - "insights-gl-build-master":
         display_name: rhobs-mock build-master
         branch: main
+        slack_channel_notification: 'ccx-dev-notifications'
 
 - project:
     name: ccx-mock-ams
@@ -276,3 +295,4 @@ config:
     - "insights-gl-build-master":
         display_name: ccx-mock-ams build-master
         branch: main
+        slack_channel_notification: 'ccx-dev-notifications'
