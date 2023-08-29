@@ -30,10 +30,15 @@ config:
         display_name: curiosity-frontend pr-check
         branch: dev
         pr_check_script_path: "./deploy/pr_check.sh"
-    # Run the build for the main branch which targets the stable environments in stage & production
-    - "insights-gh-build-master":
-        display_name: curiosity-frontend build-master
+    # Run the build for the main branch which targets the stage preview environment
+    - "gh-build-master":
+        display_name: curiosity-frontend build-main
         branch: main
+        build_deploy_script_path: "./deploy/build_deploy.sh"
+    # Run the build for the stable branch which targets the stage stable environment
+    - "gh-build-master":
+        display_name: curiosity-frontend build-stable
+        branch: stable
         build_deploy_script_path: "./deploy/build_deploy.sh"
     # Run the build for the dev branch which targets the preview environments in stage & production
     - "insights-gh-build-master":
