@@ -16,7 +16,11 @@ environment:
 openshiftResources:
 - provider: route
   path: /trusted-content-stage/exhort-stage/stage-route.yml
-
+- provider: vault-secret
+  path: trusted-content/secrets/trusted-content-stage/exhort-stage/exhort-secret
+  version: 1
+  annotations:
+    qontract.recycle: "true"
 # network policies 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
