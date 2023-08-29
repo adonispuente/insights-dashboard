@@ -24,7 +24,83 @@ sharedResources:
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres06ue1.yml
 
-managedExternalResources: false
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-rosa/account.yml
+  resources:
+  - provider: aws-iam-role
+    identifier: cna-service-stage-appsres06ue1
+    assume_role:
+      Federated: arn:aws:iam::611491592236:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm
+    assume_action: "AssumeRoleWithWebIdentity"
+    # the condition makes sure that only the cna-sa service-account in the cna-stage namespace can assume this role
+    assume_condition:
+      StringEquals:
+        "rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm:sub": "system:serviceaccount:cna-stage:cna-sa"
+    # this is the trust-policy on the "cluster-side", allowing the cna-sa service account to assume the
+    # cna-service-stage role in the cna-service-stage AWS account
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::730613587754:role/cna-service-stage"
+          }
+        ]
+      }
+    output_resource_name: cna-sts-iam
+- provider: aws
+  provisioner:
+    $ref: /aws/cna-service-stage/account.yml
+  resources:
+  # this is the jump-host IAM role CNA users grant assume role to for their AWS accounts
+  # this role is NOT TO BE USED DIRECTLY by CNA or anyone, instead this role needs to
+  # be assumed by the CNA service account via cluster STS
+  - provider: aws-iam-role
+    identifier: cna-service-stage
+    output_resource_name: cna-service-role-arn
+    assume_role:
+      AWS:
+      - arn:aws:iam::366871242094:role/cna-service-stage-appsres06ue1
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/RH-CNA"
+          },
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/network-mgmt-*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::cna-s3-stage"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:DeleteObject"
+            ],
+            "Resource": ["arn:aws:s3:::cna-s3-stage/*"]
+          }
+        ]
+      }
 
 glitchtipProjects:
 - $ref: /dependencies/glitchtip/projects/glitchtip-production/cna-stage.yml
