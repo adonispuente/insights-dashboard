@@ -64,8 +64,9 @@ Limit for pod is 600Mi memory and 0.5 CPU.
 
 This is current usage in production with some traffic:
 
-|**Resource type** | **Used** | **Max in namespace**
-|limits.cpu        | 4        | 6
-|limits.memory     | 4800Mi   | 24Gi
-|requests.cpu      | 800m     | 3
-|requests.memory   | 800Mi    | 12Gi
+| Resource type | Used | Max in namespace
+| -- | -- | --
+| limits.cpu        | 4        | 6
+| limits.memory     | 4800Mi   | 24Gi
+| requests.cpu      | 800m     | 3
+| requests.memory   | 800Mi    | 12Gi
