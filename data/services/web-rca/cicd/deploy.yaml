@@ -64,6 +64,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
     parameters:
       ENABLE_DELETE: true
       REPLICAS: 3
+      PRUNER_DISABLE: false
     upstream:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
