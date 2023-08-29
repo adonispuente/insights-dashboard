@@ -63,6 +63,33 @@ externalResources:
     output_resource_name: cna-redis
 - provider: aws
   provisioner:
+    $ref: /aws/app-sre-rosa/account.yml
+  resources:
+  - provider: aws-iam-role
+    identifier: cna-service-integration-appsres06ue1
+    assume_role:
+      Federated: arn:aws:iam::611491592236:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm
+    assume_action: "AssumeRoleWithWebIdentity"
+    # the condition makes sure that only the cna-sa service-account in the cna-integration namespace can assume this role
+    assume_condition:
+      StringEquals:
+        "rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm:sub": "system:serviceaccount:cna-integration:cna-sa"
+    # this is the trust-policy on the "cluster-side", allowing the cna-sa service account to assume the
+    # cna-service-integration role in the cna-service-integration AWS account
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::072580917141:role/cna-service-integration"
+          }
+        ]
+      }
+    output_resource_name: cna-sts-iam
+- provider: aws
+  provisioner:
     $ref: /aws/cna-service-integration/account.yml
   resources:
   - provider: s3
@@ -70,6 +97,49 @@ externalResources:
     identifier: cna-s3-integration
     defaults: /terraform/resources/s3-private-1.yml
     output_resource_name: cna-s3
+  # this is the jump-host IAM role CNA users grant assume role to for their AWS accounts
+  # this role is NOT TO BE USED DIRECTLY by CNA or anyone, instead this role needs to
+  # be assumed by the CNA service account via cluster STS
+  - provider: aws-iam-role
+    identifier: cna-service-integration
+    output_resource_name: cna-service-role-arn
+    assume_role:
+      AWS:
+      - arn:aws:iam::366871242094:role/cna-service-integration-appsres06ue1
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/RH-CNA"
+          },
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/network-mgmt-*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::cna-s3-integration"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:DeleteObject"
+            ],
+            "Resource": ["arn:aws:s3:::cna-s3-integration/*"]
+          }
+        ]
+      }
   - provider: aws-iam-service-account
     identifier: cna-service-integration-iam-account
     output_resource_name: cna-service-integration-iam
