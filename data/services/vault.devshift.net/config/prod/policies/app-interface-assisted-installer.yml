@@ -30,7 +30,7 @@ rules: |
     capabilities = ["list", "read"]
   }
   path "app-interface/data/assisted-installer/*" {
-    capabilities = ["create", "update", "read"]
+    capabilities = ["create", "update", "read", "delete", "list"]
   }
   path "app-interface/data/assisted-installer/*production" {
     capabilities = ["deny"]
