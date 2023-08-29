@@ -8,7 +8,7 @@ name: cna-integration
 description: Integration namespace for the CNA service
 
 cluster:
-  $ref: /openshift/app-sre-stage-01/cluster.yml
+  $ref: /openshift/appsres06ue1/cluster.yml
 
 app:
   $ref: /services/cna/app.yml
@@ -21,12 +21,14 @@ managedRoles: true
 managedResourceTypes:
 - Role.rbac.authorization.k8s.io
 - RoleBinding.rbac.authorization.k8s.io
+- NetworkPolicy
 
 sharedResources:
+- $ref: /services/app-sre/shared-resources/default-network-policies.yaml
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
 networkPoliciesAllow:
-- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres06ue1.yml
 
 openshiftResources:
 - provider: vault-secret
