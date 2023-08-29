@@ -22,6 +22,7 @@ managedResourceTypes:
 - Role.rbac.authorization.k8s.io
 - RoleBinding.rbac.authorization.k8s.io
 - NetworkPolicy
+- Secret
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/default-network-policies.yaml
@@ -41,6 +42,9 @@ openshiftResources:
   path: /cna/integration/taskrunner.role.yaml
 - provider: route
   path: /cna/integration/cna.route.yaml
+# AWS STS credentials
+- provider: resource-template
+  path: /cna/cna-aws-credentials.secret.yaml
 
 managedExternalResources: true
 
@@ -75,7 +79,7 @@ externalResources:
     assume_condition:
       StringEquals:
         "rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm:sub": "system:serviceaccount:cna-integration:cna-sa"
-    # this is the trust-policy on the "cluster-side", allowing the cna-sa service account to assume the
+    # this is the policy on the "cluster-side", allowing the cna-sa service account to assume the
     # cna-service-integration role in the cna-service-integration AWS account
     inline_policy:
       # this allows us to assume the jump role in the cna-service-integration AWS account
