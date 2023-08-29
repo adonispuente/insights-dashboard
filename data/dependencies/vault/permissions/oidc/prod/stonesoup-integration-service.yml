@@ -4,7 +4,7 @@ $schema: /access/oidc-permission-1.yml
 labels:
   service: vault.devshift.net
 
-name: stonesoup-oidc-int-srvc-vault
+name: stonesoup-oidc-integration-service-vault
 description: stonesoup vault devshift oidc permission for integration-service team
 
 instance:
@@ -12,5 +12,5 @@ instance:
 
 service: vault
 vault_policies:
-- $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-int-srvc.yml
+- $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-integration-service.yml
 - $ref: /services/vault.devshift.net/config/prod/policies/stonesoup-list-only.yml
