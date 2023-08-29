@@ -63,6 +63,9 @@ externalResources:
   provisioner:
     $ref: /aws/app-sre-rosa/account.yml
   resources:
+  # this is the role that allows the cna-sa kube service account to assume the
+  # cna-service-integration role in the cna-service-integration AWS account via
+  # AssumeRoleWithWebIdentity and a bound service token
   - provider: aws-iam-role
     identifier: cna-service-integration-appsres06ue1
     assume_role:
@@ -75,6 +78,7 @@ externalResources:
     # this is the trust-policy on the "cluster-side", allowing the cna-sa service account to assume the
     # cna-service-integration role in the cna-service-integration AWS account
     inline_policy:
+      # this allows us to assume the jump role in the cna-service-integration AWS account
       {
         "Version": "2012-10-17",
         "Statement": [
@@ -103,7 +107,9 @@ externalResources:
     output_resource_name: cna-service-role-arn
     assume_role:
       AWS:
-      - arn:aws:iam::366871242094:role/cna-service-integration-appsres06ue1
+      # for this to work the role_session_name needs to be set to `cna` while assuming
+      # into this role
+      - arn:aws:sts::366871242094:assumed-role/cna-service-integration-appsres06ue1/cna
     inline_policy:
       {
         "Version": "2012-10-17",
