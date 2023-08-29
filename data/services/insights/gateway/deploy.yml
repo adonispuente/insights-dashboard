@@ -122,7 +122,7 @@ resourceTemplates:
       CLOUD_WATCH_ALLOWED_STREAMS: 3scale-staging
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-prod.yml
-    ref: 4fdfe3a5669079048912391efa151cc6d259a054
+    ref: 54a172e38c0d2db952a0067d33c1135df211f082
     parameters:
       CLOUD_WATCH_ALLOWED_STREAMS: 3scale
   - namespace:
