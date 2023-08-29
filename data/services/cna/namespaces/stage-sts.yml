@@ -18,15 +18,37 @@ environment:
 
 managedRoles: true
 
+managedResourceTypes:
+- Role.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
+- NetworkPolicy
+- Secret
+
 sharedResources:
+- $ref: /services/app-sre/shared-resources/default-network-policies.yaml
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres06ue1.yml
 
+openshiftResources:
+- provider: vault-secret
+  path: app-interface/cna/stage/runtime
+  version: 5
+# allows creation of Taskruns
+- provider: resource
+  path: /cna/stage/taskrunner.rolebinding.yaml
+- provider: resource
+  path: /cna/stage/taskrunner.role.yaml
+# AWS STS credentials
+- provider: openshift-resources
+  path: /cna/cna-aws-credentials.secret.yaml
+# TODO - route
+
 managedExternalResources: true
 
 externalResources:
+# todo: bring over RDS, elasticache and the S3 bucket from stage.yml
 - provider: aws
   provisioner:
     $ref: /aws/app-sre-rosa/account.yml
@@ -43,7 +65,7 @@ externalResources:
     assume_condition:
       StringEquals:
         "rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm:sub": "system:serviceaccount:cna-stage:cna-sa"
-    # this is the trust-policy on the "cluster-side", allowing the cna-sa service account to assume the
+    # this is the policy on the "cluster-side", allowing the cna-sa service account to assume the
     # cna-service-stage role in the cna-service-stage AWS account
     inline_policy:
       {
