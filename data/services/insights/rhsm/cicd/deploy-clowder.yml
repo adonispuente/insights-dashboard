@@ -146,7 +146,7 @@ resourceTemplates:
       QUARKUS_PROFILE: stage
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref:  5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref:  a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       SWATCH_INTERNAL_SUBSCRIPTION_ENDPOINT: http://swatch-subscription-sync-service.rhsm-prod.svc.cluster.local:8000/api/rhsm-subscriptions/v1
       ENABLE_AWS_DRY_RUN: 'false'
@@ -207,7 +207,7 @@ resourceTemplates:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       SUBSCRIPTION_URL: https://subscription.api.redhat.com/svcrest/subscription/v5
       PRODUCT_URL: https://product.api.redhat.com/svcrest/product/v3
@@ -265,7 +265,7 @@ resourceTemplates:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       USER_HOST: user.api.redhat.com
       INVENTORY_SECRET_KEY_NAME: host-inventory-db-readonly
@@ -333,7 +333,7 @@ resourceTemplates:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       SUBSCRIPTION_SYNC_ENABLED: true
       PRODUCT_URL: https://product.api.redhat.com/svcrest/product/v3
@@ -403,7 +403,7 @@ resourceTemplates:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       PINHEAD_URL: https://systems.api.redhat.com/v1
       RHSM_URL: https://api.rhsm.redhat.com/v1
@@ -459,7 +459,7 @@ resourceTemplates:
         LOGGING_LEVEL: 'DEBUG'
     - namespace:
         $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-      ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+      ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
       parameters:
         SERVER_MAX_HTTP_HEADER_SIZE: '47000'
         RHSM_RBAC_HOST: ${RBAC_HOST}
@@ -501,7 +501,7 @@ resourceTemplates:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
   - namespace:
       $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-    ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+    ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
     parameters:
       REPLICAS: 3
       # NOTE otel params can be removed once https://github.com/RedHatInsights/rhsm-subscriptions/pull/2335 lands
@@ -561,7 +561,7 @@ resourceTemplates:
         OTEL_EXPORTER_OTLP_ENDPOINT: http://splunk-otel-collector:4317
     - namespace:
         $ref: /services/insights/rhsm/namespaces/rhsm-prod.yml
-      ref: 5cff67d2386a50b8e09eaeb3ef99c43eda9c70a3
+      ref: a67ea2ca5deabc57c8d8f21526deb4527d9bd253
       parameters:
         ENABLE_ACCOUNT_RESET: false
         USER_HOST: user.api.redhat.com
