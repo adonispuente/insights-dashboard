@@ -11,3 +11,5 @@ quay_username: mnairn
 roles:
 - $ref: /teams/managed-services/roles/dev.yml
 - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+- $ref: /teams/hybrid-cloud-gateway/roles/approver.yml
+

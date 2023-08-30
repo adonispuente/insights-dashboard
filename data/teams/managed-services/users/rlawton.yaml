@@ -15,4 +15,6 @@ roles:
 - $ref: /teams/managed-services/roles/stage-credentials-read.yml
 - $ref: /teams/managed-services/roles/saas-managed-kafka-dashboards-approver.yaml
 - $ref: /dependencies/ci-ext/roles/ci-ext-access.yml
+- $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+- $ref: /teams/hybrid-cloud-gateway/roles/approver.yml
 

@@ -6,5 +6,7 @@ name: hybrid-cloud-gateway-admin
 
 permissions: []
 
+
+
 oidc_permissions:
 - $ref: /dependencies/vault/permissions/oidc/prod/hybrid-cloud-gateway-vault-admin.yml

@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: hybrid-cloud-gateway-approver
+
+permissions: []
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+
