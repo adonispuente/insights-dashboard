@@ -186,3 +186,18 @@ resourceTemplates:
     ref: 19cc070a9a1e29f814b6b1bfa76f3b702b5c5303
     parameters:
       APPSRE_ENV: prod
+- name: platform-mirrormaker
+  path: /deploys/openshift/kafka-mirrormaker2.yaml
+  url: https://github.com/RedHatInsights/platform-mq
+  targets:
+  - namespace:
+      $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
+    ref: master
+    parameters:
+      SRC_CLUSTER_ALIAS: platform-mq-stage
+      SRC_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
+      TGT_CLUSTER_ALIAS: msk-stage
+      TGT_CLUSTER_BOOTSTRAP: ${secrets:platform-mq-stage/consoledot-stage-msk:bootstrap_brokers_saml_scram}
+      AUTH_CLIENT_ID_CONFIG_PROVIDER: ${secrets:platform-mq-stage/admin:username}
+      AUTH_CLIENT_SECRET_NAME: admin
+      AUTH_CLIENT_SECRET_KEY: password
