@@ -95,8 +95,8 @@ resourceTemplates:
       FLOORIST_QUERY_PREFIX: hms_analytics/content-sources/stage
       CLIENTS_PULP_SERVER: "http://cs-pulp-api-svc.content-sources-stage.svc.cluster.local:24817"
       FEATURES_SNAPSHOTS_ENABLED: true
-      # content9, hms-qa, dkliban
-      FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865,11488192"
+      # content9, hms-qa, dkliban, mshriver
+      FEATURES_SNAPSHOTS_ACCOUNTS: "11486589,11481865,11488192,11474358"
       FEATURES_ADMIN_TASKS_ENABLED: true
       CLIENTS_PULP_DOWNLOAD_POLICY: "immediate"
       # content9, hms-qa
