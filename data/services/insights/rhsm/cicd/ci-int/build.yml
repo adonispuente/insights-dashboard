@@ -26,25 +26,27 @@ config:
     gh_repo: curiosity-frontend
     quay_org: cloudservices
     jobs:
+    # Run the pr-checks for the main branch which targets the stage preview environment
     - "insights-gh-pr-check":
-        display_name: curiosity-frontend pr-check
-        branch: dev
+        display_name: curiosity-frontend pr-check-main
+        branch: main
         pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the main branch which targets the stage preview environment
     - "gh-build-master":
         display_name: curiosity-frontend build-main
         branch: main
         build_deploy_script_path: "./deploy/build_deploy.sh"
+    # Commented out because the gh-pr-check job can only exist for one branch, this is why jjb definition is in progress
+    # Run the pr-checks for the stable branch which targets the stage preview environment
+#    - "insights-gh-pr-check":
+#        display_name: curiosity-frontend pr-check-stable
+#        branch: stable
+#        pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the stable branch which targets the stage stable environment
     - "gh-build-master":
         display_name: curiosity-frontend build-stable
         branch: stable
         build_deploy_script_path: "./deploy/build_deploy.sh"
-    # Run the build for the dev branch which targets the preview environments in stage & production
-#    - "insights-gh-build-master":
-#        display_name: curiosity-frontend build-dev
-#        branch: dev
-#        build_deploy_script_path: "./deploy/build_deploy.sh"
     # Frontends build deploy POC work
     - "insights-gh-pipeline-frontends":
         display_name: curiosity-frontend frontend-pipeline-pr-check
