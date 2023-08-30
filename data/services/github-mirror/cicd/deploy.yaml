@@ -49,6 +49,7 @@ resourceTemplates:
       GITHUB_MIRROR_URL: https://github-mirror.stage.devshift.net
       EC_SECRET_NAME: ghmirror-elasticache-stage
       REPLICAS: 3
+      GITHUB_STATUS_SLEEP_TIME: 3
     secretParameters:
     - name: READER_ENDPOINT
       secret:
