@@ -77,3 +77,11 @@ records:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     name: s4.devshift.org
 
+# Delegation to OCM team
+- name: ocm
+  type: NS
+  records:
+  - ns-1697.awsdns-20.co.uk
+  - ns-383.awsdns-47.com
+  - ns-725.awsdns-26.net
+  - ns-1144.awsdns-15.org
