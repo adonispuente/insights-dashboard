@@ -41,10 +41,10 @@ config:
         branch: stable
         build_deploy_script_path: "./deploy/build_deploy.sh"
     # Run the build for the dev branch which targets the preview environments in stage & production
-    - "insights-gh-build-master":
-        display_name: curiosity-frontend build-dev
-        branch: dev
-        build_deploy_script_path: "./deploy/build_deploy.sh"
+#    - "insights-gh-build-master":
+#        display_name: curiosity-frontend build-dev
+#        branch: dev
+#        build_deploy_script_path: "./deploy/build_deploy.sh"
     # Frontends build deploy POC work
     - "insights-gh-pipeline-frontends":
         display_name: curiosity-frontend frontend-pipeline-pr-check
