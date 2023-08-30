@@ -189,7 +189,8 @@ resourceTemplates:
       CLEANUP_DAYS: 7
       REDIS_URL: "redis://app-sre-rate-limiting-elasticache-stage.blh0c5.ng.0001.use1.cache.amazonaws.com:6379"
       IMAGE_TAG: "0.4.0"
-      LIMITADOR_REPLICAS: "6"
+      LIMITADOR_REPLICAS: "3"
+      CPU_REQUESTS: 100m
       LIMITS: |
         # AMS calls CS to register clusters. The limit provided here must be
         # greater than whatever limit is in front of AMS's API.
