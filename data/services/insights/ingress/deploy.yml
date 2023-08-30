@@ -52,7 +52,7 @@ resourceTemplates:
       ENV_NAME: stage
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
-    ref: 769f1b5eded9fcbde4bbf205b34797dd364fccf9
+    ref: ed6f8be628882f955ab0a0bbbb2d8feb5c203201
     parameters:
       MIN_REPLICAS: 64
       ENV_NAME: prod
