@@ -79,7 +79,7 @@ quayRepos:
     description: Mirrors docker.io/rclone/rclone for object storage copy/replicate utils
     public: false
     mirror:
-      $ref: /dependencies/image-mirrors/rclone.yml
+      $ref: /dependencies/image-mirrors/docker.io/rclone.yml
 
 codeComponents:
 - name: observatorium-cicd
