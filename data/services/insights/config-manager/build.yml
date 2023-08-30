@@ -28,8 +28,11 @@ config:
     jobs:
     - gh-build-master:
         display_name: config-manager build-master
+        slack_channel_notification: config-manager-dev
     - insights-gh-pr-check:
         display_name: config-manager pr-check
+        slack_channel_notification: config-manager-dev
+
 - project:
     name: sed-frontend
     label: insights
