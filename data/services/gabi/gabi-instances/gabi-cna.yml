@@ -20,7 +20,7 @@ instances:
 - account: app-sre-stage
   identifier: cna-stage
   namespace:
-    $ref: /services/cna/namespaces/stage-sts.yml
+    $ref: /services/cna/namespaces/stage.yml
 - account: app-sre-stage
   identifier: cna-integration
   namespace:

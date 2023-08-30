@@ -8301,7 +8301,7 @@ records:
   identifier: cname-sv6z57nww5-api-stage-openshift-com
   type: CNAME
   ttl: 900
-  value: elb.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com.
+  value: elb.apps.appsres06ue1.e3ka.p1.openshiftapps.com.
   proxied: false
   priority: 0
 - name: observatorium-thanos-compact.api.stage.openshift.com
