@@ -268,7 +268,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: a2165c8b37037dcccce995f6d7f122f6d5aa8fb0
+    ref: d45d3b819428de4dcc105f51ae2fe2be01d2c93c
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_ALERTMANAGER_LOG_LEVEL: info
@@ -379,6 +379,7 @@ resourceTemplates:
       THANOS_STORE_REPLICAS: 1
       THANOS_STORE_MAX_TIME: '-22h'
       THANOS_RECEIVE_HASHRING_SERVICE_NAME: observatorium-thanos-receive-default
+      ALERTMANAGER_API_ENDPOINT: 'http://observatorium-alertmanager.observatorium-mst-stage.svc.cluster.local:9093'
 
     promotion:
       publish:
