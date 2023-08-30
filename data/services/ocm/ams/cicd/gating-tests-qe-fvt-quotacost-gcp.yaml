@@ -53,7 +53,7 @@ resourceTemplates:
       GATE_NAME: ocm-ams-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 4174fa8b4d078d3c64a1975ec0a13abb1c91a238
+    ref: 9a83e7e1282b2b943983c2fa4abd950d4660d876
     promotion:
       auto: true
       subscribe:
