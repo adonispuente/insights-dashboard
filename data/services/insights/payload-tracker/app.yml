@@ -9,7 +9,7 @@ name: payload-tracker
 
 description: payload-tracker app on the Insights Platform
 
-architectureDocument: https://TODO
+architectureDocument: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/payload-tracker/docs/payload-tracker-architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/TODO
 grafanaUrls:
 - title: TODOREPLACE
