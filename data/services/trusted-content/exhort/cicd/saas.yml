@@ -30,12 +30,19 @@ resourceTemplates:
   path: /deploy/openshift/template.yaml
   provider: openshift-template
   parameters:
+    IMAGE: quay.io/redhat-user-workloads/trusted-content-tenant/exhort-alpha/exhort
     REPLICAS: 3
+  hash_length: 40
   targets:
   - namespace:
       $ref: /services/trusted-content/exhort/namespaces/stage.yml
     ref: stable
+    image:
+      org:
+        $ref: /dependencies/quay/redhat-user-workloads.yml
+      name: trusted-content-tenant/exhort-alpha/exhort
     parameters:
       ENV_NAME: stage
 imagePatterns:
   - quay.io/ecosystem-appeng/exhort
+  - quay.io/redhat-user-workloads/trusted-content-tenant/exhort-alpha/exhort
