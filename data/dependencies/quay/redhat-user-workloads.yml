@@ -1,0 +1,19 @@
+---
+$schema: /dependencies/quay-org-1.yml
+
+labels:
+  service: rhtap
+
+name: redhat-user-workloads
+description: Quay org for RHTAP
+
+instance:
+  $ref: /dependencies/quay/instance.yml
+
+managedRepos: false
+
+managedTeams: []
+
+automationToken:
+  path: app-sre/creds/quay-org-app-sre
+  field: sd-app-sre-bot-token
