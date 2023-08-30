@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/github-mirror/namespaces/github-mirror-stage.yaml
-    ref: 562e5248db50b5ad7d6dcc879be2f1d6ce7c17f7
+    ref: 5dad785d2ef53f8593c6ab854460f79bfbac5aa2
     parameters:
       IMAGE: quay.io/app-sre/github-mirror
       GITHUB_MIRROR_URL: https://github-mirror.stage.devshift.net
