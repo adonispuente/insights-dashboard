@@ -222,7 +222,7 @@ spec:
           app_team: notifications
           env: prod
           service: insights
-          severity: critical
+          severity: high
         annotations:
           dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
