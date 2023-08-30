@@ -32,6 +32,7 @@ users:
 - $ref: /teams/ocm/users/cveiga.yml
 - $ref: /teams/ocm/users/adecorte.yml
 - $ref: /teams/ocm/users/rcampos.yml
+- $ref: /teams/ocm/users/mchitimb.yml
 
 instances:
 - account: app-sre
