@@ -47,7 +47,7 @@ resourceTemplates:
       DRY_RUN: true
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-    ref: d196d296a7f5077fe887b7345d1c4dfc981f7fd9
+    ref: 6c18d01e40d2d2ac991d67d99a961d79897b174f
     parameters:
       INTEGRATION_NAME: account-notifier
       DRY_RUN: false
@@ -68,7 +68,7 @@ resourceTemplates:
       PRODUCER_GITLAB_SECRET: git-partition-sync-producer
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-    ref: d196d296a7f5077fe887b7345d1c4dfc981f7fd9
+    ref: 6c18d01e40d2d2ac991d67d99a961d79897b174f
     parameters:
       INTEGRATION_NAME: git-partition-sync-producer
       DRY_RUN: false
