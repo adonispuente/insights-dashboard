@@ -59,6 +59,8 @@ openshiftResources:
     argocd.argoproj.io/secret-type: cluster
 - provider: resource
   path: /stonesoup/argocd-control-plane/tenants-config-project.yml
+- provider: resource
+  path: /stonesoup/argocd-control-plane/rh-managed-workspaces-config-project.yml
 
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.stonesoupp01ue1.yml

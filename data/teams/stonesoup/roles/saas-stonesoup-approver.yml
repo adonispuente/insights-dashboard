@@ -41,6 +41,7 @@ self_service:
   - /stonesoup/argocd/argocd-application-controller-clusterrolebinding.yaml.j2
   - /stonesoup/argocd-control-plane/argocd.yml
   - /stonesoup/argocd-control-plane/tenants-config-project.yml
+  - /stonesoup/argocd-control-plane/rh-managed-workspaces-config-project.yml
   # Pipeline Service
   - /terraform/resources/stonesoup/prod/multi-tenant/plnsvc-kms.yml
   - /terraform/resources/stonesoup/prod/multi-tenant/plnsvc-rds.yml

@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: rh-managed-workspaces-config
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # Project description
+  description: Manage RedHat managed workspaces configuration using ArgoCD
+
+  # Allow manifests to deploy from the following Git repos
+  sourceRepos:
+  - https://github.com/redhat-appstudio/rh-managed-workspaces-config.git
+
+  # Only permit applications to deploy to the rh-managed-* namespaces
+  destinations:
+  - namespace: 'rh-managed-*-tenant'
+    name: stone-prd-rh01
+
+  # Deny all namespaced-scoped resources from being created, except for the following
+  namespaceResourceWhitelist:
+  - group: external-secrets.io
+    kind: ExternalSecret
+  - group: appstudio.redhat.com
+    kind: ReleasePlan
+  - group: appstudio.redhat.com
+    kind: ReleasePlanAdmission
+  - group: appstudio.redhat.com
+    kind: ReleaseStrategy
+  - group: appstudio.redhat.com
+    kind: RemoteSecret
+  - group: appstudio.redhat.com
+    kind: Application
+  - group: appstudio.redhat.com
+    kind: Component
+  - group: appstudio.redhat.com
+    kind: EnterpriseContractPolicy
+  - group: ""
+    kind: PersistentVolumeClaim
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+  - group: ""
+    kind: ServiceAccount
+  orphanedResources:
+    warn: false

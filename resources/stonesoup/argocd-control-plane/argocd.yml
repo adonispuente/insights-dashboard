@@ -82,6 +82,10 @@ spec:
       p, role:release-eng, applications, get, tenants-config/*, allow
       p, role:release-eng, logs, get, tenants-config/*, allow
 
+      p, role:release-eng, applications, sync, rh-managed-workspaces-config/*, allow
+      p, role:release-eng, applications, get, rh-managed-workspaces-config/*, allow
+      p, role:release-eng, logs, get, rh-managed-workspaces-config/*, allow
+
       g, argocd-release-eng, role:release-eng
 
     scopes: '[groups]'
