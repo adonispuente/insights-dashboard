@@ -48,7 +48,7 @@ resourceTemplates:
       name: visual-qontract
   - namespace:
       $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-production.yml
-    ref: e698b192e3b8ec87753a307eb60cfe421a9c7420
+    ref: 138cfab432f40c021e0565b13804a98e3496cfc1
     parameters:
       IMAGE_TAG_CANARY: e698b19
       REPLICAS_CANARY: 1
