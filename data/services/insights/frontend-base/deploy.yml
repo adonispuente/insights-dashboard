@@ -432,15 +432,15 @@ resourceTemplates:
       ref: 04a5a69fe7d6e1e2c553a75ba49839b5a14ca214
     - namespace:
         $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-      ref: ad62b70f9965a54d3fe611a102262d5f09f44f85
+      ref: 04a5a69fe7d6e1e2c553a75ba49839b5a14ca214
       # Prod Stable Deployment
     - namespace:
         $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-      ref: cd7707d49b5780251ee6fb2b0591c7ca4afcfe16
+      ref: 04a5a69fe7d6e1e2c553a75ba49839b5a14ca214
       # Prod Beta Deployment
     - namespace:
         $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-      ref: 4a6b21abb57cb4cf0c6625ea87fc4adcb3a3a38d
+      ref: 04a5a69fe7d6e1e2c553a75ba49839b5a14ca214
 
   # Seats admin UI
 - name: seats-admin-ui
