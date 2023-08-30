@@ -26,9 +26,12 @@ rules: |
   path "app-interface/metadata/assisted-installer/" {
     capabilities = ["list"]
   }
-  path "app-interface/assisted-installer/*" {
+  path "app-interface/metadata/assisted-installer/*" {
     capabilities = ["create", "update", "read", "delete", "list"]
   }
-  path "app-interface/assisted-installer/*production" {
+  path "app-interface/data/assisted-installer/*" {
+    capabilities = ["create", "update", "read", "delete", "list"]
+  }
+  path "app-interface/data/assisted-installer/*production" {
     capabilities = ["deny"]
   }
