@@ -28,6 +28,8 @@ managedResourceTypes:
 - Route
 
 openshiftResources:
+
+# 3scale
 - provider: vault-secret
   path: insights/secrets/global/rh-registry-pull
   version: 2
@@ -76,6 +78,28 @@ openshiftResources:
     qontract.recycle: "true"
 - provider: vault-secret
   path: insights/secrets/ephemeral/3scale/it-ca-bundle
+  version: 2
+  annotations:
+    qontract.recycle: "true"
+
+# entitlements
+- provider: vault-secret
+  path: insights/secrets/insights-stage/entitlements-stage/go-api-certs
+  version: 6
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/entitlements-stage/entitlements-secret
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/entitlements-stage/oidc
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/backoffice/preprod/entitlements-api
   version: 2
   annotations:
     qontract.recycle: "true"

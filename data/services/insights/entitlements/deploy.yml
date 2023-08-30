@@ -97,9 +97,8 @@ resourceTemplates:
     ref: 7e9715338dd8abd71c90a4b8b4c5b6f86818d289
 
 # OCM environment for qaprodauth
-
 - name: entitlements-api-go-qaprodauth
-  path: /deployment/deploy.yml
+  path: /deployment/clowdapp.yml
   url: https://github.com/RedHatInsights/entitlements-api-go
   parameters:
     REPLICAS: 2
@@ -108,6 +107,7 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: master
     parameters:
+      ENV_NAME: ocm
       SUBS_HOST: https://subscription.api.redhat.com
       COMPLIANCE_HOST: "https://export-compliance.api.redhat.com"
       RUN_BUNDLE_SYNC: false
@@ -119,16 +119,16 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: 3a0f90065c8c4bd4b0503956c10b5ce5e244f3dc
 
-
 # Consoledot-frontend environment
 - name: entitlements-api-go-consoledot-fe
-  path: /deployment/deploy.yml
+  path: /deployment/clowdapp.yml
   url: https://github.com/RedHatInsights/entitlements-api-go
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
     ref: master
     parameters:
+      ENV_NAME: consoledot-frontend-stage
       SUBS_HOST: https://subscription.stage.api.redhat.com
       COMPLIANCE_HOST: "https://export-compliance.stage.api.redhat.com"
       RUN_BUNDLE_SYNC: false
@@ -149,10 +149,10 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     ref: master
     parameters:
+      ENV_NAME: ephemeral
       SUBS_HOST: https://subscription.stage.api.redhat.com
       COMPLIANCE_HOST: https://export-compliance.stage.api.redhat.com
       RUN_BUNDLE_SYNC: false
-      ENV_NAME: ephemeral
 - name: entitlements-bundle-config-ephemeral-base
   path: /configs/stage/bundles.yml
   url: https://github.com/RedHatInsights/entitlements-config
