@@ -60,6 +60,7 @@ imagePatterns:
 - quay.io/openshift/origin-configmap-reloader
 - quay.io/prometheus/alertmanager
 - quay.io/openshift-logging/loki
+- quay.io/app-sre/rclone # TODO - pgough/rhobs remove image after https://issues.redhat.com/browse/RHOBS-851
 
 parameters:
   OAUTH_PROXY_IMAGE: quay.io/openshift/origin-oauth-proxy
