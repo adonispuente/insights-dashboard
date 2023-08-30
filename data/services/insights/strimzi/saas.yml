@@ -197,7 +197,13 @@ resourceTemplates:
       SRC_CLUSTER_ALIAS: platform-mq-stage
       SRC_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
       TGT_CLUSTER_ALIAS: msk-stage
-      TGT_CLUSTER_BOOTSTRAP: ${secrets:platform-mq-stage/consoledot-stage-msk:bootstrap_brokers_saml_scram}
-      AUTH_CLIENT_ID_CONFIG_PROVIDER: ${secrets:platform-mq-stage/admin:username}
+      TGT_CLUSTER_BOOTSTRAP_SECRET: consoledot-stage-msk
       AUTH_CLIENT_SECRET_NAME: admin
       AUTH_CLIENT_SECRET_KEY: password
+    allowedSecretParameterPaths:
+    - insights/secrets/insights-stage/msk-credentials
+    secretParameters:
+    - name: AUTH_CLIENT_ID_CONFIG_PROVIDER
+      secret:
+        path: insights/secrets/insights-stage/msk-credentials/admin
+        field: username
