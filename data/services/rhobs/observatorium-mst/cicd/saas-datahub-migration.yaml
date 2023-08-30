@@ -38,6 +38,7 @@ managedResourceTypes:
 imagePatterns:
   - quay.io/thanos/thanos
 
+validateTargetsInApp: true
 
 allowedSecretParameterPaths:
   - app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs
