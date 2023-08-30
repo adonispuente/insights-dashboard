@@ -43,12 +43,28 @@ openshiftResources:
 # AWS STS credentials
 - provider: resource-template
   path: /cna/cna-aws-credentials.secret.yaml
-# TODO - route
+# Route behind the API gateway
+- provider: route
+  path: /cna/stage/cna.route.yaml
 
 managedExternalResources: true
 
 externalResources:
-# todo: bring over RDS, elasticache and the S3 bucket from stage.yml
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-stage/account.yml
+  resources:
+  - provider: rds
+    identifier: cna-stage
+    # we start with a small DB
+    defaults: /terraform/resources/app-sre-stage/rds-3-pg14.yml
+    overrides:
+      apply_immediately: true
+      engine_version: '14.3'
+  - provider: elasticache
+    identifier: cna-redis-stage
+    defaults: /terraform/resources/cna/elasticache-stage.yml
+    output_resource_name: cna-redis
 - provider: aws
   provisioner:
     $ref: /aws/app-sre-rosa/account.yml
@@ -83,6 +99,50 @@ externalResources:
   provisioner:
     $ref: /aws/cna-service-stage/account.yml
   resources:
+  # this is the bucket for terraform state
+  - provider: s3
+    identifier: cna-s3-stage
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: cna-s3
+  # the IAM user to manage the S3 bucket and to act in CNA customer AWS accounts
+  # TODO - remove this once CNA has switched over to use STS
+  - provider: aws-iam-service-account
+    identifier: cna-service-stage
+    output_resource_name: cna-service-iam
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/RH-CNA"
+          },
+          {
+            "Action": [
+              "sts:AssumeRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/network-mgmt-*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::cna-s3-stage"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:DeleteObject"
+            ],
+            "Resource": ["arn:aws:s3:::cna-s3-stage/*"]
+          }
+        ]
+      }
   # this is the jump-host IAM role CNA users grant assume role to for their AWS accounts
   # this role is NOT TO BE USED DIRECTLY by CNA or anyone, instead this role needs to
   # be assumed by the CNA service account via cluster STS
