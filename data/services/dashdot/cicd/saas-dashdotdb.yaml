@@ -44,7 +44,7 @@ resourceTemplates:
       name: app-sre-dashdotdb-gh-build-master
   - namespace:
       $ref: /services/dashdot/namespaces/app-sre-prod-01.yml
-    ref: 9fc55248c77896663a1ded1f188dcdc88e81117d
+    ref: 06b646efc38ec0890183875bf622584040dbf989
 
 - name: grafana-dashdotdb
   url: https://github.com/app-sre/dashdotdb
@@ -56,4 +56,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 9fc55248c77896663a1ded1f188dcdc88e81117d
+    ref: 06b646efc38ec0890183875bf622584040dbf989
