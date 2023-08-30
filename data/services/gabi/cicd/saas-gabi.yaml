@@ -769,7 +769,7 @@ resourceTemplates:
       AWS_RDS_SECRET_NAME: cna-integration-rds
       GABI_INSTANCE: gabi-cna
   - namespace:
-      $ref: /services/cna/namespaces/stage.yml
+      $ref: /services/cna/namespaces/stage-sts.yml
     ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
     promotion:
       auto: true
