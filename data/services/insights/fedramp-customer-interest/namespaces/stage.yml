@@ -46,7 +46,7 @@ openshiftResources:
   name: quay-cloudservices-pull
 - provider: vault-secret
   path: insights/secrets/insights-stage/fedramp-customer-interest-stage/servicenow
-  version: 2
+  version: 3
   annotations:
     qontract.recycle: "true"
 # Port forwarding for debugging
