@@ -77,10 +77,21 @@ resourceTemplates:
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 989d0381d4e47836e6829318ee783c89a8e16db6
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: main
     parameters:
-      ENV_NAME: "env-stage"
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/subscription-inventory-ui"
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: subscription-inventory-ui
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/subscription-inventory-ui"
 - name: manifests
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/subscription-central-ui
@@ -90,10 +101,21 @@ resourceTemplates:
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
   - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 73bb1f0cf2309f424cc2508766031940575df3c7
+      $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
+    ref: main
     parameters:
-      ENV_NAME: env-stage
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/subscription-central-ui"
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/cloudservices.yml
+      name: subscription-central-ui
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/subscription-central-ui"
 - name: auto-registration-listener
   path: /deploy/clowdapp.yaml
   url: https://gitlab.cee.redhat.com/rhsm/automatic-registration
