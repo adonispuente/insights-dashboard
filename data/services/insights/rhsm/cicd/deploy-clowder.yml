@@ -54,6 +54,7 @@ resourceTemplates:
     # Old environment used for testing out the container based deployment - Remove after other deployments are done.
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
+    delete: true #step 1 of fully removing this definition as it is no longer in use
     ref: main
     parameters:
       ENV_NAME: env-stage
@@ -67,7 +68,7 @@ resourceTemplates:
     # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: main
+    ref: stable
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/curiosity-frontend"
