@@ -27,7 +27,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/github-mirror/namespaces/github-mirror-stage.yaml
-    ref: 4a219388480f0df5732d0a922c9efcbc38f6c307
+    ref: 0915c492e8c1de1359743e2126103bddf412391f
     parameters:
       IMAGE: quay.io/app-sre/github-mirror
       GITHUB_MIRROR_URL: https://github-mirror.stage.devshift.net
@@ -42,5 +42,5 @@ resourceTemplates:
       - channel: github-mirror-stage-deploy-success-channel
         data:
         - parent_saas: saas-github-mirror
-          target_config_hash: 1c71ccbc11b93dff
+          target_config_hash: 539a2b31b75287d3
           type: parent_saas_config
