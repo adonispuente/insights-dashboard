@@ -118,7 +118,7 @@ resourceTemplates:
   # This is the primary region
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: 9ddc60edf81dfe2ed6b4fb3cf472d1692a7360e3
+    ref: 62ce1574fa581cdf5a06172058c3e1683b18e5c4
     parameters:
       QUAY_APP_DEPLOYMENT_REPLICAS: 44
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret
@@ -126,7 +126,7 @@ resourceTemplates:
     # This is the backup region
   - namespace:
       $ref: /services/quayio/namespaces/quayp04ue2.yml
-    ref: 9ddc60edf81dfe2ed6b4fb3cf472d1692a7360e3
+    ref: 62ce1574fa581cdf5a06172058c3e1683b18e5c4
     parameters:
       QUAY_APP_DEPLOYMENT_REPLICAS: 44
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret-readonly
