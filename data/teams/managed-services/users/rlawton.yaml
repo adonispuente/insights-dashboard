@@ -17,3 +17,9 @@ roles:
 - $ref: /dependencies/ci-ext/roles/ci-ext-access.yml
 - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
 
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+

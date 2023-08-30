@@ -13,6 +13,12 @@ roles:
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
 
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+
 public_gpg_key: |
   mQINBGB5gHUBEACvTiC/N1N3Q+qETPYb3QR303L7/DU7+5PLyjY8mSi4PdG4I5Xv
   mw5KOvREae3yguq8zkQTp5E20ZLLg8CTibKAZ77K2+9uzCwmj+GIBj3PFCPaMNnD
