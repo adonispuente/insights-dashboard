@@ -18,8 +18,6 @@ roles:
 - $ref: /teams/stonesoup/roles/stonesoup-billing-managers.yml
 
 public_gpg_key: |
-  -----BEGIN PGP PUBLIC KEY BLOCK-----
-
   mQINBGKYcYgBEACz6RxT0cGqoAsIVIpfYpeZmT13HaZvtVjwN0YqOvov+7kNHtnH
   N+p4ilhUX0JOcQk0bXhsIDGiMMWt+Uq8z+rpcgTAfqnoi2qa5iBJtUjzdCxE9nkg
   52A01EzZaOJH8hqy3Flv23YrSFRLmcYFgtIDPjqePcHEy6oSgNsxilu+xTbgac3a
@@ -81,5 +79,4 @@ public_gpg_key: |
   EV5f1LOgD0Vvfh7HV12aJk1+5oCfwjCvkMtuzwz2tct+e/xRIOjk0IE4/EVFh9wN
   qo8lTG14GMMwQyGPgCQ=
   =tW0D
-  -----END PGP PUBLIC KEY BLOCK-----
   
