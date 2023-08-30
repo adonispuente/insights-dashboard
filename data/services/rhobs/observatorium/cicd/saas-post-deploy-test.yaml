@@ -46,5 +46,5 @@ resourceTemplates:
       - channel: observatorium-stage-deploy-success-channel
         data:
         - parent_saas: saas-observatorium
-          target_config_hash: 66d75b8d75216297
+          target_config_hash: 246a219e2e373b9f
           type: parent_saas_config
