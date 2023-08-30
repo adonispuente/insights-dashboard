@@ -17,12 +17,7 @@ roles:
 - $ref: /teams/sig-sre/roles/sig-sre.yml
 - $ref: /teams/managed-services/roles/saas-managed-kafka-dashboards-approver.yaml
 - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
-
-self_service:
-- change_type:
-    $ref: /app-interface/changetype/role-manager.yml
-  datafiles:
-  - $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+- $ref: /teams/hybrid-cloud-gateway/roles/approver.yml
 
 
 public_gpg_key: |

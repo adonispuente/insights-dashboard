@@ -11,3 +11,5 @@ quay_username: pmccarthy
 roles:
 - $ref: /teams/rhmi/roles/dev.yml
 - $ref: /teams/rhmi/roles/saas-ocm-sendgrid-approver.yaml
+- $ref: /teams/hybrid-cloud-gateway/roles/admin.yml
+
