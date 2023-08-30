@@ -58,7 +58,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
     ENABLE_OCM_MOCK: false
   targets:
   - namespace:
-      $ref: /services/cna/namespaces/stage-sts.yml
+      $ref: /services/cna/namespaces/stage.yml
     ref: main
     upstream:
       instance:
