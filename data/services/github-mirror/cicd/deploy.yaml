@@ -59,7 +59,7 @@ resourceTemplates:
       - github-mirror-stage-deploy-success-channel
   - namespace:
       $ref: /services/github-mirror/namespaces/github-mirror-production.yaml
-    ref: 6fe10723dc359350caf31aa1767bfeb75300241b
+    ref: 562e5248db50b5ad7d6dcc879be2f1d6ce7c17f7
     promotion:
       auto: true
       subscribe:
@@ -83,7 +83,7 @@ resourceTemplates:
       name: app-sre-github-mirror-gh-build-master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 6fe10723dc359350caf31aa1767bfeb75300241b
+    ref: 562e5248db50b5ad7d6dcc879be2f1d6ce7c17f7
     promotion:
       auto: true
       subscribe:
