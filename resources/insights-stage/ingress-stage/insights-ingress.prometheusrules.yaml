@@ -38,8 +38,8 @@ spec:
           message: "upload-service is absent in ingress-stage"
           runbook: "https://consoledot.pages.redhat.com/docs/dev/developer-references/sop/puptoo.html"
       - alert: App-ingress-service-In-ingress-stage-high-error-rate
-        expr: sum(increase(ingress_responses{code=~"2.*"}[24h])) / sum(increase(ingress_responses[24h])) < .95
-        for: 5m
+        expr: sum(increase(ingress_responses{code=~"2.*"}[5m])) / sum(increase(ingress_responses[5m])) < .95
+        for: 20m
         labels:
           severity: high
           service: insights
