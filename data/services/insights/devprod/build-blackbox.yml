@@ -2,13 +2,13 @@
 $schema: /dependencies/jenkins-config-1.yml
 
 labels:
-  service: blackbox-monitor
+  service: starter-apps
 
-name: ci-int-blackbox-jobs
-description: blackbox ci-int jobs
+name: ci-int-devprod-jobs
+description: 'Jobs for DevProd Apps'
 
 app:
-  $ref: /services/insights/blackbox-monitor/app.yml
+  $ref: /services/insights/devprod/app.yml
 
 instance:
   $ref: /dependencies/ci-int/ci-int.yml

@@ -14,7 +14,7 @@ quota:
   $ref: /services/insights/default-quota.yml
 
 app:
-  $ref: /services/insights/blackbox-monitor/app.yml
+  $ref: /services/insights/devprod/app.yml
 
 environment:
   $ref: /products/insights/environments/stage.yml
