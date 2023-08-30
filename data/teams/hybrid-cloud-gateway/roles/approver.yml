@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: hybrid-cloud-gateway-admin
+name: hybrid-cloud-gateway-approver
 
 permissions: []
 
