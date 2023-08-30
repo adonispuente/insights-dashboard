@@ -23,6 +23,9 @@ rules: |
   path "app-interface/data/hive-integration/assisted-installer/*" {
     capabilities = ["create", "update", "read"]
   }
+  path "app-interface/metadata/assisted-installer/" {
+    capabilities = ["list"]
+  }
   path "app-interface/assisted-installer/*" {
     capabilities = ["create", "update", "read", "delete", "list"]
   }
