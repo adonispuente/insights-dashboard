@@ -768,18 +768,18 @@ resourceTemplates:
       NAMESPACE: cna-integration
       AWS_RDS_SECRET_NAME: cna-integration-rds
       GABI_INSTANCE: gabi-cna
-  - namespace:
-      $ref: /services/cna/namespaces/stage.yml
-    ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
-    promotion:
-      auto: true
-      subscribe:
-      - github-gabi-stage-post-deploy-tests-success-channel
-    parameters:
-      HOST: cna-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
-      NAMESPACE: cna-stage
-      AWS_RDS_SECRET_NAME: cna-stage-rds
-      GABI_INSTANCE: gabi-cna
+  #- namespace:
+  #    $ref: /services/cna/namespaces/stage.yml
+  #  ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
+  #  promotion:
+  #    auto: true
+  #    subscribe:
+  #    - github-gabi-stage-post-deploy-tests-success-channel
+  #  parameters:
+  #    HOST: cna-stage.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
+  #    NAMESPACE: cna-stage
+  #    AWS_RDS_SECRET_NAME: cna-stage-rds
+  #    GABI_INSTANCE: gabi-cna
   - namespace:
       $ref: /services/cna/namespaces/prod.yml
     ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
