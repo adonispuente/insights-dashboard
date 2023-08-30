@@ -115,7 +115,7 @@ resourceTemplates:
       name: subscription-central-ui
     parameters:
       ENV_NAME: "frontends-beta"
-      IMAGE: "quay.io/cloudservices/api-frontend"
+      IMAGE: "quay.io/cloudservices/subscription-central-ui"
 - name: auto-registration-listener
   path: /deploy/clowdapp.yaml
   url: https://gitlab.cee.redhat.com/rhsm/automatic-registration
