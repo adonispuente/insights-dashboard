@@ -20,6 +20,7 @@ managed:
       limits:
         memory: 600Mi
     extraArgs: --wait-for-pipeline
+    internalCertificates: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
   spec:
@@ -31,6 +32,7 @@ managed:
       limits:
         memory: 600Mi
     extraArgs: --wait-for-pipeline
+    internalCertificates: true
 
 schemas:
 - /app-sre/app-1.yml

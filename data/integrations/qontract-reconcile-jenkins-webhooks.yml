@@ -26,6 +26,7 @@ managed:
         memory: 200Mi
     logs:
       slack: true
+    internalCertificates: true
     cache: true
 - namespace:
     $ref: /services/app-interface/namespaces/app-interface-production-int.yml
@@ -39,6 +40,7 @@ managed:
         memory: 200Mi
     logs:
       slack: true
+    internalCertificates: true
     cache: true
 
 schemas:
