@@ -39,6 +39,7 @@ resourceTemplates:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_MARKER_EXPRESSION: image_builder
       IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
     promotion:
       auto: true
       subscribe:
@@ -57,6 +58,7 @@ resourceTemplates:
     parameters:
       ENV_FOR_DYNACONF: prod
       IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
     promotion:
       auto: true
       subscribe:
