@@ -108,6 +108,9 @@ quayRepos:
   - name: statuspage-exporter
     description: Prometheus exporter for Statuspage.io
     public: true
+  - name: app-interface-dora-exporter
+    description: App-Interface DORA exporter
+    public: true
 
 codeComponents:
 - name: app-sre-observability
@@ -140,3 +143,6 @@ codeComponents:
 - name: statuspage-exporter
   resource: upstream
   url: https://github.com/app-sre/statuspage-exporter
+- name: app-interface-dora-exporter
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/service/app-interface-dora-exporter/
