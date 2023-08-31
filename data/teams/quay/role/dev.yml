@@ -18,6 +18,7 @@ user_policies:
 - $ref: /aws/quayio-stage/policies/ManageOwnAccessKeys.yml
 - $ref: /aws/quayio-stage/policies/ManageOwnMFA.yml
 - $ref: /aws/quayio-stage/policies/PerformanceInsights.yml
+- $ref: /aws/app-sre/policies/AthenaQueryAccess.yml
 
 cloudflare_access:
 - $ref: /teams/quay/permissions/quay-stage-cloudflare-admin-read-only.yml
