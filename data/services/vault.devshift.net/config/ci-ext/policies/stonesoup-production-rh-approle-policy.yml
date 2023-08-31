@@ -11,7 +11,7 @@ instance:
 # All writes should be done on the internal production vault
 # Provides access to RHTAP (Stonesoup) secrets that required by RH users
 rules: |
-  path "stonesoup/production/redhat/*" {
+  path "stonesoup/data/production/redhat/*" {
     capabilities = ["list", "read"]
   }
   path "app-sre/integrations-output/terraform-resources/stonesoupp01ue1/stonesoup-infra-production/rh-artifacts-bucket-writer" {
