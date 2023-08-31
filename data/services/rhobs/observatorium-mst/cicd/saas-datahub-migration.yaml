@@ -53,22 +53,23 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
+          SERVICE_ACCOUNT_NAME: 'rclone'
           NAME: rclone-bucket-replicate
           NAMESPACE: observatorium-datahub-migration
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
           RCLONE_CONFIG_MAP_NAME: rclone-config-map
-          TARGET_ENDPOINT: s3.upshift.redhat.com:443
-          TARGET_BUCKET: DH-SECURE-TELEMETRY-PROD
+          SOURCE_ENDPOINT: s3.upshift.redhat.com:443
+          SOURCE_BUCKET: DH-SECURE-TELEMETRY-PROD
         secretParameters:
-          - name:  SOURCE_ENDPOINT
+          - name:  TARGET_ENDPOINT
             secret:
               path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
               field: endpoint
-          - name: SOURCE_BUCKET
+          - name: TARGET_BUCKET
             secret:
               path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
               field: bucket
@@ -78,7 +79,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           NAMESPACE: observatorium-datahub-migration
           RCLONE_CONFIG_MAP_NAME:  rclone-config-map
@@ -90,7 +91,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           NAMESPACE: observatorium-datahub-migration
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
