@@ -204,11 +204,27 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Kafka lag detected [env=stage, topic=platform.notifications.ingress, group=integrations]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineIngressTopicKafkaLagProd.html"
+      # NotificationsEgressIPChangeStage alerts.
+      #
+      # The idea is that one of them should be routed to the Slack channel, and the other one should create a Jira ticket.
       - alert: NotificationsEgressIPChangeStage
         expr: console_url{url="https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com"} == 0
         labels:
           app_team: notifications
           env: stage
+          service: insights
+          severity: high
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Egress IPs changed in stage! The external IP of the cluster has changed!"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEgressIPChangeProd.html"
+      - alert: NotificationsEgressIPChangeStageJira
+        expr: console_url{url="https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com"} == 0
+        labels:
+          app_team: notifications
+          env: stage
+          jiralert: RHCLOUD/Notifications
           service: insights
           severity: high
         annotations:
