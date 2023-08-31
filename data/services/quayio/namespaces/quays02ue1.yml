@@ -443,7 +443,6 @@ externalResources:
   ####################################
   # END: quayio-stage-ocm-quay stage #
   ####################################
-  #
 - provider: cloudflare
   provisioner:
     $ref: /cloudflare/quay-stage/account.yml
@@ -515,5 +514,3 @@ externalResources:
             qFc4G5TXqPEguI+IcNe7HJiLll7+0VK/0LYbyhWKMXM4Xy94kfXW4cNo15V2qgvU
             TwIDAQAB
             -----END PUBLIC KEY-----
-
-
