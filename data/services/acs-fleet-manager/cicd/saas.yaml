@@ -47,9 +47,6 @@ resourceTemplates:
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-integration.yml
         ref: main
-        promotion:
-          publish:
-            - acs-fleet-manager
         parameters:
           ENVIRONMENT: integration
           DATABASE_SECRET_NAME: acs-fleet-manager-integration-rds
