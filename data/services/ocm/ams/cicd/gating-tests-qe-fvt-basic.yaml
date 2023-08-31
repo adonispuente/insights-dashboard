@@ -53,7 +53,7 @@ resourceTemplates:
       ENVIRONMENT: integration
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: d49c12aaa4b0dd8ac6f7fb315c7b69b6f8e9fd28
+    ref: b30fff2b17396debbc5271a79202ef41a402094a
     promotion:
       auto: true
       subscribe:
