@@ -118,7 +118,7 @@ resourceTemplates:
       MEMORY_REQUEST: 128Mi
       MORNING_STATS_WEBHOOK_SECRET_NAME: auto-report-slack-webhook
       MORNING_STATS_CRON_TTL: '86400'
-  - ref: c0d051e65efe90186c0d7c95aeb36e66ebff2bc0
+  - ref: 00480302d7a891a2909504616a8b0e787a3c967a
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     parameters:
