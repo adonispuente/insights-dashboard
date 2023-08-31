@@ -45,6 +45,65 @@ resourceTemplates:
       ENVOY_IMAGE: quay.io/app-sre/envoyproxy:v1.20.2
     targets:
       - namespace:
+          $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-integration.yml
+        ref: main
+        parameters:
+          ENVIRONMENT: integration
+          DATABASE_SECRET_NAME: acs-fleet-manager-integration-rds
+          DATAPLANE_CLUSTER_CONFIG_FILE: /config/dataplane-cluster-configuration.yaml
+          PROVIDERS_CONFIG_FILE: /config/provider-configuration.yaml
+          QUOTA_TYPE: ams
+          OCM_URL: https://api.integration.openshift.com
+          AMS_URL: https://api.integration.openshift.com
+          CENTRAL_CPU_REQUEST: "250m"
+          CENTRAL_CPU_LIMIT: "2000m"
+          CENTRAL_MEMORY_REQUEST: "250Mi"
+          CENTRAL_MEMORY_LIMIT: "2Gi"
+          SCANNER_ANALYZER_CPU_REQUEST: "500m"
+          SCANNER_ANALYZER_CPU_LIMIT: "1000m"
+          SCANNER_ANALYZER_MEMORY_REQUEST: "500Mi"
+          SCANNER_ANALYZER_MEMORY_LIMIT: "2500Mi"
+          SCANNER_DB_CPU_REQUEST: "100m"
+          SCANNER_DB_CPU_LIMIT: "750m"
+          SCANNER_DB_MEMORY_REQUEST: "500Mi"
+          SCANNER_DB_MEMORY_LIMIT: "1500Mi"
+          SUPPORTED_CLOUD_PROVIDERS:
+            - name: aws
+              default: true
+              regions:
+                - name: us-east-1
+                  default: true
+                  supported_instance_type:
+                    standard: {}
+          CLUSTER_LIST:
+            # To update: maintain ordering, get information (e.g. `cluster_id`) from `$ ocm list clusters`
+            # Remember to add the cluster to the `kubeconfig` secret and bump version in
+            # namespaces/acs-fleet-manager-stage.yml
+            # Important: The `name` field must match a context name in the `kubeconfig` secret
+            - name: default/api-acs-int-us-01-isbr-p1-openshiftapps-com:6443/notarealuser
+              cluster_id: 256ji3d7e3cs77vv8jdb3f70q5e2co61
+              cloud_provider: aws
+              region: us-east-1
+              multi_az: true
+              schedulable: true
+              status: ready
+              central_instance_limit: 20
+              provider_type: standalone
+              supported_instance_type: "standard"
+              cluster_dns: apps.acs-int-us-01.isbr.p1.openshiftapps-com:6443
+              available_central_operator_versions:
+              # This functionality is currently unused, so no need to update the version in this section,
+              # but there must be exactly one entry here.
+                - version: "3.74.0"
+                  ready: true
+                  central_versions:
+                    - version: "3.74.0"
+
+        upstream:
+          instance:
+            $ref: /dependencies/ci-ext/ci-ext.yml
+          name: stackrox-acs-fleet-manager-build-and-push-main
+      - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
         ref: main
         promotion:
