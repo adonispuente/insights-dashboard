@@ -24,6 +24,7 @@ managedRoles: true
 
 managedResourceTypes:
   - Secret
+  - ServiceAccount
 
 sharedResources:
   - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
@@ -34,3 +35,8 @@ openshiftResources:
     name: thanos-bucket-replicate-config-source
     path: rhobs/datahub/s3
     version: 1
+
+  - provider: resource-template
+    path: /services/common/serviceaccount.yaml
+    variables:
+      name: rclone
