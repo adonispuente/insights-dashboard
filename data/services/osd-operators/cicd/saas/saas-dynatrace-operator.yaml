@@ -84,30 +84,17 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-dynakube/template-sectors.yaml
   targets:
-  - name: integration-canary
+  - name: production-canary
     provider: dynamic
     namespaceSelector:
       jsonPathSelectors:
         include:
-        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*integration.*" & @.name=="cluster-scope")]
-    ref: main
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 009d5a467166c12bc9238d3ffaede339e6a320a8
     parameters:
       NAME: in-canary
-      ENVIRONMENT: integration
+      ENVIRONMENT: production
       OPERATOR: In
-      SECTORS:
-      - canary
-  - name: integration-non-canary
-    provider: dynamic
-    namespaceSelector:
-      jsonPathSelectors:
-        include:
-        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*integration.*" & @.name=="cluster-scope")]
-    ref: main
-    parameters:
-      NAME: notin-canary
-      ENVIRONMENT: integration
-      OPERATOR: NotIn
       SECTORS:
       - canary
   parameters:
@@ -129,6 +116,11 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-dynakube/template.yaml
   targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: main
+    parameters:
+      ENVIRONMENT: integration
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
     ref: main
