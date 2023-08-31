@@ -63,3 +63,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-prod-04.yml
     ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
+  - namespace:
+      $ref: /services/observability/namespaces/dynatrace.crcs02ue1.yml
+    ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
