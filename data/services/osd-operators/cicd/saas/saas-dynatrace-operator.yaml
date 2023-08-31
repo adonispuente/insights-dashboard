@@ -79,15 +79,56 @@ resourceTemplates:
   parameters:
     HYPERSHIFT_CLUSTER_TYPE: service-cluster
     SECRET_NAME: hs-service-clusters
+
+- name: dynatrace-dynakube-hs-sector-clusters
+  url: https://gitlab.cee.redhat.com/service/dynatrace-config
+  path: /resources/dynatrace-dynakube/template-sectors.yaml
+  targets:
+  - name: integration-canary
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*integration.*" & @.name=="cluster-scope")]
+    ref: main
+    parameters:
+      NAME: in-canary
+      ENVIRONMENT: integration
+      OPERATOR: In
+      SECTORS:
+      - canary
+  - name: integration-non-canary
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*integration.*" & @.name=="cluster-scope")]
+    ref: main
+    parameters:
+      NAME: notin-canary
+      ENVIRONMENT: integration
+      OPERATOR: NotIn
+      SECTORS:
+      - canary
+  parameters:
+    TOKEN_SECRET_NAME: dynatrace-token
+    ACTIVEGATE_CPU_REQUEST: 500m
+    ACTIVEGATE_MEM_REQUEST: 512Mi
+    ACTIVEGATE_CPU_LIMIT: 2000m
+    # Note: Gi is not supported
+    ACTIVEGATE_MEM_LIMIT: 4096Mi
+    # These values were observed in app-sre-stage-01
+    ONEAGENT_CPU_REQUEST: 200m
+    ONEAGENT_MEM_REQUEST: 768Mi
+    # https://github.com/Dynatrace/dynatrace-operator/blob/e81873106c48035f824ec8259e1c46c2d32a150d/assets/samples/classicFullStack.yaml#L95
+    ONEAGENT_CPU_LIMIT: 300m
+    # Note: Gi is not supported
+    ONEAGENT_MEM_LIMIT: 1536Mi
+
 - name: dynatrace-dynakube-hs-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-dynakube/template.yaml
   targets:
-  - namespace:
-      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-    ref: main
-    parameters:
-      ENVIRONMENT: integration
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
     ref: main
