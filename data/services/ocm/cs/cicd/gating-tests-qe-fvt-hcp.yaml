@@ -3,7 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: uhc
 name: saas-cs-qe-fvt-hcp
-description: SaaS deployment for CS testing with QEs' automation
+description: SaaS deployment for CS testing with QEs' automation on the rosa hypershift cluster
 app:
   $ref: /services/ocm/cs/app.yml
 pipelinesProvider:
@@ -94,18 +94,4 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       TEST_PROFILE: hcp-e2e
-      GATE_NAME: ocm-cs-stage-main
-  - namespace:
-      $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 7910ee7a3de4daa8a452c57fbf6ca0852f0a15d9
-    name: rosa-hcp-upgrade
-    promotion:
-      auto: true
-      subscribe:
-      - ocm-cs-deployed-stage
-      publish:
-      - ocm-cs-qe-fvt-hcp-upgrade-stage-ok
-    parameters:
-      ENVIRONMENT: staging
-      TEST_PROFILE: rosa-hcp-upgrade
       GATE_NAME: ocm-cs-stage-main

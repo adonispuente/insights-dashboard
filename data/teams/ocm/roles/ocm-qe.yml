@@ -26,5 +26,6 @@ self_service:
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-aws.yaml
   - $ref: /services/ocm/ams/cicd/gating-tests-qe-fvt-quotacost-gcp.yaml
   - $ref: /services/ocm/cs/cicd/gating-tests-qe-fvt-hcp.yaml
+  - $ref: /services/ocm/cs/cicd/gating-tests-qe-fvt-hcp-upgrade.yaml
   - $ref: /services/ocm/cs/cicd/gating-tests-qe-fvt-osd-ccs.yaml
   - $ref: /services/ocm/cs/cicd/gating-tests-qe-fvt-rosa.yaml
