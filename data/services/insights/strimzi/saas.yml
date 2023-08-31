@@ -207,7 +207,9 @@ resourceTemplates:
       secret:
         path: insights/secrets/insights-stage/msk-credentials/admin
         field: username
+        version: 1
     - name: TGT_CLUSTER_BOOTSTRAP
       secret:
         path: insights/secrets/insights-stage/msk-credentials/consoledot-stage-msk
         field: bootstrap_brokers_sasl_scram
+        version: 1
