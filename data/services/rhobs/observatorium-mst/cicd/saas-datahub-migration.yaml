@@ -119,20 +119,25 @@ resourceTemplates:
             secret:
               path: rhobs/datahub/rclone-target-secret
               field: access_key_id
+              version: 1
           - name: SOURCE_SECRET_ACCESS_KEY
             secret:
               path: rhobs/datahub/rclone-target-secret
               field: access_secret
+              version: 1
           - name: SOURCE_S3_BUCKET_NAME
             secret:
               path: rhobs/datahub/rclone-target-secret
               field: bucket
+              version: 1
           - name: SOURCE_S3_BUCKET_REGION
             secret:
               path: rhobs/datahub/rclone-target-secret
               field: region
+              version: 1
           - name: SOURCE_S3_BUCKET_ENDPOINT
             secret:
               path: rhobs/datahub/rclone-target-secret
               field: endpoint
+              version: 1
 
