@@ -163,12 +163,14 @@ resourceTemplates:
     parameters:
       ENV_NAME: stage
       QUARKUS_PROFILE: stage
+      REPLICAS: 3
   - namespace:
       $ref: /services/insights/rhsm-api-proxy/namespaces/prod-rhsm-api-proxy-prod.yml
-    ref: 574278c44e3b6f396f4b84c08ef0639414734b11
+    ref: f1e8e71bf077f65e438476a53da01217de2f4fbc
     parameters:
       ENV_NAME: prod
       QUARKUS_PROFILE: prod
+      REPLICAS: 3
 - name: rhsm-system-profile-bridge-dashboards
   url: https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge
   path: /dashboards
