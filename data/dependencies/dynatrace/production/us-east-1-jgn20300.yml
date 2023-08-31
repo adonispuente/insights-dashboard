@@ -4,3 +4,6 @@ $schema: /dependencies/dynatrace-environment-1.yml
 name: dynatrace-staging-us-east-1-jgn20300
 description: Dynatrace Environment for staging us-east-1
 environmentUrl: https://jgn20300.live.dynatrace.com
+bootstrapToken:
+  path: app-sre/creds/dynatrace/redhat-aws/bootstrap-api-tokens/jgn20300
+  field: token
