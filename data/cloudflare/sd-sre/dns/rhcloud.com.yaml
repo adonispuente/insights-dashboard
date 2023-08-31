@@ -1,0 +1,17 @@
+---
+$schema: /cloudflare/dns-zone-1.yml
+labels: {}
+identifier: rhcloud-com
+zone: rhcloud.com
+type: full
+plan: enterprise
+account:
+  $ref: /cloudflare/sd-sre/account.yml
+records:
+- name: 'rhda.rhcloud.com '
+  identifier: cname-rhda-rhcloud-com
+  type: CNAME
+  ttl: 1800
+  value: elb.apps.app-sre-prod-01.i7w5.p1.openshiftapps.com
+  proxied: false
+  priority: 0
