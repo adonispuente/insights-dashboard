@@ -96,6 +96,32 @@ resourceTemplates:
       $ref: /services/insights/entitlements/namespaces/entitlements-prod.yml
     ref: 7e9715338dd8abd71c90a4b8b4c5b6f86818d289
 
+# 3scale-dev env
+- name: entitlements-api-go-3scale-dev
+  path: /deployment/clowdapp.yml
+  url: https://github.com/RedHatInsights/entitlements-api-go
+  parameters:
+    REPLICAS: 2
+  targets:
+  - namespace:
+      $ref: /services/insights/gateway/namespaces/3scale-dev.yml
+    ref: master
+    parameters:
+      ENV_NAME: 3scale-dev
+      SUBS_HOST: https://subscription.stage.api.redhat.com
+      COMPLIANCE_HOST: https://export-compliance.stage.api.redhat.com
+      RUN_BUNDLE_SYNC: false
+      AMS_HOST: https://api.stage.openshift.com
+      BOP_URL: https://${BACKOFFICE_HOST}/v1/users
+      LOG_LEVEL: debug
+- name: entitlements-bundle-config-3scale-dev
+  path: /configs/prod/bundles.yml
+  url: https://github.com/RedHatInsights/entitlements-config
+  targets:
+  - namespace:
+      $ref: /services/insights/gateway/namespaces/3scale-dev.yml
+    ref: 0d5a8115a3e5a27bfb040e43197c1be5c569d3f0
+
 # OCM environment for qaprodauth
 - name: entitlements-api-go-qaprodauth
   path: /deployment/clowdapp.yml
