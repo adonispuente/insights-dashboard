@@ -11,6 +11,8 @@ prometheusUrl: https://prometheus.crcs02ue1.devshift.net
 alertmanagerUrl: https://alertmanager.crcs02ue1.devshift.net
 serverUrl: https://api.crcs02ue1.urby.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.crcs02ue1.urby.p1.openshiftapps.com
+dynatraceEnvironment:
+  $ref: /dependencies/dynatrace/staging/us-east-1-hrm15629.yml
 auth:
 - service: oidc
   name: redhat-app-sre-auth
