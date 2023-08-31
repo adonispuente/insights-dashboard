@@ -60,7 +60,7 @@ resourceTemplates:
       REPLICAS: 3
   - namespace:
       $ref: /services/devfile-registry/namespaces/devfile-registry-production.yml
-    ref: 6a511aea56d2f465fb279b86700a4824c8b1894d
+    ref: e6fd9cae9e9ca4c3157a3102063d3f195fe28e80
     parameters:
       DEVFILE_INDEX_IMAGE: quay.io/app-sre/devfile-index
       DEVFILE_INDEX_MEMORY_LIMIT: 512Mi
