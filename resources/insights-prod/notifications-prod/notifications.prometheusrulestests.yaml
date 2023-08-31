@@ -590,7 +590,7 @@ tests:
             message: "Notifications: Kafka lag of platform.notifications.ingress topic exceeded alert threshold in prod environment."
             runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEngineIngressTopicKafkaLagProd.html"
 
-# NotificationsEgressIPChangeProd
+# NotificationsEgressIPChangeProd and NotificationsEgressIPChangeProdJira.
 - interval: 1m
   input_series:
   - series: console_url{url="https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com"}
@@ -607,6 +607,21 @@ tests:
     - exp_labels:
         app_team: notifications
         env: prod
+        service: insights
+        severity: high
+        url: https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com
+      exp_annotations:
+        dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+        link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+        message: "Egress IPs changed in production! The external IP of the cluster has changed!"
+        runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsEgressIPChangeProd.html"
+  - eval_time: 2m
+    alertname: NotificationsEgressIPChangeProdJira
+    exp_alerts:
+    - exp_labels:
+        app_team: notifications
+        env: prod
+        jiralert: RHCLOUD/Notifications
         service: insights
         severity: high
         url: https://console-openshift-console.apps.crcp01ue1.o9m8.p1.openshiftapps.com
