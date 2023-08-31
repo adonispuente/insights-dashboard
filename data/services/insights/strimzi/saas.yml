@@ -16,6 +16,9 @@ app:
 pipelinesProvider:
   $ref: /services/insights/strimzi/pipelines/strimzi-pipelines.appsrep05ue1.yml
 
+allowedSecretParameterPaths:
+- insights/secrets/insights-stage/msk-credentials
+
 deployResources:
   requests:
     cpu: 300m
@@ -200,8 +203,6 @@ resourceTemplates:
       TGT_CLUSTER_BOOTSTRAP_SECRET: consoledot-stage-msk
       AUTH_CLIENT_SECRET_NAME: admin
       AUTH_CLIENT_SECRET_KEY: password
-    allowedSecretParameterPaths:
-    - insights/secrets/insights-stage/msk-credentials
     secretParameters:
     - name: AUTH_CLIENT_ID_CONFIG_PROVIDER
       secret:
