@@ -13,7 +13,7 @@ description: |
   It is used by customers to define sources of third party yum content.
   Other services, such as Image Builder, will be able to use those sources in their workflows.
 
-architectureDocument: https://github.com/content-services/content-sources-backend/blob/main/docs/architecture.md 
+architectureDocument: https://github.com/content-services/content-sources-backend/blob/main/docs/architecture.md
 sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/content-sources
 grafanaUrls:
 - title: Content Sources Dashboard
@@ -27,6 +27,8 @@ escalationPolicy:
   $ref: /teams/insights/escalation-policies/crc-content-sources-escalations.yml
 
 serviceOwners:
+- name: HMS developers
+  email: hms-devel@redhat.com
 - name: Justin Sherrill (Product Owner)
   email: jsherril@redhat.com
 - name: Michael Shriver (QE Lead)

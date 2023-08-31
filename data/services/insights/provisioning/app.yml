@@ -26,10 +26,8 @@ escalationPolicy:
   $ref: /teams/insights/escalation-policies/crc-provisioning-escalations.yml
 
 serviceOwners:
-- name: Ondrej Ezr (Product owner)
-  email: oezr@redhat.com
-- name: Lukas Zapletal (Architect)
-  email: lzapleta@redhat.com
+- name: HMS developers
+  email: hms-devel@redhat.com
 
 dependencies:
 - $ref: /dependencies/github/service.yml
