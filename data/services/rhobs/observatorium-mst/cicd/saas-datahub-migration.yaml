@@ -53,10 +53,11 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
+          SERVICE_ACCOUNT_NAME: 'rclone'
           NAME: rclone-bucket-replicate
           NAMESPACE: observatorium-datahub-migration
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
@@ -78,7 +79,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           NAMESPACE: observatorium-datahub-migration
           RCLONE_CONFIG_MAP_NAME:  rclone-config-map
@@ -90,7 +91,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
         parameters:
           NAMESPACE: observatorium-datahub-migration
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
