@@ -422,7 +422,7 @@ resourceTemplates:
       - predicate:
           region: eu-west-1
         sector: perf3
-      predicate:
+      - predicate:
           label:
             key: "sector-override"
             value: "ibm-infra"
