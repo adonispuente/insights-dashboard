@@ -71,4 +71,13 @@ resourceTemplates:
       ref: 0a98f7c9c0bb9228d53449b6882f818dd71cc404
       parameters:
         NAMESPACE: observatorium-datahub-migration
+- name: rclone-migrate-job
+  path: /resources/operations/rclone-bucket-replicate/monitoring-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
+      ref: 7bb3d1bf846c1df07b6b82af7973645140e24a09
+      parameters:
+        NAMESPACE: observatorium-datahub-migration
 ##### END DELETE https://issues.redhat.com/browse/RHOBS-851 ###
