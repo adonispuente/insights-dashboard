@@ -10,7 +10,7 @@ cluster:
   $ref: /openshift/crcs02ue1/cluster.yml
 
 app:
-  $ref: /services/insights/app.yml
+  $ref: /services/observability/app.yml
 
 environment:
   $ref: /products/app-sre/environments/stage.yml
