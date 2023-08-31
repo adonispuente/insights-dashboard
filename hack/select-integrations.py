@@ -158,6 +158,8 @@ def print_cmd(
         cmd += "run_git_partition_sync_integration &"
     elif int_name == "terraform-resources":
         cmd = print_cmd_terraform_resources(integration, cmd)
+    elif int_name == "openshift-resources":
+        cmd = print_cmd_openshift_resources(integration, cmd)
     elif int_name == "terraform-repo":
         # tf_repo_int is a wrapper around running terraform repo and the executor
         # so we include the command args for terraform-repo int to run with
@@ -192,6 +194,31 @@ def get_shard_spec_overrides_from_int(integration):
 def print_cmd_terraform_resources(integration, cmd):
     """Terraform-resources print_cmd specific function.
     """
+    return print_cmd_with_sharding(
+        integration,
+        cmd,
+        "--account-name",
+        "--exclude-accounts",
+        lambda shard: shard["$ref"].split("/")[2]
+    )
+
+def print_cmd_openshift_resources(integration, cmd):
+    return print_cmd_with_sharding(
+        integration,
+        cmd,
+        "--cluster-name",
+        "--exclude-cluster",
+        lambda shard: shard["$ref"].split("/")[2]
+    )
+
+def print_cmd_with_sharding(
+        integration,
+        cmd,
+        shard_param: str,
+        exclude_shard_param: str,
+        get_shard_id: Callable[[str], str]):
+    """Generic print_cmd function with shardSpecOverrides.
+    """
     pr = integration["pr_check"]
     shard_spec_overrides = get_shard_spec_overrides_from_int(integration)
     if not shard_spec_overrides:
@@ -199,24 +226,25 @@ def print_cmd_terraform_resources(integration, cmd):
     else:
         overrided_shards = set()
         image_shards_map = get_image_ref_shards_map(
-            lambda shard: shard["$ref"].split("/")[2],
+            get_shard_id,
             shard_spec_overrides
         )
         for image_ref, shards in image_shards_map.items():
             overrided_shards.update(shards)
-            acc_param = [" --account-name " + ac for ac in shards]
+            shard_param = [f" {shard_param} " + s for s in shards]
             shard_cmd = (
                 f"ALIAS={pr['cmd']}_override_{image_ref} "
                 f"IMAGE={image_ref} "
-                f"run_int {pr['cmd']}{''.join(acc_param)} &"
+                f"run_int {pr['cmd']}{''.join(shard_param)} &"
             )
             print(f"{cmd}{shard_cmd}")
 
         # Run the integration excluding the overrided shards
         if overrided_shards:
-            ex_acc_param = [" --exclude-accounts " + ac for ac in overrided_shards]
-            cmd += f"run_int {pr['cmd']}{''.join(ex_acc_param)} &"
+            excluded_shards = [f" {exclude_shard_param} " + s for s in overrided_shards]
+            cmd += f"run_int {pr['cmd']}{''.join(excluded_shards)} &"
     return cmd
+
 
 
 def get_image_ref_shards_map(
