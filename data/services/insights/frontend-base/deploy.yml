@@ -352,7 +352,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 00077dbf8972011e9a2a30fdec74b5415269175a
+    ref: 53853449918a7f6a9d7eff0d6f62a254953f981f
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/frontend-starter-app"
@@ -370,7 +370,7 @@ resourceTemplates:
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 6eb4fcbf3750277c593edd8793d67f3051e26009
+    ref: 53853449918a7f6a9d7eff0d6f62a254953f981f
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/frontend-starter-app"
