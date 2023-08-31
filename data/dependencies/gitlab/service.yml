@@ -30,4 +30,4 @@ SLA: 99.5
 dependencyFailureImpact: Major Outage
 
 monitoring:
-  url: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/resources/observability/prometheus/prometheus-app-sre-additional-scrapeconfig-internal.secret.yaml
+  url: https://rhcorporate.splunkcloud.com/en-US/app/search/it_alm__gitlab_rails_errors?form.field1.earliest=-4h%40m&form.field1.latest=now&form.app=*.gitl-003.*.aws.redhat.com&form.env=*.prod.*.redhat.com&form.region=*.redhat.com&form.source=sourcetype%3Dgitlab_rails%3Ajson%20source%3D%2Fvar%2Flog%2Fgitlab%2Fgitlab-rails%2Fproduction_json.log
