@@ -928,3 +928,8 @@ access:
 - namespace:
     $ref: /services/stonesoup/argocd/namespaces/argocd-staging-control-plane.yml
   role: view
+
+# Trusted Content Exhort
+- namespace:
+    $ref: /services/trusted-content/exhort/namespaces/stage.yml
+  role: view
