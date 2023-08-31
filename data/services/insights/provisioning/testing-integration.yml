@@ -45,6 +45,7 @@ resourceTemplates:
       IQE_IMAGE_TAG: hms-integration
       IQE_MARKER_EXPRESSION: provisioning
       IQE_BROWSERLOG: ""
+      IQE_NETLOG: ""
       NAME_STUB: e2e-tests
     promotion:
       auto: true
@@ -69,11 +70,12 @@ resourceTemplates:
       IQE_IMAGE_TAG: hms-integration
       IQE_MARKER_EXPRESSION: provisioning
       IQE_BROWSERLOG: ""
+      IQE_NETLOG: ""
       NAME_STUB: e2e-tests
-    promotion:
-      auto: true
-      subscribe:
-      - provisioning-prod-post-deploy-tests-success-channel
-      publish:
-      - provisioning-prod-post-deploy-integration-tests-success-channel
+    # promotion:
+    #   auto: false
+      # subscribe:
+      # - provisioning-prod-post-deploy-tests-success-channel
+      # publish:
+      # - provisioning-prod-post-deploy-integration-tests-success-channel
 
