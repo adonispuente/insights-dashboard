@@ -422,6 +422,11 @@ resourceTemplates:
       - predicate:
           region: eu-west-1
         sector: perf3
+      predicate:
+          label:
+            key: "sector-override"
+            value: "ibm-infra"
+        sector: ibm-infra
       - predicate:
           label:
             key: sector-override
@@ -587,7 +592,6 @@ resourceTemplates:
                   effect: NoSchedule
       DEPLOYMENT_NAME: perf2
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
-
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
@@ -791,7 +795,79 @@ resourceTemplates:
       - ocm-osdfm-deployed-stage-canary
     parameters:
       DEPLOYMENT_NAME: migrationtesting
+      CLUSTER_TEMPLATES: |2-
+          # HyperShift Service Cluster
+          hs-sc:
+            name_prefix: "hs-sc-"
+            # See /api/clusters_mgmt/v1/versions for list of supported version IDs
+            openshift_version: "openshift-v4.12.24"
+            multi_az: true
+            ccs: true
+            default_machine_pool:
+              machine_type: m5.4xlarge
+              autoscale: true
+              autoscale_min_replicas: 3
+              autoscale_max_replicas: 9
+              nodes: 3
+            network_type: OVNKubernetes
+            private: true
+
+          # HyperShift Management Cluster
+          hs-mc:
+            name_prefix: "hs-mc-"
+            # See /api/clusters_mgmt/v1/versions for list of supported version IDs
+            openshift_version: "openshift-v4.12.24"
+            multi_az: true
+            ccs: true
+            default_machine_pool:
+              machine_type: m5.4xlarge
+              autoscale: true
+              autoscale_min_replicas: 3
+              autoscale_max_replicas: 60
+            network_type: OVNKubernetes
+            private: true
+            additional_machine_pool_gangs:
+            - id_prefix: obo
+              machine_type: r5.4xlarge
+              autoscale: false
+              nodes: 3 # AFAIK this means 1 in each of the 3 available AZs
+              labels:
+                - key: node-role.kubernetes.io/obo
+                  value: ""
+              taints:
+                - key: obo
+                  value: true
+                  effect: NoSchedule
+      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
+            # openshift/hypershift.git branch release-4.13 commit 51dcea7b42a315af3079b63b527040f27b052c98 / tag v0.1.9
+            hypershift-operator: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-hypershift-rhel8-operator@sha256:568384651e28dd40a5f0cc6ac15e7cfd8cc8f58d31f99843f7448683b543f1d5
+            apiserver-network-proxy: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-apiserver-network-proxy-rhel8@sha256:281c31c439d4116a7180519370955254d1845e57fb0c2b9b55a84e4798bec9ce
+            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
+            cluster-api: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-rhel8@sha256:c6edc4a5f6cc09f6ac733350615d8c134993af83e8d07025e3aa4dec596a2488
+            cluster-api-provider-agent: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-agent-rhel8@sha256:7dd4c639450284a8a4893fad89b49183a244deeaf05bc25370446316593a51e3
+            cluster-api-provider-aws: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-aws-rhel8@sha256:1915ed9c08b461fcaefbf9f7933c5c0b805e175698abde1335d3814ebb5e8148
+            cluster-api-provider-azure: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-azure-rhel8@sha256:404bde6e2915b24cf46352d9352128392c50c4efd790845be413982ef5154b43
+            cluster-api-provider-kubevirt: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-cluster-api-provider-kubevirt-rhel8@sha256:8d7f489b7040e2c528e51e46b290074fc161a42cdf3120c2cc0544b3ca97dde9
       GATE_NAME: ocm-osdfm-stage-canary
+      
+  - name: osd-fleet-manager-stage-ibm-infra
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
+    ref: 21ab4630fc90bfe408d259266912bf658fb50a89
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-stage-canary
+      publish:
+      - ocm-osdfm-deployed-stage-ibm-infra
+    parameters:
+      GATE_NAME: ocm-osdfm-stage-ibm-infra
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
+      DEPLOYMENT_NAME: ibm-infra
+      ENABLE_GLOBAL_WORKERS: true
+      ENBALE_POD_ISOLATION: false
+      ENABLE_SIMPLE_IDENTITY_PROVIDER: false
+
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
