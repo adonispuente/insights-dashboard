@@ -351,6 +351,10 @@ externalResources:
     identifier: quayio-stage-cloudfront-logs
     defaults: /terraform/resources/s3-all-expires-90-days-external-acl.yml
     output_resource_name: quayio-stage-cloudfront-logs
+  - provider: s3
+    identifier: quayio-stage-cloudflare-logs
+    defaults: /terraform/resources/s3-all-expires-90-days-external-acl.yml
+    output_resource_name: quayio-stage-cloudflare-logs
   - provider: aws-iam-role
     identifier: emr-cloudfront-logs-access-role
     assume_role:
@@ -439,7 +443,6 @@ externalResources:
   ####################################
   # END: quayio-stage-ocm-quay stage #
   ####################################
-
 - provider: cloudflare
   provisioner:
     $ref: /cloudflare/quay-stage/account.yml
