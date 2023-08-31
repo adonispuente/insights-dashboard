@@ -82,7 +82,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
-    ref: 30ca30fd4fadb6b725d7bd8dddd3cb4a2d9f29b8
+    ref: d45d3b819428de4dcc105f51ae2fe2be01d2c93c
     parameters:
       NAMESPACE: observatorium-mst-stage
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-stage
@@ -136,6 +136,7 @@ resourceTemplates:
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
       OSD_ORGANIZATION_ID: 1lneg5EWJaGAK3d7RZpAJM9WujU
       SD_OPS_ORGANIZATION_ID: 27NgQLG2sVFHQmF4SWVsykA97Ef
+      ALERTMANAGER_API_ENDPOINT: 'http://observatorium-alertmanager.observatorium-mst-stage.svc.cluster.local:9093'
     promotion:
       publish:
       - observatorium-mst-stage-deploy-success-channel
@@ -380,7 +381,6 @@ resourceTemplates:
       THANOS_STORE_REPLICAS: 1
       THANOS_STORE_MAX_TIME: '-22h'
       THANOS_RECEIVE_HASHRING_SERVICE_NAME: observatorium-thanos-receive-default
-      ALERTMANAGER_API_ENDPOINT: 'http://observatorium-alertmanager.observatorium-mst-stage.svc.cluster.local:9093'
 
     promotion:
       publish:
