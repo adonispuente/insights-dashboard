@@ -1,0 +1,63 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Dheeraj Singh Jodha
+org_username: djodha
+github_username: dheerajodha
+quay_username: djodha
+
+tag_on_cluster_updates: false
+
+roles:
+  - $ref: /teams/stonesoup/roles/stonesoup.yml
+  - $ref: /teams/stonesoup/roles/hacbs-vault.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-build-vault.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-integration-service-vault.yml
+  - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
+  - $ref: /aws/app-sre-logs/roles/log-consumer.yml
+  - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
+
+# Export with gpg --export your_public_key_id | base64
+public_gpg_key: |
+  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
