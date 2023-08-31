@@ -59,10 +59,10 @@ openshiftResources:
   path: /services/ocm/stage-sso-test/uhc-acct-mngr-templated.secret.yaml
 - provider: vault-secret
   path: app-interface/app-sre-stage/uhc-stage-sso-test/ocm-service-log
-  version: 2
+  version: 3
 - provider: vault-secret
   path: app-interface/app-sre-stage/uhc-stage-sso-test/uhc-acct-mngr
-  version: 16
+  version: 17
 # - provider: vault-secret
 #   path: app-interface/app-sre-stage/uhc-stage-sso-test/clusters-cleaner
 #   version: 3
