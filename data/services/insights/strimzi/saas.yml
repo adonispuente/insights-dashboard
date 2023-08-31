@@ -16,6 +16,9 @@ app:
 pipelinesProvider:
   $ref: /services/insights/strimzi/pipelines/strimzi-pipelines.appsrep05ue1.yml
 
+allowedSecretParameterPaths:
+- insights/secrets/insights-stage/msk-credentials
+
 deployResources:
   requests:
     cpu: 300m
@@ -197,7 +200,16 @@ resourceTemplates:
       SRC_CLUSTER_ALIAS: platform-mq-stage
       SRC_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
       TGT_CLUSTER_ALIAS: msk-stage
-      TGT_CLUSTER_BOOTSTRAP: ${secrets:platform-mq-stage/consoledot-stage-msk:bootstrap_brokers_saml_scram}
-      AUTH_CLIENT_ID_CONFIG_PROVIDER: ${secrets:platform-mq-stage/admin:username}
       AUTH_CLIENT_SECRET_NAME: admin
       AUTH_CLIENT_SECRET_KEY: password
+    secretParameters:
+    - name: AUTH_CLIENT_ID
+      secret:
+        path: insights/secrets/insights-stage/msk-credentials/admin
+        field: username
+        version: 1
+    - name: TGT_CLUSTER_BOOTSTRAP
+      secret:
+        path: insights/secrets/insights-stage/msk-credentials/consoledot-stage-msk
+        field: bootstrap_brokers_sasl_scram
+        version: 1
