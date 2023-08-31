@@ -302,6 +302,9 @@ quayRepos:
   - name: clamsig-puller
     description: clamsig-puller container image for clamav workloads
     public: true
+  - name: compliance-monkey
+    description: compliance-monkey container image
+    public: true
   - name: container-info
     description: container-info container image for clamav workloads
     public: true
