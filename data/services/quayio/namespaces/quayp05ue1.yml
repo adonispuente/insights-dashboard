@@ -245,6 +245,10 @@ externalResources:
     defaults: /terraform/resources/quayio-production/s3-cloudfront-us-east-1.yml
     output_resource_name: quayio-s3
   - provider: s3
+    identifier: quayio-athena-query-results
+    defaults: /terraform/resources/s3-private-1.yml
+    output_resource_name: quayio-athena-query-results
+  - provider: s3
     identifier: quayio-cloudfront-logs
     defaults: /terraform/resources/s3-all-expires-90-days-external-acl.yml
     output_resource_name: quayio-cloudfront-logs
