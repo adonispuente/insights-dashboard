@@ -49,7 +49,7 @@ resourceTemplates:
     ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
   - namespace:
       $ref: /services/hive/namespaces/hive-stage-01/hive-stage.yml
-    ref: 039b3d667268a74c8dcfdcb025bf3a601a0063ca
+    ref: 169130119202f6dd6bbbf485a116d82926697bf6
   - namespace:
       $ref: /services/hive/namespaces/ssotest01ue1/hive-stage.yml
     ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
