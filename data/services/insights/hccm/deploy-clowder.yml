@@ -581,7 +581,7 @@ resourceTemplates:
       CONFIGMAP_HASH: '000002' # when a `ref` update only contains changes to ConfigMaps, randomize this value to cause trino to redeploy
       IMAGE_TAG: 418-006
       S3_BUCKET_NAME: hccm-stage-s3
-      MACHINE_POOL_OPTION: memory-optimized
+      MACHINE_POOL_OPTION: hccm-trino-node
       COORDINATOR_REPLICAS: 1
       WORKER_REPLICAS: 3
       COORDINATOR_CPU_REQUEST: 600m
