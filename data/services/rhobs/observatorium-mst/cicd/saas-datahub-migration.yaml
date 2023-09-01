@@ -55,6 +55,7 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
         ref: a105033fc42780dc4682eb3538abead5306ee81c
+        delete: true
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
@@ -85,8 +86,8 @@ resourceTemplates:
         parameters:
           NAMESPACE: observatorium-datahub-migration
           RCLONE_CONFIG_MAP_NAME:  rclone-config-map
-          RCLONE_PARALLEL_TRANSFERS: 16
-          RCLONE_S3_UPLOAD_CONCURRENCY: 16
+          RCLONE_PARALLEL_TRANSFERS: 32
+          RCLONE_S3_UPLOAD_CONCURRENCY: 32
           RCLONE_S3_CHUNK_SIZE: '256M'
           RCLONE_PARALLEL_FILE_CHECKERS: 64
   - name: observatorium-rclone-configuration-secret
