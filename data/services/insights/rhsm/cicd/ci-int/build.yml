@@ -53,6 +53,7 @@ config:
         status_context: ci.int.devshift.net PR pipeline
         branch: "main"
         app_name: 'curiosity-frontend'
+        component_name: 'curiosity-frontend'
         run_cypress_component: 'false'
         run_cypress_e2e_tests: 'false'
         run_build_push_quay: 'true'

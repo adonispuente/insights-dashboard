@@ -426,6 +426,9 @@
     - string:
         name: APP_NAME
     - string:
+        name: COMPONENT_NAME
+        default: 'false'
+    - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']
         default: 'false'
