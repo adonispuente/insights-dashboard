@@ -1,0 +1,90 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: hccm
+name: hccm-2023-09-01
+app:
+  $ref: /services/insights/hccm/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/project-koku/koku:
+    - branch: master
+      total: 48
+      success: 48
+    https://github.com/project-koku/koku-daily:
+    - branch: master
+      total: 3
+      success: 3
+    https://github.com/project-koku/nise-populator:
+    - branch: master
+      total: 3
+      success: 3
+    https://github.com/project-koku/koku-report-emailer:
+    - branch: master
+      total: 3
+      success: 3
+    https://github.com/project-koku/koku-ui:
+    - branch: master
+      total: 46
+      success: 40
+    - branch: master
+      total: 4
+      success: 4
+    - branch: master
+      total: 12
+      success: 5
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/RedHatInsights/ubi-trino:
+    - branch: master
+      total: 4
+      success: 4
+    https://github.com/RedHatInsights/ubi-hive:
+    - branch: master
+      total: 6
+      success: 4
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    vulnerabilities:
+      Unknown: 59
+      Medium: 309
+      High: 236
+      Low: 18
+      Critical: 16
+  - cluster: crcs02ue1
+    namespace: hccm-stage
+    vulnerabilities:
+      Unknown: 55
+      Medium: 163
+      High: 129
+      Low: 8
+      Critical: 9
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 32
+  - cluster: crcs02ue1
+    namespace: hccm-stage
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 29
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    slo_name: Cost Management API Latency
+    slo_doc_name: app-interface
+    slo_value: 99.13512896942478
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: hccm-prod
+    slo_name: Cost Management API Availability
+    slo_doc_name: app-interface
+    slo_value: 99.99905829231662
+    slo_target: 90.0

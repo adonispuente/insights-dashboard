@@ -1,0 +1,67 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: Glitchtip
+name: Glitchtip-2023-09-01
+app:
+  $ref: /services/glitchtip/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/app-sre/glitchtip:
+    - branch: master
+      total: 3
+      success: 3
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: glitchtip-stage
+    vulnerabilities:
+      Unknown: 21
+      Medium: 7
+      High: 21
+      Critical: 7
+  - cluster: app-sre-stage-01
+    namespace: glitchtip-dev
+    vulnerabilities:
+      Unknown: 21
+      Medium: 7
+      High: 21
+      Critical: 7
+  - cluster: app-sre-prod-04
+    namespace: glitchtip-production
+    vulnerabilities:
+      Unknown: 21
+      Medium: 7
+      High: 21
+      Critical: 7
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: app-sre-stage-01
+    namespace: glitchtip-stage
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 5
+  - cluster: app-sre-stage-01
+    namespace: glitchtip-dev
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 3
+  - cluster: app-sre-prod-04
+    namespace: glitchtip-production
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 4
+  service_slo:
+  - cluster: app-sre-prod-04
+    namespace: glitchtip-production
+    slo_name: Latency of HTTP Requests
+    slo_doc_name: glitcthtip
+    slo_value: 99.96841659108085
+    slo_target: 90.0
+  - cluster: app-sre-prod-04
+    namespace: glitchtip-production
+    slo_name: Availability of HTTP Requests
+    slo_doc_name: glitcthtip
+    slo_value: 99.57344223105143
+    slo_target: 95.0

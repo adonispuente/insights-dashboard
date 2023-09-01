@@ -1,0 +1,79 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: tower-analytics
+name: tower-analytics-2023-09-01
+app:
+  $ref: /services/insights/tower-analytics/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/tower-analytics-frontend:
+    - branch: master
+      total: 4
+      success: 0
+    - branch: master
+      total: 36
+      success: 1
+    https://gitlab.cee.redhat.com/automation-analytics/automation-analytics-backend:
+    - branch: master
+      total: 14
+      success: 14
+    https://gitlab.cee.redhat.com/automation-analytics/automation-analytics-iqe-debug-image:
+    - branch: master
+      total: 1
+      success: 1
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: tower-analytics-prod
+    vulnerabilities:
+      Unknown: 360
+      Medium: 189
+      High: 228
+      Low: 72
+      Critical: 36
+  - cluster: crcs02ue1
+    namespace: tower-analytics-stage
+    vulnerabilities:
+      Unknown: 374
+      Medium: 210
+      High: 241
+      Low: 77
+      Critical: 37
+  - cluster: appsres03ue1
+    namespace: tower-analytics-stage-tests
+    vulnerabilities:
+      Unknown: 1
+      Medium: 53
+      High: 37
+      Low: 8
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcs02ue1
+    namespace: tower-analytics-stage
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 9
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 9
+      deployment_validation_operator_run_as_non_root:
+        Failed: 21
+  - cluster: crcp01ue1
+    namespace: tower-analytics-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 9
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: tower-analytics-prod
+    slo_name: Request latency
+    slo_doc_name: tower-analytics
+    slo_value: 98.71165803959828
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: tower-analytics-prod
+    slo_name: Requests result in successful (non-5xx) response
+    slo_doc_name: tower-analytics
+    slo_value: 99.98814143981221
+    slo_target: 90.0
