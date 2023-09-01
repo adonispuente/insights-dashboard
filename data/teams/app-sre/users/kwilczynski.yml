@@ -10,11 +10,6 @@ quay_username: kwilczynski
 
 tag_on_cluster_updates: false
 
-roles:
-  - $ref: /teams/app-sre/roles/app-sre.yml
-  - $ref: /teams/app-sre/roles/app-sre-apac-slack.yml
-  - $ref: /teams/app-sre/roles/app-sre-stream-5-slack.yml
-
 public_gpg_key: |
   mQINBFnWkEoBEACzKJK53/bCbBhwCeDUBJp8J/VPtbKKaYFksMaBH7QAS32J2UI9
   8/15JunhBwUwu17+95EXkUcnno0l44IwUSm3W4sYJXIQPwjtI7lIrLUavfky9D1m
