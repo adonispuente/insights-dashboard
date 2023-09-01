@@ -59,7 +59,7 @@ Example reference in namespace:
   identifier: important-database
   availability_zone: us-east-2b
   defaults: /terraform/resources/app-sre/production/rds-1-us-east-2.yml
-  databases:
+  database_access:
     - $ref: /terraform/resources/app-sre/production/important-database-guestbook.yml
   output_resource_name: important-database-root
   database_output_prefix: important-database
