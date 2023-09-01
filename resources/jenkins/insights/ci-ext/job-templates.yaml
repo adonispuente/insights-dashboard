@@ -424,7 +424,7 @@
 
     # Parameters to set which stages will run
     - string:
-        name: PROJECT_NAME
+        name: APP_NAME
     - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']

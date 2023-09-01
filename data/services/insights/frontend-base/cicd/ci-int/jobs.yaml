@@ -113,7 +113,7 @@ config:
     - "insights-gh-pipeline-frontends":
         display_name: insights-chrome frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
-        project_name: 'insights-chrome'
+        app_name: 'insights-chrome'
         run_build_push_quay: 'true'
         run_cypress_component: 'true'
         run_cypress_e2e_tests: 'true'
