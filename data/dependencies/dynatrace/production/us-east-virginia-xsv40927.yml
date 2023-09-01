@@ -1,0 +1,9 @@
+---
+$schema: /dependencies/dynatrace-environment-1.yml
+
+name: dynatrace-production-us-east-virginia-xsv40927
+description: Dynatrace Environment for production us-east-virginia
+environmentUrl: https://xsv40927.live.dynatrace.com
+bootstrapToken:
+  path: app-sre/creds/dynatrace/redhat-aws/bootstrap-api-tokens/xsv40927
+  field: token
