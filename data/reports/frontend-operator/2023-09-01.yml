@@ -1,0 +1,169 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: frontend-operator
+name: frontend-operator-2023-09-01
+app:
+  $ref: /services/insights/frontend-operator/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/RedHatInsights/frontend-operator:
+    - branch: master
+      total: 5
+      success: 5
+  container_vulnerabilities:
+  - cluster: crcs02ue1
+    namespace: frontend-operator-system
+    vulnerabilities:
+      Unknown: 1
+      Medium: 5
+      High: 6
+  - cluster: crcs02ue1
+    namespace: frontends
+    vulnerabilities:
+      Medium: 882
+      High: 293
+      Low: 130
+  - cluster: crcs02ue1
+    namespace: frontends-beta
+    vulnerabilities:
+      Medium: 1192
+      High: 492
+      Low: 173
+  - cluster: crcp01ue1
+    namespace: frontend-operator-system
+    vulnerabilities:
+      Medium: 18
+      High: 2
+      Low: 3
+  - cluster: crcp01ue1
+    namespace: frontends
+    vulnerabilities:
+      Medium: 418
+      High: 80
+      Low: 66
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    vulnerabilities:
+      Medium: 564
+      High: 145
+      Low: 82
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcs02ue1
+    namespace: frontends
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 28
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 28
+      deployment_validation_operator_run_as_non_root:
+        Failed: 28
+  - cluster: crcs02ue1
+    namespace: frontends-beta
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 28
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 28
+      deployment_validation_operator_run_as_non_root:
+        Failed: 28
+  - cluster: crcp01ue1
+    namespace: frontends
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 18
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 18
+      deployment_validation_operator_run_as_non_root:
+        Failed: 18
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    validations:
+      deployment_validation_operator_unset_cpu_requirements:
+        Failed: 21
+      deployment_validation_operator_unset_memory_requirements:
+        Failed: 21
+      deployment_validation_operator_run_as_non_root:
+        Failed: 21
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Beta Latency
+    slo_doc_name: app-interface
+    slo_value: 198.42684246697982
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Latency
+    slo_doc_name: app-interface
+    slo_value: 205.67702858458156
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Beta Error Rate
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Error Rate
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Beta Availability
+    slo_doc_name: app-interface
+    slo_value: 10000.0
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: frontends-beta
+    slo_name: Hybrid Committed Spend Frontend Availability
+    slo_doc_name: app-interface
+    slo_value: 10000.0
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Beta Latency
+    slo_doc_name: app-interface
+    slo_value: 198.42259105251486
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Latency
+    slo_doc_name: app-interface
+    slo_value: 205.6769804818209
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Beta Error Rate
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Error Rate
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 90.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Beta Availability
+    slo_doc_name: app-interface
+    slo_value: 10000.0
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: frontends
+    slo_name: Hybrid Committed Spend Frontend Availability
+    slo_doc_name: app-interface
+    slo_value: 10000.0
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: frontend-operator-system
+    slo_name: Frontend controller reconciliation time for Frontend Operator
+    slo_doc_name: frontend-operator
+    slo_value: 99.9682593738103
+    slo_target: 95.0

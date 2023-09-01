@@ -1,0 +1,26 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: sre-capabilities
+name: sre-capabilities-2023-09-01
+app:
+  $ref: /services/sre-capabilities/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/service/sre-capabilities:
+    - branch: master
+      total: 10
+      success: 6
+  container_vulnerabilities:
+  - cluster: appsres03ue1
+    namespace: sre-capabilities-stage
+    vulnerabilities:
+      Unknown: 24
+      Medium: 66
+      High: 16
+      Low: 12
+  post_deploy_jobs: null
+  deployment_validations: null
+  service_slo: null

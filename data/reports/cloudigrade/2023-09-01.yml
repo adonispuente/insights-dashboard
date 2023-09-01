@@ -1,0 +1,58 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: cloudigrade
+name: cloudigrade-2023-09-01
+app:
+  $ref: /services/insights/cloudigrade/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://github.com/cloudigrade/cloudigrade:
+    - branch: master
+      total: 13
+      success: 13
+    - branch: master
+      total: 13
+      success: 13
+  container_vulnerabilities:
+  - cluster: crcp01ue1
+    namespace: cloudigrade-prod
+    vulnerabilities:
+      Unknown: 181
+      Medium: 320
+      High: 72
+      Low: 24
+  - cluster: crcs02ue1
+    namespace: cloudigrade-stage
+    vulnerabilities:
+      Unknown: 95
+      Medium: 171
+      High: 46
+      Low: 15
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: crcp01ue1
+    namespace: cloudigrade-prod
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 6
+  - cluster: crcs02ue1
+    namespace: cloudigrade-stage
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 8
+  service_slo:
+  - cluster: crcp01ue1
+    namespace: cloudigrade-prod
+    slo_name: cloudigrade api latency
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 95.0
+  - cluster: crcp01ue1
+    namespace: cloudigrade-prod
+    slo_name: cloudigrade api success
+    slo_doc_name: app-interface
+    slo_value: 100.0
+    slo_target: 95.0

@@ -1,0 +1,51 @@
+$schema: /app-sre/report-1.yml
+labels:
+  app: status-board
+name: status-board-2023-09-01
+app:
+  $ref: /services/status-board/app.yml
+date: '2023-09-01'
+contentFormatVersion: 1.0.0
+content: |
+  promotions: null
+  merge_activities:
+    https://gitlab.cee.redhat.com/service/status-board:
+    - branch: master
+      total: 5
+      success: 5
+  container_vulnerabilities:
+  - cluster: app-sre-stage-01
+    namespace: status-board-stage
+    vulnerabilities:
+      Medium: 2
+      High: 7
+  - cluster: app-sre-prod-04
+    namespace: status-board-production
+    vulnerabilities:
+      Medium: 2
+      High: 7
+  post_deploy_jobs: null
+  deployment_validations:
+  - cluster: app-sre-stage-01
+    namespace: status-board-stage
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 3
+  - cluster: app-sre-prod-04
+    namespace: status-board-production
+    validations:
+      deployment_validation_operator_run_as_non_root:
+        Failed: 3
+  service_slo:
+  - cluster: app-sre-prod-04
+    namespace: status-board-production
+    slo_name: Status-Board API Availability
+    slo_doc_name: status-board
+    slo_value: 100.0
+    slo_target: 90.0
+  - cluster: app-sre-prod-04
+    namespace: status-board-production
+    slo_name: Status-Board API Latency
+    slo_doc_name: status-board
+    slo_value: 99.99395543002353
+    slo_target: 99.0
