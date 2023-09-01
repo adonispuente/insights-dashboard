@@ -12,7 +12,6 @@ to:
     - $ref: "/services/insights/provisioning/app.yml"
     - $ref: "/services/ocm/app.yml"
     - $ref: "/services/service-registry/app.yml"
-    - $ref: "/services/insights/bop/app.yml"
     - $ref: "/services/ocm/osd-fleet-manager/app.yml"
     - $ref: "/services/insights/entitlements/app.yml"
     - $ref: "/services/insights/rbac/app.yml"
