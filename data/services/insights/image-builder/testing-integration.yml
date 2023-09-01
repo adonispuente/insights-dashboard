@@ -34,7 +34,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/image-builder/namespaces/stage-image-builder-testing.yml
-    ref: 8f2cdde2128a33a72c1b7bda41174676073f4d37
+    ref: 2fbf0abc86081c4158b350b083f59212872a7e29
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_MARKER_EXPRESSION: image_builder
