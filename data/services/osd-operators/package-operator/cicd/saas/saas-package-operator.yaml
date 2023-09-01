@@ -48,10 +48,10 @@ resourceTemplates:
   # -------
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 92430cde59589ede7f6f05d0eab08e7f5eb22a20
+    ref: 5d826467c00a5916d2bc0e70b4d83c95b9220db8
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 92430cde59589ede7f6f05d0eab08e7f5eb22a20
+    ref: 5d826467c00a5916d2bc0e70b4d83c95b9220db8
   # PRODUCTION
   # ----------
   - namespace:
@@ -95,10 +95,10 @@ resourceTemplates:
   # -------
   - namespace:
       $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
-    ref: 92430cde59589ede7f6f05d0eab08e7f5eb22a20
+    ref: 5d826467c00a5916d2bc0e70b4d83c95b9220db8
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-    ref: 92430cde59589ede7f6f05d0eab08e7f5eb22a20
+    ref: 5d826467c00a5916d2bc0e70b4d83c95b9220db8
   # PRODUCTION
   # ----------
   - namespace:
