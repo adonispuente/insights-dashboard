@@ -29,6 +29,9 @@ self_service:
 
 access:
 - namespace:
+    $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-integration.yml
+  role: view
+- namespace:
     $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
   role: view
 - namespace:
