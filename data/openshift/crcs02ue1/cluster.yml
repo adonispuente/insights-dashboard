@@ -55,9 +55,6 @@ machinePools:
     type: memory-optimized
   taints:
   - effect: NoSchedule
-    key: memory-optimized
-    value: 'true'
-  - effect: NoSchedule
     key: hccm-trino-node
     value: 'true'
 automationToken:
