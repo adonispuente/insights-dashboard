@@ -16,11 +16,11 @@ pipelinesProvider:
 
 deployResources:
   requests:
-    cpu: 800m
-    memory: 1800Mi
+    cpu: '4'
+    memory: 4Gi
   limits:
-    cpu: 1200m
-    memory: 1800Mi
+    cpu: '8'
+    memory: 8Gi
 
 slack:
   workspace:
@@ -54,7 +54,8 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
+        ref: f34ccaa5a1ef910f7c1ee1dc3e23f5390e979f9a
+        delete: true
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
@@ -77,12 +78,13 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
-        ref: bfc489172114ce076c2145bd3214715a03abf018
+        ref: f34ccaa5a1ef910f7c1ee1dc3e23f5390e979f9a
+        delete: true
         parameters:
           NAMESPACE: observatorium-datahub-migration
           RCLONE_CONFIG_MAP_NAME:  rclone-config-map
           RCLONE_PARALLEL_TRANSFERS: 8
-          RCLONE_PARALLEL_FILE_CHECKERS: 16
+          RCLONE_PARALLEL_FILE_CHECKERS: 32
   - name: observatorium-rclone-configuration-secret
     path: /resources/operations/rclone-bucket-replicate/s3-secret-template.yaml
     url: https://github.com/rhobs/configuration
