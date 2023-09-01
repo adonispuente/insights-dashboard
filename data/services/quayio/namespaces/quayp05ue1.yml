@@ -278,6 +278,9 @@ externalResources:
           }
         ]
       }
+  - provider: s3
+    identifier: quayio-aurora-cluster-terraform
+    defaults: /terraform/resources/s3-private-1.yml
   - provider: aws-iam-role
     identifier: emr-cloudfront-prod-logs-access-role
     assume_role:
