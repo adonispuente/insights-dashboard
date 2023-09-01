@@ -729,8 +729,11 @@
     
     # Parameters to set which stages will run
     - string:
-        name: PROJECT_NAME
-        default: '{project_name}'
+        name: APP_NAME
+        default: '{app_name}'
+    - string:
+        name: COMPONENT_NAME
+        default: '{component_name}'
     - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']

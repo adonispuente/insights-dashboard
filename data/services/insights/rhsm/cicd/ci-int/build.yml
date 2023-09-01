@@ -52,7 +52,8 @@ config:
         display_name: curiosity-frontend frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
         branch: "main"
-        project_name: 'curiosity-frontend'
+        app_name: 'curiosity-frontend'
+        component_name: 'curiosity-frontend'
         run_cypress_component: 'false'
         run_cypress_e2e_tests: 'false'
         run_build_push_quay: 'true'
