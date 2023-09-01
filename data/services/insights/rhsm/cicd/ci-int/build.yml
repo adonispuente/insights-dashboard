@@ -53,12 +53,13 @@ config:
         status_context: ci.int.devshift.net PR pipeline
         branch: "main"
         project_name: 'curiosity-frontend'
-        run_cypress_component_stage: 'false'
-        run_cypress_e2e_tests_stage: 'false'
-        run_frontend_build_stage: 'true'
-        run_iqe_tests_stage: 'true'
-        run_lint_stage: 'true'
-        run_unit_tests_stage: 'false'
+        run_cypress_component: 'false'
+        run_cypress_e2e_tests: 'false'
+        run_build_push_quay: 'true'
+        run_frontend_common_builder: 'true'
+        run_iqe_tests: 'true'
+        run_lint: 'true'
+        run_unit_tests: 'false'
 - project:
     name: rhsm-subscriptions
     label: insights
