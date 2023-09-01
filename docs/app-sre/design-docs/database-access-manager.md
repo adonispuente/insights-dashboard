@@ -18,7 +18,7 @@ Especially for use cases where we want to share a database instance between mult
 
 ## Goals
 
-Specify the required qontract-schema changes and implementation details for the database access manager.
+Specify the required qontract-schema changes and implementation details for the database access manager (DBAM).
 
 ## Nongoals
 
@@ -40,7 +40,7 @@ name: guestbook
 username: gb-app
 database: gb
 
-# Set delete: True to delete the user and database
+# Set delete: True to delete the user
 # delete: True
 
 grants:
@@ -65,13 +65,13 @@ Example reference in namespace:
   database_output_prefix: important-database
 ```
 
-### Database access manager
+### Database access manager (DBAM)
 
-The database access manager should be able to create and delete databases and users on an instance. It should be able to read the configuration from `/app-interface/database-access-1.yml` schemas and apply it to the database instance.
+DBAM should be able to create and delete users for a database. Multiple users for a single database should be supported. If the database does not exist it should be created by DBAM, database deletion is not supported. DBAM should be able to read the configuration from `/app-interface/database-access-1.yml` schemas and apply it to the database instance.
 
-The access manager should create a random password for the db user created and store it in a secret beside the main database password. The additional secret should also be stored in the output path, next to the main secret. The name will be `$database_output_prefix-$-databaseaccess.name`, in our example: `important-database-guestbook`. If `$database_output_prefix` is not set, it will be the same as the `$identifier` of the rds resources.
+DBAM should create a random password for the db user created and store it in a secret beside the main database password. The additional secret should also be stored in the output path, next to the main secret. The name will be `$database_output_prefix-$-databaseaccess.name`, in our example: `important-database-guestbook`. If `$database_output_prefix` is not set, it will be the same as the `$identifier` of the rds resources.
 
-The access manager should be agnostic of the engine used, for Postgres we'll start by using psycopg [2].
+DBAM should be agnostic of the engine used, for Postgres we'll start by using psycopg [2].
 
 
 ## Alternatives considered
