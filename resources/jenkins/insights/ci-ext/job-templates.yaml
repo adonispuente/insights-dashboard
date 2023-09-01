@@ -434,7 +434,11 @@
         allowedValues: ['false', 'true']
         default: 'false'
     - string:
-        name: RUN_FRONTEND_BUILD_FLAG
+        name: RUN_BUILD_PUSH_QUAY_FLAG
+        allowedValues: ['false', 'true']
+        default: 'false'
+    - string:
+        name: RUN_FRONTEND_COMMON_BUILDER_FLAG
         allowedValues: ['false', 'true']
         default: 'false'
     - string:

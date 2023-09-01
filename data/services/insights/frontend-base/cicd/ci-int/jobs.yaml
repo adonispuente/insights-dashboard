@@ -114,12 +114,13 @@ config:
         display_name: insights-chrome frontend-pipeline-pr-check
         status_context: ci.int.devshift.net PR pipeline
         project_name: 'insights-chrome'
-        run_cypress_component_stage: 'true'
-        run_cypress_e2e_tests_stage: 'true'
-        run_frontend_build_stage: 'true'
-        run_iqe_tests_stage: 'true'
-        run_lint_stage: 'true'
-        run_unit_tests_stage: 'true'
+        run_build_push_quay: 'true'
+        run_cypress_component: 'true'
+        run_cypress_e2e_tests: 'true'
+        run_frontend_common_builder: 'true'
+        run_iqe_tests: 'true'
+        run_lint: 'true'
+        run_unit_tests: 'true'
 
 - project:
     name: frontend-configs
