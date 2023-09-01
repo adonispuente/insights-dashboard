@@ -7,6 +7,7 @@ name: Esron Dtamar da Silva
 org_username: essilva
 github_username: esron
 quay_username: essilva
+cloudflare_user: essilva@redhat.com
 
 roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
