@@ -35,6 +35,7 @@ authentication:
 managedResourceTypes:
   - Secret
   - Job
+  - ConfigMap
 
 imagePatterns:
   - quay.io/thanos/thanos
@@ -80,7 +81,6 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
         ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
-        delete: true
         parameters:
           NAMESPACE: observatorium-datahub-migration
           RCLONE_CONFIG_MAP_NAME:  rclone-config-map
