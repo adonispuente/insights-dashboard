@@ -55,16 +55,17 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
         ref: a105033fc42780dc4682eb3538abead5306ee81c
+        delete: true
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
           SERVICE_ACCOUNT_NAME: 'rclone'
           NAME: rclone-bucket-replicate
           NAMESPACE: observatorium-datahub-migration
-          CPU_REQUEST: '8'
-          MEMORY_REQUEST: '16Gi'
+          CPU_REQUEST: '4'
+          MEMORY_REQUEST: '8Gi'
           CPU_LIMIT: '8'
-          MEMORY_LIMIT: '32Gi'
+          MEMORY_LIMIT: '16Gi'
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
           RCLONE_CONFIG_MAP_NAME: rclone-config-map
           SOURCE_ENDPOINT: SRC
