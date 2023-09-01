@@ -1,0 +1,9 @@
+---
+$schema: /dependencies/dynatrace-environment-1.yml
+
+name: dynatrace-production-ap-southeast-singapore-uva53433
+description: Dynatrace Environment for production ap-southeast-singapore
+environmentUrl: https://uva53433.live.dynatrace.com
+bootstrapToken:
+  path: app-sre/creds/dynatrace/redhat-aws/bootstrap-api-tokens/uva53433
+  field: token
