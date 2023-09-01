@@ -15,4 +15,4 @@ spec:
     - {{namespace}}
   selector:
     matchLabels:
-      app: exhort
+      app-name: exhort
