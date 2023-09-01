@@ -99,3 +99,6 @@ quayRepos:
   - name: keycloak-config-manager
     description: keycloak config manager
     public: false
+  - name: keycloak-metrics-sidecar
+    description: keycloak metrics sidecar
+    public: false
