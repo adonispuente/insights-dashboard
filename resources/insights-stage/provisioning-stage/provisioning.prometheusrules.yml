@@ -23,6 +23,8 @@ spec:
         severity: high
       annotations:
         message: "One of the provisioning service pods is down"
+        dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningMissingPodAlert.md"
 
   - name: provisioning-aws-reservation-processing-rate
     rules:
@@ -97,7 +99,7 @@ spec:
       annotations:
         message: "REST API success rate (3scale) is low"
         dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
-        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningAvailabilityAlert.md"
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningHTTPSuccessRateSLO.md"
 
   - name: provisioning-http-latency
     rules:
