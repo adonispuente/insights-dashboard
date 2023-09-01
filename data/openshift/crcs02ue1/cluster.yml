@@ -52,7 +52,7 @@ machinePools:
   instance_type: r5.2xlarge
   replicas: 3
   labels:
-    type: memory-optimized
+    type: hccm-trino-node
   taints:
   - effect: NoSchedule
     key: hccm-trino-node
