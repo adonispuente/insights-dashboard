@@ -55,6 +55,7 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
         ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
+        delete: true
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
@@ -63,13 +64,10 @@ resourceTemplates:
           NAMESPACE: observatorium-datahub-migration
           OBJ_STORE_CONFIG_SECRET_NAME: rclone-bucket-replicate-s3-secret
           RCLONE_CONFIG_MAP_NAME: rclone-config-map
-          SOURCE_ENDPOINT: s3.upshift.redhat.com:443
+          SOURCE_ENDPOINT: SRC
           SOURCE_BUCKET: DH-SECURE-TELEMETRY-PROD
+          TARGET_ENDPOINT: DST
         secretParameters:
-          - name:  TARGET_ENDPOINT
-            secret:
-              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
-              field: endpoint
           - name: TARGET_BUCKET
             secret:
               path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
