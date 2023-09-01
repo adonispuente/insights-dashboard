@@ -84,6 +84,9 @@ quayRepos:
   - name: internal-redhat-ca
     description: Container holding the internal RedHat CA files
     public: false
+  - name: osh-cli-container
+    description: The containerized version of the osh-cli tool used to interact with OpenScanHub.
+    public: false
   - name: container-structure-test
     description: Container structure test image to test images structure
     mirror:
