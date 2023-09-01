@@ -54,7 +54,6 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/appsrep05ue1/observatorium-datahub-migration.yaml
         ref: 5373fd488cec1a49bc74749b8f6e167ea12164c6
-        delete: true
         parameters:
           IMAGE: 'quay.io/app-sre/rclone'
           IMAGE_TAG: '1.63'
