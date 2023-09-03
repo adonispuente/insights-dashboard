@@ -309,6 +309,15 @@ data:
                 },
                 "orgId": 1,
                 "type": "file"
+            },
+            {
+                "folder": "Trusted-Content",
+                "name": "Trusted-Content",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/Trusted-Content"
+                },
+                "orgId": 1,
+                "type": "file"
             }
         ]
     }
