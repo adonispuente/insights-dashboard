@@ -145,4 +145,4 @@ codeComponents:
   url: https://github.com/app-sre/statuspage-exporter
 - name: app-interface-dora-exporter
   resource: upstream
-  url: https://gitlab.cee.redhat.com/service/app-interface-dora-exporter/
+  url: https://gitlab.cee.redhat.com/service/app-interface-dora-exporter
