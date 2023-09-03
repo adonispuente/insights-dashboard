@@ -11,7 +11,7 @@ spec:
 
   # Allow manifests to deploy from the following Git repos
   sourceRepos:
-  - https://github.com/redhat-appstudio/rh-managed-workspaces-config.git
+  - https://github.com/redhat-appstudio/tenants-config.git
 
   # Only permit applications to deploy to the rh-managed-* namespaces
   destinations:
