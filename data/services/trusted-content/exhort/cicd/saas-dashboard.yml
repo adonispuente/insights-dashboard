@@ -1,0 +1,27 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: exhort
+  platform: trusted-content
+name: exhort-dashboards
+description: exhort dashboard
+app:
+  $ref: /services/trusted-content/exhort/app.yml
+pipelinesProvider:
+  $ref: /services/trusted-content/pipelines/tekton.exhort-pipelines.appsrep05ue1.yml
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: tc-exhort-cicd
+managedResourceTypes:
+- ConfigMap
+resourceTemplates:
+- name: grafana-dashboard-exhort
+  url: https://github.com/RHEcosystemAppEng/exhort
+  path: /dashboards
+  provider: directory
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+    ref: stable
+imagePatterns: []
