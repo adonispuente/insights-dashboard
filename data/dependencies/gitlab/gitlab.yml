@@ -63,4 +63,4 @@ token:
   path: app-sre/ci-int/gitlab-token
   field: gitlab-token
 
-sslVerify: true
+sslVerify: false
