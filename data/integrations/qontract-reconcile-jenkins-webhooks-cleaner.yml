@@ -24,6 +24,7 @@ managed:
         memory: 200Mi
     logs:
       slack: true
+    internalCertificates: true
     # once a month
     cron: '0 0 1 * *'
 - namespace:
@@ -37,6 +38,7 @@ managed:
         memory: 200Mi
     logs:
       slack: true
+    internalCertificates: true
     # once a month
     cron: '0 0 1 * *'
 
