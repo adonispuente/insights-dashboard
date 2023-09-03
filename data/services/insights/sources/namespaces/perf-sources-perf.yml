@@ -84,7 +84,7 @@ externalResources:
   - provider: rds
     identifier: sources-perf
     defaults: /terraform/resources/insights/perf/rds/postgres10-rds-sources-perf.yml
-    parameter_group: /terraform/resources/insights/perf/rds/postgres10-parameter-group-sources-perf.yml
+    parameter_group: /terraform/resources/insights/perf/rds/postgres14-parameter-group-sources-perf.yml
     output_resource_name: sources-db
     enhanced_monitoring: true
   - provider: cloudwatch

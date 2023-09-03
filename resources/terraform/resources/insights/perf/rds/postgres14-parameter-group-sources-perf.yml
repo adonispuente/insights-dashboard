@@ -1,5 +1,5 @@
-family: postgres10
-description: Parameter Group for PostgreSQL 10
+family: postgres14
+description: Parameter Group for PostgreSQL 14
 parameters:
 - name: log_statement
   value: none
