@@ -86,7 +86,11 @@ resourceTemplates:
       # bastion-nasa-2.ops.openshift.com
       - 52.6.0.240/32
       # These are the NAT IPs for backplanei01ue1 (integration backplane)
-      - 34.205.217.112/32  
+      - 34.205.217.112/32
+      # These are the NAT IPs for backplanei02ue1 (integration backplane)
+      - 23.22.217.39/32
+      - 44.193.121.36/32
+      - 54.211.144.4/32
 
 - name: managed-cluster-config-stage
   url: https://github.com/openshift/managed-cluster-config
@@ -121,7 +125,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanes02uw2 (staging backplane backplanes02uw2)
       - 44.225.234.235/32
       - 44.241.225.78/32
-      - 44.241.55.3/32   
+      - 44.241.55.3/32
+      # These are the NAT IPs for backplanes03ue1 (staging backplane)
+      - 34.237.180.56/32
+      - 44.205.240.205/32
+      - 52.54.93.238/32
+      # These are the NAT IPs for backplanes04uw2 (staging backplane)
+      - 35.155.66.53/32
+      - 44.231.249.237/32
+      - 44.233.161.100/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
     ref: master
@@ -144,7 +156,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanes02uw2 (staging backplane backplanes02uw2)
       - 44.225.234.235/32
       - 44.241.225.78/32
-      - 44.241.55.3/32   
+      - 44.241.55.3/32
+      # These are the NAT IPs for backplanes03ue1 (staging backplane)
+      - 34.237.180.56/32
+      - 44.205.240.205/32
+      - 52.54.93.238/32
+      # These are the NAT IPs for backplanes04uw2 (staging backplane)
+      - 35.155.66.53/32
+      - 44.231.249.237/32
+      - 44.233.161.100/32
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
@@ -179,7 +199,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanes02uw2 (staging backplane backplanes02uw2)
       - 44.225.234.235/32
       - 44.241.225.78/32
-      - 44.241.55.3/32   
+      - 44.241.55.3/32
+      # These are the NAT IPs for backplanes03ue1 (staging backplane)
+      - 34.237.180.56/32
+      - 44.205.240.205/32
+      - 52.54.93.238/32
+      # These are the NAT IPs for backplanes04uw2 (staging backplane)
+      - 35.155.66.53/32
+      - 44.231.249.237/32
+      - 44.233.161.100/32
 
 - name: managed-cluster-config-production
   url: https://github.com/openshift/managed-cluster-config
@@ -212,7 +240,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32  
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -234,6 +270,14 @@ resourceTemplates:
       - 100.20.120.76/32
       - 100.20.197.29/32
       - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -253,7 +297,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32 
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -274,7 +326,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32 
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -295,7 +355,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32 
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -316,7 +384,15 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32 
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: 8145f437efeeba637f62f9dd3724727d641a85cc
@@ -337,4 +413,12 @@ resourceTemplates:
       # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
       - 100.20.120.76/32
       - 100.20.197.29/32
-      - 52.26.177.23/32 
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32
