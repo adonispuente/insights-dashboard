@@ -49,5 +49,5 @@ resourceTemplates:
       - channel: automation-analytics-stage-deploy-success-channel
         data:
         - parent_saas: tower-analytics-clowder
-          target_config_hash: fce024226f0a8576
+          target_config_hash: a831c4d2179cfc16
           type: parent_saas_config
