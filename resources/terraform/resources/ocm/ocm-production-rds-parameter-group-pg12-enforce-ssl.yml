@@ -1,0 +1,10 @@
+name: ocm-production-rds-parameter-group-pg12-enforce-ssl
+family: postgres12
+description: "OCM production RDS parameter group for PG12"
+parameters:
+- name: log_min_duration_statement
+  value: 60000
+- name: rds.log_retention_period
+  value: 1440
+- name: rds.force_ssl
+  value: 1
