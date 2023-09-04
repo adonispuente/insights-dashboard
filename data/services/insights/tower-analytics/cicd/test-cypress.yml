@@ -48,5 +48,5 @@ resourceTemplates:
       - channel: automation-analytics-stage-post-deploy-iqe-success-channel
         data:
         - parent_saas: tower-analytics-test
-          target_config_hash: 8b0030ae0a22911a
+          target_config_hash: 1ce96383eb4e8822
           type: parent_saas_config
