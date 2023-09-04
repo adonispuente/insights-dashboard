@@ -3,6 +3,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloud-resource-constraints-config
+  annotations:
+    qontract.recycle: "true"
 data:
   instance-type-constraints.yaml: |
     instance_types:
