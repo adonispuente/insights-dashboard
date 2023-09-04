@@ -131,8 +131,7 @@ externalResources:
   - provider: rds
     identifier: uhc-acct-mngr-staging
     defaults: /terraform/resources/app-sre/staging/rds-2-cloudwatch-enabled.yml
-    # TODO: add parameter_group: /terraform/resources/ocm/ocm-stage-rds-parameter-group-pg12-enforce-ssl.yml
-    parameter_group: /terraform/resources/ocm/ocm-stage-rds-parameter-group-pg12.yml
+    parameter_group: /terraform/resources/ocm/ocm-stage-rds-parameter-group-pg12-enforce-ssl.yml
     output_resource_name: uhc-acct-mngr-rds
     ca_cert:
       path: app-interface/global/rds-ca-cert
