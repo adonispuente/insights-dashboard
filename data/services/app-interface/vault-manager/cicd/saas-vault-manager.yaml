@@ -52,7 +52,7 @@ resourceTemplates:
       KUBE_AUTH_MOUNT: kubernetes-appsres03ue1
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-    ref: 5ee64345a341ce03793b2cb3e9dddf21ad0a0428
+    ref: 7dd96b6e59a233ab89790003e86b99fb478a4b96
     parameters:
       DRY_RUN: false
       THREAD_POOL_SIZE: '10'
