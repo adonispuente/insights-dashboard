@@ -71,6 +71,10 @@ externalResources:
     output_resource_name: uhc-acct-mngr-rds
   # Storage is increased in prod to handle a continually growing database as well as to give
   # more IOPs to AMS - https://issues.redhat.com/browse/APPSRE-2770
+    ca_cert:
+      path: app-interface/global/rds-ca-cert
+      field: us-east-1
+      version: 2
     overrides:
       allocated_storage: 160
       performance_insights_enabled: true
