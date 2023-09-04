@@ -24,6 +24,7 @@ managedResourceTypes:
 - Deployment
 - Service
 - ServiceAccount
+validateTargetsInApp: true
 resourceTemplates:
 - name: exhort
   url: https://github.com/RHEcosystemAppEng/exhort
