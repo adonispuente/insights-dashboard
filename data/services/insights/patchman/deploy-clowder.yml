@@ -88,6 +88,7 @@ resourceTemplates:
       UPDATE_USERS: 'true'  # add new users, update credentials
       UPDATE_DB_CONFIG: 'true'  # apply './database_admin/config.sql'
       ENABLE_MIGRATION: 'true' # needs to be set for PR checks where Patch is deployed as a dependency
+      ENABLE_SATELLITE_FUNCTIONALITY: 'true'
   - namespace: # STAGE
       $ref: /services/insights/patchman/namespaces/stage-patchman-engine-stage.yml
     ref: master
@@ -121,6 +122,7 @@ resourceTemplates:
       # Evaluator
       USE_VMAAS_GO: "TRUE"
       GOMEMLIMIT_EVALUATOR: '1382MiB'
+      ENABLE_SATELLITE_FUNCTIONALITY: 'true'
 
       # Evaluator - upload
       REPLICAS_EVALUATOR_UPLOAD: '3' # prod: '2'
