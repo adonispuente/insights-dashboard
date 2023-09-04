@@ -8,7 +8,8 @@ We intend to have this percentage value to be at least 95% over a month (28 days
 ## SLI Rationale
 
 The main objective of Playbook Dispatcher is to allow our customers to dispatch a playbook run request and to track the progress of the run.
-This SLI codifies directly the user experience as a high percentage of fast response rates are a sign of good health.
+The dispatching of playbooks happen over a POST request through the `/v1/dispatch` and `/v2/dispatch` endpoints.
+Therefore, it is crucial for our user experience to efficiently handle these requests, as their fast response times serve as a key indicator of good health.
 
 ## Implementation details
 
