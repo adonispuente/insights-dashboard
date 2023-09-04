@@ -49,6 +49,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/stage-entitlements-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
       ENV_NAME: stage
       SUBS_HOST: https://subscription.stage.api.redhat.com
@@ -106,6 +110,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
       ENV_NAME: 3scale-dev
       SUBS_HOST: https://subscription.stage.api.redhat.com
@@ -132,6 +140,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
       ENV_NAME: ocm
       SUBS_HOST: https://subscription.api.redhat.com
@@ -153,6 +165,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
       ENV_NAME: consoledot-frontend-stage
       SUBS_HOST: https://subscription.stage.api.redhat.com
@@ -174,6 +190,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-ext/ci-ext.yml
+      name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
       ENV_NAME: ephemeral
       SUBS_HOST: https://subscription.stage.api.redhat.com
