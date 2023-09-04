@@ -11,11 +11,16 @@ alertmanagerUrl: https://alertmanager.telemeter-prod-01.devshift.net
 serverUrl: https://api.telemeter-prod.a5j2.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.telemeter-prod.a5j2.p1.openshiftapps.com
 observabilityNamespace:
-  $ref: 
+  $ref:
     /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
 auth:
 - service: oidc
   name: redhat-app-sre-auth
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:

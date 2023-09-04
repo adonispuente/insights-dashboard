@@ -81,7 +81,12 @@ $schema: /openshift/cluster-1.yml
 auth:
 - service: oidc
   name: redhat-app-sre-auth
-  issuer: https://auth.redhat.com/auth/realms/EmployeeIDP
+
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
 ```
 
 ## Common issues

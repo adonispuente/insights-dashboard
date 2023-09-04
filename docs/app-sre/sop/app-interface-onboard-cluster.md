@@ -40,6 +40,12 @@ This step should be performed in a single merge request.
     - service: oidc
       name: redhat-app-sre-auth
 
+    ocmSubscriptionLabels:
+      sre-capabilities:
+        rhidp:
+          status: enabled
+          name: redhat-app-sre-auth
+
     ocm:
       $ref: /dependencies/ocm/production.yml
 

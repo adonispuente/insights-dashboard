@@ -16,7 +16,11 @@ ocm:
 auth:
 - service: oidc
   name: redhat-app-sre-auth
-  issuer: https://auth.redhat.com/auth/realms/EmployeeIDP
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
 observabilityNamespace:
   $ref: 
     /services/observability/namespaces/openshift-customer-monitoring.appsrep05ue1.yml
