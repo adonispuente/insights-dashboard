@@ -193,7 +193,7 @@ Backplane should run on all v4 hive, to deploy backplane on a new v4 hive cluste
 
 All v4 hive shards (clusters) are monitored with their own workload prometheus, which runs in the `openshift-customer-monitoring` namespace.
 
-1. Check that an `openshift-customer-monitoring` namespace file exists for the specific hive cluster. This is usually done as part of [onboarding any new cluster](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/app-interface-onboard-cluster.md#step-4-observability)
+1. Check that an `openshift-customer-monitoring` namespace file exists for the specific hive cluster. This is usually done as part of [onboarding any new cluster](/docs/app-sre/runbook/app-interface-dressup-cluster.md#observability)
 
 1. Use the hive  & backplane monitoring boilerplate to add hive specific monitoring rules and servicemonitors to the `openshift-customer-monitoring` namespace file for the specific hive cluster:
 
