@@ -414,6 +414,11 @@ resourceTemplates:
           service_cluster_id: cg7j4d602khm1qggri70
         sector: perf3
       - predicate:
+          label:
+            key: "sector-override"
+            value: "ibm-infra"
+        sector: ibm-infra
+      - predicate:
           region: us-east-2
         sector: perf2
       - predicate:
@@ -422,11 +427,6 @@ resourceTemplates:
       - predicate:
           region: eu-west-1
         sector: perf3
-      - predicate:
-          label:
-            key: "sector-override"
-            value: "ibm-infra"
-        sector: ibm-infra
       - predicate:
           label:
             key: sector-override
