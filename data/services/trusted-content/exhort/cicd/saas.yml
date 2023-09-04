@@ -45,5 +45,5 @@ resourceTemplates:
     parameters:
       ENV_NAME: stage
 imagePatterns:
-  - quay.io/ecosystem-appeng/exhort
-  - quay.io/redhat-user-workloads/trusted-content-tenant/exhort-alpha/exhort
+- quay.io/app-sre/trusted-content-exhort
+- quay.io/redhat-user-workloads/trusted-content-tenant/exhort-alpha/exhort
