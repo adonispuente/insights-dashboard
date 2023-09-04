@@ -15,6 +15,11 @@ elbFQDN: elb.apps.app-sre-prod-04.i5h0.p1.openshiftapps.com
 auth:
 - service: oidc
   name: redhat-app-sre-auth
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
 observabilityNamespace:
   $ref: 
     /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-04.yml

@@ -13,6 +13,11 @@ alertmanagerUrl: https://alertmanager.appsrep06ue2.devshift.net
 auth:
 - service: oidc
   name: redhat-app-sre-auth
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
 ocm:
