@@ -250,6 +250,10 @@ externalResources:
     identifier: uhc-acct-mngr-integration-v4
     defaults: /terraform/resources/app-sre/integration/rds-1.yml
     output_resource_name: uhc-acct-mngr-rds
+    ca_cert:
+      path: app-interface/global/rds-ca-cert
+      field: us-east-1
+      version: 2
     overrides:
       apply_immediately: true
       engine_version: '12.13'
