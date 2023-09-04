@@ -48,5 +48,5 @@ resourceTemplates:
       - channel: automation-analytics-stage-post-deploy-cypress-success-channel
         data:
         - parent_saas: tower-analytics-test-cypress
-          target_config_hash: 04a43fdcd959b192
+          target_config_hash: 564cefe4cb44117b
           type: parent_saas_config
