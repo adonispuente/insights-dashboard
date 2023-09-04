@@ -60,7 +60,7 @@ resourceTemplates:
         exclude:
         - namespace[?@.environment.labels.type="stage"]
         - namespace[?@.skupperSite.delete=true]
-    ref: c151758c8237670d43fee7c89a9352412266e234
+    ref: 193fde0a1542ab5c465eb855200a8b9fd30bf903
     parameters:
       IMAGE_VERSION: 3.6.0
 # TODO grafana dashboards!
