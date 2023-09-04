@@ -30,7 +30,7 @@ config:
         display_name: provisioning-frontend build-master
         branch: main
         slack_channel_notification: envision-team
-    - "insights-gh-pr-check":
+    - "insights-provisioning-gh-pr-check":
         display_name: provisioning-frontend pr-check
         branch: main
 - project:
