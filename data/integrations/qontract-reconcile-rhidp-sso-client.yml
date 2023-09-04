@@ -9,7 +9,8 @@ description: SRE RHIDP capability - Manages SSO clients in Red Hat Identity Plat
 upstream: https://github.com/app-sre/qontract-reconcile
 
 pr_check:
-  cmd: rhidp-sso-client --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
+  cmd: rhidp-sso-client --ocm-env ocm-production --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe,1SL9d01pYpbSbsTYgbnjAIrDJSW --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp
+  #                                                            app-sre-stage               app-sre-prod                ota (APPSRE-7879)           APPSRE-7951                 APPSRE-8018                 Insights
 
 managed:
 - namespace:
@@ -18,10 +19,10 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 10m
+        cpu: 25m
       limits:
         memory: 200Mi
-    extraArgs: --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
+    extraArgs: --ocm-env ocm-production --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe,1SL9d01pYpbSbsTYgbnjAIrDJSW --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp
     logs:
       slack: true
 - namespace:
@@ -30,17 +31,15 @@ managed:
     resources:
       requests:
         memory: 200Mi
-        cpu: 10m
+        cpu: 25m
       limits:
         memory: 200Mi
-    extraArgs: --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp/app-interface
+    extraArgs: --ocm-env ocm-production --ocm-org-ids 1QxuZ9DyDkGuTuijEXoncha6QTq,1OXqyqko0vmxpV9dmXe9oFypJIw,1y5hXeoEnPzrfUb3b1Lo40rNMtm,1HMMVH2ziOZJ6yi0m4x8ZkCkKE1,1GlYCTDTBmUTij1KYFlUiXFEFQe,1SL9d01pYpbSbsTYgbnjAIrDJSW --keycloak-instance-vault-paths app-sre/creds/rhidp/auth.redhat.com,app-sre/creds/rhidp/auth.stage.redhat.com --vault-input-path app-sre/integrations-throughput/rhidp
     logs:
       slack: true
 
 schemas:
 - /app-interface/app-interface-settings-1.yml
 - /app-sre/integration-1.yml
-- /openshift/cluster-1.yml
-- /openshift/openshift-cluster-manager-1.yml
-- /openshift/openshift-cluster-manager-environment-1.yml
 - /dependencies/dependency-1.yml
+- /openshift/openshift-cluster-manager-environment-1.yml
