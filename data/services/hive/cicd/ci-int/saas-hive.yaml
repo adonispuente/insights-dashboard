@@ -43,7 +43,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/hive/namespaces/hivei01ue1/hive-integration.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6b9c71c5e165eb960b0598f33b6d72c93289cc87
   - namespace:
       $ref: /services/hive/namespaces/hives02ue1/hive-stage.yml
     ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
