@@ -18,7 +18,7 @@ openshiftResources:
   path: /trusted-content-stage/exhort-stage/stage-route.yml
 - provider: vault-secret
   path: trusted-content/secrets/trusted-content-stage/exhort-stage/exhort-secret
-  version: 1
+  version: 2
   annotations:
     qontract.recycle: "true"
 
