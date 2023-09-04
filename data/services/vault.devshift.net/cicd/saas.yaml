@@ -63,18 +63,16 @@ resourceTemplates:
           cpu: '250m'
           memory: '250Mi'
         limits:
-          cpu: '1'
           memory: '1Gi'
       VAULT_BACKUP_RESOURCES:
         requests:
           cpu: '200m'
           memory: '128Mi'
         limits:
-          cpu: '400m'
           memory: '256Mi'
   - namespace:
       $ref: /services/vault.devshift.net/namespaces/vault-prod-internal.yml
-    ref: 746b50388580a4732f791b7a583e8905deda494b
+    ref: 6896de2141835e85a71e340ccc9fcbf704dee14d
     parameters:
       VAULT_URL: https://vault.devshift.net
       REPLICAS: 3
@@ -86,14 +84,12 @@ resourceTemplates:
           cpu: '500m'
           memory: '1.5Gi'
         limits:
-          cpu: '1'
           memory: '1.5Gi'
       VAULT_BACKUP_RESOURCES:
         requests:
           cpu: '400m'
           memory: '256Mi'
         limits:
-          cpu: '800m'
           memory: '512Mi'
 - name: vault-devshift-net-dashboards
   url: https://gitlab.cee.redhat.com/service/vault-devshift-net

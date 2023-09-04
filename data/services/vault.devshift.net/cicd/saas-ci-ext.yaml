@@ -54,7 +54,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/vault.devshift.net/namespaces/vault-ci-ext.yml
-    ref: cebd514b9556ad6b09f1d96615bdd80e4e3ba49a
+    ref: 6896de2141835e85a71e340ccc9fcbf704dee14d
     parameters:
       VAULT_URL: https://vault.ci.ext.devshift.net
       REPLICAS: 3
@@ -66,12 +66,10 @@ resourceTemplates:
           cpu: '500m'
           memory: '1.0Gi'
         limits:
-          cpu: '1'
           memory: '1.5Gi'
       VAULT_BACKUP_RESOURCES:
         requests:
           cpu: '400m'
           memory: '256Mi'
         limits:
-          cpu: '800m'
           memory: '512Mi'
