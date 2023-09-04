@@ -42,5 +42,5 @@ resourceTemplates:
       - channel: github-mirror-stage-deploy-success-channel
         data:
         - parent_saas: saas-github-mirror
-          target_config_hash: 539a2b31b75287d3
+          target_config_hash: 7990cb0dfd018e41
           type: parent_saas_config
