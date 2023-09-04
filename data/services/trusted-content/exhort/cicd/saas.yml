@@ -44,6 +44,11 @@ resourceTemplates:
       name: trusted-content-tenant/exhort-alpha/exhort
     parameters:
       ENV_NAME: stage
+  - namespace:
+      $ref: /services/trusted-content/exhort/namespaces/production.yml
+    ref: 2951f51a80427ea37ff906481768dce460ba00e3
+    parameters:
+      ENV_NAME: prod
 imagePatterns:
 - quay.io/app-sre/trusted-content-exhort
 - quay.io/redhat-user-workloads/trusted-content-tenant/exhort-alpha/exhort
