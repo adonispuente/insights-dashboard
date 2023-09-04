@@ -36,3 +36,11 @@ codeComponents:
 - name: exhort
   resource: upstream
   url: https://github.com/RHEcosystemAppEng/exhort
+
+quayRepos:
+- org:
+    $ref: /dependencies/quay/app-sre.yml
+  items:
+  - name: trusted-content-exhort
+    description: Trusted Content Exhort
+    public: true
