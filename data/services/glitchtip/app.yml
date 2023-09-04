@@ -21,7 +21,7 @@ grafanaUrls:
 onboardingStatus: OnBoarded
 
 escalationPolicy:
-  $ref: /teams/app-sre/escalation-policies/stream-4.yaml
+  $ref: /teams/app-sre/escalation-policies/stream-2.yaml
 serviceOwners:
 - name: App-SRE Stream 2
   email: sd-app-sre+stream-2@redhat.com
