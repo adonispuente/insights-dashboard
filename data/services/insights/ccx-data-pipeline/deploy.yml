@@ -425,7 +425,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     disable: false
-    ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
+    ref: d974e6f79c88d177e049e000caaee440dc26b82b
     parameters:
       JOB_SCHEDULE: "0 */3 * * *"
       OLD_REPORTS_MAX_AGE: '8 days'
