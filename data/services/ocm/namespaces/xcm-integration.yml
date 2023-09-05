@@ -41,7 +41,16 @@ openshiftResources:
 
   # CS dependencies
   - provider: vault-secret
+    path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/rh-oidc-s3-secret
+    version: 1
+  - provider: vault-secret
+    path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/sts-credentials
+    version: 1
+  - provider: vault-secret
     path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/route53-creds
+    version: 1
+  - provider: vault-secret
+    path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/uhc-integration/rh-osd-network-verifier-s3-secret
     version: 1
   - provider: resource
     path: /services/ocm/integration/region-constraints.configmap.yaml
@@ -108,49 +117,6 @@ openshiftServiceAccountTokens:
 managedExternalResources: true
 
 externalResources:
-  - provider: aws
-    provisioner:
-      $ref: /aws/app-sre-stage/account.yml
-    resources:
-      - provider: s3-cloudfront
-        identifier: rh-oidc-integration-xcm-int
-        defaults: /terraform/resources/ocm/s3-cloudfront-integration.yml
-        output_resource_name: rh-oidc-s3-secret
-      - provider: s3
-        identifier: rh-osd-network-verifier-integration-xcm-int
-        defaults: /terraform/resources/s3-private-1.yml
-        output_resource_name: rh-osd-network-verifier-s3-secret
-  - provider: aws
-    provisioner:
-      $ref: /aws/osd-privatelink-int/account.yml
-    resources:
-      - provider: aws-iam-service-account
-        identifier: ocm-sts-access-xcm-int
-        variables:
-          aws_role_arn: arn:aws:iam::896164604406:role/RH-Managed-OpenShift-Installer
-          aws_allowed_principal_arn: arn:aws:iam::896164604406:root
-        user_policy:
-          {
-            "Version": "2012-10-17",
-            "Statement": [{
-              "Action": [
-                "sts:AssumeRole"
-              ],
-              "Effect": "Allow",
-              "Resource": "arn:aws:iam::*:role/RH-Installer-Role"
-            },{
-              "Action": [
-                "ec2:DescribeRegions",
-                "ec2:DescribeInstanceTypeOfferings",
-                "iam:GetRole",
-                "iam:CreateRole",
-                "iam:UpdateAssumeRolePolicy"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }]
-          }
-        output_resource_name: sts-credentials
   - provider: aws
     provisioner:
       $ref: /aws/app-sre/account.yml
