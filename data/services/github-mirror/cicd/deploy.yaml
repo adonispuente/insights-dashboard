@@ -60,13 +60,13 @@ resourceTemplates:
       - github-mirror-stage-deploy-success-channel
   - namespace:
       $ref: /services/github-mirror/namespaces/github-mirror-production.yaml
-    ref: 0915c492e8c1de1359743e2126103bddf412391f
+    ref: a595349d33fbc7318ee20f74df4f56b3a0f95fec
     parameters:
       GITHUB_MIRROR_URL: https://github-mirror.devshift.net
       EC_SECRET_NAME: ghmirror-elasticache-production
       READER_ENDPOINT: replica.ghmirror-redis-production.huo5rn.use1.cache.amazonaws.com
       REPLICAS: 5
-      GITHUB_STATUS_SLEEP_TIME: 3
+      GITHUB_STATUS_SLEEP_TIME: 1
 - name: github-mirror-dashboards
   url: https://github.com/app-sre/github-mirror
   path: /dashboards
