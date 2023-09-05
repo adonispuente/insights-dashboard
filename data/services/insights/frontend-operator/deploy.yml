@@ -81,4 +81,4 @@ resourceTemplates:
   # Prod
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod.yml
-    ref: 46f4aa4562b063bc0f2793723ea03fee5edc7e90
+    ref: dcd5b152221f786de017cb52026f11c99339e00d
