@@ -40,6 +40,6 @@ resourceTemplates:
       NAMESPACE: telemeter-stage
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: 1c9fcec6c27a47dc06c68e73a38c3ebb248add9e
+    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
     parameters:
       NAMESPACE: telemeter-production
