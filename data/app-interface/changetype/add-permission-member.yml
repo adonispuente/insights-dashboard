@@ -5,7 +5,9 @@ labels: {}
 
 name: add-permission-member
 description: |
-  Owners of permissions can add permissions to roles.
+  Owners of permissions can add permissions to:
+  - roles
+  - apps quay repo access
 
 priority: low
 
@@ -19,4 +21,11 @@ changes:
   - permissions[?(@.'$ref'=='{{ ctx_file_path }}')]
   context:
     selector: permissions[*].'$ref'
+    when: added
+- provider: jsonPath
+  changeSchema: /app-sre/app-1.yml
+  jsonPathSelectors:
+  - quayRepos[*].teams[*].permissions[?(@.'$ref'=='{{ ctx_file_path }}')]
+  context:
+    selector: quayRepos[*].teams[*].permissions[*].'$ref'
     when: added
