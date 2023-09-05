@@ -762,6 +762,47 @@
         name: RUN_UNIT_TESTS_FLAG
         allowedValues: ['false', 'true']
         default: '{run_unit_tests}'
+
+    # Parameters for IQE testing
+    - string:
+        name: IQE_MARKER_EXPRESSION
+        default: ''
+    - string:
+        name: IQE_FILTER_EXPRESSION
+        default: ''
+    - string:
+        name: IQE_IMAGE_TAG
+        default: ''
+    - string:
+        name: IQE_REQUIREMENTS
+        default: ''
+    - string:
+        name: IQE_REQUIREMENTS_PRIORITY
+        default: ''
+    - string:
+        name: IQE_TEST_IMPORTANCE
+        default: ''
+    - string:
+        name: IQE_PLUGINS
+        default: ''
+    - string:
+        name: IQE_ENV
+        default: 'clowder_smoke'
+    - string:
+        name: IQE_SELENIUM
+        default: 'false'
+    - string:
+        name: IQE_PARALLEL_ENABLED
+        default: ''
+    - string:
+        name: IQE_PARALLEL_WORKER_COUNT
+        default: ''
+    - string:
+        name: IQE_RP_ARGS
+        default: ''
+    - string:
+        name: IQE_IBUTSU_SOURCE
+        default: ''
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
