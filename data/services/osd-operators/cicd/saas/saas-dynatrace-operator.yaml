@@ -97,6 +97,20 @@ resourceTemplates:
       OPERATOR: In
       SECTORS:
       - canary
+  - name: production-main
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 009d5a467166c12bc9238d3ffaede339e6a320a8
+    parameters:
+      NAME: main
+      ENVIRONMENT: production
+      OPERATOR: NotIn
+      SECTORS:
+      - canary
+      - ibm-infra
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
     ACTIVEGATE_CPU_REQUEST: 500m
