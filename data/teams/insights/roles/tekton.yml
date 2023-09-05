@@ -22,6 +22,12 @@ access:
 - namespace:
     $ref: /services/insights/namespaces/crc-poc-pipelines.appsres03ue1.yaml
   role: tekton-trigger-access
+- namespace:
+    $ref: /services/insights/namespaces/crc-poc-pipelines.appsres05ue1.yaml
+  role: view
+- namespace:
+    $ref: /services/insights/namespaces/crc-poc-pipelines.appsres05ue1.yaml
+  role: tekton-trigger-access
 
 self_service:
 - change_type:

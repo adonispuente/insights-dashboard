@@ -1,0 +1,20 @@
+---
+$schema: /app-sre/pipelines-provider-1.yml
+
+labels: {}
+
+name: tekton-app-sre-pipelines-appsres05ue1
+description: tekton provider in the app-sre-pipelines namespace in the appsres05ue1 cluster
+
+provider: tekton
+namespace:
+  $ref: /services/app-interface/namespaces/app-sre-pipelines.appsres05ue1.yaml
+
+defaults:
+  "$ref": /pipelines/tekton-provider-global-defaults.yaml
+
+pipelineTemplates:
+  openshiftSaasDeploy:
+    name: saas-deploy
+    type: onePerSaasFile
+    path: /tekton/stage/saas-deploy.pipeline.yaml
