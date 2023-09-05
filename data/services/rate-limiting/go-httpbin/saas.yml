@@ -38,3 +38,5 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/app-sre-stage-01/namespaces/app-sre-rate-limiting-test.yml
     ref: master
+    parameters:
+      TAG: "latest"
