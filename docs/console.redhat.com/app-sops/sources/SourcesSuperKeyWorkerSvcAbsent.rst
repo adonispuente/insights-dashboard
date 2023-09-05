@@ -36,7 +36,7 @@ Steps
 Escalations
 -----------
 
-- Ping more team members if available (`Workstreams`_ - Sources Workstream)
+- Ping more team members if available (`Workstreams`_ - Access & Management Workstream)
 - Ping the engineering team that owns the APP (`Ansible Slack`_)
 
 .. _Incident Response Doc: https://docs.google.com/document/d/1AyEQnL4B11w7zXwum8Boty2IipMIxoFw1ri1UZB6xJE
