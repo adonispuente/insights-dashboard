@@ -60,7 +60,7 @@ resourceTemplates:
           type: parent_saas_config
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
-    ref: 11b60d75a17fd6e95162afd07e56ea9d9065ee9c
+    ref: 1eed2cd419888490778bf9d5ac4c2949386a1c23
     parameters:
       ENV_FOR_DYNACONF: prod
       IQE_PLUGINS: hms_integration
@@ -80,5 +80,5 @@ resourceTemplates:
       - channel: content-sources-prod-post-deploy-tests-success-channel
         data:
         - parent_saas: content-sources-testing
-          target_config_hash: dc97106705f9095e
+          target_config_hash: 063dae42189bfb42
           type: parent_saas_config
