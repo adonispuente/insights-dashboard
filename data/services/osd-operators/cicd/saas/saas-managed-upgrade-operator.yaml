@@ -3,7 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: osd-operators
-  dora: asdf
+  dora: osd-production-hivep01ue1
 
 name: saas-muo # saas-managed-upgrade-operator
 description: SaaS tracking file for managed-upgrade-operator

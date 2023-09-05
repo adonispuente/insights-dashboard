@@ -4,7 +4,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: rbac
   platform: insights
-  dora: asdf
+  dora: insights-production
 
 name: rbac
 description: rbac app on the Insights Platform

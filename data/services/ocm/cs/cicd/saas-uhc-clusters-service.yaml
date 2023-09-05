@@ -2,7 +2,7 @@
 $schema: /app-sre/saas-file-2.yml
 labels:
   service: uhc
-  dora: asdf
+  dora: osd-production
 name: saas-uhc-clusters-service
 description: SaaS tracking file for UHC Clusters service
 app:

@@ -3,7 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: quayio
-  dora: asdf
+  dora: quay-production
 
 name: quayio-py3
 description: quayio py3 SaaS file
