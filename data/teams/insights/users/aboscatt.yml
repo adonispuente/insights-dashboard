@@ -1,0 +1,14 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Andre Boscatto
+org_username: aboscatt
+github_username: andreboscatto
+
+tag_on_merge_requests: true
+
+roles:
+- $ref: /teams/idm/roles/idmsvc-maintain.yml
