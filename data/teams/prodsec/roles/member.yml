@@ -16,3 +16,7 @@ self_service:
   - $ref: /teams/prodsec/roles/cloud-services-quay-repo.yml
   - $ref: /teams/prodsec/roles/osd-addons-managed-services-quay-repo.yml
   - $ref: /teams/prodsec/roles/rhoas-quay-repo.yml
+- change_type:
+    $ref: /app-interface/changetype/add-permission-member.yml
+  datafiles:
+  - $ref: /dependencies/quay/permissions/quay-membership-app-sre-prodsec.yml
