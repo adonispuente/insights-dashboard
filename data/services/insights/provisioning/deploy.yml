@@ -68,6 +68,20 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/provisioning-frontend"
+ # Prod Stable Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
+    ref: 5967648ffe28ec619fd115f7f811c7465225e1ba
+    parameters:
+      ENV_NAME: "frontends"
+      IMAGE: "quay.io/cloudservices/provisioning-frontend"
+  # Prod Beta Deployment
+  - namespace:
+      $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
+    ref: 5967648ffe28ec619fd115f7f811c7465225e1ba
+    parameters:
+      ENV_NAME: "frontends-beta"
+      IMAGE: "quay.io/cloudservices/provisioning-frontend"
 
 - name: provisioning-backend
   path: /deploy/clowdapp.yaml
