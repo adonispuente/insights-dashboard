@@ -208,7 +208,13 @@ After that we have a STS/Privatelink cluster running in our pre-configured VPC.
 
 ## Make the cluster endpoints DNS records public
 
-Within the cluster AWS account, copy all DNS records records from the cluster private hostedzone to its public hostedzone. This is manual and should eventually be automated.
+Within the cluster AWS account, copy all DNS records records from the cluster private hostedzone to its public hostedzone.
+This is manual for now. The script [hack/copy-rosa-private-dns-records](/hack/copy-rosa-private-dns-records) can be used to perform this copy.
+```sh
+# ACCOUNT_PROFILE = the name of your local AWS profile to connect to the cluster's AWS account
+# CLUSTER_NAME = the name of the cluster to copy the records for
+./hack/copy-rosa-private-dns-records $ACCOUNT_PROFILE $CLUSTER_NAME
+```
 
 # Onboard the cluster in app-interface
 
