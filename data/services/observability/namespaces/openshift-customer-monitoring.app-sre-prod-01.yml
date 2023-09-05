@@ -536,6 +536,14 @@ openshiftResources:
   tests:
   - /web-rca/production/web-rca-rds.prometheusrulestest.yaml
 
+### Trusted Content Exhort ServiceMonitor
+- provider: resource-template
+  type: jinja2
+  path: /observability/servicemonitors/trusted-content-exhort.servicemonitor.yaml
+  variables:
+    environment: prod
+    namespace: exhort-production
+
 ### SREP configuration-anomaly-detection rules
 - provider: prometheus-rule
   path: /observability/prometheusrules/srep-configuration-anomaly-detection-prod.prometheusrules.yaml
