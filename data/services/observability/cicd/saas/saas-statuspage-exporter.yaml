@@ -48,7 +48,7 @@ resourceTemplates:
   - name: app-sre
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: eced1a3cad4047a05070abf91df8dfe681519441
+    ref: 0dec2c9b8000eca94c81a869f5990bfda314e686
     parameters:
       NAME: statuspage-exporter
       TOKEN_SECRET_NAME: status.redhat.com
