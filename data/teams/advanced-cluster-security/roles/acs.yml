@@ -26,6 +26,15 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/advanced-cluster-security/roles/acs.yml
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+    - /services/acs-fleet-manager/integration/fleet-manager.route.yaml
+    - /services/acs-fleet-manager/integration/fleet-manager-envoy.configmap.yaml
+    - /services/acs-fleet-manager/stage/fleet-manager.route.yaml
+    - /services/acs-fleet-manager/stage/fleet-manager-envoy.configmap.yaml
+    - /services/acs-fleet-manager/production/fleet-manager.route.yaml
+    - /services/acs-fleet-manager/production/fleet-manager-envoy.configmap.yaml
 
 access:
 - namespace:
