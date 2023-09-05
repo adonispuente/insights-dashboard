@@ -192,6 +192,7 @@ quayRepos:
   teams:
   - permissions:
     - $ref: /dependencies/quay/permissions/quay-membership-app-sre-managed-services.yml
+    - $ref: /dependencies/quay/permissions/quay-membership-app-sre-prodsec.yml
     role: read
     # TODO: move these images to the RHOAS org
   items:
