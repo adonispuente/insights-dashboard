@@ -11,6 +11,12 @@ permissions:
 
 access:
 - namespace:
+    $ref: /services/insights/namespaces/crc-poc-pipelines.appsres05ue1.yaml
+  role: edit
+- namespace:
+    $ref: /services/insights/namespaces/crc-poc-pipelines.appsres05ue1.yaml
+  role: tekton-trigger-access
+- namespace:
     $ref: /services/insights/namespaces/crc-poc-pipelines.appsres03ue1.yaml
   role: edit
 - namespace:
