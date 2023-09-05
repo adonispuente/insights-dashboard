@@ -1,0 +1,26 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: openshift-operators
+description: appsres05ue1 openshift-operators namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- Subscription.operators.coreos.com
+
+openshiftResources:
+- provider: resource-template
+  type: jinja2
+  path: /tekton/openshift-pipelines-operator-rh.subscription.j2
+- provider: resource
+  path: /setup/network-observability/netobserv-operator.stable.subscription.yaml

@@ -1,0 +1,34 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: openshift-pipelines
+description: appsres05ue1 openshift-pipelines namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedResourceTypes:
+- TektonConfig
+- ClusterRole.rbac.authorization.k8s.io
+
+managedResourceNames:
+- resource: TektonConfig
+  resourceNames:
+  - config
+- resource: ClusterRole.rbac.authorization.k8s.io
+  resourceNames:
+  - tekton-trigger-access
+
+openshiftResources:
+- provider: resource
+  path: /tekton/stage/config.tektonconfig.yaml
+- provider: resource
+  path: /tekton/trigger-access.clusterrole.yaml
