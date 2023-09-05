@@ -81,7 +81,7 @@ resourceTemplates:
       name: app-sre-github-mirror-gh-build-master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: a595349d33fbc7318ee20f74df4f56b3a0f95fec
+    ref: 4e54547f202a214661efedd061189418f8f4e81c
     promotion:
       auto: true
       subscribe:
