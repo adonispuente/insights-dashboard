@@ -178,6 +178,29 @@ data:
                     address: assisted-image-service.assisted-installer-integration.svc
                     port_value: 8080
 
+      # Cluster for the `rhacs_mgmt` service:
+      - name: rhacs_mgmt
+        connect_timeout: 2s
+        type: STRICT_DNS
+        lb_policy: ROUND_ROBIN
+        load_assignment:
+          cluster_name: rhacs_mgmt
+          endpoints:
+          - lb_endpoints:
+            - endpoint:
+                address:
+                  socket_address:
+                    address: qj3layty4dynlnz.api.integration.openshift.com
+                    port_value: 443
+        transport_socket:
+          name: envoy.transport_sockets.tls
+          typed_config:
+            "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+            common_tls_context:
+              validation_context:
+                trusted_ca:
+                  filename: /etc/ssl/certs/ca-certificates.crt
+
       listeners:
 
       # This listener is used to support probes and metrics.
@@ -337,6 +360,10 @@ data:
                               {
                                 "id": "osd_fleet_mgmt",
                                 "name": "OSD Fleet Manager"
+                              },
+                              {
+                                "id": "rhacs",
+                                "name": "rhacs service fleet manager service"
                               }
                             ]
                           }
@@ -401,6 +428,15 @@ data:
                       prefix_rewrite: /
                       auto_host_rewrite: true
                       timeout: 600s
+
+                  # Route for the `rhacs_mgmt` service:
+                  - name: rhacs_mgmt
+                    match:
+                      prefix: /api/rhacs
+                    route:
+                      cluster: rhacs_mgmt
+                      auto_host_rewrite: true
+                      timeout: 30s
 
                   # The rest of the traffic is sent to the site:
                   - name: site
