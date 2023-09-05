@@ -30,6 +30,7 @@ imagePatterns:
 - quay.io/app-sre/auto-report
 - quay.io/openshift/origin-oauth-proxy
 - quay.io/strimzi/kafka
+- quay.io/edge-infrastructure/opensearch-curator
 
 resourceTemplates:
 - name: assisted-events-scraper-dashboards
