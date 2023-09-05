@@ -3,6 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: acs-fleet-manager
+  dora: asdf
 
 name: acs-fleet-manager
 description: "SaaS tracking file for acs-fleet-manager"

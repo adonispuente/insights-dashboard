@@ -2,6 +2,7 @@
 $schema: /app-sre/saas-file-2.yml
 labels:
   service: ocm
+  dora: asdf
 name: osd-fleet-manager
 description: SaaS file for OSD Fleet Manager
 app:

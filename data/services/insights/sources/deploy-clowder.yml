@@ -4,6 +4,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: sources
   platform: insights
+  dora: asdf
 
 name: sources-clowder
 description: sources app on the Insights Platform

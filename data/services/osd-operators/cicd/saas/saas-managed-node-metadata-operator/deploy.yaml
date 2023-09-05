@@ -3,6 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: osd-operators
+  dora: asdf
 
 name: saas-mnmo # saas-managed-node-metadata-operator
 description: SaaS tracking file for managed-node-metadata-operator
