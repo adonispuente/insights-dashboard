@@ -31,7 +31,7 @@ imagePatterns:
 - quay.io/app-sre/go-httpbin
 
 resourceTemplates:
-- name: envoy
+- name: go-httpbin
   url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
   path: /go-httpbin-template.yaml
   targets:
