@@ -39,6 +39,12 @@ resourceTemplates:
     ref: 33392d7061576fee364669206aa1beb773b3c9d8
     parameters:
       LOKI_STACK_SIZE: 1x.extra-small
+  - name: appsres05ue1-netobserv
+    namespace:
+      $ref: /services/observability/namespaces/netobserv.appsres05ue1.yml
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
+    parameters:
+      LOKI_STACK_SIZE: 1x.extra-small
   - name: appsrep05ue1-netobserv
     namespace:
       $ref: /services/observability/namespaces/netobserv.appsrep05ue1.yml
