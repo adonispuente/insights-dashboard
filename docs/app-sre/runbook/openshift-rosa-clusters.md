@@ -298,7 +298,12 @@ First, we need to create a network-mgmt role, [for example](https://gitlab.cee.r
 
 Then, creating the vpc-peering. At least We need to peer [ci-int](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) for runing app-interface pr-check and bastion access and [appsres03ue1/appsrep05ue1](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95) for running integrations.
 
-Since Rosa Privatelink cluster get DNS records only in a private hostedzone, we cannot resolve any name by default. To fix that, we copy all records (there should be 2) from the cluster private hostedzone to its public hostedzone. This is currently a one-time manual process.
+Since Rosa Privatelink cluster get DNS records only in a private hostedzone, we cannot resolve any name by default. To fix that, we copy all recordsfrom the cluster private hostedzone to its public hostedzone. This is currently a one-time process. The script [hack/copy-rosa-private-dns-records](/hack/copy-rosa-private-dns-records) can be used to perform this copy.
+```sh
+# ACCOUNT_PROFILE = the name of your local AWS profile to connect to the cluster's AWS account
+# CLUSTER_NAME = the name of the cluster to copy the records for
+./hack/copy-rosa-private-dns-records $ACCOUNT_PROFILE $CLUSTER_NAME
+```
 
 We should now be able to access the cluster via `oc` cli.
 

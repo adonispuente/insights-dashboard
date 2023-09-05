@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# This script can be used to copy DNS records from a ROSA Privatelink cluster
+# private hostedzone to its public hostedzone. This allows to resolve its endpoints
+# from anywhere
+
+set -eo pipefail
+
+usage() {
+    echo "$0 ACCOUNT_PROFILE CLUSTER_NAME"
+    echo "This script will copy DNS records from the Rosa/Privatelink cluster private hostedzone to its public hostedzone."
+    echo "It will allow name resolution from Internet (laptops, CI/CD tooling, ..)" 
+    echo "ACCOUNT_PROFILE: the name of your local AWS profile to connect to the cluster AWS acount"
+    echo "CLUSTER_NAME:    the name of the cluster for which we need to copy DNS records"
+}
+
+ACCOUNT_PROFILE=$1
+if [ -z "${ACCOUNT_PROFILE}" ]; then
+    echo "Missing param ACCOUNT_PROFILE"
+    usage
+    exit 1
+fi
+
+aws="aws --profile ${ACCOUNT_PROFILE} --output json"
+echo "Testing AWS connection with profile ${ACCOUNT_PROFILE}..."
+if ! ${aws} sts get-caller-identity; then
+    echo "Invalid ACCOUNT_PROFILE ${ACCOUNT_PROFILE}"
+    exit 1
+fi
+
+CLUSTER_NAME=$2
+if [ -z "${CLUSTER_NAME}" ]; then
+    echo "Missing param CLUSTER_NAME"
+    usage
+    exit 1
+fi
+
+read PRIVATE_HOSTEDZONE_ID PRIVATE_HOSTEDZONE_NAME < <(echo $(${aws} route53 list-hosted-zones | jq -r ".HostedZones[] | select(.Config.PrivateZone == true) | select(.Name | startswith(\"${CLUSTER_NAME}.\")) | .Id, .Name"))
+if [ -z "${PRIVATE_HOSTEDZONE_ID}" ]; then
+    echo "Private zone not found for cluster ${CLUSTER_NAME} in account profile ${ACCOUNT_PROFILE}"
+    exit 1
+else
+    echo "Found private hostedzone id ${PRIVATE_HOSTEDZONE_ID} and private hostedzone name ${PRIVATE_HOSTEDZONE_NAME}"
+fi
+
+PUBLIC_HOSTEDZONE_NAME=$(echo $PRIVATE_HOSTEDZONE_NAME | cut -f2- -d.)
+echo "Public hostedzone name: ${PUBLIC_HOSTEDZONE_NAME}"
+
+PUBLIC_HOSTEDZONE_ID=$(${aws} route53 list-hosted-zones | jq -r ".HostedZones[] | select(.Name == \"$PUBLIC_HOSTEDZONE_NAME\" and .Config.PrivateZone == false) | .Id")
+if [ -z "${PUBLIC_HOSTEDZONE_ID}" ]; then
+    echo "Could not find public hostedzone for name ${PUBLIC_HOSTEDZONE_NAME}"
+    exit 1
+else
+    echo "Public hostedzone ID: ${PUBLIC_HOSTEDZONE_ID}"
+fi
+
+PUBLIC_NAMES=$(${aws} route53 list-resource-record-sets --hosted-zone-id $PUBLIC_HOSTEDZONE_ID | jq '[.ResourceRecordSets[] | select(.Type != "NS" and .Type != "SOA") | .Name]')
+echo ""
+echo "The public hostedzone contains these records:"
+echo "${PUBLIC_NAMES}"
+
+outfile=$(mktemp)
+trap "rm -f ${outfile}" EXIT
+
+echo ""
+echo "Retrieving records from the private hostedzone. Will output actions in ${outfile}..."
+${aws} route53 list-resource-record-sets --hosted-zone-id $PRIVATE_HOSTEDZONE_ID | jq '
+    {
+        "Comment": "Copying from private zone",
+        "Changes": [
+            .ResourceRecordSets[] | select(.Type != "NS" and .Type != "SOA") | {"Action": "CREATE", "ResourceRecordSet": .}
+        ]
+    }' > "${outfile}"
+cat "${outfile}"
+
+echo ""
+echo "The above will be applied on zone ${PUBLIC_HOSTEDZONE_ID}: ${PUBLIC_HOSTEDZONE_NAME}. The following command will be executed"
+cmd="${aws} route53 change-resource-record-sets --hosted-zone-id ${PUBLIC_HOSTEDZONE_ID} --change-batch file://${outfile}"
+echo "${cmd}" 
+echo "Please check and hit Enter to continue. Hit CTRL+C to abort. The temporary file will get deleted in both cases."
+read userinput
+
+echo "Copying records ..."
+${cmd}
