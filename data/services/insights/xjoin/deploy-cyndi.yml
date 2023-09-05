@@ -269,7 +269,7 @@ resourceTemplates:
       CREATE INDEX {{.TableName}}_insights_reporter_index ON inventory.{{.TableName}} (reporter);
       CREATE INDEX {{.TableName}}_tags_index ON inventory.{{.TableName}} USING GIN (tags JSONB_PATH_OPS);
       CREATE INDEX {{.TableName}}_groups_index ON inventory.{{.TableName}} USING GIN (groups JSONB_PATH_OPS);
-      CREATE INDEX {{.TableName}}_host_type ON inventory.{{TableName}} ((system_profile->>'host_type'));
+      CREATE INDEX {{.TableName}}_host_type ON inventory.{{.TableName}} ((system_profile->>'host_type'));
   targets:
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
