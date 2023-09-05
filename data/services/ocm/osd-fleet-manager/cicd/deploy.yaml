@@ -1096,7 +1096,7 @@ resourceTemplates:
   - name: osd-fleet-manager-production-us-west-2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/production.yml
-    ref: 462787aba3d32cb1791b9dca24d91589ab0e4b0a
+    ref: 38a7d36ffd5a79e20fffd4667691b741c82c85e7
     promotion:
       auto: true
       subscribe:
