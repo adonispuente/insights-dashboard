@@ -46,7 +46,7 @@ resourceTemplates:
   - name: app-sre
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 915a53cb611606c5ec26949892f7351c8ac5151e
+    ref: b701c10fcfffa529a8e3c45735a9015f08c9e932
     parameters:
       NAME: aws-resource-exporter
       SECRET_NAME: aws-resource-exporter-app-sre
@@ -54,7 +54,7 @@ resourceTemplates:
   - name: osio
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 915a53cb611606c5ec26949892f7351c8ac5151e
+    ref: b701c10fcfffa529a8e3c45735a9015f08c9e932
     parameters:
       NAME: aws-resource-exporter-osio
       SECRET_NAME: aws-resource-exporter-osio
@@ -74,7 +74,7 @@ resourceTemplates:
   - name: quayio-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 915a53cb611606c5ec26949892f7351c8ac5151e
+    ref: b701c10fcfffa529a8e3c45735a9015f08c9e932
     parameters:
       NAME: aws-resource-exporter-quay
       SECRET_NAME: aws-resource-exporter-quay
@@ -106,7 +106,7 @@ resourceTemplates:
   - name: insights-prod
     namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 915a53cb611606c5ec26949892f7351c8ac5151e
+    ref: b701c10fcfffa529a8e3c45735a9015f08c9e932
     parameters:
       NAME: aws-resource-exporter-crc
       SECRET_NAME: aws-resource-exporter-crc
@@ -121,4 +121,3 @@ resourceTemplates:
   #     ROLE_ARN: aws-resource-exporter-cluster-scraper-app-sre-stage-01
   #     SESSION_NAME: aws-resource-exporter-scraper-app-sre-01
   #     CONFIGMAP_NAME: aws-resource-exporter-app-sre-stage-01-scraper
-
