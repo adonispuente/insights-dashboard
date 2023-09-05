@@ -47,7 +47,10 @@ codeComponents:
 quayRepos:
 - org:
     $ref: /dependencies/quay/app-sre.yml
-
+  teams:
+  - permissions:
+    - $ref: /dependencies/quay/permissions/quay-membership-app-sre-prodsec.yml
+    role: read
   items:
   - name: acs-fleet-manager
     description: ACS Fleet Manager

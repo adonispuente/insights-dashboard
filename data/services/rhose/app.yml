@@ -43,6 +43,7 @@ quayRepos:
     teams:
       - permissions:
           - $ref: /dependencies/quay/permissions/quay-membership-rhose.yml
+          - $ref: /dependencies/quay/permissions/quay-membership-app-sre-prodsec.yml
         role: read
     items:
       - name: rhose-fleet-manager
