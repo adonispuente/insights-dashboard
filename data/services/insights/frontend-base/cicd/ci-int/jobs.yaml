@@ -122,6 +122,12 @@ config:
         run_iqe_tests: 'true'
         run_lint: 'true'
         run_unit_tests: 'true'
+        iqe_marker_expression: 'smoke'
+        iqe_filter_expression: 'not (test_progressive or test_apidocs)'
+        iqe_image_tag: 'platform-ui'
+        iqe_plugins: 'platform_ui'
+        iqe_env: 'ephemeral'
+        iqe_selenium: 'true'
 
 - project:
     name: frontend-configs

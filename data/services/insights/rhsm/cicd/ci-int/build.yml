@@ -61,6 +61,12 @@ config:
         run_iqe_tests: 'true'
         run_lint: 'true'
         run_unit_tests: 'false'
+        iqe_marker_expression: 'ephemeral'
+        iqe_image_tag: 'curiosity'
+        iqe_plugins: 'curiosity'
+        iqe_env: 'ephemeral'
+        iqe_selenium: 'true'
+        iqe_parallel_worker_count: '1'
 - project:
     name: rhsm-subscriptions
     label: insights
