@@ -37,4 +37,4 @@ instances:
     $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-09-11'
+expirationDate: '2023-11-30'
