@@ -84,7 +84,7 @@ openshiftResources:
 - provider: vault-secret
   name: file-updates-secret
   path: stonesoup/staging/release/gitlab/gitlab.cee/file-updates-secret
-  version: 2
+  version: 3
   type: Opaque
   annotations:
     qontract.recycle: "true"
