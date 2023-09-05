@@ -56,3 +56,9 @@ quayRepos:
     public: false
     mirror:
       $ref: /dependencies/image-mirrors/docker.io/httpbin.yml
+  - name: go-httpbin
+    description: http server for used for limitador testing
+    public: false
+    mirror:
+      $ref: /dependencies/image-mirrors/ghcr.io/httpbin.yml
+
