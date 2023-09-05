@@ -170,7 +170,7 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
-      ENV_NAME: consoledot-frontend-stage
+      ENV_NAME: stage
       SUBS_HOST: https://subscription.stage.api.redhat.com
       COMPLIANCE_HOST: "https://export-compliance.stage.api.redhat.com"
       RUN_BUNDLE_SYNC: false
