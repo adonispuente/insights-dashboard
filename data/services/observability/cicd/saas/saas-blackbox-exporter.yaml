@@ -40,7 +40,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/app-sre-observability
   parameters:
     IMAGE: quay.io/prometheus/blackbox-exporter
-    IMAGE_TAG: v0.19.0
+    IMAGE_TAG: v0.20.0
   targets:
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-devshift.yml
@@ -52,13 +52,11 @@ resourceTemplates:
     ref: master
     parameters:
       REPLICAS: 3
-      IMAGE_TAG: v0.20.0
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
     ref: master
     parameters:
       REPLICAS: 3
-      IMAGE_TAG: v0.20.0
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
     ref: 33392d7061576fee364669206aa1beb773b3c9d8
