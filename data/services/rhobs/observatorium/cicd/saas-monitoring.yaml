@@ -35,12 +35,12 @@ resourceTemplates:
       NAMESPACES: '["observatorium-testing"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: f6e15384a354af0553cf0bc7ddeea6fba4e5054a
+    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
     parameters:
       NAMESPACES: '["observatorium-stage", "observatorium-mst-stage"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: f6e15384a354af0553cf0bc7ddeea6fba4e5054a
+    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
     parameters:
       NAMESPACES: '["observatorium-production", "observatorium-mst-production"]'
 - name: observatorium-jaeger
