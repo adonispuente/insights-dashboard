@@ -44,6 +44,7 @@ resourceTemplates:
       IQE_IMAGE_TAG: hms-integration
       IQE_MARKER_EXPRESSION: content_sources
       IQE_BROWSERLOG: ""
+      IQE_NETLOG: ""
       NAME_STUB: e2e-tests
     promotion:
       auto: true
@@ -67,6 +68,7 @@ resourceTemplates:
       IQE_IMAGE_TAG: hms-integration
       IQE_MARKER_EXPRESSION: content_sources
       IQE_BROWSERLOG: ""
+      IQE_NETLOG: ""
       NAME_STUB: e2e-tests
     promotion:
       auto: true
