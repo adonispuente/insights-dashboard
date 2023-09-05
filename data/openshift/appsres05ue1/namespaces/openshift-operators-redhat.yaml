@@ -1,0 +1,27 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: openshift-operators-redhat
+description: openshift-operators-redhat namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+
+managedResourceTypes:
+- OperatorGroup.operators.coreos.com
+- Subscription.operators.coreos.com
+
+openshiftResources:
+- provider: resource
+  path: /setup/loki/loki-operator-group.operatorgroup.yaml
+- provider: resource
+  path: /setup/loki/loki-operator.subscription.yaml
