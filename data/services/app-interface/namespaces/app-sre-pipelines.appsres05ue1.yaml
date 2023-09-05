@@ -1,0 +1,25 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  provider: tekton
+
+name: app-sre-pipelines
+description: app-sre pipelines namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/app-sre/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/stage.yml
+
+managedRoles: true
+
+managedResourceTypes:
+- Secret
+
+sharedResources:
+- $ref: /services/app-interface/shared-resources/stage/app-sre-pipelines.yml
