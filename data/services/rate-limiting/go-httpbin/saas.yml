@@ -2,10 +2,10 @@
 $schema: /app-sre/saas-file-2.yml
 
 labels:
-  service: envoy
+  service: go-httpbin
 
-name: envoy
-description: Envoy deployment used for testing rate-limiting/limitador service. This service should not be used in production
+name: go-httpbin
+description: go-httpbin deployment used for testing rate-limiting/limitador service. This service should not be used in production
 
 app:
   $ref: /services/rate-limiting/app.yml
