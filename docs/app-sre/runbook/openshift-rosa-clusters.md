@@ -216,11 +216,10 @@ Check the [`app-sre-rosa` account](/data/aws/app-sre-rosa) for an example.
 
 ## Cluster Creation and and Management
 
-### Create a new ROSA cluster
+### Create a new ROSA public cluster
 
-
-To install a cluster in app-interface just follow the [cluster onboarding SOP](/docs/app-sre/sop/app-interface-onboard-cluster.md). To request a `ROSA` cluster these
-values must be used:
+To install a ROSA public cluster in app-interface just follow the [OSD cluster onboarding SOP](/docs/app-sre/runbook/app-interface-onboard-cluster-osd.md) using these
+values:
 
 ```yaml
 # /data/openshift/<cluster_name>/cluster.yml
@@ -246,7 +245,74 @@ spec:
     - us-west-2a
 ```
 
+### Create a new ROSA STS PrivateLink cluster
+
+Private STS clusters are only supported through AWS PrivateLink. In such cases as backplane, We need to provide private link clusters.
+
+#### Create the VPC
+
+All PrivateLink clusters need a pre-configured VPC the same as hosted clusters. Follow the [terraform doc](https://gitlab.cee.redhat.com/app-sre/infra/-/tree/master/terraform/modules/rosa-hosted-cp-vpc) to create all the required VPC components. We need to use private_subnets output as subnet-ids when creating the cluster.
+
+Notice: By default, all AWS accounts are limited to 5 Elastic IP addresses per Region. Each multi-az cluster requires 3 IP addresses (single-az cluster requires 1 IP address). Following [AWS doc](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) to request a quota increase if needed.
+
+#### Create the cluster
+
+As of now PrivateLink cluster creation needs to happen via rosa cli. For example to create a cluster, run the following command: 
+
+```
+rosa create cluster \
+--cluster-name=backplanes03ue1 \
+--private \
+--sts \
+--private-link \
+--multi-az \
+--role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Installer-Role \
+--support-role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Support-Role \
+--controlplane-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-ControlPlane-Role \
+--worker-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-Worker-Role \
+--region us-east-1 \
+--version 4.13.0 \
+--replicas 9 \
+--compute-machine-type m5.xlarge \
+--machine-cidr 10.170.28.0/22 \
+--service-cidr 172.30.0.0/16 \
+--pod-cidr 10.128.0.0/14 \
+--host-prefix 23 \
+--subnet-ids subnet-06fbd4582cce65dd3,subnet-0828dcd977433fc56,subnet-0faf227276213d98e
+```
+
+Then, Create the cluster operator IAM roles and OpenID Connect (OIDC) provider the cluster operators use to authenticate.
+
+```
+rosa create operator-roles --cluster backplanes03ue1
+rosa create oidc-provider --cluster backplanes03ue1
+```
+
+After the cluster State shows ready. We can import the cluster into App-Interface. [For example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/1d7c9533b09f48da5a9cc66c9f0e9823b09f75ff/data/openshift/backplanes03ue1/cluster.yml#L1-54)
+
+#### Create the vpc-peering
+
+We are not able to access the cluster until we set up vpc-peerings.
+
+First, we need to create a network-mgmt role, [for example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L20-265). We can create the role with any existing namespace and move it to the new cluster's namespace later. For backplane, Different users are allowed to assume this role for creating different resources. [app-sre](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L35-36) is for creating [account-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) and [cluster-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95), [osd-privatelink](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L37-38) for creating [account-tgw](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L66-75) and [osd-bastion] for creating [account-vpc-mesh](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L76-83).
+
+Then, creating the vpc-peering. At least We need to peer [ci-int](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) for runing app-interface pr-check and bastion access and [appsres03ue1/appsrep05ue1](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95) for running integrations.
+
+Since Rosa Privatelink cluster get DNS records only in a private hostedzone, we cannot resolve any name by default. To fix that, we copy all records (there should be 2) from the cluster private hostedzone to its public hostedzone. This is currently a one-time manual process.
+
+We should now be able to access the cluster via `oc` cli.
+
+After all these steps, we can go back to follow the regular onboarding guide.
+
 ### Create a new Hypershift cluster
+
+#### Create the VPC
+
+Follow the [terraform doc](https://gitlab.cee.redhat.com/app-sre/infra/-/tree/master/terraform/modules/rosa-hosted-cp-vpc) to create all the required VPC components. We need to use private_subnets output as subnet-ids when creating the cluster.
+
+Example MR: https://gitlab.cee.redhat.com/app-sre/infra/-/merge_requests/702 
+
+Notice: By default, all AWS accounts are limited to 5 Elastic IP addresses per Region. Each multi-az cluster requires 3 IP addresses (single-az cluster requires 1 IP address). Following [AWS doc](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) to request a quota increase if needed.
 
 #### Create the OIDC configuration/provider
 
@@ -284,74 +350,6 @@ rosa create cluster \
 ```
 
 After that follow the regular onboarding guide.
-
-### Create a new PrivateLink cluster
-
-Private STS clusters are only supported through AWS PrivateLink. In such cases as backplane, We need to provide private link clusters.
-
-#### Create the VPC
-
-All PrivateLink clusters need a pre-configured VPC the same as hosted clusters. Following [terraform doc](https://gitlab.cee.redhat.com/app-sre/infra/-/tree/master/terraform/modules/rosa-hosted-cp-vpc) to create all the required VPC components. We need to use private_subnets ouput as subnet-ids when creating the cluster.
-
-Notice: By default, all AWS accounts are limited to 5 Elastic IP addresses per Region. Each multi-az cluster requires 3 IP addresses (single-az cluster requires 1 IP address). Following [AWS doc](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) to request a quota increase if needed.
-
-#### Create the cluster
-
-As of now PrivateLink cluster creation needs to happen via rosa cli. For example to create a cluster, run the following command: 
-
-```
-rosa create cluster \
---cluster-name=backplanes03ue1 \
---private \
---sts \
---private-link \
---multi-az \
---role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Installer-Role \
---support-role-arn arn:aws:iam::366871242094:role/ManagedOpenShift-Support-Role \
---controlplane-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-ControlPlane-Role \
---worker-iam-role arn:aws:iam::366871242094:role/ManagedOpenShift-Worker-Role \
---region us-east-1 \
---version 4.13.0 \
---replicas 9 \
---compute-machine-type m5.xlarge \
---machine-cidr 10.170.28.0/22 \
---service-cidr 172.30.0.0/16 \
---pod-cidr 10.128.0.0/14 \
---host-prefix 23 \
---subnet-ids subnet-06fbd4582cce65dd3,subnet-0828dcd977433fc56,subnet-0faf227276213d98e
-```
-
-Then, Create the cluster operator IAM roles and OpenID Connect (OIDC) provider the cluster operators use to authenticate.
-
-```
-rosa create operator-roles --cluster backplanes03ue1
-rosa create oidc-provider --cluster backplanes03ue1
-```
-
-After the cluster State shows ready. We can import the cluster into App-Interface by following the onboarding guide step 1. [For example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/1d7c9533b09f48da5a9cc66c9f0e9823b09f75ff/data/openshift/backplanes03ue1/cluster.yml#L1-54)
-
-#### Create the vpc-peering
-
-We are not able to access the cluster until we set up vpc-peerings.
-
-First, we need to create a network-mgmt role, [for example](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L20-265). We can create the role with any existing namespace and move it to the new cluster's namespace later. For backplane, Different users are allowed to assume this role for creating different resources. [app-sre](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L35-36) is for creating [account-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) and [cluster-vpc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95), [osd-privatelink](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/namespaces/osd-experience.yml#L37-38) for creating [account-tgw](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L66-75) and [osd-bastion] for creating [account-vpc-mesh](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L76-83).
-
-Then, creating the vpc-peering. At least We need to peer [ci-int](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L59-65) for runing app-interface pr-check and bastion access and [appsres03ue1/appsrep05ue1](https://gitlab.cee.redhat.com/service/app-interface/-/blob/57ac323de9f03412b8851beb71c4a9dde670dba0/data/openshift/backplanes03ue1/cluster.yml#L84-95) for running integrations.
-
-//to do, we may enable manageRoute53Associations for terraform_vpc_peerings to automate this step
-Last, we need to associate the Route 53 private hosted zone of the new cluster with all vpc it gets peered by follwoing [doc](https://repost.aws/knowledge-center/route53-private-hosted-zone) including all matched vpcs from account-vpc-mesh.
-
-After that, we should be able to access the cluster via `oc` cli in bastion. For accessing the cluster console, We need to get cluster api and route ip in bastion with the following example command:
-
-```
-dig api.backplanes03ue1.be2s.p1.openshiftapps.com
-dig console-openshift-console.apps.backplanes03ue1.be2s.p1.openshiftapps.com
-```
-
-Then update and following [doc](/docs/app-sre/sop/using-bastion-host.md#access-privatelink-cluster). 
-
-
-After all these steps, we can go back to follow the regular onboarding guide.
 
 ### Cluster configuration changes
 

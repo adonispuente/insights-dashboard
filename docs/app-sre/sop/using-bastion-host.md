@@ -25,18 +25,3 @@ Once the infra MR is merged, there is no need to do anything manual. This [job](
 ` sudo route add -net <network.vpc> -interface en0`
 1. `sshuttle -r bastion.ci.int.devshift.net <network.vpc>`
 * Note: You can specify several ranges like: `sshuttle -r bastion.ci.int.devshift.net <network.vpc>  <network.vpc> ...  <network.vpc>`
-
-
-### Access PrivateLink cluster
-
-1. `sshuttle -r bastion.ci.int.devshift.net <network.vpc> --dns`
-
-1. If you are using mac, `--dns` option does not work. Instead, following local /etc/hosts config are needed for accessing PrivateLink cluster.
-```
-10.170.31.37 api.backplanes03ue1.be2s.p1.openshiftapps.com
-# *.apps.backplanes03ue1.be2s.p1.openshiftapps.com
-10.170.30.158 console-openshift-console.apps.backplanes03ue1.be2s.p1.openshiftapps.com
-10.170.30.158 oauth-openshift.apps.backplanes03ue1.be2s.p1.openshiftapps.com
-10.170.30.158 prometheus.backplanes03ue1.devshift.net
-10.170.30.158 alertmanager.backplanes03ue1.devshift.net
-```

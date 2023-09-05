@@ -55,7 +55,7 @@ Add AWS account to app-interface
 
 Install observability stack on cluster
 
-- https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/app-interface-onboard-cluster.md#step-3-observability
+- https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/runbook/app-interface-dressup-cluster.md#observability
 - Can skip App SRE access steps if they are not supporting cluster
 
 Create Elasticsearch instance
