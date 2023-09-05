@@ -123,6 +123,7 @@ resourceTemplates:
       FEATURES_ADMIN_TASKS_ENABLED: false
       # hms
       FEATURES_ADMIN_TASKS_ACCOUNTS: "11494071"
+      RBAC_ORG_ADMIN_SKIP: true
 - name: content-sources-dashboards
   url: https://github.com/content-services/content-sources-backend
   path: /deployments/dashboards
