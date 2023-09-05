@@ -40,4 +40,4 @@ resourceTemplates:
       name: app-sre-signalfx-prometheus-exporter-gh-build-main
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production.yml
-    ref: 2dfdb2af827d53ebdfb9c198982ac08b6030e529
+    ref: 3ad0ce024c4ccae0997bb793ae0dc08e3fc5f0c1
