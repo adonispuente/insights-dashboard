@@ -80,7 +80,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/entitlements/namespaces/entitlements-prod.yml
-    ref: e78371b2d23f438582ce7a0f991afbaa822d8867
+    ref: 18ca16568bcac70ee7bbc614b9d325d0838046f6
     parameters:
       ENV_NAME: prod
       SUBS_HOST: https://subscription.api.redhat.com
