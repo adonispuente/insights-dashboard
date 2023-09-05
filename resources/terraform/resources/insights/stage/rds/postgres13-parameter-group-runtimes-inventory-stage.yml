@@ -1,6 +1,5 @@
-family: postgres14
-description: Parameter Group for PostgreSQL 14
-name: runtimes-inventory-stage-pgsql14-param-group
+family: postgres13
+description: Parameter Group for PostgreSQL 13
 parameters:
 - name: log_statement
   value: all
