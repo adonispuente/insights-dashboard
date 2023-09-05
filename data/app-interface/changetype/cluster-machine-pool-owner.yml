@@ -1,0 +1,18 @@
+---
+$schema: /app-interface/change-type-1.yml
+
+labels: {}
+
+name: cluster-machine-pool-owner
+description: |
+  Allow control over cluster machine pools.
+
+priority: high
+
+contextType: datafile
+contextSchema: /openshift/cluster-1.yml
+
+changes:
+- provider: jsonPath
+  jsonPathSelectors:
+  - machinePools
