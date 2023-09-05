@@ -29,6 +29,6 @@ managedResourceNames:
 
 openshiftResources:
 - provider: resource
-  path: /tekton/stage/config.tektonconfig.yaml
+  path: /tekton/config.tektonconfig.yaml
 - provider: resource
   path: /tekton/trigger-access.clusterrole.yaml
