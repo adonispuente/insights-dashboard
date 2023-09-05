@@ -55,6 +55,7 @@ sectors:
   - name: canary
 - name: incidentrehearsal
 - name: migrationtesting
+- name: ibm-infra
 upgradePolicyDefaults:
 - name: stage-canary
   matchLabels:
