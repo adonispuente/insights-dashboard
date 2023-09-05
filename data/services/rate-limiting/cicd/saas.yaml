@@ -320,6 +320,7 @@ resourceTemplates:
       $ref: /openshift/app-sre-prod-04/namespaces/app-sre-rate-limiting.yml
     ref: ed6f1c4e019e7ab67ed61b67683f09220a8a9245
     parameters:
+      REDIS_URL: "redis://app-sre-rate-limiting-elasticache-prod.huo5rn.ng.0001.use1.cache.amazonaws.com:6379"
       CLEANUP_DAYS: 7
       IMAGE_TAG: "0.4.0"
       LIMITS: |
