@@ -26,8 +26,21 @@ config:
     quay_org: cloudservices
     jobs:
     - "insights-gh-pr-check":
-        display_name: hybrid-committed-spend-frontend pr-check
+        display_name: hybrid-committed-spend-frontend pr-check-main
         branch: main
+        job_type: 'main'
+    - "insights-gh-pr-check":
+        display_name: hybrid-committed-spend-frontend pr-check-stage-stable
+        branch: stage-stable
+        job_type: 'stage-stable'
+    - "insights-gh-pr-check":
+        display_name: hybrid-committed-spend-frontend pr-check-prod-beta
+        job_type: 'prod-beta'
+        branch: prod-beta
+    - "insights-gh-pr-check":
+        display_name: hybrid-committed-spend-frontend pr-check-prod-stable
+        branch: prod-stable
+        job_type: 'prod-stable'
     - "insights-gh-build-master":
         display_name: hybrid-committed-spend-frontend build-main
         branch: main
