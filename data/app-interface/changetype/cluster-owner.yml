@@ -12,6 +12,9 @@ priority: high
 contextType: datafile
 contextSchema: /openshift/cluster-1.yml
 
+inherit:
+- $ref: /app-interface/changetype/cluster-machine-pool-owner.yml
+
 changes:
 - provider: change-type
   changeTypes:
