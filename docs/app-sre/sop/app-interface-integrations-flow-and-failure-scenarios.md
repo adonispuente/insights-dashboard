@@ -134,6 +134,6 @@ All documentation related to Cloudflare integrations can be found in the [Cloudf
 
 If an integration is CPU throttled it might fail with random erros, i.e. TLS handshake timeout, connection reset by peer, etc.
 
-To mitigate this issue, increase the CPU limit for the integration.
+To mitigate this issue, remove the CPU limit for the integration following [Unset CPU Limits](/docs/app-sre/sop/unset-cpu-limits.md).
 
 The limit can be found in the corresponding integrations schema file.
