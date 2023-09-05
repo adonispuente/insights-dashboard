@@ -35,7 +35,7 @@ resourceTemplates:
       NAMESPACE: telemeter-testing
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
-    ref: 8698aace66618c9959bb7169ddc7647a26d4964d
+    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
     parameters:
       NAMESPACE: telemeter-stage
   - namespace:
