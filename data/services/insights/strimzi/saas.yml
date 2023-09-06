@@ -19,7 +19,7 @@ pipelinesProvider:
 allowedSecretParameterPaths:
 - insights/secrets/insights-stage/msk-credentials
 - app-interface/assisted-installer/msk-credentials
-- integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
+- app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
 
 deployResources:
   requests:
@@ -237,5 +237,5 @@ resourceTemplates:
         version: 1
     - name: TGT_CLUSTER_BOOTSTRAP
       secret:
-        path: integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage/assisted-installer-msk
+        path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage/assisted-installer-msk
         field: bootstrap_brokers_sasl_scram
