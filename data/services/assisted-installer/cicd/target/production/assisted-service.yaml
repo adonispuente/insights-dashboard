@@ -199,6 +199,15 @@ parameters:
         ]
       },
       {
+        "openshift_version": "4.11.7",
+        "cpu_architecture": "x86_64",
+        "cpu_architectures": [
+          "x86_64"
+        ],
+        "url": "quay.io/openshift-release-dev/ocp-release:4.11.7-x86_64",
+        "version": "4.11.7"
+      },
+      {
         "openshift_version": "4.11.9-multi",
         "cpu_architecture": "multi",
         "cpu_architectures": [
