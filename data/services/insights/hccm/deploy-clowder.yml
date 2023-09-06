@@ -326,7 +326,7 @@ resourceTemplates:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
       # Migrations Image Tag
-      DBM_IMAGE_TAG: cfddb9d
+      DBM_IMAGE_TAG: a995595
       # Migrations Invocation
       DBM_INVOCATION: "00"
       # Migration directive is optional and should be in the form of:
@@ -355,7 +355,7 @@ resourceTemplates:
       TRINO_DATE_STEP: 3  # 5
       AUTO_DATA_INGEST: True
       RETAIN_NUM_MONTHS: 5
-      TAG_ENABLED_LIMIT: -1  # Disable the limit for testing
+      TAG_ENABLED_LIMIT: 200  # Disable the limit for testing
       # INITIAL_INGEST_OVERRIDE: 'True'
       # INITIAL_INGEST_NUM_MONTHS: 1
       SCHEDULE_CHECK_INTERVAL: 720
