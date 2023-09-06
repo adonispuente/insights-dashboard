@@ -60,5 +60,5 @@ resourceTemplates:
       - channel: assisted-events-scraper-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer-events
-          target_config_hash: a7bc5132d516bbc5
+          target_config_hash: 3ca697a5cebb62d2
           type: parent_saas_config
