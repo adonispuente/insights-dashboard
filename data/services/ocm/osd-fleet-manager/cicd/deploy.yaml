@@ -265,6 +265,20 @@ resourceTemplates:
             network_type: OVNKubernetes
             private: false
             additional_machine_pool_gangs:
+            - id_prefix: obo
+              type: obo
+              machine_type: r5.4xlarge
+              autoscale: false
+              nodes: 3
+              labels:
+                - key: node-role.kubernetes.io/obo
+                  value: ""
+                - key: osd-fleet-manager
+                  value: true
+              taints:
+                - key: obo
+                  value: true
+                  effect: NoSchedule
             - machine_type: m5.xlarge
               autoscale: false
               autoscale_min_replicas: 1
