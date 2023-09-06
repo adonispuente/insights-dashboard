@@ -25,6 +25,19 @@ spec:
           message: "Notifications Backend Alert (Stage)"
           description: "Notifications Backend: Down in Stage for 5 minutes."
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NotificationsBackendDownProd.html"
+      - alert: notifications-connector-email-down-stage
+        expr: absent(up{service="notifications-connector-email-service", namespace="notifications-stage"}) or up{service="notifications-connector-email-service", namespace="notifications-stage"} == 0
+        for: 5m
+        labels:
+          app_team: notifications
+          env: stage
+          service: insights
+          severity: medium
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Pod down for 5 minutes [env=stage, service=notifications-connector-email-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-email-down-prod.html"
       - alert: notifications-connector-google-chat-down-stage
         expr: absent(up{service="notifications-connector-google-chat-service", namespace="notifications-stage"}) or up{service="notifications-connector-google-chat-service", namespace="notifications-stage"} == 0
         for: 5m
@@ -132,6 +145,18 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Notifications: Stopped processing messages from Kafka for more than 1h"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/NoMessageBeingProcessedProd.html"
+      - alert: notifications-connector-email-kafka-lag-stage
+        expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-email"}) > 1000
+        labels:
+          app_team: notifications
+          env: stage
+          service: insights
+          severity: medium
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-email]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-email-kafka-lag-prod.html"
       - alert: notifications-connector-google-chat-kafka-lag-stage
         expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-google-chat"}) > 1000
         labels:
