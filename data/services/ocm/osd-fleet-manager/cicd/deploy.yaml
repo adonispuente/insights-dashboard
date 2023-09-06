@@ -142,6 +142,11 @@ resourceTemplates:
             key: label-qetesting-test
             value: qetesting
         sector: qetesting
+      - predicate:
+        label:
+          key: "label-mc-sts"
+          value: "sts"
+        sector: management-cluster-sts
       # put everything else into the main sector
       - sector: main
     SUPPORTED_CLOUD_PROVIDERS: |-
@@ -314,6 +319,18 @@ resourceTemplates:
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
             # requires the one image and needs ocp 4.14 nightly hosted cluster
             hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
+  - name: osd-fleet-manager-integration-management-cluster-sts
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
+    ref: 702bd3c56fd661127be80abaccc522b90900c285
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-int-canary
+    parameters:
+      DEPLOYMENT_NAME: management-cluster-sts
+      GATE_NAME: ocm-osdfm-int-canary
+      ENABLE_MC_STS: true
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
