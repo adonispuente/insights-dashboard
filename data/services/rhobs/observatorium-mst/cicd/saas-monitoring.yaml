@@ -62,6 +62,15 @@ resourceTemplates:
       NAMESPACE: observatorium-mst-production
 
   #TODO - pgough/rhobs - delete all below after https://issues.redhat.com/browse/RHOBS-851
+- name: thanos-replicate-cron-job
+  path: /resources/operations/bucket-replicate/monitoring-template.yaml
+  url: https://github.com/rhobs/configuration
+  targets:
+    - namespace:
+        $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
+      ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
+      parameters:
+        NAMESPACE: rhobs
 - name: thanos-migrate-job
   path: /resources/operations/bucket-replicate/monitoring-template.yaml
   url: https://github.com/rhobs/configuration
