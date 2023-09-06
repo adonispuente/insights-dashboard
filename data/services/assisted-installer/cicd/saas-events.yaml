@@ -67,7 +67,7 @@ resourceTemplates:
       - assisted-events-scraper-integration-deploy-success-channel
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-    ref: 440507cbbd4cccbc6121257b770d7d094699118f
+    ref: 918d7c13778f614ec523f94f3d6dcc11a71357fa
     parameters:
       SENTRY_DSN: https://e865b3c62cce46619101231a74254525@sentry.devshift.net/1022
       LOGLEVEL: info
