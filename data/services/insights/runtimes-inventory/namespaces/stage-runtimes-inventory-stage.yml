@@ -50,6 +50,8 @@ externalResources:
   - provider: rds
     identifier: runtimes-inventory-stage
     defaults: /terraform/resources/insights/stage/rds/postgres14-rds-export-service-stage.yml
+    overrides:
+      apply_immediately: true
     parameter_group: /terraform/resources/insights/stage/rds/postgres14-parameter-group-runtimes-inventory-stage.yml
     old_parameter_group: /terraform/resources/insights/stage/rds/postgres13-parameter-group-runtimes-inventory-stage.yml
     output_resource_name: runtimes-inventory-db
