@@ -40,6 +40,10 @@ openshiftResources:
   version: 9
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  name: clusters-service-rds-readonly
+  path: app-interface/app-sre/uhc-integration/clusters-service-rds-readonly
+  version: 2
 - provider: resource-template
   type: extracurlyjinja2
   path: /services/ocm/integration/provision-shards.secret.yaml
