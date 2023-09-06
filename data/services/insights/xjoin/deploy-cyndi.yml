@@ -284,7 +284,7 @@ resourceTemplates:
       ADDITIONAL_FILTERS:
         - name: "insightsOnly"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
-          if: "!!record.headers().lastWithName('insights_id').value()"
+          if: "!!record.headers().lastWithName(\"insights_id\").value()"
           where: "canonical_facts ? 'insights_id'"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
