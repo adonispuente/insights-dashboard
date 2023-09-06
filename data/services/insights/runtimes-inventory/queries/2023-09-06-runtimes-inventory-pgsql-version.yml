@@ -1,0 +1,8 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+name: 2023-09-06-runtimes-inventory-pgsql-version
+namespace:
+  $ref: /services/insights/runtimes-inventory/namespaces/stage-runtimes-inventory-stage.yml
+identifier: runtimes-inventory-stage
+output: stdout
+query: SHOW server_version;
