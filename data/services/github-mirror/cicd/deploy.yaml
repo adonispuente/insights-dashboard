@@ -60,7 +60,7 @@ resourceTemplates:
       - github-mirror-stage-deploy-success-channel
   - namespace:
       $ref: /services/github-mirror/namespaces/github-mirror-production.yaml
-    ref: a595349d33fbc7318ee20f74df4f56b3a0f95fec
+    ref: 4e54547f202a214661efedd061189418f8f4e81c
     parameters:
       GITHUB_MIRROR_URL: https://github-mirror.devshift.net
       EC_SECRET_NAME: ghmirror-elasticache-production
