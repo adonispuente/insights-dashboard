@@ -295,6 +295,35 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
+# notifications-connector-webhook
+- name: notifications-connector-webhook
+  path: /.rhcicd/clowdapp-connector-webhook.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+  # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    # app-sre will not deploy this target
+    disable: true
+    # populated by bonfire
+    ref: internal
+
+  # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-webhook.yaml version
+    ref: cf602594653a23b8052122d9b121d66e16283135
+    parameters:
+      KAFKA_MAX_POLL_INTERVAL_MS: 1200000
+      KAFKA_MAX_POLL_RECORDS: 100
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+    promotion:
+      publish:
+      - notifications-webhook-stage-deploy-success-channel
+
 # notifications-engine
 - name: notifications-engine
   path: /.rhcicd/clowdapp-engine.yaml
