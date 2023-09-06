@@ -149,6 +149,7 @@ externalResources:
           }
         ]
       }
+    output_resource_name: rh-hcc-provisioning-role-app-sre
 
 glitchtipProjects:
 - $ref: /dependencies/glitchtip/projects/glitchtip-production/hcc-provisioning-prod.yml
