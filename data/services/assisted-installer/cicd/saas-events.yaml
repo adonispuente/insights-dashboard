@@ -71,7 +71,7 @@ resourceTemplates:
     parameters:
       SENTRY_DSN: https://e865b3c62cce46619101231a74254525@sentry.devshift.net/1022
       LOGLEVEL: info
-      CCX_EXPORT_CRON_TIME: 0 2 * * *
+      CCX_EXPORT_CRON_TIME: 0 12 * * *
       CCX_EXPORT_CRON_SUSPEND: 'false'
       CCX_EXPORT_CLEANUP_CRON_TIME: 30 13 * * *
       CCX_EXPORT_CLEANUP_CRON_SUSPEND: 'true'
