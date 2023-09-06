@@ -104,6 +104,11 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
+    parameters:
+      ES_CPU_REQUESTS: 250m
+      ES_CPU_LIMITS: 1
+      ES_MEMORY_REQUESTS: 1Gi
+      ES_MEMORY_LIMITS: 2Gi
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
     ref: *xjoin-search-stage-ref
