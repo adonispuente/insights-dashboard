@@ -44,7 +44,7 @@ resourceTemplates:
         - parent_saas: assisted-installer-events
           target_config_hash: d1d1cc0ba70391e0
           type: parent_saas_config
-  - ref: 440507cbbd4cccbc6121257b770d7d094699118f
+  - ref: 918d7c13778f614ec523f94f3d6dcc11a71357fa
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     parameters:
@@ -60,5 +60,5 @@ resourceTemplates:
       - channel: assisted-events-scraper-production-deploy-success-channel
         data:
         - parent_saas: assisted-installer-events
-          target_config_hash: af88e18009595183
+          target_config_hash: 3ca697a5cebb62d2
           type: parent_saas_config
