@@ -67,4 +67,4 @@ instances:
   namespace:
     $ref: 
       /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
-expirationDate: '2023-10-01'
+expirationDate: '2023-12-01'
