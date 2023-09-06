@@ -32,7 +32,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobsp02ue1.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
+    ref: 0e2ae9d6df9a4276e3d2a6d3e400d853dc3f34cd
     parameters:
       NAMESPACE: observatorium-mst-production
 - name: observatorium-metrics
@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.rhobsp02ue1.yml
-    ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
+    ref: 0e2ae9d6df9a4276e3d2a6d3e400d853dc3f34cd
     parameters:
       NAMESPACES: '["observatorium-mst-production"]'
 - name: observatorium-mst-logs
