@@ -514,8 +514,3 @@ externalResources:
             qFc4G5TXqPEguI+IcNe7HJiLll7+0VK/0LYbyhWKMXM4Xy94kfXW4cNo15V2qgvU
             TwIDAQAB
             -----END PUBLIC KEY-----
-
-    - provider: logpush_ownership_challenge
-      identifier: quaio-stage-logpush-challenge
-      zone: stage.quay.io
-      destination_conf: s3://quayio-stage-cloudflare-logs/logs?region=us-east-1&sse=AES256
