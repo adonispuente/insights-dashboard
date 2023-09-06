@@ -355,7 +355,7 @@ resourceTemplates:
       TRINO_DATE_STEP: 3  # 5
       AUTO_DATA_INGEST: True
       RETAIN_NUM_MONTHS: 5
-      TAG_ENABLED_LIMIT: 200  # Disable the limit for testing
+      TAG_ENABLED_LIMIT: 200
       # INITIAL_INGEST_OVERRIDE: 'True'
       # INITIAL_INGEST_NUM_MONTHS: 1
       SCHEDULE_CHECK_INTERVAL: 720
