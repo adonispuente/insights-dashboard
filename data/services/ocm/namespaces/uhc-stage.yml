@@ -43,6 +43,10 @@ openshiftResources:
   path: /ocm/allow-port-forwarding.role.yml
 - provider: resource
   path: /ocm/sda-dev-allow-port-forwarding.rolebinding.yml
+- provider: vault-secret
+  name: clusters-service-rds-readonly
+  path: app-interface/app-sre/uhc-staging/clusters-service-rds-readonly
+  version: 1
 
 managedExternalResources: true
 
