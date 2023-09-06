@@ -593,7 +593,7 @@ resourceTemplates:
           hs-sc:
             name_prefix: "hs-sc-"
             # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-            openshift_version: "openshift-v4.12.24"
+            openshift_version: "openshift-v4.13.9"
             multi_az: true
             ccs: true
             default_machine_pool:
@@ -612,7 +612,7 @@ resourceTemplates:
           hs-mc:
             name_prefix: "hs-mc-"
             # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-            openshift_version: "openshift-v4.12.24"
+            openshift_version: "openshift-v4.13.9"
             multi_az: true
             ccs: true
             default_machine_pool:
@@ -628,18 +628,56 @@ resourceTemplates:
             private: false
             additional_machine_pool_gangs:
             - id_prefix: obo
+              type: obo
               machine_type: r6a.4xlarge
               autoscale: false
               nodes: 3 # AFAIK this means 1 in each of the 3 available AZs
               labels:
                 - key: node-role.kubernetes.io/obo
                   value: ""
+                - key: osd-fleet-manager
+                  value: true
               taints:
                 - key: obo
                   value: true
                   effect: NoSchedule
+            # - machine_type: m5.xlarge
+            #   autoscale: false
+            #   autoscale_min_replicas: 1
+            #   autoscale_max_replicas: 1
+            #   nodes: 1
+            #   type: serving
+            #   id_prefix: serving
+            #   taints:
+            #     - key: hypershift.openshift.io/request-serving-component
+            #       value: true
+            #       effect: NoSchedule
+            #   labels:
+            #     - key: hypershift.openshift.io/request-serving-component
+            #       value: true
+            #     - key: osd-fleet-manager
+            #       value: true
+            # - machine_type: m5.xlarge
+            #   autoscale: true
+            #   autoscale_min_replicas: 3
+            #   autoscale_max_replicas: 6
+            #   nodes: 3
+            #   id_prefix: non-serving
+            #   type: non-serving
+            #   taints:
+            #     - key: hypershift.openshift.io/control-plane
+            #       value: true
+            #       effect: NoSchedule
+            #   labels:
+            #     - key: hypershift.openshift.io/control-plane
+            #       value: true
+            #     - key: osd-fleet-manager
+            #       value: true
       DEPLOYMENT_NAME: perf2
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
+      # ENABLE_POD_ISOLATION: true
+      HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
@@ -720,7 +758,7 @@ resourceTemplates:
           hs-sc:
             name_prefix: "hs-sc-"
             # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-            openshift_version: "openshift-v4.12.24"
+            openshift_version: "openshift-v4.13.9"
             multi_az: true
             ccs: true
             default_machine_pool:
@@ -737,7 +775,7 @@ resourceTemplates:
           hs-mc:
             name_prefix: "hs-mc-"
             # See /api/clusters_mgmt/v1/versions for list of supported version IDs
-            openshift_version: "openshift-v4.12.24"
+            openshift_version: "openshift-v4.13.9"
             multi_az: true
             ccs: true
             default_machine_pool:
@@ -753,16 +791,51 @@ resourceTemplates:
             private: true
             additional_machine_pool_gangs:
             - id_prefix: obo
+              type: obo
               machine_type: r5.4xlarge
               autoscale: false
               nodes: 3 # AFAIK this means 1 in each of the 3 available AZs
               labels:
                 - key: node-role.kubernetes.io/obo
                   value: ""
+                - key: osd-fleet-manager
+                  value: true
               taints:
                 - key: obo
                   value: true
                   effect: NoSchedule
+            - machine_type: m5.xlarge
+              autoscale: false
+              autoscale_min_replicas: 1
+              autoscale_max_replicas: 1
+              nodes: 1
+              type: serving
+              id_prefix: serving
+              taints:
+                - key: hypershift.openshift.io/request-serving-component
+                  value: true
+                  effect: NoSchedule
+              labels:
+                - key: hypershift.openshift.io/request-serving-component
+                  value: true
+                - key: osd-fleet-manager
+                  value: true
+            - machine_type: m5.xlarge
+              autoscale: true
+              autoscale_min_replicas: 3
+              autoscale_max_replicas: 6
+              nodes: 3
+              id_prefix: non-serving
+              type: non-serving
+              taints:
+                - key: hypershift.openshift.io/control-plane
+                  value: true
+                  effect: NoSchedule
+              labels:
+                - key: hypershift.openshift.io/control-plane
+                  value: true
+                - key: osd-fleet-manager
+                  value: true
       GATE_NAME: ocm-osdfm-stage-canary
       ENABLE_POD_ISOLATION: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
