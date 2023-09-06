@@ -35,3 +35,14 @@ config:
     - gl-build-master:
         display_name: OSDFM hotfix branch image
         branch: hotfix
+- project:
+    name: aws-sdk-investigations
+    label: sd-uhc
+    node: rhel8
+    gl_group: osd-fleet-manager
+    gl_project: aws-sdk-investigations
+    jobs:
+    - ocm-pr-check:
+        display_name: OSD Fleet Manager MR check
+        html_publisher_dir: './data/results/'
+        concurrent_build: true

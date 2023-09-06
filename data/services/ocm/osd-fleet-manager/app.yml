@@ -55,3 +55,6 @@ codeComponents:
 - name: hypershift-cloudwatch-loggging
   resource: upstream
   url: https://gitlab.cee.redhat.com/service/hypershift-cloudwatch-logging
+- name: aws-sdk-investigations
+  resource: upstream
+  url: https://gitlab.cee.redhat.com/osd-fleet-manager/aws-sdk-investigations
