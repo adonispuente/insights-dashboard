@@ -59,6 +59,9 @@ quayRepos:
   - name: notifications-engine
     public: true
     description: Notifications service responsible for sending notifications to integrations
+  - name: notifications-connector-email
+    public: true
+    description: Notifications connector which is used for sending email notifications
   - name: notifications-connector-google-chat
     public: true
     description: Notifications connector to Google Chat
