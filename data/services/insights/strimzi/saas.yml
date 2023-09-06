@@ -18,6 +18,8 @@ pipelinesProvider:
 
 allowedSecretParameterPaths:
 - insights/secrets/insights-stage/msk-credentials
+- app-interface/assisted-installer/msk-credentials
+- integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
 
 deployResources:
   requests:
