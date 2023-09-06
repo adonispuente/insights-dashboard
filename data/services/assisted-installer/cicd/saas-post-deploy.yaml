@@ -26,7 +26,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-integration.yml
-    ref: 6d85fb16f8dd6ba3fa6c740fdf3fb4aed0acf329
+    ref: 05bc6d8057009a5a6399cd67f88ba6c9bd69eb98
     promotion:
       auto: true
       subscribe:
