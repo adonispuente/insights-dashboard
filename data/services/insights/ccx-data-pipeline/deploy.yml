@@ -76,6 +76,7 @@ resourceTemplates:
     ref: internal  # populated by bonfire
     parameters:
       MIN_REPLICAS: "1"
+      MAX_REPLICAS: "1"
       LOGGING_TO_CW_ENABLED: "False"
       ALLOW_UNSAFE_LINKS: "True"
   # ephemeral deployment for OCM qaprodauth
