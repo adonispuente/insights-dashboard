@@ -42,6 +42,10 @@ openshiftResources:
   type: resource
   tests:
   - /observability/prometheusrules/cincinnati-production-ext.prometheusrulestests.yaml
+- provider: vault-secret
+  name: clusters-service-rds-readonly
+  path: app-interface/app-sre/uhc-production/clusters-service-rds-readonly
+  version: 1
 
 managedExternalResources: true
 
