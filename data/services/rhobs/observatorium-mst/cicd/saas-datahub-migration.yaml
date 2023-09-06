@@ -67,7 +67,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
-        ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
+        ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
         parameters:
           NAMESPACE: rhobs
           OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-source
@@ -98,7 +98,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
-        ref: 07b44b4fe0fecb53f1e9e09d03340ebc3ba94c31
+        ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
         parameters:
           NAMESPACE: rhobs
           OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-destination
