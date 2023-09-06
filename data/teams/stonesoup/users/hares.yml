@@ -1,0 +1,51 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Hugo Ares
+org_username: hares
+github_username: hugares
+quay_username: hares
+slack_username: hares
+
+roles:
+- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+- $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup-billing-managers.yml
+
+public_gpg_key: |
+  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
+  cJiwu+AS4Krw9g8bOUVrokOsbHeZXeuZ1rhMEw==
