@@ -65,7 +65,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       name: service-status-board-gl-build-main
   - namespace:
       $ref: /services/status-board/namespaces/production.yml
-    ref: 3d4794c56a131cc46075ed02ce32a61ac6075cc0
+    ref: 00aa8f8aab40355b7ea7827d32b46e8b85b6cc04
     parameters:
       DATABASE_SECRET_NAME: status-board-production-rds
       OCM_BASE_URL: https://api.openshift.com
