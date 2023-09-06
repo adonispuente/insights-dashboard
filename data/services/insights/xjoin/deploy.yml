@@ -109,6 +109,7 @@ resourceTemplates:
       ES_CPU_LIMITS: 1
       ES_MEMORY_REQUESTS: 1Gi
       ES_MEMORY_LIMITS: 2Gi
+      ES_JAVA_OPTS: -Xms500m -Xmx500m
   - namespace:
       $ref: /services/insights/xjoin/namespaces/stage-xjoin-stage.yml
     ref: *xjoin-search-stage-ref
