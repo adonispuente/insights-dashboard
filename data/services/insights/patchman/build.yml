@@ -32,6 +32,9 @@ config:
         display_name: patchman build-master hotfix
         branch: hotfix
     - "insights-gh-build-master":
+        display_name: patchman build-poc
+        branch: poc
+    - "insights-gh-build-master":
         display_name: patchman build-security-compliance
         branch: security-compliance
     - "insights-gh-scheduled-rebuild":
