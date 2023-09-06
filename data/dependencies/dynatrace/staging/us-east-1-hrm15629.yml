@@ -4,7 +4,6 @@ $schema: /dependencies/dynatrace-environment-1.yml
 name: dynatrace-staging-us-east-1-hrm15629
 description: Dynatrace Environment for staging us-east-1
 environmentUrl: https://hrm15629.live.dynatrace.com
-# TODO: There is no bootstrap token in vault yet for this env
 bootstrapToken:
-  path: todo
+  path: app-sre/creds/dynatrace/redhat-aws/bootstrap-api-tokens/hrm15629
   field: token
