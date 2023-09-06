@@ -3,11 +3,11 @@ $schema: /openshift/namespace-1.yml
 
 labels: {}
 
-name: osd-experience-appsres05ue1
+name: osd-experience
 description: Namespace for resources to provision resources required to create an OSD experience
 
 cluster:
-  $ref: /openshift/app-sre-stage-01/cluster.yml
+  $ref: /openshift/appsres05ue1/cluster.yml
 
 app:
   $ref: /services/app-sre/app.yml
