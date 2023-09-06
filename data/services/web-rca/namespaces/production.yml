@@ -68,6 +68,7 @@ externalResources:
     parameter_group: /web-rca/stage/web-rca-rds.parameter-group.yml
     output_resource_name: web-rca-production-rds-readonly
     replica_source: web-rca-production
+    grafana_datasource: true
     overrides:
       engine_version: '14.3'
       multi_az: false
