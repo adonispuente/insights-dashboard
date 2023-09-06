@@ -5,4 +5,4 @@ namespace:
   $ref: /services/insights/runtimes-inventory/namespaces/stage-runtimes-inventory-stage.yml
 identifier: runtimes-inventory-stage
 output: stdout
-query: SHOW server_version;
+query: SELECT version();
