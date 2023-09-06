@@ -1,0 +1,33 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: go-httpbin
+
+name: go-httpbin
+description: go-httpbin deployment used for testing rate-limiting/limitador service. This service should not be used in production
+
+app:
+  $ref: /services/rate-limiting/app.yml
+
+pipelinesProvider:
+  $ref: /services/app-interface/pipelines/tekton.app-sre-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: sd-app-sre-info
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+managedResourceTypes:
+- Deployment
+- Service
+
+imagePatterns:
+- quay.io/app-sre/go-httpbin
+
+resourceTemplates: []

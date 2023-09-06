@@ -46,8 +46,8 @@ data:
             - endpoint:
                 address:
                   socket_address:
-                    address: 127.0.0.1
-                    port_value: 8000
+                    address: go-httpbin.app-sre-rate-limiting-test.svc
+                    port_value: 8080
 
       # This cluster is used to send request to the rate limiting service.
       - name: limiter
@@ -56,7 +56,7 @@ data:
         lb_policy: ROUND_ROBIN
         http2_protocol_options: {}
         load_assignment:
-          cluster_name: limiter
+          cluster_name: limiter-test
           endpoints:
           - lb_endpoints:
             - endpoint:
