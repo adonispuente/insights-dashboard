@@ -100,6 +100,55 @@ externalResources:
     defaults: /terraform/resources/insights/production/cloudwatch/cloudwatch-1.yml
     output_resource_name: cloudwatch
     es_identifier: kibana-elasticsearch
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre/account.yml
+  resources:
+  # This is a role to be able to test launching images in app-sre prod account
+  # data is taken from console.redhat.com sources UI.
+  - provider: aws-iam-role
+    identifier: RH-HCC-provisioning-role
+    assume_role:
+      AWS:
+      - "296389277756"
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "RedHatProvisioning",
+            "Effect": "Allow",
+            "Action": [
+              "iam:GetPolicyVersion",
+              "iam:GetPolicy",
+              "iam:ListAttachedRolePolicies",
+              "iam:GetRolePolicy",
+              "ec2:CreateKeyPair",
+              "ec2:CreateLaunchTemplate",
+              "ec2:CreateLaunchTemplateVersion",
+              "ec2:CreateTags",
+              "ec2:DeleteKeyPair",
+              "ec2:DeleteTags",
+              "ec2:DescribeAvailabilityZones",
+              "ec2:DescribeImages",
+              "ec2:DescribeInstanceTypes",
+              "ec2:DescribeInstances",
+              "ec2:DescribeKeyPairs",
+              "ec2:DescribeLaunchTemplates",
+              "ec2:DescribeLaunchTemplateVersions",
+              "ec2:DescribeRegions",
+              "ec2:DescribeSecurityGroups",
+              "ec2:DescribeSnapshotAttribute",
+              "ec2:DescribeTags",
+              "ec2:ImportKeyPair",
+              "ec2:RunInstances",
+              "ec2:StartInstances",
+              "iam:ListRolePolicies"
+            ],
+            "Resource": "*"
+          }
+        ]
+      }
 
 glitchtipProjects:
 - $ref: /dependencies/glitchtip/projects/glitchtip-production/hcc-provisioning-prod.yml
