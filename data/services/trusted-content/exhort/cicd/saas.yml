@@ -46,7 +46,7 @@ resourceTemplates:
       ENV_NAME: stage
   - namespace:
       $ref: /services/trusted-content/exhort/namespaces/production.yml
-    ref: 2951f51a80427ea37ff906481768dce460ba00e3
+    ref: 96aae13b265679d61c0456b33f9001e29e81c4d0
     parameters:
       ENV_NAME: prod
 imagePatterns:
