@@ -173,6 +173,8 @@ resourceTemplates:
       MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
       INIT_KAFKA_MEMORY_REQUEST: 2G
       INIT_KAFKA_MEMORY_LIMIT: 3G
+      OPENSEARCH_CURATOR_FORCEMERGE_AFTER_DAYS: 1
+      OPENSEARCH_CURATOR_DELETE_INDICES_AFTER_MONTHS: 1
   - ref: master
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
@@ -212,6 +214,8 @@ resourceTemplates:
       MIRRORMAKER_TOPIC_PARTITIONS: "6"
       MIRRORMAKER_TOPIC_REPLICATION_FACTOR: "3"
       MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
+      OPENSEARCH_CURATOR_FORCEMERGE_AFTER_DAYS: 1
+      OPENSEARCH_CURATOR_DELETE_INDICES_AFTER_MONTHS: 3
   - ref: dd1435b94692e3bd1b8cc9ff0e52a1f89b205336
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
