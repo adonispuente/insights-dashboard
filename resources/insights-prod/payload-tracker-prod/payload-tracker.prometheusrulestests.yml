@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/prometheus-rule-test-1.yml
+
+rule_files:
+- /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
+
+evaluation_interval: 5m 
+
+tests:
+
+# Add tests here
