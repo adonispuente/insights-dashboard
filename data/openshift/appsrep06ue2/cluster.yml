@@ -19,7 +19,8 @@ ocmSubscriptionLabels:
       status: enabled
       name: redhat-app-sre-auth
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.appsrep06ue2.yml
 ocm:
   $ref: /dependencies/ocm/production.yml
 managedGroups:
@@ -34,7 +35,7 @@ spec:
   provider: aws
   region: us-east-2
   channel: fast
-  version: 4.13.6
+  version: 4.13.10
   initial_version: 4.9.10
   multi_az: true
   nodes: 9
