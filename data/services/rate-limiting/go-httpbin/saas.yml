@@ -27,8 +27,7 @@ managedResourceTypes:
 - Deployment
 - Service
 
-imagePatterns:
-- quay.io/app-sre/go-httpbin
+imagePatterns: []
 
 resourceTemplates:
 - name: gohttpbin
