@@ -1,0 +1,34 @@
+---
+$schema: /aws/account-1.yml
+
+labels: {}
+
+name: hivep08ue2
+description: AWS account for hivep08ue2
+consoleUrl: https://341246210356.signin.aws.amazon.com/console
+uid: '341246210356'
+resourcesDefaultRegion: us-east-2
+supportedDeploymentRegions:
+- us-east-1
+- us-east-2
+providerVersion: '3.76.1'
+
+terraformUsername: terraform
+
+accountOwners:
+- name: App-SRE Team
+  email: sd-app-sre+hivep08ue2@redhat.com
+
+automationToken:
+  path: app-sre/creds/terraform/hivep08ue2/config
+  field: all
+
+premiumSupport: true
+
+enableDeletion: true
+
+resetPasswords: []
+
+terraformState:
+  $ref: /aws/hivep08ue2/state.yml
+deletionApprovals: []
