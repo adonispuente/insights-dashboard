@@ -53,7 +53,7 @@ resourceTemplates:
           target_config_hash: d14ad2a4e35480ba
           type: parent_saas_config
   - namespace:
-      $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
+      $ref: /services/insights/image-builder/namespaces/prod-image-builder-testing.yml
     ref: c27adabf487e2ced3adcd29ad2e62f73c1662bfd
     parameters:
       ENV_FOR_DYNACONF: prod
