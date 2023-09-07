@@ -56,11 +56,52 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
-        ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
+        ref: 96601e9d889aa6314a838a0010e56601d6b9f5e6
         parameters:
           NAMESPACE: rhobs
           TENANT_ID: FB870BF3-9F3A-44FF-9BF7-D7A047A52F43
           IMAGE_TAG: 'v0.32.0'
+        secretParameters:
+          - name: SOURCE_ACCESS_KEY_ID
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-metrics-production/telemeter-thanos-production-s3
+              field: aws_access_key_id
+          - name: SOURCE_SECRET_ACCESS_KEY
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-metrics-production/telemeter-thanos-production-s3
+              field: aws_secret_access_key
+          - name: SOURCE_S3_BUCKET_NAME
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-metrics-production/telemeter-thanos-production-s3
+              field: bucket
+          - name: SOURCE_S3_BUCKET_REGION
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-metrics-production/telemeter-thanos-production-s3
+              field: aws_region
+          - name: SOURCE_S3_BUCKET_ENDPOINT
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/observatorium-metrics-production/telemeter-thanos-production-s3
+              field: endpoint
+          - name: DESTINATION_ACCESS_KEY_ID
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_access_key_id
+          - name: DESTINATION_SECRET_ACCESS_KEY
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_secret_access_key
+          - name: DESTINATION_S3_BUCKET_NAME
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: bucket
+          - name: DESTINATION_S3_BUCKET_REGION
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: aws_region
+          - name: DESTINATION_S3_BUCKET_ENDPOINT
+            secret:
+              path: app-sre/integrations-output/terraform-resources/telemeter-prod-01/rhobs/telemeter-tenant-s3
+              field: endpoint
   - name: observatorium-datahub-migration-thanos-bucket-replicate-secret-source
     url: https://github.com/rhobs/configuration
     path: /resources/operations/bucket-replicate/s3-secret-template.yaml
@@ -68,6 +109,7 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
         ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
+        delete: true
         parameters:
           NAMESPACE: rhobs
           OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-source
@@ -99,6 +141,7 @@ resourceTemplates:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
         ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
+        delete: true
         parameters:
           NAMESPACE: rhobs
           OBJ_STORE_CONFIG_SECRET_NAME: thanos-bucket-replicate-config-destination
@@ -226,4 +269,3 @@ resourceTemplates:
               path: rhobs/datahub/rclone-target-secret
               field: endpoint
               version: 1
-
