@@ -515,6 +515,7 @@ resourceTemplates:
       CPU_REQUEST: 100m
       CPU_LIMIT: 500m
       ENABLE_JQS: false
+      OCM_BASE_URL: http://127.0.0.1:9090
       # Defining the triggers in integration for OSL
       TRIGGERS_CONFIG:
       - name: "Example Webhook"
