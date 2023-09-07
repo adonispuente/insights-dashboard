@@ -129,6 +129,8 @@ openshiftResources:
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-gw.servicemonitor.yml
 - provider: resource
+  path: /insights-stage/notifications-stage/notifications-connector-email.servicemonitor.yml
+- provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-google-chat.servicemonitor.yml
 - provider: resource
   path: /insights-stage/notifications-stage/notifications-connector-microsoft-teams.servicemonitor.yml
