@@ -61,4 +61,4 @@ Bridge depends directly on the Kafka cluster and on the UMB cluster. It depends 
 
 Bridge is a Java application built with Quarkus and Smallrye Messaging, which provides Kafka (HBI) and ActiveMQ Classic (UMB) integration. Bridge captures metrics using Micrometer, which are exposed over the API to Prometheus. We push logging events to the enterprise Splunk instance using the HEC API.
 
-For more information, refer to the [wiki](https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge/-/wikis/).
+For more information, refer to the [wiki](https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge/-/wikis/Tech-Stack).
