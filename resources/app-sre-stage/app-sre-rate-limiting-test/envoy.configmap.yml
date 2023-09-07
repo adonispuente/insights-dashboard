@@ -36,7 +36,7 @@ data:
       # This cluster is used to send requests to the backend.
       - name: backend
         connect_timeout: 1s
-        type: STATIC
+        type: STRICT_DNS
         lb_policy: ROUND_ROBIN
         http2_protocol_options: {}
         load_assignment:
