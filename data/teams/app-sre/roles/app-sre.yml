@@ -225,6 +225,7 @@ aws_groups:
 - $ref: /aws/sd-infra-stage-01/groups/App-SRE-admin.yml
 - $ref: /aws/sd-infra-prod-01/groups/App-SRE-admin.yml
 - $ref: /aws/app-sre-rosa-stage-01/groups/App-SRE-admin.yml
+- $ref: /aws/hivep08ue2/groups/App-SRE-admin.yml
 
 user_policies:
 - $ref: /aws/app-sre/policies/ManageOwnMFA.yml
