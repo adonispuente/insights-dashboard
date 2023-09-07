@@ -41,7 +41,7 @@ managedResourceTypes:
 - ServiceAccount
 - Role.rbac.authorization.k8s.io
 - RoleBinding.rbac.authorization.k8s.io
-- Secret
+# - Secret
 
 openshiftResources:
 - provider: vault-secret
@@ -67,9 +67,9 @@ openshiftResources:
   path: app-interface/global/quay/app-sre/quay.io
   version: 2
   type: kubernetes.io/dockercfg
-- provider: resource-template
-  type: extracurlyjinja2
-  path: /insights-stage/platform-mq-stage/kafka-cyndi.secret.yaml
+# - provider: resource-template
+#   type: extracurlyjinja2
+#   path: /insights-stage/platform-mq-stage/kafka-cyndi.secret.yaml
 - provider: vault-secret
   path: insights/secrets/insights-stage/strimzi-stage/mk-oauth-secret
   version: 5
