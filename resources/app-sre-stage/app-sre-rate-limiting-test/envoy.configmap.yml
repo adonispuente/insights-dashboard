@@ -56,7 +56,7 @@ data:
         lb_policy: ROUND_ROBIN
         http2_protocol_options: {}
         load_assignment:
-          cluster_name: limiter-test
+          cluster_name: limiter
           endpoints:
           - lb_endpoints:
             - endpoint:
