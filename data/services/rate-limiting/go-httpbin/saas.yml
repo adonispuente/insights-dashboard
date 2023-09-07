@@ -30,4 +30,11 @@ managedResourceTypes:
 imagePatterns:
 - quay.io/app-sre/go-httpbin
 
-resourceTemplates: []
+resourceTemplates:
+- name: gohttpbin
+  url: https://gitlab.cee.redhat.com/service/rate-limiting-templates
+  path: /go-httpbin-template.yaml
+  targets:
+    - namespace:
+        $ref: /openshift/app-sre-stage-01/namespaces/app-sre-rate-limiting-test.yml
+      ref: master
