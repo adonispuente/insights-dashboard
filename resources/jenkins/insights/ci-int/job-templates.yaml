@@ -704,10 +704,15 @@
     iqe_requirements_priority: ""
     iqe_test_importance: ""
     iqe_plugins: ""
-    iqe_env: ""
+    iqe_env: "clowder_smoke"
     iqe_selenium: "false"
     iqe_image: ""
     selenium_image: ""
+    iqe_parallel_enabled: ""
+    iqe_parallel_worker_count: ""
+    iqe_rp_args: ""
+    iqe_ibutsu_source: ""
+    extra_deploy_args: ""
     parameters:
     - string:
         name: VAULT_ADDRESS
