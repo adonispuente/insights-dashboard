@@ -803,6 +803,9 @@
     - string:
         name: IQE_IBUTSU_SOURCE
         default: ''
+    - string:
+        name: EXTRA_DEPLOY_ARGS
+        default: '{extra_deploy_args}'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'

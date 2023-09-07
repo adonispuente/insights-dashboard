@@ -425,38 +425,39 @@
     # Parameters to set which stages will run
     - string:
         name: APP_NAME
+        default: '{app_name}'
     - string:
         name: COMPONENT_NAME
-        default: 'false'
+        default: '{component_name}'
     - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_cypress_component}'
     - string:
         name: RUN_CYPRESS_E2E_TESTS_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_cypress_e2e_tests}'
     - string:
         name: RUN_BUILD_PUSH_QUAY_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_build_push_quay}'
     - string:
         name: RUN_FRONTEND_COMMON_BUILDER_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_frontend_common_builder}'
     - string:
         name: RUN_IQE_TESTS_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_iqe_tests}'
     - string:
         name: RUN_LINT_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
+        default: '{run_lint}'
     - string:
         name: RUN_UNIT_TESTS_FLAG
         allowedValues: ['false', 'true']
-        default: 'false'
-    
+        default: '{run_unit_tests}'
+
     # Parameters for IQE testing
     - string:
         name: IQE_MARKER_EXPRESSION
@@ -497,6 +498,9 @@
     - string:
         name: IQE_IBUTSU_SOURCE
         default: ''
+    - string:
+        name: EXTRA_DEPLOY_ARGS
+        default: '{extra_deploy_args}'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'

@@ -67,6 +67,7 @@ config:
         iqe_env: 'ephemeral'
         iqe_selenium: 'true'
         iqe_parallel_worker_count: '1'
+        extra_deploy_args: ""
 - project:
     name: rhsm-subscriptions
     label: insights
