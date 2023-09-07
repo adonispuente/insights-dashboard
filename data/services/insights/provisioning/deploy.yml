@@ -129,7 +129,7 @@ resourceTemplates:
       FLOORIST_QUERY_PREFIX: "hms_analytics/provisioning/prod"
       ENV_NAME: prod
       IMAGEBUILDER_URL: http://${IMAGEBUILDER_HOST}:${IMAGEBUILDER_PORT}
-      APP_NOTIFICATIONS_ENABLED: false
+      APP_NOTIFICATIONS_ENABLED: true
       APP_RBAC_ENABLED: true
       API_REPLICAS: 3
       WORKER_REPLICAS: 3
