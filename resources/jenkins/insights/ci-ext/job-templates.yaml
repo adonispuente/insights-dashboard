@@ -396,6 +396,16 @@
     name: '{gh_org}-{gh_repo}-pipeline-pr-check-frontends-{branch}'
     slack_channel_notification: 'consoledot-development-fails'
     project-type: pipeline
+    iqe_marker_expression: ""
+    iqe_filter_expression: ""
+    iqe_requirements: ""
+    iqe_requirements_priority: ""
+    iqe_test_importance: ""
+    iqe_plugins: ""
+    iqe_env: ""
+    iqe_selenium: "false"
+    iqe_image: ""
+    selenium_image: ""
     parameters:
     - string:
         name: VAULT_ADDRESS
@@ -461,74 +471,46 @@
     # Parameters for IQE testing
     - string:
         name: IQE_MARKER_EXPRESSION
-        choices:
-            - '{iqe_marker_expression}'
-            - ''
+        default: '{iqe_marker_expression}'
     - string:
         name: IQE_FILTER_EXPRESSION
-        choices:
-            - '{iqe_filter_expression}'
-            - ''
+        default: '{iqe_filter_expression}'
     - string:
         name: IQE_IMAGE_TAG
-        choices:
-            - '{iqe_image_tag}'
-            - ''
+        default: '{iqe_image_tag}'
     - string:
         name: IQE_REQUIREMENTS
-        choices:
-            - '{iqe_requirements}'
-            - ''
+        default: '{iqe_requirements}'
     - string:
         name: IQE_REQUIREMENTS_PRIORITY
-        choices:
-            - '{iqe_requirements_priority}'
-            - ''
+        default: '{iqe_requirements_priority}'
     - string:
         name: IQE_TEST_IMPORTANCE
-        choices:
-            - '{iqe_test_importance}'
-            - ''
+        default: '{iqe_test_importance}'
     - string:
         name: IQE_PLUGINS
-        choices:
-            - '{iqe_plugins}'
-            - ''
+        default: '{iqe_plugins}'
     - string:
         name: IQE_ENV
-        choices: 
-            - '{iqe_env}'
-            - 'clowder_smoke'
+        default: '{iqe_env}'
     - string:
         name: IQE_SELENIUM
-        choices:
-            - '{iqe_selenium}'
-            - 'false'
+        default: '{iqe_selenium}'
     - string:
         name: IQE_PARALLEL_ENABLED
-        choices:
-            - '{iqe_parallel_enabled}'
-            - ''
+        default: '{iqe_parallel_enabled}'
     - string:
         name: IQE_PARALLEL_WORKER_COUNT
-        choices:
-            - '{iqe_parallel_worker_count}'
-            - ''
+        default: '{iqe_parallel_worker_count}'
     - string:
         name: IQE_RP_ARGS
-        choices:
-            - '{iqe_rp_args}'
-            - ''
+        default: '{iqe_rp_args}'
     - string:
         name: IQE_IBUTSU_SOURCE
-        choices:
-            - '{iqe_ibutsu_source}'
-            - ''
+        default: '{iqe_ibutsu_source}'
     - string:
         name: EXTRA_DEPLOY_ARGS
-        choices:
-            - '{extra_deploy_args}'
-            - ''
+        default: '{extra_deploy_args}'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
