@@ -312,7 +312,8 @@ resourceTemplates:
                   value: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
             # requires the one image and needs ocp 4.14 nightly hosted cluster
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+            # hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
             aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
   - name: osd-fleet-manager-integration-management-cluster-sts
     namespace:
