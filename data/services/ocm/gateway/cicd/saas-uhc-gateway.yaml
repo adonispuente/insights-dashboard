@@ -55,6 +55,8 @@ resourceTemplates:
       instance:
         $ref: /dependencies/ci-int/ci-int.yml
       name: service-uhc-gateway-gl-build-master
+    parameters:
+      REPLICAS: '2'
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: master
