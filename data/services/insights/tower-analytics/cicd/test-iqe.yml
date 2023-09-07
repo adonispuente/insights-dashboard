@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/stage-tower-analytics-stage.yml
-    ref: 25f205626e71dd1a9ba182bd95c62734557d8e9f
+    ref: 4583d45692dc39f006e292f2459a49bcaae8a472
     parameters:
       ENV_NAME: stage
       GATE_PROMETHEUS_ENDPOINT: http://prometheus-app-sre.openshift-customer-monitoring.svc.cluster.local:9090
