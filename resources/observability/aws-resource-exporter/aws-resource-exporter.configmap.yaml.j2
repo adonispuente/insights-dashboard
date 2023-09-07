@@ -32,5 +32,5 @@ data:
       cache_ttl: {{ route53_cache_ttl | default('120s') }}
     ec2:
       enabled: {{ ec2 | lower }}
-      regions: {{ supported_regions if vpc else [] }}
+      regions: {{ supported_regions if ec2 else [] }}
       timeout: 30s
