@@ -438,6 +438,8 @@ openshiftResources:
 - provider: prometheus-rule
   path: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
   type: resource
+  tests:
+  - /insights-prod/payload-tracker-prod/payload-tracker.prometheusrulestests.yml
 - provider: prometheus-rule
   path: /insights-prod/entitlements-prod/entitlements.prometheusrules.yml
   type: resource
