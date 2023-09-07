@@ -143,9 +143,9 @@ resourceTemplates:
             value: qetesting
         sector: qetesting
       - predicate:
-        label:
-          key: "label-mc-sts"
-          value: "sts"
+          label:
+            key: "label-mc-sts"
+            value: "sts"
         sector: management-cluster-sts
       # put everything else into the main sector
       - sector: main
