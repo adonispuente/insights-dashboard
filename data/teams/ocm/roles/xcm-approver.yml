@@ -19,6 +19,8 @@ self_service:
       - /services/ocm/xcm-integration/clusters-service.route.yaml
       - /services/ocm/xcm-integration/cluster-proxy-service.configmap.yaml
       - /services/ocm/xcm-integration/clusters-service-envoy.configmap.yaml
+      - /services/ocm/xcm-integration/gateway-envoy.configmap.yaml
+      - /services/ocm/xcm-integration/gateway-server.route.yaml
   - change_type:
       $ref: /app-interface/changetype/saas-file-self-service.yml
     datafiles:
@@ -27,6 +29,7 @@ self_service:
     - $ref: /services/ocm/cs/cicd/saas-uhc-clusters-service-dashboards.yaml
     - $ref: /services/ocm/cs/cicd/saas-jenkins-trigger.yaml
     - $ref: /services/ocm/osl/cicd/saas-ocm-service-log.yaml
+    - $ref: /services/ocm/gateway/cicd/saas-uhc-gateway.yaml
   - change_type:
       $ref: /app-interface/changetype/ocm-github-resource-template-editor.yml
     datafiles:
