@@ -18,6 +18,8 @@ pipelinesProvider:
 
 allowedSecretParameterPaths:
 - insights/secrets/insights-stage/msk-credentials
+- app-interface/assisted-installer/msk-credentials
+- app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
 
 deployResources:
   requests:
@@ -213,3 +215,27 @@ resourceTemplates:
         path: insights/secrets/insights-stage/msk-credentials/consoledot-stage-msk
         field: bootstrap_brokers_sasl_scram
         version: 1
+- name: assisted-installer-mirrormaker
+  path: /deploys/openshift/kafka-mm2-assisted-installer.yaml
+  url: https://github.com/RedHatInsights/platform-mq
+  targets:
+  - namespace:
+      $ref: /services/insights/strimzi/namespaces/stage-platform-mq-stage.yml
+    ref: master
+    parameters:
+      MM2_INSTANCE_NAME: assisted-installer-mirrormaker
+      SRC_CLUSTER_ALIAS: platform-mq-stage
+      SRC_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
+      TGT_CLUSTER_ALIAS: msk-ai-stage
+      AUTH_CLIENT_SECRET_NAME: mirrormaker
+      AUTH_CLIENT_SECRET_KEY: password
+    secretParameters:
+    - name: AUTH_CLIENT_ID
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/mirrormaker
+        field: username
+        version: 1
+    - name: TGT_CLUSTER_BOOTSTRAP
+      secret:
+        path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage/assisted-installer-msk
+        field: bootstrap_brokers_sasl_scram
