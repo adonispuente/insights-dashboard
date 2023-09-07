@@ -47,4 +47,4 @@ resourceTemplates:
       name: app-sre-qontract-reconcile-gh-build-master
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-production-int.yml
-    ref: d76d0eaf6b6f5b57741121b3de9794341ab5842e
+    ref: 69812b2c84288d204d5d0da4b9d6bf296cbe60bd
