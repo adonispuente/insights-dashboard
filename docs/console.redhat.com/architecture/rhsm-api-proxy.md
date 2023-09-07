@@ -6,9 +6,9 @@ RHSM System Profile Bridge ("Bridge" for short) is a messaging bridge that conne
 
 Red Hat is centralizing the management experience in console.redhat.com, but many customers' systems are registered with RHSM. To let RHSM users participate in the console-dot experience, we need to send a copy of every system profile sent to Errata Notifications (an RHSM service) to the Host-Based Inventory (HBI) as well.
 
-To "send a copy" of system profiles to HBI means to publish a JSON message to the HBI Kafka cluster's platform.inventory.host-ingress topic. However, the HBI Kafka cluster is not accessible from services running outside console.redhat.com environments like Errata Notifications, so Errata cannot publish messages directly to Kafka. 
+To "send a copy" of system profiles to HBI means to publish a JSON message to the HBI Kafka cluster's platform.inventory.host-ingress topic. However, the HBI Kafka cluster is not accessible to services running outside console.redhat.com environments like Errata Notifications, so Errata cannot publish messages directly to Kafka. 
 
-Instead, Errata integrates with the Unified Message Bus (UMB), an ActiveMQ Classic broker cluster accessible by both Errata Notifications and services running within the console.redhat.com environments. The role of RHSM-System-Profile-Bridge is sit inside the console.redhat.com network and forward messages from UMB to the Kafka cluster, letting Errata Notifications send a copy of system profiles over to HBI. As a result, RHSM customers can use services like Patch to assess system vulnerabilities.
+Instead Errata integrates with the Unified Message Bus (UMB), an ActiveMQ Classic broker cluster accessible by both Errata Notifications and services running within the console.redhat.com environments. The role of RHSM-System-Profile-Bridge is to sit inside the console.redhat.com network and forward messages from UMB to the Kafka cluster, letting Errata Notifications send a copy of system profiles over to HBI. As a result, RHSM customers can use services like Patch to assess system vulnerabilities.
 
 ## Overview
 
@@ -35,7 +35,7 @@ bridge --> hbi
 
 ## Where does data live
 
-All data originates from customer systems, which send new or modified system profile JSON messages to Errata Notifications at most once every four hours by default. The latest version of every system profile is stored durably in the Errata Notifications C3 MongoDB cluster. Each HBI-formatted system profile message that Errata publishes is also stored durably within UMB until Bridge ACK's the message, at which point the message is now stored within the Kafka cluster.
+All data originates from customer systems, which send new or modified system profile JSON messages to Errata Notifications at most once every four hours by default. The latest version of every system profile is stored durably in the Errata Notifications C3 MongoDB cluster. Each HBI-formatted system profile message that Errata publishes is also stored durably within UMB until Bridge ACKs the message, at which point the message is now stored within the Kafka cluster.
 
 ## Backup policies and schedules
 
@@ -59,6 +59,6 @@ Bridge depends directly on the Kafka cluster and on the UMB cluster. It depends 
 
 ## Technology Stack
 
-Bridge is a Java application built with Quarkus and Smallrye Messaging, which provides Kafka (HBI) and ActiveMQ Classic (UMB) integration. Bridge captures metrics using Micrometer, which are exposed over the API to Prometheus. We push logging events to the enterprise Splunk instance using the HEC API.
+Bridge is a Java application built with Quarkus and Smallrye Messaging, which provides Kafka (HBI) and ActiveMQ Classic (UMB) integration. Bridge captures metrics using Micrometer, which are exposed over via an endpoint on the service for Prometheus to scrape. We push logging events to the enterprise Splunk instance using the HEC API.
 
 For more information, refer to the [wiki](https://gitlab.cee.redhat.com/rhsm/rhsm-system-profile-bridge/-/wikis/Tech-Stack).
