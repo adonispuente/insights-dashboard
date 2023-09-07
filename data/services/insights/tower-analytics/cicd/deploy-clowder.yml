@@ -139,7 +139,7 @@ resourceTemplates:
       - automation-analytics-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
-    ref: 25f205626e71dd1a9ba182bd95c62734557d8e9f
+    ref: 4583d45692dc39f006e292f2459a49bcaae8a472
     parameters:
       ENV_NAME: prod
       GUNICORN_PROCESSES: 1
@@ -162,7 +162,7 @@ resourceTemplates:
       CRON_SCHEDULE_MSG_RECOVERY: 0 8,20 * * *  # twice a day
       CRON_SCHEDULE_USER_METRICS: '0 10 * * *'  # daily
       CRON_SCHEDULE_DATA_PRUNING: 0 13 * * 2  # weekly
-      CRON_SCHEDULE_UNPROCESSED_EVENTS: "0 12 * * *"  # daily
+      CRON_SCHEDULE_UNPROCESSED_EVENTS: "0 8 * * *"  # daily
       # Data exporter Svc
       DATA_EXPORT_ENABLED: 'True'
       JOBS_LOG_LEVEL: INFO
@@ -202,4 +202,5 @@ resourceTemplates:
       PROCESSOR_REPLAY_LINK_EXPIRATION: '24'
       PROCESSOR_REPLAY_PROCESS_PAYLOAD: 'False'
       PROCESSOR_REPLAY_STATUSES: ''
-
+      # Unprocessed Events Job
+      UNPROCESSED_EVENTS_MIN_DATE: '2023-07-26' # AAP 2.4 release
