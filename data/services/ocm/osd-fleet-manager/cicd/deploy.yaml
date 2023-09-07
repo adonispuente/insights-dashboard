@@ -102,6 +102,7 @@ resourceTemplates:
     HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
           # openshift/hypershift.git branch release-4.14 commit 8c24b8cabe5a9abb3ffda85408ec23fa2159e970 / tag v0.1.10
           hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+          aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
     MANAGEMENT_CLUSTER_MAX_HOSTED_CLUSTER: '80'
     MANAGEMENT_CLUSTER_HIGH_SATURATION_THRESHOLD: '80'
     OCM_URL: ${OCM_BASE_URL}
@@ -311,7 +312,8 @@ resourceTemplates:
                   value: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
             # requires the one image and needs ocp 4.14 nightly hosted cluster
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
   - name: osd-fleet-manager-integration-management-cluster-sts
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
@@ -687,7 +689,8 @@ resourceTemplates:
       DATAPLANE_CLUSTER_SCALING_TYPE: manual
       # ENABLE_POD_ISOLATION: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
@@ -849,7 +852,8 @@ resourceTemplates:
       GATE_NAME: ocm-osdfm-stage-canary
       ENABLE_POD_ISOLATION: true
       HYPERSHIFT_OPERATOR_OVERRIDING_DATA: |2-
-            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator:1cc66b0
+            hypershift-operator: quay.io/acm-d/rhtap-hypershift-operator@sha256:a7c686207b5ffdec628caa4ff54ea822aba6cb6487a386579026b468e3976f94
+            aws-encryption-provider: registry-proxy.engineering.redhat.com/rh-osbs/multicluster-engine-aws-encryption-provider-rhel8@sha256:5c1afc24ccc9ef5c41f78a6561fc43c6f653bc772c752a656f01d8596ffccaa8
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
