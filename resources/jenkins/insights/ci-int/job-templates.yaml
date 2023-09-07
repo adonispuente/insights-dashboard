@@ -766,43 +766,43 @@
     # Parameters for IQE testing
     - string:
         name: IQE_MARKER_EXPRESSION
-        default: ''
+        default: '{iqe_marker_expression}'
     - string:
         name: IQE_FILTER_EXPRESSION
-        default: ''
+        default: '{iqe_filter_expression}'
     - string:
         name: IQE_IMAGE_TAG
-        default: ''
+        default: '{iqe_image_tag}'
     - string:
         name: IQE_REQUIREMENTS
-        default: ''
+        default: '{iqe_requirements}'
     - string:
         name: IQE_REQUIREMENTS_PRIORITY
-        default: ''
+        default: '{iqe_requirements_priority}'
     - string:
         name: IQE_TEST_IMPORTANCE
-        default: ''
+        default: '{iqe_test_importance}'
     - string:
         name: IQE_PLUGINS
-        default: ''
+        default: '{iqe_plugins}'
     - string:
         name: IQE_ENV
-        default: 'clowder_smoke'
+        default: '{iqe_env}'
     - string:
         name: IQE_SELENIUM
-        default: 'false'
+        default: '{iqe_selenium}'
     - string:
         name: IQE_PARALLEL_ENABLED
-        default: ''
+        default: '{iqe_parallel_enabled}'
     - string:
         name: IQE_PARALLEL_WORKER_COUNT
-        default: ''
+        default: '{iqe_parallel_worker_count}'
     - string:
         name: IQE_RP_ARGS
-        default: ''
+        default: '{iqe_rp_args}'
     - string:
         name: IQE_IBUTSU_SOURCE
-        default: ''
+        default: '{iqe_ibutsu_source}'
     - string:
         name: EXTRA_DEPLOY_ARGS
         default: '{extra_deploy_args}'
