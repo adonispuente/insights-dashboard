@@ -56,7 +56,7 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
-        ref: 96601e9d889aa6314a838a0010e56601d6b9f5e6
+        ref: e776adc8c8e5acd6773b97e2afb54c4c44c8e834
         parameters:
           NAMESPACE: rhobs
           TENANT_ID: FB870BF3-9F3A-44FF-9BF7-D7A047A52F43
