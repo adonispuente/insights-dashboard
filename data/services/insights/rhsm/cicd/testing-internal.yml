@@ -12,7 +12,7 @@ slack:
     $ref: /dependencies/slack/redhat-internal.yml
   channel: team-clouddot-info
 pipelinesProvider:
-  $ref: /services/insights/pipelines/tekton.crc-poc-pipelines.appsres03ue1.yaml
+  $ref: /services/insights/pipelines/tekton.crc-poc-pipelines.appsres05ue1.yaml
 timeout: 5h0m0s
 publishJobLogs: true
 imagePatterns:

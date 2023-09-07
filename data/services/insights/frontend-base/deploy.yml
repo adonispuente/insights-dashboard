@@ -13,7 +13,7 @@ app:
 
 pipelinesProvider:
   # TEMPORARY: use the tekton poc namespace for APPSRE-3420 testing
-  $ref: /services/insights/pipelines/tekton.crc-poc-pipelines.appsres03ue1.yaml
+  $ref: /services/insights/pipelines/tekton.crc-poc-pipelines.appsres05ue1.yaml
 
 managedResourceTypes:
 - CustomResourceDefinition
