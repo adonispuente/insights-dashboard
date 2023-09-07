@@ -16,6 +16,8 @@ app:
 environment:
   $ref: /products/osdv4/environments/integration-xcm-hivei01ue1.yml
 
+enableDynatraceLogging: true
+
 networkPoliciesAllow:
   - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
 
@@ -99,6 +101,13 @@ openshiftResources:
   - provider: resource
     path: /services/ocm/xcm-integration/ocm-service-logs-envoy.configmap.yaml
   # OSL dependencies
+
+  # Gateway dependencies
+  - provider: route
+    path: /services/ocm/xcm-integration/gateway-server.route.yaml
+  - provider: resource
+    path: /services/ocm/xcm-integration/gateway-envoy.configmap.yaml
+  # Gateway dependencies
 
 openshiftServiceAccountTokens:
   # telemeter
