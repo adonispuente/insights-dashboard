@@ -81,6 +81,6 @@ config:
         display_name: clowder-envoy build-master
     - "insights-gh-scheduled-rebuild":
         display_name: clowder-envoy build-master-weekly
-        branch: security-compliance
+        branch: master
         cron_expression: "H H(0-3) * * 6"
         ci_cmd: './build_deploy.sh'
