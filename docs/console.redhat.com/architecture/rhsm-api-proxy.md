@@ -20,7 +20,11 @@ graph LR
 rhsm-system[RHSM system]
 errata[Errata Notifications]
 umb[(UMB)]
-bridge[RHSM System Profile Bridge]
+
+subgraph "rhsm-api-proxy namespace"
+  bridge[RHSM System Profile Bridge]    
+  end
+  
 hbi[(HBI Kafka)]
 
 rhsm-system --> errata
