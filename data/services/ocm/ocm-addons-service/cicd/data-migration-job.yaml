@@ -1,0 +1,58 @@
+---
+$schema: /app-sre/saas-file-2.yml
+
+labels:
+  service: ocm
+
+name: ocm-addons-service-data-migration-job
+description: 'Datamigration job to export and import addon installation data from CS to AS'
+
+app:
+  $ref: /services/ocm/ocm-addons-service/app.yml
+
+pipelinesProvider:
+  $ref: /services/ocm/pipelines/tekton.ocm-pipelines.appsrep05ue1.yaml
+
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: team-uhc-info
+
+managedResourceTypes:
+- Job
+
+imagePatterns:
+- quay.io/app-sre/ocm-addons-service
+- quay.io/app-sre/centos
+- quay.io/centos/centos
+
+
+authentication:
+  image:
+    path: app-sre/quay/app-sre-pull
+    field: all
+
+resourceTemplates:
+- name: ocm-addons-service-data-migration
+  url: https://gitlab.cee.redhat.com/ocm/ocm-addons-service
+  path: /templates/data-migration-job.yml
+  parameters:
+    ENVIRONMENT: production
+    IMAGE_REGISTRY: quay.io
+    IMAGE_REPOSITORY: app-sre/ocm-addons-service
+  targets:
+  - namespace:
+      $ref: /services/ocm/namespaces/uhc-integration.yml
+    ref: main
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: ocm-ocm-addons-service-gl-build-main
+    parameters:
+      GLOG_V: 5
+      # Resources are lower in INT env since it does not have to be prod-like and there is significantly lower traffic
+      MEMORY_REQUEST: 100Mi
+      MEMORY_LIMIT: 512Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 500m
+
