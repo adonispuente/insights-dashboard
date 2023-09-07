@@ -21,7 +21,6 @@ spec:
     default-service-account: pipeline
     disable-affinity-assistant: true
     disable-creds-init: false
-    embedded-status: minimal
     enable-api-fields: alpha
     enable-custom-tasks: false
     enable-tekton-oci-bundles: false
