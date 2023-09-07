@@ -52,7 +52,7 @@ allowedSecretParameterPaths:
 resourceTemplates:
   - name: thanos-replicate-telemeter-tenant
     url: https://github.com/rhobs/configuration
-    path: /resources/operations/bucket-replicate/s3-secret-template.yaml
+    path: /resources/operations/bucket-replicate/cron-job-template.yaml
     targets:
       - namespace:
           $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/rhobs.yml
