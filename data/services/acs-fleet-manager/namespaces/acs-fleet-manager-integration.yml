@@ -34,6 +34,10 @@ openshiftResources:
   version: 1
   annotations:
     qontract.recycle: "true"
+- provider: resource
+  path: /services/acs-fleet-manager/integration/fleet-manager-envoy.configmap.yaml
+- provider: route
+  path: /services/acs-fleet-manager/integration/fleet-manager.route.yaml
 
 managedExternalResources: true
 
