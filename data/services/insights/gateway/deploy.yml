@@ -137,6 +137,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/gateway/namespaces/apicast-test-services-stage.yml
     ref: master
+    upstream:
+      instance:
+        $ref: /dependencies/ci-int/ci-int.yml
+      name: RedHatInsights-apicast-test-services-gh-build-master
     parameters:
       REPLICAS: 3
   - namespace:
