@@ -250,6 +250,7 @@ user_policies:
 - $ref: /aws/sd-infra-stage-01/policies/ManageOwnMFA.yml
 - $ref: /aws/sd-infra-prod-01/policies/ManageOwnMFA.yml
 - $ref: /aws/app-sre-rosa-stage-01/policies/ManageOwnMFA.yml
+- $ref: /aws/hivep08ue2/policies/ManageOwnMFA.yml
 
 glitchtip_roles:
 - organization:
