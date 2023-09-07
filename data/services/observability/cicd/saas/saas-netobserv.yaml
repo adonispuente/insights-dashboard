@@ -33,6 +33,10 @@ resourceTemplates:
     namespace:
       $ref: /services/observability/namespaces/netobserv.appsres03ue1.yml
     ref: 33392d7061576fee364669206aa1beb773b3c9d8
+  - name: appsres05ue1-netobserv
+    namespace:
+      $ref: /services/observability/namespaces/netobserv.appsres05ue1.yml
+    ref: 33392d7061576fee364669206aa1beb773b3c9d8
   - name: appsrep05ue1-netobserv
     namespace:
       $ref: /services/observability/namespaces/netobserv.appsrep05ue1.yml
