@@ -461,46 +461,74 @@
     # Parameters for IQE testing
     - string:
         name: IQE_MARKER_EXPRESSION
-        default: '{iqe_marker_expression}'
+        choices:
+            - '{iqe_marker_expression}'
+            - ''
     - string:
         name: IQE_FILTER_EXPRESSION
-        default: '{iqe_filter_expression}'
+        choices:
+            - '{iqe_filter_expression}'
+            - ''
     - string:
         name: IQE_IMAGE_TAG
-        default: '{iqe_image_tag}'
+        choices:
+            - '{iqe_image_tag}'
+            - ''
     - string:
         name: IQE_REQUIREMENTS
-        default: '{iqe_requirements}'
+        choices:
+            - '{iqe_requirements}'
+            - ''
     - string:
         name: IQE_REQUIREMENTS_PRIORITY
-        default: '{iqe_requirements_priority}'
+        choices:
+            - '{iqe_requirements_priority}'
+            - ''
     - string:
         name: IQE_TEST_IMPORTANCE
-        default: '{iqe_test_importance}'
+        choices:
+            - '{iqe_test_importance}'
+            - ''
     - string:
         name: IQE_PLUGINS
-        default: '{iqe_plugins}'
+        choices:
+            - '{iqe_plugins}'
+            - ''
     - string:
         name: IQE_ENV
-        default: '{iqe_env}'
+        choices: 
+            - '{iqe_env}'
+            - 'clowder_smoke'
     - string:
         name: IQE_SELENIUM
-        default: '{iqe_selenium}'
+        choices:
+            - '{iqe_selenium}'
+            - 'false'
     - string:
         name: IQE_PARALLEL_ENABLED
-        default: '{iqe_parallel_enabled}'
+        choices:
+            - '{iqe_parallel_enabled}'
+            - ''
     - string:
         name: IQE_PARALLEL_WORKER_COUNT
-        default: '{iqe_parallel_worker_count}'
+        choices:
+            - '{iqe_parallel_worker_count}'
+            - ''
     - string:
         name: IQE_RP_ARGS
-        default: '{iqe_rp_args}'
+        choices:
+            - '{iqe_rp_args}'
+            - ''
     - string:
         name: IQE_IBUTSU_SOURCE
-        default: '{iqe_ibutsu_source}'
+        choices:
+            - '{iqe_ibutsu_source}'
+            - ''
     - string:
         name: EXTRA_DEPLOY_ARGS
-        default: '{extra_deploy_args}'
+        choices:
+            - '{extra_deploy_args}'
+            - ''
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
