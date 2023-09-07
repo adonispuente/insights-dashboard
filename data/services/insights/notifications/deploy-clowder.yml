@@ -82,8 +82,7 @@ resourceTemplates:
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       NOTIFICATIONS_USE_DEFAULT_TEMPLATE: true
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
-      SENTRY_DSN: 
-        https://3ff0dbd8017a4750a1d92055a1685263@o490301.ingest.sentry.io/5440905?environment=
+      SENTRY_DSN: https://3ff0dbd8017a4750a1d92055a1685263@o490301.ingest.sentry.io/5440905?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: false
     # upstream:
@@ -109,8 +108,7 @@ resourceTemplates:
       NOTIFICATIONS_INSTANT_EMAILS_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
       NOTIFICATIONS_USE_EVENT_TYPE_FOR_SUBSCRIPTION_ENABLED: true
-      SENTRY_DSN: 
-        https://3ff0dbd8017a4750a1d92055a1685263@o490301.ingest.sentry.io/5440905?environment=
+      SENTRY_DSN: https://3ff0dbd8017a4750a1d92055a1685263@o490301.ingest.sentry.io/5440905?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: true
     promotion:
@@ -138,8 +136,7 @@ resourceTemplates:
     ref: 2ba4d8c1961796baf4bbfadb8eaba5f17959b94d
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
   # prod
@@ -149,8 +146,7 @@ resourceTemplates:
     ref: 14f4e63f6b8758ba4d0b63ccfd11cff9cdc2416c
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
 # notifications-connector-microsoft-teams
@@ -174,8 +170,7 @@ resourceTemplates:
     ref: 2ba4d8c1961796baf4bbfadb8eaba5f17959b94d
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
   # prod
@@ -187,8 +182,7 @@ resourceTemplates:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
 # notifications-connector-servicenow
@@ -212,8 +206,7 @@ resourceTemplates:
     ref: 2ba4d8c1961796baf4bbfadb8eaba5f17959b94d
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
     promotion:
       publish:
@@ -226,8 +219,7 @@ resourceTemplates:
     ref: 14f4e63f6b8758ba4d0b63ccfd11cff9cdc2416c
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
 # notifications-connector-slack
@@ -251,8 +243,7 @@ resourceTemplates:
     ref: 2ba4d8c1961796baf4bbfadb8eaba5f17959b94d
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
   # prod
@@ -262,8 +253,7 @@ resourceTemplates:
     ref: 14f4e63f6b8758ba4d0b63ccfd11cff9cdc2416c
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
 # notifications-connector-splunk
@@ -289,8 +279,7 @@ resourceTemplates:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
     promotion:
       publish:
@@ -303,8 +292,7 @@ resourceTemplates:
     ref: 14f4e63f6b8758ba4d0b63ccfd11cff9cdc2416c
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
 # notifications-connector-webhook
@@ -325,13 +313,12 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-webhook.yaml version
-    ref: cf602594653a23b8052122d9b121d66e16283135
+    ref: 2ba4d8c1961796baf4bbfadb8eaba5f17959b94d
     parameters:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
     promotion:
       publish:
@@ -394,8 +381,7 @@ resourceTemplates:
       QUARKUS_LOG_CATEGORY__COM_REDHAT_CLOUD_NOTIFICATIONS_EXPORTS_EXPORTEVENTLISTENER__LEVEL: DEBUG
       RBAC_S2S_READ_TIMEOUT: 120000
       RECIPIENT_PROVIDER_USE_IT_IMPL: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: false
       NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
@@ -436,8 +422,7 @@ resourceTemplates:
       QUARKUS_LOG_CLOUDWATCH_BATCH_SIZE: 9000
       RBAC_S2S_READ_TIMEOUT: 120000
       RECIPIENT_PROVIDER_USE_IT_IMPL: true
-      SENTRY_DSN: 
-        https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
       SOURCES_ENABLED: true
       NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
@@ -471,8 +456,7 @@ resourceTemplates:
       CRONTAB_AGGREGATION_JOB: 0/15 * * * *
       NOTIFICATIONS_AGGREGATOR_ORG_PREF_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
-      SENTRY_DSN: 
-        https://39032857c8214cedaf226c4a26709b5b@o490301.ingest.sentry.io/5987783?environment=
+      SENTRY_DSN: https://39032857c8214cedaf226c4a26709b5b@o490301.ingest.sentry.io/5987783?environment=
       SENTRY_ENABLED: true
     # upstream:
     #   instance:
@@ -492,8 +476,7 @@ resourceTemplates:
       CRONTAB_AGGREGATION_JOB: 0/15 * * * *
       NOTIFICATIONS_AGGREGATOR_ORG_PREF_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
-      SENTRY_DSN: 
-        https://39032857c8214cedaf226c4a26709b5b@o490301.ingest.sentry.io/5987783?environment=
+      SENTRY_DSN: https://39032857c8214cedaf226c4a26709b5b@o490301.ingest.sentry.io/5987783?environment=
       SENTRY_ENABLED: true
     promotion:
       publish:
@@ -524,8 +507,7 @@ resourceTemplates:
       CPU_REQUEST: 200m
       MIN_REPLICAS: 3
       NOTIFICATIONS_LOG_LEVEL: DEBUG
-      SENTRY_DSN: 
-        https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
+      SENTRY_DSN: https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
       SENTRY_ENABLED: true
     # upstream:
     #   instance:
@@ -546,8 +528,7 @@ resourceTemplates:
       CPU_REQUEST: 200m
       MIN_REPLICAS: 3
       NOTIFICATIONS_LOG_LEVEL: DEBUG
-      SENTRY_DSN: 
-        https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
+      SENTRY_DSN: https://04a2375b90274bf6a4bcb1d81f8d0e16@o490301.ingest.sentry.io/5826611?environment=
       SENTRY_ENABLED: true
     promotion:
       publish:
