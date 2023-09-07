@@ -40,6 +40,7 @@ resourceTemplates:
       IQE_MARKER_EXPRESSION: image_builder
       IQE_BROWSERLOG: ''
       IQE_NETLOG: ''
+      TEST_TYPE: "integration"
     promotion:
       auto: true
       subscribe:
@@ -59,6 +60,7 @@ resourceTemplates:
       ENV_FOR_DYNACONF: prod
       IQE_BROWSERLOG: ''
       IQE_NETLOG: ''
+      TEST_TYPE: "integration"
     promotion:
       auto: true
       subscribe:

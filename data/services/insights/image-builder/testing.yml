@@ -42,6 +42,9 @@ resourceTemplates:
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
       IQE_PLUGINS: image_builder
+      IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
+      TEST_TYPE: "service"
     promotion:
       auto: true
       subscribe:
@@ -63,6 +66,9 @@ resourceTemplates:
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
       IQE_PLUGINS: image_builder
+      IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
+      TEST_TYPE: "service"
     promotion:
       auto: true
       subscribe:
