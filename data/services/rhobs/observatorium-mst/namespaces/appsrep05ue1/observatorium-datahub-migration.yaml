@@ -23,7 +23,6 @@ networkPoliciesAllow:
 managedRoles: true
 
 managedResourceTypes:
-  - Secret
   - ServiceAccount
 
 sharedResources:
