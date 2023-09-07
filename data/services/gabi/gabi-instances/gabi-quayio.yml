@@ -36,4 +36,4 @@ instances:
     $ref: /services/quayio/namespaces/quayp04ue2.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-09-07'
+expirationDate: '2023-12-06'
