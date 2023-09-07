@@ -29,6 +29,12 @@ enableDeletion: true
 
 resetPasswords: []
 
+disable:
+  integrations:
+  - terraform-aws-route53
+  - terraform-tgw-attachments
+  - terraform-vpc-peerings
+
 terraformState:
   $ref: /aws/hivep08ue2/state.yml
 deletionApprovals: []

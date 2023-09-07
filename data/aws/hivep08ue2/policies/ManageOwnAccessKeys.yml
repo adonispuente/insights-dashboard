@@ -1,0 +1,31 @@
+---
+$schema: /aws/policy-1.yml
+
+labels: {}
+
+account:
+  $ref: /aws/hivep08ue2/account.yml
+
+name: manage-own-access-keys
+description: |
+    Allows a user to manage their own access keys.
+    ${aws:username} will be replaced with the actual user name
+
+policy:
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "AllowManageOwnUserAccessKeys",
+        "Effect": "Allow",
+        "Action": [
+          "iam:CreateAccessKey",
+          "iam:ListAccessKeys",
+          "iam:UpdateAccessKey",
+          "iam:DeleteAccessKey",
+          "iam:GetAccessKeyLastUsed"
+        ],
+        "Resource": "arn:aws:iam::*:user/${aws:username}"
+      }
+    ]
+  }
