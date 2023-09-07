@@ -12,7 +12,7 @@ spec:
   - name: frontend-operator
     rules:
       - alert: FrontendOperatorReconciliationTime
-        expr: 100 * sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="4"}[28d])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="+Inf"}[28d])) < 0.95
+        expr: sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="4"}[28d])) / sum(avg_over_time(controller_runtime_reconcile_time_seconds_bucket{controller="frontend", le="+Inf"}[28d])) < 0.95
         for: 5m
         labels:
           severity: medium
