@@ -57,6 +57,8 @@ Loss of system profile data in Errata Notifications could have the same conseque
 
 Bridge depends directly on the Kafka cluster and on the UMB cluster. It depends indirectly on Errata Notifications, which publishes HBI update messages to UMB.
 
+Note that when bridge integrates with other services via mTLS, it uses the Errata Notifications client certificate. Bridge does not have a separate certificate at this time.
+
 ## Technology Stack
 
 Bridge is a Java application built with Quarkus and Smallrye Messaging, which provides Kafka (HBI) and ActiveMQ Classic (UMB) integration. Bridge captures metrics using Micrometer, which are exposed over via an endpoint on the service for Prometheus to scrape. We push logging events to the enterprise Splunk instance using the HEC API.
