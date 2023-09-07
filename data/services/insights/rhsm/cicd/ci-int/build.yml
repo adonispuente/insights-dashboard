@@ -67,7 +67,7 @@ config:
         iqe_env: 'ephemeral'
         iqe_selenium: 'true'
         iqe_parallel_worker_count: '1'
-        extra_deploy_args: 'rhsm swatch-api swatch-contracts swatch-producer-aws swatch-producer-red-hat-marketplace swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally'
+        components_w_resources: 'rhsm swatch-api swatch-contracts swatch-producer-aws swatch-producer-red-hat-marketplace swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally'
 - project:
     name: rhsm-subscriptions
     label: insights

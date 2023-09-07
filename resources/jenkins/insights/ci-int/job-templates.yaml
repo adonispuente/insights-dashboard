@@ -713,6 +713,7 @@
     iqe_rp_args: ""
     iqe_ibutsu_source: ""
     extra_deploy_args: ""
+    components_w_resources: ""
     parameters:
     - string:
         name: VAULT_ADDRESS
@@ -819,8 +820,8 @@
         name: IQE_IBUTSU_SOURCE
         default: '{iqe_ibutsu_source}'
     - string:
-        name: EXTRA_DEPLOY_ARGS
-        default: '{extra_deploy_args}'
+        name: COMPONENTS_W_RESOURCES
+        default: '{components_w_resources}'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
