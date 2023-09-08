@@ -138,16 +138,38 @@ data:
 
                   # This is an example of how to define a rate limit for a
                   # specific path.
-                  - name: my_path
+                  - name: bearer
                     match:
-                      path: /my_path
+                      path: /bearer
                     route:
                       cluster: backend
                       rate_limits:
                       - actions:
                         - generic_key:
                             descriptor_key: path
-                            descriptor_value: my_path
+                            descriptor_value: bearer
+    
+                  - name: headers
+                    match:
+                      path: /headers
+                    route:
+                      cluster: backend
+                      rate_limits:
+                      - actions:
+                        - generic_key:
+                            descriptor_key: path
+                            descriptor_value: headers
+    
+                  - name: ip
+                    match:
+                      path: /ip
+                    route:
+                      cluster: backend
+                      rate_limits:
+                      - actions:
+                        - generic_key:
+                            descriptor_key: path
+                            descriptor_value: ip    
 
                   # Everything else not matching one of the rules above goes
                   # directly to the backend, without rate limits.
@@ -163,7 +185,7 @@ data:
               - name: envoy.filters.http.ratelimit
                 typed_config:
                   "@type": type.googleapis.com/envoy.extensions.filters.http.ratelimit.v3.RateLimit
-                  domain: production:my_service
+                  domain: go-httpbin
                   failure_mode_deny: false
                   timeout: 0.05s
                   rate_limit_service:
