@@ -95,3 +95,10 @@ openshiftResources:
   type: Opaque
   annotations:
     qontract.recycle: "true"
+- provider: vault-secret
+  name: file-updates-secret
+  path: stonesoup/production/release/gitlab/gitlab.cee/file-updates-secret
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
