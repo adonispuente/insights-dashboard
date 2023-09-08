@@ -165,7 +165,7 @@ resourceTemplates:
       CRON_SCHEDULE_MSG_RECOVERY: 0 8,20 * * *  # twice a day
       CRON_SCHEDULE_USER_METRICS: '0 10 * * *'  # daily
       CRON_SCHEDULE_DATA_PRUNING: 0 13 * * 2  # weekly
-      CRON_SCHEDULE_UNPROCESSED_EVENTS: "0 8 * * *"  # daily
+      CRON_SCHEDULE_UNPROCESSED_EVENTS: "35 8 * * *"  # daily
       # Data exporter Svc
       DATA_EXPORT_ENABLED: 'True'
       JOBS_LOG_LEVEL: INFO
@@ -205,4 +205,4 @@ resourceTemplates:
       PROCESSOR_REPLAY_PROCESS_PAYLOAD: 'False'
       PROCESSOR_REPLAY_STATUSES: ''
       # Unprocessed Events Job
-      UNPROCESSED_EVENTS_MIN_DATE: '2023-07-26' # AAP 2.4 release
+      UNPROCESSED_EVENTS_MIN_DATE: '2023-06-27' # AAP 2.4 release
