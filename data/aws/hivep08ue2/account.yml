@@ -15,6 +15,9 @@ providerVersion: '3.76.1'
 
 terraformUsername: terraform
 
+rosa:
+  $ref: /aws/hivep08ue2/rosa.yml
+
 accountOwners:
 - name: App-SRE Team
   email: sd-app-sre+hivep08ue2@redhat.com
