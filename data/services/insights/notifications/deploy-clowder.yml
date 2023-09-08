@@ -145,6 +145,21 @@ resourceTemplates:
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
 
+  # prod
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/notifications-prod.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-email.yaml version.
+    ref: 09168ace5b2836bce1823c078b935f1b469d361a
+    parameters:
+      MIN_REPLICAS: 0
+      NOTIFICATIONS_CONNECTOR_FETCH_USERS_RBAC_ENABLED: true
+      NOTIFICATIONS_CONNECTOR_SINGLE_EMAIL_PER_USER_ENABLED: true
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_BOP_ENV: 'prod'
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_IT_KEY_STORE_LOCATION: file:/mnt/secrets/clientkeystore.jks
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
 # notifications-connector-google-chat
 - name: notifications-connector-google-chat
   path: /.rhcicd/clowdapp-connector-google-chat.yaml
@@ -443,6 +458,7 @@ resourceTemplates:
       MP_MESSAGING_INCOMING_INGRESS_MAX_POLL_RECORDS: 100
       MP_MESSAGING_INCOMING_INGRESS_THROTTLED_UNPROCESSED_RECORD_MAX_AGE_MS: 180000
       NOTIFICATIONS_DISABLE_WEBHOOK_ENDPOINTS_ON_FAILURE: true
+      NOTIFICATIONS_EMAIL_CONNECTOR_ENABLED: false
       NOTIFICATIONS_EMAILS_ONLY_MODE_ENABLED: false
       NOTIFICATIONS_EXPORT_SERVICE_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
