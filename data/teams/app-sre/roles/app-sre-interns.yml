@@ -30,10 +30,6 @@ access:
   role: edit
 
 - namespace:
-    $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-stage.yml
-  role: view
-
-- namespace:
     $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-stage.appsres05ue1.yml
   role: view
 
