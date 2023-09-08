@@ -11,6 +11,13 @@ app:
 displayName: Insights - Notifications
 groupName: console.redhat.com
 instructions: >
-  TODO
+  A database upgrade is going to be performed during this time, and the
+  service is expected to be turned off and on during this upgrade.
 page:
   $ref: /dependencies/statuspage/status-redhat-com.yml
+status:
+- provider: manual
+  manual:
+    componentStatus: under_maintenance
+    from: '2023-09-19T07:00:00+0000'
+    until: '2023-09-19T13:00:00+0000'
