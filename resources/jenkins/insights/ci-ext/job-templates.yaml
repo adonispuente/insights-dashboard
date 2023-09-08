@@ -445,6 +445,9 @@
         name: COMPONENT_NAME
         default: '{component_name}'
     - string:
+        name: APP_IMAGE
+        default: '{app_image}'
+    - string:
         name: RUN_CYPRESS_COMPONENT_TESTS_FLAG
         allowedValues: ['false', 'true']
         default: '{run_cypress_component}'
