@@ -68,7 +68,7 @@ resourceTemplates:
   targets:
     - namespace:
         $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-      ref: ba0ab0ced1548812f28bb6e6baa4229cc5e45490
+      ref: a6cdfe69af86e7451dc282a877e494efd8f0cfb8
       parameters:
         NAMESPACE: rhobs
 - name: thanos-migrate-job
