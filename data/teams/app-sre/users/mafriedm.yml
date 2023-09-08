@@ -15,6 +15,8 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-emea-slack.yml
 - $ref: /teams/internal-developer-platform/roles/internal-developer-platform.yml
+- $ref: /teams/sd-sre/roles/sd-sre-dynatrace-account-admins.yml
+
 
 public_gpg_key: |
   mQINBGIg4hQBEADmiGRE9yKqBL4vpdeJ0ViJAcoHK1ZkbkydKb9hrGd1sIhykgQcTXLBPYJGkkCG

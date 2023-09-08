@@ -13,6 +13,7 @@ roles:
 - $ref: /teams/app-sre/roles/app-sre.yml
 - $ref: /teams/app-sre/roles/app-sre-nasa-slack.yml
 - $ref: /teams/app-sre/roles/app-sre-stream-1-slack.yml
+- $ref: /teams/sd-sre/roles/sd-sre-dynatrace-account-admins.yml
 
 public_gpg_key: |
   mQINBGS5ijsBEACg8DshiFxBvaKuX3WQuyoE2Et/k9l+SdqWnewwE0oPG802EAu5
