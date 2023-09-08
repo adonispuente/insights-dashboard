@@ -165,7 +165,7 @@ resourceTemplates:
       OBSERVATORIUM_API_IDENTIFIER: observatorium-observatorium-mst-api
       OBSERVATORIUM_API_IMAGE: quay.io/observatorium/api
       OBSERVATORIUM_API_IMAGE_TAG: main-2023-08-17-3f47d62
-      OBSERVATORIUM_API_LOG_LEVEL: info
+      OBSERVATORIUM_API_LOG_LEVEL: debug
       OPA_AMS_MEMCACHED_EXPIRE: "300"
       OPA_AMS_CPU_REQUEST: 100m
       OPA_AMS_CPU_LIMIT: 200m
