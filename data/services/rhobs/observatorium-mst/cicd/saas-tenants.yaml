@@ -181,20 +181,6 @@ resourceTemplates:
                 redirectURL: https://observatorium-mst.api.openshift.com/oidc/rhobs/callback
                 usernameClaim: preferred_username
                 groupClaim: email
-            - id: 770c1124-6ae8-4324-a9d4-9ce08590094b
-              name: osd
-              oidc:
-                clientID: ${CLIENT_ID}
-                clientSecret: ${CLIENT_SECRET}
-                issuerURL: https://sso.redhat.com/auth/realms/redhat-external
-                redirectURL: https://observatorium-mst.api.openshift.com/oidc/osd/callback
-                usernameClaim: preferred_username
-              opa:
-                url: http://127.0.0.1:8082/v1/data/observatorium/allow
-              rateLimits:
-                - endpoint: /api/metrics/v1/.+/api/v1/receive
-                  limit: 10000
-                  window: 30s
             - id: 63e320cd-622a-4d05-9585-ffd48342633e
               name: managedkafka
               oidc:
