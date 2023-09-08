@@ -1,0 +1,13 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: sd-sre-dynatrace-account-admins
+
+permissions: []
+
+access: []
+
+oidc_permissions: []
+
+ldapGroup: ai-sd-sre-dynatrace-account-admins

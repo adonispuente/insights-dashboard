@@ -19,6 +19,7 @@ roles:
 - $ref: /teams/obs-poc/roles/obs-poc-role.yml
 - $ref: /teams/sd-org/roles/sd-architects.yml
 - $ref: /teams/internal-developer-platform/roles/internal-developer-platform.yml
+- $ref: /teams/sd-sre/roles/sd-sre-dynatrace-account-admins.yml
 
 public_gpg_key: |
   mQENBFp636sBCACW+3vErxWIAZZ5NsSSChYfyHQg2wxZQVgmsL0GS+xjCmEr4i6aBFK+Wg4dQuoc
