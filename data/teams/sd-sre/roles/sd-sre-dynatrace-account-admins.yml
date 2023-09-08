@@ -11,3 +11,9 @@ access: []
 oidc_permissions: []
 
 ldapGroup: ai-sd-sre-dynatrace-account-admins
+
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/add-role-member.yml
+  datafiles:
+  - $ref: /teams/sd-sre/roles/sd-sre-dynatrace-account-admins.yml
