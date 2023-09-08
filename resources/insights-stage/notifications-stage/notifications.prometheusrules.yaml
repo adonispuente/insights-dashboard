@@ -104,6 +104,19 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Pod down for 5 minutes [env=stage, service=notifications-connector-splunk-service]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-splunk-down-prod.html"
+      - alert: notifications-connector-webhook-down-stage
+        expr: absent(up{service="notifications-connector-webhook-service", namespace="notifications-stage"}) or up{service="notifications-connector-webhook-service", namespace="notifications-stage"} == 0
+        for: 5m
+        labels:
+          severity: medium
+          service: insights
+          env: stage
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Pod down for 5 minutes [env=stage, service=notifications-connector-webhook-service]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-webhook-down-prod.html"
       - alert: NotificationsEngineDownStage
         expr: absent(up{service="notifications-engine-service", namespace="notifications-stage"}) or up{service="notifications-engine-service", namespace="notifications-stage"} == 0
         for: 5m
@@ -217,6 +230,18 @@ spec:
           link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
           message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-splunk]"
           runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-splunk-kafka-lag-prod.html"
+      - alert: notifications-connector-webhook-kafka-lag-stage
+        expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.tocamel", group="notifications-connector-webhook"}) > 1000
+        labels:
+          severity: medium
+          service: insights
+          env: stage
+          app_team: notifications
+        annotations:
+          dashboard: "https://grafana.app-sre.devshift.net/d/KQIVyFuMk/notifications-dashboard?orgId=1&refresh=15m&var-datasource=crcs02ue1-prometheus"
+          link_url: "https://console-openshift-console.apps.crcs02ue1.urby.p1.openshiftapps.com/k8s/ns/notifications-stage/deployments"
+          message: "Kafka lag detected [env=stage, topic=platform.notifications.tocamel, group=notifications-connector-webhook]"
+          runbook: "https://core-platform-apps.pages.redhat.com/notifications-docs/dev/SOPs/alerts/notifications-connector-webhook-kafka-lag-prod.html"          
       - alert: NotificationsEngineIngressTopicKafkaLagStage
         expr: sum(kafka_consumergroup_group_lag{topic=~".*platform.notifications.ingress", group="integrations"}) > 1000
         labels:
