@@ -202,7 +202,7 @@ resourceTemplates:
       TRINO_HOST: trino-coordinator
       RBAC_CACHE_TIMEOUT: 1
       CACHE_TIMEOUT: 1
-      TAG_ENABLED_LIMIT: -1  # Disable the limit for testing
+      TAG_ENABLED_LIMIT: 200
       # Deployment specific variables:
       # koku-api
       KOKU_REPLICAS: 3
