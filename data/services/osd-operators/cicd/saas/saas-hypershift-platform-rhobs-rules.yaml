@@ -39,3 +39,16 @@ resourceTemplates:
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     ref: b9efa414f95c84d7bd09457bfacc3c3b23ed7673
+- name: hypershift-platform-obo-rules
+  url: https://gitlab.cee.redhat.com/service/hypershift-platform-rhobs-rules
+  path: /obo-template.yaml
+  targets:
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+    ref: main
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hive-stage-01/cluster-scope.yml
+    ref: main
