@@ -23,6 +23,9 @@ access:
     $ref: /openshift/appsres03ue1/cluster.yml
   group: dedicated-readers
 - cluster:
+    $ref: /openshift/appsres05ue1/cluster.yml
+  group: dedicated-readers
+- cluster:
     $ref: /openshift/appsres04ue2/cluster.yml
   group: dedicated-readers
 - cluster:
