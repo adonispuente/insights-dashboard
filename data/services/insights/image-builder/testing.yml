@@ -42,6 +42,9 @@ resourceTemplates:
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
       IQE_PLUGINS: image_builder
+      IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
+      TEST_TYPE: "service"
     promotion:
       auto: true
       subscribe:
@@ -55,7 +58,7 @@ resourceTemplates:
           target_config_hash: d14ad2a4e35480ba
           type: parent_saas_config
   - namespace:
-      $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml
+      $ref: /services/insights/image-builder/namespaces/prod-image-builder-testing.yml
     ref: c27adabf487e2ced3adcd29ad2e62f73c1662bfd
     parameters:
       USE_BETA: "false"
@@ -63,6 +66,9 @@ resourceTemplates:
       IQE_IMAGE: quay.io/cloudservices/iqe-tests:image-builder
       IQE_MARKER_EXPRESSION: qa
       IQE_PLUGINS: image_builder
+      IQE_BROWSERLOG: ''
+      IQE_NETLOG: ''
+      TEST_TYPE: "service"
     promotion:
       auto: true
       subscribe:
