@@ -43,7 +43,7 @@ spec:
   version: 4.13.4
   initial_version: 4.13.4-candidate
   multi_az: true
-  nodes: 6
+  nodes: 3
   instance_type: m5.xlarge
   private: true
   disable_user_workload_monitoring: true
@@ -57,6 +57,13 @@ spec:
   - us-east-1a
   - us-east-1b
   - us-east-1c
+
+machinePools:
+- id: workers
+  instance_type: m5.2xlarge
+  autoscale:
+    min_replicas: 3
+    max_replicas: 6
 
 automationToken:
   path: app-sre/creds/kube-configs/appsres05ue1
