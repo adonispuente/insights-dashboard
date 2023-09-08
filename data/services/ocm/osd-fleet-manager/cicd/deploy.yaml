@@ -526,7 +526,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 2171f5781cde8c44fdd871e5458ba2cc90a1260b
+    ref: 1669be1f5cd4d6d82896fd7932a4e10cf82d507d
     promotion:
       auto: true
       subscribe:
