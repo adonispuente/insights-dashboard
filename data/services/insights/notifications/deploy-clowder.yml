@@ -135,7 +135,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-email.yaml version.
-    ref: ad44750f59dd765b0fb56ed70cf3e963fb82d499
+    ref: 09168ace5b2836bce1823c078b935f1b469d361a
     parameters:
       NOTIFICATIONS_CONNECTOR_FETCH_USERS_RBAC_ENABLED: true
       NOTIFICATIONS_CONNECTOR_SINGLE_EMAIL_PER_USER_ENABLED: true
