@@ -40,25 +40,25 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
 - name: opentelemetry-collector-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/opentelemetry-collector/template.yaml
@@ -74,24 +74,24 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: ee5f80f15bcda287e1ff6e3f10d61f8531141f89
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
