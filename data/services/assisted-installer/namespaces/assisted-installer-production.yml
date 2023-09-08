@@ -237,3 +237,8 @@ externalResources:
         path: app-interface/assisted-installer/msk-credentials/production/admin
         field: all
         version: 1
+    - name: scram-mirrormaker-production
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/mirrormaker
+        field: all
+        version: 1
