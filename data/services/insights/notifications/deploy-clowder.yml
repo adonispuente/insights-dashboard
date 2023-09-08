@@ -128,6 +128,8 @@ resourceTemplates:
     disable: true
     # populated by bonfire
     ref: internal
+    parameters:
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_IT_KEY_STORE_LOCATION: 'file:/mnt/secrets/clientkeystore.jks'
   
   # stage
   - namespace:
@@ -138,6 +140,7 @@ resourceTemplates:
       NOTIFICATIONS_CONNECTOR_FETCH_USERS_RBAC_ENABLED: true
       NOTIFICATIONS_CONNECTOR_SINGLE_EMAIL_PER_USER_ENABLED: true
       NOTIFICATIONS_CONNECTOR_USER_PROVIDER_BOP_ENV: 'stage'
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_IT_KEY_STORE_LOCATION: 'file:/mnt/secrets/clientkeystore.jks'
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
       SENTRY_ENABLED: true
