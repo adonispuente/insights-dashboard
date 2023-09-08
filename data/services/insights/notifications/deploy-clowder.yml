@@ -115,6 +115,34 @@ resourceTemplates:
       publish:
       - notifications-backend-prod-deploy-success-channel
 
+# notifications-connector-email
+- name: notifications-connector-email
+  path: /.rhcicd/clowdapp-connector-email.yaml
+  url: https://github.com/RedHatInsights/notifications-backend
+  targets:
+
+  # ephemeral
+  - namespace:
+      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
+    # app-sre will not deploy this target
+    disable: true
+    # populated by bonfire
+    ref: internal
+  
+  # stage
+  - namespace:
+      $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
+    # notifications-backend commit hash that determines the clowdapp-connector-email.yaml version.
+    ref: 3926070553c6bdc75f2a4db1ce28539aff543212
+    parameters:
+      NOTIFICATIONS_CONNECTOR_FETCH_USERS_RBAC_ENABLED: true
+      NOTIFICATIONS_CONNECTOR_SINGLE_EMAIL_PER_USER_ENABLED: true
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_BOP_ENV: 'stage'
+      NOTIFICATIONS_CONNECTOR_USER_PROVIDER_IT_KEY_STORE_LOCATION: file:/mnt/secrets/clientkeystore.jks
+      QUARKUS_LOG_CLOUDWATCH_ENABLED: true
+      SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
+      SENTRY_ENABLED: true
+
 # notifications-connector-google-chat
 - name: notifications-connector-google-chat
   path: /.rhcicd/clowdapp-connector-google-chat.yaml
@@ -367,6 +395,7 @@ resourceTemplates:
       MP_MESSAGING_OUTGOING_DRAWER_ENABLED: true
       NOTIFICATIONS_DISABLE_WEBHOOK_ENDPOINTS_ON_FAILURE: true
       NOTIFICATIONS_DRAWER_ENABLED: true
+      NOTIFICATIONS_EMAIL_CONNECTOR_ENABLED: false
       NOTIFICATIONS_EMAILS_ONLY_MODE_ENABLED: false
       NOTIFICATIONS_EXPORT_SERVICE_ENABLED: true
       NOTIFICATIONS_LOG_LEVEL: DEBUG
