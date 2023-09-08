@@ -149,7 +149,7 @@ resourceTemplates:
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_LOGS_NAMESPACE: observatorium-mst-production
       PROMETHEUS_AMS_REMOTE_WRITE_PROXY_TARGET: 'observatorium-thanos-receive'
-      GUBERNATOR_REPLICAS: 3
+      GUBERNATOR_REPLICAS: 6
       GUBERNATOR_IMAGE_TAG: v2.0.0-rc.36
       GUBERNATOR_MEMORY_LIMIT: 2Gi
       GUBERNATOR_MEMORY_REQUEST: 1Gi
