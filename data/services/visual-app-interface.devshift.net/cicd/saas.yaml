@@ -42,6 +42,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-stage.yml
     ref: master
+    delete: true
     image:
       org:
         $ref: /dependencies/quay/app-sre.yml
