@@ -216,6 +216,16 @@ externalResources:
         path: app-interface/assisted-installer/msk-credentials/integration/admin
         field: all
         version: 1
+    - name: scram-mirrormaker-stage
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/stage/mirrormaker
+        field: all
+        version: 1
+    - name: scram-mirrormaker-integration
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/integration/mirrormaker
+        field: all
+        version: 1
 
 - provider: aws
   provisioner:
