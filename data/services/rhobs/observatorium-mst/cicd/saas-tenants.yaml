@@ -195,10 +195,6 @@ resourceTemplates:
                 usernameClaim: preferred_username
               opa:
                 url: http://127.0.0.1:8082/v1/data/observatorium/allow
-              rateLimits:
-                - endpoint: /api/metrics/v1/.+/api/v1/receive
-                  limit: 15000
-                  window: 30s
             - id: 63e320cd-622a-4d05-9585-ffd48342633e
               name: managedkafka
               oidc:
