@@ -73,6 +73,16 @@ clusterAdminAutomationToken:
   path: app-sre/creds/kube-configs/appsres05ue1-cluster-admin
   field: token
 
+upgradePolicy:
+  workloads:
+  - appsre
+  schedule: 0 5 * * 1-5
+  conditions:
+    soakDays: 0
+    mutexes:
+    # shared by all clusters on the candidate channel and having 0 soak days
+    - candidate-0
+
 network:
   type: OVNKubernetes
   # vpcid: vpc-036cb989c3d8c781c
