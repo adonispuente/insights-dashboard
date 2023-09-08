@@ -61,6 +61,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/app-interface/namespaces/app-interface-dev-int.yml
     ref: master
+    delete: true
     parameters:
       REPLICAS: 3
       APP_INTERFACE_RESOURCES:
