@@ -181,6 +181,10 @@ resourceTemplates:
                 redirectURL: https://observatorium-mst.api.openshift.com/oidc/rhobs/callback
                 usernameClaim: preferred_username
                 groupClaim: email
+              rateLimits:
+                - endpoint: /api/metrics/v1/.+/api/v1/receive
+                  limit: 10000
+                  window: 30s
             - id: 63e320cd-622a-4d05-9585-ffd48342633e
               name: managedkafka
               oidc:
