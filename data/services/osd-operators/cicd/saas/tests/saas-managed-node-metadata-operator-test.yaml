@@ -1,0 +1,71 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: osd-operators
+name: saas-mnmo-e2e-test
+description: SaaS test file for MNMO post deployment tests
+app:
+  $ref: /services/osd-operators/app.yml
+pipelinesProvider:
+  $ref: /services/osd-operators/pipelines/tekton.osd-operators-pipelines.appsrep05ue1.yaml
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: sre-operators
+managedResourceTypes:
+  - Job
+  - ServiceAccount
+  - ClusterRole.rbac.authorization.k8s.io
+  - ClusterRoleBinding.rbac.authorization.k8s.io
+
+publishJobLogs: true
+imagePatterns:
+  - quay.io/app-sre/osde2e
+allowedSecretParameterPaths:
+  - osde2e
+secretParameters:
+  - name: OCM_TOKEN
+    secret:
+      path: osde2e/ocm
+      field: ocm-token
+  - name: AWS_ACCESS_KEY_ID
+    secret:
+      path: osde2e/sdcicd_aws
+      field: aws-access-key-id
+  - name: AWS_SECRET_ACCESS_KEY
+    secret:
+      path: osde2e/sdcicd_aws
+      field: aws-secret-access-key
+resourceTemplates:
+  - name: saas-mnmo-e2e-test
+    url: https://github.com/openshift/managed-node-metadata-operator
+    path: /osde2e/test-harness-template.yaml
+    targets:
+      - namespace:
+          $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
+        ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+        delete: true
+        parameters:
+          HARNESS_IMAGE_TAG: ${IMAGE_TAG}
+          OSDE2E_CONFIGS: rosa,int,test-harness
+          TEST_HARNESS_IMAGE: quay.io/app-sre/managed-node-metadata-operator-test-harness
+          AWS_REGION: us-east-1
+        promotion:
+          subscribe:
+            - managed-node-metadata-operator-sss-deployed-success-channel-int01
+          publish:
+            - managed-node-metadata-operator-sss-e2e-success-channel-int01
+      - namespace:
+          $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
+        ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
+        delete: true
+        parameters:
+          HARNESS_IMAGE_TAG: ${IMAGE_TAG}
+          OSDE2E_CONFIGS: rosa,stage,test-harness
+          TEST_HARNESS_IMAGE: quay.io/app-sre/managed-node-metadata-operator-test-harness
+          AWS_REGION: us-east-1
+        promotion:
+          subscribe:
+            - managed-node-metadata-operator-sss-deployed-success-channel-stage02
+          publish:
+            - managed-node-metadata-operator-sss-e2e-success-channel-stage02

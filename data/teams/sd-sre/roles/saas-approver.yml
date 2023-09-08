@@ -12,6 +12,7 @@ self_service:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/osd-operators/cicd/saas/tests/saas-aws-vpce-operator-test.yaml
+  - $ref: /services/osd-operators/cicd/saas/tests/saas-managed-node-metadata-operator-test.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-must-gather-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/clusterimagesets/integration.yaml
   - $ref: /services/osd-operators/cicd/saas/clusterimagesets/stage.yaml
@@ -39,7 +40,6 @@ self_service:
   - $ref: /services/osd-operators/cicd/saas/saas-osd-metrics-exporter.yaml
   - $ref: /services/backplane/cicd/saas/saas-backplane-api.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-route-monitor-operator.yaml
-  - $ref: /services/osd-operators/cicd/saas/saas-managed-node-metadata-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-ocm-agent-operator.yaml
   - $ref: /services/observability/cicd/saas/saas-promlens.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-ocm-agent.yaml
@@ -52,6 +52,7 @@ self_service:
   datafiles:
   - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/deploy.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/hypershift-deploy.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-managed-node-metadata-operator/deploy.yaml    
 - change_type:
     $ref: /app-interface/changetype/aws-privatelink-region-enabler.yml
   datafiles:
