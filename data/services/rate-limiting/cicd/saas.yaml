@@ -61,7 +61,7 @@ resourceTemplates:
         # /bearer endpoint
         - namespace: go-httpbin
           name: bearer
-          max_value: 30000
+          max_value: 300
           seconds: 60
           conditions:
           - path == bearer
@@ -70,7 +70,7 @@ resourceTemplates:
         # /headers endpoint
         - namespace: go-httpbin
           name: headers
-          max_value: 30000
+          max_value: 60
           seconds: 60
           conditions:
           - path == headers
@@ -79,7 +79,7 @@ resourceTemplates:
         # /ip endpoint
         - namespace: go-httpbin
           name: ip
-          max_value: 100
+          max_value: 1
           seconds: 60
           conditions:
           - path == ip
