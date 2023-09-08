@@ -19,6 +19,7 @@ slack:
 
 managedResourceTypes:
 - PrometheusRule
+- SelectorSyncSet
 
 imagePatterns: []
 
