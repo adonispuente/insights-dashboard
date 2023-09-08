@@ -115,7 +115,7 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
-      ENV_NAME: 3scale-dev
+      ENV_NAME: env-3scale-dev
       SUBS_HOST: https://subscription.stage.api.redhat.com
       COMPLIANCE_HOST: https://export-compliance.stage.api.redhat.com
       RUN_BUNDLE_SYNC: false
@@ -145,7 +145,7 @@ resourceTemplates:
         $ref: /dependencies/ci-ext/ci-ext.yml
       name: RedHatInsights-entitlements-api-go-gh-build-master
     parameters:
-      ENV_NAME: ocm
+      ENV_NAME: env-ocm
       SUBS_HOST: https://subscription.api.redhat.com
       COMPLIANCE_HOST: "https://export-compliance.api.redhat.com"
       RUN_BUNDLE_SYNC: false
@@ -157,27 +157,25 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: 3a0f90065c8c4bd4b0503956c10b5ce5e244f3dc
 
-# Ephemeral base
+# Ephemeral deployment
 - name: entitlements-api-go-ephemeral-base
   path: /deployment/clowdapp.yml
   url: https://github.com/RedHatInsights/entitlements-api-go
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: RedHatInsights-entitlements-api-go-gh-build-master
+    disable: true
+    ref: internal
     parameters:
-      ENV_NAME: ephemeral
-      SUBS_HOST: https://subscription.stage.api.redhat.com
-      COMPLIANCE_HOST: https://export-compliance.stage.api.redhat.com
-      RUN_BUNDLE_SYNC: false
+      REPLICAS: 1
+
 - name: entitlements-bundle-config-ephemeral-base
   path: /configs/stage/bundles.yml
   url: https://github.com/RedHatInsights/entitlements-config
   targets:
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    ref: 0d5a8115a3e5a27bfb040e43197c1be5c569d3f0
+    disable: true  # do not create an app-sre deploy job for ephemeral namespace
+    ref: internal  # populated by bonfire
+    parameters:
+      REPLICAS: 1
