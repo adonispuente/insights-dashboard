@@ -17,7 +17,6 @@ managedResourceTypes:
   - ServiceAccount
   - ClusterRole.rbac.authorization.k8s.io
   - ClusterRoleBinding.rbac.authorization.k8s.io
-
 publishJobLogs: true
 imagePatterns:
   - quay.io/app-sre/osde2e
@@ -36,6 +35,12 @@ secretParameters:
     secret:
       path: osde2e/sdcicd_aws
       field: aws-secret-access-key
+deployResources:
+  requests:
+    cpu: 300m
+    memory: 600Mi
+  limits:
+    memory: 1200Mi      
 resourceTemplates:
   - name: saas-mnmo-e2e-test
     url: https://github.com/openshift/managed-node-metadata-operator
