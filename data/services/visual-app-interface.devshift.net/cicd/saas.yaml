@@ -47,6 +47,13 @@ resourceTemplates:
         $ref: /dependencies/quay/app-sre.yml
       name: visual-qontract
   - namespace:
+      $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-stage.appsres05ue1.yml
+    ref: master
+    image:
+      org:
+        $ref: /dependencies/quay/app-sre.yml
+      name: visual-qontract
+  - namespace:
       $ref: /services/visual-app-interface.devshift.net/namespaces/visual-qontract-production.yml
     ref: 138cfab432f40c021e0565b13804a98e3496cfc1
     parameters:
