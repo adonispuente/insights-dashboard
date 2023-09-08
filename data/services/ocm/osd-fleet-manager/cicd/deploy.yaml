@@ -294,9 +294,9 @@ resourceTemplates:
                   value: true
                 - key: osd-fleet-manager
                   value: true
-            - machine_type: m5.xlarge
+            - machine_type: m5.4xlarge
               autoscale: true
-              autoscale_min_replicas: 3
+              autoscale_min_replicas: 1
               autoscale_max_replicas: 6
               nodes: 3
               id_prefix: non-serving
@@ -680,10 +680,10 @@ resourceTemplates:
                   value: true
                 - key: osd-fleet-manager
                   value: true
-            - machine_type: m5.xlarge
+            - machine_type: m5.4xlarge
               autoscale: true
               autoscale_min_replicas: 1
-              autoscale_max_replicas: 3
+              autoscale_max_replicas: 6
               nodes: 3
               id_prefix: non-serving
               type: non-serving
@@ -844,9 +844,9 @@ resourceTemplates:
                   value: true
                 - key: osd-fleet-manager
                   value: true
-            - machine_type: m5.xlarge
+            - machine_type: m5.4xlarge
               autoscale: true
-              autoscale_min_replicas: 3
+              autoscale_min_replicas: 1
               autoscale_max_replicas: 6
               nodes: 3
               id_prefix: non-serving
