@@ -1,0 +1,11 @@
+---
+$schema: /app-interface/app-interface-sql-query-1.yml
+labels: {}
+name: 2023-09-08-runtimes-inventory-analyze
+namespace:
+  $ref: /services/insights/runtimes-inventory/namespaces/stage-runtimes-inventory-stage.yml
+identifier: runtimes-inventory-stage
+output: stdout
+queries:
+  - SELECT version();
+  - ANALYZE VERBOSE;
