@@ -59,19 +59,6 @@ resourceTemplates:
     IMAGE_GATE_AUTH_DISABLE: "true"
   targets:
   - namespace:
-      $ref: /services/app-interface/namespaces/app-interface-dev-int.yml
-    ref: master
-    delete: true
-    parameters:
-      REPLICAS: 3
-      APP_INTERFACE_RESOURCES:
-        requests:
-          cpu: 50m
-          memory: 512Mi
-        limits:
-          memory: 512Mi
-      IMAGE_GATE_AUTH_DISABLE: "true"
-  - namespace:
       $ref: /services/app-interface/namespaces/app-interface-dev-int.appsres05ue1.yml
     ref: master
     parameters:
