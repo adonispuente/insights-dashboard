@@ -83,13 +83,6 @@ externalResources:
     identifier: provisioning-elasticache-perf
     defaults: /terraform/resources/insights/perf/elasticache/elasticache-provisioning-1.yml
     output_resource_name: in-memory-db
-  - provider: sqs
-    identifier: provisioning-job-queue-perf
-    specs:
-    - defaults: /terraform/resources/insights/perf/sqs/provisioning-job-queue-sqs-perf.yml
-      queues:
-      - key: provisioning_job_queue_perf
-        value: provisioning-job-queue-perf
 
 glitchtipProjects:
 - $ref: /dependencies/glitchtip/projects/glitchtip-production/hcc-provisioning-stage.yml
