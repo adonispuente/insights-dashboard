@@ -123,8 +123,6 @@ resourceTemplates:
       QUAY_APP_DEPLOYMENT_REPLICAS: 1
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret
       QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_07_20-1" # Update image ref
-      QUAY_APP_LIVENESS_PROBE_INITIAL_DELAY_SECONDS: 14400
-      QUAY_APP_READINESS_PROBE_INITIAL_DELAY_SECONDS: 14400
     # This is the backup region
   - namespace:
       $ref: /services/quayio/namespaces/quayp04ue2.yml
