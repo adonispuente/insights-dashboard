@@ -48,8 +48,8 @@ resourceTemplates:
     targets:
       - namespace:
           $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-        ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
-        delete: true
+        ref: 079c201394eeba3911368fb1cd5015e577f4aaac
+        disable: true
         parameters:
           HARNESS_IMAGE_TAG: ${IMAGE_TAG}
           OSDE2E_CONFIGS: rosa,int,test-harness
@@ -62,8 +62,8 @@ resourceTemplates:
             - managed-node-metadata-operator-sss-e2e-success-channel-int01
       - namespace:
           $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-        ref: fc83432d8b88055f4e61590f43ee7651bf35e43e
-        delete: true
+        ref: 079c201394eeba3911368fb1cd5015e577f4aaac
+        disable: true
         parameters:
           HARNESS_IMAGE_TAG: ${IMAGE_TAG}
           OSDE2E_CONFIGS: rosa,stage,test-harness
