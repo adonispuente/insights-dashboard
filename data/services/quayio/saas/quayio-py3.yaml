@@ -120,7 +120,7 @@ resourceTemplates:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
     ref: 5f63b3a7bb878c0393a24e313cc9b180b8885ccd
     parameters:
-      QUAY_APP_DEPLOYMENT_REPLICAS: 0
+      QUAY_APP_DEPLOYMENT_REPLICAS: 1
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret
       QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_07_20-1" # Update image ref
       QUAY_APP_LIVENESS_PROBE_INITIAL_DELAY_SECONDS: 14400
