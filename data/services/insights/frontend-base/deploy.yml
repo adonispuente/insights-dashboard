@@ -244,15 +244,7 @@ resourceTemplates:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-dashboard-frontend"
 
-- name: frontend-configs
-  path: /deploy/deploy.yaml
-  url: https://gitlab.cee.redhat.com/insights-platform/frontend-configs
-  targets:
-  # ephemeral for bonfire
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
-    disable: true # do not create an app-sre deploy job for ephemeral namespace
-    ref: internal # populated by bonfire
+# API frontend
 - name: api-frontend
   path: /deploy/frontend.yml
   url: https://github.com/RedHatInsights/api-frontend
