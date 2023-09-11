@@ -69,16 +69,16 @@ openshiftResources:
 - provider: resource-template
   path: /services/sre-capabilities/qontract-reconcile-admin.rolebinding.yml
 # toml for integrations
-#- provider: vault-secret
-#  path: app-interface/app-interface-instances/sre-capabilities-prod/qontract-reconcile-toml
-#  version: 2
-#  annotations:
-#    qontract.recycle: "true"
+- provider: vault-secret
+  path: app-interface/app-interface-instances/sre-capabilities/qontract-reconcile-toml
+  version: 1
+  annotations:
+    qontract.recycle: "true"
 
-#openshiftServiceAccountTokens:
-#- namespace:
-#    $ref: /services/sre-capabilities/namespaces/sre-capabilities-prod.yml
-#  serviceAccountName: qontract-reconcile
+openshiftServiceAccountTokens:
+- namespace:
+    $ref: /services/sre-capabilities/namespaces/sre-capabilities-prod.yml
+  serviceAccountName: qontract-reconcile
 
 managedExternalResources: true
 
