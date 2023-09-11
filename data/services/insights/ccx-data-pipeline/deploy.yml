@@ -389,8 +389,8 @@ resourceTemplates:
       name: RedHatInsights-ccx-notification-writer-gh-build-master
     parameters:
       IMAGE: "quay.io/cloudservices/ccx-notification-writer"
-      MIN_REPLICAS: "0"
-      MAX_REPLICAS: "0"
+      MIN_REPLICAS: "1"
+      MAX_REPLICAS: "1"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
@@ -460,8 +460,8 @@ resourceTemplates:
       TEMPLATE_RENDERER_SERVER: "http://insights-content-template-renderer-svc:8000/"
       SERVICE_LOG__URL: "https://api.stage.openshift.com/api/service_logs/v1/cluster_logs"
       LOG_LEVEL: "debug"
-      SUSPEND_JOB__SERVICE_LOG: "true"
-      SUSPEND_JOB__NOTIFICATION_BACKEND: "true"
+      SUSPEND_JOB__SERVICE_LOG: "false"
+      SUSPEND_JOB__NOTIFICATION_BACKEND: "false"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 579c1bc04213607f9b518b6025a28966def97458
