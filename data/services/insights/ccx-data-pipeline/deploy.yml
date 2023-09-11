@@ -171,7 +171,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 07f01c123e27088bcabd8deabf636bbc7deb1264
+    ref: 874229236890db69e031e45a579640c575cc229a
     delete: false
     parameters:
       MIN_REPLICAS: "3"
@@ -728,7 +728,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: aae154c18e3b6b0bbf3f04f9032cf4b20c9f476b
+    ref: 874229236890db69e031e45a579640c575cc229a
 
 - name: grafana-dashboard-ccx-notification-service
   url: https://github.com/RedHatInsights/ccx-notification-service
