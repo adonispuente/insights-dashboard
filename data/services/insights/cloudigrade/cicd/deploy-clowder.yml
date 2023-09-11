@@ -80,7 +80,7 @@ resourceTemplates:
       WATCHTOWER_USE_QUEUES: 'true'
   - namespace:
       $ref: /services/insights/cloudigrade/namespaces/cloudigrade-prod.yml
-    ref: afd2377d794f9b20bff458f38eb309efa19c54f5
+    ref: eff499fb62cb5c5b88a8b5667bfdcc0c12575307
     promotion:
       auto: true
       subscribe:
@@ -155,7 +155,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: afd2377d794f9b20bff458f38eb309efa19c54f5
+    ref: eff499fb62cb5c5b88a8b5667bfdcc0c12575307
     promotion:
       auto: true
       subscribe:
