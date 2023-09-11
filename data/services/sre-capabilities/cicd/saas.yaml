@@ -64,6 +64,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
     ref: dc3452748211c36547182aeee54ccb15fe346a49
+  - namespace:
+      $ref: /services/sre-capabilities/namespaces/sre-capabilities-prod.yml
+    ref: dc3452748211c36547182aeee54ccb15fe346a49
 
 - name: qontract-manager
   url: https://github.com/app-sre/qontract-reconcile
