@@ -52,7 +52,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: c70041d2f5fe25793c760c2d45eed1b4713ec0ec
+    ref: 1bdd58739a51108d0617f1c868b7b0d80f5793a3
     parameters:
       NUM_REPLICAS: 3
   - namespace:
@@ -85,7 +85,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/remediations/namespaces/remediations-prod.yml
-    ref: c70041d2f5fe25793c760c2d45eed1b4713ec0ec
+    ref: 1bdd58739a51108d0617f1c868b7b0d80f5793a3
     parameters:
       NUM_REPLICAS: 3
   - namespace:
