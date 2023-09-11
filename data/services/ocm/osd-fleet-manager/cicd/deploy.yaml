@@ -113,6 +113,11 @@ resourceTemplates:
     RHOBS_ENV: int
     SECTOR_ASSIGNMENT_POLICY: |-
       rules:
+      - predicate:
+          label:
+            key: sector-override
+            value: ibm-infra
+        sector: ibm-infra
       # us-east-1 clusters go to the canary sector
       - predicate:
           region: us-east-1
@@ -141,11 +146,6 @@ resourceTemplates:
             key: "label-mc-sts"
             value: "sts"
         sector: management-cluster-sts
-      - predicate:
-          label:
-            key: sector-override
-            value: ibm-infra
-        sector: ibm-infra
       # put everything else into the main sector
       - sector: main
     SUPPORTED_CLOUD_PROVIDERS: |-
