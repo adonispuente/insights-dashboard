@@ -60,6 +60,16 @@ network:
   pod: 10.128.0.0/14
 internal: false
 
+peering:
+  connections:
+  - provider: account-vpc
+    name: hivep08ue2_app-sre-ci-int
+    vpc:
+      $ref: /aws/app-sre/vpcs/ci-int.yml
+    manageRoutes: true
+    manageAccountRoutes: true
+    assumeRole: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
+
 disable:
   integrations:
   - openshift-groups
