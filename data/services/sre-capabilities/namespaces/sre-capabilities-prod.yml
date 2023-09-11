@@ -1,0 +1,102 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: app-interface
+  type: sre-capabilities
+
+name: sre-capabilities-prod
+description: prod namespace for sre-capabilities
+
+cluster:
+  $ref: /openshift/appsrep05ue1/cluster.yml
+
+app:
+  $ref: /services/sre-capabilities/app.yml
+
+environment:
+  $ref: /products/app-interface/environments/sre-capabilities-prod.yml
+
+managedResourceTypes:
+- ConfigMap
+- Secret
+- Route
+- ServiceAccount
+- ClusterRoleBinding.rbac.authorization.k8s.io
+- RoleBinding.rbac.authorization.k8s.io
+
+
+managedResourceNames:
+- resource: ClusterRoleBinding.rbac.authorization.k8s.io
+  resourceNames:
+  - sre-capabilities-prod-auth-delegator
+
+#sharedResources:
+#- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+#openshiftResources:
+# app-interface configuration
+#- provider: resource-template
+#  path: /services/sre-capabilities/app-interface.configmap.yml
+#  variables:
+#    instance_name: sre-capabilities-stage
+#    dsn_secret_version: 1
+#- provider: resource-template
+#  path: /services/sre-capabilities/app-interface.secret.yml
+# qontract server route
+#- provider: resource-template
+#  path: /services/sre-capabilities/qontract-server.route.yml
+#  variables:
+#    instance_name: sre-capabilities-stage
+# sa for integrations
+#- provider: resource-template
+#  path: /services/common/serviceaccount.yaml
+#  variables:
+#    name: qontract-reconcile
+#- provider: resource-template
+#  path: /services/common/serviceaccount-token.secret.yml
+#  variables:
+#    name: qontract-reconcile
+# vault auth delegator
+# enables vault authentication with qontract-reconcile service-account
+#- provider: resource-template
+#  path: /services/sre-capabilities/vault-auth-delegate.clusterrolebinding.yml
+#  variables:
+#    instance_name: sre-capabilities-stage
+#    service_account: qontract-reconcile
+# grant qontract-reconcile namespace admin
+# to manage integrations + namespace saas
+#- provider: resource-template
+#  path: /services/sre-capabilities/qontract-reconcile-admin.rolebinding.yml
+# toml for integrations
+#- provider: vault-secret
+#  path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-reconcile-toml
+#  version: 2
+#  annotations:
+#    qontract.recycle: "true"
+
+#openshiftServiceAccountTokens:
+#- namespace:
+#    $ref: /services/sre-capabilities/namespaces/sre-capabilities-prod.yml
+#  serviceAccountName: qontract-reconcile
+
+#managedExternalResources: true
+
+#externalResources:
+#- provider: aws
+#  provisioner:
+#    $ref: /aws/app-sre/account.yml
+#  resources:
+#  # bundle storage
+#  - provider: s3
+#    identifier: sre-capabilities-prod
+#    defaults: /terraform/resources/app-sre/app-interface-s3.yml
+#    output_resource_name: sre-capabilities-s3
+#  # integrations logs
+#  - provider: cloudwatch
+#    identifier: sre-capabilities-prod-cloudwatch
+#    defaults: /terraform/resources/cloudwatch-1.yml
+#    output_resource_name: app-interface-cloudwatch
+
+#glitchtipProjects:
+#- $ref: /dependencies/glitchtip/projects/glitchtip-production/sre-capabilities-prod.yml

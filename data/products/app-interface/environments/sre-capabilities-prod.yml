@@ -1,0 +1,31 @@
+
+---
+$schema: /app-sre/environment-1.yml
+
+
+labels:
+  service: sre-capabilities
+  type: prod
+
+name: sre-capabilities-prod
+
+description: |
+  The prod environment for sre-capabilities
+
+product:
+  $ref: /products/app-interface/product.yml
+
+parameters:
+  ENVIRONMENT_NAME: sre-capabilities-prod
+  BUSYBOX_IMAGE_PULL_POLICY: IfNotPresent
+  BUSYBOX_IMAGE_TAG: 8.2
+  FLUENTD_IMAGE_PULL_POLICY: IfNotPresent
+  FLUENTD_IMAGE_TAG: 8e1d986
+  INTERNAL_CERTIFICATES_IMAGE_TAG: 0.2.0
+  SLACK_ICON_EMOJI: ':app-sre:'
+  APP_INTERFACE_PROJECT_ID: '78363'
+  DRY_RUN: --no-dry-run
+  GITHUB_API: https://github-mirror.stage.devshift.net
+  SLACK_CHANNEL: sd-sre-capabilities-reconcile-prod
+  SLACK_CHANNEL_TRIGGER: sd-sre-capabilities-reconcile-prod
+  SLEEP_DURATION_SECS: 600
