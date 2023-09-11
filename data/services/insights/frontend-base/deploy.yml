@@ -81,7 +81,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 30caeeaf62c1a6d56f95fb2c62f29cf30bf1ca7c
+    ref: 8449ffe66aec66744494062d047066b506512bf1
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
@@ -109,7 +109,7 @@ resourceTemplates:
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 441c3d5d804d7fa6dc8fbf351934f551d8aef51d
+    ref: 392b9dd934cb58cfe0a30204606ed18c25b1acc8
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/insights-chrome-frontend"
