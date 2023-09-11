@@ -129,6 +129,7 @@ config:
         iqe_plugins: 'platform_ui'
         iqe_env: 'ephemeral'
         iqe_selenium: 'true'
+        extra_deploy_args: "--set-image-tag quay.io/cloudservices/rbac=latest --set-template-ref rbac=master"
 
 - project:
     name: frontend-configs
