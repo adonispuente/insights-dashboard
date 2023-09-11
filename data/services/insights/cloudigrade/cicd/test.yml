@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/cloudigrade/namespaces/stage-cloudigrade-stage.yml
-    ref: afd2377d794f9b20bff458f38eb309efa19c54f5
+    ref: eff499fb62cb5c5b88a8b5667bfdcc0c12575307
     promotion:
       auto: true
       subscribe:
