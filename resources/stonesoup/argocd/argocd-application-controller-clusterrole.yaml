@@ -51,3 +51,12 @@ rules:
       - operators.coreos.com
     resources:
       - olmconfigs
+  - verbs:
+      - create
+      - delete
+      - patch
+      - update
+    apiGroups:
+      - 'batch'
+    resources:
+      - cronjobs
