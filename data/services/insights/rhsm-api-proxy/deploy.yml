@@ -92,7 +92,7 @@ resourceTemplates:
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/subscription-inventory-ui"
-- name: manifests
+- name: subscription-central-ui
   path: /deploy/frontend.yaml
   url: https://github.com/RedHatInsights/subscription-central-ui
   targets:
