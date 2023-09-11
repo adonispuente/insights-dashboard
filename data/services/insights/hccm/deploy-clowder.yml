@@ -321,7 +321,7 @@ resourceTemplates:
   # Production:
   - namespace:
       $ref: /services/insights/hccm/namespaces/hccm-prod.yml
-    ref: a139f6719bd5052b4902c89f5c54ff77db00923f
+    ref: 80a51219a922f1a1383b1222e75e0f6bb120ba2d
     parameters:
       ############# MIGRATIONS #############
       # Change these settings when deploying migrations to Production
