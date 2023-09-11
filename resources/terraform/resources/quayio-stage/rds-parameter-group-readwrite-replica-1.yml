@@ -50,3 +50,6 @@ parameters:
 - name: innodb_buffer_pool_load_at_startup
   value: 1
   apply_method: pending-reboot
+- name: binlog_format
+  value: ROW
+  apply_method: immediate
