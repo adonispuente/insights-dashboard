@@ -88,7 +88,7 @@ resourceTemplates:
     ref: af97203ec7815f075b2200d6af29d3c3c716e980
     parameters:
       QUAY_ENTRYPOINT: registry
-      QUAY_APP_DEPLOYMENT_REPLICAS: 1
+      QUAY_APP_DEPLOYMENT_REPLICAS: 0
       QUAY_APP_CPU_REQUEST: 6
       QUAY_APP_CPU_LIMIT: 8
       QUAY_APP_MEMORY_REQUEST: 8Gi
