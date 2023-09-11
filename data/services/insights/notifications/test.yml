@@ -33,7 +33,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
-    ref: 4629144a2b7fba970d396d5446f279e119124c74
+    ref: 0bf39726a41009149e80f94943afb7b3ee203fee
     parameters:
       ENV_NAME: stage
     promotion:
@@ -46,7 +46,7 @@ resourceTemplates:
       - channel: notifications-backend-stage-deploy-success-channel
         data:
         - parent_saas: notifications-clowder
-          target_config_hash: ddc578de3a81dcdc
+          target_config_hash: 27a3e481d490ecaa
           type: parent_saas_config
 - name: notifications-connector-servicenow
   path: /.rhcicd/stage-servicenow-post-deployment-tests.yaml
