@@ -10,7 +10,7 @@ quay_username: afred
 slack_username: Ann Marie 
 
 roles:
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+- $ref: /teams/stonesoup/roles/stonesoup-vault-all.yml
 - $ref: /teams/stonesoup/roles/saas-stonesoup-approver.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml

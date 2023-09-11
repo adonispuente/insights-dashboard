@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: stonesoup-vault
+name: stonesoup-vault-all
 
 permissions: []
 
@@ -14,4 +14,4 @@ self_service:
 - change_type:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
-  - $ref: /teams/stonesoup/roles/stonesoup-vault.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-vault-all.yml

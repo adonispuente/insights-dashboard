@@ -10,7 +10,6 @@ quay_username: maniskum
 slack_username: maniskum
 
 roles:
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml
