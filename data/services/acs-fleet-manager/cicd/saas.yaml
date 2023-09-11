@@ -55,6 +55,7 @@ resourceTemplates:
           QUOTA_TYPE: ams
           OCM_URL: https://api.integration.openshift.com
           AMS_URL: https://api.integration.openshift.com
+          CENTRAL_DOMAIN_NAME: acs-integration.rhcloud.com
           CENTRAL_CPU_REQUEST: "250m"
           CENTRAL_CPU_LIMIT: "2000m"
           CENTRAL_MEMORY_REQUEST: "250Mi"
@@ -116,6 +117,7 @@ resourceTemplates:
           QUOTA_TYPE: ams
           OCM_URL: https://api.stage.openshift.com
           AMS_URL: https://api.stage.openshift.com
+          CENTRAL_DOMAIN_NAME: acs-stage.rhcloud.com
           CENTRAL_CPU_REQUEST: "250m"
           CENTRAL_CPU_LIMIT: "2000m"
           CENTRAL_MEMORY_REQUEST: "250Mi"
