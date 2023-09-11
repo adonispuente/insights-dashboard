@@ -200,6 +200,12 @@ peering:
       $ref: /openshift/backplanep04uw2/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
+  - provider: cluster-vpc-accepter
+    name: appsres05ue1_hivep08ue2
+    cluster:
+      $ref: /openshift/hivep08ue2/cluster.yml
+    manageRoutes: true
+    assumeRole: arn:aws:iam::459166091065:role/network-mgmt-appsres05ue1
 
 # This is used in the cluster-to-cluster peerings.
 # The account used to do the necessary assume role will be this one.

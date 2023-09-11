@@ -179,3 +179,8 @@ peering:
     cluster:
       $ref: /openshift/backplanep04uw2/cluster.yml
     manageRoutes: true
+  - provider: cluster-vpc-accepter
+    name: appsres03ue1_hivep08ue2
+    cluster:
+      $ref: /openshift/hivep08ue2/cluster.yml
+    manageRoutes: true
