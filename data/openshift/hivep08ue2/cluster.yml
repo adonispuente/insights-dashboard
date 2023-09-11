@@ -1,0 +1,67 @@
+---
+$schema: /openshift/cluster-1.yml
+labels:
+  service: backplane
+name: hivep08ue2
+description: hivep08ue2 cluster
+consoleUrl: https://console-openshift-console.apps.hivep08ue2.xwd4.p1.openshiftapps.com
+kibanaUrl: ''
+prometheusUrl: ''
+alertmanagerUrl: ''
+serverUrl: https://api.hivep08ue2.xwd4.p1.openshiftapps.com:6443
+elbFQDN: elb.apps.hivep08ue2.pwhm.p1.openshiftapps.com
+
+auth:
+- service: oidc
+  name: redhat-app-sre-auth
+
+ocmSubscriptionLabels:
+  sre-capabilities:
+    rhidp:
+      status: enabled
+      name: redhat-app-sre-auth
+
+ocm:
+  $ref: /dependencies/ocm/production.yml
+managedGroups:
+- dedicated-admins
+
+spec:
+  product: rosa
+  account:
+    $ref: /aws/hivep08ue2/account.yml
+  id: 2667g5av52bnke1okhb0bq0ui7eocrns
+  external_id: 728b4c19-b522-44fc-a15c-2246ec3ea095
+  provider: aws
+  region: us-east-2
+  channel: stable
+  version: 4.13.10
+  initial_version: 4.13.10
+  multi_az: true
+  nodes: 9
+  instance_type: m5.xlarge
+  private: true
+  provision_shard_id: ''
+  disable_user_workload_monitoring: true
+  hypershift: false
+  subnet_ids:
+  - subnet-03e101139471ebcfd
+  - subnet-0ab38a0ed4013b462
+  - subnet-0b312a24389b11f53
+  availability_zones:
+  - us-east-2a
+  - us-east-2b
+  - us-east-2c
+
+network:
+  type: OVNKubernetes
+  vpc: 10.138.0.0/16
+  service: 172.30.0.0/16
+  pod: 10.128.0.0/14
+internal: false
+
+disable:
+  integrations:
+  - openshift-groups
+  - openshift-users
+  - slack-usergroups
