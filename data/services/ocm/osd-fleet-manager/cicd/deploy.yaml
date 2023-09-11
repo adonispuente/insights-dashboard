@@ -141,6 +141,11 @@ resourceTemplates:
             key: "label-mc-sts"
             value: "sts"
         sector: management-cluster-sts
+      - predicate:
+          label:
+            key: sector-override
+            value: ibm-infra
+        sector: ibm-infra
       # put everything else into the main sector
       - sector: main
     SUPPORTED_CLOUD_PROVIDERS: |-
@@ -154,6 +159,23 @@ resourceTemplates:
     TRANSIT_ACCOUNT_ARN: arn:aws:iam::232799112676:user/svc-cluster-aws-vpce-operator
     TRANSIT_ACCOUNT_SECRET_NAME: svc-transit-int-aws-vpce-operator
   targets:
+  - name: osd-fleet-manager-integration-ibm-infra
+    namespace:
+      $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
+    ref: c5113acd81ab7cd6f453eba4d6b3c6712d63a93c
+    promotion:
+      auto: true
+      subscribe:
+      - ocm-osdfm-deployed-int-canary
+      publish:
+      - ocm-osdfm-deployed-int-ibm-infra
+    parameters:
+      GATE_NAME: ocm-osdfm-int-ibm-infra
+      CPA_LADDER_CONFIG: '{ "coresToReplicas": [ [ 48, 3 ], [ 192, 6 ], [ 432, 0 ] ] }'
+      DEPLOYMENT_NAME: ibm-infra
+      ENABLE_GLOBAL_WORKERS: true
+      ENBALE_POD_ISOLATION: false
+      ENABLE_SIMPLE_IDENTITY_PROVIDER: false
   - name: osd-fleet-manager-integration-canary
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/integration.yml
