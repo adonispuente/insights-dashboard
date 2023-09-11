@@ -266,7 +266,7 @@ externalResources:
   - provider: s3-cloudfront
     identifier: quayio-stage-s3-backup
     region: us-east-2
-    storage_class: onezone_ia
+    storage_class: intelligent_tiering
     defaults: /terraform/resources/quayio-stage/s3-cloudfront-us-east-2.yml
     output_resource_name: quayio-s3-backup
   - provider: kms
