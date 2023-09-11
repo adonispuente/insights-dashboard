@@ -55,7 +55,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/payload-tracker/namespaces/payload-tracker-prod.yml
-    ref: ea505816c6152ac0b3c6275c0d6f365b5fc628a4
+    ref: e8d39ac3d1daf1d963b5d99fd37a89295106e177
     parameters:
       API_REPLICAS: 3
       CONSUMER_REPLICAS: 8
