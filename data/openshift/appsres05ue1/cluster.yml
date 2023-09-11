@@ -92,9 +92,6 @@ network:
 
 internal: true
 
-jumpHost:
-  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
-
 peering:
   connections:
   - provider: account-vpc
