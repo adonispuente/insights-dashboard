@@ -93,6 +93,10 @@ resourceTemplates:
       DATASOURCE_CONNECTOR_COMPRESSION_TYPE: 'lz4'
       DATASOURCE_CONNECTOR_MAX_REQUEST_SIZE: '104857600'
       DATASOURCE_CONNECTOR_ACK: '1'
+      VALIDATION_POD_CPU_LIMIT: '2'
+      VALIDATION_POD_MEMORY_LIMIT: '4Gi'
+      VALIDATION_POD_CPU_REQUEST: '250m'
+      VALIDATION_POD_MEMORY_REQUEST: '1Gi'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
