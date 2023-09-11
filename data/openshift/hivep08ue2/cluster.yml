@@ -23,6 +23,11 @@ ocmSubscriptionLabels:
 
 ocm:
   $ref: /dependencies/ocm/production.yml
+
+automationToken:
+  path: app-sre/creds/kube-configs/hivep08ue2
+  field: token
+
 managedGroups:
 - dedicated-admins
 
