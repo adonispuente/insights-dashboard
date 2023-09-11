@@ -92,6 +92,7 @@ resourceTemplates:
       INGRESS_STAGEBUCKET: upload-stage
       INGRESS_PAYLOADTRACKERURL: http://payload-tracker-api.payload-tracker-stage.svc.cluster.local:8000/api/v1/payloads/
       INGRESS_BLACK_LISTED_ORGIDS: "7759136"
+      INGRESS_DENY_LISTED_ORGIDS: "7759136"
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
     ref: 8056907971570e8cac122c04dc8a6f38007aa265
@@ -101,6 +102,7 @@ resourceTemplates:
       INGRESS_PAYLOADTRACKERURL: http://payload-tracker-api.payload-tracker-prod.svc.cluster.local:8000/api/v1/payloads/
       MEMORY_LIMIT: 1Gi
       INGRESS_BLACK_LISTED_ORGIDS: "7759136"
+      INGRESS_DENY_LISTED_ORGIDS: "7759136"
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: master
