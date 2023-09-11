@@ -55,7 +55,7 @@ resourceTemplates:
       GATE_NAME: ocm-cs-int-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 8eb7e8112ae1c69994e1a154c984d75f6f420a85
+    ref: 9e66b099640b08f375377d6a62a6c85679f7c41a
     name: rosa-hcp-advanced
     promotion:
       auto: true
@@ -69,7 +69,7 @@ resourceTemplates:
       GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 8eb7e8112ae1c69994e1a154c984d75f6f420a85
+    ref: 9e66b099640b08f375377d6a62a6c85679f7c41a
     name: rosa-hcp-private-link-main
     promotion:
       auto: true
@@ -83,7 +83,7 @@ resourceTemplates:
       GATE_NAME: ocm-cs-stage-main
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 8eb7e8112ae1c69994e1a154c984d75f6f420a85
+    ref: 9e66b099640b08f375377d6a62a6c85679f7c41a
     name: hcp-e2e-main
     promotion:
       auto: true
