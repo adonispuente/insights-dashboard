@@ -40,7 +40,7 @@ spec:
   provider: aws
   region: us-east-1
   channel: candidate
-  version: 4.13.4
+  version: 4.13.12
   initial_version: 4.13.4-candidate
   multi_az: true
   nodes: 3
@@ -210,4 +210,5 @@ awsInfrastructureManagementAccounts:
   default: true
 
 observabilityNamespace:
-  $ref: /services/observability/namespaces/openshift-customer-monitoring.appsres05ue1.yml
+  $ref: 
+    /services/observability/namespaces/openshift-customer-monitoring.appsres05ue1.yml
