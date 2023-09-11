@@ -9,7 +9,7 @@ kibanaUrl: ''
 prometheusUrl: ''
 alertmanagerUrl: ''
 serverUrl: https://api.hivep08ue2.xwd4.p1.openshiftapps.com:6443
-elbFQDN: elb.apps.hivep08ue2.pwhm.p1.openshiftapps.com
+elbFQDN: elb.apps.hivep08ue2.xwd4.p1.openshiftapps.com
 
 auth:
 - service: oidc
@@ -41,7 +41,7 @@ spec:
   nodes: 9
   instance_type: m5.xlarge
   private: true
-  provision_shard_id: ''
+  provision_shard_id: b26159a7-aaef-4303-89a0-6713ad9f1090
   disable_user_workload_monitoring: true
   hypershift: false
   subnet_ids:
