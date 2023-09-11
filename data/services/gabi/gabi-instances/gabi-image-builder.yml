@@ -1,0 +1,28 @@
+---
+$schema: /app-sre/gabi-instance-1.yml
+
+labels:
+  service: gabi
+
+name: gabi-image-builder
+
+description: |
+  I would like to be able to get db access for Edge
+  I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
+
+signoffManagers:
+  - $ref: /teams/insights/users/omaciel.yml
+users:
+  - $ref: /teams/insights/users/anferrei.yml
+  - $ref: /teams/insights/users/djlezzou.yml
+  - $ref: /teams/insights/users/omaciel.yml
+  - $ref: /teams/insights/users/mgold.yml
+
+instances:
+  - account: insights-stage
+    identifier: image-builder-stage
+    namespace:
+      $ref: /services/insights/image-builder/namespaces/stage-image-builder-stage.yml
+
+# The maximum expiration date shall not exceed 90 days from the current date.
+expirationDate: '2023-10-25'

@@ -33,6 +33,10 @@ subjects:
     namespace: edge-stage
 
   - kind: ServiceAccount
+    name: gabi-image-builder
+    namespace: image-builder-stage
+
+  - kind: ServiceAccount
     name: gabi-historical-system-profiles
     namespace: historical-system-profiles-stage
 
