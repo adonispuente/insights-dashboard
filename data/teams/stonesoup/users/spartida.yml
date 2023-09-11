@@ -10,7 +10,6 @@ quay_username: spartida
 slack_username: spartida
 
 roles:
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 - $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
 - $ref: /teams/stonesoup/roles/workload-cluster-debugger.yml

@@ -10,7 +10,6 @@ quay_username: tkdchen
 slack_username: Chenxiong Qi
 
 roles:
-- $ref: /teams/stonesoup/roles/stonesoup-vault.yml
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
 
