@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: push-deploy-event-to-changelog
@@ -20,7 +20,7 @@ spec:
               name: tekton-oauth-token
               key: token
       image: {{ ubi8_ubi_minimal_image }}:{{ ubi8_ubi_minimal_image_tag }}
-      resources:
+      computeResources:
         limits:
           memory: 30Mi
         requests:

@@ -1,10 +1,9 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   name: saas-deploy
   annotations:
     ignore-check.kube-linter.io/unset-cpu-requirements: "no cpu limits"
-
 spec:
   params:
   - name: saas_file_name
@@ -24,6 +23,7 @@ spec:
   tasks:
   - name: openshift-saas-deploy
     taskRef:
+      kind: Task
       name: openshift-saas-deploy
     params:
     - name: saas_file_name
@@ -51,6 +51,7 @@ spec:
   - name: push-http-splunk-tekton-pipeline-metadata
     retries: 2
     taskRef:
+      kind: Task
       name: push-http-splunk-tekton-pipeline-metadata
     params:
     - name: saas_file_name
@@ -68,6 +69,7 @@ spec:
   - name: push-gateway-openshift-saas-deploy-task-status-metric
     retries: 10
     taskRef:
+      kind: Task
       name: push-gateway-task-status-metric
     params:
     - name: saas_file_name
