@@ -111,7 +111,7 @@ resourceTemplates:
       - host-inventory-stage-post-deploy-success-channel
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: f12eeec16cda33d9e90dfdcd2999deb2bb03604f
+    ref: a026094585e74a09dbfb3ebbcd48a41aea2a9d53
     parameters:
       IMAGE_TAG: a873421
       REPLICAS_SVC: 25
@@ -163,6 +163,6 @@ resourceTemplates:
       SYNCHRONIZER_RUN_NUMBER: 28
   - namespace:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
-    ref: f12eeec16cda33d9e90dfdcd2999deb2bb03604f
+    ref: a026094585e74a09dbfb3ebbcd48a41aea2a9d53
     parameters:
       SYNCHRONIZER_RUN_NUMBER: 15
