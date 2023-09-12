@@ -472,6 +472,13 @@ resourceTemplates:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://prometheus.appsres06ue1.devshift.net
     ref: 76aaff9c8a9b3b442925b943197499045ca60158
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep08ue2.yml
+    parameters:
+      CLUSTER_LABEL: hivep08ue2
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://prometheus.hivep08ue2.devshift.net
+    ref: 76aaff9c8a9b3b442925b943197499045ca60158
 - name: alertmanager
   path: /openshift/alertmanager.template.yaml
   url: https://gitlab.cee.redhat.com/service/app-sre-observability
@@ -767,4 +774,10 @@ resourceTemplates:
     parameters:
       ENVIRONMENT: staging
       EXTERNAL_URL: https://alertmanager.appsres06ue1.devshift.net
+    ref: 76aaff9c8a9b3b442925b943197499045ca60158
+  - namespace:
+      $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep08ue2.yml
+    parameters:
+      ENVIRONMENT: production
+      EXTERNAL_URL: https://alertmanager.hivep08ue2.devshift.net
     ref: 76aaff9c8a9b3b442925b943197499045ca60158

@@ -335,3 +335,9 @@ resourceTemplates:
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.appsres06ue1.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.appsres06ue1.devshift.net
+  - namespace:
+      $ref: /openshift/hivep08ue2/namespaces/app-sre-observability-per-cluster.yml
+    ref: master
+    parameters:
+      ALERTMANAGER_SERVER_NAME: alertmanager.hivep08ue2.devshift.net
+      PROMETHEUS_SERVER_NAME: prometheus.hivep08ue2.devshift.net

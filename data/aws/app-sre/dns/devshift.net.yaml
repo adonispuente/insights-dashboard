@@ -466,3 +466,11 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/appsres06ue1/cluster.yml
+- name: prometheus.hivep08ue2
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
+- name: alertmanager.hivep08ue2
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
