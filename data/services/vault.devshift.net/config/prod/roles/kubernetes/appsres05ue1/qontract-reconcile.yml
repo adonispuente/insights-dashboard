@@ -1,0 +1,32 @@
+---
+$schema: /vault-config/role-1.yml
+
+labels:
+  service: vault.devshift.net
+
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+
+name: "qontract-reconcile"
+type: "kubernetes"
+mount:
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/kubernetes/appsres05ue1.yml
+
+options:
+  _type: "kubernetes"
+  alias_name_source: "serviceaccount_name"
+  bound_service_account_names:
+  - qontract-reconcile
+  - go-qontract-reconcile
+  bound_service_account_namespaces:
+  - app-interface-stage
+  token_ttl: "1800"
+  token_max_ttl: "3600"
+  token_explicit_max_ttl: "0"
+  token_type: "default"
+  token_period: "0"
+  token_policies:
+  - $ref: /services/vault.devshift.net/config/prod/policies/app-interface-approle-policy.yml
+  token_bound_cidrs: []
+  token_no_default_policy: false
+  token_num_uses: "0"
