@@ -1,0 +1,32 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: cluster-scope
+description: cluster scoped resources for hivep08ue2
+
+cluster:
+  $ref: /openshift/hivep08ue2/cluster.yml
+
+app:
+  $ref: /services/osd-operators/app.yml
+
+environment:
+  $ref: /products/osdv4/environments/production-hivep08ue2.yml
+
+managedResourceTypes:
+- SelectorSyncSet
+
+managedResourceNames:
+- resource: SelectorSyncSet
+  resourceNames:
+  - aws-vpce-operator-transit-resources-management-cluster
+  - aws-vpce-operator-transit-resources-service-cluster
+  - backplanep01ue1-aws-vpce-operator
+  - backplanep02uw2-aws-vpce-operator
+  - backplanep03ue1-hypershift-aws-vpce-operator
+  - backplane-prod-vpcendpointtemplate
+
+sharedResources:
+- $ref: /services/hive/shared-resources/aws-vpce-operator-prod-transit-resources.yml

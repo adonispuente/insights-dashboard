@@ -1,0 +1,20 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: aws-vpce-operator
+description: prod resources for aws-vpce-operator
+
+cluster:
+  $ref: /openshift/hivep08ue2/cluster.yml
+
+environment:
+  $ref: /products/osdv4/environments/production-hivep08ue2.yml
+
+app:
+  $ref: /services/osd-operators/app.yml
+
+sharedResources:
+- $ref: /services/hive/shared-resources/aws-vpce-operator-prod-transit-account-iam-secrets.yml
+- $ref: /services/hive/shared-resources/aws-vpce-operator-prod-backplane.yml
