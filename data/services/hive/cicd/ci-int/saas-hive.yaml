@@ -71,28 +71,28 @@ resourceTemplates:
       name: openshift-hive-gh-build-master
   - namespace:
       $ref: /services/hive/namespaces/hivep01ue1/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep02ue1/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep03uw1/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep04ew2/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep05ue1/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep06uw2/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep07ue2/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
   - namespace:
       $ref: /services/hive/namespaces/hivep08ue2/hive-production.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
 - name: grafana-dashboard-hive-slo
   url: https://github.com/openshift/hive
   path: /hack/grafana-dashboards
@@ -103,4 +103,4 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+    ref: 6e07fdce6148b217f978cc3aab139922c5ec9045
