@@ -113,7 +113,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     delete: false
-    ref: b3fc751aae9e7e604387fd2fbdaebae3631c0818
+    ref: acfbcdf932476ce3019a08025b1b5805e2001b9c
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
@@ -633,7 +633,7 @@ resourceTemplates:
       REDIS_STORAGE: "2Gi"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: b3fc751aae9e7e604387fd2fbdaebae3631c0818
+    ref: 63f25c91250f8f0c250d97eabec0cd3cc571e294
     parameters:
       REDIS_STORAGE: "2Gi"
   - namespace:
