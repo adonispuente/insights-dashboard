@@ -42,7 +42,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: osd-ccs-aws-advanced
-    ref: 9fee5e9acacd900800350f64e720936a5ad14b06
+    ref: d7818df4666e492769bc51475c18329d89b570b8
     promotion:
       auto: true
       subscribe:
@@ -56,7 +56,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-integration.yml
     name: osd-rh-gcp
-    ref: 9fee5e9acacd900800350f64e720936a5ad14b06
+    ref: d7818df4666e492769bc51475c18329d89b570b8
     promotion:
       auto: true
       subscribe:
