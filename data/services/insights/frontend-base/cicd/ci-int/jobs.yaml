@@ -115,6 +115,7 @@ config:
         status_context: ci.int.devshift.net PR pipeline
         app_name: 'rbac'
         component_name: 'rbac'
+        cji_component_name: 'rbac'
         app_image: 'quay.io/cloudservices/rbac'
         run_build_push_quay: 'true'
         run_cypress_component: 'true'

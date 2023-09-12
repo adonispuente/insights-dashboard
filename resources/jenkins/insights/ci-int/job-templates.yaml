@@ -751,6 +751,9 @@
         name: COMPONENT_NAME
         default: '{component_name}'
     - string:
+        name: CJI_COMPONENT_NAME
+        default: '{cji_component_name}'
+    - string:
         name: APP_IMAGE
         default: '{app_image}'
     - string:

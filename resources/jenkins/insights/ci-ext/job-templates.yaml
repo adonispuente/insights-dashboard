@@ -410,14 +410,15 @@
     iqe_parallel_worker_count: ""
     iqe_rp_args: ""
     iqe_ibutsu_source: ""
+    extra_deploy_args: ""
     components_w_resources: ""
     parameters:
     - string:
         name: VAULT_ADDRESS
-        default: 'https://vault.ci.ext.devshift.net'
+        default: "https://vault.devshift.net"
     - string:
         name: VAULT_CREDS_ID
-        default: 'vault-creds-ci-ext'
+        default: 'vault-creds'
     - string:
         name:   VAULT_PATH_SVC_ACCOUNT_EPHEMERAL
         default: 'insights-cicd/ephemeral-bot-svc-account'
@@ -436,7 +437,10 @@
     - string:
         name: VAULT_PATH_APP_INTERFACE_CREDS
         default: 'app-sre/creds/app-interface/production/basic-auth'
-
+    - string:
+        name: VAULT_PATH_CHROME_CYPRESS
+        default: 'insights-cicd/chrome'
+    
     # Parameters to set which stages will run
     - string:
         name: APP_NAME
@@ -444,6 +448,9 @@
     - string:
         name: COMPONENT_NAME
         default: '{component_name}'
+    - string:
+        name: CJI_COMPONENT_NAME
+        default: '{cji_component_name}'
     - string:
         name: APP_IMAGE
         default: '{app_image}'
@@ -519,6 +526,9 @@
     - string:
         name: COMPONENTS_W_RESOURCES
         default: '{components_w_resources}'
+    - string:
+        name: EXTRA_DEPLOY_ARGS
+        default: '{extra_deploy_args}'
     pipeline-scm:
       # make parameter to override template name
       script-path: 'templates/frontends-pipeline-pr-checks/Jenkinsfile'
