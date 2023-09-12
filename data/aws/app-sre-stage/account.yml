@@ -229,7 +229,7 @@ deletionApprovals:
   #Reverting "AMS Start using enforced parameters-group (int, stage)"
 - type: aws_db_parameter_group
   name: ocm-integration-rds-parameter-group-pg12-enforce-ssl
-  expiration: '20223-09-13'
+  expiration: '2023-09-13'
 - type: aws_db_parameter_group
   name: ocm-stage-rds-parameter-group-pg12-enforce-ssl
-  expiration: '20223-09-13'
+  expiration: '2023-09-13'
