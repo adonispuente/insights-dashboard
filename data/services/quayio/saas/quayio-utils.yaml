@@ -119,7 +119,7 @@ resourceTemplates:
       name: quay-quay-gh-build-master
   - namespace:
       $ref: /services/quayio/namespaces/quayp05ue1.yml
-    ref: af97203ec7815f075b2200d6af29d3c3c716e980
+    ref: 8314a5851564025ed353cb968bcd5e3ddc4cb432
 
 - name: quayio-update-ro-keys-job
   path: /openshift.yml
