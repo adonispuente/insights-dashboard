@@ -625,6 +625,7 @@ resourceTemplates:
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
       REFRESH: "1693336833"
+    delete: true
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
@@ -703,6 +704,7 @@ resourceTemplates:
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
       REFRESH: "1693336833"
+    delete: true
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
