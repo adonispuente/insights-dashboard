@@ -28,6 +28,10 @@ automationToken:
   path: app-sre/creds/kube-configs/hivep08ue2
   field: token
 
+clusterAdminAutomationToken:
+  path: app-sre/creds/kube-configs/hivep08ue2-cluster-admin
+  field: token
+
 managedGroups:
 - dedicated-admins
 
