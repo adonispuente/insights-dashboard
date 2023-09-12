@@ -169,13 +169,13 @@ resourceTemplates:
     ref: internal  # populated by bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 879c53415361b6cd6084010df9172802d3faa378
+    ref: b0aaccca6d99a5d9d355442230942dc661cec545
     parameters:
       ENV_NAME: "env-stage"
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 8df911513fd2c049e550cfe33ecf6153a1b2f9b0
+    ref: b0aaccca6d99a5d9d355442230942dc661cec545
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui
@@ -193,7 +193,7 @@ resourceTemplates:
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 9f83d1de246fcdf5bf44d223f50cd25aa0e6e7bc
+    ref: b0aaccca6d99a5d9d355442230942dc661cec545
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui
