@@ -7,4 +7,5 @@ name: Oleksandr Shmaraiev
 org_username: oshmarai
 github_username: artaleks9
 
-roles: []
+roles:
+- $ref: /teams/che/roles/che-dev.yml
