@@ -189,7 +189,7 @@ resourceTemplates:
           name: stackrox-acs-fleet-manager-build-and-push-main
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
-        ref: 63189b26dcb2f9b9e1c0cc349ce29e24e7657cf2
+        ref: f6d113eed354b98617b7ffe528ed15518fa2ecab
         parameters:
           ENVIRONMENT: production
           DATAPLANE_CLUSTER_CONFIG_FILE: /config/dataplane-cluster-configuration.yaml
