@@ -225,3 +225,11 @@ deletionApprovals:
 - type: aws_iam_user
   name: aws-resource-exporter-cluster-scraper-stage-01
   expiration: '20223-06-16'
+
+  #Reverting "AMS Start using enforced parameters-group (int, stage)"
+- type: aws_db_parameter_group
+  name: ocm-integration-rds-parameter-group-pg12-enforce-ssl
+  expiration: '2023-09-13'
+- type: aws_db_parameter_group
+  name: ocm-stage-rds-parameter-group-pg12-enforce-ssl
+  expiration: '2023-09-13'
