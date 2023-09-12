@@ -341,3 +341,4 @@ resourceTemplates:
     parameters:
       ALERTMANAGER_SERVER_NAME: alertmanager.hivep08ue2.devshift.net
       PROMETHEUS_SERVER_NAME: prometheus.hivep08ue2.devshift.net
+      CERT_MANAGER_ISSUER_NAME: letsencrypt-devshiftnet-dns
