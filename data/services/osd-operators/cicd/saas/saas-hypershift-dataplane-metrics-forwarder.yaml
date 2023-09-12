@@ -54,25 +54,25 @@ resourceTemplates:
       name: openshift-hypershift-dataplane-metrics-forwarder-gh-build-main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 96d2669a9547f172cdbbc11c1a881f9c831ca316
+    ref: ed036a5bba67b7532a5d103084f0f6332360c7fb
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: main
