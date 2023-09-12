@@ -216,7 +216,7 @@ resourceTemplates:
       MIRRORMAKER_TOPIC_RETENTION_MS: "2419200000"
       OPENSEARCH_CURATOR_FORCEMERGE_AFTER_DAYS: 1
       OPENSEARCH_CURATOR_DELETE_INDICES_AFTER_MONTHS: 3
-  - ref: be79aaf0a369db992f7582b178f556c76b5bd327
+  - ref: e558ed82dca5135f8fe481baeabbec647f3d441f
     namespace:
       $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
     promotion:
