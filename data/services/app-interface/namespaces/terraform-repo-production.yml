@@ -1,0 +1,56 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: terraform-repo-production
+description: production namespace for terraform-repo
+
+cluster:
+  $ref: /openshift/app-sre-prod-01/cluster.yml
+
+app:
+  $ref: /services/app-interface/app.yml
+
+environment:
+  $ref: /products/app-interface/environments/production.yml
+
+networkPoliciesAllow:
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-prod-01.yml
+
+managedRoles: true
+
+managedResourceTypes:
+  - Secret
+
+sharedResources:
+  - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+# a route attached to the EventListener for tekton will be provisioned here
+# such that GitLab can communicate with OpenShift on merges to master
+openshiftResources:
+  # - provider: vault-secret
+  #   path: app-sre/creds/terraform-repo/push-deploy-gitlab
+  #   version: 1
+  #   name: push-deploy-gitlab
+  - provider: vault-secret
+    path: app-sre/creds/gitlab-app-sre-bot
+    name: executor-gitlab
+  # - provider: vault-secret
+  #   path: app-sre/approles/terraform-repo
+  #   version: 1
+  #   name: executor-vault
+  # - provider: route
+  #   path: /services/app-interface/production/terraform-repo.devshift.net.route.yaml
+  # - provider: resource-template
+  #   type: extracurlyjinja2
+  #   path: /services/app-interface/production/ca-certs.secret.yml
+  - provider: vault-secret
+    path: app-sre/creds/qontract-reconcile-toml
+    name: qontract-reconcile-toml
+  - provider: resource-template
+    type: extracurlyjinja2
+    path: /tekton/qontract-reconcile.secret.yml
+  # - provider: vault-secret
+  #   path: app-sre/creds/terraform-repo/webhook
+  #   version: 1
