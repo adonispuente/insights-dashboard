@@ -284,8 +284,8 @@ upgradePolicyClusters:
 recommendedVersions:
 - workload: service-cluster
   channel: stable
-  recommendedVersion: 4.13.10
-  initialVersion: openshift-v4.13.10
+  recommendedVersion: 4.13.11
+  initialVersion: openshift-v4.13.11
 - workload: management-cluster
   channel: stable
   recommendedVersion: 4.13.9
