@@ -6,8 +6,8 @@ name: hivep08ue2
 description: hivep08ue2 cluster
 consoleUrl: https://console-openshift-console.apps.hivep08ue2.xwd4.p1.openshiftapps.com
 kibanaUrl: ''
-prometheusUrl: ''
-alertmanagerUrl: ''
+prometheusUrl: https://prometheus.hivep08ue2.devshift.net
+alertmanagerUrl: https://alertmanager.hivep08ue2.devshift.net
 serverUrl: https://api.hivep08ue2.xwd4.p1.openshiftapps.com:6443
 elbFQDN: elb.apps.hivep08ue2.xwd4.p1.openshiftapps.com
 
