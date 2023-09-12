@@ -63,7 +63,11 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
-    ref: dc3452748211c36547182aeee54ccb15fe346a49
+    ref: master
+    image:
+      org:
+        $ref: /dependencies/quay/app-sre.yml
+      name: qontract-server
   - namespace:
       $ref: /services/sre-capabilities/namespaces/sre-capabilities-prod.yml
     ref: dc3452748211c36547182aeee54ccb15fe346a49
@@ -82,7 +86,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/sre-capabilities/namespaces/sre-capabilities-stage.yml
     ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: app-sre-qontract-reconcile-gh-build-master
+    image:
+      org:
+        $ref: /dependencies/quay/app-sre.yml
+      name: qontract-reconcile
