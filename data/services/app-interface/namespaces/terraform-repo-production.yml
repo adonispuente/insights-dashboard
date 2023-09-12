@@ -36,6 +36,7 @@ openshiftResources:
   - provider: vault-secret
     path: app-sre/creds/gitlab-app-sre-bot
     name: executor-gitlab
+    version: 1
   # - provider: vault-secret
   #   path: app-sre/approles/terraform-repo
   #   version: 1
@@ -48,6 +49,7 @@ openshiftResources:
   - provider: vault-secret
     path: app-sre/creds/qontract-reconcile-toml
     name: qontract-reconcile-toml
+    version: 1
   # - provider: resource-template
   #   type: extracurlyjinja2
   #   path: /tekton/qontract-reconcile.secret.yml
