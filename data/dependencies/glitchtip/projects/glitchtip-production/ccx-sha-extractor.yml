@@ -22,4 +22,7 @@ alerts:
   recipients:
   - provider: email-project-members
   - provider: webhook
-    url: https://hooks.slack.com/services/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
+    urlSecret:
+      path: insights/secrets/insights-prod/ccx-data-pipeline-prod/ccx-dev-notifications
+      field: url
+      version: 1
