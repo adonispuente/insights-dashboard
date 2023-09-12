@@ -176,6 +176,9 @@ resourceTemplates:
   - namespace:
       $ref: /openshift/hivep07ue2/namespaces/cert-manager.yml
     ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
+  - namespace:
+      $ref: /openshift/hivep08ue2/namespaces/cert-manager.yml
+    ref: 24e9b09396e7d4342dc64b9719752f78d9c915f9
   # RHOBS
   - namespace:
       $ref: /openshift/rhobsp02ue1/namespaces/cert-manager.yml
