@@ -72,4 +72,10 @@ resourceTemplates:
       IQE_BROWSERLOG: ""
       IQE_NETLOG: ""
       NAME_STUB: e2e-tests
+    promotion:
+      auto: true
+      subscribe:
+      - provisioning-prod-deploy-success-channel
+      publish:
+      - provisioning-prod-post-deploy-integration-tests-success-channel
 
