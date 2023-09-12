@@ -45,9 +45,9 @@ acceptanceCriteria:
     components.
   name: INCIDENT-MGMT-0004
   status: red
-- comment: All services must document their dependencies.
+- comment: 'All internal and external dependencies are documented in the SRES Onboarding Questionaire: https://docs.google.com/document/d/1KXLyxhiykazx3u1VVo-tT1sGTN7DSm5hVLrMg_lRSKE/edit?usp=sharing'
   name: INCIDENT-MGMT-0005
-  status: yellow
+  status: green
 - comment: ''
   name: INCIDENT-MGMT-0006
   status: green
@@ -59,7 +59,7 @@ acceptanceCriteria:
       '
   name: INCIDENT-MGMT-0007
   status: yellow
-- comment: CEE engagement has not been formalized yet
+- comment: CEE engagement has not been formalized yet; access information is in https://gitlab.cee.redhat.com/rhtap/docs/sop/-/blob/main/general/getting-access.md
   name: INCIDENT-MGMT-0008
   status: yellow
 - comment: |
@@ -121,16 +121,15 @@ acceptanceCriteria:
 - comment: ''
   name: RELIABILITY-0002
   status: green
-- comment: The dependency management plan for Stonesoup components must be documented.
+- comment: 'Dependency management is documented in the SRES Onboarding Questionairre: https://docs.google.com/document/d/1KXLyxhiykazx3u1VVo-tT1sGTN7DSm5hVLrMg_lRSKE/edit?usp=sharing'
   name: RELIABILITY-0003
-  status: red
+  status: green
 - comment: ''
   name: RELIABILITY-0004
   status: green
-- comment: Performance testing to determine the limits of all the operator based components
-    must be conducted, to prevent the risk of collapsing the kube api or etcd.
+- comment: 'Performance testing has been completed.  RHTAP can comfortably support its target of 40 concurrent active users per cluster and we are continuing to optimize towards 100 active users. An ongoing log of performance testing activities can be found in: https://docs.google.com/document/d/1UXjkG7NUwrPJMba7FSQjT57ICDH0nBT3gWujhNX-p1c/edit?usp=sharing'
   name: RELIABILITY-0005
-  status: red
+  status: green
 - comment: The scalibility plan must be documented. How will the service scale with
     an unexpected increase in demand?
   name: RELIABILITY-0006
