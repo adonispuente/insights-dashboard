@@ -32,7 +32,7 @@ config:
         branch: main
         pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the main branch which targets the stage preview environment
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: curiosity-frontend build-main
         branch: main
         build_deploy_script_path: "./deploy/build_deploy.sh"
