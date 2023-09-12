@@ -91,7 +91,7 @@ resourceTemplates:
               central_instance_limit: 20
               provider_type: standalone
               supported_instance_type: "standard"
-              cluster_dns: apps.acs-int-us-01.isbr.p1.openshiftapps-com:6443
+              cluster_dns: apps.acs-int-us-01.isbr.p1.openshiftapps-com
               available_central_operator_versions:
               # This functionality is currently unused, so no need to update the version in this section,
               # but there must be exactly one entry here.
