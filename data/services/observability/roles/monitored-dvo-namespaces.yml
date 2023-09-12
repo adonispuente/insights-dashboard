@@ -100,6 +100,9 @@ access:
     $ref: /openshift/hivep07ue2/namespaces/openshift-deployment-validation-operator.yml
   role: view
 - namespace:
+    $ref: /openshift/hivep08ue2/namespaces/openshift-deployment-validation-operator.yml
+  role: view
+- namespace:
     $ref: /openshift/hives02ue1/namespaces/openshift-deployment-validation-operator.yml
   role: view
 - namespace:
