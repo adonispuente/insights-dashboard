@@ -7,7 +7,7 @@ name: backstage-stage
 description: stage namespace for backstage
 
 cluster:
-  $ref: /openshift/app-sre-stage-01/cluster.yml
+  $ref: /openshift/appsres05ue1/cluster.yml
 
 app:
   $ref: /services/backstage/app.yml
