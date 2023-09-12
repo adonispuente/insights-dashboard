@@ -1,0 +1,23 @@
+---
+$schema: /app-interface/app-interface-email-1.yml
+labels: {}
+name: 2023-09-12-app-interface-log-retention-default-announcement
+subject: "Enforcing default log group retentions of 90 days"
+to:
+  aliases:
+    - all-service-owners
+body: |
+  Hello,
+
+  In an effort to reduce AWS costs, we will be enforcing a log retention period of 90 days across all log groups that currently have a retention period of 'Never expire'. This change will take place on Wednesday September 20, 2023. 
+
+  Please note that if you already have a retention period set in place, this change will not affect those log groups.
+
+  If you need to have the retention period set to a different value, our integration is set up to apply other specified retention periods, documented in our README[1].
+
+  If you have questions or concerns about this, please post a question in the #sd-app-sre Slack channel.
+
+  Thank you,
+  The SRE team
+
+  [1] https://gitlab.cee.redhat.com/service/app-interface#cleanup-cloudwatch-log-groups-in-aws-accounts
