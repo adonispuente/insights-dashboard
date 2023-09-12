@@ -7,7 +7,8 @@ metadata:
 spec:
   {% set channels = {
     '4.12': 'pipelines-1.9',
-    '4.13': 'pipelines-1.10',
+    '4.13': 'pipelines-1.11',
+    '4.14': 'pipelines-1.11',
   } %}
   {% set cluster_spec = resource.namespace.cluster.spec %}
   {% set cluster_major_version = 'VERSION_NOT_SET' if cluster_spec is none else '.'.join(cluster_spec.version.split('.')[:2]) %}
