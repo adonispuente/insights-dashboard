@@ -32,7 +32,7 @@ config:
         branch: main
         pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the main branch which targets the stage preview environment
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: curiosity-frontend build-main
         branch: main
         build_deploy_script_path: "./deploy/build_deploy.sh"
@@ -43,7 +43,7 @@ config:
 #        branch: stable
 #        pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the stable branch which targets the stage stable environment
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: curiosity-frontend build-stable
         branch: stable
         build_deploy_script_path: "./deploy/build_deploy.sh"
@@ -88,10 +88,10 @@ config:
 #        branch: hotfix
 #        concurrent_build: true
 #        status_context: ci.ext.devshift.net PR pipeline hotfix
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: rhsm-subscriptions build-main
         branch: main
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: rhsm-subscriptions build-hotfix
         branch: hotfix
 - project:
@@ -102,7 +102,7 @@ config:
     gh_repo: rhsm-subscriptions-egress
     quay_org: cloudservices
     jobs:
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: rhsm-subscriptions-egress build-main
         branch: main
 - project:
@@ -113,6 +113,6 @@ config:
     gh_repo: nginx-otel
     quay_org: cloudservices
     jobs:
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: nginx-otel build-main
         branch: main
