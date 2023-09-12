@@ -9,6 +9,10 @@ permissions: []
 
 self_service:
 - change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - /teams/sd-sre/roles/osd-rhobs-rules-and-dashboards-approver.yml
+- change_type:
     $ref: /app-interface/changetype/saas-file-self-service.yml
   datafiles:
   - $ref: /services/osd-operators/cicd/saas/saas-osd-rhobs-rules-and-dashboards.yaml
