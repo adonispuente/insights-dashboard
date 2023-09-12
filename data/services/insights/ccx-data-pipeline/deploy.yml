@@ -391,7 +391,6 @@ resourceTemplates:
       IMAGE: "quay.io/cloudservices/ccx-notification-writer"
       MIN_REPLICAS: "1"
       MAX_REPLICAS: "1"
-    delete: true
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
     ref: 5c370f702b6dbba82c10e5a2ce83e95d0ee632ed
