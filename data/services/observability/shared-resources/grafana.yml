@@ -90,3 +90,5 @@ openshiftResources:
       slug: backplanes04uw2.o9if.p1
     - name: backplanep04uw2
       slug: backplanep04uw2.cxr0.p1
+    - name: hivep08ue2
+      slug: hivep08ue2.xwd4.p1
