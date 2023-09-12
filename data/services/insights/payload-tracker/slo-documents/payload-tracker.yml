@@ -1,0 +1,51 @@
+---
+$schema: /app-sre/slo-document-1.yml
+
+labels:
+  service: payload-tracker
+
+name: payload-tracker
+
+app:
+  $ref: /services/insights/payload-tracker/app.yml
+
+namespaces:
+  - namespace:
+      $ref: /services/insights/payload-tracker/namespaces/payload-tracker-prod.yml
+
+slos:
+- name: Payload Tracker 5XX Quota Reached
+  SLIType: availability
+  SLISpecification: Percentage of successful (non-5xx) HTTP requests made to the API.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/docs/console.redhat.com/app-sops/payload-tracker/SLO.md
+  SLOParameters:
+    window: 28d
+  expr: (sum(sum_over_time(payload_tracker_responses[{{window}}])) - sum(sum_over_time(payload_tracker_responses{code=~"5.*"}[{{window}}]))) / sum(sum_over_time(payload_tracker_responses[{{window}}]))
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  prometheusRules: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
+  dashboard: "https://grafana.app-sre.devshift.net/d/eGSUe-SZk/payload-tracker?orgId=1&refresh=1m&viewPanel=16"
+
+- name: Payload Tracker Failed Processing Quota Reached
+  SLIType: availability
+  SLISpecification: Percentage of correctly-formatted messages ingested from Kafka, which are successfully processed in the past 24 hours.
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/docs/console.redhat.com/app-sops/payload-tracker/SLO.md
+  SLOParameters:
+    window: 28d
+  expr: 1.00 - sum(sum_over_time(payload_tracker_message_process_errors[{{window}}])) / sum(sum_over_time(payload_tracker_messages_processed[{{window}}]))
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  prometheusRules: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
+  dashboard: "https://grafana.app-sre.devshift.net/d/eGSUe-SZk/payload-tracker?orgId=1&refresh=1m&viewPanel=32"
+
+- name: Payload Tracker Downtime Quota Reached
+  SLIType: availability
+  SLISpecification: Percentage of time that the pod remains in the UP state. 
+  SLODetails: https://gitlab.cee.redhat.com/service/app-interface/docs/console.redhat.com/app-sops/payload-tracker/SLO.md
+  SLOParameters:
+    window: 28d
+  expr: 1.00 - avg(avg_over_time(up{service="payload-tracker-api", namespace="payload-tracker-prod"}[{{window}}]))
+  SLOTarget: 0.95
+  SLOTargetUnit: percent_0_1
+  prometheusRules: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
+  dashboard: "https://grafana.app-sre.devshift.net/d/eGSUe-SZk/payload-tracker?orgId=1&refresh=1m&viewPanel=12"
