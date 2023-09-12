@@ -102,11 +102,6 @@ peering:
     manageRoutes: true
     assumeRole: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
 
-disable:
-  integrations:
-  - openshift-groups
-  - openshift-users
-  - slack-usergroups
 managedClusterRoles: true
 observabilityNamespace:
   $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep08ue2.yml
