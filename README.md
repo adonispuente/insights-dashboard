@@ -566,8 +566,13 @@ quantity: 1
 timespanMinutes: 1
 recipients:
 - provider: <email-project-members OR webhook>
-# for webhook
-url: <url of the webhook>
+  # for webhook
+  url: <webhook without any credentials>
+  # or if the webhook includes credentials
+  urlSecret:
+    path: <vault path to secret>
+    field: <url field in secret>
+    version: <version of the secret; if versioned secret else not needed>
 ```
 > **Attention** :warning:
 >
