@@ -113,7 +113,6 @@ resourceTemplates:
       $ref: /services/insights/host-inventory/namespaces/prod-host-inventory-prod.yml
     ref: a026094585e74a09dbfb3ebbcd48a41aea2a9d53
     parameters:
-      IMAGE_TAG: a873421
       REPLICAS_SVC: 25
       INVENTORY_DB_SSL_MODE: verify-full
       REAPER_SUSPEND: 'false'
