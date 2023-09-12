@@ -8,6 +8,7 @@
         <<: *vault_defaults
         secrets:
         - *app_interface_instance_s3
+        - *app_interface_instance_basic_auth
     publishers:
     - gitlab-notifier:
         name: '{display_name}'

@@ -30,12 +30,14 @@ config:
         build_deploy_script_path: ./hack/build_deploy.sh
         instance_name: sre-capabilities-stage
         s3_bucket_secret_path: app-sre/integrations-output/terraform-resources/appsres03ue1/sre-capabilities-stage/sre-capabilities-s3
+        qontract_server_auth_secret_path: app-interface/app-interface-instances/sre-capabilities-stage/qontract-server-creds
         slack_channel_notification: sd-sre-capabilities-stage
     - 'gl-build-app-interface-instance':
         display_name: SRE Capabilities build - deploy to prod only
         build_deploy_script_path: ./hack/build_deploy.sh
         instance_name: sre-capabilities
         s3_bucket_secret_path: app-sre/integrations-output/terraform-resources/appsrep05ue1/sre-capabilities-prod/sre-capabilities-s3
+        qontract_server_auth_secret_path: app-interface/app-interface-instances/sre-capabilities/qontract-server-creds
         slack_channel_notification: sd-sre-capabilities-prod
     - 'gl-pr-check-app-interface-instance':
         display_name: SRE Capabilities schema validator pr-check
