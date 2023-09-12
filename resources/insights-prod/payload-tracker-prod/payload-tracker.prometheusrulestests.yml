@@ -31,7 +31,7 @@ tests:
 # PayloadTracker5XXQuotaReached
 - interval: 1m 
   input_series:
-  - series: payload_tracker_responses{code!~"5.*"}
+  - series: payload_tracker_responses{code=~"5.*"}
     values: 0 0 5 10 15
   - series: payload_tracker_responses
     values: 0 10 15 20 25

@@ -25,7 +25,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/payload-tracker/App-payload-tracker-In-payload-tracker-prod-Downtime-Quota-Reached.rst"
 
     - alert: App-payload-tracker-In-payload-tracker-prod-5XX-Quota-Reached
-      expr: (sum(sum_over_time(payload_tracker_responses{code!~"5.*"}[24h])) / sum(sum_over_time(payload_tracker_responses[24h]))) <= 0.95
+      expr: (sum(sum_over_time(payload_tracker_responses[24h])) - sum(sum_over_time(payload_tracker_responses{code=~"5.*"}[24h]))) / sum(sum_over_time(payload_tracker_responses[24h])) <= 0.95
       for: 5m
       labels:
           severity: info

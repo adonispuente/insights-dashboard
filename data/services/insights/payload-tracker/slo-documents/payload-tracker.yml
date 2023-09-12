@@ -20,7 +20,7 @@ slos:
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/docs/console.redhat.com/app-sops/payload-tracker/SLO.md
   SLOParameters:
     window: 28d
-  expr: 1.00 - avg(avg_over_time(up{service="payload-tracker-api", namespace="payload-tracker-prod"}[{{window}}]))
+  expr: (sum(sum_over_time(payload_tracker_responses[{{window}}])) - sum(sum_over_time(payload_tracker_responses{code=~"5.*"}[{{window}}]))) / sum(sum_over_time(payload_tracker_responses[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
@@ -44,7 +44,7 @@ slos:
   SLODetails: https://gitlab.cee.redhat.com/service/app-interface/docs/console.redhat.com/app-sops/payload-tracker/SLO.md
   SLOParameters:
     window: 28d
-  expr: (sum(sum_over_time(payload_tracker_responses{code!~"5.*"}[{{window}}])) / sum(sum_over_time(payload_tracker_responses[{{window}}])))
+  expr: 1.00 - avg(avg_over_time(up{service="payload-tracker-api", namespace="payload-tracker-prod"}[{{window}}]))
   SLOTarget: 0.95
   SLOTargetUnit: percent_0_1
   prometheusRules: /insights-prod/payload-tracker-prod/payload-tracker.prometheusrules.yml
