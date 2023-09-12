@@ -43,7 +43,7 @@ config:
 #        branch: stable
 #        pr_check_script_path: "./deploy/pr_check.sh"
     # Run the build for the stable branch which targets the stage stable environment
-    - "gh-build-master":
+    - "insights-gh-build-master":
         display_name: curiosity-frontend build-stable
         branch: stable
         build_deploy_script_path: "./deploy/build_deploy.sh"
