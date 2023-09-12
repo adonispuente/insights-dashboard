@@ -48,9 +48,9 @@ openshiftResources:
   - provider: vault-secret
     path: app-sre/creds/qontract-reconcile-toml
     name: qontract-reconcile-toml
-  - provider: resource-template
-    type: extracurlyjinja2
-    path: /tekton/qontract-reconcile.secret.yml
+  # - provider: resource-template
+  #   type: extracurlyjinja2
+  #   path: /tekton/qontract-reconcile.secret.yml
   # - provider: vault-secret
   #   path: app-sre/creds/terraform-repo/webhook
   #   version: 1
