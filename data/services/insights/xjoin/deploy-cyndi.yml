@@ -326,7 +326,7 @@ resourceTemplates:
           where: "NOT system_profile_facts ? 'host_type'"
         - name: "nonCentOS"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
-          if: "!record.value().host.system_profile.operating_system.name.match(/centos/i)"
+          if: "!(record.value() && record.value().host && record.value().host.system_profile && record.value().host.system_profile.operating_system && record.value().host.system_profile.operating_system.name && record.value().host.system_profile.operating_system.name.match(/centos/i))"
           where: "COALESCE(system_profile_facts->'operating_system'->>'name', '') NOT ILIKE '%centos%'"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
