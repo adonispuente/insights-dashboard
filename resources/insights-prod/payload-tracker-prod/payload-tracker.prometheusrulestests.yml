@@ -15,7 +15,7 @@ tests:
     values: 1 0 0 0 1
   alert_rule_test:
   - alertname: App-payload-tracker-In-payload-tracker-prod-Downtime-Quota-Reached
-    eval_time: 5m
+    eval_time: 10m
     exp_alerts:
     - exp_labels:
         severity: info
@@ -37,7 +37,7 @@ tests:
     values: 0 10 15 20 25
   alert_rule_test:
   - alertname: App-payload-tracker-In-payload-tracker-prod-5XX-Quota-Reached
-    eval_time: 5m
+    eval_time: 10m
     exp_alerts:
     - exp_labels:
         severity: info
@@ -59,7 +59,7 @@ tests:
     values: 0 25 50 75 100
   alert_rule_test:
   - alertname: App-payload-tracker-In-payload-tracker-prod-Failed-Processing-Quota-Reached
-    eval_time: 5m
+    eval_time: 10m
     exp_alerts:
     - exp_labels:
         severity: info
