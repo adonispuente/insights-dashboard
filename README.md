@@ -2782,7 +2782,9 @@ cleanup:
   regex: '*log-group-regex*'
   retention_in_days: 90
 ```
-You can find the valid `retention_in_days` values within the [schemas file](https://github.com/app-sre/qontract-schemas/tree/mainschemas/aws/cleanup-option-1.yml) for the log retention integration. These values reflect the allowed rentention value [AWS accepts](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax).
+You can find the valid `retention_in_days` values within the [schemas file](https://github.com/app-sre/qontract-schemas/blob/main/schemas/aws/cleanup-option-1.yml#L56) for the log retention integration. These values reflect the allowed retention value [AWS accepts](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax).
+
+Please note that by September 20, 2023, all log groups will have a default retention period of 90 days for any current and new log groups created with a retention period of 'Never expire'. This will not affect any existing log groups that have a retention period set in place. Tenants who need to change their retention period from the default 90 days can refer to the link of approved days and submit a MR to reflect the new desired retention period value.
 
 ### Manage Slack User groups via App-Interface
 
