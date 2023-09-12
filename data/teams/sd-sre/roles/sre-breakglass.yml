@@ -34,3 +34,6 @@ access:
 - cluster:
     $ref: /openshift/hivep07ue2/cluster.yml
   group: hive-frontend
+- cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
+  group: hive-frontend

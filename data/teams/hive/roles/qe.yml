@@ -46,5 +46,8 @@ access:
     $ref: /openshift/hivep07ue2/cluster.yml
   group: hive-readers
 - cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
+  group: hive-readers
+- cluster:
     $ref: /openshift/ssotest01ue1/cluster.yml
   group: hive-admins
