@@ -97,6 +97,8 @@ resourceTemplates:
       VALIDATION_POD_MEMORY_LIMIT: '4Gi'
       VALIDATION_POD_CPU_REQUEST: '1'
       VALIDATION_POD_MEMORY_REQUEST: '2Gi'
+      VALIDATION_CONTENT_MAX_THREADS: '100'
+      VALIDATION_CONTENT_CHUNK_SIZE: '1'
 
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-operator-prod.yml
