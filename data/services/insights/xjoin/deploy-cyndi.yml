@@ -235,7 +235,7 @@ resourceTemplates:
         - name: "nonCentOS"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
           if: "!record.value().host.system_profile.operating_system.name.match(/centos/i)"
-          where: "system_profile_facts->'operating_system'->>'name' NOT ILIKE '%centos%'"
+          where: "COALESCE(system_profile_facts->'operating_system'->>'name', '') NOT ILIKE '%centos%'"
         - name: "excludedReporters"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
           if: "!record.value().host.reporter.match(/^(yupana|rhsm-conduit)$/i)"
@@ -276,7 +276,7 @@ resourceTemplates:
         - name: "nonCentOS"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
           if: "!record.value().host.system_profile.operating_system.name.match(/centos/i)"
-          where: "system_profile_facts->'operating_system'->>'name' NOT ILIKE '%centos%'"
+          where: "COALESCE(system_profile_facts->'operating_system'->>'name', '') NOT ILIKE '%centos%'"
         - name: "excludedReporters"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
           if: "!record.value().host.reporter.match(/^(yupana|rhsm-conduit)$/i)"
@@ -363,7 +363,7 @@ resourceTemplates:
         - name: "nonCentOS"
           type: "com.redhat.insights.kafka.connect.transforms.Filter"
           if: "!record.value().host.system_profile.operating_system.name.match(/centos/i)"
-          where: "system_profile_facts->'operating_system'->>'name' NOT ILIKE '%centos%'"
+          where: "COALESCE(system_profile_facts->'operating_system'->>'name', '') NOT ILIKE '%centos%'"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: d0caf4e6144b6951623ab516852a3a7862a1238e
