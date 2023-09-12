@@ -617,7 +617,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: 12acc84d97718987c89c9cb5389111861495a292
+    ref: fd6891991fc416ae5837599ad51ee1ee56770453
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/notifications-frontend
@@ -635,14 +635,14 @@ resourceTemplates:
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: b897f657e3bb3256947d813e9834c99c39fcbc80
+    ref: fd6891991fc416ae5837599ad51ee1ee56770453
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/notifications-frontend
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: b897f657e3bb3256947d813e9834c99c39fcbc80
+    ref: fd6891991fc416ae5837599ad51ee1ee56770453
     parameters:
       ENV_NAME: frontends-beta
       IMAGE: quay.io/cloudservices/notifications-frontend
