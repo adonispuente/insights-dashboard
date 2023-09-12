@@ -31,4 +31,4 @@ instances:
     $ref: /services/insights/ros/namespaces/ros-prod.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-08-30'
+expirationDate: '2023-11-30'
