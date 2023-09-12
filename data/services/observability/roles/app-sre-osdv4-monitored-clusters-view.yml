@@ -137,3 +137,6 @@ access:
 - cluster:
     $ref: /openshift/appsres06ue1/cluster.yml
   clusterRole: cluster-monitoring-view
+- cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
+  clusterRole: cluster-monitoring-view

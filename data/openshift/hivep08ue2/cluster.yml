@@ -107,3 +107,6 @@ disable:
   - openshift-groups
   - openshift-users
   - slack-usergroups
+managedClusterRoles: true
+observabilityNamespace:
+  $ref: /services/observability/namespaces/openshift-customer-monitoring.hivep08ue2.yml
