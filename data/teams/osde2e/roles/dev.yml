@@ -15,6 +15,18 @@ access:
 - namespace:
     $ref: /services/observability/namespaces/app-sre-observability-production.yml
   role: view
+- namespace:
+    $ref: /services/rhobs/telemeter/namespaces/telemeter-production.yml
+  role: view
+- namespace:
+    $ref: /services/rhobs/telemeter/namespaces/telemeter-stage.yml
+  role: view
+- namespace:
+    $ref: /services/ocm/namespaces/uhc-production.yml
+  role: view
+- namespace:
+    $ref: /services/ocm/namespaces/uhc-stage.yml
+  role: view  
 
 self_service:
 - change_type:
