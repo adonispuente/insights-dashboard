@@ -90,6 +90,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/hive/namespaces/hivep07ue2/hive-production.yml
     ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
+  - namespace:
+      $ref: /services/hive/namespaces/hivep08ue2/hive-production.yml
+    ref: 4418e43e27a3bffdac6192a0c4a5f581146f5d00
 - name: grafana-dashboard-hive-slo
   url: https://github.com/openshift/hive
   path: /hack/grafana-dashboards
