@@ -689,7 +689,7 @@ resourceTemplates:
   # Prod Stable
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: fd82f509bc9821dbbceabb9b8026f0e37e54ea87
+    ref: 97da9b48a09b7f0da5f1fd1dd4a8f3bd2a136737
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/user-preferences-frontend
