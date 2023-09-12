@@ -1,0 +1,27 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Maximilian Kosiarcik
+org_username: mkosiarc
+github_username: mkosiarc
+quay_username: mkosiarc
+slack_username: mkosiarc
+
+roles:
+- $ref: /aws/app-sre-logs/roles/log-consumer.yml
+- $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-dev-aws.yml
+
+# Export with gpg --export your_public_key_id | base64
+public_gpg_key: |
+  mDMEY7bH6xYJKwYBBAHaRw8BAQdAzXdcR+lE9OhvQ/MaCb/kbubpqe5+ecksNoBNPqhhIr20Kk1h
+  eGltaWxpYW4gS29zaWFyY2lrIDxta29zaWFyY0ByZWRoYXQuY29tPoiaBBMWCgBCFiEEbgdJHDko
+  8pjo8YOSMaL5RxyP+FMFAmO2x+sCGwMFCQPCZwAFCwkIBwIDIgIBBhUKCQgLAgQWAgMBAh4HAheA
+  AAoJEDGi+Uccj/hTvHoBANnTlozJZ65gwwGwZ0nPWxOg6s0hC7uFIlx1pVnB82P3AP978XzSk14m
+  GPGOv1PgJR5SpmuE3pLX8dPFlYO3ODYkAbg4BGO2x+sSCisGAQQBl1UBBQEBB0AAQIR62wwtBVK+
+  XnFNY+V7NeGrD0n+fP72fMU2xZLfawMBCAeIfgQYFgoAJhYhBG4HSRw5KPKY6PGDkjGi+Uccj/hT
+  BQJjtsfrAhsMBQkDwmcAAAoJEDGi+Uccj/hT2yAA/iVqKwlo08upAMEYF51hkBNArLvM3k4xuBFw
+  3pHSFeBxAP94MCQpLobUAX0jqpVeEF9EjN231j/lYK5iKjnXMyB2AQ==
+
