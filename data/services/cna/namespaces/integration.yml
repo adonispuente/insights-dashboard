@@ -73,7 +73,7 @@ externalResources:
   - provider: aws-iam-role
     identifier: cna-service-integration-appsres06ue1
     assume_role:
-      Federated: arn:aws:iam::611491592236:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm
+      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/25qam2sc4pg79u1vbstr81f2snhea8gm
     assume_action: "AssumeRoleWithWebIdentity"
     # the condition makes sure that only the cna-sa service-account in the cna-integration namespace can assume this role
     assume_condition:
