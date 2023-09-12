@@ -33,10 +33,10 @@ openshiftResources:
   #   path: app-sre/creds/terraform-repo/push-deploy-gitlab
   #   version: 1
   #   name: push-deploy-gitlab
-  - provider: vault-secret
-    path: app-sre/creds/gitlab-app-sre-bot
-    name: executor-gitlab
-    version: 1
+  # - provider: vault-secret
+  #   path: app-sre/creds/gitlab-app-sre-bot
+  #   name: executor-gitlab
+  #   version: 1
   # - provider: vault-secret
   #   path: app-sre/approles/terraform-repo
   #   version: 1
