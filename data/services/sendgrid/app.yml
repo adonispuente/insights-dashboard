@@ -19,8 +19,18 @@ parentApp:
   $ref: /services/ocm/app.yml
 
 serviceOwners:
-- name: RHMI Engineering team
+- name: 3scale Operators Engineering team
   email: integreatly-team@redhat.com
+- name: Brian Gallagher
+  email: bgallagh@redhat.com
+- name: Michal Stokluska
+  email: mstoklus@redhat.com
+- name: Austin Cunningham
+  email: aucunnin@redhat.com
+- name: Carl Kyrillos
+  email: ckyrillo@redhat.com
+- name: Valery Mogilevsky
+  email: vmogilev@redhat.com
 
 escalationPolicy:
   $ref: /teams/rhmi/escalation-policies/rhmi-sendgrid.yaml
