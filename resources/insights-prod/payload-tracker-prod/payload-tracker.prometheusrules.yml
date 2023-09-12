@@ -11,7 +11,7 @@ spec:
   - name: payload-tracker-prod
     rules:
     - alert: App-payload-tracker-In-payload-tracker-prod-Downtime-Quota-Reached
-      expr: avg(avg_over_time(up{service="payload-tracker", namespace="payload-tracker-prod"}[24h])) < 0.95
+      expr: avg(avg_over_time(up{service="payload-tracker-api", namespace="payload-tracker-prod"}[24h])) < 0.95
       for: 5m
       labels:
         severity: info
@@ -25,7 +25,7 @@ spec:
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/payload-tracker/App-payload-tracker-In-payload-tracker-prod-Downtime-Quota-Reached.rst"
 
     - alert: App-payload-tracker-In-payload-tracker-prod-5XX-Quota-Reached
-      expr: sum(sum_over_time(payload_tracker_api_response_count_total{status!~"5.*"}[24h])) / sum(sum_over_time(payload_tracker_api_response_count_total[24h])) <= 0.95
+      expr: (sum(sum_over_time(payload_tracker_responses{code!~"5.*"}[24h])) / sum(sum_over_time(payload_tracker_responses[24h]))) <= 0.95
       for: 5m
       labels:
           severity: info
@@ -39,7 +39,7 @@ spec:
           runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/payload-tracker/App-payload-tracker-In-payload-tracker-prod-5XX-Quota-Reached.rst"
 
     - alert: App-payload-tracker-In-payload-tracker-prod-Failed-Processing-Quota-Reached
-      expr: sum(increase(payload_tracker_msg_count_total{status="success"}[24h])) / sum(increase(payload_tracker_msg_count_total{status="consumed"}[24h])) <= 0.95
+      expr: sum(sum_over_time(payload_tracker_message_process_errors[24h])) / sum(sum_over_time(payload_tracker_messages_processed[24h])) <= 0.05
       for: 5m
       labels:
           severity: info
