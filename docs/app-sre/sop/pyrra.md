@@ -12,6 +12,10 @@ Pyrra is composed of three components which is the UI, the API, and the backend.
 - The backend that watches for new SLO objects and creates Prometheus rules for each object
     - Pyrra introduces two different types of backends, a filesystem or Kubernetes operator. The backend deployed by AppSRE is Kubernetes.
 
+
+**Please note in the later sections, this is how Pyrra works without any qontract-reconcile integration. Please see the [design doc](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/design-docs/pyrra-integration.md) and the [TOC](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/pyrra-toc.md) for updates or plans on how to improve the later sections.**
+
+
 ## How it works in the AppSRE space
 
 - [Saas file](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/observability/cicd/saas/saas-pyrra.yaml) that controls the deployment
