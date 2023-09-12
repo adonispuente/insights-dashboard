@@ -57,7 +57,7 @@ resourceTemplates:
   ### DEV ###
   - namespace:
       $ref: /services/insights/gateway/namespaces/3scale-dev.yml
-    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
+    ref: 539c1f5776d8f9106bba9dfeffa5845283d17d88
     parameters:
       DEPLOYMENT_ENVIRONMENT: production
       DISABLE_BASIC_AUTH: false
@@ -70,7 +70,7 @@ resourceTemplates:
   ### STAGE ###
   - namespace:
       $ref: /services/insights/gateway/namespaces/stage-3scale-stage.yml
-    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
+    ref: 539c1f5776d8f9106bba9dfeffa5845283d17d88
     parameters:
       BYPASS_INTERNAL_TAM_CHECK: true
       DEPLOYMENT_ENVIRONMENT: production
@@ -100,7 +100,7 @@ resourceTemplates:
   ### OCM ###
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
-    ref: 0a6d5fa81e66476098e13f0c11ce2999476c69e6
+    ref: 539c1f5776d8f9106bba9dfeffa5845283d17d88
     parameters:
       DISABLE_BASIC_AUTH: false
       REPLICAS: 1
