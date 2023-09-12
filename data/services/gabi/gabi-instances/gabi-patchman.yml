@@ -31,4 +31,4 @@ instances:
     $ref: /services/insights/patchman/namespaces/patchman-engine-prod.yml
 
 # The maximum expiration date shall not exceed 90 days from the current date.
-expirationDate: '2023-09-10'
+expirationDate: '2023-12-11'
