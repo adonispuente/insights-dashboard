@@ -105,6 +105,12 @@ externalResources:
         $ref: /openshift/hivep07ue2/cluster.yml
       access_level: network-mgmt
   - provider: aws-iam-service-account
+    identifier: hive-vpc-hivep08ue2
+    user_policy: {"Version": "2012-10-17", "Statement": [{"Action": ["sts:AssumeRole"], "Effect": "Allow", "Resource": "*"}]}
+    output_resource_name: hive-vpc-creds-hivep08ue2
+    aws_infrastructure_access:
+      assume_role: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
+  - provider: aws-iam-service-account
     identifier: backplane-vpc-backplanep01ue1
     user_policy: {"Version": "2012-10-17", "Statement": [{"Action": ["sts:AssumeRole"], "Effect": "Allow", "Resource": "*"}]}
     output_resource_name: backplane-vpc-creds-backplanep01ue1
