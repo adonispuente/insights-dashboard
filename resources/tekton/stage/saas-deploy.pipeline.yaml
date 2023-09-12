@@ -30,6 +30,8 @@ spec:
       value: "$(params.saas_file_name)"
     - name: env_name
       value: "$(params.env_name)"
+    - name: trigger_integration
+      value: "$(params.trigger_integration)"
     - name: trigger_reason
       value: "$(params.trigger_reason)"
   finally:
