@@ -185,10 +185,12 @@ data:
           name: envoy.transport_sockets.tls
           typed_config:
             "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-            common_tls_context:
-              validation_context:
-                trusted_ca:
-                  filename: /etc/ssl/certs/ca-certificates.crt
+            # Temporarily disable envoy CA cert validation to prevent path errors when switching base images
+            # TODO: Re-enable when pods are using the new ocm-envoy implementation and point to the RHEL8 path /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+            # common_tls_context:
+            #   validation_context:
+            #     trusted_ca:
+            #       filename: /etc/ssl/certs/ca-certificates.crt
 
       listeners:
 
@@ -225,6 +227,8 @@ data:
                       prefix_rewrite: /stats/prometheus
               http_filters:
               - name: envoy.filters.http.router
+                typed_config:
+                  "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
 
       # This listener is used to accept inbound API requests.
       - name: ingress
@@ -336,6 +340,8 @@ data:
 
               # This is mandatory in order to have the HTTP routes above.
               - name: envoy.filters.http.router
+                typed_config:
+                  "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
 
               # We need this in order to generate JSON responses according to
               # our API guidelines, otherwise Envoy will generate plain text
@@ -411,3 +417,5 @@ data:
 
               http_filters:
               - name: envoy.filters.http.router
+                typed_config:
+                  "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
