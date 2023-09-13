@@ -4,7 +4,7 @@ labels:
   service: gabi
 name: gabi-acs-fleet-manager
 description: |
-  I would like to be able to get db access for stage ACS Fleet Manager RDS
+  I would like to be able to get db access for ACS Fleet Manager RDS
   I acknowledge there is no sensitive data or there is sensitive data, but agrees to have a specific engineer accessing it
 signoffManagers:
 - $ref: /teams/advanced-cluster-security/users/syethadk.yml
@@ -58,6 +58,10 @@ users:
 - $ref: /teams/lp-sre/users/ves.yml
 - $ref: /teams/lp-sre/users/ykukreja.yml
 instances:
+- account: app-sre-stage
+  identifier: acs-fleet-manager-integration
+  namespace:
+    $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-integration.yml
 - account: app-sre-stage
   identifier: acs-fleet-manager-stage
   namespace:

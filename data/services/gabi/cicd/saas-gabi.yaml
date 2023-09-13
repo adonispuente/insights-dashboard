@@ -80,6 +80,18 @@ resourceTemplates:
       publish:
       - github-gabi-stage-deploy-success-channel
   - namespace:
+      $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-integration.yml
+    ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
+    promotion:
+      auto: true
+      subscribe:
+      - github-gabi-stage-post-deploy-tests-success-channel
+    parameters:
+      HOST: gabi-acs-fleet-manager-rds-integration.apps.app-sre-stage-0.k3s7.p1.openshiftapps.com
+      NAMESPACE: acs-fleet-manager-integration
+      AWS_RDS_SECRET_NAME: acs-fleet-manager-integration-rds
+      GABI_INSTANCE: gabi-acs-fleet-manager-integration
+  - namespace:
       $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
     ref: 8000524f8b59da6d91228f09a74ab57a3acdc7ee
     promotion:
