@@ -59,10 +59,10 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
-    ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
+    ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-prod-04.yml
-    ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
+    ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.crcs02ue1.yml
     ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
