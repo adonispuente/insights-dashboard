@@ -93,7 +93,7 @@ recommendedVersions:
   initialVersion: openshift-v4.12.31
 - workload: member
   channel: stable
-  recommendedVersion: 4.12.30
-  initialVersion: openshift-v4.12.30
+  recommendedVersion: 4.12.31
+  initialVersion: openshift-v4.12.31
 blockedVersions:
 - ^4\.13\..*$
