@@ -28,6 +28,7 @@ managedResourceTypes:
 - HiveConfig
 - Secret
 - ConfigMap
+- NetworkPolicy
 
 managedResourceNames:
 - resource: HiveConfig
@@ -37,3 +38,8 @@ managedResourceNames:
 sharedResources:
 - $ref: /services/hive/shared-resources/production.yml
 - $ref: /services/hive/shared-resources/production-terraform-output-secrets.yml
+
+openshiftResources:
+# required on hive clusters with OVN
+- provider: resource
+  path: /services/hive/hive-allow-host-network-to-hive-admission.networkpolicy.yaml

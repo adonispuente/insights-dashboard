@@ -1,0 +1,18 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-host-network-to-hive-admission
+spec:
+  podSelector:
+    matchLabels:
+      app: hiveadmission
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              # this is required on OVN based clusters, otherwise the kube-api
+              # server can't reach the hive admission controller through the APIService
+              # https://redhat-internal.slack.com/archives/CE3ETN3J8/p1694554636957979
+              policy-group.network.openshift.io/host-network: ''
+  policyTypes:
+    - Ingress
