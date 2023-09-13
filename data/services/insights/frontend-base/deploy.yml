@@ -388,7 +388,7 @@ resourceTemplates:
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: d7a3cb5c36e93be0c85f6cc6ae5a06d0596a8f90
+    ref: bc244c46c69ae41eb48085daa03f8ea3962c2c8d
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/learning-resources"
@@ -406,14 +406,14 @@ resourceTemplates:
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
+    ref: bc244c46c69ae41eb48085daa03f8ea3962c2c8d
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/learning-resources"
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 49c42daf684d120c6a4a49cec2b69f56b81b5607
+    ref: b25892b66661047699f26d07b912bfa715e7761c
     parameters:
       ENV_NAME: "frontends-beta"
       IMAGE: "quay.io/cloudservices/learning-resources"
