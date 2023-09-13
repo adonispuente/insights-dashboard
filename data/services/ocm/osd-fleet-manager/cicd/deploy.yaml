@@ -350,6 +350,9 @@ resourceTemplates:
       DEPLOYMENT_NAME: management-cluster-sts
       GATE_NAME: ocm-osdfm-int-canary
       ENABLE_MC_STS: true
+      # OCM integration environment uses this AWS account as default jump account
+      # See https://github.com/openshift/rosa/blob/master/pkg/aws/helpers.go#L67
+      AWS_JUMP_ACCOUNT: '896164604406'
   # Dynatrace-specific sector
   # See https://issues.redhat.com/browse/SDE-2837
   - name: osd-fleet-manager-integration-dynatrace
