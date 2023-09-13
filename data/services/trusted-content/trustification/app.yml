@@ -1,0 +1,40 @@
+$schema: /app-sre/app-1.yml
+
+labels:
+  service: trustification
+
+name: trustification
+
+description: |
+  The Trusted Content service brings awareness to and remediation of Open Source Software (OSS) vulnerabilities that are discovered within the software supply chain.
+
+architectureDocument: https://docs.google.com/document/d/1VA7VMNcqAbxEQMZSpLEOa7v8u0gHI77PT-TJ9MeuGz8/edit?usp=sharing
+sopsUrl: https://gitlab.cee.redhat.com/TODO
+grafanaUrls:
+- title: TODOREPLACE
+  url: https://TODO
+onboardingStatus: InProgress
+parentApp:
+  $ref: /services/trusted-content/app.yml
+
+serviceOwners:
+- name: Trustification Team
+  email: trustification@redhat.com
+
+escalationPolicy:
+  $ref: /teams/oyster/escalation-policies/trustification-escalations.yml
+
+dependencies:
+- $ref: /dependencies/aws/service.yml
+- $ref: /dependencies/quay/service.yml
+- $ref: /dependencies/gitlab/service.yml
+- $ref: /dependencies/github/service.yml
+- $ref: /dependencies/openshift/service.yml
+
+codeComponents:
+- name: trustification
+  resource: upstream
+  url: https://github.com/trustification/trustification.git
+- name: trustification-service
+  resource: other
+  url: https://gitlab.cee.redhat.com/trustification/trustification-service

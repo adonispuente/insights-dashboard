@@ -1,0 +1,16 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: trustification-redhat-slack
+description: Slack user group for trustification
+
+service: slack-usergroup
+handle: rhtc-team
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+- rhtc-alerts
