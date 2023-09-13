@@ -42,6 +42,45 @@ externalResources:
           "Effect": "Allow",
           "Resource": "arn:aws:logs:*:*:*"}
       ]}
+  # IAM role to assume by the service account "logcollector"
+  - provider: aws-iam-role
+    identifier: log-forwarder-hst02ue1
+    assume_role:
+      # this is the arn of the OIDC provider for hst02ue1 in the app-sre-rosa AWS account
+      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog
+    assume_action: "AssumeRoleWithWebIdentity"
+    # the condition makes sure that only the logcollector service account in the openshift-logging namespace can assume this role
+    assume_condition:
+      StringEquals:
+        "rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog:sub": "system:serviceaccount:openshift-logging:logcollector"
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": [
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:DescribeLogGroups",
+              "logs:DescribeLogStreams",
+              "logs:PutLogEvents",
+              "logs:GetLogEvents",
+              "logs:PutRetentionPolicy",
+              "logs:GetLogRecord"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:logs:*:*:*"}
+        ]
+      }
+    output_resource_name: app-sre-logs-cloudwatch-access-sts
+    output_format:
+      provider: generic-secret
+      data:
+        credentials: >-
+          [default]
+          role_arn = {{ role_arn }}
+          web_identity_token_file = /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+
 
 managedResourceTypes:
 - Subscription.operators.coreos.com
