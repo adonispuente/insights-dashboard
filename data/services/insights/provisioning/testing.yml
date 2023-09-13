@@ -60,7 +60,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
-    ref: f794c82ee59c5d2d9b01a03d15f5d5c22086ba83
+    ref: fa909e16181c953d532596c9df34667d4eb96e39
     parameters:
       ENV_FOR_DYNACONF: prod
       IQE_MARKER_EXPRESSION: prod
@@ -78,5 +78,5 @@ resourceTemplates:
       - channel: provisioning-prod-deploy-success-channel
         data:
         - parent_saas: provisioning
-          target_config_hash: 40ee632f85561688
+          target_config_hash: 2fe7062f2a18a053
           type: parent_saas_config
