@@ -51,13 +51,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
-    # Old environment used for testing out the container based deployment - Remove after other deployments are done.
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    delete: true #step 1 of fully removing this definition as it is no longer in use
-    ref: main
-    parameters:
-      ENV_NAME: env-stage
     # Stage Preview (Beta) Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-beta-frontends.yml
