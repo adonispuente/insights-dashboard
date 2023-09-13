@@ -207,6 +207,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
 
 - name: dynatrace-token-stage
   url: https://gitlab.cee.redhat.com/service/dynatrace-config

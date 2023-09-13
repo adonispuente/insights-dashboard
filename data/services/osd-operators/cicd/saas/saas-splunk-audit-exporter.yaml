@@ -90,6 +90,11 @@ resourceTemplates:
     parameters:
       IMAGE_TAG: 0.1.147-e2e769a
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: e2e769a925a454c16bce378e8495403a86f4cc6c
+    parameters:
+      IMAGE_TAG: 0.1.147-e2e769a
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
     upstream:

@@ -76,6 +76,9 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: 44b631af606682a0e886eac14a105ce06f7393de
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: 44b631af606682a0e886eac14a105ce06f7393de
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
     upstream:

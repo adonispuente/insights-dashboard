@@ -223,6 +223,9 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
     ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/pagerduty-operator.yml
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
 
 - name: pagerduty-service-orchestration-osd
   url: https://github.com/openshift/pagerduty-operator
@@ -248,4 +251,7 @@ resourceTemplates:
     ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/pagerduty-operator.yml
+    ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/pagerduty-operator.yml
     ref: 89f7fc263b04fc0648eb1438acfd1a70534354d5

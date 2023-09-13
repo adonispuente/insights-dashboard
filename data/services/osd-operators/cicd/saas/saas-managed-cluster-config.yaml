@@ -422,3 +422,32 @@ resourceTemplates:
       - 44.228.245.162/32
       - 44.238.205.35/32
       - 54.203.216.175/32
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: d14545d674ec1961df5735ab8fc08827ebca0b70
+    parameters:
+      ALLOWED_CIDR_BLOCKS:
+      # These are the NAT IPs for hivep08ue2 (v4 prod shard)
+      - 18.188.187.143/32
+      - 18.216.245.132/32
+      - 52.14.85.89/32
+      # bastion-nasa-1.ops.openshift.com
+      - 52.70.201.140/32
+      # bastion-nasa-2.ops.openshift.com
+      - 52.6.0.240/32
+      # These are the NAT IPs for backplanep01ue1 (prod backplane backplanep01ue1)
+      - 34.194.251.19/32
+      - 44.196.79.250/32
+      - 52.45.208.183/32
+      # These are the NAT IPs for backplanep02uw2 (prod backplane backplanep02uw2)
+      - 100.20.120.76/32
+      - 100.20.197.29/32
+      - 52.26.177.23/32
+      # These are the NAT IPs for backplanep03ue1 (prod backplane)
+      - 34.197.214.203/32
+      - 35.170.167.51/32
+      - 52.23.44.43/32
+      # These are the NAT IPs for backplanep04uw2 (prod backplane)
+      - 44.228.245.162/32
+      - 44.238.205.35/32
+      - 54.203.216.175/32

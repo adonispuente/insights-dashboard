@@ -74,6 +74,9 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: 04bcee740dafc04b6d86a7eb4771637285841b47
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: 04bcee740dafc04b6d86a7eb4771637285841b47
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
     upstream:
@@ -135,4 +138,7 @@ resourceTemplates:
     ref: 04bcee740dafc04b6d86a7eb4771637285841b47
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
+    ref: 04bcee740dafc04b6d86a7eb4771637285841b47
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
     ref: 04bcee740dafc04b6d86a7eb4771637285841b47
