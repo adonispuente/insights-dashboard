@@ -22,10 +22,12 @@ managedResourceTypes:
 - Issuer.cert-manager.io
 - Certificate.cert-manager.io
 - Service
+- NetworkPolicy
 
 sharedResources:
 - $ref: /services/backplane/shared-resources/stage.yml
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+- $ref: /services/backplane/shared-resources/networkpolicy.yml
 
 openshiftResources:
 # This resource should move to a shared-resource once the POC is completed (OSD-16620)
