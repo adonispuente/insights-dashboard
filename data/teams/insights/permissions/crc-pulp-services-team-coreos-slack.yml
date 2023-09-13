@@ -1,0 +1,18 @@
+---
+$schema: /access/permission-1.yml
+
+labels: {}
+
+name: crc-pulp-services-team-coreos-slack
+
+description: Pulp services team slack group.
+
+service: slack-usergroup
+
+handle: pulp-services-team
+
+workspace:
+  $ref: /dependencies/slack/redhat-internal.yml
+
+channels:
+  - pulp-services

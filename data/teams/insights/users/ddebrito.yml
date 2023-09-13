@@ -12,6 +12,7 @@ quay_username: decko
 roles:
 - $ref: /teams/insights/roles/ephemeral-users.yml
 - $ref: /teams/insights/roles/content-sources-monitor.yml
+- $ref: /teams/insights/roles/pulp-services.yml
 
 public_gpg_key: |
   mQINBGSuuaQBEACzJIirldb1zztJwS3hylRq7Spris39BKDXW0Sz7TEnHIGaSy5d
