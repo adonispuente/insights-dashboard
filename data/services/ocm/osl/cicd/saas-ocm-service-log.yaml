@@ -45,7 +45,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: 5e13047c14dd1fcf9143158e0fc88eb06fe03d72
+    ref: b294a16e595794f3c32c68e0f27f561dcec7f6a7
 - name: ocm-service-log
   url: https://gitlab.cee.redhat.com/service/ocm-service-log
   path: /templates/service-template.yml
@@ -530,7 +530,7 @@ resourceTemplates:
               method: "none"
   - namespace:
       $ref: /services/ocm/namespaces/uhc-production.yml
-    ref: 5e13047c14dd1fcf9143158e0fc88eb06fe03d72
+    ref: b294a16e595794f3c32c68e0f27f561dcec7f6a7
     parameters:
       UPDATE_DEPLOYMENT_CONFIG_CHANGE: update_2
       GLOG_V: 1
