@@ -2336,6 +2336,8 @@ Such an entry will enable this specific resource to be deleted even if the accou
 
 When submitting a MR to delete a resource which results in a build failure, look at the logs and find lines such as `['delete', '<account_name>', '<resource_type>', '<resource_name>']`. For each line (will also include an error such as `'delete' action is not enabled.`) - add an entry to the `deletionApprovals` list.
 
+These entries should be added as part of the same MR that deletes the resources.
+
 ### Manage Cloudflare user access via App-Interface using Terraform
 
 The `terraform-cloudflare-users` integration is used to provide access to [Cloudflare](https://www.cloudflare.com/) accounts.
