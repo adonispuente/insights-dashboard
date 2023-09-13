@@ -1,0 +1,21 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  service: trustification
+  platform: trusted-content
+
+name: trustification-stage
+description: Stage namespace for trustification service
+cluster:
+  $ref: /openshift/app-sre-stage-01/cluster.yml
+app:
+  $ref: /services/trusted-content/trustification/app.yml
+environment:
+  $ref: /products/trusted-content/environments/stage.yml
+
+managedRoles: true
+
+# network policies
+networkPoliciesAllow:
+- $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml

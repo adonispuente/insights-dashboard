@@ -1,0 +1,18 @@
+---
+$schema: /app-sre/pipelines-provider-1.yml
+
+labels: {}
+
+name: tekton-trustification-pipelines-appsrep05ue1
+description: tekton provider in the trustification-pipelines namespace in the appsrep05ue1 cluster
+
+provider: tekton
+namespace:
+  $ref: /services/trusted-content/namespaces/tekton.trustification-pipelines.appsrep05ue1.yml
+
+retention:
+  days: 3
+  minimum: 10
+
+defaults:
+  "$ref": /pipelines/tekton-provider-global-defaults.yaml
