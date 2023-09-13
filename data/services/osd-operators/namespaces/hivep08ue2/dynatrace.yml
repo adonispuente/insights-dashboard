@@ -1,0 +1,19 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: stage resource for dynatrace operator
+
+cluster:
+  $ref: /openshift/hivep08ue2/cluster.yml
+
+environment:
+  $ref: /products/osdv4/environments/production-hivep08ue2.yml
+
+app:
+  $ref: /services/osd-operators/dynatrace/app.yml
+
+sharedResources:
+- $ref: /services/osd-operators/cicd/shared-resources/dynatrace-production-cluster-bootstrap-tokens.yml
