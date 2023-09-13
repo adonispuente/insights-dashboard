@@ -95,7 +95,7 @@ resourceTemplates:
       INGRESS_DENY_LISTED_ORGIDS: "7759136"
   - namespace:
       $ref: /services/insights/ingress/namespaces/ingress-prod.yml
-    ref: 8056907971570e8cac122c04dc8a6f38007aa265
+    ref: 266ee52bd016b3d9f9a4b49340bf6a6096af4d8d
     parameters:
       ENV_NAME: prod
       INGRESS_STAGEBUCKET: insights-ingress-prod
