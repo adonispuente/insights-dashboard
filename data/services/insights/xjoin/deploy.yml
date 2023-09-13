@@ -624,7 +624,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
-      REFRESH: "1693336833"
+      REFRESH: "1694619467"
     delete: true
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
@@ -703,7 +703,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
-      REFRESH: "1693336833"
+      REFRESH: "1694619467"
     delete: true
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
