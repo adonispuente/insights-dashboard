@@ -17,7 +17,7 @@ environment:
   $ref: /products/stonesoup/environments/production.yml
 
 limitRanges:
-  $ref: /dependencies/openshift/limitranges/standard-resource-limits.yml
+  $ref: /dependencies/openshift/limitranges/defaults-only-resource-limits.yml
 
 managedRoles: true
 
