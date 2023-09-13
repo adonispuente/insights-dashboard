@@ -4,7 +4,6 @@ metadata:
   name: app-interface
   annotations:
     qontract.recycle: "true"
-type: Opaque
 data:
   forward_host: app-interface.app-interface-stage.svc
   load_method: s3

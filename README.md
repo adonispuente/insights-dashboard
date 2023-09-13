@@ -770,7 +770,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-configmap
-type: Opaque
 data:
   not_so_secret_value: {{{ vault('app-interface/my-cluster/my-namespace/my-not-so-secret-secret', 'the-key') }}}
 ```
