@@ -119,6 +119,27 @@ peering:
       $ref: /openshift/appsrep05ue1/cluster.yml
     manageRoutes: true
     assumeRole: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
+  # private link gateway attachment
+  - provider: account-tgw
+    name: hivep08ue2
+    account:
+      $ref: /aws/osd-privatelink-prod/account.yml
+    tags:
+      osd: privatelink
+    manageRoutes: true
+    manageSecurityGroups: true
+    cidrBlock: 172.16.0.0/12
+    assumeRole: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
+  # # backplane access to clusters
+  # - provider: account-vpc-mesh
+  #   name: hivep08ue2_osd-bastion-prod
+  #   account:
+  #     $ref: /aws/osd-bastion-prod/account.yml
+  #   tags:
+  #     osd: backplane
+  #   manageRoutes: true
+  #   assumeRole: arn:aws:iam::341246210356:role/network-mgmt-hivep08ue2
+
 
 managedClusterRoles: true
 observabilityNamespace:
