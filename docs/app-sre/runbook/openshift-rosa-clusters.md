@@ -54,7 +54,7 @@ Before hosting `ROSA` clusters in an account, some configuration steps must be d
 
 ### Enable the ROSA Service
 
-Log in into the AWS account, go to the AWS Marketplace and enable the `ROSA` service. If you want to use the `OCM` staging
+Log in into the AWS account, go to the AWS Marketplace and enable the `ROSA` service; to do so simply search for `ROSA` in the search bar. If you want to use the `OCM` staging
 environment, the account uid must be set under an AWS whitelist managed by AWS. This is needed because the staging `ROSA` service
 uses a different set of AMIS to deploy the clusters. Ask the `OCM` team in `#service-development` or `#sd-hypershift` if you need
 this feature.
