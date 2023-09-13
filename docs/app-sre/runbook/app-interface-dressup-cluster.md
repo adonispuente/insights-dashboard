@@ -88,6 +88,18 @@ The cluster definition and access must have been setup in app-interface. See [cl
     hack/cluster_provision.py create-obs-dns-records <cluster>
     ```
 
+1. Configure a [deadmanssnitch](https://deadmanssnitch.com/) snitch for the new cluster. The snitch settings should be as follow:
+    - Name: prometheus.<cluster_name>.devshift.net
+    - Alert type: Heartbeat
+    - Interval: 15 min
+    - Tags: app-sre
+    - Alert email: sd-app-sre@redhat.com
+    - Notes: Runbook: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/prometheus/prometheus-deadmanssnitch.md
+
+1. Add the deadmanssnitch URL to this secret in Vault: https://vault.devshift.net/ui/vault/secrets/app-sre/show/integrations-input/alertmanager-integration
+    - key: `deadmanssnitch-<cluster_name>-url`
+    - value: the `Unique Snitch URL` from deadmanssnitch
+
 1. Enable `openshift-customer-monitoring`:
     As of OpenShift 4.6.17, UWM (user-workload-monitoring) is enabled by default on OSD, replacing `openshift-customer-monitoring`. App-SRE still uses `openshift-customer-monitoring` and as such we need to disable UWM for us so we can use the current monitoring configs as described below. This is done through the OCM console (Settings -> uncheck "Enable user workload monitoring" -> Save).
 
@@ -110,19 +122,7 @@ The cluster definition and access must have been setup in app-interface. See [cl
 
   **Double check the changes introduced, the destination file could have been modified with manual changes**
 
-1. Configure a [deadmanssnitch](https://deadmanssnitch.com/) snitch for the new cluster. The snitch settings should be as follow:
-    - Name: prometheus.<cluster_name>.devshift.net
-    - Alert type: Heartbeat
-    - Interval: 15 min
-    - Tags: app-sre
-    - Alert email: sd-app-sre@redhat.com
-    - Notes: Runbook: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/sop/prometheus/prometheus-deadmanssnitch.md
-
-1. Add the deadmanssnitch URL to this secret in Vault: https://vault.devshift.net/ui/vault/secrets/app-sre/show/integrations-input/alertmanager-integration
-    - key: `deadmanssnitch-<cluster_name>-url`
-    - value: the `Unique Snitch URL` from deadmanssnitch
-
-1. **IMPORTANT**: Merge the changes and check that the integrations have completed running successfully. Check that `https://<prometheus|alertmanager>.<cluster_name>.devshift.net` have valid TLS certificates by accessing the URLs. If no security warning is given and the connection is secure as notified by the browser. If you do not see a valid TLS certificate, maybe you need to change the `CERT_ISSUER_NAME` attribute in the saas-nginx-proxy.yaml deployment. Remember that private clusters need to use DNS challenge solvers. See this [example MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/61907). If you change the issuer name, make sure also to delete the old pending certificate requests: `oc delete certificaterequests.cert-manager.io alertmanager-...`
+**IMPORTANT**: Merge the changes and check that the integrations have completed running successfully. Check that `https://<prometheus|alertmanager>.<cluster_name>.devshift.net` have valid TLS certificates by accessing the URLs. If no security warning is given and the connection is secure as notified by the browser. If you do not see a valid TLS certificate, maybe you need to change the `CERT_ISSUER_NAME` attribute in the saas-nginx-proxy.yaml deployment. Remember that private clusters need to use DNS challenge solvers. See this [example MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/61907). If you change the issuer name, make sure also to delete the old pending certificate requests: `oc delete certificaterequests.cert-manager.io alertmanager-...`
 
 ## Container Security Operator (CSO)
 
