@@ -22,3 +22,7 @@ managedResourceNames:
 - resource: ClusterIssuer.cert-manager.io
   resourceNames:
   - letsencrypt-prod-http
+
+openshiftResources:
+- provider: resource
+  path: /cert-manager/letsencrypt-prod-http-cluster-issuer.yaml
