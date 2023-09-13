@@ -1,0 +1,11 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Jiri Kucera
+org_username: jkucera
+github_username: i386x
+
+roles:
+- $ref: /teams/oyster/roles/dev.yml

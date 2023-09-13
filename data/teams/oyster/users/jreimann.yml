@@ -1,0 +1,12 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Jens Reimann
+org_username: jreimann
+github_username: ctron
+quay_username: ctron
+
+roles:
+- $ref: /teams/oyster/roles/dev.yml
