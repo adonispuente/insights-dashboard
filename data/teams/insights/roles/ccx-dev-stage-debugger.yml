@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels: {}
-name: ops-dev-stage-debugger
+name: ccx-dev-stage-debugger
 
 permissions: []
 
