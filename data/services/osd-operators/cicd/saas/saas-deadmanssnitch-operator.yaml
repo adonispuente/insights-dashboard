@@ -105,3 +105,6 @@ resourceTemplates:
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/deadmanssnitch-operator.yml
     ref: 4bb8867398490ce7268f365bf94b2f66c505c657
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/deadmanssnitch-operator.yml
+    ref: 4bb8867398490ce7268f365bf94b2f66c505c657

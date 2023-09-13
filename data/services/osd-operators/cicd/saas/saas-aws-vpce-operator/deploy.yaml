@@ -57,6 +57,12 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: openshift-aws-vpce-operator-gh-build-main
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: e3cc340d42f4328d307192a809bea9e530ef8475
+    promotion:
+      publish:
+      - aws-vpce-operator-sss-deployed-success-channel-hivep08ue2
+  - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
     ref: e3cc340d42f4328d307192a809bea9e530ef8475
     promotion:

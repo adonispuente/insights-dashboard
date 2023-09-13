@@ -119,6 +119,12 @@ resourceTemplates:
       BILLING_ACCOUNT: "010E03-6A7177-A264C0"
       PARENT_FOLDER_ID: "247939785891"
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/gcp-project-operator.yml
+    ref: a3edcde393e6b2374c0969a24fd7cf11058c0539
+    parameters:
+      BILLING_ACCOUNT: "010E03-6A7177-A264C0"
+      PARENT_FOLDER_ID: "247939785891"
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/gcp-project-operator.yml
     ref: master
     upstream:

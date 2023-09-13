@@ -78,6 +78,9 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hivep07ue2/certman-operator.yml
     ref: 44992d9a82df575d6ef56443607cda450bd3fe5b
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/certman-operator.yml
+    ref: 44992d9a82df575d6ef56443607cda450bd3fe5b
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/certman-operator.yml
     upstream:
       instance:

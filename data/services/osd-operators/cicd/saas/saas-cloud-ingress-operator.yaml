@@ -309,6 +309,31 @@ resourceTemplates:
       # bastion-apnortheast1-2.ops.openshift.com
       - 54.168.53.242/32
   - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: 79fae1aa9ea5ff568d2a23ca50c0aa77f010009b
+    parameters:
+      ALLOWED_CIDR_BLOCKS:
+      # These are the NAT IPs for hivep08ue2 (v4 prod shard)
+      - 18.188.187.143/32
+      - 18.216.245.132/32
+      - 52.14.85.89/32
+      # bastion-nasa-1.ops.openshift.com
+      - 52.70.201.140/32
+      # bastion-nasa-2.ops.openshift.com
+      - 52.6.0.240/32
+      # bastion-useast2-1.ops.openshift.com
+      - 18.216.250.44/32
+      # bastion-useast2-2.ops.openshift.com
+      - 52.14.88.51/32
+      # bastion-euwest2-1.ops.openshift.com
+      - 18.130.14.59/32
+      # bastion-euwest2-2.ops.openshift.com
+      - 35.178.149.126/32
+      # bastion-apnortheast1-1.ops.openshift.com
+      - 52.196.174.210/32
+      # bastion-apnortheast1-2.ops.openshift.com
+      - 54.168.53.242/32
+  - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
     upstream:

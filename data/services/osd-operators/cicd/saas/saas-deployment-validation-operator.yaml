@@ -122,3 +122,12 @@ resourceTemplates:
       - dvo-sss-deployment-success-channel-hivep05ue1
       publish:
       - dvo-sss-deployment-success-channel-hivep07ue2
+  - namespace:
+      $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
+    ref: b64e5ef46a46e414e5716be48efff1db920f1ff4
+    promotion:
+      # auto: true
+      # subscribe:
+      # - dvo-sss-deployment-success-channel-hivep06ue1
+      publish:
+      - dvo-sss-deployment-success-channel-hivep08ue2
