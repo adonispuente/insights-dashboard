@@ -12,7 +12,7 @@ instance:
 type: "approle"
 mount:
   $ref: /services/vault.devshift.net/config/prod/auth-backends/approle-auth.yml
-# output_path: app-sre/approles/terraform-repo
+output_path: app-sre/approles/terraform-repo
 options:
   _type: "approle"
   bind_secret_id: "true"
