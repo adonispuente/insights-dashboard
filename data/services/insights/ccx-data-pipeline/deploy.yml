@@ -62,7 +62,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 27ffe20da7118d777fcf2e84ce9245ef6632452d
+    ref: da0c541f9774941fd8f3de9ce111cb487de616b1
     parameters:
       MIN_REPLICAS: "32"
       MAX_REPLICAS: "32"
@@ -243,7 +243,7 @@ resourceTemplates:
       name: RedHatInsights-insights-content-service-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 042fa18fbbfd1bc2d95e7b1060816ff924e4f4a9
+    ref: 371bc457b20d8beda74203bd540d7fd0b3440638
     delete: false
     parameters:
       CPU_LIMIT: "250m"
