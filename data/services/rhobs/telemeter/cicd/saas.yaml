@@ -61,6 +61,7 @@ parameters:
 
 allowedSecretParameterPaths:
   - rhobs/rhel/credentials/service-account-observatorium-rhel-write-staging
+  - rhobs/rhel/credentials/psk-staging
   - rhobs/staging/certs
 
 resourceTemplates:
@@ -215,11 +216,11 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/rhobs/telemeter/namespaces/rhelemeter-stage.yml
-    ref: 5d8b1ece3b5c6a6301877def9d62ca9b641662c6
+    ref: a8b2a3c8d739a8464f9c8dafa582dcc9d6ac008d
     parameters:
       NAMESPACE: rhelemeter-stage
       RHELEMETER_FORWARD_URL: http://observatorium-observatorium-mst-api.observatorium-mst-stage.svc.cluster.local:8080/api/metrics/v1/rhel/api/v1/receive
-      IMAGE_TAG: bba4a6f
+      IMAGE_TAG: 6fcb07b
       RHELEMETER_LOG_LEVEL: debug
     secretParameters:
       - name: RHELEMETER_CLIENT_ID
@@ -247,3 +248,8 @@ resourceTemplates:
           path: rhobs/staging/certs
           field: clientCA.crt
           version: 2
+      - name: RHELEMETER_CLIENT_INFO_PSK
+        secret:
+          path: rhobs/rhel/credentials/psk-staging
+          field: psk
+          version: 1
