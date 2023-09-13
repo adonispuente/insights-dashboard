@@ -304,6 +304,10 @@ There are some metric exporters and alerts that need to be enabled on a per-acco
 * [cloudwatch-exporter](/data/services/observability/cicd/saas/saas-cloudwatch-exporter.yaml) - if there will be AWS resources that we care about having metrics available for alerting, again RDS instances in particular, then add the account to this file
   * To enable alerts associated with `cloudwatch-exporter`, search app-interface for `accounts_with_cloudwatch_exporter` and add the account to the list as appropriate
 
+## Add the AWS account to Cost Management
+
+Follow [Cost Management doc](/docs/app-sre/sop/cost-management.md) to add the AWS account to Cost Management.
+
 ## Delete the original user account
 
 After you have received your automated email, decrypted the contents, logged into the AWS console, and updated your password, you are almost done! (In case you did not receive an invitation email, read [here](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/aws/aws-management-console.md#how-do-i-sign-into-the-aws-management-console-for-the-first-time)).
