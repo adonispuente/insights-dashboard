@@ -1,0 +1,34 @@
+---
+$schema: /vault-config/role-1.yml
+
+# approle for terraform repo executor
+
+labels:
+  service: vault.devshift.net
+
+name: "terraform-repo-executor"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+type: "approle"
+mount:
+  $ref: /services/vault.devshift.net/config/prod/auth-backends/approle-auth.yml
+output_path: app-sre/approles/terraform-repo
+options:
+  _type: "approle"
+  bind_secret_id: "true"
+  local_secret_ids: "false"
+  token_period: "0"
+  secret_id_num_uses: "0"
+  secret_id_ttl: "0"
+  token_explicit_max_ttl: "0"
+  token_max_ttl: "1800"
+  token_no_default_policy: false
+  token_num_uses: "0"
+  token_ttl: "1800"
+  token_type: "default"
+  token_policies:
+    - $ref: /services/vault.devshift.net/config/policies/terraform-repo-executor.yml
+  policies:
+    - $ref: /services/vault.devshift.net/config/policies/terraform-repo-executor.yml
+  secret_id_bound_cidrs: []
+  token_bound_cidrs: []
