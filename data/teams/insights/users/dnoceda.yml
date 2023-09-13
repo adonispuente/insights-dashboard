@@ -20,6 +20,7 @@ roles:
 - $ref: /teams/insights/roles/uhc-auth-proxy.yml
 - $ref: /teams/insights/roles/turnpike.yml
 - $ref: /teams/insights/roles/strimzi.yml
+- $ref: /teams/insights/roles/notifications.yml
 
 public_gpg_key: |
   mQINBGJ9JgsBEACmoKRVYb2uQippQYZTfXxNXqOzOZ4eHpm2nzZUktKyjKlrMr/hRUF3FHQzblae
