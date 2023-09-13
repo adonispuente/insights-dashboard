@@ -109,6 +109,7 @@ resourceTemplates:
       SERVICES_LIST: 2555417824448,2555417824655,2555417824813,2555417824814,2555417824815,2555417824816,2555417824817,2555417824818,2555417824819,2555417824820,2555417824821,2555417824822,2555417824823,2555417824824,2555417824825,2555417824826,2555417824827,2555417824828,2555417824829,2555417824830,2555417824831,2555417824832,2555417824833,2555417824834,2555417824835,2555417824836,2555417824837,2555417824838,2555417824839,2555417824840,2555417825386,2555417889027,2555417895248,2555417900810,2555417903766,2555417903763,2555417907919,2555417917991,2555417934931
       LOG_LEVEL: 'debug'
       APICAST_INTERNAL_IDP_TARGET: auth.redhat.com
+
 - name: cloudwatch-aggregator
   path: /templates/cloudwatch-aggregator.yml
   url: https://github.com/RedHatInsights/cloudwatch-aggregator
@@ -130,6 +131,7 @@ resourceTemplates:
     ref: fa0e26c76de0b28f466e09abfa74a963efc8542e
     parameters:
       CLOUD_WATCH_ALLOWED_STREAMS: 3scale
+
 - name: apicast-test-services
   path: /template-source.yml
   url: https://github.com/RedHatInsights/apicast-test-services
@@ -145,12 +147,13 @@ resourceTemplates:
       REPLICAS: 3
   - namespace:
       $ref: /services/insights/gateway/namespaces/apicast-test-services-prod.yml
-    ref: 5dbb4407bb1fcf87df688a77f2cf7f95c1019257
+    ref: 1bd06672cf1e81b3170e89028abc17068b7c7f27
     parameters:
       REPLICAS: 3
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ocm.yml
     ref: master
+
 - name: 3scale-dashboards
   url: https://github.com/RedHatInsights/insights-3scale
   path: /dashboards
