@@ -443,7 +443,7 @@ resourceTemplates:
       SOURCES_ENABLED: false
       NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
       NOTIFICATIONS_SERVICENOW_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
-      NOTIFICATIONS_WEBHOOK_CONNECTOR_ENABLED: true
+      NOTIFICATIONS_WEBHOOK_CONNECTOR_ENABLED: false
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
