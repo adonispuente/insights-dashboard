@@ -106,6 +106,7 @@ externalResources:
       engine_version: '12.13'
       maintenance_window: Sun:11:00-Sun:11:30
       allocated_storage: 40
+      performance_insights_enabled: true
   - provider: rds
     identifier: ocm-managed-services-production
     defaults: /terraform/resources/app-sre/production/rds-2-cloudwatch-enabled.yml
