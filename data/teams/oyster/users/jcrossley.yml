@@ -7,7 +7,6 @@ labels: {}
 name: Jim Crossley
 org_username: jcrossle
 github_username: jcrossley3
-slack_username: jcrossley3
 
 roles:
 - $ref: /teams/oyster/roles/dev.yml
