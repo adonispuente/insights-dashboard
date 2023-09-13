@@ -32,7 +32,7 @@ resourceTemplates:
   - name: observatorium-mst-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-    ref: 033aa43e1c541309a176785b7183c9dfd666588d
+    ref: 55d099083f159fef4a43ae0dcef830b97fae7b69
 
 - name: rhtap-rhobs-data-plane-rules
   url: https://github.com/redhat-appstudio/o11y
