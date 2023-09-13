@@ -114,12 +114,11 @@ resourceTemplates:
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: c3d7a85ba57ca334c6777c1bc73324470c2992af
+    ref: cb83d1e625afb8c922682e44b0aa6df2db0843f6
     parameters:
       MEMORY_LIMIT: '2Gi'
       API_REPLICA_COUNT: 3
-      PROCESSOR_REPLICA_COUNT: 1
-      RECOMMENDER_REPLICA_COUNT: 1
+      PROCESSOR_REPLICA_COUNT: 3
 
 - name: kruize
   path: /kruize-clowdapp.yaml
@@ -149,12 +148,12 @@ resourceTemplates:
       LOG_LEVEL: 'DEBUG'
   - namespace:
       $ref: /services/insights/ros/namespaces/ros-prod.yml
-    ref: 8f8b035522ad0a5a27596ddedc98ec5baa921051
+    ref: cb83d1e625afb8c922682e44b0aa6df2db0843f6
     parameters:
       MEMORY_LIMIT: '2Gi'
-      KRUIZE_REPLICA_COUNT: 1
-      KRUIZE_IMAGE_TAG: '190a6cc'
-      KRUIZE_CPU_REQUEST: 3
+      KRUIZE_REPLICA_COUNT: 3
+      KRUIZE_IMAGE_TAG: 'd56a15f'
+      KRUIZE_CPU_REQUEST: 2
       KRUIZE_MEMORY_REQUEST: '4Gi'
       KRUIZE_CPU_LIMIT: 3
       KRUIZE_MEMORY_LIMIT: '8Gi'
