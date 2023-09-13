@@ -40,25 +40,25 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
 - name: dynatrace-token-hs-management-clusters
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-token/template.yaml
@@ -90,7 +90,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
-    ref: 009d5a467166c12bc9238d3ffaede339e6a320a8
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
     parameters:
       NAME: in-canary
       ENVIRONMENT: production
@@ -103,13 +103,26 @@ resourceTemplates:
       jsonPathSelectors:
         include:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
-    ref: 009d5a467166c12bc9238d3ffaede339e6a320a8
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
     parameters:
       NAME: main
       ENVIRONMENT: production
       OPERATOR: NotIn
       SECTORS:
       - canary
+      - ibm-infra
+  - name: production-ibm-infra
+    provider: dynamic
+    namespaceSelector:
+      jsonPathSelectors:
+        include:
+        - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
+    parameters:
+      NAME: ibm-infra
+      ENVIRONMENT: production
+      OPERATOR: In
+      SECTORS:
       - ibm-infra
   parameters:
     TOKEN_SECRET_NAME: dynatrace-token
@@ -175,25 +188,25 @@ resourceTemplates:
     ref: main
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 6376c7bfc586d6f716cf3438428b1fbce7127c89
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
 
 - name: dynatrace-token-stage
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
@@ -236,7 +249,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
-    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
     parameters:
       DT_REGION: ap-southeast-sydney
       DT_TENANT_ID: zwz85475
@@ -252,7 +265,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
-    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
     parameters:
       DT_REGION: eu-west-ireland
       DT_TENANT_ID: vap62935
@@ -265,7 +278,7 @@ resourceTemplates:
       jsonPathSelectors:
         include:
         - namespace[?(@.cluster.name=~"hive.*" & @.environment.name=~".*production.*" & @.name=="cluster-scope")]
-    ref: 78b90c7043b906dff7ce9a3f0da58ed471e869f3
+    ref: 5f85b9c123bdb30fb11fcb57d65d72f36b9d940c
     parameters:
       DT_REGION: us-east-virginia
       DT_TENANT_ID: jgn20300
