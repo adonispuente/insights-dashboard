@@ -92,6 +92,9 @@ rules: |
   path "trusted-content/*" {
     capabilities = ["create", "read", "update", "delete", "list"]
   }
+  path "terraform-repo/*" {
+    capabilities = ["create", "read", "update", "delete", "list"]
+  }
 
   path "totp/app-sre/keys/*" {
     capabilities = ["create", "read", "update", "delete", "list"]
