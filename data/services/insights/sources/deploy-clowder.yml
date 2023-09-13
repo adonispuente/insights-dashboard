@@ -193,14 +193,14 @@ resourceTemplates:
   # Prod Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-frontends.yml
-    ref: b0aaccca6d99a5d9d355442230942dc661cec545
+    ref: f2c092e41068846c1cbe66acfa08dbf7cc9f2c05
     parameters:
       ENV_NAME: frontends
       IMAGE: quay.io/cloudservices/sources-ui
   # Prod Beta Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/prod-beta-frontends.yml
-    ref: 9f83d1de246fcdf5bf44d223f50cd25aa0e6e7bc
+    ref: f2c092e41068846c1cbe66acfa08dbf7cc9f2c05
     parameters:
       ENV_NAME: frontends-beta
       IMAGE: quay.io/cloudservices/sources-ui
