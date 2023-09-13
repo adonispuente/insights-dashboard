@@ -19,6 +19,7 @@ managedResourceTypes:
 - Secret
 - PrometheusRule
 - ServiceMonitor
+- PodMonitor
 
 openshiftResources:
 # Observability
