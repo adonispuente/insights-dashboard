@@ -168,6 +168,7 @@ externalResources:
     overrides:
       apply_immediately: true
       engine_version: '12.13'
+      performance_insights_enabled: true
   - provider: sqs
     identifier: job-queue-service-staging
     output_resource_name: job-queue-service-sqs
