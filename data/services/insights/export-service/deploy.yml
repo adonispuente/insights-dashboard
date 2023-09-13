@@ -71,7 +71,7 @@ resourceTemplates:
       ENABLE_CLOUDWATCH_LOGGING: "true"
   - namespace:
       $ref: /services/insights/export-service/namespaces/prod.yml
-    ref: ec8f77840f532f594e5d67be155b4b541fef82b5
+    ref: f98b0a2983f44cba1d74e06ac355ca04701e95e0
     parameters:
       LOG_LEVEL: DEBUG
       MIN_REPLICAS: 3
