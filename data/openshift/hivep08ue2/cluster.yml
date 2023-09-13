@@ -84,6 +84,8 @@ network:
   service: 172.30.0.0/16
   pod: 10.128.0.0/14
 internal: false
+jumpHost:
+  $ref: /openshift/bastion.ci.int.devshift.net.jumphost.yml
 
 peering:
   connections:
