@@ -19,7 +19,7 @@ roles:
 - $ref: /teams/insights/roles/aws/s3-irae.yml
 - $ref: /teams/insights/roles/aws/prod-performance-insights-rds.yml
 - $ref: /teams/insights/roles/aws/stage-performance-insights-rds.yml
-- $ref: /teams/insights/roles/ops-dev-stage-debugger.yml
+- $ref: /teams/insights/roles/ccx-dev-stage-debugger.yml
 
 public_gpg_key: |
   mQINBGSv8F8BEADBOpz/Jgnz5KBdYwXtOj3SObz6xba7MumktO8UO0MCQdwW3jXh

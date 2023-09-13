@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: sd-ops-dev-allow-rsh
+  name: ccx-dev-allow-rsh
 rules:
 - apiGroups: [""]
   resources: ["pods", "pods/log"]
