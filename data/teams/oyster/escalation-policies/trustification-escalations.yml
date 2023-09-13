@@ -1,0 +1,23 @@
+---
+$schema: /app-sre/escalation-policy-1.yml
+
+labels:
+  service: trusted-content
+  team: oyster
+
+name: trustification-escalations
+
+description: |
+  Trusted content does not have oncall support for production incidents.
+
+  For help with production and non production incidents, please reach out to the trustification teams on slack.
+
+channels:
+  slackUserGroup:
+  - $ref: /teams/oyster/permissions/rhtc-redhat-slack.yml
+
+  email:
+  - rhtc-support@redhat.com
+
+  jiraBoard:
+  - $ref: /teams/oyster/jira/tcproj.yml

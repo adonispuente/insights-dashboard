@@ -13,3 +13,5 @@ description: |
 productOwners:
 - name: Ecosystem AppEng
   email: ecosystem-appeng@redhat.com
+- name: Trusted Content Support
+  email: rhtc-support@redhat.com
