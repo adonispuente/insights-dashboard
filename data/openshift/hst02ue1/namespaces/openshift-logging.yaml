@@ -76,7 +76,7 @@ externalResources:
     output_format:
       provider: generic-secret
       data:
-        credentials: >-
+        credentials: |
           [default]
           role_arn = {{ role_arn }}
           web_identity_token_file = /var/run/secrets/eks.amazonaws.com/serviceaccount/token
