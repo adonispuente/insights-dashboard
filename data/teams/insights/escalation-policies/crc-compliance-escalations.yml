@@ -21,4 +21,5 @@ channels:
     $ref: /teams/insights/escalation-policies/crc-ma-escalations.yml
 
   jiraBoard:
-  - $ref: /teams/insights/jira/compliance.yaml
+  - $ref: /teams/insights/jira/rhineng.yaml
+  jiraComponent: Compliance
