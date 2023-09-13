@@ -4,7 +4,9 @@ $schema: /access/role-1.yml
 labels: {}
 name: trustification-dev
 
-permissions: []
+permissions:
+- $ref: /teams/oyster/permissions/rhtc-redhat-slack.yml
+
 self_service:
 - change_type:
     $ref: /app-interface/changetype/app-owner.yml
