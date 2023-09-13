@@ -1,0 +1,12 @@
+---
+$schema: /access/user-1.yml
+
+labels: {}
+
+name: Ulf Lilleengen
+org_username: ulilleen
+github_username: lulf
+quay_username: lulf
+
+roles:
+- $ref: /teams/oyster/roles/dev.yml

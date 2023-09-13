@@ -1,0 +1,17 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: trustification-dev
+
+permissions: []
+self_service:
+- change_type:
+    $ref: /app-interface/changetype/app-owner.yml
+  datafiles:
+  - $ref: /services/trusted-content/trustification/app.yml
+  - $ref: /services/trusted-content/app.yml
+- change_type:
+    $ref: /app-interface/changetype/role-manager.yml
+  datafiles:
+  - $ref: /teams/oyster/roles/dev.yml
