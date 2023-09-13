@@ -53,7 +53,7 @@ resourceTemplates:
   # Stage stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
-    ref: afc575519ac5d431c807f6931f366ecdc8bb1ec6
+    ref: main
     parameters:
       ENV_NAME: "frontends"
       IMAGE: "quay.io/cloudservices/provisioning-frontend"
