@@ -28,6 +28,7 @@ managedResourceTypes:
 - HiveConfig
 - Secret
 - ConfigMap
+- NetworkPolicy
 
 managedResourceNames:
 - resource: HiveConfig
