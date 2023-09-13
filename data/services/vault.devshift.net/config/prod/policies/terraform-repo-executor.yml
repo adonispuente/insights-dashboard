@@ -1,0 +1,22 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "terraform-repo-executor"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  # get creds to do `terraform plan` and `terraform apply`
+  path "app-sre/creds/terraform/*" {
+    capabilities = ["read"]
+  }
+  # tenants will place their secrets into folders labeled under their team names in the
+  # input and output directory
+  path "terraform-repo/data/input/*" {
+    capabilities = ["read"]
+  }
+  path "terraform-repo/data/output/*" {
+    capabilities = ["create", "update", "read"]
+  }

@@ -29,30 +29,27 @@ sharedResources:
 # a route attached to the EventListener for tekton will be provisioned here
 # such that GitLab can communicate with OpenShift on merges to master
 openshiftResources:
-  # - provider: vault-secret
-  #   path: app-sre/creds/terraform-repo/push-deploy-gitlab
-  #   version: 1
-  #   name: push-deploy-gitlab
-  # - provider: vault-secret
-  #   path: app-sre/creds/gitlab-app-sre-bot
-  #   name: executor-gitlab
-  #   version: 1
+  - provider: vault-secret
+    path: app-sre/creds/terraform-repo/push-deploy-gitlab
+    version: 1
+    name: push-deploy-gitlab
+  - provider: vault-secret
+    path: app-sre/ci-int/gitlab-token
+    name: executor-gitlab
+    version: 1
   # - provider: vault-secret
   #   path: app-sre/approles/terraform-repo
   #   version: 1
   #   name: executor-vault
   # - provider: route
   #   path: /services/app-interface/production/terraform-repo.devshift.net.route.yaml
-  # - provider: resource-template
-  #   type: extracurlyjinja2
-  #   path: /services/app-interface/production/ca-certs.secret.yml
   - provider: vault-secret
     path: app-sre/creds/qontract-reconcile-toml
     name: qontract-reconcile-toml
     version: 1
-  # - provider: resource-template
-  #   type: extracurlyjinja2
-  #   path: /tekton/qontract-reconcile.secret.yml
+  - provider: resource-template
+    type: extracurlyjinja2
+    path: /tekton/qontract-reconcile.secret.yaml
   # - provider: vault-secret
   #   path: app-sre/creds/terraform-repo/webhook
   #   version: 1
