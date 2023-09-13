@@ -122,7 +122,7 @@ resourceTemplates:
     parameters:
       QUAY_APP_DEPLOYMENT_REPLICAS: 44
       QUAY_APP_CONFIG_SECRET: quay-py3-config-secret
-      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_07_20-1" # Update image ref
+      QUAY_APP_COMPONENT_ANNOTATIONS_VALUE: "quay_py3_2023_09_13-1" # Update image ref
     # This is the backup region
   - namespace:
       $ref: /services/quayio/namespaces/quayp04ue2.yml
