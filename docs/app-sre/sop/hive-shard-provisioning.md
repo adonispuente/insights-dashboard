@@ -35,13 +35,6 @@
 
 **Aim of this doc:** This SOP serves as a step-by-step process on how to provision a new Hive shard from zero (no cluster) to a fully functioning hive shard used by OCM
 
-**Feeds into Goal:** Scale out OSD + Managed Services control plane to meet increasing business demand for capacity, reduce risk and scale.
-
-**Definition of Done:** This initiative has met its delivery target when
-- We have 4 hive clusters, entirely managed via a single consistent pipeline
-- We have de-provisioned the OSD-3 based old-hive-prod
-- We have proven, documented and monitor for all hive cluster hosted components and their engagement with upstream services
-
 These instructions have been adapted from the [original google doc](https://docs.google.com/document/d/1oXcxKFsiNyBxUi0IizJ_VAfMe-CgtyqFLV0vNj4ib8I/edit)
 
 # Process
@@ -57,7 +50,7 @@ These instructions have been adapted from the [original google doc](https://docs
     | Compute count (autoscale)  | 4 - 25      | 9 - 27     |
     | Persistent storage         | 600 GB      | 600 GB     |
     | Load balancers             | 0           | 0          |
-    | Machine CIRD               | See note    | See note   |
+    | Machine CIDR               | See note    | See note   |
     | Privacy                    | Private     | Private    |
 
 1. Configure VPC peering
