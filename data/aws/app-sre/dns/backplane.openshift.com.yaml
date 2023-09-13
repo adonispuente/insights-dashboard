@@ -17,17 +17,17 @@ records:
   ttl: 10
   geolocation_routing_policy:
     continent: "NA"
-  set_identifier: backplane-stage-geolocation-record_backplanes01ue1
+  set_identifier: backplane-stage-geolocation-record_backplanes03ue1
   records:
-  - elb.apps2.backplanes01ue1.fjsa.p1.openshiftapps.com
+  - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
 - name: api.stage
   type: CNAME
   ttl: 10
   geolocation_routing_policy:
     continent: "AS"
-  set_identifier: backplane-stage-geolocation-record_backplanes02uw2
+  set_identifier: backplane-stage-geolocation-record_backplanes04uw2
   records:
-  - elb.apps2.backplanes02uw2.mxci.p1.openshiftapps.com
+  - a60679b6153cd44019c474e4f3fc4830-2058689301.us-west-2.elb.amazonaws.com
 - name: api.stage
   type: CNAME
   ttl: 10
@@ -35,7 +35,7 @@ records:
     country: "*"
   set_identifier: backplane-stage-geolocation-record_default
   records:
-  - elb.apps2.backplanes01ue1.fjsa.p1.openshiftapps.com
+  - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
 # Backplane Production
 - name: api
   type: CNAME
