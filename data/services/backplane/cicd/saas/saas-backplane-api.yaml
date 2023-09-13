@@ -301,6 +301,12 @@ resourceTemplates:
       MANAGED_SCRIPTS_GIT_SHA: 3dcca7808a7848df2a493cdf52899a18454d2822
       AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
   - namespace:
+      $ref: /services/backplane/namespaces/backplane-prod-hivep08ue2.yml
+    ref: d517f3e2daf43f136af5cc72a7781c032ea66eeb
+    parameters:
+      MANAGED_SCRIPTS_GIT_SHA: 3dcca7808a7848df2a493cdf52899a18454d2822
+      AWS_JUMP_ROLE_ACCOUNT_ID: "710019948333"
+  - namespace:
       $ref: /services/backplane/namespaces/backplane-prod-backplanep01ue1.yml
     ref: d517f3e2daf43f136af5cc72a7781c032ea66eeb
     parameters:
