@@ -56,28 +56,28 @@ resourceTemplates:
       name: openshift-managed-upgrade-operator-gh-build-master
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep01ue1/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep02ue1/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep03uw1/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep04ew2/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep05ue1/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep06uw2/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep07ue2/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/hivep08ue2/cluster-scope.yml
-    ref: 44b631af606682a0e886eac14a105ce06f7393de
+    ref: afa6fb4f5fffad9cd2585c4f8dd3f7af17c2a428
   - namespace:
       $ref: /services/osd-operators/namespaces/ssotest01ue1/cluster-scope.yml
     ref: master
