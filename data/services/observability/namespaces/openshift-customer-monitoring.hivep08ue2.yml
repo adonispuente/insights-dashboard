@@ -19,6 +19,7 @@ managedResourceTypes:
 - Secret
 - PrometheusRule
 - ServiceMonitor
+- PodMonitor
 
 openshiftResources:
 # Observability
@@ -85,6 +86,76 @@ openshiftResources:
   - /observability/prometheusrules/container-security-operator.prometheusrulestest.yaml
 
 ################## Add  any cluster-specific content below this line ##################
+
+# ServiceMonitor
+## Hive
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/hive/hive-controllers.servicemonitor.yaml
+  variables:
+    namespace: hive
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/hive/hive-clustersync.servicemonitor.yaml
+  variables:
+    namespace: hive
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/osd-operators/hive-operator-generic.servicemonitor.yaml
+  variables:
+    operator_name: aws-account-operator
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/osd-operators/hive-operator-generic.servicemonitor.yaml
+  variables:
+    operator_name: certman-operator
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/osd-operators/hive-operator-generic.servicemonitor.yaml
+  variables:
+    operator_name: deadmanssnitch-operator
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/osd-operators/hive-operator-generic.servicemonitor.yaml
+  variables:
+    operator_name: pagerduty-operator
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/backplane/backplane-api-servicemonitor.yaml
+  variables:
+    namespace: backplane
+    app: backplane-api
+
+# PodMonitor
+## Hive
+- provider: resource-template
+  type: extracurlyjinja2
+  path: /services/hive/hive-operator.podmonitor.yaml
+  variables:
+    namespace: hive
+
+# PrometheusRule
+## hivep08ue2
+- provider: prometheus-rule
+  type: resource-template-extracurlyjinja2
+  path: /services/hive/hive-production-common.prometheusrules.yaml
+  variables:
+    shard_name: hivep08ue2
+    aws_account_operator_accounts_threshold: 4950
+    grafana_datasource: hivep08ue2-prometheus
+    certman_operator_openshift_apps_com_issuance_rate_threshold: 6000
+    certman_operator_devshift_org_issuance_rate_threshold: 6000
+  tests:
+  - /services/hive/hive-production-common.prometheusrules-test.yaml
+## backplane-api
+- provider: prometheus-rule
+  type: resource-template-extracurlyjinja2
+  path: /services/backplane/backplane-api-prod-common.prometheusrules.yml
+  variables:
+    shard_name: hivep08ue2
+  tests:
+  - /services/backplane/backplane-api-prod-common.prometheusrules-test.yml
+
 sharedResources:
 - $ref: /services/observability/shared-resources/dvo-openshift.yml
 - $ref: /services/observability/shared-resources/dvo-alerts.yml
