@@ -90,6 +90,7 @@ resourceTemplates:
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
+      ENVOY_IMAGE: quay.io/app-sre/ocm-envoy:21230b7
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: ef52b3288bee08bea15694982a7250471db72e79
@@ -205,6 +206,7 @@ resourceTemplates:
       METRICS_BASE_URL: uhc-acct-mngr-metrics.uhc-integration.svc.cluster.local
       ENABLE_ORG_SERVICE_ACCT_EMAIL_VALIDATION: 'true'
       PPROF_SERVER_BINDADDRESS: 'localhost:8085'
+      ENVOY_IMAGE: quay.io/app-sre/ocm-envoy:21230b7
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
     ref: ef52b3288bee08bea15694982a7250471db72e79
