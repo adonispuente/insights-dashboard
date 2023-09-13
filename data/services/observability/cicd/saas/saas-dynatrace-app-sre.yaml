@@ -65,4 +65,4 @@ resourceTemplates:
     ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.crcs02ue1.yml
-    ref: 2ad333aba2502ec42bdc8587d8c081d13d8dda81
+    ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
