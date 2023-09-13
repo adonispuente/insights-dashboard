@@ -1,5 +1,5 @@
-apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: appstudio-openshift-gitops-argocd-application-controller
 rules:
@@ -22,10 +22,11 @@ rules:
       - patch
       - update
     apiGroups:
-      - ""
+      - ''
     resources:
       - services
       - serviceaccounts
+      - secrets
   - verbs:
       - create
       - delete
@@ -45,18 +46,63 @@ rules:
     resources:
       - routes
   - verbs:
-      - patch
-      - update
+      - '*'
     apiGroups:
-      - operators.coreos.com
+      - operator.external-secrets.io
     resources:
-      - olmconfigs
+      - operatorconfigs
+  - verbs:
+      - '*'
+    apiGroups:
+      - external-secrets.io
+    resources:
+      - clustersecretstores
+      - externalsecrets
+  - verbs:
+      - '*'
+    apiGroups:
+      - integreatly.org
+    resources:
+      - grafanas
+      - grafanadatasources
+      - grafanadashboards
+  - verbs:
+      - '*'
+    apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - servicemonitors
+  - verbs:
+      - '*'
+    apiGroups:
+      - logging.openshift.io
+    resources:
+      - clusterloggings
+      - clusterlogforwarders
+  - verbs:
+      - '*'
+    apiGroups:
+      - redhatcop.redhat.io
+    resources:
+      - groupsyncs
+  - verbs:
+      - '*'
+    apiGroups:
+      - monitoring.rhobs
+    resources:
+      - '*'
+  - verbs:
+      - '*'
+    apiGroups:
+      - grafana.integreatly.org
+    resources:
+      - '*'
   - verbs:
       - create
       - delete
       - patch
       - update
     apiGroups:
-      - 'batch'
+      - batch
     resources:
       - cronjobs
