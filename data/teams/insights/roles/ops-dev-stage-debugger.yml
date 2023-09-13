@@ -1,0 +1,14 @@
+---
+$schema: /access/role-1.yml
+
+labels: {}
+name: ops-dev-stage-debugger
+
+permissions: []
+
+expirationDate: '2023-09-15'
+
+access:
+- cluster:
+    $ref: /openshift/crcs02ue1/cluster.yml
+  group: sd-ops-dev-allow-rsh-group

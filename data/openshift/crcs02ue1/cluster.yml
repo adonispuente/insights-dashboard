@@ -27,6 +27,7 @@ managedGroups:
 - dedicated-admins
 - dedicated-readers
 - fedramp-customer-interest-allow-port-forwarding
+- sd-ops-dev-allow-rsh-group
 
 internal: false
 managedClusterRoles: true
