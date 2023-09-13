@@ -185,12 +185,10 @@ data:
           name: envoy.transport_sockets.tls
           typed_config:
             "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-            # Temporarily disable envoy CA cert validation to prevent path errors when switching base images
-            # TODO: Re-enable when pods are using the new ocm-envoy implementation and point to the RHEL8 path /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
-            # common_tls_context:
-            #   validation_context:
-            #     trusted_ca:
-            #       filename: /etc/ssl/certs/ca-certificates.crt
+            common_tls_context:
+              validation_context:
+                trusted_ca:
+                  filename: /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 
       listeners:
 
