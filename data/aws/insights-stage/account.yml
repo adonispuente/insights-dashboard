@@ -146,9 +146,6 @@ deletionApprovals:
   name: config-manager-stage
   expiration: '2022-07-30'
 - type: aws_iam_policy
-  name: consoledot-frontend-stage
-  expiration: '2022-07-30'
-- type: aws_iam_policy
   name: cw-3scale-stage
   expiration: '2022-07-30'
 - type: aws_iam_policy
@@ -390,9 +387,6 @@ deletionApprovals:
   expiration: '2022-07-30'
 - type: aws_iam_user_policy_attachment
   name: config-manager-stage
-  expiration: '2022-07-30'
-- type: aws_iam_user_policy_attachment
-  name: consoledot-frontend-stage
   expiration: '2022-07-30'
 - type: aws_iam_user_policy_attachment
   name: cw-3scale-stage
