@@ -57,6 +57,7 @@ resourceTemplates:
   url: https://gitlab.cee.redhat.com/service/dynatrace-config
   path: /resources/dynatrace-operator/dynatrace-operator-app-sre.yaml
   targets:
+  # Currently installed Operator v0.13.0
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.app-sre-stage-01.yml
     ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
@@ -65,4 +66,7 @@ resourceTemplates:
     ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
   - namespace:
       $ref: /services/observability/namespaces/dynatrace.crcs02ue1.yml
+    ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
+  - namespace:
+      $ref: /services/observability/namespaces/dynatrace.crcp01ue1.yml
     ref: d436033b99b4c4322b6833e988b5be76fa7b3b54
