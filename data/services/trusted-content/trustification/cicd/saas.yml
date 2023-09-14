@@ -51,6 +51,7 @@ resourceTemplates:
       BOMBASTIC_INDEXER_STORED_TOPIC: sbom-stored-stage
       BOMBASTIC_INDEXER_INDEXED_TOPIC: sbom-indexed-stage
       BOMBASTIC_INDEXER_FAILED_TOPIC: sbom-failed-stage
+      BOMBASTIC_INDEXER_GUAC_TOPIC: sbom-guac-stage
       BOMBASTIC_API_RESOURCES:
         limits:
           memory: 1Gi
@@ -69,6 +70,7 @@ resourceTemplates:
       VEXINATION_INDEXER_STORED_TOPIC: vex-stored-stage
       VEXINATION_INDEXER_INDEXED_TOPIC: vex-indexed-stage
       VEXINATION_INDEXER_FAILED_TOPIC: vex-failed-stage
+      VEXINATION_INDEXER_GUAC_TOPIC: vex-guac-stage
       VEXINATION_API_RESOURCES:
         limits:
           memory: 1Gi
