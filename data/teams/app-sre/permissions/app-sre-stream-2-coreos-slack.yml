@@ -7,7 +7,7 @@ name: app-sre-stream-2-coreos-slack.yml
 description: App SRE Stream 2 (managed via app-interface)
 
 service: slack-usergroup
-handle: app-sre-stream-xtream
+handle: app-sre-stream-2
 
 workspace:
   $ref: /dependencies/slack/redhat-internal.yml
