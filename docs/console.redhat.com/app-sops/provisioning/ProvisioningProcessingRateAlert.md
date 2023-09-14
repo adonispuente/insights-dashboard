@@ -31,8 +31,8 @@ Steps
 -----
 - Check if one of the supported cloud providers does not have outage
 - Verify that at least 3 pods of `provisioning-worker` are running
-- Check Kibana for reservations, use `@log_group: "provisioning-cloudwatch-stage" and @log_stream: "worker"` to access worker access logs
-- Use `reservation_id: 14697` to check for a particular reservation id
+- Check Kibana for reservations, use `@log_group: "provisioning-cloudwatch" and @log_stream: "worker"` to access worker access logs
+- Use `reservation_id: <ID>` to check for a particular reservation id
 - Restart worker pods or the whole application
 
 
