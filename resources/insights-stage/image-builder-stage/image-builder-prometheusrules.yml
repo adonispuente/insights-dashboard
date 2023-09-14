@@ -15,7 +15,7 @@ spec:
 
     - alert: ImageBuilderNoPodsFound
       expr: sum(up{namespace="image-builder-stage", service="image-builder-service"}) == 0
-      for: 5m
+      for: 2m
       annotations:
         message: No pods found in the namespace
       labels:
