@@ -76,7 +76,7 @@ resourceTemplates:
       MIN_REPLICAS: 1
   - namespace:
       $ref: /services/insights/compliance/namespaces/compliance-prod.yml
-    ref: 7102afa4227bfa1eee2f1ad58fbec96ea4cd9eac
+    ref: fb565efaa40dcd6a84c0b559dfd5f87516c0cc61
     parameters:
       MIN_REPLICAS: 1
 - name: compliance
