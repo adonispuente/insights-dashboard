@@ -64,7 +64,7 @@ externalResources:
             "Effect": "Allow",
             "Action": ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage"],
             "Resource": [
-              "arn:aws:sqs:::sbom-*-stage"
+              "arn:aws:sqs:::vex-*-stage"
             ]
           }
         ]
