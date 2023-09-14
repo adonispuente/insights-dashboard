@@ -16,7 +16,7 @@ managed: []
 # # following the move to a SA in https://issues.redhat.com/browse/APPSRE-2494
 # # this integration is blocked on https://issues.redhat.com/browse/SDB-2914
 # - namespace:
-#     $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
+#     $ref: /services/app-interface/namespaces/app-interface-stage-int.appsres05ue1.yml
 #   spec:
 #     resources:
 #       requests:

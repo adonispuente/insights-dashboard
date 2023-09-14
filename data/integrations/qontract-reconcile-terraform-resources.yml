@@ -16,7 +16,7 @@ pr_check:
 
 managed:
 - namespace:
-    $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
+    $ref: /services/app-interface/namespaces/app-interface-stage-int.appsres05ue1.yml
   spec:
     # APPSRE-7884
     sleepDurationSecs: "600"
