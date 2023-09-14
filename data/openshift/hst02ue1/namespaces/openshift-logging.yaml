@@ -108,7 +108,6 @@ externalResources:
 
 
 managedResourceTypes:
-- Secret
 - Subscription.operators.coreos.com
 - OperatorGroup.operators.coreos.com
 - ClusterLogging.logging.openshift.io
@@ -116,15 +115,4 @@ managedResourceTypes:
 
 sharedResources:
 - $ref: /services/app-sre/shared-resources/cluster-logging-operator.yaml
-#- $ref: /services/app-sre/shared-resources/cluster-logging-config.yaml
-
-openshiftResources:
-- provider: resource
-  path: /setup/cluster-logging/clusterlogging.yaml
-- provider: resource-template
-  type: jinja2
-  path: /setup/cluster-logging/clusterlogforwarder.yaml.j2
-  variables:
-    AWS_SECRET_NAME: cloudwatch-sts-credentials
-- provider: resource-template
-  path: /setup/cluster-logging/cloudwatch-sts-credentials.secret.yaml.j2
+- $ref: /services/app-sre/shared-resources/cluster-logging-config.yaml
