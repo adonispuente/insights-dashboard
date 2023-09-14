@@ -89,8 +89,8 @@ upgradePolicyClusters:
 recommendedVersions:
 - workload: host
   channel: stable
-  recommendedVersion: 4.12.31
-  initialVersion: openshift-v4.12.31
+  recommendedVersion: 4.12.32
+  initialVersion: openshift-v4.12.32
 - workload: member
   channel: stable
   recommendedVersion: 4.12.31
