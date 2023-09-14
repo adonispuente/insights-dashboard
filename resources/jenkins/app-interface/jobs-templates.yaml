@@ -147,7 +147,6 @@
         <<: *vault_defaults
         secrets:
         - *reconcile_dev_data_toml
-        - *env_based_app_interface_state
         - *github_api
         - *app_interface_s3
     success_note_url_path: 'app-interface_20JSON_20validation'
