@@ -72,7 +72,7 @@ openshiftResources:
   version: 4
   name: lag-exporter-config
 - provider: vault-secret
-  path: app-interface/assisted-installer/msk-credentials/prod/mirrormaker
+  path: app-interface/assisted-installer/msk-credentials/production/mirrormaker
   version: 1
 
 managedExternalResources: true
