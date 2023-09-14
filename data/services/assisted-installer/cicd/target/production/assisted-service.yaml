@@ -2,7 +2,7 @@ $schema: /app-sre/saas-file-target-1.yml
 
 namespace:
   $ref: /services/assisted-installer/namespaces/assisted-installer-production.yml
-ref: 539f22e47dd2f23bac01e2e614c3cd01e3db9671
+ref: fe274eba2fe457bc76adeffa0ba7b9e8611e4649
 promotion:
   publish:
   - assisted-installer-production-deploy-success-channel
@@ -48,7 +48,7 @@ parameters:
   AGENT_DOCKER_IMAGE: registry.redhat.io/rhai-tech-preview/assisted-installer-agent-rhel8:v1.0.0-279
   OPENSHIFT_INSTALL_RELEASE_IMAGE: ""
   PUBLIC_CONTAINER_REGISTRIES: quay.io
-  RELEASE_TAG: v2.24.1
+  RELEASE_TAG: v2.24.2
   OS_IMAGES: |-
     [
       {
