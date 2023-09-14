@@ -81,7 +81,7 @@ resourceTemplates: # a list of configurations of OpenShift templates to deploy
       REPLICAS: 1
   - namespace:
       $ref: /services/cna/namespaces/prod.yml
-    ref: ee19b18fa63eb4ac025d918ca6506eb2816719db
+    ref: 8ed8f2ba7557b42af61262cbdad80c1e9b605615
     parameters:
       DATABASE_SECRET_NAME: cna-production-rds
       IAM_SECRET_NAME: cna-service-iam
