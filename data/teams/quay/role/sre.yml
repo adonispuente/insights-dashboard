@@ -6,6 +6,11 @@ name: quay-sre
 
 permissions: []
 
+access:
+- namespace:
+    $ref: /services/quayio/namespaces/quays02ue1.yml
+  role: admin
+
 self_service:
 - change_type:
     $ref: /app-interface/changetype/dns-zone-self-service.yml
