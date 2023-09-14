@@ -12,6 +12,7 @@ slack_username: Mykola Morhun
 roles:
 - $ref: /aws/app-sre-logs/roles/log-consumer.yml
 - $ref: /teams/stonesoup/roles/stonesoup.yml
+- $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-build-vault.yml
 
 public_gpg_key: |
   mQINBGQ0EgQBEADzu2OUi7YRndwzrwG+xiNwyQ/gl2dE8kV+64/lGjz7y+OTCPkGIGyD6a+iZ9ak
