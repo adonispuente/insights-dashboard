@@ -80,7 +80,7 @@ resourceTemplates:
           CLUSTER_LIST:
             # To update: maintain ordering, get information (e.g. `cluster_id`) from `$ ocm list clusters`
             # Remember to add the cluster to the `kubeconfig` secret and bump version in
-            # namespaces/acs-fleet-manager-stage.yml
+            # namespaces/acs-fleet-manager-integration.yml
             # Important: The `name` field must match a context name in the `kubeconfig` secret
             - name: default/api-acs-int-us-01-isbr-p1-openshiftapps-com:6443/notarealuser
               cluster_id: 256ji3d7e3cs77vv8jdb3f70q5e2co61
