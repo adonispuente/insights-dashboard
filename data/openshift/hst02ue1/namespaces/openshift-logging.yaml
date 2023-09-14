@@ -20,8 +20,38 @@ managedExternalResources: true
 externalResources:
 - provider: aws
   provisioner:
+    $ref: /aws/app-sre-rosa/account.yml
+  resources:
+  - provider: aws-iam-role
+    identifier: logforwarder-hst02ue1
+    assume_role:
+      # this is the arn of the OIDC provider for hst02ue1 in the app-sre-rosa AWS account
+      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog
+    assume_action: "AssumeRoleWithWebIdentity"
+    # the condition makes sure that only the logcollector service account in the openshift-logging namespace can assume this role
+    assume_condition:
+      StringEquals:
+        "rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog:sub": "system:serviceaccount:openshift-logging:logcollector"
+    # this policy allows us to assume the logingest-hst02ue1 role in the app-sre-logs account
+    inline_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::744086762512:role/logingest-hst02ue1"
+          }
+        ]
+      }
+    output_resource_name: logforwarder-iam-sts
+
+
+- provider: aws
+  provisioner:
     $ref: /aws/app-sre-logs/account.yml
   resources:
+  # IAM service account used to ship logs to cloudwatch when not running in STS mode
   - provider: aws-iam-service-account
     identifier: log-forwarder-hst02ue1
     output_resource_name: app-sre-logs-cloudwatch-access
@@ -42,17 +72,12 @@ externalResources:
           "Effect": "Allow",
           "Resource": "arn:aws:logs:*:*:*"}
       ]}
-  # IAM role to assume by the service account "logcollector"
+  # IAM role to assume by the service account "logcollector" when running in STS mode
   - provider: aws-iam-role
-    identifier: log-forwarder-hst02ue1
+    identifier: logingest-hst02ue1
     assume_role:
-      # this is the arn of the OIDC provider for hst02ue1 in the app-sre-rosa AWS account
-      Federated: arn:aws:iam::366871242094:oidc-provider/rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog
-    assume_action: "AssumeRoleWithWebIdentity"
-    # the condition makes sure that only the logcollector service account in the openshift-logging namespace can assume this role
-    assume_condition:
-      StringEquals:
-        "rh-oidc.s3.us-east-1.amazonaws.com/23sgur2jboj5oidq4qrb72783mng8uog:sub": "system:serviceaccount:openshift-logging:logcollector"
+      AWS:
+      - arn:aws:sts::366871242094:assumed-role/logforwarder-hst02ue1/logcollector
     inline_policy:
       {
         "Version": "2012-10-17",
@@ -72,7 +97,7 @@ externalResources:
             "Resource": "arn:aws:logs:*:*:*"}
         ]
       }
-    output_resource_name: app-sre-logs-cloudwatch-access-sts
+    output_resource_name: cloudwatch-access-sts
     output_format:
       provider: generic-secret
       data:
@@ -99,4 +124,6 @@ openshiftResources:
   type: jinja2
   path: /setup/cluster-logging/clusterlogforwarder.yaml.j2
   variables:
-    AWS_SECRET_NAME: app-sre-logs-cloudwatch-access-sts
+    AWS_SECRET_NAME: cloudwatch-sts-credentials
+#- provider: resource-template
+#  path: /setup/cluster-logging/cloudwatch-sts-credentials.secret.yaml.j2
