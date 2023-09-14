@@ -1,0 +1,19 @@
+---
+$schema: /app-sre/sre-checkpoint-1.yml
+
+labels:
+  platform: insights
+  service: provisioning
+
+app:
+  $ref: /services/insights/provisioning/app.yml
+
+sre:
+  $ref: /teams/app-sre/users/rporresm.yml
+
+date: "2023-09-14"
+
+issue: APPSRE-6245
+
+contractVersion:
+  $ref: /contract/app-sre/versions/v2023.02.15.yml
