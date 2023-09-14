@@ -108,6 +108,7 @@ externalResources:
 
 
 managedResourceTypes:
+- Secret
 - Subscription.operators.coreos.com
 - OperatorGroup.operators.coreos.com
 - ClusterLogging.logging.openshift.io
