@@ -15,6 +15,7 @@ roles:
   - $ref: /teams/codeready-analytics/roles/ai-slack.yml
   - $ref: /services/codeready-analytics/roles/bayesian-dev.yml
   - $ref: /services/openshift.io/roles/quay-membership-openshiftio-devs.yml
+  - $ref: /teams/stonesoup/roles/stonesoup-component-vault/stonesoup-qe-vault.yml
 
 public_gpg_key: |
   mQINBF58lz0BEACuhxa9ddawHo5SwEqWKjFDxzt2+9bEyQuJSU3PwH0TtDtYMmA6HX2T8vMlSqLg
