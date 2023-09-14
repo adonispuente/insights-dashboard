@@ -16,6 +16,104 @@ environment:
 
 managedRoles: true
 
+managedExternalResources: true
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/app-sre-stage/account.yml
+  resources:
+  - provider: aws-iam-service-account
+    identifier: bombastic-stage
+    output_resource_name: bombastic-service-account
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+            "Resource": [
+              "arn:aws:s3:::bombastic-stage"
+            ]
+          },
+          {
+            "Effect": "Allow",
+            "Action": ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage"],
+            "Resource": [
+              "arn:aws:sqs:::sbom-*-stage"
+            ]
+          }
+        ]
+      }
+  - provider: aws-iam-service-account
+    identifier: vexination-stage
+    output_resource_name: vexination-service-account
+    user_policy:
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+            "Resource": [
+              "arn:aws:s3:::vexination-stage"
+            ]
+          },
+          {
+            "Sid": "VexinationStageBucket",
+            "Effect": "Allow",
+            "Action": ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage"],
+            "Resource": [
+              "arn:aws:sqs:::sbom-*-stage"
+            ]
+          }
+        ]
+      }
+  - provider: sqs
+    identifier: bombastic-sqs-stage
+    output_resource_name: bombastic-sqs
+    specs:
+    - defaults: /terraform/resources/sqs-1.yml
+      queues:
+      - key: sbom_stored_stage
+        value: sbom-stored-stage
+      - key: sbom_indexed_stage
+        value: sbom-indexed-stage
+      - key: sbom_failed_stage
+        value: sbom-failed-stage
+      - key: sbom_guac_stage
+        value: sbom-guac-stage
+  - provider: s3
+    identifier: bombastic-stage
+    output_resource_name: bombastic-s3
+    defaults: /terraform/resources/s3-private-1.yml
+    event_notifications:
+      - destination_type: sqs
+        destination: sbom-stored-stage
+        event_type: ["s3:ObjectCreated:*", "s3:ObjectRemoved:*"]
+  - provider: sqs
+    identifier: vexination-sqs-stage
+    output_resource_name: vexination-sqs
+    specs:
+    - defaults: /terraform/resources/sqs-1.yml
+      queues:
+      - key: vex_stored_stage
+        value: vex-stored-stage
+      - key: vex_indexed_stage
+        value: vex-indexed-stage
+      - key: vex_failed_stage
+        value: vex-failed-stage
+      - key: vex_guac_stage
+        value: vex-guac-stage
+  - provider: s3
+    identifier: vexination-stage
+    output_resource_name: vexination-s3
+    defaults: /terraform/resources/s3-private-1.yml
+    event_notifications:
+      - destination_type: sqs
+        destination: vex-stored-stage
+        event_type: ["s3:ObjectCreated:*", "s3:ObjectRemoved:*"]
+
 # network policies
 networkPoliciesAllow:
 - $ref: /services/observability/namespaces/openshift-customer-monitoring.app-sre-stage-01.yml
