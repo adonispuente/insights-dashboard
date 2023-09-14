@@ -125,5 +125,5 @@ openshiftResources:
   path: /setup/cluster-logging/clusterlogforwarder.yaml.j2
   variables:
     AWS_SECRET_NAME: cloudwatch-sts-credentials
-#- provider: resource-template
-#  path: /setup/cluster-logging/cloudwatch-sts-credentials.secret.yaml.j2
+- provider: resource-template
+  path: /setup/cluster-logging/cloudwatch-sts-credentials.secret.yaml.j2
