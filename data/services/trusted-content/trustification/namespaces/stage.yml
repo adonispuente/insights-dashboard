@@ -16,6 +16,13 @@ environment:
 
 managedRoles: true
 
+managedResourceTypes:
+- ConfigMap
+
+openshiftResources:
+- provider: resource
+  path: /trusted-content-stage/trustification-stage/stage-config.yaml
+
 managedExternalResources: true
 externalResources:
 - provider: aws
