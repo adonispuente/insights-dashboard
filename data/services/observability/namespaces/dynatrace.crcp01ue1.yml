@@ -21,8 +21,7 @@ managedResourceTypes:
 - Job
 
 sharedResources:
-# TODO: install in follow-up MR
-#- $ref: /services/app-sre/shared-resources/dynatrace.yaml
+- $ref: /services/app-sre/shared-resources/dynatrace.yaml
 # Required to pull private mirror. If mirror is public, this can be removed
 - $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
 

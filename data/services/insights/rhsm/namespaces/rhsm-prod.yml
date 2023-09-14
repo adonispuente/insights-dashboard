@@ -25,6 +25,8 @@ networkPoliciesAllow:
 
 managedRoles: true
 
+enableDynatraceLogging: true
+
 managedResourceTypes:
 - ServiceAccount
 
