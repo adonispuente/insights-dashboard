@@ -98,7 +98,7 @@ resourceTemplates:
       DOMAIN: trustification.stage.devshift.net
       ISSUER_URL: https://sso.stage.redhat.com/auth/realms/redhat-external
       CONFIG_NAME: trustification-config
-      IMAGE_TAG: 23d29ca89bfebf9553fa27c6a4333510d64a1ee8
+      IMAGE_TAG: 832002bbcb1bb2a9fb50b04613b36a9e65f1ce61
 imagePatterns:
   - quay.io/app-sre/trusted-content/trusted-content-trustification-backend
   - quay.io/app-sre/trusted-content/trusted-content-trustification-frontend
