@@ -41,7 +41,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: 9ca9939afd574a244bcd4b262f4a97fff8c775dd
+    ref: 132a1edf26e079cca0079944dd14085c7a3fba0c
     name: rosa-hcp-upgrade
     promotion:
       auto: true
