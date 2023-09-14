@@ -21,6 +21,10 @@ self_service:
     $ref: /app-interface/changetype/role-manager.yml
   datafiles:
   - $ref: /teams/oyster/roles/dev.yml
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /observability/servicemonitors/trusted-content-trustification.servicemonitor.yaml
 access:
 - namespace:
     $ref: /services/trusted-content/namespaces/tekton.trustification-pipelines.appsrep05ue1.yml
