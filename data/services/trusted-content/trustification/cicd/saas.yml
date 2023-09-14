@@ -46,11 +46,11 @@ resourceTemplates:
         $ref: /dependencies/quay/redhat-user-workloads.yml
       name: trusted-content-tenant/trustification/trustification-backend
     parameters:
-      BOMBASTIC_STORAGE_BUCKET: bombastic-staging
+      BOMBASTIC_STORAGE_BUCKET: bombastic-stage
       BOMBASTIC_AWS_SECRET_NAME: bombastic-service-account
-      BOMBASTIC_INDEXER_STORED_TOPIC: sbom-stored-staging
-      BOMBASTIC_INDEXER_INDEXED_TOPIC: sbom-indexed-staging
-      BOMBASTIC_INDEXER_FAILED_TOPIC: sbom-failed-staging
+      BOMBASTIC_INDEXER_STORED_TOPIC: sbom-stored-stage
+      BOMBASTIC_INDEXER_INDEXED_TOPIC: sbom-indexed-stage
+      BOMBASTIC_INDEXER_FAILED_TOPIC: sbom-failed-stage
       BOMBASTIC_API_RESOURCES:
         limits:
           memory: 1Gi
@@ -64,11 +64,11 @@ resourceTemplates:
           cpu: 100m
           memory: 2Gi
 
-      VEXINATION_STORAGE_BUCKET: vexination-staging
+      VEXINATION_STORAGE_BUCKET: vexination-stage
       VEXINATION_AWS_SECRET_NAME: vexination-service-account
-      VEXINATION_INDEXER_STORED_TOPIC: vex-stored-staging
-      VEXINATION_INDEXER_INDEXED_TOPIC: vex-indexed-staging
-      VEXINATION_INDEXER_FAILED_TOPIC: vex-failed-staging
+      VEXINATION_INDEXER_STORED_TOPIC: vex-stored-stage
+      VEXINATION_INDEXER_INDEXED_TOPIC: vex-indexed-stage
+      VEXINATION_INDEXER_FAILED_TOPIC: vex-failed-stage
       VEXINATION_API_RESOURCES:
         limits:
           memory: 1Gi
