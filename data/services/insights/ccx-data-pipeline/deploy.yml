@@ -465,7 +465,7 @@ resourceTemplates:
       SUSPEND_JOB__NOTIFICATION_BACKEND: "false"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 579c1bc04213607f9b518b6025a28966def97458
+    ref: b38d14951ed7073bbe740b15f16b6c8bc19621b7
     parameters:
       CONTENT_SERVICE_PORT: 10000
       JOB_SCHEDULE__NOTIFICATION_BACKEND: "*/15 * * * *"
