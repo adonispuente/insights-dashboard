@@ -288,7 +288,7 @@ resourceTemplates:
       $ref: /services/osd-operators/namespaces/hivep08ue2/aws-account-operator.yml
     ref: 74039738f5be30f4636fc301108db5e417440ba1
     parameters:
-      ACCOUNT_LIMIT: "3880"
+      ACCOUNT_LIMIT: "4312"
       ROOT_OU_ID: ou-jtfp-o61b5g0v
       BASE_OU_ID: ou-jtfp-w0octtat
       ACCOUNT_POOL_SIZE: 30
