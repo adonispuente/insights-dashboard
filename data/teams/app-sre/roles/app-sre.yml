@@ -1,7 +1,9 @@
 ---
 $schema: /access/role-1.yml
 
-labels: {}
+labels:
+  change-owners-label: show-in-review-queue
+
 name: app-sre
 
 ldapGroup: ai-app-sre
