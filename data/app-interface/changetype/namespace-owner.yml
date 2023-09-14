@@ -30,3 +30,6 @@ changes:
 - provider: jsonPath
   jsonPathSelectors:
   - glitchtipProjects
+- provider: jsonPath
+  jsonPathSelectors:
+  - openshiftResources[?(@.provider=="resource-template")].variables
