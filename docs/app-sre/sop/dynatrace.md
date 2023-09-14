@@ -28,8 +28,9 @@ Re-start all log-configuration jobs in all clusters by changing the [job name](h
 Note, that the jobs are idempotent, i.e., it is totally fine and safe to re-run them.
 However, restarting on all clusters might raise alerts if the re-runs fail.
 
-## Setup On Cluster
+## Install Dynatrace On Cluster
 
-1. Define DT environment for cluster and install token, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79135)
-2. Install DT Operator via saas file, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79141)
-3. Install DT Resources -> important: make sure you also enable at least one namespace, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79143)
+1. Create a new cluster token in dynatrace-config, see [MR](https://gitlab.cee.redhat.com/service/dynatrace-config/-/merge_requests/186)
+2. Define DT environment for cluster and install token, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79135)
+3. Install DT Operator via saas file, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79141)
+4. Install DT Resources -> important: make sure you also enable at least one namespace, see [MR](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/79143)
