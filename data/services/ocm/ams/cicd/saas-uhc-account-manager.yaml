@@ -209,7 +209,7 @@ resourceTemplates:
       ENVOY_IMAGE: quay.io/app-sre/ocm-envoy:21230b7
   - namespace:
       $ref: /services/ocm/namespaces/uhc-stage.yml
-    ref: ef52b3288bee08bea15694982a7250471db72e79
+    ref: 64cbe2bb874b3439b6991800cc82fe7b0a37d3ee
     promotion:
       auto: true
       subscribe:
