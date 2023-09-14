@@ -17,7 +17,7 @@ sopsUrl: https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/
 grafanaUrls:
 - title: Provisioning monitoring
   url: https://grafana.app-sre.devshift.net/d/211/provisioning?orgId=1
-onboardingStatus: InProgress
+onboardingStatus: TransitionPeriod
 
 parentApp:
   $ref: /services/insights/app.yml
