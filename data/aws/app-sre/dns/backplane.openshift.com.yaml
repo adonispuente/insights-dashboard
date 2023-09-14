@@ -12,22 +12,22 @@ account:
 records:
 
 # Backplane
-# - name: api.stage
-#   type: CNAME
-#   ttl: 10
-#   geolocation_routing_policy:
-#     continent: "NA"
-#   set_identifier: backplane-stage-geolocation-record_backplanes03ue1
-#   records:
-#   - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
-# - name: api.stage
-#   type: CNAME
-#   ttl: 10
-#   geolocation_routing_policy:
-#     continent: "AS"
-#   set_identifier: backplane-stage-geolocation-record_backplanes04uw2
-#   records:
-#   - a60679b6153cd44019c474e4f3fc4830-2058689301.us-west-2.elb.amazonaws.com
+- name: api.stage
+  type: CNAME
+  ttl: 10
+  geolocation_routing_policy:
+    continent: "NA"
+  set_identifier: backplane-stage-geolocation-record_backplanes03ue1
+  records:
+  - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
+- name: api.stage
+  type: CNAME
+  ttl: 10
+  geolocation_routing_policy:
+    continent: "AS"
+  set_identifier: backplane-stage-geolocation-record_backplanes04uw2
+  records:
+  - a60679b6153cd44019c474e4f3fc4830-2058689301.us-west-2.elb.amazonaws.com
 - name: api.stage
   type: CNAME
   ttl: 10
