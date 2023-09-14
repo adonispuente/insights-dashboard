@@ -1,0 +1,68 @@
+---
+$schema: /access/user-1.yml
+
+labels:
+  platform: insights
+
+name: Brian Bouterse
+org_username: bmbouter
+github_username: bmbouter
+quay_username: bmbouter
+
+roles:
+- $ref: /teams/insights/roles/ephemeral-users.yml
+- $ref: /teams/insights/roles/content-sources-monitor.yml
+- $ref: /teams/insights/roles/insights-engineers.yml
+- $ref: /teams/image-builder/roles/image-builder-read.yml
+- $ref: /teams/insights/roles/pulp-services.yml
+
+public_gpg_key: |
+  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
+  IbMQXZ/VfyP64aPA4Gm8
+  =J36f
