@@ -48,14 +48,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: ddf029bdc3d3e14576c24500c0c11ab304d45d13
-    parameters:
-      ENV_NAME: "env-stage"
-    promotion:
-      publish:
-      - host-inventory-frontend-stage-post-deploy-success-channel
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml

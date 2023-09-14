@@ -136,15 +136,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true  # do not create an app-sre deploy job for ephemeral namespace
     ref: internal  # populated by bonfire
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: master
-    upstream:
-      instance:
-        $ref: /dependencies/ci-int/ci-int.yml
-      name: RedHatInsights-compliance-frontend-gh-build-master
-    parameters:
-      ENV_NAME: env-stage
 - name: compliance-dashboards
   url: https://github.com/RedHatInsights/compliance-backend
   path: /dashboards/grafana-dashboard-insights-compliance-general.template.yaml

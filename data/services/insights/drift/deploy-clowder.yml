@@ -63,11 +63,6 @@ resourceTemplates:
           $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
         disable: true
         ref: internal
-      - namespace:
-          $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-        ref: 29c998ffada71b93d9aeba6bd49621a0addc3bde
-        parameters:
-          ENV_NAME: env-stage
   - name: drift-dashboards
     url: https://github.com/RedHatInsights/drift-backend
     path: /dashboards

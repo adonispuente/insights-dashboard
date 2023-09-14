@@ -54,11 +54,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
     ref: internal
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 9d8e61d0ac649f8f46af7ab5c7290ef78a2be1de
-    parameters:
-      ENV_NAME: env-stage
 - name: advisor-backend
   path: /clowdapp.yml
   url: https://gitlab.cee.redhat.com/insights-platform/advisor-backend

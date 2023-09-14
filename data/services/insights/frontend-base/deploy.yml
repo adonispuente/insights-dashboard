@@ -248,12 +248,6 @@ resourceTemplates:
   path: /deploy/deploy.yaml
   url: https://gitlab.cee.redhat.com/insights-platform/frontend-configs
   targets:
-  # "fetest" this can be removed in future
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: main
-    parameters:
-      ENV_NAME: env-stage
   # ephemeral for bonfire
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
@@ -267,12 +261,6 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true # do not create an app-sre deploy job for ephemeral namespace
     ref: internal # populated by bonfire
-  # "fetest" stage deployment. Will be removed in future.
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 9454d7d34627d46b1783eda5ad0752a654303774
-    parameters:
-      ENV_NAME: "env-stage"
   # Stage Stable Deployment
   - namespace:
       $ref: /services/insights/frontend-operator/namespaces/stage-frontends.yml
