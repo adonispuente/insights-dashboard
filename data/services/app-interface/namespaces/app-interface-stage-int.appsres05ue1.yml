@@ -51,10 +51,11 @@ openshiftResources:
   annotations:
     qontract.recycle: "true"
 - provider: vault-secret
-  path: app-interface/app-sre-stage/app-interface-stage/qontract-reconcile-toml
-  version: 9
+  path: app-interface/app-sre-stage/app-interface-stage/qontract-reconcile-appsres05ue1-toml
+  version: 1
   annotations:
     qontract.recycle: "true"
+  name: qontract-reconcile-toml
 - provider: vault-secret
   path: app-interface/app-sre-stage/app-interface-stage/qontract-api-toml
   version: 5
