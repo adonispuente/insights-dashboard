@@ -1,0 +1,71 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: trustification
+  platform: trusted-content
+name: trustification
+description: trustification app on the trusted-content platform
+app:
+  $ref: /services/trusted-content/trustification/app.yml
+deployResources:
+  requests:
+    cpu: 300m
+    memory: 100Mi
+  limits:
+    cpu: "1"
+    memory: 1000Mi
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: rhtc-cicd
+pipelinesProvider:
+  $ref: /services/trusted-content/pipelines/tekton.trustification-pipelines.appsrep05ue1.yml
+managedResourceTypes:
+- Deployment
+- Service
+- ConfigMap
+validateTargetsInApp: true
+resourceTemplates:
+- name: trustification
+  url: https://gitlab.cee.redhat.com/trustification/trustification-service
+  path: /template.yaml
+  provider: openshift-template
+  hash_length: 40
+  parameters:
+    BACKEND_IMAGE: quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-backend
+    FRONTEND_IMAGE: quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-frontend
+    INTEGRATION_TESTS_IMAGE: quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-integration-tests
+    AWS_REGION: us-east-1
+    REPLICAS: 2
+  targets:
+  - namespace:
+      $ref: /services/trusted-content/trustification/namespaces/stage.yml
+    ref: main
+    image:
+      org:
+        $ref: /dependencies/quay/redhat-user-workloads.yml
+      name: trusted-content-tenant/trustification/trustification-backend
+    parameters:
+      BOMBASTIC_STORAGE_BUCKET: bombastic-staging
+      BOMBASTIC_AWS_SECRET_NAME: bombastic-service-account
+      BOMBASTIC_INDEXER_STORED_TOPIC: sbom-stored-staging
+      BOMBASTIC_INDEXER_INDEXED_TOPIC: sbom-indexed-staging
+      BOMBASTIC_INDEXER_FAILED_TOPIC: sbom-failed-staging
+
+      VEXINATION_STORAGE_BUCKET: vexination-staging
+      VEXINATION_AWS_SECRET_NAME: vexination-service-account
+      VEXINATION_INDEXER_STORED_TOPIC: vex-stored-staging
+      VEXINATION_INDEXER_INDEXED_TOPIC: vex-indexed-staging
+      VEXINATION_INDEXER_FAILED_TOPIC: vex-failed-staging
+
+      DOMAIN: trustification.stage.devshift.net
+      ISSUER_URL: https://sso.stage.redhat.com/auth/realms/redhat-external
+      CONFIG_NAME: trustification-config
+      IMAGE_TAG: 23d29ca89bfebf9553fa27c6a4333510d64a1ee8
+imagePatterns:
+  - quay.io/app-sre/trusted-content/trusted-content-trustification-backend
+  - quay.io/app-sre/trusted-content/trusted-content-trustification-frontend
+  - quay.io/app-sre/trusted-content/trusted-content-trustification-integration-tests
+  - quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-backend
+  - quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-frontend
+  - quay.io/redhat-user-workloads/trusted-content-tenant/trustification/trustification-integration-tests
