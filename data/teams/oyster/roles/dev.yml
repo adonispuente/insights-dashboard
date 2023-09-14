@@ -31,3 +31,7 @@ access:
 - namespace:
     $ref: /services/trusted-content/trustification/namespaces/stage.yml
   role: view
+- change_type:
+    $ref: /app-interface/changetype/resource-owner.yml
+  resources:
+  - /observability/servicemonitors/trusted-content-trustification.servicemonitor.yaml
