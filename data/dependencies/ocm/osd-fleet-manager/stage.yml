@@ -273,15 +273,6 @@ upgradePolicyClusters:
       sector: ibm-infra
       soakDays: 0
       mutexes: []
-- name: hs-mc-hpuufgui0
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: perf2
-      soakDays: 0
-      mutexes: []
 - name: hs-sc-vgdiha4dg
   upgradePolicy:
     workloads:
