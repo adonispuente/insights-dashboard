@@ -1,0 +1,93 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels:
+  provider: tekton
+
+name: stonesoup-int-srvc
+description: stonesoup-internal-services namespace
+
+cluster:
+  $ref: /openshift/appsres05ue1/cluster.yml
+
+app:
+  $ref: /services/stonesoup/app.yml
+
+environment:
+  $ref: /products/stonesoup/environments/stage.yml
+
+limitRanges:
+  $ref: /dependencies/openshift/limitranges/defaults-only-resource-limits.yml
+
+managedRoles: true
+
+managedResourceTypes:
+- Secret
+
+sharedResources:
+- $ref: /services/app-interface/shared-resources/app-sre-pipelines.yml
+
+openshiftResources:
+- provider: vault-secret
+  name: iib-services-config
+  path: hacbs/hacbs-internal-services/iib/iib-staging-services-config
+  version: 4
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: iib-preview-services-config
+  path: hacbs/hacbs-internal-services/iib/iib-preview-services-config
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: fbc-preview-publishing-credentials
+  path: hacbs/hacbs-internal-services/fbc/preview/publishing-credentials
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: iib-overwrite-fromimage-credentials
+  path: stonesoup/staging/release/quay/hacbs-release-tests_iib-pub
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: iib-service-account
+  path: hacbs/hacbs-internal-services/iib/iib-service-account
+  version: 3
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: errata-service-account
+  path: hacbs/hacbs-internal-services/errata/errata-service-account
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: remote-client-config
+  path: hacbs/hacbs-internal-services/internal-services-controller/remote-client-config/hacbs-dev
+  version: 9
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: hacbs-signing-pipeline-certs
+  path: stonesoup/staging/release/radas_signing
+  version: 1
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  name: file-updates-secret
+  path: stonesoup/staging/release/gitlab/gitlab.cee/file-updates-secret
+  version: 3
+  type: Opaque
+  annotations:
+    qontract.recycle: "true"
