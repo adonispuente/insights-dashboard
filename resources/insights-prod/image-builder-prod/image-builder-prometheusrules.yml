@@ -223,6 +223,17 @@ spec:
         exported_service: image-builder
       record: image_builder_crc_internal_errors:burnrate6h
 
+    - alert: ImageBuilderExtremelySlowResponse_FastBurn
+      annotations:
+        message: 'High burn rate: {{ $value | humanizePercentage }} of crc requests are slower than 5s'
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/image-builder/ImageBuilderHighLatency.md"
+      expr: |
+        image_builder_crc_requests:5s_latency_rate10m{latency="5"} > (9.99*(1 - 0.95))
+      labels:
+        latency: "5"
+        severity: warning
+        service: image-builder
+        env: prod
     - alert: ImageBuilderSlowResponse_FastBurn
       annotations:
         message: 'High burn rate: {{ $value | humanizePercentage }} of crc requests are slower than 200ms'
@@ -328,6 +339,15 @@ spec:
       labels:
         latency: "0.5"
       record: image_builder_crc_requests:latency_rate3d
+    - expr: |
+        1 - (
+          sum(rate(image_builder_crc_http_duration_seconds_bucket{le="5"}[10m]))
+          /
+          sum(rate(image_builder_crc_http_duration_seconds_count[10m]))
+        )
+      labels:
+        latency: "5"
+      record: image_builder_crc_requests:5s_latency_rate10m
   - name: image-builder.insights.openshiftio.expressions
     interval: 1m
     rules:
