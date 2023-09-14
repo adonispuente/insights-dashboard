@@ -21,3 +21,4 @@ We record the number of documents that failed to index, and the number of docume
 
 We want to make sure most documents get ingested successfully. Although some documents may be invalid, they should be few. The target is that less than 1% of documents fail to index.
 
+NOTE: For this service, only we/Red Hat have credentials to ingest documents, so we are in control of this process. So if we happen to insert/ingest bad data this would affect the SLO, but it would be under our control to fix.
