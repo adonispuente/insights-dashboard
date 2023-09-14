@@ -130,7 +130,7 @@ resourceTemplates:
       MANAGED_TENANTS: 'rhobs,osd,appsre,rhtap'
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: '6743d93'
+      OBSCTL_RELOADER_IMAGE_TAG: '9c789b9'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
