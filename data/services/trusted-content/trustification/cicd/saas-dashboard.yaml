@@ -1,0 +1,34 @@
+---
+$schema: /app-sre/saas-file-2.yml
+labels:
+  service: trustification
+  platform: trusted-content
+name: trustification-dashboards
+description: trustification dashboard
+app:
+  $ref: /services/trusted-content/trustification/app.yml
+pipelinesProvider:
+  $ref: /services/trusted-content/pipelines/tekton.trustification-pipelines.appsrep05ue1.yml
+deployResources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 500m
+    memory: 1000Mi
+slack:
+  workspace:
+    $ref: /dependencies/slack/redhat-internal.yml
+  channel: rhtc-cicd
+managedResourceTypes:
+- ConfigMap
+resourceTemplates:
+- name: grafana-dashboard-trustification
+  url: https://gitlab.cee.redhat.com/trustification/trustification-service
+  path: /dashboards
+  provider: directory
+  targets:
+  - namespace:
+      $ref: /services/observability/namespaces/app-sre-observability-stage-int.yml
+    ref: main
+imagePatterns: []
