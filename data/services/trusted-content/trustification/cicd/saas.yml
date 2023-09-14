@@ -51,12 +51,49 @@ resourceTemplates:
       BOMBASTIC_INDEXER_STORED_TOPIC: sbom-stored-staging
       BOMBASTIC_INDEXER_INDEXED_TOPIC: sbom-indexed-staging
       BOMBASTIC_INDEXER_FAILED_TOPIC: sbom-failed-staging
+      BOMBASTIC_API_RESOURCES:
+        limits:
+          memory: 1Gi
+        requests:
+          cpu: 100m
+          memory: 1Gi
+      BOMBASTIC_INDEXER_RESOURCES:
+        limits:
+          memory: 2Gi
+        requests:
+          cpu: 100m
+          memory: 2Gi
 
       VEXINATION_STORAGE_BUCKET: vexination-staging
       VEXINATION_AWS_SECRET_NAME: vexination-service-account
       VEXINATION_INDEXER_STORED_TOPIC: vex-stored-staging
       VEXINATION_INDEXER_INDEXED_TOPIC: vex-indexed-staging
       VEXINATION_INDEXER_FAILED_TOPIC: vex-failed-staging
+      VEXINATION_API_RESOURCES:
+        limits:
+          memory: 1Gi
+        requests:
+          cpu: 100m
+          memory: 1Gi
+      VEXINATION_INDEXER_RESOURCES:
+        limits:
+          memory: 2Gi
+        requests:
+          cpu: 100m
+          memory: 2Gi
+
+      SPOG_API_RESOURCES:
+        limits:
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
+      SPOG_UI_RESOURCES:
+        limits:
+          memory: 64Mi
+        requests:
+          cpu: 100m
+          memory: 64Mi
 
       DOMAIN: trustification.stage.devshift.net
       ISSUER_URL: https://sso.stage.redhat.com/auth/realms/redhat-external
