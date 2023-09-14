@@ -20,6 +20,7 @@ allowedSecretParameterPaths:
 - insights/secrets/insights-stage/msk-credentials
 - app-interface/assisted-installer/msk-credentials
 - app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
+- app-sre/integrations-output/terraform-resources/app-sre-prod-04/assisted-installer-production
 
 deployResources:
   requests:
