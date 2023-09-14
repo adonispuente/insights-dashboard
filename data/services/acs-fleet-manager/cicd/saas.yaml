@@ -107,7 +107,7 @@ resourceTemplates:
           name: stackrox-acs-fleet-manager-build-and-push-main
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-stage.yml
-        ref: main
+        ref: 0498c814f1aeac9472fce47f836abadc58d8d80f
         promotion:
           publish:
             - acs-fleet-manager
