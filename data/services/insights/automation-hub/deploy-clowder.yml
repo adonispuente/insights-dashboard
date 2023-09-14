@@ -129,11 +129,6 @@ resourceTemplates:
         $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
       disable: true  # do not create an app-sre deploy job for ephemeral namespace
       ref: internal  # populated by bonfire
-    - namespace:
-        $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-      ref: 098b7c1a7a3b39d885c8a8aade3d87998374528e
-      parameters:
-        ENV_NAME: env-stage
   - name: automation-hub-job
     path: /openshift/clowder/run-job.yaml
     url: https://github.com/ansible/galaxy_ng

@@ -104,8 +104,3 @@ resourceTemplates:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
     ref: internal
-  - namespace:
-      $ref: /services/insights/ephemeral/namespaces/consoledot-frontend-stage.yml
-    ref: 5316bd71dd2cd5cb137a0a29119806da2f3a88c5
-    parameters:
-      ENV_NAME: env-stage
