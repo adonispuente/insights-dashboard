@@ -77,7 +77,7 @@ externalResources:
     identifier: logingest-hst02ue1
     assume_role:
       AWS:
-      - arn:aws:sts::366871242094:assumed-role/logforwarder-hst02ue1/logcollector
+      - arn:aws:sts::366871242094:assumed-role/logforwarder-hst02ue1/cluster-logging
     inline_policy:
       {
         "Version": "2012-10-17",
