@@ -24,6 +24,8 @@ managedRoles: true
 
 managedResourceTypes:
 - ServiceAccount
+- Role
+- RoleBinding
 
 openshiftResources:
 - provider: vault-secret
@@ -69,6 +71,10 @@ openshiftResources:
   path: insights/secrets/insights-stage/ccx-data-pipeline-stage/cache-writer-redis-credentials
   version: 1
   name: cache-writer-redis-credentials
+- provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-dev-allow-rsh.role.yaml
+- provider: resource
+  path: /insights-stage/ccx-data-pipeline-stage/ccx-dev-allow-rsh.rolebinding.yaml
 
 managedExternalResources: true
 
