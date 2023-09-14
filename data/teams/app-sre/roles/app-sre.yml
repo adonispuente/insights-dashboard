@@ -2,7 +2,7 @@
 $schema: /access/role-1.yml
 
 labels:
-  change-owners-label: show-in-review-queue
+  change-owners-labels: show-self-serviceable-in-review-queue
 
 name: app-sre
 

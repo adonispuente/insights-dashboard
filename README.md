@@ -3262,6 +3262,7 @@ repositories:
 - `showInReviewQueue` : When set to true, MRs from this repository 
   display in the [review queue](https://gitlab.cee.redhat.com/service/app-interface-output/-/blob/master/app-interface-review-queue.md) so that the AppSRE IC can review MRs that are not self-servicable.
   (For AppSRE usage only).
+- self-serviceable MRs labeled with `change-owners/show-self-serviceable-in-review-queue` will still show up in the [review queue](https://gitlab.cee.redhat.com/service/app-interface-output/-/blob/master/app-interface-review-queue.md). This label is placed on MRs when an involved self-service `/access/role-1.yml` defines a `change-owners-labels: show-self-serviceable-in-review-queue` label in `labels`. This is currently used to make AppSRE IC aware of self-serviceable MRs for AppSRE ([see](data/teams/app-sre/roles/app-sre.yml)).
 
 Example:
 
