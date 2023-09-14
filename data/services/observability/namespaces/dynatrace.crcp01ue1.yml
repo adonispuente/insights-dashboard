@@ -1,0 +1,33 @@
+---
+$schema: /openshift/namespace-1.yml
+
+labels: {}
+
+name: dynatrace
+description: Monitoring and Logging Stack for Dynatrace
+
+cluster:
+  $ref: /openshift/crcp01ue1/cluster.yml
+
+app:
+  $ref: /services/observability/app.yml
+
+environment:
+  $ref: /products/app-sre/environments/production.yml
+
+managedResourceTypes:
+- NetworkPolicy
+- DynaKube
+- Job
+
+sharedResources:
+# TODO: install in follow-up MR
+#- $ref: /services/app-sre/shared-resources/dynatrace.yaml
+# Required to pull private mirror. If mirror is public, this can be removed
+- $ref: /services/app-sre/shared-resources/quayio-pull-secret.yml
+
+openshiftResources:
+- provider: vault-secret
+  path: app-sre/creds/dynatrace/terraform/app-sre-clusters/crcp01ue1-jgn20300
+  version: 1
+  name: dynatrace-tokens
