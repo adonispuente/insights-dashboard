@@ -1,0 +1,23 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-prod-http
+  labels:
+    app.kubernetes.io/name: bombastic-api
+    app.kubernetes.io/component: api
+    app.kubernetes.io/part-of: bombastic
+  name: bombastic-stage
+spec:
+  host: sbom.trustification.stage.devshift.net
+  to:
+    kind: Service
+    name: bombastic-api
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  port:
+    targetPort: endpoint
