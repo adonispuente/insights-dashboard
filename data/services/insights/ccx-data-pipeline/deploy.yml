@@ -705,7 +705,7 @@ resourceTemplates:
     ref: master
   - namespace:
       $ref: /services/observability/namespaces/app-sre-observability-production-int.yml
-    ref: cefc7fd75fc7bf1cc51b33e9b02224c16e731b41
+    ref: 6e84505581bd6f6f3e574c14afa77c47be1f9ff2
 
 - name: grafana-dashboard-insights-results-aggregator
   url: https://github.com/RedHatInsights/insights-results-aggregator
