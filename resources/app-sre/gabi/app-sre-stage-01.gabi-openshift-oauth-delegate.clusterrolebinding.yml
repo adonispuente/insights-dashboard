@@ -5,6 +5,10 @@ metadata:
   name: gabi-openshift-oauth-delegate
 subjects:
   - kind: ServiceAccount
+    name: gabi-acs-fleet-manager-integration
+    namespace: acs-fleet-manager-integration
+
+  - kind: ServiceAccount
     name: gabi-acs-fleet-manager
     namespace: acs-fleet-manager-stage
 
