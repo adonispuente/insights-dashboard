@@ -117,3 +117,6 @@ rules: |
   path "trusted-content/*" {
      capabilities = ["read"]
   }
+  path "quay/*" {
+     capabilities = ["read"]
+  }
