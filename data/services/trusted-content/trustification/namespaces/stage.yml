@@ -22,6 +22,14 @@ managedResourceTypes:
 openshiftResources:
 - provider: resource
   path: /trusted-content-stage/trustification-stage/stage-config.yaml
+- provider: route
+  path: /trusted-content-stage/trustification-stage/bombastic-stage-route.yaml
+- provider: route
+  path: /trusted-content-stage/trustification-stage/vexination-stage-route.yaml
+- provider: route
+  path: /trusted-content-stage/trustification-stage/spog-api-stage-route.yaml
+- provider: route
+  path: /trusted-content-stage/trustification-stage/spog-ui-stage-route.yaml
 
 managedExternalResources: true
 externalResources:
