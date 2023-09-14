@@ -24,16 +24,6 @@ managedResourceTypes:
 imagePatterns: []
 
 resourceTemplates:
-- name: rhtap-rhobs-rules
-  url: https://github.com/redhat-appstudio/o11y
-  path: /rhobs/alerting
-  provider: directory
-  targets:
-  - name: observatorium-mst-production
-    namespace:
-      $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
-    ref: 55d099083f159fef4a43ae0dcef830b97fae7b69
-
 - name: rhtap-rhobs-data-plane-rules
   url: https://github.com/redhat-appstudio/o11y
   path: /rhobs/alerting/data_plane
@@ -42,6 +32,10 @@ resourceTemplates:
   - name: observatorium-mst-stage
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
+    ref: 1fa74f357c20bb0eec7c70be2f75d3a7f4c83a95
+  - name: observatorium-mst-production
+    namespace:
+      $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     ref: 1fa74f357c20bb0eec7c70be2f75d3a7f4c83a95
 
 - name: rhtap-rhobs-control-plane-rules
@@ -52,4 +46,8 @@ resourceTemplates:
   - name: observatorium-mst-stage
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/app-sre-stage-01/observatorium-mst-stage.yml
+    ref: 1fa74f357c20bb0eec7c70be2f75d3a7f4c83a95
+  - name: observatorium-mst-production
+    namespace:
+      $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     ref: 1fa74f357c20bb0eec7c70be2f75d3a7f4c83a95
