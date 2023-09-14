@@ -486,6 +486,7 @@ resourceTemplates:
       SOURCES_ENABLED: true
       NOTIFICATIONS_SPLUNK_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
       NOTIFICATIONS_SERVICENOW_CONNECTOR_KAFKA_PROCESSING_ENABLED: true
+      NOTIFICATIONS_WEBHOOK_CONNECTOR_ENABLED: true
     promotion:
       publish:
       - notifications-engine-prod-deploy-success-channel
