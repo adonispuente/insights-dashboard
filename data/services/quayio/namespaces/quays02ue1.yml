@@ -44,6 +44,15 @@ openshiftResources:
   annotations:
     qontract.ignore_reconcile_time: "true"
 
+# https://gitlab.cee.redhat.com/service/quayio-aurora-configs/-/blob/24a5c086eef74e3cb736b5331a708243abb2f1f5/quayio-stage/main.tf#L40
+- provider: vault-secret
+  path: quay/quayio-stage/quayio-aurora-cluster
+  version: 11
+# https://gitlab.cee.redhat.com/service/quayio-aurora-configs/-/blob/24a5c086eef74e3cb736b5331a708243abb2f1f5/quayio-stage/test-instance.tf#L26
+- provider: vault-secret
+  path: quay/quayio-stage/test-instance
+  version: 1
+
 - provider: resource-template
   path: /services/common/serviceaccount.yaml
   variables:
