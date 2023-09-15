@@ -22,6 +22,7 @@ records:
     country: "*"
   set_identifier: backplane-stage-default
   records:
+  # backplanes03ue1
   - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
 - name: api.stage
   type: CNAME
@@ -30,6 +31,7 @@ records:
     continent: "NA"
   set_identifier: backplane-stage-north-america
   records:
+  # backplanes03ue1
   - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
 - name: api.stage
   type: CNAME
@@ -38,6 +40,7 @@ records:
     continent: "AS"
   set_identifier: backplane-stage-asia
   records:
+  # backplanes04uw2
   - a60679b6153cd44019c474e4f3fc4830-2058689301.us-west-2.elb.amazonaws.com
 
 # Backplane Production
