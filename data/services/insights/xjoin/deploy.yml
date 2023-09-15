@@ -624,7 +624,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
-      REFRESH: "1694619467"
+      REFRESH: "1694784944"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
@@ -702,7 +702,7 @@ resourceTemplates:
         $ref: /dependencies/ci-int/ci-int.yml
       name: RedHatInsights-xjoin-operator-gh-build-master
     parameters:
-      REFRESH: "1694619467"
+      REFRESH: "1694784944"
   - namespace:
       $ref: /services/insights/xjoin/namespaces/xjoin-prod.yml
     ref: 952f008795f2c97df0d9e389e3a6dab01e6324dc
