@@ -68,9 +68,6 @@ quayRepos:
   - name: ccx-notification-service
     public: true
     description: Repo for the ccx-notification-service Insights app
-  - name: ccx-rules-ocp
-    public: false
-    description: Repo for rules content of ccx-rules-ocp 
   - name: io-gathering-conditions-service
     public: true
     description: Repo for the Insights Operator Gathering Conditions Service Insights app
