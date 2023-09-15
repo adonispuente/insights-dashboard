@@ -8,7 +8,6 @@ permissions:
 - $ref: /teams/oyster/permissions/rhtc-redhat-slack.yml
 
 oidc_permissions:
-- $ref: /dependencies/vault/permissions/oidc/prod/oyster-vault-admin.yml
 - $ref: /dependencies/vault/permissions/oidc/prod/trusted-content-trustification-stage.yml
 
 self_service:
