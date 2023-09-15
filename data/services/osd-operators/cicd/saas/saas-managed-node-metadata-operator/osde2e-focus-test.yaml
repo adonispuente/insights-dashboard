@@ -11,7 +11,7 @@ pipelinesProvider:
 slack:
   workspace:
     $ref: /dependencies/slack/redhat-internal.yml
-  channel: sre-operators
+  channel: sd-sre-team-v1alpha1
 managedResourceTypes:
   - Job
   - ServiceAccount
@@ -44,12 +44,11 @@ deployResources:
 resourceTemplates:
   - name: saas-mnmo-e2e-test
     url: https://github.com/openshift/managed-node-metadata-operator
-    path: /osde2e/test-harness-template.yaml
+    path: /osde2e/test-harness-template.yml
     targets:
       - namespace:
           $ref: /services/osd-operators/namespaces/hivei01ue1/cluster-scope.yml
-        ref: 079c201394eeba3911368fb1cd5015e577f4aaac
-        disable: true
+        ref: c58e03e92254f44573e469886a56ef39313a695b
         parameters:
           HARNESS_IMAGE_TAG: ${IMAGE_TAG}
           OSDE2E_CONFIGS: rosa,int,test-harness
@@ -62,8 +61,7 @@ resourceTemplates:
             - managed-node-metadata-operator-sss-e2e-success-channel-int01
       - namespace:
           $ref: /services/osd-operators/namespaces/hives02ue1/cluster-scope.yml
-        ref: 079c201394eeba3911368fb1cd5015e577f4aaac
-        disable: true
+        ref: c58e03e92254f44573e469886a56ef39313a695b
         parameters:
           HARNESS_IMAGE_TAG: ${IMAGE_TAG}
           OSDE2E_CONFIGS: rosa,stage,test-harness

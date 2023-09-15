@@ -51,7 +51,7 @@ self_service:
   - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/deploy.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/hypershift-deploy.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-aws-vpce-operator/acceptance-test.yaml
-  - $ref: /services/osd-operators/cicd/saas/saas-managed-node-metadata-operator/deploy.yaml
+  - $ref: /services/osd-operators/cicd/saas/saas-managed-node-metadata-operator.yaml
   - $ref: /services/osd-operators/cicd/saas/saas-managed-node-metadata-operator/osde2e-focus-test.yaml
 - change_type:
     $ref: /app-interface/changetype/aws-privatelink-region-enabler.yml
