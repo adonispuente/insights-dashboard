@@ -20,7 +20,7 @@ records:
   ttl: 10
   geolocation_routing_policy:
     country: "*"
-  set_identifier: backplane-stage-geolocation-record_default
+  set_identifier: backplane-stage-default
   records:
   - a1ea9e2822c1e416bbe9e2814af02848-693245180.us-east-1.elb.amazonaws.com
 - name: api.stage
