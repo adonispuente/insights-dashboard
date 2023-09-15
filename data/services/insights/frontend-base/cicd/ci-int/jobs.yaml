@@ -45,11 +45,6 @@ config:
     - insights-gh-build-master:
         display_name: better-platform-docs build-master
         branch: main
-    - insights-gh-build-master-nightly:
-        display_name: better-platform-docs nightly
-        branch: main
-        ci_cmd: './build_deploy.sh'
-        cron_expression: '0 0 * * *'
 
 - project:
     name: insights-frontend-builder-common
