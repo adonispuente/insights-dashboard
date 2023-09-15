@@ -63,7 +63,7 @@ resourceTemplates:
             - registry-quarkus-redhat-stage-deploy-success-channel
       - namespace:
           $ref: /services/quarkus/registry/namespaces/registry-quarkus-redhat-production.yml
-        ref: "ede8c0cd2df43957f752d03505f9409bbe26f290"
+        ref: "43e78ce7ea37fbb917a292b1ffc23bb5d4f86050"
         parameters:
           REPLICAS: 3
           IMAGE: "quay.io/app-sre/registry-quarkus-redhat-app"
