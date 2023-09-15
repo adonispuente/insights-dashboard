@@ -1,0 +1,69 @@
+---
+$schema: /openshift/namespace-1.yml
+
+delete: true
+
+labels:
+  service: consoledot-frontend
+  deployment_validation_operator_minimum_three_replicas: skip # should be fixed
+  deployment_validation_operator_unset_cpu_requirements: skip # is there a way to only enforce requests?
+  deployment_validation_operator_unset_memory_requirements: skip # should be fixed (complemented with alerts)
+
+name: consoledot-frontend-stage
+description: Insights frontends deployed to the v4 stage cluster
+
+cluster:
+  $ref: /openshift/crcs02ue1/cluster.yml
+
+app:
+  $ref: /services/insights/ephemeral/app.yml
+
+environment:
+  $ref: /products/insights/environments/stage.yml
+
+networkPoliciesAllow: []
+
+managedRoles: true
+
+managedResourceTypes:
+- Secret
+
+openshiftResources:
+- provider: vault-secret
+  path: insights/secrets/global/rh-registry-pull
+  version: 2
+  type: kubernetes.io/dockerconfigjson
+- provider: vault-secret
+  path: insights/quay/quay.io
+  version: 3
+  type: kubernetes.io/dockerconfigjson
+  name: quay-cloudservices-pull
+- provider: vault-secret
+  path: insights/secrets/insights-stage/entitlements-stage/go-api-certs
+  version: 6
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/insights-stage/entitlements-stage/oidc
+  version: 1
+  annotations:
+    qontract.recycle: "true"
+- provider: vault-secret
+  path: insights/secrets/backoffice/preprod/entitlements-api
+  version: 2
+  annotations:
+    qontract.recycle: "true"
+
+managedExternalResources: true
+
+externalResources:
+- provider: aws
+  provisioner:
+    $ref: /aws/insights-stage/account.yml
+  resources:
+  - provider: cloudwatch
+    identifier: consoledot-frontend-stage
+    defaults: /terraform/resources/insights/stage/cloudwatch/cloudwatch-2.yml
+    output_resource_name: cloudwatch
+    es_identifier: kibana-elasticsearch
+
