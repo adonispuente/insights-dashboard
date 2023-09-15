@@ -37,22 +37,10 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
     ref: 643f5f7258b1155ad92e281d361f3d4c6da7f2f8
+    delete: true
     parameters:
       ENV_FOR_DYNACONF: stage_post_deploy
       IQE_MARKER: stage
-    promotion:
-      auto: true
-      subscribe:
-      - provisioning-stage-deploy-success-channel
-      publish:
-      - provisioning-stage-post-deploy-tests-success-channel
-
-      promotion_data:
-      - channel: provisioning-stage-deploy-success-channel
-        data:
-        - parent_saas: provisioning
-          target_config_hash: 979fe6cfa30246b9
-          type: parent_saas_config
 - name: provisioning-prod-testing
   # Using Job in the internal cluster
   url: https://github.com/RHEnVision/provisioning-backend
