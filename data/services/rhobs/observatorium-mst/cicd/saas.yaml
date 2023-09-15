@@ -142,7 +142,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/telemeter-prod-01/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: d45d3b819428de4dcc105f51ae2fe2be01d2c93c
+    ref: 454c825a4944effd8ee9556e572aab3427b5c522
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -194,7 +194,6 @@ resourceTemplates:
       MANAGED_TENANTS: 'rhobs,osd,appsre,rhtap'
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: '6743d93'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       CNVQE_ORGANIZATION_ID: 260Z0RxxPFealmmU9ApvsvOZaps
@@ -206,7 +205,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
     # Commit for github.com/rhobs/configuration repo. Keep it pinned, so we know what we can promote to production.
-    ref: d45d3b819428de4dcc105f51ae2fe2be01d2c93c
+    ref: 454c825a4944effd8ee9556e572aab3427b5c522
     parameters:
       NAMESPACE: observatorium-mst-production
       OBSERVATORIUM_METRICS_NAMESPACE: observatorium-mst-production
@@ -255,7 +254,6 @@ resourceTemplates:
       MANAGED_TENANTS: 'rhobs,hypershift-platform-staging,hypershift-platform'
       LOG_RULES_ENABLED: false
       OBSCTL_RELOADER_IMAGE: 'quay.io/app-sre/obsctl-reloader'
-      OBSCTL_RELOADER_IMAGE_TAG: '6743d93'
       METRICS_WRITE_SERVICE_NAME: observatorium-thanos-receive
       METRICS_WRITE_SERVICE_PORT: '19291'
       OCM_ORGANIZATION_ID:
