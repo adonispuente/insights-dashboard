@@ -153,3 +153,4 @@ resourceTemplates:
       PULP_WORKER_REPLICAS: "2"
       PULP_CONTENT_REPLICAS: "2"
       DB_SECRET_NAME: "content-sources-pulp-db-for-operator"
+      CONTENT_ORIGIN: "https://content-sources-pulp.stage.devshift.net"
