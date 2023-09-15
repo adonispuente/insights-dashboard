@@ -312,3 +312,26 @@ tests:
   - eval_time: 6h50m
     alertname: WorkerRequestErrors_10PercentBurn
     exp_alerts: []
+
+# test for high depsolve wait times
+- interval: 1m
+  input_series:
+  - series: image_builder_worker_job_wait_duration_seconds_bucket{type="depsolve", le="64"}
+    values: 0+100x10
+  - series: image_builder_worker_job_wait_duration_seconds_bucket{type="depsolve", le="+Inf"}
+    values: 0+0x10
+  - series: image_builder_worker_job_wait_duration_seconds_count{type="depsolve"}
+    values: 0+100x10
+  alert_rule_test:
+  - eval_time: 10m
+    alertname: WorkerDepsolveJobWaitDurationTooHigh
+    exp_alerts:
+    - exp_labels:
+        severity: warning
+        service: image-builder
+        env: prod
+      exp_annotations:
+        message: Depsolve wait times are high
+        description: |
+          There are depsolve jobs (>5% of total depsolve jobs) which have been waiting for over 60 seconds in the queue.
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/image-builder/DepsolveWaitTimes.md"
