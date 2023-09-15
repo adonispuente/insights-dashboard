@@ -474,3 +474,21 @@ records:
   type: CNAME
   _target_cluster:
     $ref: /openshift/hivep08ue2/cluster.yml
+
+# Trusted Content Trustification
+- name: trustification.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/app-sre-stage-01/cluster.yml
+- name: api.trustification.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/app-sre-stage-01/cluster.yml
+- name: sbom.trustification.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/app-sre-stage-01/cluster.yml
+- name: vex.trustification.stage
+  type: CNAME
+  _target_cluster:
+    $ref: /openshift/app-sre-stage-01/cluster.yml
