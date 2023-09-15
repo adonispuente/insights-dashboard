@@ -25,7 +25,13 @@ access:
     $ref: /services/insights/image-builder/namespaces/stage-image-builder-testing.yml
   role: view
 - namespace:
+    $ref: /services/insights/image-builder/namespaces/stage-image-builder-testing.appsres05ue1.yml
+  role: view
+- namespace:
     $ref: /services/insights/image-builder/namespaces/prod-image-builder-testing.yml
+  role: view
+- namespace:
+    $ref: /services/insights/image-builder/namespaces/prod-image-builder-testing.appsres05ue1.yml
   role: view
 - namespace:
     $ref: /services/insights/image-builder/namespaces/prod-image-builder-prod.yml

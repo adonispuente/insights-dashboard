@@ -11,6 +11,9 @@ access:
     $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres03ue1.yaml
   role: view
 - namespace:
+    $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres05ue1.yaml
+  role: view
+- namespace:
     $ref: /services/stonesoup/internal-services/namespaces/stonesoup-int-srvc.appsres03ue1.yaml
   role: tekton-trigger-access
 

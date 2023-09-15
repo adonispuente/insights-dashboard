@@ -16,3 +16,6 @@ access:
 - namespace:
     $ref: /services/insights/rhsm/namespaces/rhsm-stage-testing.yml
   role: edit
+- namespace:
+    $ref: /services/insights/rhsm/namespaces/rhsm-stage-testing.appsres05ue1.yml
+  role: edit
