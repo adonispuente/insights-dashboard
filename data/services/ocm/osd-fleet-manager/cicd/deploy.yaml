@@ -554,7 +554,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -617,7 +617,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf2
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -710,7 +710,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-perf3
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -773,7 +773,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-podisolation
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -870,7 +870,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-chaos
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -934,7 +934,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-migrationtesting
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       publish:
@@ -1001,7 +1001,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-ibm-infra
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       subscribe:
@@ -1019,7 +1019,7 @@ resourceTemplates:
   - name: osd-fleet-manager-stage-main
     namespace:
       $ref: /services/ocm/osd-fleet-manager/namespaces/stage.yml
-    ref: 7a0c5689de9abf2b3c1284986438865018bd82c6
+    ref: 7b1fe4ab0eb9d50a5695f705c49fb931b081a17a
     promotion:
       auto: true
       subscribe:
