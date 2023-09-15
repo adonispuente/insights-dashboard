@@ -273,15 +273,6 @@ upgradePolicyClusters:
       sector: podisolation
       soakDays: 0
       mutexes: []
-- name: hs-mc-vgdihaj5g
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: podisolation
-      soakDays: 0
-      mutexes: []
 - name: hs-sc-bc58tb6e0
   upgradePolicy:
     workloads:
