@@ -742,3 +742,17 @@ spec:
             service: acs-fleet-manager
             severity: critical
             namespace: acs-fleet-manager-production
+    - name: acs-fleet-manager-gitops-errors
+      rules:
+        - alert: ACS Fleet Manager GitOps Failure
+          annotations:
+            message: "FleetManager experienced errors while applying GitOps configuration."
+            dashboard: "https://grafana.app-sre.devshift.net/d/D1C839d82/acs-fleet-manager?orgId=1"
+            runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/acs-fleet-manager/sop#acs-gitops-failure"
+          expr: |
+            increase(acs_fleet_manager_gitops_config_provider_error_count[5m]) > 0
+          for: 5m
+          labels:
+            service: acs-fleet-manager
+            severity: critical
+            namespace: acs-fleet-manager-production

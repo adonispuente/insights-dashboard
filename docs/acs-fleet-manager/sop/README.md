@@ -51,6 +51,11 @@
     - [Summary](#summary-9)
     - [Access required](#access-required-9)
     - [Steps](#steps-9)
+  - [ACS Gitops Failure](#acs-gitops-failure)
+    - [Impact](#impact-10)
+    - [Summary](#summary-10)
+    - [Access required](#access-required-10)
+    - [Steps](#steps-10)
   - [Escalations](#escalations)
 
 ---
@@ -463,6 +468,50 @@ in the incident handling determine the appropriate status. Some examples include
 Example of merge request modifying the status can be found [here](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/55703).
 
 ---
+
+## ACS Gitops Failure
+
+### Impact
+
+ACS Fleet Manager service is experiencing issue while provisioning or updating ACS centrals.
+
+### Summary
+
+ACS uses a gitops approach for installing different versions of the operator, as well as to configure central instances. 
+
+- The GitOps configuration is a file that is mounted on the
+  FleetManager service via a configMap.
+- The repository containing the configuration is here https://gitlab.cee.redhat.com/stackrox/acs-cloud-service/config.
+- This configmap is created
+in the DataPlane here https://gitlab.cee.redhat.com/lcleroux/app-interface/-/blob/master/data/services/acs-fleet-manager/cicd/saas-configmap.yaml. 
+- The kubernetes volume specification is here
+https://github.com/stackrox/acs-fleet-manager/blob/13173682ac1eca660a13843601a55a46292ded4d/templates/service-template.yml#L1066. 
+
+### Access required
+
+- OSD Console access to the cluster that runs the ACS Fleet Manager.
+- OSD Console access to the cluster that runs the Fleetshard-sync service.
+- Access to cluster resources: Pods/Deployments
+
+### Steps
+
+- Check if the ACS Fleet Manager pods are running and verify the logs.
+    ```
+    #example
+    oc get pods -n <acs-fleet-manager-stage|acs-fleet-manager-production>
+
+    acs-fleet-manager-<pod_id>   1/1     Running
+    acs-fleet-manager-<pod_id>   1/1     Running
+    acs-fleet-manager-<pod_id>   1/1     Running
+
+    # Check the pod logs to investigate possible causes of the latency: look for Error/Exception message.
+
+    oc logs acs-fleet-manager-<pod_id>  | less
+    ```
+  check the reported logs to ascertain the root cause of the issue.
+  The configuration file might be missing, or invalid.
+
+--- 
 
 ## Escalations
 
