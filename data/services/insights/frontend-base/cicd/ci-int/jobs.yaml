@@ -133,18 +133,6 @@ config:
         extra_deploy_args: "--set-image-tag quay.io/cloudservices/rbac=latest --set-template-ref rbac=master"
 
 - project:
-    name: frontend-configs
-    label: insights
-    node: insights
-    gl_group: insights-platform
-    gl_project: frontend-configs
-    quay_org: cloudservices
-    jobs:
-    - "insights-gl-pr-check":
-        display_name: frontend-configs pr-check
-    - "insights-gl-build-master":
-        display_name: frontend-configs build-master
-- project:
     name: landing-page-frontend
     label: insights
     node: insights

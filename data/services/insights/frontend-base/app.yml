@@ -90,9 +90,6 @@ quayRepos:
 
 
 codeComponents:
-- name: frontend-configs
-  resource: upstream
-  url: https://gitlab.cee.redhat.com/insights-platform/frontend-configs
 - name: insights-chrome
   resource: upstream
   url: https://github.com/RedHatInsights/insights-chrome
