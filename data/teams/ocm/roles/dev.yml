@@ -181,6 +181,12 @@ access:
 - namespace:
     $ref: /services/ocm/namespaces/uhc-stage-tests.yml
   role: view
+- namespace:
+    $ref: /services/ocm/namespaces/uhc-integration-tests.appsres05ue1.yml
+  role: view
+- namespace:
+    $ref: /services/ocm/namespaces/uhc-stage-tests.appsres05ue1.yml
+  role: view
 
 glitchtip_roles:
 - organization:
