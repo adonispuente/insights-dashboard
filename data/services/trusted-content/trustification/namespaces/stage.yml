@@ -56,7 +56,7 @@ externalResources:
             "Effect": "Allow",
             "Action": ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage"],
             "Resource": [
-              "arn:aws:sqs:::sbom-*-stage"
+              "arn:aws:sqs:*:*:sbom-*-stage"
             ]
           }
         ]
@@ -76,11 +76,10 @@ externalResources:
             ]
           },
           {
-            "Sid": "VexinationStageBucket",
             "Effect": "Allow",
             "Action": ["sqs:SendMessage", "sqs:ReceiveMessage", "sqs:DeleteMessage"],
             "Resource": [
-              "arn:aws:sqs:::vex-*-stage"
+              "arn:aws:sqs:*:*:vex-*-stage"
             ]
           }
         ]
