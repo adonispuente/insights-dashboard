@@ -39,14 +39,6 @@ resourceTemplates:
     MANAGER_DRY_RUN: --no-dry-run
   targets:
   - namespace:
-      $ref: /services/app-interface/namespaces/app-interface-stage-int.yml
-    ref: master
-    delete: true
-    upstream:
-      instance:
-        $ref: /dependencies/ci-ext/ci-ext.yml
-      name: app-sre-qontract-reconcile-gh-build-master
-  - namespace:
       $ref: /services/app-interface/namespaces/app-interface-stage-int.appsres05ue1.yml
     ref: master
     upstream:
