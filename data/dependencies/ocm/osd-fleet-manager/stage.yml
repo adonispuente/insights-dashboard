@@ -282,15 +282,6 @@ upgradePolicyClusters:
       sector: perf2
       soakDays: 0
       mutexes: []
-- name: hs-mc-cqapm7690
-  upgradePolicy:
-    workloads:
-    - management-cluster
-    schedule: 0,15,30,45 20,21,22,23 * * *
-    conditions:
-      sector: podisolation
-      soakDays: 0
-      mutexes: []
 - name: hs-mc-9h214djn0
   upgradePolicy:
     workloads:
