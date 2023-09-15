@@ -3,6 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: image-builder
+  dora: osd-production
 
 name: image-builder-saas
 description: SaaS tracking file for image-builder

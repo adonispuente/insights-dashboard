@@ -3,6 +3,7 @@ $schema: /app-sre/saas-file-2.yml
 
 labels:
   service: osd-operators
+  dora: osd-production-hivep01ue1
 
 name: saas-aws-account-operator
 description: SaaS tracking file for aws-account-operator

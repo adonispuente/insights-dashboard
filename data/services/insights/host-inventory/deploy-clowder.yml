@@ -4,6 +4,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: host-inventory
   platform: insights
+  dora: insights-production
 
 name: host-inventory-clowder
 description: host-inventory app deployed via clowder

@@ -4,6 +4,7 @@ $schema: /app-sre/saas-file-2.yml
 labels:
   service: ingress
   platform: insights
+  dora: insights-production
 
 name: ingress-clowder-int
 description: ingress app on the Insights Platform via clowder
