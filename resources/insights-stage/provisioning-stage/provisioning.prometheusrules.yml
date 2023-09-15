@@ -15,12 +15,12 @@ spec:
     - alert: MissingPodServingProvisioningService
       expr: |
         absent(up{namespace="provisioning-stage", service="provisioning-backend-api"} == 1) or absent(up{namespace="provisioning-stage", service="provisioning-backend-statuser"} == 1) or absent(up{namespace="provisioning-stage", service="provisioning-backend-worker"} == 1)
-      for: 1m
+      for: 2m
       labels:
         service: insights
         env: stage
         app_team: provisioning
-        severity: high
+        severity: critical
       annotations:
         message: "One of the provisioning service pods is down"
         dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
@@ -30,10 +30,8 @@ spec:
     rules:
     - alert: ProvisioningAWSReservationProcessingRateLow
       expr: |
-        (sum(provisioning_reservations_24h_count{result="pending", provider="aws"} or on() vector(0)) /
-        sum(provisioning_reservations_24h_count{provider="aws"}) > 0.2)
-        and
-        (sum(provisioning_reservations_24h_count{result="pending", provider="aws"} or on() vector(0)) > 5)
+        sum(provisioning_reservations_24h_count{result="pending", provider="aws"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="aws"}) > 0.2
       for: 15m
       labels:
         service: insights
@@ -49,10 +47,8 @@ spec:
     rules:
     - alert: ProvisioningAzureReservationProcessingRateLow
       expr: |
-        (sum(provisioning_reservations_24h_count{result="pending", provider="azure"} or on() vector(0)) /
-        sum(provisioning_reservations_24h_count{provider="azure"}) > 0.2)
-        and
-        (sum(provisioning_reservations_24h_count{result="pending", provider="azure"} or on() vector(0)) > 5)
+        sum(provisioning_reservations_24h_count{result="pending", provider="azure"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="azure"}) > 0.2
       for: 15m
       labels:
         service: insights
@@ -68,10 +64,8 @@ spec:
     rules:
     - alert: ProvisioningGCPReservationProcessingRateLow
       expr: |
-        (sum(provisioning_reservations_24h_count{result="pending", provider="gcp"} or on() vector(0)) /
-        sum(provisioning_reservations_24h_count{provider="gcp"}) > 0.2)
-        and
-        (sum(provisioning_reservations_24h_count{result="pending", provider="gcp"} or on() vector(0)) > 5)
+        sum(provisioning_reservations_24h_count{result="pending", provider="gcp"} or on() vector(0)) /
+        sum(provisioning_reservations_24h_count{provider="gcp"}) > 0.2
       for: 15m
       labels:
         service: insights
@@ -89,13 +83,13 @@ spec:
       expr: |
         (sum(rate(api_3scale_gateway_api_status{exported_service="provisioning",status="5xx"}[10m]))
         /
-        sum(rate(api_3scale_gateway_api_status{exported_service="provisioning"}[10m]))) > 0.15
-      for: 15m
+        sum(rate(api_3scale_gateway_api_status{exported_service="provisioning"}[10m]))) > 0.20
+      for: 10m
       labels:
         service: insights
         env: stage
         app_team: provisioning
-        severity: medium
+        severity: critical
       annotations:
         message: "REST API success rate (3scale) is low"
         dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
@@ -107,14 +101,14 @@ spec:
       expr: |
         sum(rate(provisioning_http_request_duration_ms_bucket{code=~"2\\d\\d", le="5000"}[10m]))
         /
-        sum(rate(provisioning_http_request_duration_ms_bucket{code=~"2\\d\\d",le="+Inf"}[10m])) < 0.85
-      for: 15m
+        sum(rate(provisioning_http_request_duration_ms_bucket{code=~"2\\d\\d",le="+Inf"}[10m])) < 0.50
+      for: 10m
       labels:
         service: insights
         env: stage
         app_team: provisioning
-        severity: medium
+        severity: critical
       annotations:
-        message: "REST API latency is high"
+        message: "REST API latency is critical"
         dashboard: "https://grafana.stage.devshift.net/d/211/provisioning"
         runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/console.redhat.com/app-sops/provisioning/ProvisioningHTTPLatencySLO.md"
