@@ -67,7 +67,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-backend.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -135,7 +135,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-email.yaml version.
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       NOTIFICATIONS_CONNECTOR_FETCH_USERS_RBAC_ENABLED: true
       NOTIFICATIONS_CONNECTOR_SINGLE_EMAIL_PER_USER_ENABLED: true
@@ -178,7 +178,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-google-chat.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -212,7 +212,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-microsoft-teams.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -248,7 +248,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-servicenow.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -285,7 +285,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-slack.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       QUARKUS_LOG_CLOUDWATCH_ENABLED: true
       SENTRY_DSN: https://fbb2970a5a3c454fa6543707138145c1@o490301.ingest.sentry.io/6193703?environment=
@@ -319,7 +319,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-splunk.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
@@ -358,7 +358,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-connector-webhook.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       KAFKA_MAX_POLL_INTERVAL_MS: 1200000
       KAFKA_MAX_POLL_RECORDS: 100
@@ -405,7 +405,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-engine.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_LIMIT: 300m
@@ -511,7 +511,7 @@ resourceTemplates:
   - namespace:
       $ref: /services/insights/notifications/namespaces/stage-notifications-stage.yml
     # notifications-backend commit hash that determines the clowdapp-aggregator.yaml version
-    ref: 9824cb1321746b21ae8ed2a3820214deeef35323
+    ref: ba787fd66d00abae08f4325a2eff8501302bc677
     parameters:
       CLOUDWATCH_ENABLED: true
       CPU_REQUEST: 200m
