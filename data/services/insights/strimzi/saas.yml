@@ -20,6 +20,7 @@ allowedSecretParameterPaths:
 - insights/secrets/insights-stage/msk-credentials
 - app-interface/assisted-installer/msk-credentials
 - app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage
+- app-sre/integrations-output/terraform-resources/app-sre-prod-04/assisted-installer-production
 
 deployResources:
   requests:
@@ -238,4 +239,24 @@ resourceTemplates:
     - name: TGT_CLUSTER_BOOTSTRAP
       secret:
         path: app-sre/integrations-output/terraform-resources/app-sre-stage-01/assisted-installer-stage/assisted-installer-msk
+        field: bootstrap_brokers_sasl_scram
+  - namespace:
+      $ref: /services/insights/strimzi/namespaces/platform-mq-prod.yml
+    ref: e5ca806504bb56448da25cb788530a27db808ca7
+    parameters:
+      MM2_INSTANCE_NAME: assisted-installer-mirrormaker
+      SRC_CLUSTER_ALIAS: platform-mq-prod
+      SRC_CLUSTER_BOOTSTRAP: ${KAFKA_BOOTSTRAP_HOST}:9093
+      TGT_CLUSTER_ALIAS: msk-ai-prod
+      AUTH_CLIENT_SECRET_NAME: mirrormaker
+      AUTH_CLIENT_SECRET_KEY: password
+    secretParameters:
+    - name: AUTH_CLIENT_ID
+      secret:
+        path: app-interface/assisted-installer/msk-credentials/production/mirrormaker
+        field: username
+        version: 1
+    - name: TGT_CLUSTER_BOOTSTRAP
+      secret:
+        path: app-sre/integrations-output/terraform-resources/app-sre-prod-04/assisted-installer-production/assisted-installer-msk
         field: bootstrap_brokers_sasl_scram
