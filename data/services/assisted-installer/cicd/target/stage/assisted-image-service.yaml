@@ -2,7 +2,7 @@ $schema: /app-sre/saas-file-target-1.yml
 
 namespace:
   $ref: /services/assisted-installer/namespaces/assisted-installer-stage.yml
-ref: 12ac206d988fa1d0b12582f71c42d479906ef15d
+ref: 4373900bcc05e35ba4d2406f2d958f0576295089
 promotion:
   publish:
   - assisted-image-service-stage-deploy-success-channel
