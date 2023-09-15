@@ -469,6 +469,20 @@ spec:
         /
         sum(rate(image_builder_worker_request_count{subsystem="worker"}[6h]))
       record: image_builder_worker_total_failed_requests:burnrate6h
+    - alert: WorkerDepsolveJobWaitDurationTooHigh
+      annotations:
+        message: Depsolve wait times are high
+        description: |
+          There are depsolve jobs (>5% of total depsolve jobs) which have been waiting for over 60 seconds in the queue.
+        runbook: "https://gitlab.cee.redhat.com/service/app-interface/-/tree/master/docs/console.redhat.com/app-sops/image-builder/DepsolveWaitTimes.md"
+      expr: |
+        histogram_quantile(0.95, sum(rate(image_builder_worker_job_wait_duration_seconds_bucket{type="depsolve"}[1m])) by (le)) > 60
+      for: 5s
+      labels:
+        severity: warning
+        service: image-builder
+        env: prod
+
   # record some expressions for the dashboards
   # specifically for burn rates and 28day windows
   - name: image-builder.openshiftio.expressions
