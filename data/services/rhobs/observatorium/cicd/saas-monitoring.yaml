@@ -40,7 +40,7 @@ resourceTemplates:
       NAMESPACES: '["observatorium-stage", "observatorium-mst-stage"]'
   - namespace:
       $ref: /services/observability/namespaces/openshift-customer-monitoring.telemeter-prod-01.yml
-    ref: 0e2ae9d6df9a4276e3d2a6d3e400d853dc3f34cd
+    ref: 454c825a4944effd8ee9556e572aab3427b5c522
     parameters:
       NAMESPACES: '["observatorium-production", "observatorium-mst-production"]'
 - name: observatorium-jaeger
