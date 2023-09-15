@@ -39,7 +39,7 @@ resourceTemplates:
   - name: rhobsp02ue1-production
     namespace:
       $ref: /services/rhobs/observatorium-mst/namespaces/rhobsp02ue1/observatorium-mst-production.yml
-    ref: b9efa414f95c84d7bd09457bfacc3c3b23ed7673
+    ref: e79339e89b49a08129f518a332c2c6b61f120d95
 - name: hypershift-platform-obo-rules
   url: https://gitlab.cee.redhat.com/service/hypershift-platform-rhobs-rules
   path: /obo-template.yaml
