@@ -300,6 +300,15 @@ upgradePolicyClusters:
       sector: perf2
       soakDays: 0
       mutexes: []
+- name: hs-sc-5psgq0890
+  upgradePolicy:
+    workloads:
+    - service-cluster
+    schedule: 0,15,30,45 20,21,22,23 * * *
+    conditions:
+      sector: podisolation
+      soakDays: 0
+      mutexes: []
 recommendedVersions:
 - workload: service-cluster
   channel: stable
