@@ -116,24 +116,24 @@ externalResources:
       {
         "Version": "2012-10-17",
         "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "arn:aws:iam::927966746891:user/bombastic-stage"
-                },
-                "Action": [
-                    "s3:PutObject",
-                    "s3:ListBucket",
-                    "s3:GetObject",
-                    "s3:DeleteObject"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::bombastic-stage/*",
-                    "arn:aws:s3:::bombastic-stage"
-                ]
-            }
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "arn:aws:iam::927966746891:user/bombastic-stage"
+            },
+            "Action": [
+              "s3:PutObject",
+              "s3:ListBucket",
+              "s3:GetObject",
+              "s3:DeleteObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::bombastic-stage/*",
+              "arn:aws:s3:::bombastic-stage"
+            ]
+          }
         ]
-    }
+      }
   # Vexination SQS
   - provider: sqs
     identifier: vexination-sqs-stage
@@ -165,24 +165,24 @@ externalResources:
       {
         "Version": "2012-10-17",
         "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "arn:aws:iam::927966746891:user/vexination-stage"
-                },
-                "Action": [
-                    "s3:PutObject",
-                    "s3:ListBucket",
-                    "s3:GetObject",
-                    "s3:DeleteObject"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::vexination-stage/*",
-                    "arn:aws:s3:::vexination-stage"
-                ]
-            }
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "arn:aws:iam::927966746891:user/vexination-stage"
+            },
+            "Action": [
+              "s3:PutObject",
+              "s3:ListBucket",
+              "s3:GetObject",
+              "s3:DeleteObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::vexination-stage/*",
+              "arn:aws:s3:::vexination-stage"
+            ]
+          }
         ]
-    }
+      }
 
 # network policies
 networkPoliciesAllow:
