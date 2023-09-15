@@ -520,7 +520,9 @@ resourceTemplates:
             value: migrationtesting
         sector: migrationtesting
       - predicate:
-          region: ap-northeast-2
+          label:
+            key: sector-override
+            value: podisolation
         sector: podisolation
       # put everything else into the main sector
       - sector: main
