@@ -70,16 +70,6 @@ upgradePolicyDefaults:
       schedule: 0,15,30,45 * * * *
       soakDays: 0
 upgradePolicyClusters:
-- name: hs-sc-evsehq8n0
-  upgradePolicy:
-    workloads:
-    - service-cluster
-    schedule: 0,15,30,45 * * * *
-    conditions:
-      sector: main
-      soakDays: 0
-      mutexes:
-      - main
 - name: hs-sc-rlvophdf0
   upgradePolicy:
     workloads:
