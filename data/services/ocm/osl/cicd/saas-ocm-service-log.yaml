@@ -540,6 +540,8 @@ resourceTemplates:
       WEBHOOK_ADDITIONAL_CA_FILE: "/config/service-ca/service-ca.crt"
       RATE_LIMIT: 1000
       ENABLE_JQS: false
+      DB_QUERY_READ_TIMEOUT_SERVER: '300000'
+      DB_QUERY_WRITE_TIMEOUT_SERVER: '60000'
       JOB_QUEUE_NAME: "job-queue-osl-prod.fifo"
       # Defining the triggers in production for OSL
       TRIGGERS_CONFIG:
