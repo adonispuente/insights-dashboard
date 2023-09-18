@@ -32,7 +32,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/stage-tower-analytics-stage.yml
-    ref: 1aa1ea5e79033a21e786861d9a35d1c600f827e6
+    ref: e896a845a6a2a505d60a7eb488261e7e271e32b7
     parameters:
       ENV_NAME: stage
       CPU_REQUEST_IQE: 500m
@@ -48,5 +48,5 @@ resourceTemplates:
       - channel: automation-analytics-stage-post-deploy-cypress-success-channel
         data:
         - parent_saas: tower-analytics-test-cypress
-          target_config_hash: 551e7b006c8ef0b4
+          target_config_hash: 911e2260d96b62fc
           type: parent_saas_config
