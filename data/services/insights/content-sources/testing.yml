@@ -25,27 +25,31 @@ authentication:
     version: 3
 
 managedResourceTypes:
-- ClowdJobInvocation
 - Job
 
 resourceTemplates:
-- name: content-sources-stage-testing
-  # Using a CJI in the stage cluster namespace
-  url: https://github.com/content-services/content-sources-backend
-  path: /deployments/testing.yaml
-  targets:
-  - namespace:
-      $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
-    ref: d04da14138e0b2c093dfb0bab42da56403bfeb97
-    delete: true
-    parameters:
-      IQE_MARKER: smoke and api
-      ENV_FOR_DYNACONF: stage_post_deploy
-- name: content-sources-prod-testing
-  # Using a job in the internal cluster
+- name: content-sources-service-testing
   url: https://github.com/content-services/content-sources-backend
   path: /deployments/testing-integration.yaml
   targets:
+  # STAGE Testing
+  - namespace:
+      $ref: /services/insights/content-sources/namespaces/content-sources-stage-testing.yml
+    ref: d04da14138e0b2c093dfb0bab42da56403bfeb97
+    parameters:
+      IQE_MARKER_EXPRESSION: stage
+      IQE_IMAGE: quay.io/cloudservices/iqe-tests
+      IQE_IMAGE_TAG: content-sources
+      IQE_PLUGINS: content-sources
+      ENV_FOR_DYNACONF: stage_proxy
+      NAME_STUB: service-tests
+    promotion:
+      auto: true
+      subscribe:
+      - content-sources-stage-deploy-success-channel
+      publish:
+      - content-sources-stage-post-deploy-tests-success-channel
+  # PRODUCTION Testing
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
     ref: 1eed2cd419888490778bf9d5ac4c2949386a1c23

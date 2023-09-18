@@ -25,27 +25,31 @@ authentication:
     version: 3
 
 managedResourceTypes:
-- ClowdJobInvocation
 - Job
 
 resourceTemplates:
-- name: provisioning-stage-testing
-  # Using CJI in the stage cluster namespace
-  url: https://github.com/RHEnVision/provisioning-backend
-  path: /deploy/testing.yaml
-  targets:
-  - namespace:
-      $ref: /services/insights/provisioning/namespaces/provisioning-stage.yml
-    ref: 643f5f7258b1155ad92e281d361f3d4c6da7f2f8
-    delete: true
-    parameters:
-      ENV_FOR_DYNACONF: stage_post_deploy
-      IQE_MARKER: stage
-- name: provisioning-prod-testing
-  # Using Job in the internal cluster
+- name: provisioning-service-testing
   url: https://github.com/RHEnVision/provisioning-backend
   path: /deploy/testing-integration.yaml
   targets:
+  # STAGE Testing
+  - namespace:
+      $ref: /services/insights/provisioning/namespaces/provisioning-stage-testing.yml
+    ref: 643f5f7258b1155ad92e281d361f3d4c6da7f2f8
+    parameters:
+      ENV_FOR_DYNACONF: stage_proxy
+      IQE_MARKER_EXPRESSION: stage
+      IQE_IMAGE: quay.io/cloudservices/iqe-tests
+      IQE_IMAGE_TAG: provisioning
+      IQE_PLUGINS: provisioning
+      NAME_STUB: service-tests
+    promotion:
+      auto: true
+      subscribe:
+      - provisioning-stage-deploy-success-channel
+      publish:
+      - provisioning-stage-post-deploy-tests-success-channel
+  # PRODUCTION Testing
   - namespace:
       $ref: /services/insights/provisioning/namespaces/provisioning-prod-testing.yml
     ref: fa909e16181c953d532596c9df34667d4eb96e39
