@@ -39,7 +39,7 @@ externalResources:
     $ref: /aws/app-sre-stage/account.yml
   resources:
   - provider: aws-iam-service-account
-    identifier: bombastic-stage
+    identifier: bombastic-iam-stage
     output_resource_name: bombastic-service-account
     user_policy:
       {
@@ -62,7 +62,7 @@ externalResources:
         ]
       }
   - provider: aws-iam-service-account
-    identifier: vexination-stage
+    identifier: vexination-iam-stage
     output_resource_name: vexination-service-account
     user_policy:
       {
@@ -101,7 +101,7 @@ externalResources:
         value: sbom-guac-stage
   # Bombastic S3
   - provider: s3
-    identifier: bombastic-stage
+    identifier: bombastic-s3-stage
     output_resource_name: bombastic-s3
     defaults: /terraform/resources/s3-private-1.yml
     event_notifications:
@@ -150,7 +150,7 @@ externalResources:
         value: vex-guac-stage
   # Vexination S3
   - provider: s3
-    identifier: vexination-stage
+    identifier: vexination-s3-stage
     output_resource_name: vexination-s3
     defaults: /terraform/resources/s3-private-1.yml
     event_notifications:
