@@ -184,10 +184,6 @@ resourceTemplates:
                   central_versions:
                     - version: "3.74.0"
 
-        upstream:
-          instance:
-            $ref: /dependencies/ci-ext/ci-ext.yml
-          name: stackrox-acs-fleet-manager-build-and-push-main
       - namespace:
           $ref: /services/acs-fleet-manager/namespaces/acs-fleet-manager-production-app-sre-prod-04.yml
         ref: f6d113eed354b98617b7ffe528ed15518fa2ecab
