@@ -630,7 +630,7 @@ You can encounter one of three common errors while accessing your GABI instance:
     GABI instance reaches its allotted expiration date.
 
     The expiry date for a given GABI instance has to be refreshed (note: the expiration
-    date cannot be greater than 90 days from the current date). This can be done via
+    date cannot be greater than 365 days from the current date). This can be done via
     App-Interface.
 
 However, if your requests fail and you are confident that you see none of the above errors,
