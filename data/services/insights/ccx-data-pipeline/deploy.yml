@@ -62,7 +62,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 27ffe20da7118d777fcf2e84ce9245ef6632452d
+    ref: ae248fea92a7ea36c874f262e1c7cb0c4ac991e3
     parameters:
       MIN_REPLICAS: "32"
       MAX_REPLICAS: "32"
@@ -551,7 +551,7 @@ resourceTemplates:
       LOG_LEVEL: INFO
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: b6d2564429f2523ab6b7fe81dd92144402544597
+    ref: 1f8fec0cd71aa16302db55a3ba4bd5cf78e6d61f
     parameters:
       LOG_LEVEL: INFO
   - namespace:
@@ -576,7 +576,7 @@ resourceTemplates:
       name: ccx-ccx-upgrades-inference-gl-build-main
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 62ebe91b7262bc5c99b28d7132451be7e40ba60e
+    ref: b6aa5e14b5fa3dea043219364eb5508e3bd41509
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     parameters:
@@ -599,7 +599,7 @@ resourceTemplates:
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: b0fad7f76516a896f897a7dd9ce9d0e249dde3e2
+    ref: 28bf3183b81aab418efbe4bac3555b8083085c74
     parameters:
       RHOBS_URL: https://observatorium.api.openshift.com
       RHOBS_QUERY_MAX_MINUTES_FOR_DATA: "120"
