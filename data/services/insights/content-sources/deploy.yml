@@ -74,7 +74,7 @@ resourceTemplates:
       FEATURES_SNAPSHOTS_ENABLED: true #Allow all accounts
       CLIENTS_PULP_DOWNLOAD_POLICY: "on_demand"
       RBAC_ORG_ADMIN_SKIP: true
-      MEMORY_REQUEST: 256Mi
+      MEMORY_REQUEST: 356Mi
       MEMORY_LIMIT: 512Mi
   - namespace: # STAGE
       $ref: /services/insights/content-sources/namespaces/content-sources-stage.yml
