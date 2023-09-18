@@ -68,6 +68,13 @@ openshiftResources:
       hive_cluster_name: hivep07ue2
       hive_cluster_api_url: https://api.hivep07ue2.vvyl.p1.openshiftapps.com:6443
       hive_cluster_api_url_slug: api-hivep07ue2.vvyl-p1-openshiftapps-com:6443
+    - id: 71aa0a4b-3180-4b0d-bb41-b38a095d7275
+      # Please keep the prometheus `shard_status` label updated accordingly in
+      # resources/observability/prometheus/prometheus-app-sre-additional-scrapeconfig.secret.yaml
+      status: maintenance
+      hive_cluster_name: hivep08ue2
+      hive_cluster_api_url: https://api.hivep08ue2.xwd4.p1.openshiftapps.com:6443
+      hive_cluster_api_url_slug: api.hivep08ue2.xwd4.p1.openshiftapps.com:6443
     # this is a workaround to use the vault function inside the for loop in the template
     current_hive_cluster:
       name: 'workaround'
