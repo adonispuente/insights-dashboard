@@ -70,6 +70,9 @@ access:
 - namespace:
     $ref: /services/ocm/namespaces/v4/uhc-leadership-production-hivep07ue2.yml
   role: view
+- namespace:
+    $ref: /services/ocm/namespaces/v4/uhc-leadership-production-hivep08ue2.yml
+  role: view
 # hive-readers
 ## integration
 - cluster:
@@ -141,6 +144,9 @@ access:
   group: dedicated-readers
 - cluster:
     $ref: /openshift/hivep07ue2/cluster.yml
+  group: dedicated-readers
+- cluster:
+    $ref: /openshift/hivep08ue2/cluster.yml
   group: dedicated-readers
 - cluster:
     $ref: /openshift/hivei01ue1/cluster.yml
