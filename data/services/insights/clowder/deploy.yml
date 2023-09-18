@@ -62,7 +62,7 @@ resourceTemplates:
   targets:
   - namespace:
       $ref: /services/insights/clowder/namespaces/ephem.yml
-    ref: c1066bc007273e25c471bfea355a0cf6ddb62583
+    ref: ec46521ec3059eb21b7aa8f733a4eaec88173762
     # upstream:
     #   instance:
     #     $ref: /dependencies/ci-ext/ci-ext.yml
