@@ -10,6 +10,8 @@ It is based on the upstream project Koku.
 
 For App-SRE, AWS costs are imported, OpenShift costs will be imported in the future.
 
+[Demo](https://drive.google.com/file/d/1e9V1veJZCJczgBiC8arvV1ZCtW9c8Gpa/view)
+
 ## Access
 
 1. Submit [Cost Management User Access for App-SRE Costs](https://docs.google.com/forms/d/e/1FAIpQLSfd7RPsr6EsVYs0L2IbbKK3D_7FbtKFdX1BYYEaAm_whdxNGg/viewform) form
