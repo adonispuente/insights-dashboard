@@ -50,6 +50,12 @@ resourceTemplates:
       publish:
       - content-sources-stage-post-deploy-tests-success-channel
   # PRODUCTION Testing
+      promotion_data:
+      - channel: content-sources-stage-deploy-success-channel
+        data:
+        - parent_saas: content-sources
+          target_config_hash: c5ebc5182ec65bbd
+          type: parent_saas_config
   - namespace:
       $ref: /services/insights/content-sources/namespaces/content-sources-prod-testing.yml
     ref: 1eed2cd419888490778bf9d5ac4c2949386a1c23
