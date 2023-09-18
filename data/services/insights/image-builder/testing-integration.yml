@@ -38,8 +38,8 @@ resourceTemplates:
     parameters:
       ENV_FOR_DYNACONF: stage_proxy
       IQE_MARKER_EXPRESSION: image_builder
-      IQE_BROWSERLOG: ''
-      IQE_NETLOG: ''
+      IQE_BROWSERLOG: '1'
+      IQE_NETLOG: '1'
       TEST_TYPE: "integration"
     promotion:
       auto: true
