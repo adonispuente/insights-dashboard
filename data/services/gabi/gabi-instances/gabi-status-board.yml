@@ -25,4 +25,5 @@ instances:
   identifier: status-board-production-readonly
   namespace:
     $ref: /services/status-board/namespaces/production.yml
+# The maximum expiration date shall not exceed 365 days from the current date.
 expirationDate: '2023-10-01'
