@@ -25,5 +25,8 @@ This SOP explains the process to enforce SSL on RDS databases managed via app-in
 
 ## Notes
 
-* The parameter group update will happen during the next maintenance window (as defined in the RDS definition's defauls file).
-* Tenants may consider updating the `maintenance_window` of the RDS definition (to match any customer notifications, for example), or use `apply_immediately`.
+Switching to a new parameter group requires a DB instance reboot.
+
+From https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html:
+
+> If a DB instance isn't using the latest changes to its associated DB parameter group, the AWS Management Console shows the DB parameter group with a status of pending-reboot. The pending-reboot parameter groups status doesn't result in an automatic reboot during the next maintenance window. To apply the latest parameter changes to that DB instance, manually reboot the DB instance. For more information about parameter groups, see Working with parameter groups.
