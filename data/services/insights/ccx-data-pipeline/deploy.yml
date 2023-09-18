@@ -171,7 +171,7 @@ resourceTemplates:
       IRSP_INTERNAL_RULES_ORGANIZATIONS_CSV_FILE: "/internal-rules-organizations/internal_rules_organizations.csv"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 1c12412825583c18a52bf586f0ca88781c88eafd
+    ref: 75a8f987cf0e91ec457fbcea5d02f5ef450f642b
     delete: false
     parameters:
       MIN_REPLICAS: "3"
@@ -221,7 +221,7 @@ resourceTemplates:
       name: RedHatInsights-insights-results-aggregator-cleaner-gh-build-master
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: 0fcb9ee504a0d409c72a5de571c434957b2a54bb
+    ref: 8f486b1c702c2d1bdffbfb74bc52ba605ed1fa56
   - namespace:
       $ref: /services/insights/ephemeral/namespaces/ephemeral-base.yml
     disable: true
@@ -314,7 +314,7 @@ resourceTemplates:
       MAX_REPLICAS: "3"
   - namespace:
       $ref: /services/insights/ccx-data-pipeline/namespaces/ccx-data-pipeline-prod.yml
-    ref: e1954b357a35942bde611e89e8739bddf40e67b4
+    ref: 54826a124f42f3e7cc4ec178a7f1721784d80191
     parameters:
       MIN_REPLICAS: "3"
       MAX_REPLICAS: "6"
