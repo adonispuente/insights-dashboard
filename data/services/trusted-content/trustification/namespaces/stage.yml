@@ -39,7 +39,7 @@ externalResources:
     $ref: /aws/app-sre-stage/account.yml
   resources:
   - provider: aws-iam-service-account
-    identifier: bombastic-stage
+    identifier: bombastic-sa-stage
     output_resource_name: bombastic-service-account
     user_policy:
       {
@@ -62,7 +62,7 @@ externalResources:
         ]
       }
   - provider: aws-iam-service-account
-    identifier: vexination-stage
+    identifier: vexination-sa-stage
     output_resource_name: vexination-service-account
     user_policy:
       {
@@ -118,7 +118,7 @@ externalResources:
           {
             "Effect": "Allow",
             "Principal": {
-              "AWS": "arn:aws:iam::927966746891:user/bombastic-stage"
+              "AWS": "arn:aws:iam::927966746891:user/bombastic-sa-stage"
             },
             "Action": [
               "s3:PutObject",
@@ -167,7 +167,7 @@ externalResources:
           {
             "Effect": "Allow",
             "Principal": {
-              "AWS": "arn:aws:iam::927966746891:user/vexination-stage"
+              "AWS": "arn:aws:iam::927966746891:user/vexination-sa-stage"
             },
             "Action": [
               "s3:PutObject",
