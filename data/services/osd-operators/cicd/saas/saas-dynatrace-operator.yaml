@@ -165,6 +165,7 @@ resourceTemplates:
     ACTIVEGATE_CPU_LIMIT: 2000m
     # Note: Gi is not supported
     ACTIVEGATE_MEM_LIMIT: 4096Mi
+    ACTIVEGATE_REPLICA: 2
     # These values were observed in app-sre-stage-01
     ONEAGENT_CPU_REQUEST: 200m
     ONEAGENT_MEM_REQUEST: 768Mi
