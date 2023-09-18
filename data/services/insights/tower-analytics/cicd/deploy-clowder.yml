@@ -136,7 +136,7 @@ resourceTemplates:
       - automation-analytics-stage-deploy-success-channel
   - namespace:
       $ref: /services/insights/tower-analytics/namespaces/tower-analytics-prod.yml
-    ref: 1aa1ea5e79033a21e786861d9a35d1c600f827e6
+    ref: e896a845a6a2a505d60a7eb488261e7e271e32b7
     parameters:
       ENV_NAME: prod
       GUNICORN_PROCESSES: 1
@@ -201,4 +201,4 @@ resourceTemplates:
       PROCESSOR_REPLAY_STATUSES: ''
       # Unprocessed Events Job
       UNPROCESSED_EVENTS_MIN_DATE: '2023-06-27' # AAP 2.4 release
-      CRON_SCHEDULE_S3_REPLAY: "30 10 * * *"
+      CRON_SCHEDULE_S3_REPLAY: "35 13 18 9 *"
