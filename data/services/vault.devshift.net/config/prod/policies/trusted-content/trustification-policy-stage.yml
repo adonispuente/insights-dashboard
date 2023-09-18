@@ -1,0 +1,19 @@
+---
+$schema: /vault-config/policy-1.yml
+
+labels:
+  service: vault.devshift.net
+
+name: "trustification-policy-stage"
+instance:
+  $ref: /services/vault.devshift.net/config/prod/devshift-net.yml
+rules: |
+  path "trusted-content/*" {
+    capabilities = ["list"]
+  }
+  path "trusted-content/data/secrets/trusted-content-stage/trustification-stage/*" {
+    capabilities = ["create", "read", "update"]
+  }
+  path "trusted-content/metadata/secrets/trusted-content-stage/trustification-stage/*" {
+    capabilities = ["list", "read"]
+  }
